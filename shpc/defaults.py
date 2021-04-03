@@ -6,7 +6,8 @@ import os
 import shpc.utils as utils
 
 # Replacements can currently be made for the database_file and lmod_base
-reps = {"$install_dir": utils.get_installdir()}
+install_dir = utils.get_installdir()
+reps = {"$install_dir": install_dir, "$root_dir": os.path.dirname(install_dir)}
 
 # The default settings file in the install root
 default_settings_file = os.path.join(reps["$install_dir"], "settings.yml")
@@ -18,13 +19,16 @@ default_settings_file = os.path.join(reps["$install_dir"], "settings.yml")
 # please open an issue https://github.com/singularityhub/singularity-hpc
 plugins_enabled = ["lmod"]
 
+# Registry folder with subfolders of recipes
+recipes = os.path.join(reps["$root_dir"], "registry")
+
 # Lmod settings
 
 # The install directory for modules. Defaults to the install directory/modules
-lmod_base = os.path.join(reps["$install_dir"], "modules")
+lmod_base = os.path.join(reps["$root_dir"], "modules")
 
 # disable keeping a sqlite database with metadata
 database_disable = False
 
 # default database file
-database_file = os.path.join(reps["$install_dir"], "shpc.db")
+database_file = os.path.join(reps["$root_dir"], "shpc.db")

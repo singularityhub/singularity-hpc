@@ -4,10 +4,10 @@ __license__ = "MPL 2.0"
 
 
 from shpc.logger import logger
+import shpc.main.container as container
 import shpc.defaults
 import shpc.utils as utils
 from .settings import Settings
-from ruamel.yaml import YAML
 
 from datetime import datetime
 import os
@@ -76,23 +76,53 @@ class Client(object):
     def __str__(self):
         return "[shpc-client]"
 
-    def install(self, URI):
+    def install(self, name, tag=None):
         """
         Given a unique resource identifier, install a recipe.
         """
-        print("INSTALL")
+        config = self._load_container(name, tag)
+
+        # If a tag is not defined, use latest
+        tag = tag or config.latest
+
+        # The tag must be defined in the config
+        if tag not in config.tags:
+            logger.exit("%s is not a known tag." % tag)
+
+        print("TODO: this is where we pull and install the container as a module!")
         import IPython
 
         IPython.embed()
 
-    def listing(self, URI):
+    def _load_container(self, name, tag=None):
+        """
+        Given a name and an optional tag to default to, load a package
+        """
+        # Split name and tag
+        if ":" in name:
+            name, tag = name.split(":", 1)
+
+        # The recipe folder must exist in the registry
+        package_dir = os.path.join(self.settings.registry, name)
+        package_file = os.path.join(package_dir, "container.yaml")
+        return container.ContainerConfig(package_file)
+
+    def list(self, pattern=None, out=None):
         """
         List known recipes, along with whether something is installed.
         """
-        print("LISTING")
-        import IPython
+        out = out or sys.stdout
 
-        IPython.embed()
+        # Get the known registry files
+        for package in os.listdir(self.settings.registry):
+            out.write(package + "\n")
+
+    def show(self, name, out=None):
+        """
+        Show metadata for a package
+        """
+        config = self._load_container(name)
+        config.dump(out)
 
     # Metadata
 

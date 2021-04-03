@@ -68,12 +68,11 @@ def get_parser():
 
     # Install a known recipe from the registry
     install = subparsers.add_parser("install", help="install a registry recipe.")
-    install.add_argument(
-        "install_recipe", help="recipe to install (name:version)", type=str
-    )
+    install.add_argument("install_recipe", help="recipe to install (name:version)")
 
     # List known recipes
     listing = subparsers.add_parser("list", help="list known registry recipes.")
+    listing.add_argument("pattern", help="filter to a pattern", nargs="?")
 
     # List local containers and collections
     inspect = subparsers.add_parser("inspect", help="inspect an image in your database")
@@ -164,7 +163,12 @@ def get_parser():
         action="store_true",
     )
 
-    delete.add_argument("image", help="full path to image file", type=str)
+    delete.add_argument("image", help="full path to image file")
+
+    show = subparsers.add_parser(
+        "show", help="show the configuration for a registry container."
+    )
+    show.add_argument("name", help="the name of the container config to show")
 
     return parser
 
@@ -232,6 +236,8 @@ def main():
         from .search import main
     elif args.command == "shell":
         from .shell import main
+    elif args.command == "show":
+        from .show import main
 
     # Pass on to the correct parser
     return_code = 0

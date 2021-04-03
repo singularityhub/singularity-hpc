@@ -6,7 +6,7 @@ __license__ = "MPL 2.0"
 from shpc.logger import logger
 import shpc.utils as utils
 import shpc.defaults as defaults
-from ruamel.yaml import YAML
+from ruamel_yaml import YAML
 
 from datetime import datetime
 import os

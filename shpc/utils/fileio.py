@@ -1,12 +1,6 @@
-"""
-
-Copyright (C) 2021 Vanessa Sochat.
-
-This Source Code Form is subject to the terms of the
-Mozilla Public License, v. 2.0. If a copy of the MPL was not distributed
-with this file, You can obtain one at http://mozilla.org/MPL/2.0/.
-
-"""
+__author__ = "Vanessa Sochat"
+__copyright__ = "Copyright 2021, Vanessa Sochat"
+__license__ = "MPL 2.0"
 
 import hashlib
 import errno
@@ -33,14 +27,12 @@ def mkdir_p(path):
 
 
 def get_tmpfile(requested_tmpdir=None, prefix=""):
-    """get a temporary file with an optional prefix. By default will be
-    created in /tmp unless SREGISTRY_TMPDIR is set. By default, the file
-    is closed (and just a name returned).
+    """
+    Get a temporary file with an optional prefix.
 
     Parameters
     ==========
     requested_tmpdir: an optional requested temporary directory, first
-    priority as is coming from calling function.
     prefix: Given a need for a sandbox (or similar), prefix the file
     with this string.
     """
@@ -49,7 +41,7 @@ def get_tmpfile(requested_tmpdir=None, prefix=""):
     tmpdir = get_tmpdir(requested_tmpdir)
 
     # If tmpdir is set, add to prefix
-    if tmpdir is not None:
+    if tmpdir:
         prefix = os.path.join(tmpdir, os.path.basename(prefix))
 
     fd, tmp_file = tempfile.mkstemp(prefix=prefix)
@@ -59,8 +51,7 @@ def get_tmpfile(requested_tmpdir=None, prefix=""):
 
 
 def get_tmpdir(requested_tmpdir=None, prefix="", create=True):
-    """get a temporary directory for an operation. If SREGISTRY_TMPDIR
-    is set, return that. Otherwise, return the output of tempfile.mkdtemp
+    """Get a temporary directory for an operation.
 
     Parameters
     ==========

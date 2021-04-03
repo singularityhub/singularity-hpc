@@ -8,6 +8,15 @@ in an HPC environment. Currently, this includes:
 
  - [LMOD](https://lmod.readthedocs.io/en/latest/)
 
+You can use shpc if you are:
+
+1. a linux administrator wanting to manage containers as modules for your cluster
+2. a cluster user that wants to maintain your own folder of custom modules
+3. a cluster user that simply wants to pull Singularity images as GitHub packages.
+
+These use cases will be better flushed out and documented as the library is developed.
+
+
 ## Getting Started
 
 ### Installation instructions
@@ -34,18 +43,8 @@ there will be no admin database to search containers, just lmod):
 
 ```bash
 $ pip install singularity-hpc[basic]
+
 ```
-
-You'll want to configure and create your registry, discussed next.
-
-### Creating a Registry
-
-A registry consists of a database of local containers files, which are added
-to LMOD as executables for your user base. This typically means that you are a
-linux administrator of your cluster, and shpc should be installed for you to use
-(but your users will not be interacting with it).
-
-#### 1. Configure your registry
 
 Installation of singularity-hpc adds an executable, `shpc` to your path.
 
@@ -57,11 +56,29 @@ $ which shpc
 This executable should be accessible by an administrator, or anyone that you want
 to be able to manage containers. Your user base will be interacting with your
 containers via LMOD, so they do not need access to `shpc`. 
+You'll want to configure and create your registry, discussed next.
+
+### Creating a Registry
+
+A registry consists of a database of local containers files, which are added
+to LMOD as executables for your user base. This typically means that you are a
+linux administrator of your cluster, and shpc should be installed for you to use
+(but your users will not be interacting with it).
+
+#### 1. Configure your registry
+
+For any configuration value that you might set, the following variables
+are available to you:
+
+ - `$install_dir`: the shpc folder
+ - `$root_dir`: the parent directory of shpc (where this README.md is located)
+
 
 ##### Modules Folder
 
 The first thing you want to do is configure your module location, if you want it different
-from the default. The path can be absolute or relative to `$install_dir` in your
+from the default. The path can be absolute or relative to `$install_dir` (the shpc
+directory) or `$root_dir` (one above that) in your
 configuration file at [shpc/settings.yml](shpc/settings.yml). If you are happy
 with module files being stored in a `modules` folder in the present working
 directory, you don't need to do any configuration. Otherwise, you can customize
@@ -71,8 +88,8 @@ your install:
 # an absolute path
 $ shpc config lmod_base:/opt/lmod/modules
 
-# or a path relative to the install directory, remember to escape the "$"
-$ shpc config lmod_base:\$install_dir/modules
+# or a path relative to a variable location remember to escape the "$"
+$ shpc config lmod_base:\$root_dir/modules
 ```
 
 This directory will be the base where lua files are added, and container are stored.
@@ -91,6 +108,7 @@ Although your LMOD path might have multiple locations, Singularity Registry HPC
 assumes this one location to install container modules to in order to ensure
 a unique namespace. Since the executables are expected to not have extension sif, at least to start,
 we are removing it.
+
 
 ##### Registry
 
@@ -193,12 +211,44 @@ $ shpc config lmod_base:/opt/lmod/modules
 $ shpc config lmod_base:\$install_dir/modules
 ```
 
-#### Install
+#### List and Install
 
 The most basic thing you might want to do is install an already existing
-recipe in the registry.
+recipe in the registry. You might first want to list the known packages
+first. To list all packages, you can run:
 
+```bash
+$ shpc list
+[shpc-client] [database|sqlite:////home/vanessa/Desktop/Code/singularity-hpc/shpc.db]
+python
+```
 
+To get details about a package, you would then do:
+
+```bash
+$ shpc show python
+[shpc-client] [database|sqlite:////home/vanessa/Desktop/Code/singularity-hpc/shpc.db]
+docker: python
+latest: 3.9.2
+tags:
+- 3.9.2
+- 3.9.2-alpine
+filter:
+- 3.9.*
+maintainer: '@vsoch'
+```
+
+And then you can install a version that you like (or don't specify to default to
+the latest, which in this case is 3.9.2).
+
+```bash
+$ shpc install python
+```
+
+**under development!**
+
+I am next going to have the container pulled, and installed as an lmod file (lua).
+I still need to figure out how to define custom entrypoints (likely as aliases).
 
 #### Add
 
@@ -231,7 +281,7 @@ folder with version subfolders. E.g., Python would look like:
 And then install to:
 
 ```bash
-$install_dir/modules/
+$root_dir/modules/
 └── python
     └── 3.8/
         ├── module.lua
@@ -254,6 +304,8 @@ tags:
   - 3.9.2-alpine
   - 3.8
 maintainer: @vsoch
+filter:
+  - 3.9*-alpine
 ```
 
 Fields include:
@@ -264,6 +316,8 @@ Fields include:
 | tags  | A list of available tags |
 | latest | The latest tag, which will be updated by a bot in the repository |
 | maintainer | the GitHub alias of a maintainer to ping in case of trouble |
+| filter | A list of patterns to use for adding new tags. If not defined, all are added |
+| executables | If the container needs one or more custom entrypoints |
 
 Other supported (but not yet developed) fields could include different unique
 resource identifiers to pull/obtain other kinds of containers. For this
@@ -271,7 +325,7 @@ current version, since we are assuming HPC and Singularity, we will typically
 pull a Docker unique resource identifier with singularity, e.g.,:
 
 ```bash
-$ singularity pulll docker://python:3.9.2
+$ singularity pull docker://python:3.9.2
 ```
 
 ## Development or Testing
@@ -309,6 +363,12 @@ There are other tools that you might be interested in!
  - [Community Collections](https://github.com/community-collections/community-collections)
  - [Spack](https://spack.readthedocs.io/en/latest/module_file_support.html) installs modules for software built from source (not containers).
  
+## TODOS
+
+ - finish install, write add and other commands
+ - ensure that we print columns to shpc list
+ - test singularity build in actions, save to registry
+ - develop pull command for shpc for this type, along with GitHub action
 
 ## License
 
