@@ -1,0 +1,13 @@
+include README.md LICENSE
+recursive-include shpc *.png
+recursive-include shpc *.sh
+recursive-include shpc *
+recursive-include * *.png
+global-exclude .env
+global-exclude *.py[co]
+recursive-exclude .git *
+global-exclude *.img
+global-exclude *.simg
+global-exclude *.sif
+global-exclude __pycache__
+prune docs*

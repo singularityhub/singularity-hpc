@@ -1,0 +1,7 @@
+docker: python
+latest: 3.9.2
+tags:
+  - 3.9.2
+  - 3.9.2-alpine
+  - 3.8
+maintainer: Vanessasaurus

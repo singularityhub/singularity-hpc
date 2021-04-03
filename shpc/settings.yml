@@ -1,0 +1,21 @@
+# The Singularity HPC settings file holds basic information about the
+# module system to use, and where modules are stored.
+
+# Currently only lmod is supported. To request an additional system, 
+# please open an issue https://github.com/singularityhub/singularity-hpc
+plugins_enabled: [lmod]
+
+# Registry Recipes (currently we support just one path)
+registry:
+  - [$install_dir/registry]
+
+# Lmod settings 
+# The install directory for modules. Defaults to the install directory/modules
+lmod_base: $install_dir/modules
+
+# disable keeping a sqlite database with metadata
+database_disable: false
+
+# default database file
+database_file: $install_dir/shpc.db
+updated_at: 'never'

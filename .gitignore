@@ -1,0 +1,11 @@
+shpc.db
+singularity-hpc.egg-info/
+.env
+_site
+dist/
+OLD
+__pycache__
+*.simg
+*.sif
+*.img
+.eggs
