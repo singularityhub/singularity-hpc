@@ -61,10 +61,12 @@ class Client(BaseClient):
         # We pull by the digest
         container_uri = "docker://%s@%s" % (name, tag.digest)
 
-        # Assume we don't want to pull the same image.
-        # We will need to adjust this when we want to update for a new hash
-        if not os.path.exists(container_path):
-            self._container.pull(container_uri, container_path)
+        # Assume an install is always requesting a new container.
+        # We will likely want to keep a record of the digest
+        if os.path.exists(container_path):
+            os.remove(container_path)
+
+        self._container.pull(container_uri, container_path)
 
         # Get the template
         template = self._load_template()
