@@ -37,6 +37,10 @@ class Client(object):
 
     def __init__(self, settings_file=None):
 
+        # We don't necessarily need a container technology handle
+        if not hasattr(self, "_container"):
+            self._container = None
+
         # If we don't have default settings, load
         if not hasattr(self, "settings"):
             self.settings = Settings(settings_file)
@@ -78,21 +82,9 @@ class Client(object):
 
     def install(self, name, tag=None):
         """
-        Given a unique resource identifier, install a recipe.
+        Install must be implemented by the subclass (e.g., lmod)
         """
-        config = self._load_container(name, tag)
-
-        # If a tag is not defined, use latest
-        tag = tag or config.latest
-
-        # The tag must be defined in the config
-        if tag not in config.tags:
-            logger.exit("%s is not a known tag." % tag)
-
-        print("TODO: this is where we pull and install the container as a module!")
-        import IPython
-
-        IPython.embed()
+        raise NotImplementedError
 
     def _load_container(self, name, tag=None):
         """

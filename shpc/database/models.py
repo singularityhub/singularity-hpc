@@ -1,12 +1,6 @@
-"""
-
-Copyright (C) 2021 Vanessa Sochat.
-
-This Source Code Form is subject to the terms of the
-Mozilla Public License, v. 2.0. If a copy of the MPL was not distributed
-with this file, You can obtain one at http://mozilla.org/MPL/2.0/.
-
-"""
+__author__ = "Vanessa Sochat"
+__copyright__ = "Copyright 2020-2021, Vanessa Sochat"
+__license__ = "MPL 2.0"
 
 from sqlalchemy import (
     create_engine,
@@ -32,11 +26,7 @@ Base = declarative_base()
 
 
 class Collection(Base):
-    """A participant in a local assessment. id must be unique. If a token is
-    revoked or finished, it will end with `_revoked` or `_finished`. A
-    user generated without a token will have value of None
-    """
-
+    # TODO need to redo these for modules, etc.
     __tablename__ = "collection"
     id = Column(Integer, primary_key=True)
     name = Column(String(150), unique=True)

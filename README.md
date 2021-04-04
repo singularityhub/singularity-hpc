@@ -245,10 +245,35 @@ the latest, which in this case is 3.9.2).
 $ shpc install python
 ```
 
-**under development!**
+You will see the container pulled, and then a message to indicate that the module
+was created. 
 
-I am next going to have the container pulled, and installed as an lmod file (lua).
-I still need to figure out how to define custom entrypoints (likely as aliases).
+
+```bash
+shpc-client] [database|sqlite:////home/vanessa/Desktop/Code/singularity-hpc/shpc.db]
+Module python/3.9.2 is created.
+```
+
+We can now see the module file and the container in the modules folder!
+
+```bash
+$ tree modules/
+modules/
+└── python
+    └── 3.9.2
+        ├── module.lua
+        └── python-3.9.2.sif
+
+2 directories, 2 files
+```
+
+Note that since we only have one module system (lmod) and one
+HPC container technology (Singularity) these are the defaults. However, they
+are parser options and can be customized to use something else if this is
+added in the future.
+
+If you don't have lmod on your system, you can now test interacting
+with the module via the [container](#development-or-testing).
 
 #### Add
 
@@ -298,26 +323,33 @@ for any issues:
 
 ```
 docker: python
-latest: 3.9.2
+latest:
+  3.9.2: "sha256:7d241b7a6c97ffc47c72664165de7c5892c99930fb59b362dd7d0c441addc5ed"
 tags:
-  - 3.9.2
-  - 3.9.2-alpine
-  - 3.8
-maintainer: @vsoch
+  3.9.2: "sha256:7d241b7a6c97ffc47c72664165de7c5892c99930fb59b362dd7d0c441addc5ed"
+  3.9.2-alpine: "sha256:23e717dcd01e31caa4a8c6a6f2d5a222210f63085d87a903e024dd92cb9312fd"
 filter:
-  - 3.9*-alpine
+  - "3.9.*"
+maintainer: "@vsoch"
+url: https://hub.docker.com/_/python
+aliases:
+  python: python
 ```
+
+##### Registry Yaml Fields
 
 Fields include:
 
-| Field | Description |
-|--------|------------|
-| docker | A Docker uri, which should include the registry but not tag |
-| tags  | A list of available tags |
-| latest | The latest tag, which will be updated by a bot in the repository |
-| maintainer | the GitHub alias of a maintainer to ping in case of trouble |
-| filter | A list of patterns to use for adding new tags. If not defined, all are added |
-| executables | If the container needs one or more custom entrypoints |
+| Field | Description | Required |
+|--------|------------|----------|
+| docker | A Docker uri, which should include the registry but not tag | true |
+| tags  | A list of available tags | true |
+| latest | The latest tag, which will be updated by a bot in the repository | true |
+| maintainer | the GitHub alias of a maintainer to ping in case of trouble | true |
+| filter | A list of patterns to use for adding new tags. If not defined, all are added | false |
+| aliases | Named entrypoints for container (dict) | true |
+| url | Documentation or other url for the container uri | false |
+| description | Additional information for the registry entry | false |
 
 Other supported (but not yet developed) fields could include different unique
 resource identifiers to pull/obtain other kinds of containers. For this
@@ -327,6 +359,19 @@ pull a Docker unique resource identifier with singularity, e.g.,:
 ```bash
 $ singularity pull docker://python:3.9.2
 ```
+
+##### Updating Registry Yaml Files
+
+We will be developing a GitHub action that automatically parses new versions
+for a container, and then updates the registry packages. The algorithm we will
+use is the following:
+
+ - If docker, retrieve all tags for the image
+ - Update tags:
+  - if one or more filters ("filter") are defined, add new tags that match
+  - otherwise, add all new tags
+ - If latest is defined and a version string can be parsed, update latest
+ - For each of latest and tags, add new version information
 
 ## Development or Testing
 
@@ -346,7 +391,29 @@ code as follows:
 $ docker run -it --rm -v $PWD/:/code --entrypoint bash singularity-hpc
 ```
 
+Once you are in the container, you can direct LMOD to use your module files:
+
+```bash
+$ module use /code/modules
+```
+
+Then you can use spider to see the modules:
+
+```bash
+# module spider python
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+  python/3.9.2: python/3.9.2/module
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    This module can be loaded directly: module load python/3.9.2/module
+```
+
 Make sure to write to files outside of the container so you don't muck with permissions.
+Since we are using module use, this means that you can create module files as a user
+or an admin - it all comes down to who has permission to write to the modules
+folder, and of course use it. Note that I have not tested this on an HPC system
+but plan to shortly.
 
 
 ## Tests to write

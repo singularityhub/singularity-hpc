@@ -18,3 +18,12 @@ database_disable: false
 # default database file
 database_file: $root_dir/shpc.db
 updated_at: 'never'
+
+# if defined, add to lmod script to load this Singularity module first
+singularity_module: null
+
+# string with comma separated list of paths to binds. If set, expored to SINGULARITY_BINDPATH
+bindpaths: null
+
+# exported to SINGULARITY_SHELL, defaults to /bin/bash.
+singularity_shell: /bin/bash

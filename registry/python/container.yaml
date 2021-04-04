@@ -1,10 +1,12 @@
 docker: python
-latest: 3.9.2
+latest:
+  3.9.2: "sha256:7d241b7a6c97ffc47c72664165de7c5892c99930fb59b362dd7d0c441addc5ed"
 tags:
-  - 3.9.2
-  - 3.9.2-alpine
+  3.9.2: "sha256:7d241b7a6c97ffc47c72664165de7c5892c99930fb59b362dd7d0c441addc5ed"
+  3.9.2-alpine: "sha256:23e717dcd01e31caa4a8c6a6f2d5a222210f63085d87a903e024dd92cb9312fd"
 filter:
   - "3.9.*"
 maintainer: "@vsoch"
-
-# TODO we need entrypoint here
+url: https://hub.docker.com/_/python
+aliases:
+  python: python

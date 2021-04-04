@@ -3,7 +3,6 @@ __copyright__ = "Copyright 2021, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
 
-from .client import Client
 from .settings import Settings
 
 from shpc.utils import check_install
@@ -29,6 +28,22 @@ def get_client(quiet=False, **kwargs):
     quiet: if True, suppress most output about the client (e.g. speak)
 
     """
+    # The name of the module and container technology to use
+    module = kwargs.get("module")
+    container = kwargs.get("container_tech")
+
+    # Determine the client based on the module name (defaults to base client)
+    if module == "lmod":
+        from .lmod import Client
+    else:
+        from .client import Client
+
+    # Add the container operator
+    if container == "singularity":
+        from .container import SingularityContainer
+
+        Client._container = SingularityContainer()
+
     # Give the user a warning:
     if not check_install():
         logger.warning("Singularity is not installed, functionality might be limited.")

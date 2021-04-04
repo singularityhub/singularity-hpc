@@ -1,12 +1,6 @@
-"""
-
-Copyright (C) 2021 Vanessa Sochat.
-
-This Source Code Form is subject to the terms of the
-Mozilla Public License, v. 2.0. If a copy of the MPL was not distributed
-with this file, You can obtain one at http://mozilla.org/MPL/2.0/.
-
-"""
+__author__ = "Vanessa Sochat"
+__copyright__ = "Copyright 2020-2021, Vanessa Sochat"
+__license__ = "MPL 2.0"
 
 from shpc.logger import bot
 import shpc.utils as utils
@@ -24,9 +18,11 @@ def add(
     copy=False,
 ):
 
-    """dummy add simple returns an object that mimics a database entry, so the
-    calling function (in push or pull) can interact with it equally. Most
-    variables (other than image_path) are not used."""
+    """Returns an object that mimics a database entry.
+
+    The calling function can interact with it equally. Most
+    variables (other than image_path) are not used.
+    """
 
     print("DUMMY ADD")
     import IPython
@@ -61,7 +57,9 @@ def add(
 
 
 def init_db(self, db_path=None):
-    """initialize the database, meaning we just set the name to be dummy"""
+    """
+    initialize the database, meaning we just set the name to be dummy.
+    """
 
     # Database Setup, use default if uri not provided
     self.database = "dummy"

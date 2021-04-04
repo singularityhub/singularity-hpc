@@ -13,9 +13,12 @@ LICENSE = "LICENSE"
 ################################################################################
 # Global requirements
 
+# Since we assume wanting Singularity and lmod, we require spython and Jinja2
 
 INSTALL_REQUIRES = (
     ("spython", {"min_version": "0.0.63"}),
+    ("Jinja2", {"min_version": None}),
+    ("jsonschema", {"min_version": None}),
     ("ruamel.yaml", {"min_version": None}),
     ("sqlalchemy", {"min_version": None}),
 )
