@@ -20,8 +20,77 @@ for your users from the local ``registry`` folder, create your own module files
 
 
 If you pull or otherwise update the install of shpc, the module files will update
-as well. A more detailed tutorial will be written when the library is more
-fully developed.
+as well. For example, if you start first by seeing what modules are available
+to install:
+
+.. code-block:: console
+
+    $ shpc show
+
+
+And then install a module to your shpc modules directory:
+
+.. code-block:: console
+
+    $ shpc install tensorflow/tensorflow
+    Module tensorflow/tensorflow/2.2.2 was created.
+
+
+Make sure that lmod knows about the folder
+
+.. code-block:: console
+
+    $ module use /opt/lmod/shpc
+     
+(And likely if you administer an LMOD install you have your preferred way of
+doing this). And then you can use your modules just as you would that are provided on
+your cluster.
+
+.. code-block:: console
+
+    $ module load tensorflow/tensorflow/2.2.2
+
+
+You should then be able to use any of the commands that the tensorflow container
+provides, e.g., python and python-shell:
+
+.. code-block:: console
+
+    $ python
+    Python 3.6.9 (default, Oct 8 2020, 12:12:24) 
+    [GCC 8.4.0] on linux
+    Type “help”, “copyright”, “credits” or “license” for more information.
+    >>> quit()
+
+    $ tensorflow-tensorflow-shell
+    ________                _______________         
+    ___ __/__________________________________ ____/__ /________   __
+    __ / _ _ \_ __ \_ ___/ __ \_ ___/_ /_  __ /_ __ \_ | /| / /
+    _ /  / __/ / / /(__ )/ /_/ / /  _ __/  _ / / /_/ /_ |/ |/ / 
+    /_/  \___//_/ /_//____/ \____//_/  /_/   /_/ \____/____/|__/
+    You are running this container as user with ID 34633 and group 34633,
+    which should map to the ID and group for your user on the Docker host. Great!
+    Singularity> quit()
+
+
+If you want to inspect aliases available or singularity commands to debug:
+
+.. code-block:: console
+
+    $ module spider tensorflow/tensorflow/2.2.2/module
+    ----------------------------------------------------------------------------------------------------------------------------
+     tensorflow/tensorflow/2.2.2: tensorflow/tensorflow/2.2.2/module
+    ----------------------------------------------------------------------------------------------------------------------------
+      This module can be loaded directly: module load tensorflow/tensorflow/2.2.2/module
+      Help:
+       This module is a singularity container wrapper for tensorflow/tensorflow v2.2.2
+       Commands include:
+        - tensorflow-tensorflow-shell:
+               singularity shell -s /bin/bash /usr/WS2/sochat1/singularity-hpc/modules/tensorflow/tensorflow/2.2.2/tensorflow-tensorflow-2.2.2-sha256:e2cde2bb70055511521d995cba58a28561089dfc443895fd5c66e65bbf33bfc0.sif
+        - python:
+               singularity exec --nv /usr/WS2/sochat1/singularity-hpc/modules/tensorflow/tensorflow/2.2.2/tensorflow-tensorflow-2.2.2-sha256:e2cde2bb70055511521d995cba58a28561089dfc443895fd5c66e65bbf33bfc0.sif /usr/local/bin/python”)
+
+
 
 Cluster User
 ============
@@ -30,7 +99,7 @@ If you are a cluster user, you can easily install shpc to your own space
 (e.g., in ``$HOME`` or ``$SCRATCH`` where you keep software) and then
 use the defaults for the lmod base (the modules folder that is created alongside
 the install) and the registry. You can also pull the repository to get updated
-registry entries. Once you have cloned:
+registry entries.  If you haven't yet, clone the repository:
 
 
 .. code-block:: console
@@ -43,7 +112,7 @@ You can then see modules available for install:
 
 .. code-block:: console
 
-    $ shpc list
+    $ shpc show
 
 
 And install a module to your local modules folder.
@@ -52,7 +121,8 @@ And install a module to your local modules folder.
 .. code-block:: console
 
     $ shpc install python
-    Module python/3.9.2-slim is created.
+    Module python/3.9.2-slim was created.
+
 
 Finally, you can add the module folder to those that lmod knows about:
 
@@ -68,9 +138,138 @@ your cluster.
     $ module load python/3.9.2-slim
 
 
-For this module, since we didn't use a prefix the container python will be exposed
+An error will typically be printed if there is a conflict with another module name, and it's
+up to you to unload the conflicting module(s) and try again. For this module, 
+since we didn't use a prefix the container python will be exposed
 as "python" - an easier one to see is "python-shell" - each container exposes
-a shell command so you can quickly get an interactive shell.
+a shell command so you can quickly get an interactive shell. 
+Every installed entry will have it's named suffixed with "shell" if you quickly want
+an interactive session. For example:
+
+.. code-block:: console
+
+    $ python-shell
+    Singularity>
+
+
+And of course running just "python" gives you the Python interpreter. If you
+don't know the command that you need, or want to see help for the module you
+loaded, just do:
+
+.. code-block:: console
+
+    $ module spider python/3.9.2-slim/module
+    ----------------------------------------------------------------------------------------------------------------------------
+    python/3.9.2-slim: python/3.9.2-slim/module
+    ----------------------------------------------------------------------------------------------------------------------------
+      This module can be loaded directly: module load python/3.9.2-slim/module
+      Help:
+       This module is a singularity container wrapper for python v3.9.2-slim
+       Commands include:
+        - python-shell:
+           singularity shell -s /bin/bash /usr/WS2/sochat1/singularity-hpc/modules/python/3.9.2-slim/python-3.9.2-slim-    sha256:85ed629e6ff79d0bf796339ea188c863048e9aedbf7f946171266671ee5c04ef.sif
+        - python:
+           singularity exec /usr/WS2/sochat1/singularity-hpc/modules/python/3.9.2-slim/python-3.9.2-slim-sha256:85ed629e6ff79d0bf796339ea188c863048e9aedbf7f946171266671ee5c04ef.sif /usr/local/bin/python”)
+    
+    
+The above not only shows you the description, but also the commands if you
+need to debug. If you want to see metadata about the container (e.g., labels,
+singularity recipe) then you can do:
+
+.. code-block:: console
+
+    $ module whatis python/3.9.2-slim
+    python/3.9.2-slim/module             : Name    : python/3.9.2-slim
+    python/3.9.2-slim/module             : Version   : module
+    python/3.9.2-slim/module             : URL     : https://hub.docker.com/_/python
+    python/3.9.2-slim/module             : Singularity Recipe  : bootstrap: docker 
+    from: python@sha256:85ed629e6ff79d0bf796339ea188c863048e9aedbf7f946171266671ee5c04ef
+    python/3.9.2-slim/module             : org.label-schema.build-arch  : amd64
+    python/3.9.2-slim/module             : org.label-schema.build-date  : Sunday_4_April_2021_19:56:56_PDT
+    python/3.9.2-slim/module             : org.label-schema.schema-version  : 1.0
+    python/3.9.2-slim/module             : org.label-schema.usage.singularity.deffile.bootstrap  : docker
+    python/3.9.2-slim/module             : org.label-schema.usage.singularity.deffile.from  : python@sha256:85ed629e6ff79d0bf796339ea188c863048e9aedbf7f946171266671ee5c04ef
+    python/3.9.2-slim/module             : org.label-schema.usage.singularity.version  : 3.7.1-1.el7
+
+
+Custom Images that are Added
+============================
+
+If you add a custom image, the interaction is similar, whether you are a cluster
+user or administrator. First, let's say we pull a container:
+
+.. code-block:: console
+
+    $ singularity pull docker://vanessa/salad
+    
+And we add it to our unique namespace in the modules folder:
+
+.. code-block:: console
+
+    $ shpc add salad_latest.sif vanessa/salad/latest
+    
+    
+We can again load the custom module:
+
+.. code-block:: console
+
+    $ module load vanessa/salad/latest
+
+
+Since we didn't define any aliases via a registry entry, the defaults provided
+are to run the container (the squashed unique resource identifier, ``vanessa-salad-latest``
+or the same shell, ``vanessa-salad-latest-shell``. Of course you can check this if you don't know:
+
+.. code-block:: console
+
+    $ module spider vanessa/salad/latest/module 
+    --------------------------------------------------------------------------------------------------------------------------------------------------------
+     vanessa/salad/latest: vanessa/salad/latest/module
+    --------------------------------------------------------------------------------------------------------------------------------------------------------
+      This module can be loaded directly: module load vanessa/salad/latest/module
+      Help:
+       This module is a singularity container wrapper for vanessa-salad-latest vNone
+       Commands include:
+        - vanessa-salad-latest-shell:
+           singularity shell -s /bin/bash /usr/WS2/sochat1/singularity-hpc/modules/vanessa/salad/latest/vanessa-salad-latest-sha256:71d1f3e42c1ceee9c02295577c9c6dfba4f011d9b8bce82ebdbb6c187b784b35.sif
+        - vanessa-salad-latest: singularity run /usr/WS2/sochat1/singularity-hpc/modules/vanessa/salad/latest/vanessa-salad-latest-sha256:71d1f3e42c1ceee9c02295577c9c6dfba4f011d9b8bce82ebdbb6c187b784b35.sif
+
+
+And then use them! For example, the command without ``-shell`` just runs the container:
+
+.. code-block:: console
+
+    $ vanessa-salad-latest
+     You think you have problems? I’m a fork.  
+                /\
+               //\\
+               // \\
+             ^  \\ //  ^
+            / \  ) (  / \ 
+            ) (  ) (  ) (
+            \ \_/ /\ \_/ /
+             \__ _)(_ __/
+              \ \ / /
+               ) \/ (
+               | /\ |
+               | )( |
+               | )( |
+               | \/ |
+               )____(
+              /   \
+              \______/ 
+
+
+And the command with shell does exactly that.
+
+.. code-block:: console
+
+    $ vanessa-salad-latest-shell
+    Singularity> exit
+
+If you need more robust commands than that, it's recommended to define your
+own registry entry. If you think it might be useful to others, please contribute it
+to the repository!
 
 
 Pull Singularity Images

@@ -42,7 +42,12 @@ And then load the module!
 
 .. code-block:: console
 
-    $ module load python/3.9.2
+    $ module load python/3.9.2-slim
+
+If the module executable as a conflict with something already loaded, it
+will tell you, and it's up to you to unload the conflicting modules before you
+try loading again. For more detailed tutorials, you should continue reading,
+and see :ref:`getting_started-use-cases`.
 
 
 
@@ -351,7 +356,7 @@ was created.
 
 You can also install a specific tag (as shown in list).
     
-.. code-block:: python
+.. code-block:: console
 
     $ shpc install python:3.9.2-alpine
     

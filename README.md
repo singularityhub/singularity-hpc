@@ -34,14 +34,12 @@ There are other tools that you might be interested in!
  
 ## TODOS
  
- - write add and other commands (check)
  - add other registry entries per request
- - add support for nv flag (another exec?)
  - ensure that we print columns to shpc list
  - test singularity build in actions, save to registry
  - develop pull command for shpc for this type, along with GitHub action
- - write developer docs for writing recipes and explaining best practices
- - write tests
+ - write tests for shpc
+ - write tests for a new registry entry
 
 ## License
 
