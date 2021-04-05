@@ -8,9 +8,6 @@ filter:
 maintainer: "@vsoch"
 url: https://hub.docker.com/r/tensorflow/tensorflow
 aliases:
-  - name: python3
-    command: /usr/local/bin/python3
-    options: "--nv"
   - name: python
     command: /usr/local/bin/python
     options: "--nv"

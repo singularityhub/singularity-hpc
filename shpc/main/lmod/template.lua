@@ -37,7 +37,7 @@ local runCmd = "singularity run {% if bindpaths %}-B {{ bindpaths }}{% endif %} 
 set_shell_function("{{ prefix }}{{ flatname }}-shell", shellCmd,  shellCmd)
 
 -- conflict with modules with the same name
-conflict(myModuleName())
+conflict(myModuleName(){% if aliases %}{% for alias in aliases %},"{{ alias.name }}"{% endfor %}{% endif %})
 
 -- exec functions to provide "alias" to module commands
 {% if aliases %}{% for alias in aliases %}
