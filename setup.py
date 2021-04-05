@@ -57,9 +57,6 @@ with open("README.md") as filey:
 if __name__ == "__main__":
 
     INSTALL_REQUIRES = get_reqs(lookup)
-
-    # These requirement DON'T include sqlalchemy, only client
-
     TESTS_REQUIRES = get_reqs(lookup, "TESTS_REQUIRES")
     INSTALL_REQUIRES_ALL = get_reqs(lookup, "INSTALL_REQUIRES_ALL")
     INSTALL_BASIC = get_reqs(lookup, "INSTALL_BASIC")
@@ -79,11 +76,10 @@ if __name__ == "__main__":
         long_description_content_type="text/markdown",
         keywords=KEYWORDS,
         setup_requires=["pytest-runner"],
-        install_requires=INSTALL_REQUIRES,
+        install_requires=INSTALL_BASIC,
         tests_require=TESTS_REQUIRES,
         extras_require={
             "all": [INSTALL_REQUIRES_ALL],
-            "basic": [INSTALL_BASIC],
         },
         classifiers=[
             "Intended Audience :: Science/Research",

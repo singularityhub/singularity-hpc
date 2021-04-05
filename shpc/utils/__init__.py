@@ -4,7 +4,7 @@ from .terminal import (
     get_installdir,
     which,
     confirm_action,
-    confirm_delete,
+    confirm_uninstall,
 )
 from .fileio import (
     copyfile,

@@ -18,7 +18,7 @@ These use cases will be better flushed out and documented as the library is deve
 
 📖️ Read the [documentation](https://singularity-hpc.readthedocs.io/en/latest/) 📖️
 
-## ✅️ Tests to write ✅️ 
+## ✅️ Tests to write ✅️
 
  - Settings load, update, get, etc.
  - Ensure that all defaults are present in settings (except for updated at)
@@ -33,14 +33,13 @@ There are other tools that you might be interested in!
  - [Spack](https://spack.readthedocs.io/en/latest/module_file_support.html) installs modules for software built from source (not containers).
  
 ## TODOS
-
- - test lmod recipe (not tested yet)
- - write add and other commands
+ 
+ - add other registry entries per request
  - ensure that we print columns to shpc list
  - test singularity build in actions, save to registry
  - develop pull command for shpc for this type, along with GitHub action
- - write developer docs for writing recipes and explaining best practices
- - write tests
+ - write tests for shpc
+ - write tests for a new registry entry
 
 ## License
 

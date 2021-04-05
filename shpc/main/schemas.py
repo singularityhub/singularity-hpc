@@ -20,12 +20,31 @@ __license__ = "MPL 2.0"
 
 # This is also for latest, and a list of tags
 
+# The simplest form of aliases is key/value pairs
 aliases = {
     "type": "object",
     "patternProperties": {
         "\w[\w-]*": {"type": "string"},
     },
 }
+
+# Or a list
+aliases_list = {
+    "type": "array",
+    "items": {
+        "type": "object",
+        "required": [
+            "name",
+            "command",
+        ],
+        "properties": {
+            "name": {"type": "string"},
+            "command": {"type": "string"},
+            "options": {"type": "string"},
+        },
+    },
+}
+
 
 latest = {
     "type": "object",
@@ -47,7 +66,12 @@ containerConfigProperties = {
         "type": "array",
         "items": {"type": "string"},
     },
-    "aliases": aliases,
+    "aliases": {
+        "oneOf": [
+            aliases,
+            aliases_list,
+        ]
+    },
 }
 
 

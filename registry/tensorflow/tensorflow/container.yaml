@@ -1,0 +1,13 @@
+docker: tensorflow/tensorflow
+latest:
+  2.2.2: "sha256:e2cde2bb70055511521d995cba58a28561089dfc443895fd5c66e65bbf33bfc0"
+tags:
+  2.2.2: "sha256:e2cde2bb70055511521d995cba58a28561089dfc443895fd5c66e65bbf33bfc0"
+filter:
+  - "2.*"
+maintainer: "@vsoch"
+url: https://hub.docker.com/r/tensorflow/tensorflow
+aliases:
+  - name: python
+    command: /usr/local/bin/python
+    options: "--nv"
