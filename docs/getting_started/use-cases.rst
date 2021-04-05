@@ -68,6 +68,10 @@ your cluster.
     $ module load python/3.9.2-slim
 
 
+For this module, since we didn't use a prefix the container python will be exposed
+as "python" - an easier one to see is "python-shell" - each container exposes
+a shell command so you can quickly get an interactive shell.
+
 
 Pull Singularity Images
 =======================

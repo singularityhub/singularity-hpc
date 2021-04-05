@@ -21,11 +21,11 @@ setenv("SINGULARITY_SHELL", "{{ singularity_shell }}")
 
 -- interactive shell to any container
 local containerPath = '{{ container_sif }}'
-local shellCmd = "singularity shell -s {{ singularity_shell }} {% if bindpaths %}-B {{ bindpaths }}{% endif %} ".. containerPath
-local execCmd = "singularity {% if bindpaths %}-B {{ bindpaths }}{% endif %} ".. containerPath
+local shellCmd = "singularity shell -s {{ singularity_shell }} {% if bindpaths %}-B {{ bindpaths }}{% endif %} " .. containerPath
+local execCmd = "singularity {% if bindpaths %}-B {{ bindpaths }}{% endif %} " .. containerPath
 
 -- set_shell_function takes bashStr and cshStr
-set_shell_function("{{ name }}-shell", shellCmd  ..  "$@",  shellCmd .. "$*")
+set_shell_function("{{ prefix }}{{ name }}-shell", shellCmd,  shellCmd)
 
 -- exec functions to provide "alias" to module commands
 {% for alias, entrypoint in aliases.items() %}
@@ -36,3 +36,4 @@ whatis("Name        : ", myModuleName())
 whatis("Version     : ", myModuleVersion())
 {% if description %}whatis("Category    : {{ description }}"){% endif %}
 whatis("URL         : {{ url }}")
+

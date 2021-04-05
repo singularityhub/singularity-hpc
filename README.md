@@ -39,6 +39,7 @@ There are other tools that you might be interested in!
  - ensure that we print columns to shpc list
  - test singularity build in actions, save to registry
  - develop pull command for shpc for this type, along with GitHub action
+ - write developer docs for writing recipes and explaining best practices
  - write tests
 
 ## License

@@ -129,6 +129,52 @@ are available to you:
  - ``$root_dir``: the parent directory of shpc (where this README.md is located)
 
 
+A summary table of variables is included below, and then further discussed in detail.
+
+
+.. list-table:: Title
+   :widths: 25 65 10
+   :header-rows: 1
+
+   * - Name
+     - Description
+     - Default
+   * - plugins_enabled
+     - A list of plugins enabled. Currently only lmod is supported.
+     - [lmod]
+   * - registry
+     - The full path to the registry folder (with subfolders with container.yaml recipes)
+     - $root_dir/registry
+   * - lmod_base
+     - The install directory for modules. Defaults to the install directory/modules
+     - $root_dir/modules
+   * - database_disable
+     - disable keeping a sqlite database with metadata
+     - false
+   * - database_file
+     - default database file
+     - $root_dir/shpc.db
+   * - updated_at
+     - a timestamp to keep track of when you last saved
+     - never
+   * - singularity_module
+     - if defined, add to lmod script to load this Singularity module first
+     - null
+   * - lmod_dir_prefix
+     - If set, prefix module folder names with prefix (for namespacing)
+     - ""
+   * - lmod_exc_prefix
+     - If set, prefix module alias names with prefix (another kind of namespacing)
+     - ""
+   * - bindpaths
+     - string with comma separated list of paths to binds. If set, expored to SINGULARITY_BINDPATH
+     - null
+   * - singularity_shell
+     - exported to SINGULARITY_SHELL, defaults to /bin/bash.
+     - /bin/bash
+
+
+
 Modules Folder
 ^^^^^^^^^^^^^^
 

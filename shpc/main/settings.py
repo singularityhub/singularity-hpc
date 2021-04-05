@@ -77,6 +77,8 @@ class Settings:
         return self.get(key)
 
     def set(self, key, value):
+        value = True if value == "true" else value
+        value = False if value == "false" else value
         self._settings[key] = value
 
     def _substitutions(self, value):

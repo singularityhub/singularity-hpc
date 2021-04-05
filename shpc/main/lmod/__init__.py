@@ -50,8 +50,11 @@ class Client(BaseClient):
         # A tag object with a name and digest
         tag = config.tags.get(tag)
 
+        # The user can default to prefix the module with a string
+        prefixed = "%s%s" % (self.settings.lmod_dir_prefix, name)
+
         # Pull the container to the module directory
-        module_dir = os.path.join(self.settings.lmod_base, name, tag.name)
+        module_dir = os.path.join(self.settings.lmod_base, prefixed, tag.name)
         if not os.path.exists(module_dir):
             os.makedirs(module_dir)
 
@@ -82,8 +85,9 @@ class Client(BaseClient):
             url=config.url,
             version=tag.name,
             module_dir=module_dir,
+            prefix=self.settings.lmod_exc_prefix,
             creation_date=datetime.now(),
             name=name,
         )
         utils.write_file(module_path, out)
-        logger.info("Module %s/%s is created." % (name, tag.name))
+        logger.info("Module %s/%s was created." % (name, tag.name))
