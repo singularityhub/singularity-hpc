@@ -188,5 +188,6 @@ class Client(BaseClient):
             prefix=self.settings.lmod_exc_prefix,
             creation_date=datetime.now(),
             name=name,
+            flatname=name.replace('/', '-'),
         )
         utils.write_file(module_path, out)
