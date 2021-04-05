@@ -160,9 +160,6 @@ A summary table of variables is included below, and then further discussed in de
    * - singularity_module
      - if defined, add to lmod script to load this Singularity module first
      - null
-   * - lmod_dir_prefix
-     - If set, prefix module folder names with prefix (for namespacing)
-     - ""
    * - lmod_exc_prefix
      - If set, prefix module alias names with prefix (another kind of namespacing)
      - ""
@@ -248,6 +245,14 @@ be a custom one with the config variable ``registry``
 
 
 
+Prefixes
+^^^^^^^^
+
+If you want your modules to have an alias prefix, you can
+set ``lmod_exc_prefix`` (an alias prefix). If you want your modules
+to have a directory prefix, simply create the directory and then update
+the ``lmod_base`` path.
+
 Module Software
 ---------------
 
@@ -293,22 +298,21 @@ the default lmod_base path from the install directory modules folder.
     $ shpc config lmod_base:\$install_dir/modules
 
 
-List and Install
+Show and Install
 ----------------
 
 The most basic thing you might want to do is install an already existing
-recipe in the registry. You might first want to list the known packages
-first. To list all packages, you can run:
-
+recipe in the registry. You might first want to show the known registry entries
+first. To show all entries, you can run:
 
 .. code-block:: console
 
-    $ shpc list
+    $ shpc show
     [shpc-client] [database|sqlite:////home/vanessa/Desktop/Code/singularity-hpc/shpc.db]
     python
 
 
-To get details about a package, you would then do:
+To get details about a package, you would then add it's name to show:
 
 .. code-block:: console
 
@@ -317,7 +321,7 @@ To get details about a package, you would then do:
 
 
 And then you can install a version that you like (or don't specify to default to
-the latest, which in this case is 3.9.2).
+the latest, which in this case is 3.9.2-slim).
 
 
 .. code-block:: console
@@ -344,7 +348,14 @@ was created.
 
     2 directories, 2 files
     
+
+You can also install a specific tag (as shown in list).
     
+.. code-block:: python
+
+    $ shpc install python:3.9.2-alpine
+    
+
 Note that since we only have one module system (lmod) and one
 HPC container technology (Singularity) these are the defaults. However, they
 are parser options and can be customized to use something else if this is
@@ -353,24 +364,211 @@ added in the future.
 If you don't have lmod on your system, you can now test interacting
 with the module via the :ref:`getting_started-development` instructions.
 
+List
+----
 
-Add
----
+Once a module is installed, you can use list to show installed modules (and versions).
 
-**todo**
+.. code-block:: console
 
-
-Images
-------
+    $ shpc list
+    python: 3.9.2-alpine, 3.9.2-slim
 
 
-**todo**
+Inspect
+-------
+
+Once you install a module, you might want to inspect the associated container! You
+can do that as follows:
+
+.. code-block:: console
+
+    $ shpc inspect python/3.9.2-slim
+    [shpc-client] [database|dummy]
+    👉️ ENVIRONMENT 👈️
+    /.singularity.d/env/10-docker2singularity.sh : #!/bin/sh
+    export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    export LANG="${LANG:-"C.UTF-8"}"
+    export GPG_KEY="${GPG_KEY:-"E3FF2839C048B25C084DEBE9B26995E310250568"}"
+    export PYTHON_VERSION="${PYTHON_VERSION:-"3.9.2"}"
+    export PYTHON_PIP_VERSION="${PYTHON_PIP_VERSION:-"21.0.1"}"
+    export PYTHON_GET_PIP_URL="${PYTHON_GET_PIP_URL:-"https://github.com/pypa/get-pip/raw/b60e2320d9e8d02348525bd74e871e466afdf77c/get-pip.py"}"
+    export PYTHON_GET_PIP_SHA256="${PYTHON_GET_PIP_SHA256:-"c3b81e5d06371e135fb3156dc7d8fd6270735088428c4a9a5ec1f342e2024565"}"
+    /.singularity.d/env/90-environment.sh : #!/bin/sh
+    # Custom environment shell code should follow
+
+    👉️ LABELS 👈️
+    org.label-schema.build-arch : amd64
+    org.label-schema.build-date : Sunday_4_April_2021_20:51:45_MDT
+    org.label-schema.schema-version : 1.0
+    org.label-schema.usage.singularity.deffile.bootstrap : docker
+    org.label-schema.usage.singularity.deffile.from : python@sha256:85ed629e6ff79d0bf796339ea188c863048e9aedbf7f946171266671ee5c04ef
+    org.label-schema.usage.singularity.version : 3.6.0-rc.4+501-g42a030f8f
+
+    👉️ DEFFILE 👈️
+    bootstrap: docker
+    from: python@sha256:85ed629e6ff79d0bf796339ea188c863048e9aedbf7f946171266671ee5c04ef
+
+
+We currently don't show the runscript, as they can be very large. However, if you want
+to see it:
+
+    $ shpc inspect --runscript python/3.9.2-slim
+
+
+Or to get the entire metadata entry dumped as json to the terminal:
+
+.. code-block:: console
+
+    $ shpc inspect --json python/3.9.2-slim
+
+
+Uninstall
+---------
+
+To uninstall a module, since we are targeting a module folder, instead of
+providing a container unique resource identifier like `python:3.9.2-alpine`,
+we provide the module path relative to your module directory. E.g.,
+
+.. code-block:: console
+
+    $ shpc uninstall python/3.9.2-alpine
+
+
+You can also uninstall an entire family  of modules:
+
+.. code-block:: console
+
+    $ shpc uninstall python
+
+
+Shell
+-----
+
+You can also interact with your registry interactively, and the easiest
+way to do that is to use the shell. It defaults to ipython, and then python and
+bypython (per what is available on your system). To start a shell:
+
+.. code-block:: console
+
+    $ shpc shell
+
+or with a specific interpreter:
+
+.. code-block:: console
+
+    $ shpc shell -i python
+
+
+And then you can interact with the client, which will be loaded.
+
+.. code-block:: python
+
+    client
+    [shpc-client]
+
+    client.list()
+    python
+
+    client.install('python')
+
+
+Show
+----
+
+As shown above, show is a general command to show the metadata file for a registry entry:
+
+.. code-block:: console
+
+    $ shpc show python
+    [shpc-client] [database|sqlite:////home/vanessa/Desktop/Code/singularity-hpc/shpc.db]
+    docker: python
+    latest:
+      3.9.2-slim: sha256:85ed629e6ff79d0bf796339ea188c863048e9aedbf7f946171266671ee5c04ef
+    tags:
+      3.9.2-slim: sha256:85ed629e6ff79d0bf796339ea188c863048e9aedbf7f946171266671ee5c04ef
+      3.9.2-alpine: sha256:23e717dcd01e31caa4a8c6a6f2d5a222210f63085d87a903e024dd92cb9312fd
+    filter:
+    - 3.9.*
+    maintainer: '@vsoch'
+    url: https://hub.docker.com/_/python
+    aliases:
+      python: /usr/local/bin/python
+
+Or without any arguments, it will show a list of all registry entries available:
+
+.. code-block:: console
+
+    $ shpc show
+    [shpc-client] [database|sqlite:////home/vanessa/Desktop/Code/singularity-hpc/shpc.db]
+    python
 
 
 Check
 -----
 
-**todo**
+How do you know if there is a newer version of a package to install? In
+the future, if you pull updates from the main repository, we will have a bot
+running that updates container versions (digests) as well as tags. Here
+is how to check if a module (the tag) is up to date.
+
+.. code-block:: console
+
+    $ shpc check tensorflow/tensorflow
+    ⭐️ latest tag 2.2.2 is up to date. ⭐️
+
+
+And if you want to check a specific digest for tag (e.g., if you use "latest" it
+is subject to change!)
+
+.. code-block:: console
+
+    $ shpc check tensorflow/tensorflow/2.2.2
+    ⭐️ tag 2.2.2 is up to date. ⭐️
+
+
+Add
+---
+
+It might be the case that you have a container locally, and you want to
+make it available as a module (without pulling it from a registry). Although
+this is discouraged because it means you will need to manually maintain
+versions, shpc does support the "add" command to do this. You can simply provide
+the container path and the unique resource identifier:
+
+.. code-block:: console
+
+    $ shpc add salad_latest.sif vanessa/salad/latest
+
+If the unique resource identifier corresponds with a registry entry, you
+will not be allowed to create it, as this would create a namespace conflict.
+Since we don't have a configuration file to define custom aliases, the container
+will just be exposed as it's command to run it.
+
+Get
+---
+
+If you want to quickly get the path to a container binary, you can use get.
+
+.. code-block:: console
+
+    $ shpc get vanessa/salad/latest
+    /home/vanessa/Desktop/Code/singularity-hpc/modules/vanessa/salad/latest/vanessa-salad-latest-sha256:8794086402ff9ff9f16c6facb93213bf0b01f1e61adf26fa394b78587be5e5a8.sif
+
+    $ shpc get tensorflow/tensorflow/2.2.2
+    /home/vanessa/Desktop/Code/singularity-hpc/modules/tensorflow/tensorflow/2.2.2/tensorflow-tensorflow-2.2.2-sha256:e2cde2bb70055511521d995cba58a28561089dfc443895fd5c66e65bbf33bfc0.sif
+
+If you select a higher level module directory or there is no sif, you'll see:
+
+.. code-block:: console
+
+    $ shpc get tensorflow/tensorflow
+    tensorflow/tensorflow is not a module tag folder, or does not have a sif binary.
+
+
+We could update this command to allow for listing all sif files within a top level
+module folder (for different versions). Please open an issue if this would be useful for
+you.
 
 
 Writing Registry Entries
@@ -379,14 +577,18 @@ Writing Registry Entries
 An entry in the registry is a container.yaml file that lives in the ``registry``
 folder. You should create subfolders based on a package name. Multiple versions
 will be represented in the same file, and will install to the admin user's module
-folder with version subfolders. E.g., Python would look like:
-
+folder with version subfolders. E.g., two registry entries, one for python
+(a single level name) and for tensorflow (a more nested name) would look like
+this:
 
 .. code-block:: console
 
-    ./registry
-        python/
-          container.yaml
+    registry/
+    ├── python
+    │       └── container.yaml
+    └── tensorflow
+        └── tensorflow
+            └── container.yaml
 
 
 And this is what gets installed to the modules folder, where each is kept in
@@ -427,6 +629,38 @@ for any issues:
     url: https://hub.docker.com/_/python
     aliases:
       python: /usr/local/bin/python
+
+
+The above shows the simplest form of representing an alias, where each is
+a key (python) and value (/usr/local/bin/python) set. As an alternative,
+for aliases with more complex settings (e.g., additional arguments to provide
+to exec) you can describe these same attributes as a list. Here is an example
+for tensorflow:
+
+.. code-block:: yaml
+
+    docker: tensorflow/tensorflow
+    latest:
+      2.2.2: sha256:e2cde2bb70055511521d995cba58a28561089dfc443895fd5c66e65bbf33bfc0
+    tags:
+      2.2.2: sha256:e2cde2bb70055511521d995cba58a28561089dfc443895fd5c66e65bbf33bfc0
+    filter:
+    - 2.*
+    maintainer: '@vsoch'
+    url: https://hub.docker.com/r/tensorflow/tensorflow
+    aliases:
+    - name: python
+      command: python
+      options: "--nv"
+
+
+Since we want to add the "--nv" flag, we add it as an option. Keep in mind
+that since we have a list, you technically could provide duplicate commands.
+However, the list is parsed into a dictionary, so only unique values are 
+enforced. If you accidentally have a repeated value, a warning will be printed.
+
+Choosing Containers to Contribute
+---------------------------------
 
 How should you choose container bases to contribute? You might consider using
 smaller images, when possible (take advantage of multi-stage builds) and

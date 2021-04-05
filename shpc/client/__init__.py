@@ -57,58 +57,48 @@ def get_parser():
     subparsers.add_parser("version", help="show software version")
 
     # Local shell with client loaded
-    # shell = subparsers.add_parser(
-    #    "shell", help="shell into a Python session with a client."
-    # )
-
-    # List local containers and collections
-    # images = subparsers.add_parser(
-    #    "images", help="list local images, optionally with query"
-    # )
+    shell = subparsers.add_parser(
+        "shell", help="shell into a Python session with a client."
+    )
+    shell.add_argument(
+        "--interpreter",
+        "-i",
+        dest="interpreter",
+        help="python interpreter",
+        choices=["ipython", "python", "bpython"],
+        default="ipython",
+    )
 
     # Install a known recipe from the registry
     install = subparsers.add_parser("install", help="install a registry recipe.")
     install.add_argument("install_recipe", help="recipe to install (name:version)")
-
-    install.add_argument(
-        "--module",
-        dest="module",
-        help="module system to use (defaults to lmod)",
-        choices=["lmod"],
-        default="lmod",
-    )
-
-    install.add_argument(
-        "--container_tech",
-        dest="container_tech",
-        help="container technology to use (defaults to singularity)",
-        choices=["singularity"],
-        default="singularity",
-    )
 
     # List known recipes
     listing = subparsers.add_parser("list", help="list known registry recipes.")
     listing.add_argument("pattern", help="filter to a pattern", nargs="?")
 
     # List local containers and collections
-    # inspect = subparsers.add_parser("inspect", help="inspect an image in your database")
-    # inspect.add_argument("query", help="image search query to inspect")
+    inspect = subparsers.add_parser(
+        "inspect", help="inspect an installed module image."
+    )
+    inspect.add_argument("module_name", help="module to inspect")
+    inspect.add_argument(
+        "--json", help="dump metadata as json", default=False, action="store_true"
+    )
+    inspect.add_argument(
+        "--runscript", help="show the runscript", default=False, action="store_true"
+    )
 
     # Get path to an image
-    # get = subparsers.add_parser("get", help="get an image path from your storage")
-    # get.add_argument("query", help="image search query to inspect")
+    get = subparsers.add_parser("get", help="get an image path for a module")
+    get.add_argument("module_name", help="the name of the module")
 
-    # Add an image file
-    # add = subparsers.add_parser("add", help="add an image to local storage")
-    # add.add_argument("image", help="full path to image file")
-    # add.add_argument("--name", dest="name", help='name of image, in format "library/image"')
-    # add.add_argument(
-    #    "--copy",
-    #    dest="copy",
-    #    help="copy the image instead of moving it.",
-    #    default=False,
-    #    action="store_true",
-    # )
+    # Add a container direcly
+    add = subparsers.add_parser("add", help="add an image to local storage")
+    add.add_argument("paths", help="full path to container image file", nargs=2)
+
+    check = subparsers.add_parser("check", help="check if you have latest installed.")
+    check.add_argument("module_name", help="module to check (module/version)")
 
     config = subparsers.add_parser("config", help="update configuration settings.")
     config.add_argument(
@@ -118,59 +108,41 @@ def get_parser():
         type=str,
     )
 
-    # mv = subparsers.add_parser("mv", help="move an image and update database")
-    # mv.add_argument("name", help="image name or uri to move from database")
-    # mv.add_argument("path", help="directory or image file to move image.")
+    # Uninstall a module, or a specific version
+    uninstall = subparsers.add_parser("uninstall", help="uninstall a module")
+    uninstall.add_argument(
+        "--force",
+        "-f",
+        dest="force",
+        help="don't prompt before deletion",
+        default=False,
+        action="store_true",
+    )
+    uninstall.add_argument(
+        "uninstall_recipe", help="module to uninstall (module/version)"
+    )
 
-    # rm = subparsers.add_parser("rm", help="remove an image from the local database")
-    # rm.add_argument("image", help='name of image, in format "library/image"')
-
-    # List or search containers and collections
-    # search = subparsers.add_parser("search", help="search remote images")
-
-    # search.add_argument(
-    #    "query",
-    #    nargs="*",
-    #    help="image search query, don't specify for all",
-    #   type=str,
-    #    default="*",
-    # )
-
-    # List or search labels
-    # labels = subparsers.add_parser("labels", help="query for labels")
-
-    # labels.add_argument(
-    #    "--key",
-    #    "-k",
-    #    dest="key",
-    #    help="A label key to search for",
-    #    type=str,
-    #    default=None,
-    # )
-
-    # labels.add_argument(
-    #    "--value",
-    #    "-v",
-    #    dest="value",
-    #    help="A value to search for",
-    #    type=str,
-    #    default=None,
-    # )
-
-    # Remove
-    # delete = subparsers.add_parser("delete", help="delete an image from a remote.")
-    # delete.add_argument(
-    #    "--force",
-    #    "-f",
-    #    dest="force",
-    #    help="don't prompt before deletion",
-    #    default=False,
-    #    action="store_true",
-    # )
-    # delete.add_argument("image", help="full path to image file")
+    # Add customization for each of container tech and module system
+    for command in [install, uninstall, shell, inspect, add, get]:
+        command.add_argument(
+            "--module-sys",
+            dest="module",
+            help="module system to use (defaults to lmod)",
+            choices=["lmod"],
+            default="lmod",
+        )
+        command.add_argument(
+            "--container_tech",
+            dest="container_tech",
+            help="container technology to use (defaults to singularity)",
+            choices=["singularity"],
+            default="singularity",
+        )
 
     show = subparsers.add_parser("show", help="show the config for a registry entry.")
-    show.add_argument("name", help="the name of the container config to show")
+    show.add_argument(
+        "name", help="the name of the container config to show", nargs="?"
+    )
 
     return parser
 
@@ -216,6 +188,8 @@ def main():
         from .add import main
     if args.command == "config":
         from .config import main
+    if args.command == "check":
+        from .check import main
     elif args.command == "get":
         from .get import main
     elif args.command == "delete":
@@ -224,22 +198,14 @@ def main():
         from .install import main
     elif args.command == "inspect":
         from .inspect import main
-    elif args.command == "images":
-        from .images import main
-    elif args.command == "labels":
-        from .labels import main
     elif args.command == "list":
         from .listing import main
-    elif args.command == "mv":
-        from .mv import main
-    elif args.command == "rm":
-        from .rm import main
-    elif args.command == "search":
-        from .search import main
     elif args.command == "shell":
         from .shell import main
     elif args.command == "show":
         from .show import main
+    elif args.command == "uninstall":
+        from .uninstall import main
 
     # Pass on to the correct parser
     return_code = 0

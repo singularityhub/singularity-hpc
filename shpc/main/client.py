@@ -11,6 +11,7 @@ from .settings import Settings
 
 from datetime import datetime
 import os
+from glob import glob
 import requests
 import shutil
 import json
@@ -86,6 +87,18 @@ class Client(object):
         """
         raise NotImplementedError
 
+    def uninstall(self, name, tag=None):
+        """
+        Uninstall must also implemented by the subclass (e.g., lmod)
+        """
+        raise NotImplementedError
+
+    def add(self, sif, module_name):
+        """
+        Add a container directly as a module
+        """
+        raise NotImplementedError
+
     def _load_container(self, name, tag=None):
         """
         Given a name and an optional tag to default to, load a package
@@ -97,103 +110,136 @@ class Client(object):
         # The recipe folder must exist in the registry
         package_dir = os.path.join(self.settings.registry, name)
         package_file = os.path.join(package_dir, "container.yaml")
-        return container.ContainerConfig(package_file)
+        config = container.ContainerConfig(package_file)
+
+        # If the user provides a tag, set it
+        config.set_tag(tag)
+        return config
+
+    def check(self, module_name):
+        """
+        Given a module name, check if the latest is installed.
+
+        If the user provides a top level folder, assume we want to look
+        at updates for entire tags. If a specific folder is provided with
+        a container, check the digest.
+        """
+        # We derive the current version installed from the container
+        # We assume the user has provided the correct prefix
+        module_dir = os.path.join(self.settings.lmod_base, module_name)
+        if not os.path.exists(module_dir):
+            logger.exit("%s does not exist." % module_dir)
+
+        # Case 1: a specific tag is selected
+        sif = self.get(module_name)
+        if sif:
+            return self._check_digest(module_name, sif)
+
+        return self._check_tags(module_name)
+
+    def _check_tags(self, module_name):
+        """
+        Check if the installed tag is the latest.
+        """
+        # Derive the registry entry from the module_name
+        config = self._load_container(module_name)
+        dirname = os.path.join(self.settings.lmod_base, module_name)
+
+        # Does the user have the modules installed?
+        if not os.path.exists(dirname):
+            logger.exit("%s is not installed." % module_name)
+
+        # Compare the latest name to the version folders
+        versions = os.listdir(dirname)
+        if config.latest.name not in versions:
+            logger.info(
+                "The latest tag is %s, but you have: %s."
+                % (config.latest.name, ", ".join(versions))
+            )
+        else:
+            logger.info("⭐️ latest tag %s is up to date. ⭐️" % config.latest.name)
+
+    def _check_digest(self, module_name, sif):
+        """
+        Check if there is an updated digest for a tag.
+
+        At this point we assume only one container per install, as older containers
+        are cleaned up to save filesystem space. If this is changed, we would
+        need another way to deduce what version of the container is installed.
+        """
+        if len(sif) > 1:
+            logger.exit("Module folder %s has more than one container." % module_name)
+
+        sif = os.path.basename(sif[0])
+
+        # The prefix of the image is the module_name (which includes version here)
+        prefix = module_name.replace(os.sep, "-") + "-"
+        digest = sif.replace(prefix, "").replace(".sif", "")
+
+        # Get the latest version digest, remove the tag first
+        docker = os.sep.join(module_name.split(os.sep)[:-1])
+        tag = module_name.split(os.sep)[-1]
+        config = self._load_container(docker)
+
+        # Get the tag
+        tag = config.tags.get(tag)
+        if not tag:
+            logger.exit("Tag %s is not present in the registry entry." % tag)
+
+        if tag.digest == digest:
+            logger.info("⭐️ tag %s is up to date. ⭐️" % tag.name)
+        else:
+            logger.info("👉️ tag %s requires an update! 👈️" % tag.name)
 
     def list(self, pattern=None, out=None):
         """
-        List known recipes, along with whether something is installed.
+        List installed modules.
         """
         out = out or sys.stdout
-
-        # Get the known registry files
-        for package in os.listdir(self.settings.registry):
-            out.write(package + "\n")
+        for module_name in os.listdir(self.settings.lmod_base):
+            if pattern and not re.search(pattern, module_name):
+                continue
+            module_dir = os.path.join(self.settings.lmod_base, module_name)
+            versions = os.listdir(module_dir)
+            out.write("%s: %s\n" % (module_name, ", ".join(versions)))
 
     def show(self, name, out=None):
         """
         Show metadata for a package
         """
-        config = self._load_container(name)
-        config.dump(out)
+        if name:
+            config = self._load_container(name)
+            config.dump(out)
+        else:
+            out = out or sys.stdout
 
-    # Metadata
+            # Get the known registry files
+            for package in os.listdir(self.settings.registry):
+                out.write(package + "\n")
 
-    def get_metadata(self, image_file, names=None):
+    def get(self, module_name):
         """
-        Extract metadata using Singularity inspect.
-
-        This can only happen if the executable is found.
-        If not, return a reasonable default (the parsed image name)
-
-        Parameters
-        ==========
-        image_file: the full path to a Singularity image
-        names: optional, an extracted or otherwise created dictionary of
-               variables for the image, likely from utils.parse_image_name
-
+        Get the path to a container for a module
         """
-        print("TODO get metadata")
-        import IPython
+        module_dir = os.path.join(self.settings.lmod_base, module_name)
 
-        IPython.embed()
-        if names is None:
-            names = {}
+        # A container must be present
+        sif = glob("%s%s*.sif" % (module_dir, os.sep))
+        if not sif:
+            logger.exit(
+                "%s is not a module tag folder, or does not have a sif binary."
+                % module_name
+            )
 
-        metadata = {}
+        return sif[0]
 
-        # We can't return anything without image_file or names
-        if image_file:
-            if not os.path.exists(image_file):
-                bot.error("Cannot find %s." % image_file)
-                return names or metadata
+    def inspect(self, module_name):
+        """
+        Return complete metadata for the user from a container.
+        """
+        module_dir = os.path.join(self.settings.lmod_base, module_name)
+        if not os.path.exists(module_dir):
+            logger.exit("%s does not exist." % module_dir)
 
-        # The user provided a file, but no names
-        if not names:
-            names = parse_image_name(remove_uri(image_file))
-
-        # Look for the Singularity Executable
-        singularity = which("singularity")["message"]
-
-        # Inspect the image, or return names only
-        if os.path.exists(singularity) and image_file:
-            from spython.main import Client as Singularity
-
-            # Store the original quiet setting
-            is_quiet = Singularity.quiet
-
-            # We try and inspect, but not required (wont work within Docker)
-            try:
-                Singularity.quiet = True
-                updates = Singularity.inspect(image=image_file)
-            except:
-                bot.warning("Inspect command not supported, metadata not included.")
-                updates = None
-
-            # Restore the original quiet setting
-            Singularity.quiet = is_quiet
-
-            # Try loading the metadata
-            if updates is not None:
-                try:
-                    updates = json.loads(updates)
-
-                    # Singularity 3.x bug with missing top level
-                    if "data" in updates:
-                        updates = updates["data"]
-                    metadata.update(updates)
-
-                    # Flatten labels
-                    if "attributes" in metadata:
-                        if "labels" in metadata["attributes"]:
-                            metadata.update(metadata["attributes"]["labels"])
-                        del metadata["attributes"]
-
-                except:
-                    pass
-
-        metadata.update(names)
-
-        # Add the type to the container
-        metadata["type"] = "container"
-
-        return metadata
+        sif = self.get(module_name)
+        return self._container.inspect(sif[0])

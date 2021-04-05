@@ -26,7 +26,7 @@ INSTALL_REQUIRES = (
 TESTS_REQUIRES = (("pytest", {"min_version": "4.6.2"}),)
 
 ################################################################################
-# Install basic without database
+# Install basic without database (default)
 
 INSTALL_BASIC = INSTALL_REQUIRES[:-1]
 

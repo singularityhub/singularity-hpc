@@ -19,16 +19,13 @@ database_disable: false
 database_file: $root_dir/shpc.db
 
 # if defined, add to lmod script to load this Singularity module first
-singularity_module:
-
-# If set, prefix module folder names with prefix (for namespacing)
-lmod_dir_prefix: ''
+singularity_module: null
 
 # if set, prefix module alias names with prefix (another kind of namespacing)
 lmod_exc_prefix: ''
 
 # string with comma separated list of paths to binds. If set, expored to SINGULARITY_BINDPATH
-bindpaths:
+bindpaths: null
 
 # exported to SINGULARITY_SHELL, defaults to /bin/bash.
 singularity_shell: /bin/bash

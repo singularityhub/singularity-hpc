@@ -34,10 +34,18 @@ class SingularityContainer:
             logger.exit("singularity python (spython) is required to use singularity.")
 
     def pull(self, uri, dest):
-        """Pull a container to a destination"""
+        """
+        Pull a container to a destination
+        """
         pull_folder = os.path.dirname(dest)
         name = os.path.basename(dest)
         return self.client.pull(uri, name=name, pull_folder=pull_folder)
+
+    def inspect(self, image):
+        """
+        Inspect an image and return metadata.
+        """
+        return self.client.inspect(image)
 
 
 class Tags:
@@ -55,6 +63,9 @@ class Tags:
 
     def __contains__(self, key):
         return key in self._tags
+
+    def keys(self):
+        return list(self._tags.keys())
 
     def get(self, key, default=None):
         digest = self._tags.get(key, default)
@@ -85,7 +96,6 @@ class ContainerConfig:
         """Load a package file for a container."""
         self.load(package_file)
         self.validate()
-        self.name = package_file.split(os.sep)[-2]
 
     def __str__(self):
         return "[container:%s]" % self.name
@@ -103,11 +113,31 @@ class ContainerConfig:
         return Tags(tags, latest)
 
     @property
+    def name(self):
+        """
+        Flatten the docker uri into a filesystem appropriate name
+        """
+        return self.docker.replace("/", "-")
+
+    @property
     def latest(self):
         """
         Return the latest tag
         """
         return self.tags.latest
+
+    def set_tag(self, tag):
+        """
+        Set a tag to be the config default (defaults to latest otherwise)
+        """
+        # If a tag isn't provided, default to latest
+        if not tag:
+            self.tag = self.tags.latest
+
+        # This way, if the user explicitly asks for a tag that does not exist
+        # this value will be none (and we can raise an error)
+        else:
+            self.tag = self.tags.get(tag)
 
     def dump(self, out=None):
         out = out or sys.stdout
@@ -137,6 +167,24 @@ class ContainerConfig:
         Validate a loaded config with jsonschema
         """
         jsonschema.validate(instance=self._config, schema=schemas.containerConfig)
+
+    def get_aliases(self):
+        """
+        Return a consistently formatted list of aliases
+        """
+        # Format 1: allows for a list
+        if isinstance(self.aliases, list):
+            return [dict(x) for x in self.aliases]
+
+        # Format 2: allows for a key:value pair
+        aliases = []
+        seen = set()
+        for key, value in self.aliases.items():
+            if key in seen:
+                logger.warning("Warning, alias %s is defined more than once." % key)
+            aliases.append({"name": key, "command": value})
+            seen.add(key)
+        return aliases
 
     def load(self, package_file):
         """Load the settings file into the settings object"""

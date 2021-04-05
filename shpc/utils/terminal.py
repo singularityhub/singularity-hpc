@@ -1,12 +1,6 @@
-"""
-
-Copyright (C) 2021 Vanessa Sochat.
-
-This Source Code Form is subject to the terms of the
-Mozilla Public License, v. 2.0. If a copy of the MPL was not distributed
-with this file, You can obtain one at http://mozilla.org/MPL/2.0/.
-
-"""
+__author__ = "Vanessa Sochat"
+__copyright__ = "Copyright 2021, Vanessa Sochat"
+__license__ = "MPL 2.0"
 
 
 from shpc.logger import logger
@@ -145,12 +139,14 @@ def confirm_action(question, force=False):
     return True
 
 
-def confirm_delete(filename, force=False):
-    """confirm if the user wants to delete a file
+def confirm_uninstall(filename, force=False):
+    """confirm if the user wants to uninstall a module
 
     Parameters
     ==========
     filename: the file that will be removed
     force: if the user wants to skip the prompt
     """
-    return confirm_action("Are you sure you want to remove {}?".format(filename), force)
+    return confirm_action(
+        "Are you sure you want to uninstall {}?".format(filename), force
+    )
