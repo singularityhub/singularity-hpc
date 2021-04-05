@@ -52,7 +52,7 @@ And install a module to your local modules folder.
 .. code-block:: console
 
     $ shpc install python
-
+    Module python/3.9.2-slim is created.
 
 Finally, you can add the module folder to those that lmod knows about:
 
