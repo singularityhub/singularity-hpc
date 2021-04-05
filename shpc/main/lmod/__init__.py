@@ -166,7 +166,7 @@ class Client(BaseClient):
 
         # Add labels, and deffile
         labels = metadata.get("attributes", {}).get("labels")
-        deffile = metadata.get("attributes", {}).get("deffile").replace("\n", "\\n")
+        deffile = metadata.get("attributes", {}).get("deffile", "").replace("\n", "\\n")
 
         # Get the template
         template = self._load_template()
