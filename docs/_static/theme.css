@@ -45,7 +45,8 @@
    .rst-versions .rst-current-version,
    .wy-nav-top,
    .wy-menu-vertical li.toctree-l2.current li.toctree-l3>a:hover {
-       background: #bea2bf; /* dark green */
+       background: #f0001e;
+       color: #fee;
    }
    
    /* Main content
@@ -53,7 +54,7 @@
    
    .wy-nav-content .highlight,
    .wy-nav-content .rst-content .warning {
-       background: #F0E0F0; /* light green */
+       background: #FEE;
    }
    
    .wy-nav-content .rst-content .warning .admonition-title {
@@ -61,7 +62,7 @@
    }
    
    .wy-nav-content .highlight .kn {
-       color: #bea2bf; /* dark green */  
+       color: #bea2bf;  
    }
    
    .wy-nav-content .highlight .nn,
@@ -78,7 +79,7 @@
    
    .wy-nav-content .rst-content dl:not(.docutils) dt {
        background: lightblue;
-       border-top: solid 3px #3486bc; /* dark green */;
+       border-top: solid 3px #3486bc;;
    }
    
     /* Footer
