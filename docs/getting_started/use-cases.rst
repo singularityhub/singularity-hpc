@@ -30,12 +30,34 @@ If you are a cluster user, you can easily install shpc to your own space
 (e.g., in ``$HOME`` or ``$SCRATCH`` where you keep software) and then
 use the defaults for the lmod base (the modules folder that is created alongside
 the install) and the registry. You can also pull the repository to get updated
-registry entries. Once you have cloned, you can then add the modules to your
-path:
+registry entries. Once you have cloned:
+
+
+.. code-block:: console
+
+    $ git clone git@github.com:singularityhub/singularity-hpc.git
+    $ cd singularity-hpc
+    
+You can then see modules available for install:
+
+
+.. code-block:: console
+
+    $ shpc list
+
+
+And install a module to your local modules folder.
+
 
 .. code-block:: console
 
     $ shpc install python
+
+
+Finally, you can add the module folder to those that lmod knows about:
+
+.. code-block:: console
+
     $ module use $HOME/singularity-hpc/modules
      
 And then you can use your modules just as you would that are provided on

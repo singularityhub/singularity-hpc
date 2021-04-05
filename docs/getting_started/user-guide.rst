@@ -371,16 +371,23 @@ for any issues:
 
     docker: python
     latest:
-      3.9.2: "sha256:7d241b7a6c97ffc47c72664165de7c5892c99930fb59b362dd7d0c441addc5ed"
+      3.9.2-slim: "sha256:85ed629e6ff79d0bf796339ea188c863048e9aedbf7f946171266671ee5c04ef"
     tags:
-      3.9.2: "sha256:7d241b7a6c97ffc47c72664165de7c5892c99930fb59b362dd7d0c441addc5ed"
+      3.9.2-slim: "sha256:85ed629e6ff79d0bf796339ea188c863048e9aedbf7f946171266671ee5c04ef"
       3.9.2-alpine: "sha256:23e717dcd01e31caa4a8c6a6f2d5a222210f63085d87a903e024dd92cb9312fd"
     filter:
       - "3.9.*"
     maintainer: "@vsoch"
     url: https://hub.docker.com/_/python
     aliases:
-      python: python
+      python: /usr/local/bin/python
+
+How should you choose container bases to contribute? You might consider using
+smaller images, when possible (take advantage of multi-stage builds) and
+for aliases, make sure (if possible) that you use full paths. If there is a
+directive that you need for creating the LMOD lua file that isn't there, please
+open an issue so it can be added. Finally, if you don't have time to contribute directly, suggesting an idea via an issue
+or Slack to a maintainer (@vsoch).
 
 
 Registry Yaml Fields
@@ -413,12 +420,6 @@ Fields include:
    * - aliases
      - Named entrypoints for container (dict)
      - false
-   * - aliases
-     - Named entrypoints for container (dict)
-     - true
-   * - aliases
-     - Named entrypoints for container (dict)
-     - true
    * - url
      - Documentation or other url for the container uri
      - false

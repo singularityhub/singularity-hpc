@@ -4,6 +4,7 @@ __license__ = "MPL 2.0"
 
 from shpc.main.client import Client as BaseClient
 from shpc.logger import logger
+from datetime import datetime
 import shpc.utils as utils
 from jinja2 import Template
 import json
@@ -55,18 +56,17 @@ class Client(BaseClient):
             os.makedirs(module_dir)
 
         # Preserve name and version of container if it's ever moved
-        container_path = os.path.join(module_dir, "%s-%s.sif" % (name, tag.name))
+        container_path = os.path.join(
+            module_dir, "%s-%s-%s.sif" % (name, tag.name, tag.digest)
+        )
         module_path = os.path.join(module_dir, "module.lua")
 
         # We pull by the digest
         container_uri = "docker://%s@%s" % (name, tag.digest)
 
-        # Assume an install is always requesting a new container.
-        # We will likely want to keep a record of the digest
-        if os.path.exists(container_path):
-            os.remove(container_path)
-
-        self._container.pull(container_uri, container_path)
+        # Pull new containers (this doesn't clean up old ones, which we might want to do)
+        if not os.path.exists(container_path):
+            self._container.pull(container_uri, container_path)
 
         # Get the template
         template = self._load_template()
@@ -81,6 +81,7 @@ class Client(BaseClient):
             aliases=dict(config.aliases),
             url=config.url,
             module_dir=module_dir,
+            creation_date=datetime.now(),
             name=name,
         )
         utils.write_file(module_path, out)

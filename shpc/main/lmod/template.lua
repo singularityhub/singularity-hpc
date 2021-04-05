@@ -1,8 +1,8 @@
-#%Module1.0
-## Created by singularity-hpc (https://github.com/singularityhub/singularity-hpc)
-##
-## {{ name }} on {{ creation_date }}
-##
+-- LMOD Module
+-- Created by singularity-hpc (https://github.com/singularityhub/singularity-hpc)
+-- ##
+-- {{ name }} on {{ creation_date }}
+--
 
 help(
 [[
@@ -29,7 +29,7 @@ set_shell_function("{{ name }}-shell", shellCmd  ..  "$@",  shellCmd .. "$*")
 
 -- exec functions to provide "alias" to module commands
 {% for alias, entrypoint in aliases.items() %}
-set_shell_function("{{ alias }}", execCmd .. entrypoint, execCmd .. entrypoint)
+set_shell_function("{{ alias }}", execCmd .. "{{ entrypoint }}", execCmd .. entrypoint)
 {% endfor %}
 
 whatis("Name        : ", myModuleName())
