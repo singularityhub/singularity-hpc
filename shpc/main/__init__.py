@@ -7,15 +7,6 @@ from .settings import Settings
 
 from shpc.utils import check_install
 from shpc.logger import logger
-import os
-
-
-# The client either exists and we have a database handle, or not
-
-try:
-    from sqlalchemy import or_
-except ImportError:
-    pass
 
 
 def get_client(quiet=False, **kwargs):
@@ -51,7 +42,7 @@ def get_client(quiet=False, **kwargs):
 
     # Load user settings, add to client
     settings = Settings(kwargs.get("settings_file"))
-    sqlite_enabled = "or_" in globals() and not settings.database_disable
+    sqlite_enabled = False
 
     # Add dummy or real database functions to the client (not currently needed)
     if not sqlite_enabled or settings.get("disable_database", False):
@@ -61,7 +52,7 @@ def get_client(quiet=False, **kwargs):
         Client._init_db = init_db
     else:
         logger.warning("Using a database is not yet supported, and may be removed.")
-        from shpc.database.models import Collection, Container, init_db, Base
+        from shpc.database.models import init_db
 
         # Add database actions
         Client._init_db = init_db

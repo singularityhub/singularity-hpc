@@ -5,17 +5,12 @@ __license__ = "MPL 2.0"
 
 from shpc.logger import logger
 import shpc.main.container as container
-import shpc.defaults
-import shpc.utils as utils
 from .settings import Settings
 
-from datetime import datetime
 import os
 from glob import glob
-import requests
-import shutil
-import json
 import sys
+import re
 
 
 class Client(object):
@@ -128,7 +123,9 @@ class Client(object):
         # We assume the user has provided the correct prefix
         module_dir = os.path.join(self.settings.lmod_base, module_name)
         if not os.path.exists(module_dir):
-            logger.exit("%s does not exist." % module_dir)
+            logger.exit(
+                "%s does not exist. Is this a known registry entry?" % module_dir
+            )
 
         # Case 1: a specific tag is selected
         sif = self.get(module_name)
@@ -167,10 +164,7 @@ class Client(object):
         are cleaned up to save filesystem space. If this is changed, we would
         need another way to deduce what version of the container is installed.
         """
-        if len(sif) > 1:
-            logger.exit("Module folder %s has more than one container." % module_name)
-
-        sif = os.path.basename(sif[0])
+        sif = os.path.basename(sif)
 
         # The prefix of the image is the module_name (which includes version here)
         prefix = module_name.replace(os.sep, "-") + "-"
@@ -231,6 +225,9 @@ class Client(object):
                 % module_name
             )
 
+        # Currently we only allow one container per module folder
+        if len(sif) > 1:
+            logger.exit("Found more than one sif in module folder.")
         return sif[0]
 
     def inspect(self, module_name):

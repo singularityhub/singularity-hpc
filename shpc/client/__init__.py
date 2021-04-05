@@ -73,8 +73,8 @@ def get_parser():
     install = subparsers.add_parser("install", help="install a registry recipe.")
     install.add_argument("install_recipe", help="recipe to install (name:version)")
 
-    # List known recipes
-    listing = subparsers.add_parser("list", help="list known registry recipes.")
+    # List installed modules
+    listing = subparsers.add_parser("list", help="list installed modules.")
     listing.add_argument("pattern", help="filter to a pattern", nargs="?")
 
     # List local containers and collections
@@ -147,8 +147,8 @@ def get_parser():
     return parser
 
 
-def main():
-    """main is the entrypoint to the singularity-hpc client."""
+def run_shpc():
+    """run_shpc is the entrypoint to the singularity-hpc client."""
 
     parser = get_parser()
 
@@ -209,14 +209,14 @@ def main():
 
     # Pass on to the correct parser
     return_code = 0
-    #    try:
-    main(args=args, parser=parser, extra=extra)
-    sys.exit(return_code)
-    #    except UnboundLocalError:
-    #        return_code = 1
+    try:
+        main(args=args, parser=parser, extra=extra)
+        sys.exit(return_code)
+    except UnboundLocalError:
+        return_code = 1
 
     help(return_code)
 
 
 if __name__ == "__main__":
-    main()
+    run_shpc()

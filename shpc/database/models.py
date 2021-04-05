@@ -18,14 +18,16 @@ from sqlalchemy.schema import UniqueConstraint
 from sqlalchemy.orm import backref, relationship, scoped_session, sessionmaker
 
 from shpc.logger import logger
-import shpc.defaults
 from uuid import uuid4
 import os
 
 Base = declarative_base()
 
+# NOTE: These modules are not in use, and likely to be removed.
+
 
 class Collection(Base):
+
     # TODO need to redo these for modules, etc.
     __tablename__ = "collection"
     id = Column(Integer, primary_key=True)

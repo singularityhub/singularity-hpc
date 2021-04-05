@@ -8,7 +8,6 @@ from .terminal import (
 )
 from .fileio import (
     copyfile,
-    get_userhome,
     get_file_hash,
     get_tmpdir,
     get_tmpfile,
