@@ -15,7 +15,8 @@ Commands include:
        singularity shell -s {{ singularity_shell }} {% if bindpaths %}-B {{ bindpaths }} {% endif %}{{ container_sif }}
 
 {% if aliases %}{% for alias in aliases %} - {{ alias.name }}:
-       singularity exec {% if bindpaths %}-B {{ bindpaths }} {% endif %}{% if alias.options %}{{ alias.options }} {% endif %}{{ container_sif }} {{ alias.command }}"){% endfor %}{% else %} - {{ prefix }}{{ name }}: singularity run {% if bindpaths %}-B {{ bindpaths }}{% endif %}{{ container_sif }}{% endif %}]]) 
+       singularity exec {% if bindpaths %}-B {{ bindpaths }} {% endif %}{% if alias.options %}{{ alias.options }} {% endif %}{{ container_sif }} {{ alias.command }}")
+{% endfor %}{% else %} - {{ prefix }}{{ name }}: singularity run {% if bindpaths %}-B {{ bindpaths }}{% endif %}{{ container_sif }}{% endif %}]]) 
 
 {% if singularity_module %}load("{{ singularity_module }}"){% endif %}
 
@@ -40,8 +41,8 @@ conflict(myModuleName())
 
 -- exec functions to provide "alias" to module commands
 {% if aliases %}{% for alias in aliases %}
-set_shell_function("{{ alias.name }}", execCmd .. {% if alias.options %} "{{ alias.options }} " .. {% endif %} containerPath .. "{{ alias.command }}", execCmd .. {% if alias.options %} "{{ alias.options }} " .. {% endif %} containerPath .. "{{ alias.command }}"){% endfor %}
-{% else %}
+set_shell_function("{{ alias.name }}", execCmd .. {% if alias.options %} "{{ alias.options }} " .. {% endif %} containerPath .. "{{ alias.command }}", execCmd .. {% if alias.options %} "{{ alias.options }} " .. {% endif %} containerPath .. "{{ alias.command }}")
+{% endfor %}{% else %}
 -- If we don't have aliases, just have a container run
 set_shell_function("{{ prefix }}{{ name }}", runCmd,  runCmd){% endif %}
 
