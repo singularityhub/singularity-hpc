@@ -63,6 +63,12 @@ Finally, you can add the module folder to those that lmod knows about:
 And then you can use your modules just as you would that are provided on
 your cluster.
 
+.. code-block:: console
+
+    $ module load python/3.9.2-slim
+
+
+
 Pull Singularity Images
 =======================
 

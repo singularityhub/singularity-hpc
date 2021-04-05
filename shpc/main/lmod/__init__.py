@@ -80,6 +80,7 @@ class Client(BaseClient):
             description=config.description,
             aliases=dict(config.aliases),
             url=config.url,
+            version=tag.name,
             module_dir=module_dir,
             creation_date=datetime.now(),
             name=name,
