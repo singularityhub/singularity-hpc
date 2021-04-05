@@ -15,15 +15,16 @@ You can use shpc if you are:
 3. a cluster user that simply wants to pull Singularity images as GitHub packages.
 
 These use cases will be better flushed out and documented as the library is developed.
-**documentation coming shortly**
 
-## Tests to write
+📖️ Read the [documentation](https://singularity-hpc.readthedocs.io/en/latest/) 📖️
+
+## ✅️ Tests to write ✅️ 
 
  - Settings load, update, get, etc.
  - Ensure that all defaults are present in settings (except for updated at)
  
 
-## Previous Art
+## 🎨️ Previous Art 🎨️
 
 There are other tools that you might be interested in!
 
@@ -33,10 +34,12 @@ There are other tools that you might be interested in!
  
 ## TODOS
 
- - finish install, write add and other commands
+ - test lmod recipe (not tested yet)
+ - write add and other commands
  - ensure that we print columns to shpc list
  - test singularity build in actions, save to registry
  - develop pull command for shpc for this type, along with GitHub action
+ - write tests
 
 ## License
 
