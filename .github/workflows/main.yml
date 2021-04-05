@@ -28,19 +28,3 @@ jobs:
           export PATH="/usr/share/miniconda/bin:$PATH"
           source activate black
           pyflakes shpc/main
-
-  testing:
-    needs: formatting
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Setup testing environment
-        run: conda create --quiet --name testing pytest
-
-      - name: Test shpc
-        run: |
-          export PATH="/usr/share/miniconda/bin:$PATH"
-          source activate testing
-          pip install .[all]
-          pytest -sv tests/*.py
-          /bin/bash tests/test_client.sh
