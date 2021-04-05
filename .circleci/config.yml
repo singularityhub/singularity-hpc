@@ -84,12 +84,6 @@ install_dependencies: &install_dependencies
       pip install --upgrade pytest
       pip install black || true
 
-run_linter: &run_linter
-  name: run linter
-  command: |-
-      export PATH=~/conda/Python3/bin:$PATH
-      cd ~/repo
-      black --check spython
 
 test_shpc: &test_shpc
   name: Test Singularity Registry HPC
@@ -118,5 +112,4 @@ jobs:
           paths:
             - ~/conda
           key: v1-dependencies
-      - run: *run_linter
       - run: *test_shpc
