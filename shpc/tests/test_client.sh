@@ -12,7 +12,7 @@ shpc_root="$( dirname "${here}" )"
 
 # Create temporary testing directory
 tmpdir=$(mktemp -d)
-output=$(mktemp ${tmpdir:-/tmp}/rse_test.XXXXXX)
+output=$(mktemp ${tmpdir:-/tmp}/shpc_test.XXXXXX)
 printf "Created temporary directory to work in. ${tmpdir}\n"
 
 # Make sure it's installed

@@ -170,12 +170,12 @@ class Client(BaseClient):
             deffile = (
                 metadata.get("attributes", {}).get("deffile", "").replace("\n", "\\n")
             )
-        except FileNotFoundError:
+        except:
             metadata = None
             logger.warning("Singularity is not installed, skipping metadata.")
 
         # Get the template
-        template = self._load_template()
+        template = self._load_template(template_name)
 
         # Make sure to render all values!
         out = template.render(
