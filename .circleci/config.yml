@@ -80,10 +80,10 @@ test_shpc: &test_shpc
   name: Test Singularity Registry HPC
   command: |- 
       export PATH=~/conda/Python3/bin:$PATH
-      which python
-      pip uninstall shpc --yes || echo "Not installed"
+      ~/.conda/Python3/bin/pip uninstall shpc --yes || echo "Not installed"
       python --version
-      pip install .
+      ~/.conda/Python3/bin/pip install .
+      ls ~/.conda/Python3/bin/
       /bin/bash ~/repo/shpc/tests/test_client.sh
       pytest -sv ~/repo/shpc/tests/test_*.py
 
