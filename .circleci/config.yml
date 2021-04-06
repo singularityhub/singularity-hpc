@@ -84,6 +84,7 @@ test_shpc: &test_shpc
       python --version
       ~/conda/Python3/bin/pip install .
       ls ~/conda/Python3/bin/
+      which shpc
       cd ~/repo/shpc/tests
       /bin/bash ./test_client.sh
       pytest -sv test_*.py
