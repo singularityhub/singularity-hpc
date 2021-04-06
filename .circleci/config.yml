@@ -55,15 +55,6 @@ build_singularity: &install_singularity
       make -C builddir && \
       sudo make -C builddir install
       
-install_shpc: &install_shpc
-  name: install shpc
-  command: |-
-      export PATH=~/conda/Python3/bin:$PATH
-      which python
-      pip uninstall spython --yes || echo "Not installed"
-      python --version
-      python setup.py install
-
 install_dependencies: &install_dependencies
   name: install dependencies
   command: |-
@@ -89,6 +80,10 @@ test_shpc: &test_shpc
   name: Test Singularity Registry HPC
   command: |- 
       export PATH=~/conda/Python3/bin:$PATH
+      which python
+      pip uninstall shpc --yes || echo "Not installed"
+      python --version
+      pip install .
       /bin/bash ~/repo/shpc/tests/test_client.sh
       pytest -sv ~/repo/shpc/tests/test_*.py
 
@@ -107,7 +102,6 @@ jobs:
       - run: *update_go
       - run: *fetch_deb_deps
       - run: *install_singularity
-      - run: *install_shpc
       - save_cache:
           paths:
             - ~/conda
