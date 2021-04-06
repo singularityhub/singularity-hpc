@@ -161,12 +161,18 @@ class Client(BaseClient):
                 continue
             os.remove(older)
 
-        # Get inspect metadata from the container
-        metadata = self._container.inspect(container_path)
+        # Get inspect metadata from the container (only if singularity installed
+        try:
+            metadata = self._container.inspect(container_path)
 
-        # Add labels, and deffile
-        labels = metadata.get("attributes", {}).get("labels")
-        deffile = metadata.get("attributes", {}).get("deffile", "").replace("\n", "\\n")
+            # Add labels, and deffile
+            labels = metadata.get("attributes", {}).get("labels")
+            deffile = (
+                metadata.get("attributes", {}).get("deffile", "").replace("\n", "\\n")
+            )
+        except FileNotFoundError:
+            metadata = None
+            logger.warning("Singularity is not installed, skipping metadata.")
 
         # Get the template
         template = self._load_template()
