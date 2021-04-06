@@ -447,6 +447,53 @@ You can also uninstall an entire family  of modules:
     $ shpc uninstall python
 
 
+
+Pull
+----
+
+Singularity Registry HPC tries to support researchers that cannot afford to
+pay for a special Singularity registry, and perhaps don't want to pull
+from a Docker URI. For this purpose, you can use the `Singularity Deploy <https://github.com/singularityhub/singularity-deploy>`_
+template to create containers as releases associated with the same GitHub
+repository, and then pull them down directly with the shpc client with
+the ``gh://`` unique resource identifier as follows:
+
+.. code-block:: console
+
+    $ shpc pull gh://singularityhub/singularity-deploy/0.0.1:latest
+    $ shpc pull gh://singularityhub/singularity-deploy/0.0.1:salad
+    $ shpc pull gh://singularityhub/singularity-deploy/0.0.1:pokemon
+
+
+In the example above, our repository is called ``singularityhub/singularity-deploy``,
+and in the root we have three recipes:
+
+ - Singularity (builds to latest)
+ - Singularity.salad
+ - Singularity.pokemon
+
+And in the `VERSION` file in the root, we have `0.0.1` which corresponds with
+the GitHub release. This will pull to a container.  For example:
+
+.. code-block:: console
+
+    $ shpc pull gh://singularityhub/singularity-deploy/0.0.1:latest
+    singularity pull --name /home/vanessa/Desktop/Code/singularity-hpc/singularityhub-singularity-deploy.latest.sif https://github.com/singularityhub/singularity-deploy/releases/download/0.0.1/singularityhub-singularity-deploy.latest.sif
+    /home/vanessa/Desktop/Code/singularity-hpc/singularityhub-singularity-deploy.latest.sif
+
+And then you are ready to go!
+
+.. code-block:: console
+
+    $ singularity shell singularityhub-singularity-deploy.latest.sif 
+    Singularity> 
+
+
+See the `Singularity Deploy <https://github.com/singularityhub/singularity-deploy>`_ repository
+for complete details for how to set up your container! Note that this uri (gh://)
+can also be used in a registry entry.
+
+
 Shell
 -----
 
@@ -615,6 +662,9 @@ So different versions could exist alongside one another.
 Registry Yaml Files
 ===================
 
+Docker Hub
+----------
+
 The typical registry yaml file will reference a container from a registry,
 one or more versions, and a maintainer GitHub alias that can be pinged
 for any issues:
@@ -663,6 +713,31 @@ Since we want to add the "--nv" flag, we add it as an option. Keep in mind
 that since we have a list, you technically could provide duplicate commands.
 However, the list is parsed into a dictionary, so only unique values are 
 enforced. If you accidentally have a repeated value, a warning will be printed.
+
+Singularity Deploy
+------------------
+
+Using `Singularity Deploy <https://github.com/singularityhub/singularity-deploy>`_
+you can easily deploy a container as a GitHub release! See the repository for
+details. The registry entry should look like:
+
+.. code-block:: yaml
+
+    gh: singularityhub/singularity-deploy
+    latest:
+      salad: "0.0.1"
+    tags:
+      salad: "0.0.1"
+    maintainer: "@vsoch"
+    url: https://github.com/singularityhub/singularity-deploy
+    aliases:
+      salad: /code/salad
+
+Where ``gh`` corresponds to the GitHub repository, the tags are the
+extensions of your Singularity recipes in the root, and the "versions"
+(e.g., 0.0.1) are the release numbers. There are examples in the registry
+(as shown above) for details.
+
 
 Choosing Containers to Contribute
 ---------------------------------

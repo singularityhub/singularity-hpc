@@ -7,6 +7,9 @@ def main(args, parser, extra):
 
     from shpc.main import get_client
 
+    if args.install_recipe.startswith("gh://"):
+        args.container_tech = "singularity-deploy"
+
     cli = get_client(
         quiet=args.quiet,
         settings_file=args.settings_file,

@@ -1,0 +1,9 @@
+gh: singularityhub/singularity-deploy
+latest:
+  salad: "0.0.1"
+tags:
+  salad: "0.0.1"
+maintainer: "@vsoch"
+url: https://github.com/singularityhub/singularity-deploy
+aliases:
+  salad: /code/salad
