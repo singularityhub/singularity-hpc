@@ -10,7 +10,6 @@ def main(args, parser, extra):
     from shpc.main import get_client
 
     cli = get_client(quiet=args.quiet, settings_file=args.settings_file)
-    cli.announce(args.command)
 
     # For each new setting, update and save!
     for param in args.params:

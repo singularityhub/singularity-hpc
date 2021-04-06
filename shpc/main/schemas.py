@@ -5,18 +5,7 @@ __license__ = "MPL 2.0"
 
 ## ContainerConfig Schema
 
-
-# docker: python
-# latest: 3.9.2
-# tags:
-#  - 3.9.2
-#  - 3.9.2-alpine
-# filter:
-#  - "3.9.*"
-# maintainer: "@vsoch"
-# description: "My special container"
-# aliases:
-#  - python: python
+schema_url = "https://json-schema.org/draft-07/schema/#"
 
 # This is also for latest, and a list of tags
 
@@ -24,7 +13,7 @@ __license__ = "MPL 2.0"
 aliases = {
     "type": "object",
     "patternProperties": {
-        "\w[\w-]*": {"type": "string"},
+        "\\w[\\w-]*": {"type": "string"},
     },
 }
 
@@ -51,7 +40,7 @@ latest = {
     "minProperties": 1,
     "maxProperties": 1,
     "patternProperties": {
-        "\w[\w-]*": {"type": "string"},
+        "\\w[\\w-]*": {"type": "string"},
     },
 }
 
@@ -76,7 +65,7 @@ containerConfigProperties = {
 
 
 containerConfig = {
-    "$schema": "http://json-schema.org/schema#",
+    "$schema": schema_url,
     "title": "ContainerConfig Schema",
     "type": "object",
     "required": [
@@ -110,7 +99,7 @@ settingsProperties = {
 
 
 settings = {
-    "$schema": "http://json-schema.org/schema#",
+    "$schema": schema_url,
     "title": "Settings Schema",
     "type": "object",
     "required": [

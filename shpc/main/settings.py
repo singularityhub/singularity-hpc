@@ -4,18 +4,17 @@ __license__ = "MPL 2.0"
 
 
 from shpc.logger import logger
-import shpc.utils as utils
 import shpc.defaults as defaults
 import shpc.main.schemas as schemas
-from ruamel_yaml import YAML
+
+try:
+    from ruamel_yaml import YAML
+except:
+    from ruamel.yaml import YAML
 
 from datetime import datetime
 import jsonschema
 import os
-import requests
-import shutil
-import json
-import sys
 
 
 class Settings:

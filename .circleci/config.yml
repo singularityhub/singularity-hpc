@@ -1,0 +1,108 @@
+# Since we require Singularity for singularity-hpc testing, we need to run
+# the tests on CircleCI. GitHub actions does not support it.
+
+version: 2.1
+
+# Modified from hpcng/singularity
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - test_singularity_hpc:
+          filters:
+            branches:
+              ignore: master
+
+setup_environment: &setup_environment
+  name: Setup environment
+  command: |-
+      echo 'set -x' >> $BASH_ENV
+      echo 'export GOPATH=$HOME/go'           >> $BASH_ENV
+      echo 'export GOROOT=/usr/local/go' >> $BASH_ENV
+      echo 'export GOBIN=$HOME/go/bin'        >> $BASH_ENV
+      echo 'export PATH=$GOBIN:$GOROOT/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin' >> $BASH_ENV
+      env | sed -e 's,^,ENV: ,' | sort
+      test -e $BASH_ENV && sed -e 's,^,BASH_ENV: ,' < $BASH_ENV
+
+update_go: &update_go
+  name: Update Go to 1.14.9
+  working_directory: /tmp
+  command: |-
+      wget https://dl.google.com/go/go1.14.9.linux-amd64.tar.gz
+      sudo rm -rf $GOROOT
+      sudo tar -C /usr/local -xzf go1.14.9.linux-amd64.tar.gz
+      sudo ln -s $GOROOT/bin/go /usr/local/bin/go
+
+fetch_deb_deps: &fetch_deb_deps
+  name: Fetch deps
+  working_directory: /tmp
+  command: |-
+      # https://discuss.circleci.com/t/could-not-get-lock-var-lib-apt-lists-lock/28337/4
+      sudo killall -9 apt-get || true && \
+      sudo apt-get update -y && \
+      sudo apt-get install -y build-essential squashfs-tools libseccomp-dev cryptsetup
+
+build_singularity: &install_singularity
+  name: Build Singularity
+  working_directory: ~/go/singularity
+  command: |-
+      cd ~/go
+      wget https://github.com/hpcng/singularity/releases/download/v3.7.1/singularity-3.7.1.tar.gz && \
+      tar -xzvf singularity-3.7.1.tar.gz && \
+      cd singularity
+      ./mconfig -p /usr/local && \
+      make -C builddir && \
+      sudo make -C builddir install
+      
+install_dependencies: &install_dependencies
+  name: install dependencies
+  command: |-
+      CONDA_PATH=~/conda/Python3
+      export PATH=~/conda/Python3/bin:$PATH
+      if [ ! -d "$CONDA_PATH" ]; then
+          CONDA_SCRIPT=Miniconda3-latest-Linux-x86_64.sh
+          wget https://repo.anaconda.com/miniconda/$CONDA_SCRIPT
+          /bin/bash $CONDA_SCRIPT -b -p $CONDA_PATH
+      else
+          echo "Miniconda is already installed, continuing to build."
+      fi
+      python --version
+      [ $(python -c'import sys;print(sys.version_info.major)') -eq 3 ]
+
+      pip install --upgrade pytest
+      pip install black || true
+
+
+test_shpc: &test_shpc
+  name: Test Singularity Registry HPC
+  command: |- 
+      export PATH=~/conda/Python3/bin:$PATH
+      python --version
+      cd ~/repo
+      python setup.py install
+      ls ~/conda/Python3/bin/
+      which shpc
+      cd shpc/tests
+      pytest -sv test_*.py
+
+
+jobs:
+  test_singularity_hpc:
+    working_directory: ~/repo
+    machine:
+      image: ubuntu-2004:202008-01
+    steps:
+      - checkout
+      - restore_cache:
+          keys: v1-dependencies
+      - run: *install_dependencies
+      - run: *setup_environment
+      - run: *update_go
+      - run: *fetch_deb_deps
+      - run: *install_singularity
+      - save_cache:
+          paths:
+            - ~/conda
+          key: v1-dependencies
+      - run: *test_shpc

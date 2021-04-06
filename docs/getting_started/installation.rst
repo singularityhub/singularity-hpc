@@ -28,29 +28,22 @@ or
 
     $ git clone git@github.com:singularityhub/singularity-hpc
     $ cd singularity-hpc
-    $ python setup.py install
+    $ python setup.py develop
 
 
-You can then easily store your module files along with the install (the default until you
-change it).
-
-
-Install via pip
-===============
-
-However, you can also install shpc via Pypi (when it is available). If you 
-install it to a system python or conda environment you will need write access
-to the folder to update settings (this is done intentionally so only an admin
-or owner of the Python environment can change them) 
+if you install to a system python, meaning either of these commands:
 
 .. code:: console
 
-    $ pip install singularity-hpc[all]
+    $ python setup.py develop
+    $ pip install .
 
-
-And you will also need to change the default module path, unless you
-can write to the install directory and want to still store your modules there.
-Installation of singularity-hpc adds an executable, `shpc` to your path.
+You will need to put the registry files elsewhere (update the ``registry`` config argument to the path), as they will not be installed
+alongside the package. The same is the case for modules - if you install to system
+python it's recomended to define ``lmod_base`` as something else, unless you
+can write to your install location. Installing locally ensures that you
+can easily store your module files along with the install (the default until you
+change it). Installation of singularity-hpc adds an executable, `shpc` to your path.
 
 ```bash
 $ which shpc

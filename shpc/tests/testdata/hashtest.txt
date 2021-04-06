@@ -1,0 +1,2 @@
+This is a file that exists purely to test the functions to generate
+hashes. Please don't modify, thank you!
