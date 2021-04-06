@@ -83,9 +83,9 @@ test_shpc: &test_shpc
       python setup.py install
       ls ~/conda/Python3/bin/
       which shpc
-      cd ~/repo/shpc/tests
-      /bin/bash ./test_client.sh
+      cd shpc/tests
       pytest -sv test_*.py
+      /bin/bash test_client.sh
 
 
 jobs:
