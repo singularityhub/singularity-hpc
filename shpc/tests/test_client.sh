@@ -16,11 +16,12 @@ output=$(mktemp ${tmpdir:-/tmp}/rse_test.XXXXXX)
 printf "Created temporary directory to work in. ${tmpdir}\n"
 
 # Make sure it's installed
-if which shpc >/dev/null; then
-    printf "shpc is installed\n"
-else
+if ! command -v shpc &> /dev/null
+then
     printf "shpc is not installed\n"
     exit 1
+else
+    printf "shpc is installed\n"
 fi
 
 # Create a temporary config file, module folder, etc.
