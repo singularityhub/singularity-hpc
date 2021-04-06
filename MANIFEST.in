@@ -2,6 +2,7 @@ include README.md LICENSE
 recursive-include shpc *.png
 recursive-include shpc *.sh
 recursive-include shpc *
+recursive-include registry *
 recursive-include * *.png
 global-exclude .env
 global-exclude *.py[co]
