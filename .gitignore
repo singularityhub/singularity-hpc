@@ -1,6 +1,9 @@
 shpc.db
-singularity-hpc.egg-info/
+singularity_hpc.egg-info/
 .env
+build
+docs/_build
+release
 _site
 dist/
 OLD

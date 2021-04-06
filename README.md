@@ -1,6 +1,6 @@
 # Singularity Registry HPC (shpc)
 
-[![GitHub actions status](https://github.com/singularityhub/singularity-hpc/workflows/sregistry-ci/badge.svg?branch=master)](https://github.com/singularityhub/singularity-hpc/actions?query=branch%3Amain+workflow%3Asingularity-hpc)
+[![GitHub actions status](https://github.com/singularityhub/singularity-hpc/workflows/singularity-hpc/badge.svg?branch=main)](https://github.com/singularityhub/singularity-hpc/actions?query=branch%3Amain+workflow%3Asingularity-hpc)
 
 Singularity HPC is based off of the [Singularity Registry Client](https://github.com/singularityhub/sregistry-cli), but instead of
 being intended for general interaction with Singularity containers and a local database, it's optimized for managing containers
@@ -17,13 +17,7 @@ You can use shpc if you are:
 These use cases will be better flushed out and documented as the library is developed.
 
 📖️ Read the [documentation](https://singularity-hpc.readthedocs.io/en/latest/) 📖️
-
-## ✅️ Tests to write ✅️
-
- - Settings load, update, get, etc.
- - Ensure that all defaults are present in settings (except for updated at)
  
-
 ## 🎨️ Previous Art 🎨️
 
 There are other tools that you might be interested in!

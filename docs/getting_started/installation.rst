@@ -65,3 +65,13 @@ Once it's installed, you should be able to inspect the client!
 
 You'll want to configure and create your registry, discussed next in
  :ref:`getting-started`.
+ 
+ 
+Pypi
+====
+
+The module is avaiable in pypi as [singularity-hpc](https://pypi.org/project/singularity-hpc/), 
+and this is primairly to have a consistent means for release, and an interface to show the package. Since the registry
+files will not install and you would need to change the registry path
+and module base (making it hard to update from the git remote) we do not
+encourage you to install from pip unless you know exactly what you are doing.
