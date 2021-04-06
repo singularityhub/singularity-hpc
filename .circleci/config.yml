@@ -85,7 +85,6 @@ test_shpc: &test_shpc
       which shpc
       cd shpc/tests
       pytest -sv test_*.py
-      /bin/bash test_client.sh
 
 
 jobs:

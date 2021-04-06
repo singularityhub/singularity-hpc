@@ -56,7 +56,7 @@ runTest 0 $output shpc --settings-file $settings add "$container" vanessa/salad/
 echo
 echo "#### Testing install "
 runTest 0 $output shpc --settings-file $settings install --help
-runTest 0 $output shpc --settings-file $settings install python
+# runTest 0 $output shpc --settings-file $settings install python
 
 echo
 echo "#### Testing get "
@@ -71,13 +71,13 @@ runTest 0 $output shpc --settings-file $settings list
 echo
 echo "#### Testing inspect "
 runTest 0 $output shpc --settings-file $settings inspect --help
-runTest 0 $output shpc --settings-file $settings inspect python/3.9.2-slim
-runTest 0 $output shpc --settings-file $settings inspect vanessa/salad/latest
+# runTest 0 $output shpc --settings-file $settings inspect python/3.9.2-slim
+# runTest 0 $output shpc --settings-file $settings inspect vanessa/salad/latest
 
 echo
 echo "#### Testing check "
 runTest 0 $output shpc --settings-file $settings check --help
-runTest 0 $output shpc --settings-file $settings check python/3.9.2-slim
+# runTest 0 $output shpc --settings-file $settings check python/3.9.2-slim
 
 echo
 echo "#### Testing uninstall "
