@@ -34,7 +34,7 @@ There are other tools that you might be interested in!
  
 ## TODOS
  
- - add other registry entries per request
+ - add test for a new registry entry, and then add others
  - ensure that we print columns to shpc list
  - test singularity build in actions, save to registry
  - develop pull command for shpc for this type, along with GitHub action

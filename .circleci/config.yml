@@ -83,7 +83,7 @@ test_shpc: &test_shpc
       ~/conda/Python3/bin/pip uninstall shpc --yes || echo "Not installed"
       python --version
       ~/conda/Python3/bin/pip install .
-      ls ~/.conda/Python3/bin/
+      ls ~/conda/Python3/bin/
       /bin/bash ~/repo/shpc/tests/test_client.sh
       pytest -sv ~/repo/shpc/tests/test_*.py
 
