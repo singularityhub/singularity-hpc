@@ -96,11 +96,15 @@ class Client(BaseClient):
                 % (name, "\n".join(config.tags.keys()))
             )
 
+        # We currently support gh or docker
+        uri = getattr(config, "docker") or getattr(config, "gh")
+        pull_type = "docker" if getattr(config, "docker") else "gh"
+
         # This is a tag object with name and digest
         tag = config.tag
 
         # Pull the container to the module directory
-        module_dir = os.path.join(self.settings.lmod_base, config.docker, tag.name)
+        module_dir = os.path.join(self.settings.lmod_base, uri, tag.name)
 
         if not os.path.exists(module_dir):
             os.makedirs(module_dir)
@@ -111,11 +115,16 @@ class Client(BaseClient):
         )
 
         # We pull by the digest
-        container_uri = "docker://%s@%s" % (config.docker, tag.digest)
+        if pull_type == "docker":
+            container_uri = "docker://%s@%s" % (config.docker, tag.digest)
+            pull = self._container.pull
+        elif pull_type == "gh":
+            container_uri = "gh://%s/%s:%s" % (config.gh, tag.digest, tag.name)
+            pull = self._container.pull_gh
 
         # Pull new containers (this doesn't clean up old ones, which we might want to do)
         if not os.path.exists(container_path):
-            self._container.pull(container_uri, container_path)
+            pull(container_uri, container_path)
 
         # Exit early if there is an issue
         if not os.path.exists(container_path):

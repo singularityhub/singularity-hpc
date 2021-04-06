@@ -108,6 +108,13 @@ def get_parser():
         type=str,
     )
 
+    # Pull a nontraditional container type (e.g., github release asset)
+    pull = subparsers.add_parser(
+        "pull", help="pull a container built with singularityhub/singularity-deploy"
+    )
+    pull.add_argument("uri", help="the unique resource identifier to pull")
+    pull.add_argument("--path", help="A custom path to pull to (defaults to $PWD)")
+
     # Uninstall a module, or a specific version
     uninstall = subparsers.add_parser("uninstall", help="uninstall a module")
     uninstall.add_argument(
@@ -204,6 +211,8 @@ def run_shpc():
         from .shell import main
     elif args.command == "show":
         from .show import main
+    elif args.command == "pull":
+        from .pull import main
     elif args.command == "uninstall":
         from .uninstall import main
 

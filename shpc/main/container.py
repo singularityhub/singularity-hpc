@@ -45,6 +45,33 @@ class SingularityContainer:
         """
         return self.client.inspect(image)
 
+    def pull_gh(self, uri, dest):
+        """
+        Pull a singularity-deploy container to a destination
+        """
+        # Assemble the url based on the container uri
+        uri = uri.replace("gh://", "", 1)
+
+        # repository name and image prefix
+        repo = "/".join(uri.split("/")[0:2])
+        prefix = repo.replace("/", "-")
+
+        # The tag includes release and contianer tag (e.g., 0.0.1:latest)
+        tag = uri.replace(repo, "", 1).strip("/")
+        github_tag, container_tag = tag.split(":", 1)
+
+        # Assemble the artifact url
+        url = "https://github.com/%s/releases/download/%s/%s.%s.sif" % (
+            repo,
+            github_tag,
+            prefix,
+            container_tag,
+        )
+
+        # If no destination, default to present working directory
+        name = os.path.basename(dest)
+        return self.client.pull(url, name=name, pull_folder=os.path.dirname(dest))
+
 
 class Tags:
     """Make it easy to interact with tags (name and version)"""
@@ -115,7 +142,10 @@ class ContainerConfig:
         """
         Flatten the docker uri into a filesystem appropriate name
         """
-        return self.docker.replace("/", "-")
+        if self.docker:
+            return self.docker.replace("/", "-")
+        elif self.gh:
+            return self.gh.replace("/", "-")
 
     @property
     def latest(self):
@@ -147,9 +177,9 @@ class ContainerConfig:
         Given a loaded container recipe, get the registry url.
         """
         # Not in json schema, but currently required
-        if "docker" not in self._config:
-            logger.exit("A docker field is currently required in the config.")
-        return self._config.get("docker")
+        if "docker" not in self._config and "gh" not in self._config:
+            logger.exit("A docker or gh field is currently required in the config.")
+        return self._config.get("docker") or self._config.get("gh")
 
     def get(self, key, default=None):
         return self._config.get(key, default)
