@@ -8,7 +8,7 @@ import shpc.main.container as container
 def main(args, parser, extra):
 
     if args.uri.startswith("gh://"):
-        client = container.SingularityDeployContainer()
-        client.pull(args.uri, args.path)
+        client = container.SingularityContainer()
+        client.pull_gh(args.uri, args.path)
     else:
         logger.info("unique resource identifier %s is not recognized." % args.uri)

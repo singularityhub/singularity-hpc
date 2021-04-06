@@ -45,7 +45,7 @@ class SingularityContainer:
         """
         return self.client.inspect(image)
 
-    def pull_gh(self, uri, dest):
+    def pull_gh(self, uri, dest=None):
         """
         Pull a singularity-deploy container to a destination
         """
@@ -69,6 +69,8 @@ class SingularityContainer:
         )
 
         # If no destination, default to present working directory
+        if not dest:
+            dest = os.path.basename(url)
         name = os.path.basename(dest)
         return self.client.pull(url, name=name, pull_folder=os.path.dirname(dest))
 
