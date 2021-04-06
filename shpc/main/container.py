@@ -5,7 +5,11 @@ __license__ = "MPL 2.0"
 
 from shpc.logger import logger
 import shpc.main.schemas as schemas
-import ruamel_yaml
+
+try:
+    from ruamel_yaml import YAML
+except"
+    from ruamel.yaml import YAML
 
 import os
 import jsonschema
@@ -135,7 +139,7 @@ class ContainerConfig:
 
     def dump(self, out=None):
         out = out or sys.stdout
-        yaml = ruamel_yaml.YAML()
+        yaml = YAML()
         yaml.dump(self._config, out)
 
     def get_url(self):
@@ -188,7 +192,7 @@ class ContainerConfig:
             logger.exit("%s does not exist." % package_file)
 
         # Default to round trip so we can save comments
-        yaml = ruamel_yaml.YAML()
+        yaml = YAML()
 
         # Store the original settings for update as we go
         with open(package_file, "r") as fd:
