@@ -8,7 +8,7 @@ import shpc.main.schemas as schemas
 
 try:
     from ruamel_yaml import YAML
-except"
+except:
     from ruamel.yaml import YAML
 
 import os
