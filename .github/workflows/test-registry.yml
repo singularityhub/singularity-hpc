@@ -41,11 +41,9 @@ jobs:
           source activate shpc
           . /usr/share/lmod/lmod/init/sh
           # Test each module file that is changed (there should be just one commit)
-          ls .git || echo "No git repository"
-          git fetch
-          commits=$(git rev-list --count origin/main)
+          # commits=$(git rev-list --count origin/main)
           cd registry
-          for container_yaml in $(git diff --name-only HEAD~$commits..HEAD .); do
+          for container_yaml in $(git diff --name-only HEAD~30..HEAD .); do
               module=$(dirname $container_yaml)
               module=$(echo "${module/registry\//}")
               echo "Testing $module"
