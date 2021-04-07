@@ -9,7 +9,6 @@ import shpc.utils as utils
 from .settings import Settings
 
 import os
-from glob import glob
 import shutil
 import subprocess
 import sys

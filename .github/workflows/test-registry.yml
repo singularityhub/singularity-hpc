@@ -15,7 +15,7 @@ jobs:
         run: |
             yum install -y epel-release && \
             yum update -y && \
-            yum install -y lmod
+            yum install -y Lmod
 
       - name: Setup black linter
         run: conda create --quiet --name shpc -c conda-forge spython
