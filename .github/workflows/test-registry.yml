@@ -16,7 +16,7 @@ jobs:
             yum install -y epel-release && \
             yum update -y && \
             yum install -y lua lua-filesystem lua-posix wget gcc
-            yum install -y Lmod singularity
+            yum install -y Lmod singularity git
 
       - name: Install conda
         run: |
