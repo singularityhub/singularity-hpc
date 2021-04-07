@@ -7,13 +7,13 @@ on:
 jobs:
   test-registry:
     runs-on: ubuntu-latest
+    container: centos:8
     steps:
       - uses: actions/checkout@v1
-
-      - name: install dependencies Linux
+      - name: install Lmod
         run: |
-            sudo apt-get install -y lmod
-            which module
+          dnf -y install  Lmod
+          which module
 
       - name: Setup black linter
         run: conda create --quiet --name shpc -c conda-forge spython
