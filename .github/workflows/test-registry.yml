@@ -11,6 +11,18 @@ jobs:
     container: centos:8
     steps:
       - uses: actions/checkout@v1
+      - name: set up lua
+        uses: leafo/gh-actions-lua@v8.0.0
+        with:
+          luaVersion: 5.4
+      - name: install luarocks
+        uses: leafo/gh-actions-luarocks@v4.0.0
+      - name: install lua dependencies
+        run: |
+          luarocks install luaposix
+          luarocks install luafileSystem
+          luarocks install luajson
+          luarocks install lua-term
       - name: install Lmod
         run: |
             yum install -y epel-release && \
