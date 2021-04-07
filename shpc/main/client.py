@@ -11,10 +11,9 @@ from .settings import Settings
 import os
 from glob import glob
 import sys
-import re
 
 
-class Client(object):
+class Client:
     """
     Interact with a local filesystem Singularity HPC registry.
 
