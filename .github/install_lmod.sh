@@ -6,6 +6,7 @@ MODULEFILES_PATH=/opt/uw/modulefiles
 
 apt update
 apt install -y git wget sed tclsh tcl-dev libreadline-dev
+ldconfig
 
 #** ensure packages
 test -f lua-5.4.0.tar.gz || wget http://www.lua.org/ftp/lua-5.4.0.tar.gz
