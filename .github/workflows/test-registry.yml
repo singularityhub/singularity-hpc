@@ -1,6 +1,7 @@
 name: singularity-hpc-test-registry
 
 on:
+  # TODO: update this to be binoc updates
   pull_request:
     branches_ignore: []
 
@@ -12,21 +13,36 @@ jobs:
       - uses: actions/checkout@v1
       - name: install Lmod
         run: |
-          dnf -y install lmod
-          which module
+            yum install -y epel-release && \
+            yum update -y && \
+            yum install -y lmod
 
       - name: Setup black linter
         run: conda create --quiet --name shpc -c conda-forge spython
+
+      - name: Install Singularity
+        uses: eWaterCycle/setup-singularity@v6
+        with:
+          singularity-version: 3.7.3
 
       - name: Install shpc
         run: |
           export PATH="/usr/share/miniconda/bin:$PATH"
           source activate shpc
           pip install -e .
+
+      - name: Run module tests
+        run: |
+          export PATH="/usr/share/miniconda/bin:$PATH"
+          source activate shpc
+          pip install -e .
+
+          # Test each module file that is changed (there should be just one commit)
           cd registry
-
-          for module in $(shpc show --versions| sort); do
-              shpc check $module
-              echo $?
+          for container_yaml in $(git diff --name-only HEAD .); do
+              module=$(dirname $container_yaml)
+              module=$(echo "${module/registry\//}")
+              echo "Testing $module"
+              shpc test $module
+              # TODO test adding tests when this works
           done
-

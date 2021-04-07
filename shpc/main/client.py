@@ -10,6 +10,8 @@ from .settings import Settings
 
 import os
 from glob import glob
+import shutil
+import subprocess
 import sys
 
 
@@ -94,6 +96,18 @@ class Client:
         """
         raise NotImplementedError
 
+    def inspect(self, module_name):
+        """
+        Return complete metadata for the user from a container.
+        """
+        raise NotImplementedError
+
+    def get(self, module_name):
+        """
+        Get the path to a container for a module
+        """
+        raise NotImplementedError
+
     def _load_container(self, name, tag=None):
         """
         Given a name and an optional tag to default to, load a package
@@ -111,6 +125,70 @@ class Client:
         config.set_tag(tag)
         return config
 
+    def test(
+        self,
+        module_name,
+        stage=False,
+        test_exec=False,
+        skip_module=False,
+        test_commands=False,
+    ):
+        """
+        Test install of a module
+        """
+
+        def cleanup(tmpdir):
+            if not stage:
+                shutil.rmtree(tmpdir)
+
+        # Create temporary directory to work in
+        tmpdir = utils.get_tmpdir(prefix="shpc-test")
+        if hasattr(self, "_test_setup"):
+            self._test_setup(tmpdir)
+
+        # Derive the registry entry from the module_name
+        config = self._load_container(module_name)
+
+        # Generate a test template
+        test_file = os.path.join(tmpdir, "test.sh")
+
+        # Test all tags (this could be subsetted)
+        for tag in config.tags.keys():
+
+            # Install the recipe
+            sif = self.install(module_name, tag)
+
+            # Assert that the container exists
+            assert os.path.exists(sif)
+
+            # Do we want to test loading?
+            if not skip_module and hasattr(self, "_test"):
+                result = self._test(module_name, tmpdir, tag)
+                if result != 0:
+                    cleanup(tmpdir)
+                    logger.exit("Test of %s was not successful." % module_name)
+
+            # Do we want to test the test commands?
+            if test_commands and config.test:
+                utils.write_file(test_file, config.test)
+                command = ["singularity", "exec", sif, "/bin/bash", test_file]
+                result = subprocess.call(command)
+                if result != 0:
+                    cleanup(tmpdir)
+                    logger.exit("Test of %s was not successful." % module_name)
+
+            # Test the commands
+            if not test_exec:
+                continue
+            for alias in config.get_aliases():
+                result = self._container.client.execute(sif, alias["command"])
+
+        # Cleanup the test install
+        if stage:
+            logger.info(tmpdir)
+        else:
+            cleanup(tmpdir)
+
     def check(self, module_name):
         """
         Given a module name, check if the latest is installed.
@@ -119,82 +197,13 @@ class Client:
         at updates for entire tags. If a specific folder is provided with
         a container, check the digest.
         """
-        # If a tag is provided, convert to directory
-        module_name = module_name.replace(":", os.sep)
-
-        # We derive the current version installed from the container
-        # We assume the user has provided the correct prefix
-        module_dir = os.path.join(self.settings.lmod_base, module_name)
-        if not os.path.exists(module_dir):
-            logger.exit(
-                "%s does not exist. Is this a known registry entry?" % module_dir
-            )
-
-        # Case 1: a specific tag is selected
-        sif = self.get(module_name)
-        if sif:
-            return self._check_digest(module_name, sif)
-
-        return self._check_tags(module_name)
-
-    def _check_tags(self, module_name):
-        """
-        Check if the installed tag is the latest.
-        """
-        # Derive the registry entry from the module_name
-        config = self._load_container(module_name)
-        dirname = os.path.join(self.settings.lmod_base, module_name)
-
-        # Does the user have the modules installed?
-        if not os.path.exists(dirname):
-            logger.exit("%s is not installed." % module_name)
-
-        # Compare the latest name to the version folders
-        versions = os.listdir(dirname)
-        if config.latest.name not in versions:
-            logger.exit(
-                "The latest tag is %s, but you have: %s."
-                % (config.latest.name, ", ".join(versions))
-            )
-        else:
-            logger.info("⭐️ latest tag %s is up to date. ⭐️" % config.latest.name)
-
-    def _check_digest(self, module_name, sif):
-        """
-        Check if there is an updated digest for a tag.
-
-        At this point we assume only one container per install, as older containers
-        are cleaned up to save filesystem space. If this is changed, we would
-        need another way to deduce what version of the container is installed.
-        """
-        sif = os.path.basename(sif)
-
-        # The prefix of the image is the module_name (which includes version here)
-        prefix = module_name.replace(os.sep, "-") + "-"
-        digest = sif.replace(prefix, "").replace(".sif", "")
-
-        # Get the latest version digest, remove the tag first
-        docker = os.sep.join(module_name.split(os.sep)[:-1])
-        tag = module_name.split(os.sep)[-1]
-        config = self._load_container(docker)
-
-        # Get the tag
-        tag = config.tags.get(tag)
-        if not tag:
-            logger.exit("Tag %s is not present in the registry entry." % tag)
-
-        if tag.digest == digest:
-            logger.info("⭐️ tag %s is up to date. ⭐️" % tag.name)
-        else:
-            logger.exit("👉️ tag %s requires an update! 👈️" % tag.name)
+        raise NotImplementedError
 
     def list(self, pattern=None, names_only=False, out=None):
         """
         List installed modules.
         """
-        self._list_modules(
-            self.settings.lmod_base, "module.lua", pattern, names_only, out
-        )
+        raise NotImplementedError
 
     def show(self, name, names_only=False, out=None):
         """
@@ -220,57 +229,3 @@ class Client:
                         config = self._load_container(module_name)
                         for version in config.tags.keys():
                             out.write("%s:%s\n" % (module_name, version))
-
-    def get(self, module_name):
-        """
-        Get the path to a container for a module
-        """
-        module_dir = os.path.join(self.settings.lmod_base, module_name)
-
-        # A container must be present
-        sif = glob("%s%s*.sif" % (module_dir, os.sep))
-        if not sif:
-            logger.exit(
-                "%s is not a module tag folder, or does not have a sif binary."
-                % module_name
-            )
-
-        # Currently we only allow one container per module folder
-        if len(sif) > 1:
-            logger.exit("Found more than one sif in module folder.")
-        return sif[0]
-
-    def inspect(self, module_name):
-        """
-        Return complete metadata for the user from a container.
-        """
-        module_dir = os.path.join(self.settings.lmod_base, module_name)
-        if not os.path.exists(module_dir):
-            logger.exit("%s does not exist." % module_dir)
-
-        sif = self.get(module_name)
-        return self._container.inspect(sif[0])
-
-    def _list_modules(self, base, filename, pattern=None, names_only=False, out=None):
-        """A shared function to list modules or registry entries."""
-        out = out or sys.stdout
-        modules = self._get_module_lookup(base, filename, pattern)
-
-        # The user can request to list only names, which is useful to find modules
-        for module_name, versions in modules.items():
-            if names_only:
-                out.write("%s\n" % module_name)
-            else:
-                out.write("%s: %s\n" % (module_name, ", ".join(versions)))
-
-    def _get_module_lookup(self, base, filename, pattern=None):
-        """A shared function to get a lookup of installed modules or registry entries"""
-        modules = {}
-        for fullpath in utils.recursive_find(base, pattern):
-            if fullpath.endswith(filename):
-                module_name, version = os.path.dirname(fullpath).rsplit(os.sep, 1)
-                module_name = module_name.replace(base, "").strip(os.sep)
-                if module_name not in modules:
-                    modules[module_name] = set()
-                modules[module_name].add(version)
-        return modules

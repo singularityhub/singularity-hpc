@@ -31,8 +31,17 @@ ENV LANG C.UTF-8
 RUN wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh && \
     bash Miniconda3-latest-Linux-x86_64.sh -b -p /opt/conda && \
     rm Miniconda3-latest-Linux-x86_64.sh
-    
+
+# install singularity
+RUN yum update -y && \
+    yum install -y epel-release && \
+    yum update -y && \
+    yum install -y singularity
+
+RUN pip install ipython
 WORKDIR /code
-ADD . /code
-RUN pip install .[all]
-ENTRYPOINT ["/opt/conda/bin/shpc"]
+COPY . /code
+RUN pip install -e .[all]
+
+# If we don't run shpc through bash entrypoint, module commands not found
+ENTRYPOINT ["/code/entrypoint.sh"]

@@ -41,7 +41,7 @@ fetch_deb_deps: &fetch_deb_deps
       # https://discuss.circleci.com/t/could-not-get-lock-var-lib-apt-lists-lock/28337/4
       sudo killall -9 apt-get || true && \
       sudo apt-get update -y && \
-      sudo apt-get install -y build-essential squashfs-tools libseccomp-dev cryptsetup lmod
+      sudo apt-get install -y build-essential squashfs-tools libseccomp-dev cryptsetup
 
 build_singularity: &install_singularity
   name: Build Singularity

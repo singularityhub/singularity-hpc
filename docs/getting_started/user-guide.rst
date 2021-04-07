@@ -432,6 +432,61 @@ Or to get the entire metadata entry dumped as json to the terminal:
 
     $ shpc inspect --json python/3.9.2-slim
 
+Test
+----
+
+Singularity HPC makes it easy to test the full flow of installing and interacting
+with modules. This functionality requires lmod to be installed. 
+
+.. code-block:: console
+
+    shpc test python
+
+
+If you don't have it, you can run tests in the provided docker container. 
+
+.. code-block:: console
+
+    docker build -t singularity-hpc .
+    docker run --rm -it singularity-hpc shpc test python
+
+
+If you want to stage a module install (e.g., install to a temporary directory and not remove it) do:
+
+
+.. code-block:: console
+
+    shpc test --stage python
+
+
+To do this with Docker you would do:
+
+.. code-block:: console
+
+    $ docker run --rm -it singularity-hpc bash
+    [root@1dfd9fe90443 code]# shpc test --stage python
+    ...
+    /tmp/shpc-test.fr1ehcrg
+
+
+And then the last line printed is the directory where the stage exists,
+which is normally cleaned up. You can also choose to skip testing the module
+(e.g., typically lmod):
+
+
+.. code-block:: console
+
+    shpc test --skip-module python
+
+
+Along with testing the container itself (the commands are defined in the ``tests``
+section of a ``container.yaml``.
+
+
+.. code-block:: console
+
+    shpc test --skip-module --commands python
+
 
 Uninstall
 ---------
@@ -846,7 +901,7 @@ code as follows:
 
 .. code-block:: console
 
-    $ docker run -it --rm -v $PWD/:/code --entrypoint bash singularity-hpc
+    $ docker run -it --rm -v $PWD/:/code singularity-hpc
 
 Once you are in the container, you can direct LMOD to use your module files:
 

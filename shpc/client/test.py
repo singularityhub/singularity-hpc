@@ -13,4 +13,11 @@ def main(args, parser, extra):
         module=args.module,
         container_tech=args.container_tech,
     )
-    cli.check(args.module_name)
+
+    cli.test(
+        args.module_name,
+        test_exec=args.test_exec,
+        stage=args.stage,
+        skip_module=args.skip_module,
+        test_commands=args.commands,
+    )
