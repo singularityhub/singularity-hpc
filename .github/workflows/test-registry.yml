@@ -1,0 +1,34 @@
+name: singularity-hpc-test-registry
+
+on:
+  pull_request:
+    branches_ignore: []
+
+jobs:
+  test-registry:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Setup black linter
+        run: conda create --quiet --name shpc spython
+
+      - name: Install lmod
+        run: |
+          /bin/bash .github/install_lmod.sh
+          INSTALL_PATH=/opt/lmod/stable
+          export PATH=$INSTALL_PATH/lua/bin:$PATH
+          which module
+
+      - name: Install shpc
+        run: |
+          export PATH="/usr/share/miniconda/bin:$PATH"
+          source activate shpc
+          pip install -e .
+          cd registry
+          
+          for module in $(shpc show --versions| sort); do
+              shpc check $module
+              echo $?
+          done
+

@@ -58,6 +58,21 @@ def get_tmpdir(tmpdir=None, prefix="", create=True):
     return tmpdir
 
 
+def recursive_find(base, pattern=None):
+    """
+    Find filenames that match a particular pattern, and yield them.
+    """
+    # We can identify modules by finding module.lua
+    for root, folders, files in os.walk(base):
+        for file in files:
+            fullpath = os.path.abspath(os.path.join(root, file))
+
+            if pattern and not re.search(pattern, fullpath):
+                continue
+
+            yield fullpath
+
+
 def get_file_hash(image_path, algorithm="sha256"):
     """
     Return an sha256 hash of the file based on a criteria level.

@@ -11,6 +11,7 @@ try:
 except:
     from ruamel.yaml import YAML
 
+import re
 import os
 import jsonschema
 import sys
@@ -35,6 +36,15 @@ class SingularityContainer:
         """
         Pull a container to a destination
         """
+        if re.search("^(docker|shub|https)", uri):
+            return self._pull(uri, dest)
+        elif uri.startswith("gh://"):
+            return self._pull_github(uri, dest)
+
+    def _pull(self, uri, dest):
+        """
+        Pull a URI that Singularity recognizes
+        """
         pull_folder = os.path.dirname(dest)
         name = os.path.basename(dest)
         return self.client.pull(uri, name=name, pull_folder=pull_folder)
@@ -45,7 +55,7 @@ class SingularityContainer:
         """
         return self.client.inspect(image)
 
-    def pull_gh(self, uri, dest=None):
+    def _pull_github(self, uri, dest=None):
         """
         Pull a singularity-deploy container to a destination
         """

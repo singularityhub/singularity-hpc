@@ -275,5 +275,44 @@ to the repository!
 Pull Singularity Images
 =======================
 
-shpc will also provide a means to build a singularity container via CI, keep
-it in GitHub packages, and then pull. This feature is not yet developed. 
+Singularity Registry HPC tries to support researchers that cannot afford to
+pay for a special Singularity registry, and perhaps don't want to pull
+from a Docker URI. For this purpose, you can use the `Singularity Deploy <https://github.com/singularityhub/singularity-deploy>`_
+template to create containers as releases associated with the same GitHub
+repository, and then pull them down directly with the shpc client with
+the ``gh://`` unique resource identifier as follows:
+
+.. code-block:: console
+
+    $ shpc pull gh://singularityhub/singularity-deploy/0.0.1:latest
+    $ shpc pull gh://singularityhub/singularity-deploy/0.0.1:salad
+    $ shpc pull gh://singularityhub/singularity-deploy/0.0.1:pokemon
+
+
+In the example above, our repository is called ``singularityhub/singularity-deploy``,
+and in the root we have three recipes:
+
+ - Singularity (builds to latest)
+ - Singularity.salad
+ - Singularity.pokemon
+
+And in the ``VERSION` file in the root, we have ``0.0.1`` which corresponds with
+the GitHub release. This will pull to a container.  For example:
+
+.. code-block:: console
+
+    $ shpc pull gh://singularityhub/singularity-deploy/0.0.1:latest
+    singularity pull --name /home/vanessa/Desktop/Code/singularity-hpc/singularityhub-singularity-deploy.latest.sif https://github.com/singularityhub/singularity-deploy/releases/download/0.0.1/singularityhub-singularity-deploy.latest.sif
+    /home/vanessa/Desktop/Code/singularity-hpc/singularityhub-singularity-deploy.latest.sif
+
+And then you are ready to go!
+
+.. code-block:: console
+
+    $ singularity shell singularityhub-singularity-deploy.latest.sif 
+    Singularity> 
+
+
+See the `Singularity Deploy <https://github.com/singularityhub/singularity-deploy>`_ repository
+for complete details for how to set up your container! Note that this uri (``gh://``)
+can also be used in a registry entry.

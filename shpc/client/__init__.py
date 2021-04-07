@@ -76,6 +76,9 @@ def get_parser():
     # List installed modules
     listing = subparsers.add_parser("list", help="list installed modules.")
     listing.add_argument("pattern", help="filter to a pattern", nargs="?")
+    listing.add_argument(
+        "--names-only", help="omit versions", default=False, action="store_true"
+    )
 
     # List local containers and collections
     inspect = subparsers.add_parser(
@@ -147,6 +150,9 @@ def get_parser():
         )
 
     show = subparsers.add_parser("show", help="show the config for a registry entry.")
+    show.add_argument(
+        "--versions", help="include versions", default=False, action="store_true"
+    )
     show.add_argument(
         "name", help="the name of the container config to show", nargs="?"
     )
