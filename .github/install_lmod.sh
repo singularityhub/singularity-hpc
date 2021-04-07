@@ -45,5 +45,3 @@ mkdir -p "$MODULEFILES_PATH/init"
 cat > $INSTALL_PATH/init/.modulespath <<EOF
 $MODULEFILES_PATH
 EOF
-ln -s $INSTALL_PATH/init/profile /etc/profile.d/lmod.sh
-ln -s $INSTALL_PATH/init/cshrc   /etc/profile.d/lmod.csh
