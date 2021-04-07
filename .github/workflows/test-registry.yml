@@ -8,14 +8,14 @@ on:
 jobs:
   test-registry:
     runs-on: ubuntu-latest
-    container: centos:8
+    container: centos:7
     steps:
       - uses: actions/checkout@v1
       - name: install Lmod
         run: |
             yum install -y epel-release && \
             yum update -y && \
-            yum install -y lua lua-filesystem
+            yum install -y lua lua-filesystem lua-posix
             yum install -y Lmod 
             
 
