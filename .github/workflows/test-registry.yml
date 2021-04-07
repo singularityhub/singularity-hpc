@@ -1,7 +1,7 @@
 name: singularity-hpc-test-registry
 
 on:
-  # TODO: update this to be binoc updates
+  # TODO: update this to be labels and binoc updates
   pull_request:
     branches_ignore: []
 
@@ -39,7 +39,8 @@ jobs:
 
           # Test each module file that is changed (there should be just one commit)
           cd registry
-          for container_yaml in $(git diff --name-only HEAD .); do
+          commits=$(git rev-list --count main)
+          for container_yaml in $(git diff --name-only HEAD~$commits..HEAD .); do
               module=$(dirname $container_yaml)
               module=$(echo "${module/registry\//}")
               echo "Testing $module"
