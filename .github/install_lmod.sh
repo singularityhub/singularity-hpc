@@ -6,7 +6,6 @@ MODULEFILES_PATH=/opt/uw/modulefiles
 
 apt update
 apt install -y git wget sed tclsh tcl-dev libreadline-dev
-ldconfig
 
 #** ensure packages
 test -f lua-5.4.0.tar.gz || wget http://www.lua.org/ftp/lua-5.4.0.tar.gz
@@ -37,8 +36,9 @@ git clone https://github.com/TACC/Lmod.git
 cd ~/Lmod
 git checkout $VER
 export PATH=$INSTALL_PATH/lua/bin:$PATH
+export LD_LIBRARY_PATH=/usr/include/tcl/
 
-./configure --prefix=$INSTALL_PATH --with-siteControlPrefix=yes --with-useBuiltinPkgs=yes
+./configure --prefix=$INSTALL_PATH --with-siteControlPrefix=yes --with-useBuiltinPkgs=yes --with-fastTCLInterp=no
 make install
 
 mkdir -p "$MODULEFILES_PATH"
