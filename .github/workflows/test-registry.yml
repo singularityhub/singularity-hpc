@@ -10,13 +10,14 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
+      - name: install dependencies Linux
+        run: |
+            sudo apt-get update && sudo apt-get install -y Lmod
+            which module
+
       - name: Setup black linter
         run: conda create --quiet --name shpc -c conda-forge spython
 
-      - name: install dependencies Linux
-        run: |
-            sudo apt install -y Lmod
-            which module
       - name: Install shpc
         run: |
           export PATH="/usr/share/miniconda/bin:$PATH"
