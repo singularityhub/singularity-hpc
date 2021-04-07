@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v1
       - name: install Lmod
         run: |
-          dnf -y install  Lmod
+          dnf -y install lmod
           which module
 
       - name: Setup black linter
