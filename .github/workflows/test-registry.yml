@@ -15,7 +15,7 @@ jobs:
         run: |
             yum install -y epel-release && \
             yum update -y && \
-            yum install -y lua lua-filesystem lua-posix wget
+            yum install -y lua lua-filesystem lua-posix wget gcc
             yum install -y Lmod 
 
       - name: Install conda
