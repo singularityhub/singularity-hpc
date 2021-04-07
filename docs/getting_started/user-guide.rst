@@ -313,8 +313,20 @@ first. To show all entries, you can run:
 .. code-block:: console
 
     $ shpc show
-    [shpc-client] [database|sqlite:////home/vanessa/Desktop/Code/singularity-hpc/shpc.db]
+    tensorflow/tensorflow
     python
+    singularityhub/singularity-deploy
+
+The default will not show versions available. To flatten out this list and include
+versions for each, you can do:
+
+.. code-block:: console
+
+    $ shpc show
+    tensorflow/tensorflow:2.2.2
+    python:3.9.2-slim
+    python:3.9.2-alpine
+    singularityhub/singularity-deploy:salad
 
 
 To get details about a package, you would then add it's name to show:
@@ -322,23 +334,17 @@ To get details about a package, you would then add it's name to show:
 .. code-block:: console
 
     $ shpc show python
-    [shpc-client] [database|sqlite:////home/vanessa/Desktop/Code/singularity-hpc/shpc.db]
 
 
 And then you can install a version that you like (or don't specify to default to
-the latest, which in this case is 3.9.2-slim).
+the latest, which in this case is 3.9.2-slim). You will see the container pulled, 
+and then a message to indicate that the module was created. 
 
 
 .. code-block:: console
     
     $ shpc install python
-
-You will see the container pulled, and then a message to indicate that the module
-was created. 
-
-.. code-block:: console
-
-    [shpc-client] [database|sqlite:////home/vanessa/Desktop/Code/singularity-hpc/shpc.db]
+    ...
     Module python/3.9.2 is created.
 
 
@@ -360,7 +366,6 @@ You can also install a specific tag (as shown in list).
 
     $ shpc install python:3.9.2-alpine
     
-
 Note that since we only have one module system (lmod) and one
 HPC container technology (Singularity) these are the defaults. However, they
 are parser options and can be customized to use something else if this is
@@ -472,7 +477,7 @@ and in the root we have three recipes:
  - Singularity.salad
  - Singularity.pokemon
 
-And in the `VERSION` file in the root, we have `0.0.1` which corresponds with
+And in the ``VERSION`` file in the root, we have ``0.0.1`` which corresponds with
 the GitHub release. This will pull to a container.  For example:
 
 .. code-block:: console
@@ -490,7 +495,7 @@ And then you are ready to go!
 
 
 See the `Singularity Deploy <https://github.com/singularityhub/singularity-deploy>`_ repository
-for complete details for how to set up your container! Note that this uri (gh://)
+for complete details for how to set up your container! Note that this uri (``gh://``)
 can also be used in a registry entry.
 
 
@@ -577,6 +582,13 @@ is subject to change!)
 
     $ shpc check tensorflow/tensorflow/2.2.2
     ⭐️ tag 2.2.2 is up to date. ⭐️
+
+As a trick, you can loop through registry entries with ``shpc show``. The return
+value will be 0 is there are no updates, and 1 otherwise. This is a trick
+we use to check for new recipes to test.
+
+.. code-block:: console
+
 
 
 Add

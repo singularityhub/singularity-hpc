@@ -7,8 +7,9 @@ import shpc.main.container as container
 
 def main(args, parser, extra):
 
-    if args.uri.startswith("gh://"):
-        client = container.SingularityContainer()
-        client.pull_gh(args.uri, args.path)
-    else:
-        logger.info("unique resource identifier %s is not recognized." % args.uri)
+    # We currently support GitHub and Docker URIs
+    if not re.search("^(gh|docker)", args.uri):
+        logger.exit("unique resource identifier %s is not recognized." % args.uri)
+
+    client = container.SingularityContainer()
+    client.pull(args.uri, args.path)

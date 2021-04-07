@@ -5,15 +5,15 @@ __license__ = "MPL 2.0"
 
 from shpc.logger import logger
 import shpc.main.container as container
+import shpc.utils as utils
 from .settings import Settings
 
 import os
 from glob import glob
 import sys
-import re
 
 
-class Client(object):
+class Client:
     """
     Interact with a local filesystem Singularity HPC registry.
 
@@ -119,6 +119,9 @@ class Client(object):
         at updates for entire tags. If a specific folder is provided with
         a container, check the digest.
         """
+        # If a tag is provided, convert to directory
+        module_name = module_name.replace(":", os.sep)
+
         # We derive the current version installed from the container
         # We assume the user has provided the correct prefix
         module_dir = os.path.join(self.settings.lmod_base, module_name)
@@ -149,7 +152,7 @@ class Client(object):
         # Compare the latest name to the version folders
         versions = os.listdir(dirname)
         if config.latest.name not in versions:
-            logger.info(
+            logger.exit(
                 "The latest tag is %s, but you have: %s."
                 % (config.latest.name, ", ".join(versions))
             )
@@ -183,23 +186,19 @@ class Client(object):
         if tag.digest == digest:
             logger.info("⭐️ tag %s is up to date. ⭐️" % tag.name)
         else:
-            logger.info("👉️ tag %s requires an update! 👈️" % tag.name)
+            logger.exit("👉️ tag %s requires an update! 👈️" % tag.name)
 
-    def list(self, pattern=None, out=None):
+    def list(self, pattern=None, names_only=False, out=None):
         """
         List installed modules.
         """
-        out = out or sys.stdout
-        for module_name in os.listdir(self.settings.lmod_base):
-            if pattern and not re.search(pattern, module_name):
-                continue
-            module_dir = os.path.join(self.settings.lmod_base, module_name)
-            versions = os.listdir(module_dir)
-            out.write("%s: %s\n" % (module_name, ", ".join(versions)))
+        self._list_modules(
+            self.settings.lmod_base, "module.lua", pattern, names_only, out
+        )
 
-    def show(self, name, out=None):
+    def show(self, name, names_only=False, out=None):
         """
-        Show metadata for a package
+        Show available packages
         """
         if name:
             config = self._load_container(name)
@@ -207,9 +206,20 @@ class Client(object):
         else:
             out = out or sys.stdout
 
-            # Get the known registry files
-            for package in os.listdir(self.settings.registry):
-                out.write(package + "\n")
+            # List the known registry modules
+            for fullpath in utils.recursive_find(self.settings.registry):
+                if fullpath.endswith("container.yaml"):
+                    module_name = (
+                        os.path.dirname(fullpath)
+                        .replace(self.settings.registry, "")
+                        .strip(os.sep)
+                    )
+                    if names_only:
+                        out.write("%s\n" % module_name)
+                    else:
+                        config = self._load_container(module_name)
+                        for version in config.tags.keys():
+                            out.write("%s:%s\n" % (module_name, version))
 
     def get(self, module_name):
         """
@@ -240,3 +250,27 @@ class Client(object):
 
         sif = self.get(module_name)
         return self._container.inspect(sif[0])
+
+    def _list_modules(self, base, filename, pattern=None, names_only=False, out=None):
+        """A shared function to list modules or registry entries."""
+        out = out or sys.stdout
+        modules = self._get_module_lookup(base, filename, pattern)
+
+        # The user can request to list only names, which is useful to find modules
+        for module_name, versions in modules.items():
+            if names_only:
+                out.write("%s\n" % module_name)
+            else:
+                out.write("%s: %s\n" % (module_name, ", ".join(versions)))
+
+    def _get_module_lookup(self, base, filename, pattern=None):
+        """A shared function to get a lookup of installed modules or registry entries"""
+        modules = {}
+        for fullpath in utils.recursive_find(base, pattern):
+            if fullpath.endswith(filename):
+                module_name, version = os.path.dirname(fullpath).rsplit(os.sep, 1)
+                module_name = module_name.replace(base, "").strip(os.sep)
+                if module_name not in modules:
+                    modules[module_name] = set()
+                modules[module_name].add(version)
+        return modules
