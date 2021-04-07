@@ -41,6 +41,7 @@ export PATH=$INSTALL_PATH/lua/bin:$PATH
 make install
 
 mkdir -p "$MODULEFILES_PATH"
+mkdir -p "$MODULEFILES_PATH/init"
 cat > $INSTALL_PATH/init/.modulespath <<EOF
 $MODULEFILES_PATH
 EOF
