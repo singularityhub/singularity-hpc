@@ -39,6 +39,7 @@ jobs:
 
           # Test each module file that is changed (there should be just one commit)
           cd registry
+          git fetch
           commits=$(git rev-list --count main)
           for container_yaml in $(git diff --name-only HEAD~$commits..HEAD .); do
               module=$(dirname $container_yaml)
