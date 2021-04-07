@@ -15,14 +15,15 @@ jobs:
         run: |
             yum install -y epel-release && \
             yum update -y && \
-            yum install -y lua lua-filesystem lua-posix
+            yum install -y lua lua-filesystem lua-posix wget
             yum install -y Lmod 
-            
 
-      - name: Setup black linter
+      - name: Install conda
         run: |
-          curl –O https://repo.anaconda.com/archive/Anaconda3-2019.07-Linux-x86_64.sh
-          bash Anaconda3-2019.07-Linux-x86_64.sh -p /usr/share/miniconda
+          CONDA_SCRIPT=Miniconda3-latest-Linux-x86_64.sh
+          wget https://repo.anaconda.com/miniconda/$CONDA_SCRIPT
+          /bin/bash $CONDA_SCRIPT -b -p /usr/share/miniconda
+          export PATH="/usr/share/miniconda/bin:$PATH"
           conda create --quiet --name shpc -c conda-forge spython
 
       - name: Install Singularity
