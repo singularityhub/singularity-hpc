@@ -24,7 +24,7 @@ jobs:
         run: |
             cd /tmp
             branch=$(echo ${GITHUB_REF#refs/heads/})
-            ecoh $branch
+            echo $branch
             git clone -b main https://github.com/singularityhub/singularity-hpc
             cd singularity-hpc
             git checkout -b $branch
