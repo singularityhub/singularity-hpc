@@ -50,7 +50,7 @@ set_shell_function("{{ prefix }}{{ flatname }}", runCmd,  runCmd){% endif %}
 whatis("Name        : " .. myModuleName())
 whatis("Version     : " .. myModuleVersion())
 {% if description %}whatis("Category    : {{ description }}"){% endif %}
-{% if url %} whatis("URL         : {{ url }}"){% endif %}
-{% if deffile %}whatis("Singularity Recipe    : {{ deffile }}"){% endif %}
+{% if url %}whatis("URL         : {{ url }}"){% endif %}
+-- {% if deffile %}whatis("Singularity Recipe    : {{ deffile }}"){% endif %}
 {% if labels %}{% for key, value in labels.items() %}whatis("{{ key }}    : {{ value }}")
 {% endfor %}{% endif %}
