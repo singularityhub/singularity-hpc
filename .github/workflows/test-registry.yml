@@ -1,15 +1,14 @@
 name: singularity-hpc-test-registry
 
 on:
-  # TODO: update this to be labels and binoc updates
-  pull_request: []
-#    types: [labeled]
-#    branches:
-#      - recipe/*
+  pull_request:
+    types: [labeled]
+    branches:
+      - recipe/*
 
 jobs:
   test-registry:
-#    if: ${{ github.event.label.name == 'container-recipe' }}
+    if: ${{ github.event.label.name == 'container-recipe' }}
     runs-on: ubuntu-latest
     container: centos:7
     steps:
@@ -82,6 +81,6 @@ jobs:
               module=$(dirname $container_yaml)
               module=$(echo "${module/registry\//}")
               echo "Testing $module"
-              shpc test --template ../shpc/tests/test-registry-module.sh --commands $module
+              shpc test --template ../shpc/tests/test-registry-module.sh $module
               # TODO test adding tests when this works
           done
