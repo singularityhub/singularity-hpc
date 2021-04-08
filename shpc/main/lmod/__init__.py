@@ -29,8 +29,9 @@ class Client(BaseClient):
         """
         Load the default lmod template
         """
-        template_file = os.path.join(here, template_name)
-        with open(template_file, "r") as temp:
+        if not os.path.exists(template_name):
+            template_name = os.path.join(here, template_name)
+        with open(template_name, "r") as temp:
             template = Template(temp.read())
         return template
 
@@ -55,12 +56,12 @@ class Client(BaseClient):
         """
         self.settings.set("lmod_base", tmpdir)
 
-    def _test(self, module_name, module_dir, tag):
+    def _test(self, module_name, module_dir, tag, template='test.sh'):
         """
         Run specific tests for this module
         """
         # Generate a test template
-        template = self._load_template("test.sh")
+        template = self._load_template(template)
         test_file = os.path.join(module_dir, "test.sh")
 
         # Generate the test script
