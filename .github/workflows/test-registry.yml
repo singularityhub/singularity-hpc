@@ -36,6 +36,7 @@ jobs:
             for container_yaml in $(git diff --name-only HEAD~$commits..HEAD .); do
                 echo $container_yaml >> changes.txt
             done
+            echo $PWD
             cat changes.txt
 
       - name: Save changelist
