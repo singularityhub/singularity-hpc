@@ -7,7 +7,7 @@ set -e
 
 # just testing
 ls /usr/share/lmod/lmod/init
-. /usr/share/lmod/lmod/init/lmod_bash_completions
+. /usr/share/lmod/lmod/init/bash
 
 export MODULEPATH="{{ module_dir }}"
 module use "{{ module_dir }}"
