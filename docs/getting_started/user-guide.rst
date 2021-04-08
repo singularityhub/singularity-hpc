@@ -105,9 +105,17 @@ Contributing Registry Recipes
 -----------------------------
 
 If you want to add a new registry file, you are encouraged to contribute it here
-for others to use. Once it's added to the repository, the versions will be automatically
+for others to use. You should:
+
+1. Add the recipe to the ``registry`` folder in its logical namespace, either a docker or GitHub uri
+2. The name of the recipe should be ``container.yaml``. You can use another recipe as a template, or see details in :ref:`getting_started-writing-registry-entries`
+3. You are encouraged to add tests and then test with ``shpc test``. See :ref:`getting_started-commands-test` for details about testing.
+4. You should generally choose smaller images (if possible) and define aliases (entrypoints) for the commands that you think would be useful.
+
+A shell entrypoint for the container will be generated automatically.
+Once your recipe is added to the repository, the versions will be automatically
 updated with a nightly run. This means that you can pull the repository to get
-updated recipes, and then check for updates (this command is not developed yet):
+updated recipes, and then check for updates (the bot to do this is not developed yet):
 
 
 .. code-block:: console
@@ -119,7 +127,7 @@ updated recipes, and then check for updates (this command is not developed yet):
 
 It's reasonable that you can store your recipes alongside these files, in the ``registry``
 folder. If you see a conflict and want to request allowing for a custom install path
-for recipes, 
+for recipes, please open an issue.
 
 
 Setup
@@ -432,6 +440,10 @@ Or to get the entire metadata entry dumped as json to the terminal:
 
     $ shpc inspect --json python/3.9.2-slim
 
+
+.. _getting_started-commands-test:
+
+
 Test
 ----
 
@@ -688,6 +700,9 @@ If you select a higher level module directory or there is no sif, you'll see:
 We could update this command to allow for listing all sif files within a top level
 module folder (for different versions). Please open an issue if this would be useful for
 you.
+
+
+.. _getting_started-writing-registry-entries:
 
 
 Writing Registry Entries
