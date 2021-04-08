@@ -56,7 +56,7 @@ class Client(BaseClient):
         """
         self.settings.set("lmod_base", tmpdir)
 
-    def _test(self, module_name, module_dir, tag, template='test.sh'):
+    def _test(self, module_name, module_dir, tag, template="test.sh"):
         """
         Run specific tests for this module
         """
