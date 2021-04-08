@@ -33,8 +33,9 @@ jobs:
             echo "Found $commits since main"
             cd registry
             touch changes.txt
-            for container_yaml in $(git diff --name-only HEAD~$commits..HEAD .)
+            for container_yaml in $(git diff --name-only HEAD~$commits..HEAD .); do
                 echo $changes >> changes.txt
+            done
             cat changes.txt
 
       - name: Install conda
