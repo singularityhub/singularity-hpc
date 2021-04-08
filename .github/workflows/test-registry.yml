@@ -9,7 +9,7 @@ on:
 
 jobs:
   test-registry:
-    if: ${{ github.event.label.name == 'container-recipe' }}
+#    if: ${{ github.event.label.name == 'container-recipe' }}
     runs-on: ubuntu-latest
     container: centos:7
     steps:
@@ -22,9 +22,10 @@ jobs:
             git checkout ${GITHUB_REF##*/}
             commits=$(git rev-list --count origin/main)
             echo "Found $commits since main"
-            changes=$(git diff --name-only HEAD~$commits..HEAD .
-            echo $changes
-            echo "changes=$changes" >> $GITHUB_ENV            
+            cd registry
+            touch changes.txt
+            for container_yaml in $(git diff --name-only HEAD~$commits..HEAD .)
+                echo $changes >> changes.txt
 
       - name: install Lmod
         run: |
@@ -54,7 +55,7 @@ jobs:
           source activate shpc
           # Test each module file that is changed (there should be just one commit)
           cd registry
-          for container_yaml in ${{ env.changes }}; do
+          for container_yaml in $(cat changes.txt); do
               . /usr/share/lmod/lmod/init/sh
               module=$(dirname $container_yaml)
               module=$(echo "${module/registry\//}")
