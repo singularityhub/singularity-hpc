@@ -282,14 +282,12 @@ class Client(BaseClient):
         # We pull by the digest
         if pull_type == "docker":
             container_uri = "docker://%s@%s" % (config.docker, tag.digest)
-            pull = self._container.pull
         elif pull_type == "gh":
             container_uri = "gh://%s/%s:%s" % (config.gh, tag.digest, tag.name)
-            pull = self._container.pull_gh
 
         # Pull new containers (this doesn't clean up old ones, which we might want to do)
         if not os.path.exists(container_path):
-            pull(container_uri, container_path)
+            self._container.pull(container_uri, container_path)
 
         # Exit early if there is an issue
         if not os.path.exists(container_path):
