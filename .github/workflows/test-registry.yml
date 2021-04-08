@@ -9,10 +9,23 @@ on:
 
 jobs:
   test-registry:
-#    if: ${{ github.event.label.name == 'container-recipe' }}
+    if: ${{ github.event.label.name == 'container-recipe' }}
     runs-on: ubuntu-latest
     container: centos:7
     steps:
+      - name: Derive number of commits
+        run: |
+            yum install -y git
+            git clone https://github.com/${GITHUB_REPOSITORY}
+            cd singularity-hpc
+            git fetch
+            git checkout ${GITHUB_REF##*/}
+            commits=$(git rev-list --count origin/main)
+            echo "Found $commits since main"
+            changes=$(git diff --name-only HEAD~$commits..HEAD .
+            echo $changes
+            echo "changes=$changes" >> $GITHUB_ENV            
+
       - name: install Lmod
         run: |
             yum install -y epel-release && \
@@ -40,10 +53,8 @@ jobs:
           export PATH="/usr/share/miniconda/bin:$PATH"
           source activate shpc
           # Test each module file that is changed (there should be just one commit)
-          commits=$(git rev-list --count origin/main)
-          echo $commits
           cd registry
-          for container_yaml in $(git diff --name-only HEAD~1..HEAD .); do
+          for container_yaml in ${{ env.changes }}; do
               . /usr/share/lmod/lmod/init/sh
               module=$(dirname $container_yaml)
               module=$(echo "${module/registry\//}")
