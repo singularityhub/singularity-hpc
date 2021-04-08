@@ -13,6 +13,13 @@ jobs:
     runs-on: ubuntu-latest
     container: centos:7
     steps:
+      - name: install Lmod
+        run: |
+            yum install -y epel-release && \
+            yum update -y && \
+            yum install -y lua lua-filesystem lua-posix wget gcc
+            yum install -y Lmod singularity git
+
       - name: Derive number of commits
         run: |
             yum install -y git
@@ -26,13 +33,6 @@ jobs:
             touch changes.txt
             for container_yaml in $(git diff --name-only HEAD~$commits..HEAD .)
                 echo $changes >> changes.txt
-
-      - name: install Lmod
-        run: |
-            yum install -y epel-release && \
-            yum update -y && \
-            yum install -y lua lua-filesystem lua-posix wget gcc
-            yum install -y Lmod singularity git
 
       - name: Install conda
         run: |
