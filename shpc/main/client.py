@@ -10,7 +10,6 @@ from .settings import Settings
 
 import os
 import shutil
-import subprocess
 import sys
 
 
@@ -172,8 +171,19 @@ class Client:
             if test_commands and config.test:
                 utils.write_file(test_file, config.test)
                 command = ["singularity", "exec", sif, "/bin/bash", test_file]
-                result = subprocess.call(command)
-                if result != 0:
+                result = utils.run_command(command)
+                # result = subprocess.call(command)
+
+                # We can't run on incompatible hosts
+                if (
+                    "the image's architecture" in result["message"]
+                    and result["return_code"] != 0
+                ):
+                    logger.warning(
+                        "Cannot run test for container with incompatible architecture: %s"
+                        % result["message"]
+                    )
+                elif result["return_code"] != 0:
                     cleanup(tmpdir)
                     logger.exit("Test of %s was not successful." % module_name)
 
