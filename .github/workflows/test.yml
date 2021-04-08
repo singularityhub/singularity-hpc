@@ -23,7 +23,7 @@ jobs:
           wget $PKG_URL
           tar xfz ${PKG_VERSION}.tar.gz
           ls
-          cd lmod
+          cd Lmod-8.4.27
           ./configure --prefix=/usr/share && make && make install
 
       - uses: eWaterCycle/setup-singularity@v6
