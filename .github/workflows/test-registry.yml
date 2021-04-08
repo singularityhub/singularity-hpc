@@ -34,9 +34,15 @@ jobs:
             cd registry
             touch changes.txt
             for container_yaml in $(git diff --name-only HEAD~$commits..HEAD .); do
-                echo $changes >> changes.txt
+                echo $container_yaml >> changes.txt
             done
             cat changes.txt
+
+      - name: Save changelist
+        uses: actions/upload-artifact@v2
+        with:
+          name: changes.txt
+          path: changes.txt
 
       - name: Install conda
         run: |
@@ -53,12 +59,18 @@ jobs:
           source activate shpc
           pip install -e .
 
+      - name: Download changelist
+        uses: actions/download-artifact@v2
+        with:
+          name: changes.txt
+
       - name: Run module tests
         run: |
           export PATH="/usr/share/miniconda/bin:$PATH"
           source activate shpc
           # Test each module file that is changed (there should be just one commit)
           cd registry
+          ls
           for container_yaml in $(cat changes.txt); do
               . /usr/share/lmod/lmod/init/sh
               module=$(dirname $container_yaml)
