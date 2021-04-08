@@ -82,6 +82,6 @@ jobs:
               module=$(dirname $container_yaml)
               module=$(echo "${module/registry\//}")
               echo "Testing $module"
-              shpc test --template ../shpc/tests/test-registry-module.sh $module
+              shpc test --template ../shpc/tests/test-registry-module.sh --commands $module
               # TODO test adding tests when this works
           done
