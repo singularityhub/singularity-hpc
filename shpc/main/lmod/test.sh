@@ -5,6 +5,9 @@
 
 set -e
 
+# just testing
+. /usr/share/lmod/lmod/init/lmod_bash_completions
+
 export MODULEPATH="{{ module_dir }}"
 module use "{{ module_dir }}"
 
