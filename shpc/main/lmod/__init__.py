@@ -29,9 +29,12 @@ class Client(BaseClient):
         """
         Load the default lmod template
         """
-        if not os.path.exists(template_name):
-            template_name = os.path.join(here, template_name)
-        with open(template_name, "r") as temp:
+        template_file = os.path.join(here, template_name)
+        print(template_file)
+        if not os.path.exists(template_file):
+            template_file = os.path.abspath(template_name) 
+        print(template_file)
+        with open(template_file, "r") as temp:
             template = Template(temp.read())
         return template
 
