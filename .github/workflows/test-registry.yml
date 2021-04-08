@@ -1,7 +1,4 @@
 name: singularity-hpc-test-registry
-defaults:
-  run:
-    shell: bash -ieo pipefail {0}
 
 on:
   # TODO: update this to be labels and binoc updates
