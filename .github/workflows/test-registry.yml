@@ -1,4 +1,7 @@
 name: singularity-hpc-test-registry
+defaults:
+  run:
+    shell: bash -ieo pipefail {0}
 
 on:
   # TODO: update this to be labels and binoc updates
@@ -39,6 +42,14 @@ jobs:
             echo $PWD
             cat changes.txt
 
+      - name: Update .bashrc
+        run: |
+          echo ". /usr/share/lmod/lmod/init/sh" >> $HOME/.bashrc
+
+      - name: Check .bashrc
+        run: |
+          cat $HOME/.bashrc
+
       - name: Save changelist
         uses: actions/upload-artifact@v2
         with:
@@ -69,12 +80,7 @@ jobs:
         run: |
           export PATH="/usr/share/miniconda/bin:$PATH"
 
-          ln -s /usr/share/lmod/lmod/init/profile /etc/profile.d/modules.sh
-          ln -s /usr/share/lmod/lmod/init/cshrc /etc/profile.d/modules.csh
-
           source activate shpc
-          export PATH="/usr/share/lmod/lmod/libexec:$PATH"
-          source /usr/share/lmod/lmod/init/sh
           cd registry
           ls
           for container_yaml in $(cat ../changes.txt); do
