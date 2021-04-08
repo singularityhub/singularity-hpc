@@ -69,11 +69,11 @@ jobs:
         run: |
           export PATH="/usr/share/miniconda/bin:$PATH"
           source activate shpc
-          # Test each module file that is changed (there should be just one commit)
+          export PATH="/usr/share/lmod/lmod/libexec:$PATH"
+          source /usr/share/lmod/lmod/init/bash
           cd registry
           ls
           for container_yaml in $(cat ../changes.txt); do
-              . /usr/share/lmod/lmod/init/sh
               module=$(dirname $container_yaml)
               module=$(echo "${module/registry\//}")
               echo "Testing $module"
