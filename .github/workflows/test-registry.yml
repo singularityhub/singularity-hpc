@@ -72,7 +72,7 @@ jobs:
           # Test each module file that is changed (there should be just one commit)
           cd registry
           ls
-          for container_yaml in $(cat changes.txt); do
+          for container_yaml in $(cat ../changes.txt); do
               . /usr/share/lmod/lmod/init/sh
               module=$(dirname $container_yaml)
               module=$(echo "${module/registry\//}")
