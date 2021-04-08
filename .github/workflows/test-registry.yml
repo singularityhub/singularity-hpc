@@ -43,7 +43,7 @@ jobs:
           commits=$(git rev-list --count origin/main)
           echo $commits
           cd registry
-          for container_yaml in $(git diff --name-only HEAD~17..HEAD .); do
+          for container_yaml in $(git diff --name-only HEAD~1..HEAD .); do
               . /usr/share/lmod/lmod/init/sh
               module=$(dirname $container_yaml)
               module=$(echo "${module/registry\//}")
