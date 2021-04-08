@@ -32,7 +32,7 @@ class Client(BaseClient):
         template_file = os.path.join(here, template_name)
         print(template_file)
         if not os.path.exists(template_file):
-            template_file = os.path.abspath(template_name) 
+            template_file = os.path.abspath(template_name)
         print(template_file)
         with open(template_file, "r") as temp:
             template = Template(temp.read())
