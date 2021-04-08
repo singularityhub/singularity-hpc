@@ -22,17 +22,18 @@ jobs:
 
       - name: Derive number of commits
         run: |
-            yum install -y git
+            cd /tmp
             git clone https://github.com/${GITHUB_REPOSITORY}
             cd singularity-hpc
-            git fetch
-            git checkout ${GITHUB_REF##*/}
+            git checkout -b ${GITHUB_REF##*/}
+            git pull origin ${GITHUB_REF##*/}
             commits=$(git rev-list --count origin/main)
             echo "Found $commits since main"
             cd registry
             touch changes.txt
             for container_yaml in $(git diff --name-only HEAD~$commits..HEAD .)
                 echo $changes >> changes.txt
+            cat changes.txt
 
       - name: Install conda
         run: |
