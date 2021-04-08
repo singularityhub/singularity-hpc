@@ -131,6 +131,7 @@ class Client:
         test_exec=False,
         skip_module=False,
         test_commands=False,
+        template=None,
     ):
         """
         Test install of a module
@@ -162,7 +163,7 @@ class Client:
 
             # Do we want to test loading?
             if not skip_module and hasattr(self, "_test"):
-                result = self._test(module_name, tmpdir, tag)
+                result = self._test(module_name, tmpdir, tag, template)
                 if result != 0:
                     cleanup(tmpdir)
                     logger.exit("Test of %s was not successful." % module_name)

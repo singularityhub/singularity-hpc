@@ -35,8 +35,7 @@ jobs:
             touch changes.txt
             for container_yaml in $(git diff --name-only HEAD~$commits..HEAD .); do
                 echo $container_yaml >> changes.txt
-            done
-            echo $PWD
+            done            
             cat changes.txt
 
       - name: Update .bashrc
@@ -84,6 +83,6 @@ jobs:
               module=$(dirname $container_yaml)
               module=$(echo "${module/registry\//}")
               echo "Testing $module"
-              shpc test $module
+              shpc test --template ../shpc/tests/test-registry-module.sh $module
               # TODO test adding tests when this works
           done

@@ -5,9 +5,7 @@
 
 set -e
 
-# just testing
-ls /usr/share/lmod/lmod/init
-. /usr/share/lmod/lmod/init/bash
+# This script assumes lmod is setup, and module on the path
 
 export MODULEPATH="{{ module_dir }}"
 module use "{{ module_dir }}"

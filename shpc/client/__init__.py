@@ -122,6 +122,9 @@ def get_parser():
     test = subparsers.add_parser("test", help="test a registry entry")
     test.add_argument("module_name", help="the module to test")
     test.add_argument(
+        "--template", help="a custom test.sh template to use.", default=None
+    )
+    test.add_argument(
         "--stage",
         help="keep the temporary install directory",
         default=False,

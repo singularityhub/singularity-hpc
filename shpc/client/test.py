@@ -20,4 +20,5 @@ def main(args, parser, extra):
         stage=args.stage,
         skip_module=args.skip_module,
         test_commands=args.commands,
+        template=args.template,
     )
