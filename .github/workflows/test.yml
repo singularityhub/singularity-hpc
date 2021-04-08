@@ -34,7 +34,7 @@ jobs:
       - name: Derive number of commits
         run: |
             cd /opt
-            branch=$(echo ${GITHUB_REF#refs/heads/})
+            branch="${{ github.ref }}"
             echo $branch
             git clone -b main https://github.com/singularityhub/singularity-hpc
             cd singularity-hpc
@@ -83,5 +83,4 @@ jobs:
               module=$(echo "${module/registry\//}")
               echo "Testing $module"
               shpc test --template ../shpc/tests/test-registry-module.sh --commands $module
-              # TODO test adding tests when this works
           done
