@@ -70,7 +70,7 @@ jobs:
           export PATH="/usr/share/miniconda/bin:$PATH"
           source activate shpc
           export PATH="/usr/share/lmod/lmod/libexec:$PATH"
-          source /usr/share/lmod/lmod/init/bash
+          source /usr/share/lmod/lmod/init/sh
           cd registry
           ls
           for container_yaml in $(cat ../changes.txt); do
