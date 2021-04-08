@@ -56,14 +56,6 @@ jobs:
           name: changes.txt
           path: /opt/singularity-hpc/registry/changes.txt
 
-      - name: Install conda
-        run: |
-          CONDA_SCRIPT=Miniconda3-latest-Linux-x86_64.sh
-          wget https://repo.anaconda.com/miniconda/$CONDA_SCRIPT
-          /bin/bash $CONDA_SCRIPT -b -p /usr/share/miniconda
-          export PATH="/usr/share/miniconda/bin:$PATH"
-          conda create --quiet --name shpc -c conda-forge spython
-
       - uses: actions/checkout@v2
       - name: Install shpc
         run: |
