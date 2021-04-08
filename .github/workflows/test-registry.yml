@@ -39,11 +39,12 @@ jobs:
         run: |
           export PATH="/usr/share/miniconda/bin:$PATH"
           source activate shpc
-          . /usr/share/lmod/lmod/init/sh
           # Test each module file that is changed (there should be just one commit)
-          # commits=$(git rev-list --count origin/main)
+          commits=$(git rev-list --count origin/main)
+          echo $commits
           cd registry
           for container_yaml in $(git diff --name-only HEAD~17..HEAD .); do
+              . /usr/share/lmod/lmod/init/sh
               module=$(dirname $container_yaml)
               module=$(echo "${module/registry\//}")
               echo "Testing $module"
