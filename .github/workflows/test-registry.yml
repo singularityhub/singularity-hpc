@@ -68,6 +68,10 @@ jobs:
       - name: Run module tests
         run: |
           export PATH="/usr/share/miniconda/bin:$PATH"
+
+          ln -s /usr/share/lmod/lmod/init/profile /etc/profile.d/modules.sh
+          ln -s /usr/share/lmod/lmod/init/cshrc /etc/profile.d/modules.csh
+
           source activate shpc
           export PATH="/usr/share/lmod/lmod/libexec:$PATH"
           source /usr/share/lmod/lmod/init/sh
