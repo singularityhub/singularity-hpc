@@ -118,6 +118,37 @@ def get_parser():
     pull.add_argument("uri", help="the unique resource identifier to pull")
     pull.add_argument("--path", help="A custom path to pull to (defaults to $PWD)")
 
+    # Test a registry entry
+    test = subparsers.add_parser("test", help="test a registry entry")
+    test.add_argument("module_name", help="the module to test")
+    test.add_argument(
+        "--template", help="a custom test.sh template to use.", default=None
+    )
+    test.add_argument(
+        "--stage",
+        help="keep the temporary install directory",
+        default=False,
+        action="store_true",
+    )
+    test.add_argument(
+        "--test-exec",
+        help="test executing commands",
+        default=False,
+        action="store_true",
+    )
+    test.add_argument(
+        "--skip-module",
+        help="Do not try testing the install module (e.g., lmod)",
+        default=False,
+        action="store_true",
+    )
+    test.add_argument(
+        "--commands",
+        help="Run tests section in container.yml",
+        default=False,
+        action="store_true",
+    )
+
     # Uninstall a module, or a specific version
     uninstall = subparsers.add_parser("uninstall", help="uninstall a module")
     uninstall.add_argument(
@@ -133,7 +164,7 @@ def get_parser():
     )
 
     # Add customization for each of container tech and module system
-    for command in [install, uninstall, shell, inspect, add, get]:
+    for command in [install, uninstall, shell, inspect, add, get, check, test, listing]:
         command.add_argument(
             "--module-sys",
             dest="module",
@@ -217,6 +248,8 @@ def run_shpc():
         from .shell import main
     elif args.command == "show":
         from .show import main
+    elif args.command == "test":
+        from .test import main
     elif args.command == "pull":
         from .pull import main
     elif args.command == "uninstall":

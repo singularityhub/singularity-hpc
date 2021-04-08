@@ -10,3 +10,5 @@ maintainer: "@vsoch"
 url: https://hub.docker.com/_/python
 aliases:
   python: /usr/local/bin/python
+test: |
+   /usr/local/bin/python -c "import sys; print(sys.version_info)"

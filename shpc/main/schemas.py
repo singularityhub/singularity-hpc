@@ -49,6 +49,7 @@ containerConfigProperties = {
     "docker": {"type": "string"},
     "gh": {"type": "string"},
     "url": {"type": "string"},
+    "test": {"type": "string"},
     "maintainer": {"type": "string"},
     "description": {"type": "string"},
     "tags": aliases,

@@ -11,6 +11,8 @@ from jinja2 import Template
 from glob import glob
 import os
 import shutil
+import subprocess
+import sys
 
 here = os.path.dirname(os.path.abspath(__file__))
 
@@ -28,6 +30,8 @@ class Client(BaseClient):
         Load the default lmod template
         """
         template_file = os.path.join(here, template_name)
+        if not os.path.exists(template_file):
+            template_file = os.path.abspath(template_name)
         with open(template_file, "r") as temp:
             template = Template(temp.read())
         return template
@@ -46,6 +50,29 @@ class Client(BaseClient):
         elif os.path.exists(module_dir) and force:
             shutil.rmtree(module_dir)
         logger.info("%s and all subdirectories have been removed," % name)
+
+    def _test_setup(self, tmpdir):
+        """
+        Setup tests, including changes to settings or test directory
+        """
+        self.settings.set("lmod_base", tmpdir)
+
+    def _test(self, module_name, module_dir, tag, template="test.sh"):
+        """
+        Run specific tests for this module
+        """
+        # Generate a test template
+        template = self._load_template(template)
+        test_file = os.path.join(module_dir, "test.sh")
+
+        # Generate the test script
+        out = template.render(
+            module_dir=module_dir,
+            version=tag,
+            module_name=module_name,
+        )
+        utils.write_file(test_file, out)
+        return subprocess.call(["/bin/bash", test_file])
 
     def add(self, sif, module_name):
         """
@@ -78,6 +105,145 @@ class Client(BaseClient):
         shutil.move(sif, dest)
         self._install(module_dir, dest, name)
         logger.info("Module %s was created." % (module_name))
+
+    def get(self, module_name):
+        """
+        Get the path to a container for a module
+        """
+        module_dir = os.path.join(self.settings.lmod_base, module_name)
+
+        # A container must be present
+        sif = glob("%s%s*.sif" % (module_dir, os.sep))
+        if not sif:
+            logger.exit(
+                "%s is not a module tag folder, or does not have a sif binary."
+                % module_name
+            )
+
+        # Currently we only allow one container per module folder
+        if len(sif) > 1:
+            logger.exit("Found more than one sif in module folder.")
+        return sif[0]
+
+    def list(self, pattern=None, names_only=False, out=None):
+        """
+        List installed modules.
+        """
+        self._list_modules(
+            self.settings.lmod_base, "module.lua", pattern, names_only, out
+        )
+
+    def inspect(self, module_name):
+        """
+        Return complete metadata for the user from a container.
+        """
+        module_dir = os.path.join(self.settings.lmod_base, module_name)
+        if not os.path.exists(module_dir):
+            logger.exit("%s does not exist." % module_dir)
+
+        sif = self.get(module_name)
+        return self._container.inspect(sif[0])
+
+    def _list_modules(self, base, filename, pattern=None, names_only=False, out=None):
+        """A shared function to list modules or registry entries."""
+        out = out or sys.stdout
+        modules = self._get_module_lookup(base, filename, pattern)
+
+        # The user can request to list only names, which is useful to find modules
+        for module_name, versions in modules.items():
+            if names_only:
+                out.write("%s\n" % module_name)
+            else:
+                out.write("%s: %s\n" % (module_name, ", ".join(versions)))
+
+    def _get_module_lookup(self, base, filename, pattern=None):
+        """A shared function to get a lookup of installed modules or registry entries"""
+        modules = {}
+        for fullpath in utils.recursive_find(base, pattern):
+            if fullpath.endswith(filename):
+                module_name, version = os.path.dirname(fullpath).rsplit(os.sep, 1)
+                module_name = module_name.replace(base, "").strip(os.sep)
+                if module_name not in modules:
+                    modules[module_name] = set()
+                modules[module_name].add(version)
+        return modules
+
+    def check(self, module_name):
+        """
+        Given a module name, check if the latest is installed.
+
+        If the user provides a top level folder, assume we want to look
+        at updates for entire tags. If a specific folder is provided with
+        a container, check the digest.
+        """
+        # If a tag is provided, convert to directory
+        module_name = module_name.replace(":", os.sep)
+
+        # We derive the current version installed from the container
+        # We assume the user has provided the correct prefix
+        module_dir = os.path.join(self.settings.lmod_base, module_name)
+        if not os.path.exists(module_dir):
+            logger.exit(
+                "%s does not exist. Is this a known registry entry?" % module_dir
+            )
+
+        # Case 1: a specific tag is selected
+        sif = self.get(module_name)
+        if sif:
+            return self._check_digest(module_name, sif)
+
+        return self._check_tags(module_name)
+
+    def _check_tags(self, module_name):
+        """
+        Check if the installed tag is the latest.
+        """
+        # Derive the registry entry from the module_name
+        config = self._load_container(module_name)
+        dirname = os.path.join(self.settings.lmod_base, module_name)
+
+        # Does the user have the modules installed?
+        if not os.path.exists(dirname):
+            logger.exit("%s is not installed." % module_name)
+
+        # Compare the latest name to the version folders
+        versions = os.listdir(dirname)
+        if config.latest.name not in versions:
+            logger.exit(
+                "The latest tag is %s, but you have: %s."
+                % (config.latest.name, ", ".join(versions))
+            )
+        else:
+            logger.info("⭐️ latest tag %s is up to date. ⭐️" % config.latest.name)
+
+    def _check_digest(self, module_name, sif):
+        """
+        Check if there is an updated digest for a tag.
+
+        At this point we assume only one container per install, as older containers
+        are cleaned up to save filesystem space. If this is changed, we would
+        need another way to deduce what version of the container is installed.
+        """
+        sif = os.path.basename(sif)
+
+        # The prefix of the image is the module_name (which includes version here)
+        prefix = module_name.replace(os.sep, "-") + "-"
+        digest = sif.replace(prefix, "").replace(".sif", "")
+
+        # Get the latest version digest, remove the tag first
+        docker = os.sep.join(module_name.split(os.sep)[:-1])
+        tag = module_name.split(os.sep)[-1]
+        config = self._load_container(docker)
+
+        # Get the tag
+        tag = config.tags.get(tag)
+        if not tag:
+            logger.exit("Tag %s is not present in the registry entry." % tag)
+
+        if tag.digest == digest:
+            logger.info("⭐️ tag %s is up to date. ⭐️" % tag.name)
+        else:
+            logger.exit("👉️ tag %s requires an update! 👈️" % tag.name)
 
     def install(self, name, tag=None):
         """
@@ -117,14 +283,12 @@ class Client(BaseClient):
         # We pull by the digest
         if pull_type == "docker":
             container_uri = "docker://%s@%s" % (config.docker, tag.digest)
-            pull = self._container.pull
         elif pull_type == "gh":
             container_uri = "gh://%s/%s:%s" % (config.gh, tag.digest, tag.name)
-            pull = self._container.pull_gh
 
         # Pull new containers (this doesn't clean up old ones, which we might want to do)
         if not os.path.exists(container_path):
-            pull(container_uri, container_path)
+            self._container.pull(container_uri, container_path)
 
         # Exit early if there is an issue
         if not os.path.exists(container_path):
@@ -143,6 +307,7 @@ class Client(BaseClient):
             version=tag.name,
         )
         logger.info("Module %s/%s was created." % (config.name, tag.name))
+        return container_path
 
     def _install(
         self,
