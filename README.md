@@ -2,7 +2,7 @@
 
 [![GitHub actions status](https://github.com/singularityhub/singularity-hpc/workflows/singularity-hpc/badge.svg?branch=main)](https://github.com/singularityhub/singularity-hpc/actions?query=branch%3Amain+workflow%3Asingularity-hpc)
 
-![docs/assets/img/shpc.png](docs/assets/img/shpc.png)
+![https://raw.githubusercontent.com/singularityhub/singularity-hpc/main/docs/assets/img/shpc.png](https://raw.githubusercontent.com/singularityhub/singularity-hpc/main/docs/assets/img/shpc.png)
 
 Singularity HPC is based off of the [Singularity Registry Client](https://github.com/singularityhub/sregistry-cli), but instead of
 being intended for general interaction with Singularity containers and a local database, it's optimized for managing containers

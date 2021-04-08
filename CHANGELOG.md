@@ -14,6 +14,7 @@ and **Merged pull requests**. Critical items to know are:
 The versions coincide with releases on pip. Only major versions will be released as tags on Github.
 
 ## [0.0.x](https://github.com/singularityhub/singularity-hpc/tree/master) (0.0.x)
+ - updating testing to be with ubuntu (on native) (0.0.15)
  - start to addition of shpc test (0.0.14)
  - Bugfix and better documentation for show/pull/list (0.0.13)
  - Adding support for pull from a GitHub release! (0.0.11)
