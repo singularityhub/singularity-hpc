@@ -23,10 +23,12 @@ jobs:
       - name: Derive number of commits
         run: |
             cd /tmp
+            branch=$(echo ${GITHUB_REF#refs/heads/})
+            ecoh $branch
             git clone -b main https://github.com/singularityhub/singularity-hpc
             cd singularity-hpc
-            git checkout -b ${GITHUB_REF##*/}
-            git pull origin ${GITHUB_REF##*/}
+            git checkout -b $branch
+            git pull origin $branch
             commits=$(git rev-list --count main)
             echo "Found $commits since main"
             cd registry
