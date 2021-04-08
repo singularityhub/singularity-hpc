@@ -22,7 +22,7 @@ jobs:
 
       - name: Derive number of commits
         run: |
-            cd /tmp
+            cd /opt
             branch=$(echo ${GITHUB_REF#refs/heads/})
             echo $branch
             git clone -b main https://github.com/singularityhub/singularity-hpc
@@ -43,7 +43,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: changes.txt
-          path: registry/changes.txt
+          path: /opt/singularity-hpc/registry/changes.txt
 
       - name: Install conda
         run: |
