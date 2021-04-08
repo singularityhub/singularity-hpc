@@ -42,7 +42,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: changes.txt
-          path: changes.txt
+          path: registry/changes.txt
 
       - name: Install conda
         run: |
