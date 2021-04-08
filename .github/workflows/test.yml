@@ -2,13 +2,13 @@ name: singularity-hpc-test-registry
 
 on:
   pull_request: []
-#    types: [labeled]
-#    branches:
-#      - recipe/*
+    types: [labeled]
+    branches:
+      - recipe/*
 
 jobs:
   test-registry:
-#    if: ${{ github.event.label.name == 'container-recipe' }}
+    if: (github.event.label.name == 'container-recipe') || startsWith(github.head_ref, 'recipe')
     runs-on: ubuntu-latest
     steps:
 
@@ -40,7 +40,7 @@ jobs:
             cd singularity-hpc
             git checkout -b $branch
             git pull origin $branch
-            commits=$(git rev-list --count main)
+            commits=$(git log --oneline "$branch" ^main | wc -l)
             echo "Found $commits since main"
             cd registry
             touch changes.txt
