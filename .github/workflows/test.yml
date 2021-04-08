@@ -34,7 +34,7 @@ jobs:
       - name: Derive number of commits
         run: |
             cd /opt
-            branch="${{ github.ref }}"
+            branch="${{ github.head_ref }}"
             echo $branch
             git clone -b main https://github.com/singularityhub/singularity-hpc
             cd singularity-hpc
