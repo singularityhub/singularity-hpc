@@ -1,4 +1,4 @@
-name: singularity-hpc-test-registry
+name: singularity-docs
 
 on:
   push:
@@ -6,7 +6,6 @@ on:
 
 jobs:
   generate-docs:
-    if: ${{ github.event.label.name == 'container-recipe' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
