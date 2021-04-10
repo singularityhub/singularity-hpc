@@ -1,0 +1,97 @@
+<div class="wrapper">
+    <div class="fresh-table toolbar-color-red full-screen-table">
+    <!--    Available colors for the full background: full-color-blue, full-color-azure, full-color-green, full-color-red, full-color-orange                  
+            Available colors only for the toolbar: toolbar-color-blue, toolbar-color-azure, toolbar-color-green, toolbar-color-red, toolbar-color-orange
+    -->        
+        <div class="toolbar">
+            <span style="float:left">
+            <a href="https://singularity-hpc.readthedocs.io">
+                <img src="img/logo.png" 
+                     style="width:50px; margin-right:30px;float:left"></a></span>
+            <button id="docsBtn" class="btn btn-default">Documentation</button>
+            <button id="apiBtn" class="btn btn-default"><i class="fa fa-code"></i></button>
+            <span style="color:white;margin-left:100px" id="message"></span>
+        </div>
+        <table id="fresh-table" class="table">
+           <thead>
+             <th data-field="github" data-sortable="true">github</th>
+             <th data-field="container" data-sortable="true">container</th>
+             <th data-field="aliases" data-sortable="false">aliases</th>
+          </thead>
+              <tbody>
+                {% for entry in site.library %}
+                  <tr data-name="{{ entry.name }}" data-github="{{ entry.github }}">
+                    <td>
+                        <a href="{{ entry.github }}" target="_blank">
+                           <span class="btn btn-xs btn-danger">GITHUB</span></a>
+                    </td>
+                    <td><a href="{{ site.baseurl }}/r/{{ entry.name | replace: '/', '-'}}/">{{ entry.name }}</a></td>
+                    <td>{% for alias in entry.aliases %}{{ alias }}{% if forloop.last %}{% else %}, {% endif %}{% endfor %}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+          </table>
+    </div>
+</div>    
+
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/bootstrap-table.js"></script>
+        
+<script type="text/javascript">
+        var $table = $('#fresh-table'),
+            $docsBtn = $('#docsBtn'), 
+            $apiBtn = $('#apiBtn'), 
+            full_screen = false,
+            window_height;
+            
+        $().ready(function(){
+            
+            window_height = $(window).height();
+            table_height = window_height - 20;
+            
+            $table.bootstrapTable({
+                toolbar: ".toolbar",
+
+                showRefresh: false,
+                search: true,
+                showToggle: true,
+                showColumns: true,
+                pagination: true,
+                striped: false,
+                sortable: true,
+                height: table_height,
+                pageSize: 100,
+                pageList: [25,50,100,150,200],
+                
+                formatShowingRows: function(pageFrom, pageTo, totalRows){
+                    //do nothing here, we don't want to show the text "showing x of y from..." 
+                },
+                formatRecordsPerPage: function(pageNumber){
+                    return pageNumber + " rows visible";
+                },
+                icons: {
+                    refresh: 'fa fa-refresh',
+                    toggle: 'fa fa-list',
+                    columns: 'fa fa-columns',
+                    detailOpen: 'fa fa-plus-circle',
+                    detailClose: 'fa fa-minus-circle'
+                }
+            });
+
+            $apiBtn.click(function () {
+                document.location = "{{ site.baseurl }}/library.json";
+            });
+
+            $docsBtn.click(function () {
+                document.location = "https://singularity-hpc.readthedocs.io/";
+            });
+                             
+            $(window).resize(function () {
+                $table.bootstrapTable('resetView');
+            });    
+        });
+        
+    $(document).ready(function(){
+        $(".glyphicon").removeClass('glyphicon');
+    })       
+    </script>

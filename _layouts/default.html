@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  
+  {% include head.html %}
+
+  <body>
+
+    <div class="container">
+
+    <br>
+    <section class="main-content">
+    <a href="{{ site.repo }}" 
+       target="_blank"
+       style="float:right;">
+       <i class="fa fa-github fa-2x"></i></a>
+
+    <a href="{{ site.baseurl }}/" 
+       style="margin:5px; padding:10px">
+       <i class="fa fa-chevron-left fa-2x"></i></a>
+      <br><br><hr><br>
+      
+      {{ content }}
+
+      <br><br><br>
+      {% include page-footer.html %}
+
+    </section>
+    </div>
+
+  </body>
+</html>

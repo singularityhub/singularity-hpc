@@ -1,0 +1,16 @@
+<div id="table-of-contents"></div>
+<script src="{{ site.baseurl }}/js/toc.js"></script>
+<script>
+$(document).ready(function() {
+    
+    var headers = '.main-content h1, .main-content h2, .main-content h3'
+    $('#table-of-contents').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: headers });
+    $('#table-of-contents').on('click', 'a', function() {
+        var target = $(this.getAttribute('href'));
+        console.log(target);
+        var scroll_target = target.offset().top;
+        $(window).scrollTop(scroll_target - 10);
+        return false;
+    })
+});
+</script>

@@ -1,0 +1,20 @@
+<head>
+    <meta charset="UTF-8">
+    <title>{{ site.title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/normalize.css">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,600">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="{{ site.baseurl }}/js/jquery.dlmenu.js"></script>
+    <script src="{{ site.baseurl }}/js/modernizr.custom.js"></script>
+    <link href="{{ site.baseurl }}/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="{{ site.baseurl }}/css/fresh-bootstrap-table.css" rel="stylesheet" />
+    <link href="{{ site.baseurl }}/css/syntax.css" rel="stylesheet" />
+    <meta name="description" content="Singularity HPC Registry using LMOD">
+    <meta name="thumbnail" content="https://singularityhub.github.io{{ site.baseurl }}/img/logo.png">
+    {% if page.name %}<meta name="name" content="{{ page.name }}">{% endif %}
+    {% if page.github %}<meta name="repository" content="{{ page.github }}">
+    <meta name="pagetype" content="experiment">{% endif %}
+</head>

@@ -1,0 +1,54 @@
+<style>
+.navbar-fixed {
+    top: 0;
+    z-index: 100;
+    position: fixed;
+    width: 100%;
+}
+</style>
+<div class="column" id="toc">
+	<div id="dl-menu" class="dl-menuwrapper">
+		<button class="dl-trigger">Open Menu</button>
+                <ul class="dl-menu">
+                        {% for main in site.data.toc %}
+			<li>
+                            <a href="{{ main.url }}">{{ main.title }}</a>
+
+                            {% if main.sections %}
+                                <ul class="dl-submenu">
+                                {% for section in main.sections %}
+                                    <li>
+		                        <a href="{{ main.url }}#{{ section.slug }}">{{ section.title }}</a>
+                                        {% if section.subsections %}
+                                            <ul class="dl-submenu">
+                                            {% for subsection in section.subsections %}
+                                                <li><a href="{{ main.url }}#{{ subsection.slug }}">{{ subsection.title }}</a></li>
+                                            {% endfor %}
+                                            </ul>
+                                         {% endif %}
+                                    </li>
+                                {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </li>
+                        {% endfor %}
+                </ul>
+        </div><!-- /dl-menuwrapper -->
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="{{ site.baseurl }}/js/jquery.dlmenu.js"></script>
+<script>
+$(function() {
+    $( '#dl-menu' ).dlmenu();
+  
+  $(window).scroll(function () {
+    if ($(window).scrollTop() > 280) {
+      $('#toc').addClass('navbar-fixed');
+    }
+    if ($(window).scrollTop() < 281) {
+      $('#toc').removeClass('navbar-fixed');
+    }
+  });
+});
+</script>

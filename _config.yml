@@ -1,0 +1,46 @@
+### GENERAL SETTINGS ###
+
+# Site settings
+title: Singularity HPC Library
+description: "Library of Singularity containers for HPC"
+baseurl: "/singularity-hpc" #important: start with /
+url: ""
+
+# Build settings
+markdown: kramdown
+permalink: /:categories/:title
+excerpt_separator: <!--more-->
+
+colors:  #in hex code if not noted else
+  primary: "#e32929"
+  primary_rgb: "247,0,49" #rgb of the primary. Needed in some places for the transparency effect.
+  secondary: "#F7F7F7"
+  link: "#e32929"
+  link_hover: "#01b2fe"
+  footer_heading: "#777"
+  footer_content: "#bfc9d3"
+
+# Making projects separate from posts
+collections:
+  library:
+    output: true
+    permalink: /r/:title/
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+
+# Social networks usernames. Many more available: google-plus, flickr, linkedin, etc). Shown in footer.
+github: https://github.com/singularityhub
+repo: https://github.com/singularityhub/singularity-hpc
+docs: https://singularity-hpc.readthedocs.io/
+maintainer: "@vsoch"
+social:
+  - title: twitter
+    url: https://www.twitter.com/vsoch
+
+about: "Singularity HPC maintains a library of containers, which are intended to be installed via LMOD on your HPC system"

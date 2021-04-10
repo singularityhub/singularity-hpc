@@ -1,0 +1,37 @@
+---
+layout: default
+---
+
+<div class="container">
+    <div class="row">
+        <div style="margin-top:25px" class="col-lg-5 col-lg-offset-1">
+            <div class="spacing"></div>
+            <a href="{{ site.baseurl }}"><img src="{{ site.baseurl }}/img/logo.png"
+                 style="float:left; width:250px"></span></a>
+        </div>
+        <div class="col-lg-4 col-lg-offset-1">
+            <div class="spacing"></div>
+            <h4>{{ page.name }}</h4>
+            <div style="padding-bottom:20px" class="hline"></div>
+            <p><b>Versions: </b>{% for version in page.versions %}{{ version }}{% if forloop.last %}{% else %},{% endif %}{% endfor %}</p>
+            <p style="padding-top:15px"><a href="{{ page.github }}" target="_blank">
+                           <button class="btn btn-sm btn-primary">GITHUB</button></a>
+            <a href="{{ page.container_url }}" target="_blank"><button class="btn btn-sm btn-primary">CONTAINER</button></a>            
+            </p>
+        </div>
+    </div>
+    <div class="row">
+       <div class="col-md-12">
+            <div style="margin:50px 80px 50px">
+            <a href="#commands" style="font-weight:bold">COMMANDS</a> | <a href="#commands" style="font-weight:bold">INSTALL</a>
+            </div>
+       </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div style="margin:0px 80px 50px">
+            {{ content }}
+            </div>
+        </div>
+    </div>
+</div>	 
