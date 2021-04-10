@@ -214,6 +214,12 @@ class Client:
         """
         raise NotImplementedError
 
+    def docgen(self, module_name):
+        """
+        Render documentation for a module.
+        """
+        raise NotImplementedError
+
     def show(self, name, names_only=False, out=None):
         """
         Show available packages

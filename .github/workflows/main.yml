@@ -4,8 +4,11 @@ on:
   push:
     branches:
       - main
+    ignore:
+      - gh-pages
   pull_request:
-    branches_ignore: []
+    branches_ignore:
+      - gh-pages
 
 jobs:
   formatting:

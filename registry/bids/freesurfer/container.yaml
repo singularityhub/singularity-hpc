@@ -1,0 +1,9 @@
+docker: bids/freesurfer
+latest:
+  "latest": "sha256:02237eda4a22bb5fd66a50a66d21b13e0f378840fa61a937dab8794ee527cd48"
+tags:
+  "latest": "sha256:02237eda4a22bb5fd66a50a66d21b13e0f378840fa61a937dab8794ee527cd48"
+filter:
+  - "v*"
+maintainer: "@vsoch"
+url: https://hub.docker.com/r/bids/freesurfer

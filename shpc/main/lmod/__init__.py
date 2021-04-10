@@ -6,6 +6,7 @@ from shpc.main.client import Client as BaseClient
 from shpc.logger import logger
 from datetime import datetime
 import shpc.utils as utils
+import shpc.defaults as defaults
 from jinja2 import Template
 
 from glob import glob
@@ -149,6 +150,35 @@ class Client(BaseClient):
         self._list_modules(
             self.settings.lmod_base, "module.lua", pattern, names_only, out
         )
+
+    def docgen(self, module_name, out=None):
+        """
+        Render documentation for a module.
+        """
+        out = out or sys.stdout
+        config = self._load_container(module_name)
+        aliases = config.get_aliases()
+        template = self._load_template("docs.md")
+        github_url = "%s/blob/main/registry/%s/container.yaml" % (
+            defaults.github_url,
+            module_name,
+        )
+
+        result = template.render(
+            singularity_module=self.settings.singularity_module,
+            singularity_shell=self.settings.singularity_shell,
+            bindpaths=self.settings.bindpaths,
+            description=config.description,
+            aliases=aliases,
+            versions=config.tags.keys(),
+            github_url=github_url,
+            url=config.url,
+            prefix=self.settings.lmod_exc_prefix,
+            creation_date=datetime.now(),
+            name=module_name,
+            flatname=module_name.replace("/", "-"),
+        )
+        out.write(result)
 
     def inspect(self, module_name):
         """

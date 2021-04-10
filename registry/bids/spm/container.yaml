@@ -1,0 +1,11 @@
+docker: bids/spm
+latest:
+  "latest": "sha256:e72a97f0aad8a4e635d7c1d92f6fbf38ee98cb117eba520e26bbc135c052255c"
+tags:
+  "latest": "sha256:e72a97f0aad8a4e635d7c1d92f6fbf38ee98cb117eba520e26bbc135c052255c"
+filter:
+  - "v*"
+maintainer: "@vsoch"
+url: https://hub.docker.com/r/bids/spm
+aliases:
+  spm12: /opt/spm12/spm12
