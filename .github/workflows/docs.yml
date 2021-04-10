@@ -37,14 +37,15 @@ jobs:
         run: |
           printf "GitHub Actor: ${GITHUB_ACTOR}\n"
 
+          cd $root
+          mv /opt/singularity-hpc/.git .git 
+
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@users.noreply.github.com"
 
-          cd $root
           git checkout gh-pages
           rm -rf _library      
           mv /opt/singularity-hpc/_library _library          
-          mv /opt/singularity-hpc/.git .git 
           git add _library/*
           ls
 
