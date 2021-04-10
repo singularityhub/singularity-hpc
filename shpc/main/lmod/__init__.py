@@ -305,7 +305,7 @@ class Client(BaseClient):
 
         # Pull new containers
         if not os.path.exists(container_path):
-            result = self._container.pull(container_uri, container_path)
+            self._container.pull(container_uri, container_path)
 
         # Exit early if there is an issue
         if not os.path.exists(container_path):
