@@ -1,0 +1,12 @@
+docker: ghcr.io/autamus/clingo
+latest:
+  "5.4.1": "sha256:c98a480f85a68063dfb9c4cb6eedfbe0cf84a1af737b73ef2d94213fffd91ff5"
+tags:
+  "5.4.1": "sha256:c98a480f85a68063dfb9c4cb6eedfbe0cf84a1af737b73ef2d94213fffd91ff5"
+filter:
+  - "5.*"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/clingo
+aliases:
+  clingo: /opt/view/bin/clingo
+  gringo: /opt/view/bin/gringo

@@ -134,7 +134,7 @@ class Logger:
         """
         level = msg["level"]
         if level == "info" and not self.quiet:
-            self.logger.warning(msg["msg"])
+            self.logger.info(msg["msg"])
         if level == "warning":
             self.logger.warning(msg["msg"])
         elif level == "error":

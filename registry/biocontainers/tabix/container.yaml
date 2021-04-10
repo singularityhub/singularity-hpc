@@ -1,0 +1,11 @@
+docker: biocontainers/tabix
+latest:
+ "v1.9-11-deb_cv1": "sha256:7e093436d00c01cf6ad7b285680bf1657f9fcb692cc083c972e5df5a7e951f49"
+tags:
+ "v1.9-11-deb_cv1": "sha256:7e093436d00c01cf6ad7b285680bf1657f9fcb692cc083c972e5df5a7e951f49"
+filter:
+  - "v*"
+maintainer: "@vsoch"
+url: https://hub.docker.com/r/biocontainers/tabix 
+aliases:
+  tabix: /usr/bin/tabix
