@@ -48,7 +48,7 @@ jobs:
           mv /opt/singularity-hpc/_library _library          
           git add _library/*
           ls
-
+          cat .git/config
           set +e
           git status | grep modified
           if [ $? -eq 0 ]; then
