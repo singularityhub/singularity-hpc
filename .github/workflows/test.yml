@@ -3,12 +3,10 @@ name: singularity-hpc-test-registry
 on:
   pull_request:
     types: [labeled]
-    branches:
-      - recipe/*
 
 jobs:
   test-registry:
-    if: (github.event.label.name == 'container-recipe') || startsWith(github.head_ref, 'recipe')
+    if: ${{ github.event.label.name == 'container-recipe' }}
     runs-on: ubuntu-latest
     steps:
       - name: Install Dependencies
