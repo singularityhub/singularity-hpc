@@ -19,6 +19,7 @@ You can use shpc if you are:
 These use cases will be better flushed out and documented as the library is developed.
 
 📖️ Read the [documentation](https://singularity-hpc.readthedocs.io/en/latest/) 📖️
+⭐️ Browse the [container module collection](https://singularityhub.github.io/singularity-hpc/) ⭐️
  
 ## 🎨️ Previous Art 🎨️
 

@@ -1,0 +1,53 @@
+name: singularity-hpc-test-registry
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  generate-docs:
+    if: ${{ github.event.label.name == 'container-recipe' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install shpc
+        run: |
+          export PATH="/usr/share/miniconda/bin:$PATH"
+          source activate shpc
+          pip install -e .
+
+      - name: Generate docs
+        run: |
+          export PATH="/usr/share/miniconda/bin:$PATH"
+          source activate shpc
+          root=$PWD
+          # clone the github pages branch
+          cd /opt
+          git clone -b gh-pages git@github.com:singularityhub/singularity-hpc
+          cd singularity-hpc
+          /bin/bash generate.sh
+          
+      - name: Push to GitHub Pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          printf "GitHub Actor: ${GITHUB_ACTOR}\n"
+
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@users.noreply.github.com"
+
+          cd /opt/singularity-hpc
+          ls
+          git add _library/*
+
+          set +e
+          git status | grep modified
+          if [ $? -eq 0 ]; then
+              set -e
+              printf "Changes\n"
+              git commit -m "Automated push to update GitHub pages $(date '+%Y-%m-%d')" || exit 0
+              git push origin gh-pages
+          else
+              set -e
+              printf "No changes\n"
+          fi

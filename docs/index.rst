@@ -22,12 +22,11 @@ You can use shpc if you are:
 2. a cluster user that wants to maintain your own folder of custom modules
 3. a cluster user that simply wants to pull Singularity images as GitHub packages.
 
-These use cases will be better flushed out and documented as the library is developed.
 The library contains a collection of module recipes that will install containers,
 so you can easily use them or write your own. 
-To see the code, head over to the `repository <https://github.com/singularityhub/singularity-hpc/>`_
+To see the code, head over to the `repository <https://github.com/singularityhub/singularity-hpc/>`_.
+To browse modules avalable as containers, see `the library <https://singularityhub.github.io/singularity-hpc/>`_.
 
-The library is **under development!**
 
 .. _main-getting-started:
 
@@ -37,6 +36,7 @@ Getting started with Singularity Registry (HPC)
 
 Singularity Registry HPC (shpc) can be installed from pypi or directly from the repository. See :ref:`getting_started-installation` for
 installation, and then the :ref:`getting-started` section for using the client.
+You can browse modules avaiable at the `Singularity HPC Library <https://singularityhub.github.io/singularity-hpc/>`_.
 
 .. _main-support:
 
@@ -53,6 +53,10 @@ Resources
 
 `GitHub Repository <https://github.com/singularityhub/singularity-hpc>`_
     The code for shpc on GitHub.
+
+`Singularity HPC Library <https://github.com/singularityhub/singularity-hpc/issues>`_
+    Shows modules available to install as containers.
+
 
 .. toctree::
    :caption: Getting started
