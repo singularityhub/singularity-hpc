@@ -1,0 +1,10 @@
+docker: uvarc/qiime2
+latest:
+  "2020.8": "sha256:7b380f190ae5de431a9b350b6b7edef1bc718e5d2fc4412a543a7201d95c4999"
+tags:
+  "2020.8": "sha256:7b380f190ae5de431a9b350b6b7edef1bc718e5d2fc4412a543a7201d95c4999"
+filter:
+  - "2021*"
+maintainer: "@vsoch"
+url: https://hub.docker.com/r/uvarc/qiime2
+description: "QIIME2. Same functionality as the official image but less than half the size. Includes packages Empress and PICRUSt2."

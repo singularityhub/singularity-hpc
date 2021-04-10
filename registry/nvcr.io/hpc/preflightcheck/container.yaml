@@ -1,0 +1,10 @@
+docker: nvcr.io/hpc/preflightcheck
+latest:
+  "20.11": "sha256:8aba0b9dd1c724cd2973ff288cf056f0aae84c3c3ef9dbccddaf4771356cc93e"
+tags:
+  "20.11": "sha256:8aba0b9dd1c724cd2973ff288cf056f0aae84c3c3ef9dbccddaf4771356cc93e"
+filter:
+  - "21*"
+maintainer: "@vsoch"
+url: "https://ngc.nvidia.com/catalog/containers/hpc:preflightcheck"
+description: "The Pre-Flight Check container verifies that the container runtime is setup correctly for GPUs and InfiniBand."

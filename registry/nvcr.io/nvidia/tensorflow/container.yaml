@@ -1,0 +1,10 @@
+docker: nvcr.io/nvidia/tensorflow
+latest:
+  "21.02-tf1-py3": "sha256:addbbdccb193849d58083154458318b2aa9b7945d9975284291b08b4336415e1"
+tags:
+  "21.02-tf1-py3": "sha256:addbbdccb193849d58083154458318b2aa9b7945d9975284291b08b4336415e1"
+filter:
+  - "21*"
+maintainer: "@vsoch"
+url: "https://ngc.nvidia.com/catalog/containers/nvidia:tensorflow/tags"
+description: "TensorFlow is an open-source software library for high-performance numerical computation. Its flexible architecture allows easy deployment of computation across a variety of platforms (CPUs, GPUs, TPUs), and from desktops to clusters of servers to mobile and edge devices."
