@@ -43,9 +43,10 @@ jobs:
           cd $root
           git checkout gh-pages
           rm -rf _library      
-          ls
           mv /opt/singularity-hpc/_library _library          
+          mv /opt/singularity-hpc/.git .git 
           git add _library/*
+          ls
 
           set +e
           git status | grep modified
