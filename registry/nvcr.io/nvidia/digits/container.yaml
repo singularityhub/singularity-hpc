@@ -1,0 +1,14 @@
+docker: nvcr.io/nvidia/digits
+latest:
+  "21.02-tensorflow-py3": "sha256:ad2aa71d8650ea403437f86fc9a33760af8a20d980f64d660e8ef649e0d9296d"
+tags:
+  "21.02-tensorflow-py3": "sha256:ad2aa71d8650ea403437f86fc9a33760af8a20d980f64d660e8ef649e0d9296d"
+filter:
+  - "21*"
+maintainer: "@vsoch"
+url: "https://ngc.nvidia.com/catalog/containers/nvidia:digits/tags"
+description: "The NVIDIA Deep Learning GPU Training System (DIGITS) puts the power of deep learning into the hands of engineers and data scientists."
+aliases:
+  - name: python
+    command: /usr/bin/python
+    options: "--nv"
