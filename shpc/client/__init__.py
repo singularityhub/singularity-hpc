@@ -111,6 +111,12 @@ def get_parser():
         type=str,
     )
 
+    # Generate markdown docs for a container registry entry
+    docgen = subparsers.add_parser(
+        "docgen", help="Generate a markdown document for a container registry entry."
+    )
+    docgen.add_argument("module_name", help="the module to generate docs for.")
+
     # Pull a nontraditional container type (e.g., github release asset)
     pull = subparsers.add_parser(
         "pull", help="pull a container built with singularityhub/singularity-deploy"
@@ -164,7 +170,18 @@ def get_parser():
     )
 
     # Add customization for each of container tech and module system
-    for command in [install, uninstall, shell, inspect, add, get, check, test, listing]:
+    for command in [
+        install,
+        uninstall,
+        shell,
+        inspect,
+        add,
+        get,
+        check,
+        test,
+        listing,
+        docgen,
+    ]:
         command.add_argument(
             "--module-sys",
             dest="module",
@@ -234,6 +251,8 @@ def run_shpc():
         from .config import main
     if args.command == "check":
         from .check import main
+    if args.command == "docgen":
+        from .docgen import main
     elif args.command == "get":
         from .get import main
     elif args.command == "delete":

@@ -12,6 +12,9 @@ reps = {"$install_dir": install_dir, "$root_dir": os.path.dirname(install_dir)}
 # The default settings file in the install root
 default_settings_file = os.path.join(reps["$install_dir"], "settings.yml")
 
+# The GitHub repository with recipes
+github_url = "https://github.com/singularityhub/singularity-hpc"
+
 # Defaults should correspond to fields in settings.yml
 # Testing checks that we have a 1:1 match
 

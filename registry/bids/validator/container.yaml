@@ -1,0 +1,11 @@
+docker: bids/validator
+latest:
+  "latest": "sha256:3c1d7b291fc2e9dc3598ad66f81efad749d44df7e88e9b1bd1c5a9bdeb9162a8"
+tags:
+  "latest": "sha256:3c1d7b291fc2e9dc3598ad66f81efad749d44df7e88e9b1bd1c5a9bdeb9162a8"
+filter:
+  - "v*"
+maintainer: "@vsoch"
+url: https://hub.docker.com/r/bids/validator
+aliases:
+  bids-validator: /usr/local/bin/bids-validator

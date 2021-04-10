@@ -1,0 +1,9 @@
+docker: ncbi/blast
+latest:
+  latest: "sha256:6591661d046e5d5d4c5c45baf8bcfcc8b9188590f87b25dc1f625cb29383b922"
+tags:
+  latest: "sha256:6591661d046e5d5d4c5c45baf8bcfcc8b9188590f87b25dc1f625cb29383b922"
+filter:
+  - "2.*"
+maintainer: "@vsoch"
+url: https://hub.docker.com/r/ncbi/blast
