@@ -1,0 +1,10 @@
+docker: nvcr.io/hpc/lammps
+latest:
+  "29Oct2020": "sha256:7ef9219db9f7e026c73ef79ec40292b04bc33fbcd4319e16e7fe4b39c6fb9007"
+tags:
+  "29Oct2020": "sha256:7ef9219db9f7e026c73ef79ec40292b04bc33fbcd4319e16e7fe4b39c6fb9007"
+filter:
+  - "2021"
+maintainer: "@vsoch"
+url: "https://ngc.nvidia.com/catalog/containers/hpc:lammps/tags"
+description: "Large-scale Atomic/Molecular Massively Parallel Simulator (LAMMPS) is a software application designed for molecular dynamics simulations. It has the potentials for solid-state materials (metals, semiconductor), soft matter (biomolecules, polymers), and coarse-grained or mesoscopic systems. The main use-case is atom scale particle modeling or, more generically, as a parallel particle simulator at the atomic, meson, or continuum scale. LAMMPS runs on single processors or in parallel using message-passing techniques and a spatial-decomposition of the simulation domain. Read more on the LAMMPS website https://lammps.sandia.gov/."

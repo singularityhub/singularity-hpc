@@ -212,6 +212,10 @@ class ContainerConfig:
         """
         Return a consistently formatted list of aliases
         """
+        # Aliases are not required
+        if not self.aliases:
+            return []
+
         # Format 1: allows for a list
         if isinstance(self.aliases, list):
             return [dict(x) for x in self.aliases]
