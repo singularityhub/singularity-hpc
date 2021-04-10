@@ -3,12 +3,10 @@ name: singularity-hpc-test-registry
 on:
   pull_request:
     types: [labeled]
-    branches:
-      - recipe/*
 
 jobs:
   test-registry:
-    if: (github.event.label.name == 'container-recipe') || startsWith(github.head_ref, 'recipe')
+    if: ${{ github.event.label.name == 'container-recipe' }}
     runs-on: ubuntu-latest
     steps:
       - name: Install Dependencies
@@ -41,6 +39,8 @@ jobs:
             echo "Found $commits since main"
             cd registry
             touch changes.txt
+            # Note that you can also do: git diff --name-only $branch..main .
+            # We show the count of commits as a sanity check to the developer
             for container_yaml in $(git diff --name-only HEAD~$commits..HEAD .); do
                 echo $container_yaml >> changes.txt
             done            

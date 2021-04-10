@@ -47,9 +47,19 @@ class Client(BaseClient):
             msg = "%s, and all content below it? " % name
             if utils.confirm_uninstall(msg, force):
                 shutil.rmtree(module_dir)
+
+                # If directories above it are empty, remove
+                while module_dir != self.settings.lmod_base:
+                    module_dir = os.path.dirname(module_dir)
+                    if os.listdir(module_dir):
+                        break
+                    shutil.rmtree(module_dir)
+
         elif os.path.exists(module_dir) and force:
             shutil.rmtree(module_dir)
-        logger.info("%s and all subdirectories have been removed," % name)
+            logger.info("%s and all subdirectories have been removed." % name)
+        else:
+            logger.info("%s does not exist." % name)
 
     def _test_setup(self, tmpdir):
         """

@@ -31,6 +31,7 @@ There are other tools that you might be interested in!
 ## TODOS
  
  - add other registry containers
+ - the admin that runs shpc should have an easier way to see commands (other than lmod)
  - ensure that we print columns to shpc list
 
 ## License
