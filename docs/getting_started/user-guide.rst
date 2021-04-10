@@ -46,7 +46,14 @@ And then load the module!
 
 If the module executable as a conflict with something already loaded, it
 will tell you, and it's up to you to unload the conflicting modules before you
-try loading again. For more detailed tutorials, you should continue reading,
+try loading again. If you want to quickly see commands that are supported, use module
+help:
+
+.. code-block:: console
+
+
+
+For more detailed tutorials, you should continue reading,
 and see :ref:`getting_started-use-cases`.
 
 
@@ -938,6 +945,48 @@ Then you can use spider to see the modules:
 
         This module can be loaded directly: module load python/3.9.2/module
     ```
+
+
+or ask for help directly!
+
+.. code-block:: console
+
+    # module help python/3.9.2-slim
+
+    ----------------------------------------------------- Module Specific Help for "python/3.9.2-slim/module" ------------------------------------------------------
+    This module is a singularity container wrapper for python v3.9.2-slim
+
+
+    Container:
+
+     - /home/vanessa/Desktop/Code/singularity-hpc/modules/python/3.9.2-slim/python-3.9.2-slim-sha256:85ed629e6ff79d0bf796339ea188c863048e9aedbf7f946171266671ee5c04ef.sif
+
+    Commands include:
+
+     - python-run:
+           singularity run <container>
+     - python-shell:
+           singularity shell -s /bin/bash <container>
+     - python-exec:
+           singularity exec -s /bin/bash <container> "$@"
+     - python-inspect-runscript:
+           singularity inspect -r <container>
+     - python-inspect-deffile:
+           singularity inspect -d <container>
+
+     - python:
+           singularity exec <container> /usr/local/bin/python"
+
+
+    For each of the above, you can export:
+
+     - SINGULARITY_OPTS: to define custom options for singularity (e.g., --debug)
+     - SINGULARITY_COMMAND_OPTS: to define custom options for the command (e.g., -b)
+
+
+Note that you typically can't run or execute containers within another container, but 
+you can interact with lmod. Also notice that for every container, we expose easy
+commands to shell, run, exec, and inspect. The custom commands (e.g., Python) are then provided below that.
 
 Make sure to write to files outside of the container so you don't muck with permissions.
 Since we are using module use, this means that you can create module files as a user
