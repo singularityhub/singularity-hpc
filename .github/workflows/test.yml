@@ -41,6 +41,8 @@ jobs:
             echo "Found $commits since main"
             cd registry
             touch changes.txt
+            # Note that you can also do: git diff --name-only $branch..main .
+            # We show the count of commits as a sanity check to the developer
             for container_yaml in $(git diff --name-only HEAD~$commits..HEAD .); do
                 echo $container_yaml >> changes.txt
             done            

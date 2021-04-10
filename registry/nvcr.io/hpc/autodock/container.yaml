@@ -1,0 +1,14 @@
+docker: nvcr.io/hpc/autodock
+latest:
+  "2020.06": "sha256:6170944542063c7417343bec5e4001239e4ce113c2faf7f5824cb20a08373d9c"
+tags:
+  "2020.06": "sha256:6170944542063c7417343bec5e4001239e4ce113c2faf7f5824cb20a08373d9c"
+filter:
+  - "20*"
+maintainer: "@vsoch"
+url: "https://ngc.nvidia.com/catalog/containers/hpc:autodock"
+description: "The AutoDock-GPU Suite is a growing collection of methods for computational docking and virtual screening, for use in structure-based drug discovery and exploration of the basic mechanisms of biomolecular structure and function. More info on AutoDock-GPU be located at https://ccsb.scripps.edu/autodock/ and https://github.com/ccsb-scripps/AutoDock-GPU#usage."
+aliases:
+  - name: autodock-gpu
+    command: /opt/AutoDock-GPU/bin/autodock_gpu_128wi
+    options: "--nv"

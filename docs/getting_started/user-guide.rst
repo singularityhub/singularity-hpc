@@ -50,7 +50,6 @@ try loading again. For more detailed tutorials, you should continue reading,
 and see :ref:`getting_started-use-cases`.
 
 
-
 Creating a Registry
 ===================
 

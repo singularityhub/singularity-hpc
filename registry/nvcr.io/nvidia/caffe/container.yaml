@@ -1,0 +1,14 @@
+docker: nvcr.io/nvidia/caffe
+latest:
+  "20.03-py3": "sha256:95740df9a299abcb4fccb1870486228aad0d0ccffa45096f1ff25db5128eeda6"
+tags:
+  "20.03-py3": "sha256:95740df9a299abcb4fccb1870486228aad0d0ccffa45096f1ff25db5128eeda6"
+filter:
+  - "20*"
+maintainer: "@vsoch"
+url: "https://ngc.nvidia.com/catalog/containers/nvidia:caffe/tags"
+description: "NVIDIA Caffe, also known as NVCaffe, is an NVIDIA-maintained fork of Berkeley Vision and Learning Center (BVLC) Caffe tuned for NVIDIA GPUs, particularly in multi-GPU configurations."
+aliases:
+  - name: python
+    command: /usr/bin/python
+    options: "--nv"
