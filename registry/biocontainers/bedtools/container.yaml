@@ -1,0 +1,11 @@
+docker: biocontainers/bedtools
+latest:
+ "v2.27.1dfsg-4-deb_cv1": "sha256:c042e405f356bb44cc0d7a87b4528d793afb581f0961db1d6da6e0a7e1fd3467"
+tags:
+ "v2.27.1dfsg-4-deb_cv1": "sha256:c042e405f356bb44cc0d7a87b4528d793afb581f0961db1d6da6e0a7e1fd3467"
+filter:
+  - "v*"
+maintainer: "@vsoch"
+url: https://hub.docker.com/r/biocontainers/bedtools
+aliases:
+  bedtools: /usr/bin/bedtools

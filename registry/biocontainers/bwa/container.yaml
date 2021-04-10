@@ -1,0 +1,9 @@
+docker: biocontainers/bwa
+latest:
+ "0.7.15": "sha256:6f76c11a816b10440fd9d2c64c7183a31cc104a729f31a373c9b2b068138305e"
+tags:
+ "0.7.15": "sha256:6f76c11a816b10440fd9d2c64c7183a31cc104a729f31a373c9b2b068138305e"
+maintainer: "@vsoch"
+url: https://hub.docker.com/r/biocontainers/bwa
+aliases:
+  bwa: /opt/conda/bin/bwa

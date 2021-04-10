@@ -1,0 +1,9 @@
+docker: biocontainers/fastqc
+latest:
+ "v0.11.5": "sha256:ecb3f9d26b139a39e3757b9ff6108b23f8da18cce11cf716035a0756b99aae57"
+tags:
+ "v0.11.5": "sha256:ecb3f9d26b139a39e3757b9ff6108b23f8da18cce11cf716035a0756b99aae57"
+filter:
+  - "v*"
+maintainer: "@vsoch"
+url: https://hub.docker.com/r/biocontainers/fastqc
