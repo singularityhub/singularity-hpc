@@ -8,7 +8,3 @@ filter:
 maintainer: "@vsoch"
 url: https://hub.docker.com/r/uvarc/qiime2
 description: "QIIME2. Same functionality as the official image but less than half the size. Includes packages Empress and PICRUSt2."
-aliases:
-  - name: python
-    command: /usr/local/bin/python
-    options: "--nv"
