@@ -26,7 +26,7 @@ jobs:
           root=$PWD
           # clone the github pages branch
           cd /opt
-          git clone -b gh-pages git@github.com:singularityhub/singularity-hpc
+          git clone -b gh-pages https://github.com/singularityhub/singularity-hpc
           cd singularity-hpc
           /bin/bash generate.sh
           
