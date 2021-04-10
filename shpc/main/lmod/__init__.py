@@ -36,6 +36,20 @@ class Client(BaseClient):
             template = Template(temp.read())
         return template
 
+    def _cleanup(self, module_dir):
+        """Given a module directory, delete up to lmod base"""
+        # Exit early if the module directory for some reason was removed
+        if not os.path.exists(module_dir):
+            return
+        shutil.rmtree(module_dir)
+
+        # If directories above it are empty, remove
+        while module_dir != self.settings.lmod_base:
+            module_dir = os.path.dirname(module_dir)
+            if not os.path.exists(module_dir) or os.listdir(module_dir):
+                break
+            shutil.rmtree(module_dir)
+
     def uninstall(self, name, force=False):
         """
         Given a unique resource identifier, uninstall a module
@@ -46,14 +60,7 @@ class Client(BaseClient):
         if os.path.exists(module_dir) and not force:
             msg = "%s, and all content below it? " % name
             if utils.confirm_uninstall(msg, force):
-                shutil.rmtree(module_dir)
-
-                # If directories above it are empty, remove
-                while module_dir != self.settings.lmod_base:
-                    module_dir = os.path.dirname(module_dir)
-                    if os.listdir(module_dir):
-                        break
-                    shutil.rmtree(module_dir)
+                self._cleanup(module_dir)
 
         elif os.path.exists(module_dir) and force:
             shutil.rmtree(module_dir)
@@ -302,6 +309,7 @@ class Client(BaseClient):
 
         # Exit early if there is an issue
         if not os.path.exists(container_path):
+            self._cleanup(os.path.dirname(container_path))
             logger.exit("There was an issue pulling %s" % container_path)
 
         # prepare aliases

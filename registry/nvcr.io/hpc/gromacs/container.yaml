@@ -1,0 +1,14 @@
+docker: nvcr.io/hpc/gromacs
+latest:
+  "2020.2": "sha256:5dea7520001942617327d10d009f1a6f5df95c9e3c94eac937a50453e24d500e"
+tags:
+  "2020.2": "sha256:5dea7520001942617327d10d009f1a6f5df95c9e3c94eac937a50453e24d500e"
+filter:
+  - "2021*"
+maintainer: "@vsoch"
+url: "https://ngc.nvidia.com/catalog/containers/hpc:gromacs/tags"
+description: "GROMACS is a popular molecular dynamics application used to simulate proteins and lipids."
+aliases:
+  - name: python
+    command: /usr/bin/python
+    options: "--nv"

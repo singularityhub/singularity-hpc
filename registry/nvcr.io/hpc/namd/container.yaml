@@ -1,0 +1,16 @@
+docker: nvcr.io/hpc/namd
+latest:
+  "3.0-alpha3-singlenode": "sha256:7c86abf0442c66ce796d1cc9b598ffbd41ad8eee5e11f01f34f5813bd70aa624"
+tags:
+  "3.0-alpha3-singlenode": "sha256:7c86abf0442c66ce796d1cc9b598ffbd41ad8eee5e11f01f34f5813bd70aa624"
+maintainer: "@vsoch"
+url: "https://ngc.nvidia.com/catalog/containers/hpc:lammps/tags"
+description: "NAMD is a parallel molecular dynamics code designed for high-performance simulation of large biomolecular systems. NAMD uses the popular molecular graphics program VMD for simulation setup and trajectory analysis, but is also file-comp atible with AMBER, CHARMM, and X-PLOR."
+aliases:
+  charmrun: /usr/local/bin/charmrun
+  flipbinpdb: /usr/local/bin/flipbinpdb
+  flipdcd: /usr/local/bin/flipdcd
+  namd3: /usr/local/bin/namd3
+  psfgen: /usr/local/bin/psfgen
+  sortreplicas: /usr/local/bin/sortreplicas
+  vmd: /usr/local/bin/vmd
