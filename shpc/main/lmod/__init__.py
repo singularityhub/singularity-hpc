@@ -303,9 +303,9 @@ class Client(BaseClient):
         elif pull_type == "gh":
             container_uri = "gh://%s/%s:%s" % (config.gh, tag.digest, tag.name)
 
-        # Pull new containers (this doesn't clean up old ones, which we might want to do)
+        # Pull new containers
         if not os.path.exists(container_path):
-            self._container.pull(container_uri, container_path)
+            result = self._container.pull(container_uri, container_path)
 
         # Exit early if there is an issue
         if not os.path.exists(container_path):

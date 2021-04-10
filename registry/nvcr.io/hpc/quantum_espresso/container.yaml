@@ -1,0 +1,10 @@
+docker: nvcr.io/hpc/quantum_espresso
+latest:
+  "v6.7": "sha256:352db5b01c148b061c057a3452df1c72cf7e27ca022e2b4b29a2e3c367f3b883"
+tags:
+  "v6.7": "sha256:352db5b01c148b061c057a3452df1c72cf7e27ca022e2b4b29a2e3c367f3b883"
+filter:
+  - "v*"
+maintainer: "@vsoch"
+url: "https://ngc.nvidia.com/catalog/containers/hpc:quantum_espresso/tags"
+description: "Quantum ESPRESSO is an integrated suite of Open-Source computer codes for electronic-structure calculations and materials modeling at the nanoscale based on density-functional theory, plane waves, and pseudopotentials."

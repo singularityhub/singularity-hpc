@@ -172,7 +172,6 @@ class Client:
                 utils.write_file(test_file, config.test)
                 command = ["singularity", "exec", sif, "/bin/bash", test_file]
                 result = utils.run_command(command)
-                # result = subprocess.call(command)
 
                 # We can't run on incompatible hosts
                 if (
