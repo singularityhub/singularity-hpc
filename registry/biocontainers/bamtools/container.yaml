@@ -1,0 +1,11 @@
+docker: biocontainers/bamtools
+latest:
+ "v2.5.1dfsg-3-deb_cv1": "sha256:d92eff2abaf77885c5c729f972eb05bfc7d04b5b223b841ca4b8ee2f6de2310d"
+tags:
+ "v2.5.1dfsg-3-deb_cv1": "sha256:d92eff2abaf77885c5c729f972eb05bfc7d04b5b223b841ca4b8ee2f6de2310d"
+filter:
+  - "v*"
+maintainer: "@vsoch"
+url: https://hub.docker.com/r/biocontainers/bamtools
+aliases:
+  bamtools: /usr/bin/bamtools
