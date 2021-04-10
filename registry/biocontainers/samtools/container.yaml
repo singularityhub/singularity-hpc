@@ -1,0 +1,11 @@
+docker: biocontainers/samtools
+latest:
+ "v1.9-4-deb_cv1": "sha256:da61624fda230e94867c9429ca1112e1e77c24e500b52dfc84eaf2f5820b4a2a"
+tags:
+ "v1.9-4-deb_cv1": "sha256:da61624fda230e94867c9429ca1112e1e77c24e500b52dfc84eaf2f5820b4a2a"
+filter:
+  - "v*"
+maintainer: "@vsoch"
+url: https://hub.docker.com/r/biocontainers/samtools  
+aliases:
+  samtools: /usr/bin/samtools

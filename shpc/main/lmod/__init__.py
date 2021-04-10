@@ -166,6 +166,10 @@ class Client(BaseClient):
         out = out or sys.stdout
         modules = self._get_module_lookup(base, filename, pattern)
 
+        # If we don't have modules, exit early
+        if not modules:
+            logger.exit("You don't have any install modules. Try shpc show.", 0)
+
         # The user can request to list only names, which is useful to find modules
         for module_name, versions in modules.items():
             if names_only:

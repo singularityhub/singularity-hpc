@@ -148,5 +148,5 @@ def confirm_uninstall(filename, force=False):
     force: if the user wants to skip the prompt
     """
     return confirm_action(
-        "Are you sure you want to uninstall {}?".format(filename), force
+        "Are you sure you want to uninstall {}".format(filename), force
     )

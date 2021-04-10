@@ -1,0 +1,11 @@
+docker: biocontainers/vcftools
+latest:
+ "v0.1.16-1-deb_cv1": "sha256:caa02f1a00f18e1509ff3097cabaebb37b3ab884082ca983b3d7b7b7d13c6744"
+tags:
+ "v0.1.16-1-deb_cv1": "sha256:caa02f1a00f18e1509ff3097cabaebb37b3ab884082ca983b3d7b7b7d13c6744"
+filter:
+  - "v*"
+maintainer: "@vsoch"
+url: https://hub.docker.com/r/biocontainers/vcftools
+aliases:
+  vcftools: /usr/bin/vcftools

@@ -1,0 +1,11 @@
+docker: biocontainers/bcftools
+latest:
+ "v1.9-1-deb_cv1": "sha256:ab5e68068ff56baf59b79f995b5425edba9f61cc86a5476357db87ec2670899d"
+tags:
+ "v1.9-1-deb_cv1": "sha256:ab5e68068ff56baf59b79f995b5425edba9f61cc86a5476357db87ec2670899d"
+filter:
+  - "v*"
+maintainer: "@vsoch"
+url: https://hub.docker.com/r/biocontainers/bcftools
+aliases:
+  bcftools: /usr/bin/bcftools

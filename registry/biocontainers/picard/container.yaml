@@ -1,0 +1,12 @@
+docker: biocontainers/picard
+latest:
+ "v1.139_cv3": "sha256:05a6dd401d47c930191fa8c017b2cf60c099c4da236f134586a2f3610e426229"
+tags:
+ "v1.139_cv3": "sha256:05a6dd401d47c930191fa8c017b2cf60c099c4da236f134586a2f3610e426229"
+filter:
+  - "v*"
+maintainer: "@vsoch"
+url: https://hub.docker.com/r/biocontainers/picard
+description: "Java CLI tools for manipulating HTS data and formats"
+aliases:
+  picard: "java -jar /opt/conda/bin/picard.jar"

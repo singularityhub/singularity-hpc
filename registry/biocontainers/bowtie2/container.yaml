@@ -1,0 +1,13 @@
+docker: biocontainers/bowtie2
+latest:
+ "v2.4.1_cv1": "sha256:47148858f55463c2432564eff631726c77a7d0e598f35e806a1cbcd6ce30be1a"
+tags:
+ "v2.4.1_cv1": "sha256:47148858f55463c2432564eff631726c77a7d0e598f35e806a1cbcd6ce30be1a"
+filter:
+  - "v*"
+maintainer: "@vsoch"
+url: https://hub.docker.com/r/biocontainers/bowtie2
+aliases:
+  bowtie2: /usr/local/bin/bowtie2
+  bowtie2-inspect: /usr/local/bin/bowtie2-inspect
+  bowtie2-build: /usr/local/bin/bowtie2-build

@@ -60,7 +60,7 @@ conflict(myModuleName(){% if aliases %}{% for alias in aliases %},"{{ alias.name
 
 -- exec functions to provide "alias" to module commands
 {% if aliases %}{% for alias in aliases %}
-set_shell_function("{{ alias.name }}", execCmd .. {% if alias.options %} "{{ alias.options }} " .. {% endif %} containerPath .. " {{ alias.command }} ", execCmd .. {% if alias.options %} "{{ alias.options }} " .. {% endif %} containerPath .. " {{ alias.command }}")
+set_shell_function("{{ alias.name }}", execCmd .. {% if alias.options %} "{{ alias.options }} " .. {% endif %} containerPath .. " {{ alias.command }} $@", execCmd .. {% if alias.options %} "{{ alias.options }} " .. {% endif %} containerPath .. " {{ alias.command }} $*")
 {% endfor %}{% endif %}
 
 -- A customizable exec function
