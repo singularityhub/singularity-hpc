@@ -29,6 +29,7 @@ jobs:
           git clone -b gh-pages https://github.com/singularityhub/singularity-hpc
           cd singularity-hpc
           /bin/bash generate.sh
+          cd $root
           
       - name: Push to GitHub Pages
         env:
@@ -39,8 +40,11 @@ jobs:
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@users.noreply.github.com"
 
-          cd /opt/singularity-hpc
+          cd $root
+          git checkout gh-pages
+          rm -rf _library      
           ls
+          mv /opt/singularity-hpc/_library _library          
           git add _library/*
 
           set +e
