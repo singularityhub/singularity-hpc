@@ -157,7 +157,6 @@ class Client(BaseClient):
         """
         out = out or sys.stdout
         config = self._load_container(module_name)
-        module_dir = os.path.join(self.settings.lmod_base, config.get_url())
         aliases = config.get_aliases()
         template = self._load_template("docs.md")
         github_url = "%s/blob/main/registry/%s/container.yaml" % (
