@@ -1,0 +1,9 @@
+docker: ghcr.io/autamus/fraggenescan
+latest:
+  "latest": "sha256:5fff7294a5b59369c06b0e29ab23ee55edbba7f15131ad33ea1eb737ee0e9691"
+tags:
+  "latest": "sha256:5fff7294a5b59369c06b0e29ab23ee55edbba7f15131ad33ea1eb737ee0e9691"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/fraggenescan

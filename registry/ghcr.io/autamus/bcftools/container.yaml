@@ -1,0 +1,11 @@
+docker: ghcr.io/autamus/bcftools
+latest:
+  "latest": "sha256:e0f7cc983f03dccf01414f0d8fdf41f266a94ecffd339912fb7fb0cf9ff1ecf5"
+tags:
+  "latest": "sha256:e0f7cc983f03dccf01414f0d8fdf41f266a94ecffd339912fb7fb0cf9ff1ecf5"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/bcftools
+aliases:
+  bcftools: /opt/view/bin/bcftools

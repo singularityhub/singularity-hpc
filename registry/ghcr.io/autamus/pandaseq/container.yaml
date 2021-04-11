@@ -1,0 +1,15 @@
+docker: ghcr.io/autamus/pandaseq
+latest:
+  "latest": "sha256:868042fb810840372d757893e48568c2a0ba7e73e100910a88f441613ab592fe"
+tags:
+  "latest": "sha256:868042fb810840372d757893e48568c2a0ba7e73e100910a88f441613ab592fe"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/pandaseq
+aliases:
+  pandaseq: /opt/view/bin/pandaseq
+  pandaseq-checkid: /opt/view/bin/pandaseq-checkid
+  pandaseq-diff: /opt/view/bin/pandaseq-diff
+  pandaseq-hang: /opt/view/bin/pandaseq-hang
+  pandaxs: /opt/view/bin/pandaxs

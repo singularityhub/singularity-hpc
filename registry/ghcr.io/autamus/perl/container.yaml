@@ -1,0 +1,15 @@
+docker: ghcr.io/autamus/perl
+latest:
+  "latest": "sha256:3c416040ae2ce26b3842fc769e3b891da5299268308b8bd6da021897b0383736"
+tags:
+  "latest": "sha256:3c416040ae2ce26b3842fc769e3b891da5299268308b8bd6da021897b0383736"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/perl
+aliases:
+  perl: /opt/view/bin/perl
+  perlbug: /opt/view/bin/perlbug
+  perldoc: /opt/view/bin/perldoc
+  perlivp: /opt/view/bin/perlivp
+  perlthanks: /opt/view/bin/perlthanks

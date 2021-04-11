@@ -1,0 +1,23 @@
+docker: ghcr.io/autamus/hmmer
+latest:
+  "latest": "sha256:87ac88c3db4f5a80af3701ceb43e29fac4fdab86db71f6763425881f28f51335"
+tags:
+  "latest": "sha256:87ac88c3db4f5a80af3701ceb43e29fac4fdab86db71f6763425881f28f51335"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/hmmer
+aliases:
+  hmmalign: /opt/view/bin/hmmalign 
+  hmmemit: /opt/view/bin/hmmemit 
+  hmmpgmd: /opt/view/bin/hmmpgmd
+  hmmscan: /opt/view/bin/hmmscan
+  hmmstat: /opt/view/bin/hmmstat
+  hmmbuild: /opt/view/bin/hmmbuild
+  hmmpgmd_shard: /opt/view/bin/hmmpgmd_shard
+  hmmfetch: /opt/view/bin/hmmfetch
+  hmmsearch: /opt/view/bin/hmmsearch
+  hmmconvert: /opt/view/bin/hmmconvert
+  hmmlogo: /opt/view/bin/hmmlogo
+  hmmpress: /opt/view/bin/hmmpress
+  hmmsim: /opt/view/bin/hmmsim
