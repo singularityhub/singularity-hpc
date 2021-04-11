@@ -1,0 +1,11 @@
+docker: ghcr.io/autamus/plink
+latest:
+  "latest": "sha256:b69ab776fb3a5bd02663c07a912e5c39a6f58cdeabf41d4e5608d99bf9e3721e"
+tags:
+  "latest": "sha256:b69ab776fb3a5bd02663c07a912e5c39a6f58cdeabf41d4e5608d99bf9e3721e"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/plink
+aliases:
+  plink: /opt/view/bin/plink

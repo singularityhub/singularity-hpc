@@ -1,0 +1,9 @@
+docker: ghcr.io/autamus/sparsehash
+latest:
+  "latest": "sha256:be34170eb7700a63eddc78aee5c94635251c7d067730af3d05baad5c17e2dfa6"
+tags:
+  "latest": "sha256:be34170eb7700a63eddc78aee5c94635251c7d067730af3d05baad5c17e2dfa6"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/sparsehash

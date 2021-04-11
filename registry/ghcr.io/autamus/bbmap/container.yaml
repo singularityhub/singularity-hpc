@@ -1,0 +1,9 @@
+docker: ghcr.io/autamus/bbmap
+latest:
+  "latest": "sha256:e9187056011f6000c68b52016659d888a89e109976d2966fab5edee281990272"
+tags:
+  "latest": "sha256:e9187056011f6000c68b52016659d888a89e109976d2966fab5edee281990272"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/bbmap

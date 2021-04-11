@@ -1,0 +1,11 @@
+docker: ghcr.io/autamus/julia
+latest:
+  "latest": "sha256:e898f6e5faced775bca53c9e8cd28f56f1b6d42a719d06678a7012ab9f21f32e"
+tags:
+  "latest": "sha256:e898f6e5faced775bca53c9e8cd28f56f1b6d42a719d06678a7012ab9f21f32e"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/julia
+aliases:
+  julia: /opt/view/bin/julia

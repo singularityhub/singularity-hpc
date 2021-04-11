@@ -1,0 +1,21 @@
+docker: ghcr.io/autamus/ruby
+latest:
+  "latest": "sha256:5246831151da8c9b173cb91e3c9028ec4e108cd8b2831dd5c5d0d8363bb430ff"
+tags:
+  "latest": "sha256:5246831151da8c9b173cb91e3c9028ec4e108cd8b2831dd5c5d0d8363bb430ff"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/ruby
+aliases:
+  ruby: /opt/view/bin/ruby
+  bundle: /opt/view/bin/bundle
+  bundler: /opt/view/bin/bundler
+  erb: /opt/view/bin/erb
+  irb: /opt/view/bin/irb
+  gem: /opt/view/bin/gem
+  rake: /opt/view/bin/rake
+  rdoc: /opt/view/bin/rdoc
+  rbs: /opt/view/bin/rbs
+  racc: /opt/view/bin/racc
+  ri: /opt/view/bin/ri

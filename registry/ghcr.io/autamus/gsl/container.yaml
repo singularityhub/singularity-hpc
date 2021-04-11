@@ -1,0 +1,13 @@
+docker: ghcr.io/autamus/gsl
+latest:
+  "latest": "sha256:bcb21afef09575eb6d2b7cc24f92f673cb27ab07d3878f09827daf2be564ece5"
+tags:
+  "latest": "sha256:bcb21afef09575eb6d2b7cc24f92f673cb27ab07d3878f09827daf2be564ece5"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/gsl
+aliases:
+  gsl-config: /opt/view/bin/gsl-config
+  gsl-histogram: /opt/view/bin/gsl-histogram
+  gsl-randist: /opt/view/bin/gsl-randist
