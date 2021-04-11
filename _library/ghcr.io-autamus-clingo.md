@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/clingo"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/clingo/container.yaml"
-updated_at: "2021-04-11 19:53:14.969436"
+updated_at: "2021-04-11 22:11:47.541367"
 container_url: ""
 aliases:
  - "clingo"
@@ -11,7 +11,7 @@ aliases:
  - "gringo"
 
 versions:
- - "5.4.1"
+ - "latest"
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/clingo.
@@ -25,7 +25,7 @@ $ shpc install ghcr.io/autamus/clingo
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/clingo:5.4.1
+$ shpc install ghcr.io/autamus/clingo:latest
 ```
 
 And then you can tell lmod about your modules folder:
@@ -37,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/clingo/5.4.1
-$ module help ghcr.io/autamus/clingo/5.4.1
+$ module load ghcr.io/autamus/clingo/latest
+$ module help ghcr.io/autamus/clingo/latest
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

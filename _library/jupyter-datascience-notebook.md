@@ -3,7 +3,7 @@ layout: container
 name:  "jupyter/datascience-notebook"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/jupyter/datascience-notebook/container.yaml"
-updated_at: "2021-04-11 19:53:17.446733"
+updated_at: "2021-04-11 22:11:51.476763"
 container_url: ""
 aliases:
  - "run-notebook"
