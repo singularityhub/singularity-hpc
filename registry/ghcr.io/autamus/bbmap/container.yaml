@@ -6,4 +6,5 @@ tags:
 filter:
   - "latest"
 maintainer: "@vsoch"
+description: "A suite of fast, multithreaded bioinformatics tools designed for analysis of DNA and RNA sequence data."
 url: https://github.com/orgs/autamus/packages/container/package/bbmap

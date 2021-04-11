@@ -7,6 +7,7 @@ filter:
   - "latest"
 maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/pandaseq
+description: "A program to align Illumina reads, optionally with PCR primers embedded in the sequence, and reconstruct an overlapping sequence."
 aliases:
   pandaseq: /opt/view/bin/pandaseq
   pandaseq-checkid: /opt/view/bin/pandaseq-checkid

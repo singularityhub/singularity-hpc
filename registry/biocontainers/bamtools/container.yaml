@@ -6,6 +6,7 @@ tags:
 filter:
   - "v*"
 maintainer: "@vsoch"
+description: "BamTools is a toolkit for handling BAM files."
 url: https://hub.docker.com/r/biocontainers/bamtools
 aliases:
   bamtools: /usr/bin/bamtools

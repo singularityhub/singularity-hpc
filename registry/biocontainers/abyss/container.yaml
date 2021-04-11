@@ -7,6 +7,7 @@ filter:
   - "v*"
 maintainer: "@vsoch"
 url: https://hub.docker.com/r/biocontainers/abyss
+description: "A de novo, parallel, paired-end sequence assembler that is designed for short reads. See https://www.bcgsc.ca/resources/software/abyss."
 aliases:
   abyss-fixmate: /usr/bin/abyss-fixmate
   abyss-pe: /usr/bin/abyss-pe

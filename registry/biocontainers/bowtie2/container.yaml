@@ -6,6 +6,7 @@ tags:
 filter:
   - "v*"
 maintainer: "@vsoch"
+description: "Bowtie 2 is an ultrafast and memory-efficient tool for aligning sequencing reads to long reference sequences."
 url: https://hub.docker.com/r/biocontainers/bowtie2
 aliases:
   bowtie2: /usr/local/bin/bowtie2

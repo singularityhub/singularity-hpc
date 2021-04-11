@@ -7,6 +7,7 @@ filter:
   - "latest"
 maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/ruby
+description: "An interpreted, high-level, general-purpose programming language."
 aliases:
   ruby: /opt/view/bin/ruby
   bundle: /opt/view/bin/bundle

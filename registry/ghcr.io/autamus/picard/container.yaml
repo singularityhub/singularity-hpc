@@ -7,6 +7,7 @@ filter:
   - "latest"
 maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/picard
+description: "A set of command line tools (in Java) for manipulating high-throughput sequencing (HTS) data and formats such as SAM/BAM/CRAM and VCF."
 aliases:
   picard: /opt/view/bin/picard
   picard.jar: /opt/view/bin/java -jar /opt/view/bin/picard.jar

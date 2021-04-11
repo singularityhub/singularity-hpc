@@ -7,5 +7,6 @@ filter:
   - "v*"
 maintainer: "@vsoch"
 url: https://hub.docker.com/r/bids/validator
+description: "A validator for BIDS (Brain Imaging Data Structure) datasets."
 aliases:
   bids-validator: /usr/local/bin/bids-validator

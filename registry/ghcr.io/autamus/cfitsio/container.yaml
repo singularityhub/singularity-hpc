@@ -6,4 +6,5 @@ tags:
 filter:
   - "latest"
 maintainer: "@vsoch"
+description: "CFITSIO is a library of C and Fortran subroutines for reading and writing data files in FITS (Flexible Image Transport System) data format."
 url: https://github.com/orgs/autamus/packages/container/package/cfitsio
