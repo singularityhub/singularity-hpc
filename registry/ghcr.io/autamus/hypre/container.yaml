@@ -1,0 +1,9 @@
+docker: ghcr.io/autamus/hypre
+latest:
+  "latest": "sha256:3c75a3c5ff10539664586d202973b9262a1cffb7a9b18f4d8b1b2baad6a6a5a3"
+tags:
+  "latest": "sha256:3c75a3c5ff10539664586d202973b9262a1cffb7a9b18f4d8b1b2baad6a6a5a3"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/hypre

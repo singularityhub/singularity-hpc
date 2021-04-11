@@ -1,0 +1,9 @@
+docker: ghcr.io/autamus/r-seqlogo
+latest:
+  "latest": "sha256:fa2b760763992570031b44e32d71a078d5467ab85d542c7a6d264f4ebe455995"
+tags:
+  "latest": "sha256:fa2b760763992570031b44e32d71a078d5467ab85d542c7a6d264f4ebe455995"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/r-seqlogo

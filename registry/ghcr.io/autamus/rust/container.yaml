@@ -1,0 +1,21 @@
+docker: ghcr.io/autamus/rust
+latest:
+  "latest": "sha256:721fe367069e6c5ef10a89ec43faff5ef6ad07e3d7324b5ca1841c19dba89d14"
+tags:
+  "latest": "sha256:721fe367069e6c5ef10a89ec43faff5ef6ad07e3d7324b5ca1841c19dba89d14"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/rust
+aliases:
+  rust: /opt/view/bin/rust
+  rustc: /opt/view/bin/rustc
+  rustdoc: /opt/view/bin/rustdoc
+  rustfmt: /opt/view/bin/rustfmt
+  rust-gdb: /opt/view/bin/rust-gdb
+  rust-gdbgui: /opt/view/bin/rust-gdbgui
+  rust-lldb: /opt/view/bin/rust-lldb
+  cargo: /opt/view/bin/cargo
+  cargo-fmt: /opt/view/bin/cargo-fmt
+  cargo-clippy: /opt/view/bin/cargo-clippy
+  clippy-driver: /opt/view/bin/clippy-driver

@@ -1,0 +1,11 @@
+docker: ghcr.io/autamus/migrate
+latest:
+  "latest": "sha256:248656eaf78aca2b3079fb593dbb3410b7e17fb075d89a402e28e8743b1c99c5"
+tags:
+  "latest": "sha256:248656eaf78aca2b3079fb593dbb3410b7e17fb075d89a402e28e8743b1c99c5"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/migrate
+aliases:
+  migrate-n: /opt/view/bin/migrate-n

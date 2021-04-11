@@ -1,0 +1,11 @@
+docker: ghcr.io/autamus/node-js
+latest:
+  "latest": "sha256:26207a822fae42eb5200cdc73b52d0025315bcb2139994ece9d723547b22d4c8"
+tags:
+  "latest": "sha256:26207a822fae42eb5200cdc73b52d0025315bcb2139994ece9d723547b22d4c8"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/node-js
+aliases:
+  node: /opt/view/bin/node  

@@ -1,0 +1,9 @@
+docker: ghcr.io/autamus/cfitsio
+latest:
+  "latest": "sha256:22f792b38e4aa43e3cfbebd9812170cb383b629ca2ee92192761b7ecc379a75f"
+tags:
+  "latest": "sha256:22f792b38e4aa43e3cfbebd9812170cb383b629ca2ee92192761b7ecc379a75f"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/cfitsio
