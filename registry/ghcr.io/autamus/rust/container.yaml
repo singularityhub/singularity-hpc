@@ -7,6 +7,7 @@ filter:
   - "latest"
 maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/rust
+description: "Rust is a multi-paradigm programming language designed for performance and safety, especially safe concurrency."
 aliases:
   rust: /opt/view/bin/rust
   rustc: /opt/view/bin/rustc

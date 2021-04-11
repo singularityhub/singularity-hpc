@@ -7,6 +7,7 @@ filter:
   - "latest"
 maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/mafft
+description: "MAFFT is a multiple sequence alignment program for unix-like operating systems."
 aliases:
   mafft: /opt/view/bin/mafft
   mafft-fftns: /opt/view/bin/mafft-fftns

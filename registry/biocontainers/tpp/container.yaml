@@ -7,6 +7,7 @@ filter:
   - "v*"
 maintainer: "@vsoch"
 url: https://hub.docker.com/r/biocontainers/tpp
+description: "The Trans-Proteomic Pipeline (TPP) is a collection of integrated tools for MS/MS proteomics, developed at the SPC."
 aliases:
   config_data: /usr/local/bin/config_data 
   json_xs: /usr/local/bin/json_xs 
