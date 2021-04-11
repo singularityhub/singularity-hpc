@@ -1,0 +1,35 @@
+docker: ghcr.io/autamus/openjdk
+latest:
+  "latest": "sha256:45194ad9d5e3b16907569170e8aac894a2e545f14a94d5137e3e32b9e23e4707"
+tags:
+  "latest": "sha256:45194ad9d5e3b16907569170e8aac894a2e545f14a94d5137e3e32b9e23e4707"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/openjdk
+aliases:
+  jaotc: /opt/view/bin/jaotc
+  javadoc: /opt/view/bin/javadoc
+  jinfo: /opt/view/bin/jinfo
+  jps: /opt/view/bin/jps
+  jstatd: /opt/view/bin/jstatd
+  jar: /opt/view/bin/jar
+  javap: /opt/view/bin/javap
+  jdeps: /opt/view/bin/jdeps
+  jjs: /opt/view/bin/jjs
+  jrunscript: /opt/view/bin/jrunscript
+  jarsigner: /opt/view/bin/jarsigner
+  jcmd: /opt/view/bin/jcmd
+  jfr: /opt/view/bin/jfr
+  jlink: /opt/view/bin/jlink
+  jshell: /opt/view/bin/jshell
+  java: /opt/view/bin/java
+  jconsole: /opt/view/bin/jconsole
+  jhsdb: /opt/view/bin/jhsdb
+  jmap: /opt/view/bin/jmap
+  jstack: /opt/view/bin/jstack
+  javac: /opt/view/bin/javac
+  jdb: /opt/view/bin/jdb
+  jimage: /opt/view/bin/jimage
+  jmod: /opt/view/bin/jmod
+  jstat: /opt/view/bin/jstat

@@ -1,0 +1,11 @@
+docker: ghcr.io/autamus/salmon
+latest:
+  "latest": "sha256:290b4d392bbe77360d2b76baa23cd84249a8489089fe8af49f91c20aa5187811"
+tags:
+  "latest": "sha256:290b4d392bbe77360d2b76baa23cd84249a8489089fe8af49f91c20aa5187811"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/salmon
+aliases:
+  salmon: /opt/view/bin/salmon

@@ -1,0 +1,12 @@
+docker: ghcr.io/autamus/picard
+latest:
+  "latest": "sha256:96f220748e0401063c8542b23114f893b4d166bb126e61c34f24b87c3d601c6d"
+tags:
+  "latest": "sha256:96f220748e0401063c8542b23114f893b4d166bb126e61c34f24b87c3d601c6d"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/picard
+aliases:
+  picard: /opt/view/bin/picard
+  picard.jar: /opt/view/bin/java -jar /opt/view/bin/picard.jar

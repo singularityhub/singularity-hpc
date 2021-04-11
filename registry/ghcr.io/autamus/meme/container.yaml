@@ -1,0 +1,13 @@
+docker: ghcr.io/autamus/meme
+latest:
+  "latest": "sha256:a809467049bee0ac3bdba731642959dd5124144f05548a076617872c1872f083"
+tags:
+  "latest": "sha256:a809467049bee0ac3bdba731642959dd5124144f05548a076617872c1872f083"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/meme
+aliases:
+  meme: /opt/view/bin/meme
+  meme-chip: /opt/view/bin/meme-chip
+  memhog: /opt/view/bin/memhog

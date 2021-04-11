@@ -1,0 +1,22 @@
+docker: ghcr.io/autamus/mafft
+latest:
+  "latest": "sha256:416988da0725af56e8f74233752c6780a9a9369fe56310048478233b36f3a32f"
+tags:
+  "latest": "sha256:416988da0725af56e8f74233752c6780a9a9369fe56310048478233b36f3a32f"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/mafft
+aliases:
+  mafft: /opt/view/bin/mafft
+  mafft-fftns: /opt/view/bin/mafft-fftns
+  mafft-nwnsi: /opt/view/bin/mafft-nwnsi
+  mafft-distance: /opt/view/bin/mafft-distance
+  mafft-fftnsi: /opt/view/bin/mafft-fftnsi
+  mafft-linsi: /opt/view/bin/mafft-linsi
+  mafft-profile: /opt/view/bin/mafft-profile
+  mafft-xinsi: /opt/view/bin/mafft-xinsi
+  mafft-einsi: /opt/view/bin/mafft-einsi
+  mafft-ginsi: /opt/view/bin/mafft-ginsi
+  mafft-nwns: /opt/view/bin/mafft-nwns
+  mafft-qinsi: /opt/view/bin/mafft-qinsi

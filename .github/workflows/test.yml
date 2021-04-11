@@ -31,6 +31,8 @@ jobs:
         run: |
             cd /opt
             branch="${{ github.head_ref }}"
+            git config --global user.email "github-actions"
+            git config --global user.name "github-actions@noreply.github.users.com"
             git clone -b main https://github.com/singularityhub/singularity-hpc
             cd singularity-hpc
             git checkout -b $branch

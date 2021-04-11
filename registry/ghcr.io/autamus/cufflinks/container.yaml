@@ -1,0 +1,16 @@
+docker: ghcr.io/autamus/cufflinks
+latest:
+  "latest": "sha256:163b8f4872b98d165e18f98a390c77a2b6276c810c60d44b108250ff3167e25a"
+tags:
+  "latest": "sha256:163b8f4872b98d165e18f98a390c77a2b6276c810c60d44b108250ff3167e25a"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/cufflinks
+aliases:
+  cufflinks: /opt/view/bin/cufflinks
+  cuffcompare: /opt/view/bin/cuffcompare
+  cuffdiff: /opt/view/bin/cuffdiff
+  cuffmerge: /opt/view/bin/cuffmerge
+  cuffnorm: /opt/view/bin/cuffnorm
+  cuffquant: /opt/view/bin/cuffquant
