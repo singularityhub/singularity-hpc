@@ -1,0 +1,14 @@
+docker: jupyter/tensorflow-notebook
+latest:
+  latest: "sha256:6e1af87314f46c4d5a294da06d8e55e80b6386fe2a1f43a35d5cceb27216e94c"
+tags:
+  latest: "sha256:6e1af87314f46c4d5a294da06d8e55e80b6386fe2a1f43a35d5cceb27216e94c"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://hub.docker.com/r/jupyter/tensorflow-notebook
+description: "Jupyter Tensorflow Notebook from https://github.com/jupyter/docker-stacks"
+aliases:
+  - name: run-notebook
+    command: jupyter notebook --no-browser --port=$(shuf -i 2000-65000 -n 1) --ip 0.0.0.0
+    options: --home ${HOME} --bind ${HOME}/.local:/home/joyvan/.local

@@ -1,0 +1,14 @@
+docker: jupyter/scipy-notebook
+latest:
+  latest: "sha256:01fcf4181725755cfb2b05aa793e6559824f9a4c321cc2e92c4c4aaf4c8c8eb1"
+tags:
+  latest: "sha256:01fcf4181725755cfb2b05aa793e6559824f9a4c321cc2e92c4c4aaf4c8c8eb1"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://hub.docker.com/r/jupyter/scipy-notebook
+description: "Jupyter Notebook Scientific Python Stack from https://github.com/jupyter/docker-stacks"
+aliases:
+  - name: run-notebook
+    command: jupyter notebook --no-browser --port=$(shuf -i 2000-65000 -n 1) --ip 0.0.0.0
+    options: --home ${HOME} --bind ${HOME}/.local:/home/joyvan/.local

@@ -1,0 +1,14 @@
+docker: jupyter/r-notebook
+latest:
+  latest: "sha256:f62e1ebf564252c648566798639bdf90bd1530f4fb64cfabf981d7fca3ace1b9"
+tags:
+  latest: "sha256:f62e1ebf564252c648566798639bdf90bd1530f4fb64cfabf981d7fca3ace1b9"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://hub.docker.com/r/jupyter/r-notebook
+description: "Jupyter R Notebook from https://github.com/jupyter/docker-stacks"
+aliases:
+  - name: run-notebook
+    command: jupyter notebook --no-browser --port=$(shuf -i 2000-65000 -n 1) --ip 0.0.0.0
+    options: --home ${HOME} --bind ${HOME}/.local:/home/joyvan/.local
