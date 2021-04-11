@@ -1,29 +1,37 @@
 ---
 layout: container
-name:  "biocontainers/bcftools"
+name:  "ghcr.io/autamus/pandaseq"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/biocontainers/bcftools/container.yaml"
-updated_at: "2021-04-11 19:53:08.617374"
+github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/pandaseq/container.yaml"
+updated_at: "2021-04-11 19:53:13.742514"
 container_url: ""
 aliases:
- - "bcftools"
+ - "pandaseq"
+
+ - "pandaseq-checkid"
+
+ - "pandaseq-diff"
+
+ - "pandaseq-hang"
+
+ - "pandaxs"
 
 versions:
- - "v1.9-1-deb_cv1"
+ - "latest"
 ---
 
-This module is a singularity container wrapper for biocontainers/bcftools.
+This module is a singularity container wrapper for ghcr.io/autamus/pandaseq.
 
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash
-$ shpc install biocontainers/bcftools
+$ shpc install ghcr.io/autamus/pandaseq
 ```
 
 Or a specific version:
 
 ```bash
-$ shpc install biocontainers/bcftools:v1.9-1-deb_cv1
+$ shpc install ghcr.io/autamus/pandaseq:latest
 ```
 
 And then you can tell lmod about your modules folder:
@@ -35,8 +43,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load biocontainers/bcftools/v1.9-1-deb_cv1
-$ module help biocontainers/bcftools/v1.9-1-deb_cv1
+$ module load ghcr.io/autamus/pandaseq/latest
+$ module help ghcr.io/autamus/pandaseq/latest
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
@@ -47,41 +55,69 @@ You can use tab for auto-completion of module names or commands that are provide
 
 When you install this module, you'll be able to load it to make the following commands accessible:
 
-#### biocontainers-bcftools-run:
+#### ghcr.io-autamus-pandaseq-run:
 
 ```bash
 $ singularity run <container>
 ```
 
-#### biocontainers-bcftools-shell:
+#### ghcr.io-autamus-pandaseq-shell:
 
 ```bash
 $ singularity shell -s /bin/bash <container>
 ```
 
-#### biocontainers-bcftools-exec:
+#### ghcr.io-autamus-pandaseq-exec:
 
 ```bash
 $ singularity exec -s /bin/bash <container> "$@"
 ```
 
-#### biocontainers-bcftools-inspect-runscript:
+#### ghcr.io-autamus-pandaseq-inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### biocontainers-bcftools-inspect-deffile:
+#### ghcr.io-autamus-pandaseq-inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>
 ```
 
 
-#### bcftools
+#### pandaseq
        
 ```bash
-$ singularity exec <container> /usr/bin/bcftools
+$ singularity exec <container> /opt/view/bin/pandaseq
+```
+
+
+#### pandaseq-checkid
+       
+```bash
+$ singularity exec <container> /opt/view/bin/pandaseq-checkid
+```
+
+
+#### pandaseq-diff
+       
+```bash
+$ singularity exec <container> /opt/view/bin/pandaseq-diff
+```
+
+
+#### pandaseq-hang
+       
+```bash
+$ singularity exec <container> /opt/view/bin/pandaseq-hang
+```
+
+
+#### pandaxs
+       
+```bash
+$ singularity exec <container> /opt/view/bin/pandaxs
 ```
 
 

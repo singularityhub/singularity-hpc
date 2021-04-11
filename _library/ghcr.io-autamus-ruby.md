@@ -1,29 +1,49 @@
 ---
 layout: container
-name:  "biocontainers/bcftools"
+name:  "ghcr.io/autamus/ruby"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/biocontainers/bcftools/container.yaml"
-updated_at: "2021-04-11 19:53:08.617374"
+github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/ruby/container.yaml"
+updated_at: "2021-04-11 19:53:12.125997"
 container_url: ""
 aliases:
- - "bcftools"
+ - "ruby"
+
+ - "bundle"
+
+ - "bundler"
+
+ - "erb"
+
+ - "irb"
+
+ - "gem"
+
+ - "rake"
+
+ - "rdoc"
+
+ - "rbs"
+
+ - "racc"
+
+ - "ri"
 
 versions:
- - "v1.9-1-deb_cv1"
+ - "latest"
 ---
 
-This module is a singularity container wrapper for biocontainers/bcftools.
+This module is a singularity container wrapper for ghcr.io/autamus/ruby.
 
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash
-$ shpc install biocontainers/bcftools
+$ shpc install ghcr.io/autamus/ruby
 ```
 
 Or a specific version:
 
 ```bash
-$ shpc install biocontainers/bcftools:v1.9-1-deb_cv1
+$ shpc install ghcr.io/autamus/ruby:latest
 ```
 
 And then you can tell lmod about your modules folder:
@@ -35,8 +55,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load biocontainers/bcftools/v1.9-1-deb_cv1
-$ module help biocontainers/bcftools/v1.9-1-deb_cv1
+$ module load ghcr.io/autamus/ruby/latest
+$ module help ghcr.io/autamus/ruby/latest
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
@@ -47,41 +67,111 @@ You can use tab for auto-completion of module names or commands that are provide
 
 When you install this module, you'll be able to load it to make the following commands accessible:
 
-#### biocontainers-bcftools-run:
+#### ghcr.io-autamus-ruby-run:
 
 ```bash
 $ singularity run <container>
 ```
 
-#### biocontainers-bcftools-shell:
+#### ghcr.io-autamus-ruby-shell:
 
 ```bash
 $ singularity shell -s /bin/bash <container>
 ```
 
-#### biocontainers-bcftools-exec:
+#### ghcr.io-autamus-ruby-exec:
 
 ```bash
 $ singularity exec -s /bin/bash <container> "$@"
 ```
 
-#### biocontainers-bcftools-inspect-runscript:
+#### ghcr.io-autamus-ruby-inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### biocontainers-bcftools-inspect-deffile:
+#### ghcr.io-autamus-ruby-inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>
 ```
 
 
-#### bcftools
+#### ruby
        
 ```bash
-$ singularity exec <container> /usr/bin/bcftools
+$ singularity exec <container> /opt/view/bin/ruby
+```
+
+
+#### bundle
+       
+```bash
+$ singularity exec <container> /opt/view/bin/bundle
+```
+
+
+#### bundler
+       
+```bash
+$ singularity exec <container> /opt/view/bin/bundler
+```
+
+
+#### erb
+       
+```bash
+$ singularity exec <container> /opt/view/bin/erb
+```
+
+
+#### irb
+       
+```bash
+$ singularity exec <container> /opt/view/bin/irb
+```
+
+
+#### gem
+       
+```bash
+$ singularity exec <container> /opt/view/bin/gem
+```
+
+
+#### rake
+       
+```bash
+$ singularity exec <container> /opt/view/bin/rake
+```
+
+
+#### rdoc
+       
+```bash
+$ singularity exec <container> /opt/view/bin/rdoc
+```
+
+
+#### rbs
+       
+```bash
+$ singularity exec <container> /opt/view/bin/rbs
+```
+
+
+#### racc
+       
+```bash
+$ singularity exec <container> /opt/view/bin/racc
+```
+
+
+#### ri
+       
+```bash
+$ singularity exec <container> /opt/view/bin/ri
 ```
 
 

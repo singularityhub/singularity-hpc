@@ -1,49 +1,53 @@
 ---
 layout: container
-name:  "biocontainers/talon"
+name:  "ghcr.io/autamus/hmmer"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/biocontainers/talon/container.yaml"
-updated_at: "2021-04-11 19:53:11.086430"
+github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/hmmer/container.yaml"
+updated_at: "2021-04-11 19:53:12.921872"
 container_url: ""
 aliases:
- - "talon"
+ - "hmmalign"
 
- - "talon_create_GTF"
+ - "hmmemit"
 
- - "talon_fetch_reads"
+ - "hmmpgmd"
 
- - "talon_filter_transcripts"
+ - "hmmscan"
 
- - "talon_generate_report"
+ - "hmmstat"
 
- - "talon_initialize_database"
+ - "hmmbuild"
 
- - "talon_get_sjs"
+ - "hmmpgmd_shard"
 
- - "talon_label_reads"
+ - "hmmfetch"
 
- - "talon_reformat_gtf"
+ - "hmmsearch"
 
- - "talon_summarize"
+ - "hmmconvert"
 
- - "talon_abundance"
+ - "hmmlogo"
+
+ - "hmmpress"
+
+ - "hmmsim"
 
 versions:
- - "v5.0_cv1"
+ - "latest"
 ---
 
-This module is a singularity container wrapper for biocontainers/talon.
+This module is a singularity container wrapper for ghcr.io/autamus/hmmer.
 
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash
-$ shpc install biocontainers/talon
+$ shpc install ghcr.io/autamus/hmmer
 ```
 
 Or a specific version:
 
 ```bash
-$ shpc install biocontainers/talon:v5.0_cv1
+$ shpc install ghcr.io/autamus/hmmer:latest
 ```
 
 And then you can tell lmod about your modules folder:
@@ -55,8 +59,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load biocontainers/talon/v5.0_cv1
-$ module help biocontainers/talon/v5.0_cv1
+$ module load ghcr.io/autamus/hmmer/latest
+$ module help ghcr.io/autamus/hmmer/latest
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
@@ -67,111 +71,125 @@ You can use tab for auto-completion of module names or commands that are provide
 
 When you install this module, you'll be able to load it to make the following commands accessible:
 
-#### biocontainers-talon-run:
+#### ghcr.io-autamus-hmmer-run:
 
 ```bash
 $ singularity run <container>
 ```
 
-#### biocontainers-talon-shell:
+#### ghcr.io-autamus-hmmer-shell:
 
 ```bash
 $ singularity shell -s /bin/bash <container>
 ```
 
-#### biocontainers-talon-exec:
+#### ghcr.io-autamus-hmmer-exec:
 
 ```bash
 $ singularity exec -s /bin/bash <container> "$@"
 ```
 
-#### biocontainers-talon-inspect-runscript:
+#### ghcr.io-autamus-hmmer-inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### biocontainers-talon-inspect-deffile:
+#### ghcr.io-autamus-hmmer-inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>
 ```
 
 
-#### talon
+#### hmmalign
        
 ```bash
-$ singularity exec <container> /usr/local/bin/talon
+$ singularity exec <container> /opt/view/bin/hmmalign
 ```
 
 
-#### talon_create_GTF
+#### hmmemit
        
 ```bash
-$ singularity exec <container> /usr/local/bin/talon_create_GTF
+$ singularity exec <container> /opt/view/bin/hmmemit
 ```
 
 
-#### talon_fetch_reads
+#### hmmpgmd
        
 ```bash
-$ singularity exec <container> /usr/local/bin/talon_fetch_reads
+$ singularity exec <container> /opt/view/bin/hmmpgmd
 ```
 
 
-#### talon_filter_transcripts
+#### hmmscan
        
 ```bash
-$ singularity exec <container> /usr/local/bin/talon_filter_transcripts
+$ singularity exec <container> /opt/view/bin/hmmscan
 ```
 
 
-#### talon_generate_report
+#### hmmstat
        
 ```bash
-$ singularity exec <container> /usr/local/bin/talon_generate_report
+$ singularity exec <container> /opt/view/bin/hmmstat
 ```
 
 
-#### talon_initialize_database
+#### hmmbuild
        
 ```bash
-$ singularity exec <container> /usr/local/bin/talon_initialize_database
+$ singularity exec <container> /opt/view/bin/hmmbuild
 ```
 
 
-#### talon_get_sjs
+#### hmmpgmd_shard
        
 ```bash
-$ singularity exec <container> /usr/local/bin/talon_get_sjs
+$ singularity exec <container> /opt/view/bin/hmmpgmd_shard
 ```
 
 
-#### talon_label_reads
+#### hmmfetch
        
 ```bash
-$ singularity exec <container> /usr/local/bin/talon_label_reads
+$ singularity exec <container> /opt/view/bin/hmmfetch
 ```
 
 
-#### talon_reformat_gtf
+#### hmmsearch
        
 ```bash
-$ singularity exec <container> /usr/local/bin/talon_reformat_gtf
+$ singularity exec <container> /opt/view/bin/hmmsearch
 ```
 
 
-#### talon_summarize
+#### hmmconvert
        
 ```bash
-$ singularity exec <container> /usr/local/bin/talon_summarize
+$ singularity exec <container> /opt/view/bin/hmmconvert
 ```
 
 
-#### talon_abundance
+#### hmmlogo
        
 ```bash
-$ singularity exec <container> /usr/local/bin/talon_abundance
+$ singularity exec <container> /opt/view/bin/hmmlogo
+```
+
+
+#### hmmpress
+       
+```bash
+$ singularity exec <container> /opt/view/bin/hmmpress
+```
+
+
+#### hmmsim
+       
+```bash
+$ singularity exec <container> /opt/view/bin/hmmsim
 ```
 
 

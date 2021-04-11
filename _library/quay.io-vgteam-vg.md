@@ -3,7 +3,7 @@ layout: container
 name:  "quay.io/vgteam/vg"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/vgteam/vg/container.yaml"
-updated_at: "2021-04-11 18:43:00.144344"
+updated_at: "2021-04-11 19:53:11.722793"
 container_url: ""
 aliases:
  - "vg"

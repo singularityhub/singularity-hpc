@@ -1,29 +1,33 @@
 ---
 layout: container
-name:  "biocontainers/bcftools"
+name:  "ghcr.io/autamus/gsl"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/biocontainers/bcftools/container.yaml"
-updated_at: "2021-04-11 19:53:08.617374"
+github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/gsl/container.yaml"
+updated_at: "2021-04-11 19:53:14.766481"
 container_url: ""
 aliases:
- - "bcftools"
+ - "gsl-config"
+
+ - "gsl-histogram"
+
+ - "gsl-randist"
 
 versions:
- - "v1.9-1-deb_cv1"
+ - "latest"
 ---
 
-This module is a singularity container wrapper for biocontainers/bcftools.
+This module is a singularity container wrapper for ghcr.io/autamus/gsl.
 
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash
-$ shpc install biocontainers/bcftools
+$ shpc install ghcr.io/autamus/gsl
 ```
 
 Or a specific version:
 
 ```bash
-$ shpc install biocontainers/bcftools:v1.9-1-deb_cv1
+$ shpc install ghcr.io/autamus/gsl:latest
 ```
 
 And then you can tell lmod about your modules folder:
@@ -35,8 +39,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load biocontainers/bcftools/v1.9-1-deb_cv1
-$ module help biocontainers/bcftools/v1.9-1-deb_cv1
+$ module load ghcr.io/autamus/gsl/latest
+$ module help ghcr.io/autamus/gsl/latest
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
@@ -47,41 +51,55 @@ You can use tab for auto-completion of module names or commands that are provide
 
 When you install this module, you'll be able to load it to make the following commands accessible:
 
-#### biocontainers-bcftools-run:
+#### ghcr.io-autamus-gsl-run:
 
 ```bash
 $ singularity run <container>
 ```
 
-#### biocontainers-bcftools-shell:
+#### ghcr.io-autamus-gsl-shell:
 
 ```bash
 $ singularity shell -s /bin/bash <container>
 ```
 
-#### biocontainers-bcftools-exec:
+#### ghcr.io-autamus-gsl-exec:
 
 ```bash
 $ singularity exec -s /bin/bash <container> "$@"
 ```
 
-#### biocontainers-bcftools-inspect-runscript:
+#### ghcr.io-autamus-gsl-inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### biocontainers-bcftools-inspect-deffile:
+#### ghcr.io-autamus-gsl-inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>
 ```
 
 
-#### bcftools
+#### gsl-config
        
 ```bash
-$ singularity exec <container> /usr/bin/bcftools
+$ singularity exec <container> /opt/view/bin/gsl-config
+```
+
+
+#### gsl-histogram
+       
+```bash
+$ singularity exec <container> /opt/view/bin/gsl-histogram
+```
+
+
+#### gsl-randist
+       
+```bash
+$ singularity exec <container> /opt/view/bin/gsl-randist
 ```
 
 

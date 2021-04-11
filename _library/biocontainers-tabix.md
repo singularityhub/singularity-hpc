@@ -3,7 +3,7 @@ layout: container
 name:  "biocontainers/tabix"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/biocontainers/tabix/container.yaml"
-updated_at: "2021-04-11 18:42:58.575894"
+updated_at: "2021-04-11 19:53:10.052021"
 container_url: ""
 aliases:
  - "tabix"
