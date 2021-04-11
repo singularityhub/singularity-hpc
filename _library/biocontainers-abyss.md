@@ -3,7 +3,7 @@ layout: container
 name:  "biocontainers/abyss"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/biocontainers/abyss/container.yaml"
-updated_at: "2021-04-11 22:11:39.794577"
+updated_at: "2021-04-11 23:57:14.551723"
 container_url: ""
 aliases:
  - "abyss-fixmate"
@@ -12,10 +12,12 @@ aliases:
 
 versions:
  - "v2.1.5-7-deb_cv1"
+description: |
+"A de novo, parallel, paired-end sequence assembler that is designed for short reads. See https://www.bcgsc.ca/resources/software/abyss."
 ---
 
 This module is a singularity container wrapper for biocontainers/abyss.
-
+A de novo, parallel, paired-end sequence assembler that is designed for short reads. See https://www.bcgsc.ca/resources/software/abyss.
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

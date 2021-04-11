@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/ruby"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/ruby/container.yaml"
-updated_at: "2021-04-11 22:11:42.130808"
+updated_at: "2021-04-11 23:57:16.426532"
 container_url: ""
 aliases:
  - "ruby"
@@ -30,10 +30,12 @@ aliases:
 
 versions:
  - "latest"
+description: |
+"An interpreted, high-level, general-purpose programming language."
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/ruby.
-
+An interpreted, high-level, general-purpose programming language.
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

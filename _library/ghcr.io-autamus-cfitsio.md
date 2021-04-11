@@ -3,15 +3,17 @@ layout: container
 name:  "ghcr.io/autamus/cfitsio"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/cfitsio/container.yaml"
-updated_at: "2021-04-11 22:11:50.175631"
+updated_at: "2021-04-11 23:57:22.660676"
 container_url: ""
 
 versions:
  - "latest"
+description: |
+"CFITSIO is a library of C and Fortran subroutines for reading and writing data files in FITS (Flexible Image Transport System) data format."
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/cfitsio.
-
+CFITSIO is a library of C and Fortran subroutines for reading and writing data files in FITS (Flexible Image Transport System) data format.
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

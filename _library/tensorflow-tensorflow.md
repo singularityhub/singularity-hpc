@@ -3,13 +3,14 @@ layout: container
 name:  "tensorflow/tensorflow"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/tensorflow/tensorflow/container.yaml"
-updated_at: "2021-04-11 22:11:54.364102"
+updated_at: "2021-04-11 23:57:25.713943"
 container_url: ""
 aliases:
  - "python"
 
 versions:
  - "2.2.2"
+
 ---
 
 This module is a singularity container wrapper for tensorflow/tensorflow.

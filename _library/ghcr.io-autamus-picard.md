@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/picard"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/picard/container.yaml"
-updated_at: "2021-04-11 22:11:46.223236"
+updated_at: "2021-04-11 23:57:19.573890"
 container_url: ""
 aliases:
  - "picard"
@@ -12,10 +12,12 @@ aliases:
 
 versions:
  - "latest"
+description: |
+"A set of command line tools (in Java) for manipulating high-throughput sequencing (HTS) data and formats such as SAM/BAM/CRAM and VCF."
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/picard.
-
+A set of command line tools (in Java) for manipulating high-throughput sequencing (HTS) data and formats such as SAM/BAM/CRAM and VCF.
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

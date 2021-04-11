@@ -3,17 +3,19 @@ layout: container
 name:  "ghcr.io/autamus/julia"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/julia/container.yaml"
-updated_at: "2021-04-11 22:11:48.850559"
+updated_at: "2021-04-11 23:57:21.632464"
 container_url: ""
 aliases:
  - "julia"
 
 versions:
  - "latest"
+description: |
+"Julia is a high-level, high-performance, dynamic programming language."
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/julia.
-
+Julia is a high-level, high-performance, dynamic programming language.
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

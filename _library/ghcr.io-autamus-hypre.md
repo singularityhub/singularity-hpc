@@ -3,15 +3,17 @@ layout: container
 name:  "ghcr.io/autamus/hypre"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/hypre/container.yaml"
-updated_at: "2021-04-11 22:11:49.749690"
+updated_at: "2021-04-11 23:57:22.321893"
 container_url: ""
 
 versions:
  - "latest"
+description: |
+"A library of high performance preconditioners and solvers featuring multigrid methods for the solution of large, sparse linear systems of equations on massively parallel computers."
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/hypre.
-
+A library of high performance preconditioners and solvers featuring multigrid methods for the solution of large, sparse linear systems of equations on massively parallel computers.
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

@@ -3,17 +3,19 @@ layout: container
 name:  "ghcr.io/autamus/alan"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/alan/container.yaml"
-updated_at: "2021-04-11 22:11:49.959478"
+updated_at: "2021-04-11 23:57:22.490674"
 container_url: ""
 aliases:
  - "alan"
 
 versions:
  - "latest"
+description: |
+"A simple in-terminal alignment viewer."
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/alan.
-
+A simple in-terminal alignment viewer.
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

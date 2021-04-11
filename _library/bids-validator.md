@@ -3,17 +3,19 @@ layout: container
 name:  "bids/validator"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/bids/validator/container.yaml"
-updated_at: "2021-04-11 22:11:55.668146"
+updated_at: "2021-04-11 23:57:26.620733"
 container_url: ""
 aliases:
  - "bids-validator"
 
 versions:
  - "latest"
+description: |
+"A validator for BIDS (Brain Imaging Data Structure) datasets."
 ---
 
 This module is a singularity container wrapper for bids/validator.
-
+A validator for BIDS (Brain Imaging Data Structure) datasets.
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

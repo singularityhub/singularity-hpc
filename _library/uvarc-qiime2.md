@@ -3,11 +3,13 @@ layout: container
 name:  "uvarc/qiime2"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/uvarc/qiime2/container.yaml"
-updated_at: "2021-04-11 22:11:54.581760"
+updated_at: "2021-04-11 23:57:25.863774"
 container_url: ""
 
 versions:
  - "2020.8"
+description: |
+"QIIME2. Same functionality as the official image but less than half the size. Includes packages Empress and PICRUSt2."
 ---
 
 This module is a singularity container wrapper for uvarc/qiime2.

@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/perl"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/perl/container.yaml"
-updated_at: "2021-04-11 22:11:45.586310"
+updated_at: "2021-04-11 23:57:19.059758"
 container_url: ""
 aliases:
  - "perl"
@@ -18,10 +18,12 @@ aliases:
 
 versions:
  - "latest"
+description: |
+"The Perl programming language."
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/perl.
-
+The Perl programming language.
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

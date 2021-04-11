@@ -3,11 +3,13 @@ layout: container
 name:  "nvcr.io/hpc/quantum_espresso"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/nvcr.io/hpc/quantum_espresso/container.yaml"
-updated_at: "2021-04-11 22:11:53.011248"
+updated_at: "2021-04-11 23:57:24.798473"
 container_url: ""
 
 versions:
  - "v6.7"
+description: |
+"Quantum ESPRESSO is an integrated suite of Open-Source computer codes for electronic-structure calculations and materials modeling at the nanoscale based on density-functional theory, plane waves, and pseudopotentials."
 ---
 
 This module is a singularity container wrapper for nvcr.io/hpc/quantum_espresso.

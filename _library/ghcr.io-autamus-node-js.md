@@ -3,17 +3,19 @@ layout: container
 name:  "ghcr.io/autamus/node-js"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/node-js/container.yaml"
-updated_at: "2021-04-11 22:11:46.652467"
+updated_at: "2021-04-11 23:57:19.912306"
 container_url: ""
 aliases:
  - "node"
 
 versions:
  - "latest"
+description: |
+"A JavaScript runtime built on Chrome's V8 JavaScript engine."
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/node-js.
-
+A JavaScript runtime built on Chrome's V8 JavaScript engine.
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

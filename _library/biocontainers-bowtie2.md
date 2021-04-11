@@ -3,7 +3,7 @@ layout: container
 name:  "biocontainers/bowtie2"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/biocontainers/bowtie2/container.yaml"
-updated_at: "2021-04-11 22:11:39.374416"
+updated_at: "2021-04-11 23:57:14.209648"
 container_url: ""
 aliases:
  - "bowtie2"
@@ -14,10 +14,12 @@ aliases:
 
 versions:
  - "v2.4.1_cv1"
+description: |
+"Bowtie 2 is an ultrafast and memory-efficient tool for aligning sequencing reads to long reference sequences."
 ---
 
 This module is a singularity container wrapper for biocontainers/bowtie2.
-
+Bowtie 2 is an ultrafast and memory-efficient tool for aligning sequencing reads to long reference sequences.
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

@@ -3,17 +3,19 @@ layout: container
 name:  "ghcr.io/autamus/mothur"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/mothur/container.yaml"
-updated_at: "2021-04-11 22:11:44.725262"
+updated_at: "2021-04-11 23:57:18.392044"
 container_url: ""
 aliases:
  - "mothur"
 
 versions:
  - "latest"
+description: |
+"A single piece of open-source, expandable software to fill the bioinformatics needs of the microbial ecology community."
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/mothur.
-
+A single piece of open-source, expandable software to fill the bioinformatics needs of the microbial ecology community.
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

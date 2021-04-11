@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/beast2"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/beast2/container.yaml"
-updated_at: "2021-04-11 22:11:48.632391"
+updated_at: "2021-04-11 23:57:21.462371"
 container_url: ""
 aliases:
  - "beast"
@@ -18,10 +18,12 @@ aliases:
 
 versions:
  - "latest"
+description: |
+"BEAST 2 is a cross-platform program for Bayesian phylogenetic analysis of molecular sequences."
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/beast2.
-
+BEAST 2 is a cross-platform program for Bayesian phylogenetic analysis of molecular sequences.
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

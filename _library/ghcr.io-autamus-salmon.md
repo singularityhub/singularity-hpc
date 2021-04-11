@@ -3,17 +3,19 @@ layout: container
 name:  "ghcr.io/autamus/salmon"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/salmon/container.yaml"
-updated_at: "2021-04-11 22:11:49.530016"
+updated_at: "2021-04-11 23:57:22.152592"
 container_url: ""
 aliases:
  - "salmon"
 
 versions:
  - "latest"
+description: |
+"Salmon is a wicked-fast program to produce a highly-accurate, transcript-level quantification estimates from RNA-seq data."
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/salmon.
-
+Salmon is a wicked-fast program to produce a highly-accurate, transcript-level quantification estimates from RNA-seq data.
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

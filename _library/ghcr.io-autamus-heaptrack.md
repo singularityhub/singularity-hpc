@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/heaptrack"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/heaptrack/container.yaml"
-updated_at: "2021-04-11 22:11:49.306108"
+updated_at: "2021-04-11 23:57:21.979812"
 container_url: ""
 aliases:
  - "heaptrack"
@@ -12,10 +12,12 @@ aliases:
 
 versions:
  - "latest"
+description: |
+"Heaptrack traces all memory allocations and annotates these events with stack traces."
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/heaptrack.
-
+Heaptrack traces all memory allocations and annotates these events with stack traces.
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

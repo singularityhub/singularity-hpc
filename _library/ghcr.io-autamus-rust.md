@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/rust"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/rust/container.yaml"
-updated_at: "2021-04-11 22:11:45.800151"
+updated_at: "2021-04-11 23:57:19.232212"
 container_url: ""
 aliases:
  - "rust"
@@ -30,10 +30,12 @@ aliases:
 
 versions:
  - "latest"
+description: |
+"Rust is a multi-paradigm programming language designed for performance and safety, especially safe concurrency."
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/rust.
-
+Rust is a multi-paradigm programming language designed for performance and safety, especially safe concurrency.
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

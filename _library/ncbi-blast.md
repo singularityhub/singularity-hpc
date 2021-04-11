@@ -3,11 +3,12 @@ layout: container
 name:  "ncbi/blast"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ncbi/blast/container.yaml"
-updated_at: "2021-04-11 22:11:54.800944"
+updated_at: "2021-04-11 23:57:26.013777"
 container_url: ""
 
 versions:
  - "latest"
+
 ---
 
 This module is a singularity container wrapper for ncbi/blast.

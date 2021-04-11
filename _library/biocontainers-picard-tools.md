@@ -3,15 +3,17 @@ layout: container
 name:  "biocontainers/picard-tools"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/biocontainers/picard-tools/container.yaml"
-updated_at: "2021-04-11 22:11:40.439481"
+updated_at: "2021-04-11 23:57:15.060674"
 container_url: ""
 
 versions:
  - "v2.18.25dfsg-2-deb_cv1"
+description: |
+"The Picard command-line tools are packaged as executable jar files."
 ---
 
 This module is a singularity container wrapper for biocontainers/picard-tools.
-
+The Picard command-line tools are packaged as executable jar files.
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

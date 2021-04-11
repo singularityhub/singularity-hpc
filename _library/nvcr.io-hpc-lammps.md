@@ -3,11 +3,13 @@ layout: container
 name:  "nvcr.io/hpc/lammps"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/nvcr.io/hpc/lammps/container.yaml"
-updated_at: "2021-04-11 22:11:52.126417"
+updated_at: "2021-04-11 23:57:24.187062"
 container_url: ""
 
 versions:
  - "29Oct2020"
+description: |
+"Large-scale Atomic/Molecular Massively Parallel Simulator (LAMMPS) is a software application designed for molecular dynamics simulations. It has the potentials for solid-state materials (metals, semiconductor), soft matter (biomolecules, polymers), and coarse-grained or mesoscopic systems. The main use-case is atom scale particle modeling or, more generically, as a parallel particle simulator at the atomic, meson, or continuum scale. LAMMPS runs on single processors or in parallel using message-passing techniques and a spatial-decomposition of the simulation domain. Read more on the LAMMPS website https://lammps.sandia.gov/."
 ---
 
 This module is a singularity container wrapper for nvcr.io/hpc/lammps.

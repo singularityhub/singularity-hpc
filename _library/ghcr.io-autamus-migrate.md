@@ -3,17 +3,19 @@ layout: container
 name:  "ghcr.io/autamus/migrate"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/migrate/container.yaml"
-updated_at: "2021-04-11 22:11:43.451802"
+updated_at: "2021-04-11 23:57:17.461035"
 container_url: ""
 aliases:
  - "migrate-n"
 
 versions:
  - "latest"
+description: |
+"Migrate estimates effective population sizes and past migration rates between n population assuming a migration matrix model with asymmetric migration rates and different subpopulation sizes"
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/migrate.
-
+Migrate estimates effective population sizes and past migration rates between n population assuming a migration matrix model with asymmetric migration rates and different subpopulation sizes
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash
