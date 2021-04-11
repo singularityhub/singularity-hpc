@@ -1,0 +1,40 @@
+name: singularity-docs
+
+on:
+ pull_request: []
+#  push:
+#    branches: [main]
+
+jobs:
+  generate-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: "gh-pages"
+
+      - name: Create conda environment
+        run: conda create --quiet -c conda-forge --name shpc spython
+
+      - name: Install shpc
+        run: |
+          export PATH="/usr/share/miniconda/bin:$PATH"
+          root=$PWD
+          source activate shpc
+          cd /tmp
+          git clone https://github.com/singularityhub/singularity-hpc
+          cd singularity-hpc
+          pip install -e .
+          cd $root
+
+      - name: Generate docs
+        run: |
+          export PATH="/usr/share/miniconda/bin:$PATH"
+          source activate shpc
+          /bin/bash generate.sh
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.1
+        with:
+          branch: gh-pages
+          folder: .
