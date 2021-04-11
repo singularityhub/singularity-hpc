@@ -11,7 +11,7 @@ container_url: "{{ container_url }}"
 versions:{% for version in versions %}
  - "{{ version }}"{% endfor %}
 {% if description %}description: |
-{{ description }}{% endif %}
+"{{ description }}"{% endif %}
 ---
 
 This module is a singularity container wrapper for {{ name }}.
