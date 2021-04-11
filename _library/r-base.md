@@ -1,29 +1,31 @@
 ---
 layout: container
-name:  "biocontainers/bedtools"
+name:  "r-base"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/biocontainers/bedtools/container.yaml"
-updated_at: "2021-04-11 18:42:57.796187"
+github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/r-base/container.yaml"
+updated_at: "2021-04-11 18:43:01.913555"
 container_url: ""
 aliases:
- - "bedtools"
+ - "R"
+
+ - "Rscript"
 
 versions:
- - "v2.27.1dfsg-4-deb_cv1"
+ - "latest"
 ---
 
-This module is a singularity container wrapper for biocontainers/bedtools.
+This module is a singularity container wrapper for r-base.
 
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash
-$ shpc install biocontainers/bedtools
+$ shpc install r-base
 ```
 
 Or a specific version:
 
 ```bash
-$ shpc install biocontainers/bedtools:v2.27.1dfsg-4-deb_cv1
+$ shpc install r-base:latest
 ```
 
 And then you can tell lmod about your modules folder:
@@ -35,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load biocontainers/bedtools/v2.27.1dfsg-4-deb_cv1
-$ module help biocontainers/bedtools/v2.27.1dfsg-4-deb_cv1
+$ module load r-base/latest
+$ module help r-base/latest
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
@@ -47,41 +49,48 @@ You can use tab for auto-completion of module names or commands that are provide
 
 When you install this module, you'll be able to load it to make the following commands accessible:
 
-#### biocontainers-bedtools-run:
+#### r-base-run:
 
 ```bash
 $ singularity run <container>
 ```
 
-#### biocontainers-bedtools-shell:
+#### r-base-shell:
 
 ```bash
 $ singularity shell -s /bin/bash <container>
 ```
 
-#### biocontainers-bedtools-exec:
+#### r-base-exec:
 
 ```bash
 $ singularity exec -s /bin/bash <container> "$@"
 ```
 
-#### biocontainers-bedtools-inspect-runscript:
+#### r-base-inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### biocontainers-bedtools-inspect-deffile:
+#### r-base-inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>
 ```
 
 
-#### bedtools
+#### R
        
 ```bash
-$ singularity exec <container> /usr/bin/bedtools
+$ singularity exec <container> /usr/bin/R
+```
+
+
+#### Rscript
+       
+```bash
+$ singularity exec <container> /usr/bin/Rscript
 ```
 
 

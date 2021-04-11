@@ -1,29 +1,29 @@
 ---
 layout: container
-name:  "biocontainers/bedtools"
+name:  "jupyter/scipy-notebook"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/biocontainers/bedtools/container.yaml"
-updated_at: "2021-04-11 18:42:57.796187"
+github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/jupyter/scipy-notebook/container.yaml"
+updated_at: "2021-04-11 18:43:00.934503"
 container_url: ""
 aliases:
- - "bedtools"
+ - "run-notebook"
 
 versions:
- - "v2.27.1dfsg-4-deb_cv1"
+ - "latest"
 ---
 
-This module is a singularity container wrapper for biocontainers/bedtools.
-
+This module is a singularity container wrapper for jupyter/scipy-notebook.
+Jupyter Notebook Scientific Python Stack from https://github.com/jupyter/docker-stacks
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash
-$ shpc install biocontainers/bedtools
+$ shpc install jupyter/scipy-notebook
 ```
 
 Or a specific version:
 
 ```bash
-$ shpc install biocontainers/bedtools:v2.27.1dfsg-4-deb_cv1
+$ shpc install jupyter/scipy-notebook:latest
 ```
 
 And then you can tell lmod about your modules folder:
@@ -35,8 +35,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load biocontainers/bedtools/v2.27.1dfsg-4-deb_cv1
-$ module help biocontainers/bedtools/v2.27.1dfsg-4-deb_cv1
+$ module load jupyter/scipy-notebook/latest
+$ module help jupyter/scipy-notebook/latest
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
@@ -47,41 +47,41 @@ You can use tab for auto-completion of module names or commands that are provide
 
 When you install this module, you'll be able to load it to make the following commands accessible:
 
-#### biocontainers-bedtools-run:
+#### jupyter-scipy-notebook-run:
 
 ```bash
 $ singularity run <container>
 ```
 
-#### biocontainers-bedtools-shell:
+#### jupyter-scipy-notebook-shell:
 
 ```bash
 $ singularity shell -s /bin/bash <container>
 ```
 
-#### biocontainers-bedtools-exec:
+#### jupyter-scipy-notebook-exec:
 
 ```bash
 $ singularity exec -s /bin/bash <container> "$@"
 ```
 
-#### biocontainers-bedtools-inspect-runscript:
+#### jupyter-scipy-notebook-inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### biocontainers-bedtools-inspect-deffile:
+#### jupyter-scipy-notebook-inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>
 ```
 
 
-#### bedtools
+#### run-notebook
        
 ```bash
-$ singularity exec <container> /usr/bin/bedtools
+$ singularity exec --home ${HOME} --bind ${HOME}/.local:/home/joyvan/.local <container> jupyter notebook --no-browser --port=$(shuf -i 2000-65000 -n 1) --ip 0.0.0.0
 ```
 
 

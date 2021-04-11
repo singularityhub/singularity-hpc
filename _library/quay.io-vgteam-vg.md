@@ -1,29 +1,29 @@
 ---
 layout: container
-name:  "biocontainers/bedtools"
+name:  "quay.io/vgteam/vg"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/biocontainers/bedtools/container.yaml"
-updated_at: "2021-04-11 18:42:57.796187"
+github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/vgteam/vg/container.yaml"
+updated_at: "2021-04-11 18:43:00.144344"
 container_url: ""
 aliases:
- - "bedtools"
+ - "vg"
 
 versions:
- - "v2.27.1dfsg-4-deb_cv1"
+ - "latest"
 ---
 
-This module is a singularity container wrapper for biocontainers/bedtools.
-
+This module is a singularity container wrapper for quay.io/vgteam/vg.
+Tools for working with genomic variation graphs. https://github.com/vgteam/vg
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash
-$ shpc install biocontainers/bedtools
+$ shpc install quay.io/vgteam/vg
 ```
 
 Or a specific version:
 
 ```bash
-$ shpc install biocontainers/bedtools:v2.27.1dfsg-4-deb_cv1
+$ shpc install quay.io/vgteam/vg:latest
 ```
 
 And then you can tell lmod about your modules folder:
@@ -35,8 +35,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load biocontainers/bedtools/v2.27.1dfsg-4-deb_cv1
-$ module help biocontainers/bedtools/v2.27.1dfsg-4-deb_cv1
+$ module load quay.io/vgteam/vg/latest
+$ module help quay.io/vgteam/vg/latest
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
@@ -47,41 +47,41 @@ You can use tab for auto-completion of module names or commands that are provide
 
 When you install this module, you'll be able to load it to make the following commands accessible:
 
-#### biocontainers-bedtools-run:
+#### quay.io-vgteam-vg-run:
 
 ```bash
 $ singularity run <container>
 ```
 
-#### biocontainers-bedtools-shell:
+#### quay.io-vgteam-vg-shell:
 
 ```bash
 $ singularity shell -s /bin/bash <container>
 ```
 
-#### biocontainers-bedtools-exec:
+#### quay.io-vgteam-vg-exec:
 
 ```bash
 $ singularity exec -s /bin/bash <container> "$@"
 ```
 
-#### biocontainers-bedtools-inspect-runscript:
+#### quay.io-vgteam-vg-inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### biocontainers-bedtools-inspect-deffile:
+#### quay.io-vgteam-vg-inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>
 ```
 
 
-#### bedtools
+#### vg
        
 ```bash
-$ singularity exec <container> /usr/bin/bedtools
+$ singularity exec <container> /vg/bin/vg
 ```
 
 
