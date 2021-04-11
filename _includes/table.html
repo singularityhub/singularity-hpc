@@ -16,6 +16,7 @@
            <thead>
              <th data-field="github" data-sortable="true">github</th>
              <th data-field="container" data-sortable="true">container</th>
+             <th data-field="description" data-sortable="true">description</th>
              <th data-field="aliases" data-sortable="false">aliases</th>
           </thead>
               <tbody>
@@ -26,6 +27,7 @@
                            <span class="btn btn-xs btn-danger">GITHUB</span></a>
                     </td>
                     <td><a href="{{ site.baseurl }}/r/{{ entry.name | replace: '/', '-'}}/">{{ entry.name }}</a></td>
+                    <td>{% if entry.description %}{{ entry.description }}{% endif %}</td>
                     <td>{% for alias in entry.aliases %}{{ alias }}{% if forloop.last %}{% else %}, {% endif %}{% endfor %}</td>
                 </tr>
                 {% endfor %}
