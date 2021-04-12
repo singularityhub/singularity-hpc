@@ -6,4 +6,5 @@ tags:
 filter:
   - "2.*"
 maintainer: "@vsoch"
+description: "The Basic Local Alignment Search Tool (BLAST) finds regions of local similarity between sequences."
 url: https://hub.docker.com/r/ncbi/blast
