@@ -7,5 +7,6 @@ filter:
   - "v*"
 maintainer: "@vsoch"
 url: https://hub.docker.com/r/biocontainers/bedtools
+description: "a powerful toolset for genome arithmetic"
 aliases:
   bedtools: /usr/bin/bedtools

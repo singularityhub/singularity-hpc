@@ -74,6 +74,7 @@ containerConfig = {
         "latest",
         "tags",
         "maintainer",
+        "description",
     ],
     "properties": containerConfigProperties,
 }
