@@ -3,18 +3,18 @@ layout: container
 name:  "singularityhub/singularity-deploy"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/singularityhub/singularity-deploy/container.yaml"
-updated_at: "2021-04-12 00:51:17.635088"
+updated_at: "2021-04-12 01:13:16.446782"
 container_url: ""
 aliases:
  - "salad"
 
 versions:
  - "salad"
-
+description: "Example shpc container using Singularity Deploy, build and serve from GitHub releases."
 ---
 
 This module is a singularity container wrapper for singularityhub/singularity-deploy.
-
+Example shpc container using Singularity Deploy, build and serve from GitHub releases.
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

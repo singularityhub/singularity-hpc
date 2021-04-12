@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/abyss"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/abyss/container.yaml"
-updated_at: "2021-04-12 00:51:10.191362"
+updated_at: "2021-04-12 01:13:08.423255"
 container_url: ""
 aliases:
  - "abyss-align"

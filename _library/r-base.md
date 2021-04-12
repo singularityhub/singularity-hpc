@@ -3,7 +3,7 @@ layout: container
 name:  "r-base"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/r-base/container.yaml"
-updated_at: "2021-04-12 00:51:14.552577"
+updated_at: "2021-04-12 01:13:13.124243"
 container_url: ""
 aliases:
  - "R"
@@ -12,11 +12,11 @@ aliases:
 
 versions:
  - "latest"
-
+description: "R is a system for statistical computation and graphics."
 ---
 
 This module is a singularity container wrapper for r-base.
-
+R is a system for statistical computation and graphics.
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

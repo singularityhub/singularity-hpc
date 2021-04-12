@@ -3,18 +3,18 @@ layout: container
 name:  "poldracklab/mriqc"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/poldracklab/mriqc/container.yaml"
-updated_at: "2021-04-12 00:51:17.836300"
+updated_at: "2021-04-12 01:13:16.685088"
 container_url: ""
 aliases:
  - "mriqc"
 
 versions:
  - "0.16.1"
-
+description: "Automatic prediction of quality and visual reporting of MRI scans."
 ---
 
 This module is a singularity container wrapper for poldracklab/mriqc.
-
+Automatic prediction of quality and visual reporting of MRI scans.
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

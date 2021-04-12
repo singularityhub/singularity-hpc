@@ -3,18 +3,18 @@ layout: container
 name:  "jupyter/pyspark-notebook"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/jupyter/pyspark-notebook/container.yaml"
-updated_at: "2021-04-12 00:51:13.713826"
+updated_at: "2021-04-12 01:13:12.231412"
 container_url: ""
 aliases:
  - "run-notebook"
 
 versions:
  - "latest"
-
+description: "Jupyter Pyspark Notebook from https://github.com/jupyter/docker-stacks"
 ---
 
 This module is a singularity container wrapper for jupyter/pyspark-notebook.
-
+Jupyter Pyspark Notebook from https://github.com/jupyter/docker-stacks
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

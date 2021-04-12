@@ -3,7 +3,7 @@ layout: container
 name:  "python"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/python/container.yaml"
-updated_at: "2021-04-12 00:51:05.220880"
+updated_at: "2021-04-12 01:13:03.162877"
 container_url: ""
 aliases:
  - "python"
@@ -11,11 +11,11 @@ aliases:
 versions:
  - "3.9.2-slim"
  - "3.9.2-alpine"
-
+description: "An interpreted, high-level and general-purpose programming language."
 ---
 
 This module is a singularity container wrapper for python.
-
+An interpreted, high-level and general-purpose programming language.
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

@@ -3,16 +3,16 @@ layout: container
 name:  "ncbi/blast"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ncbi/blast/container.yaml"
-updated_at: "2021-04-12 00:51:17.432809"
+updated_at: "2021-04-12 01:13:16.212815"
 container_url: ""
 
 versions:
  - "latest"
-
+description: "The Basic Local Alignment Search Tool (BLAST) finds regions of local similarity between sequences."
 ---
 
 This module is a singularity container wrapper for ncbi/blast.
-
+The Basic Local Alignment Search Tool (BLAST) finds regions of local similarity between sequences.
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

@@ -3,18 +3,18 @@ layout: container
 name:  "tensorflow/tensorflow"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/tensorflow/tensorflow/container.yaml"
-updated_at: "2021-04-12 00:51:17.015256"
+updated_at: "2021-04-12 01:13:15.765220"
 container_url: ""
 aliases:
  - "python"
 
 versions:
  - "2.2.2"
-
+description: "An end-to-end open source platform for machine learning."
 ---
 
 This module is a singularity container wrapper for tensorflow/tensorflow.
-
+An end-to-end open source platform for machine learning.
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash
