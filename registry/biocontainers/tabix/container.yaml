@@ -7,6 +7,5 @@ filter:
   - "v*"
 maintainer: "@vsoch"
 url: https://hub.docker.com/r/biocontainers/tabix 
-description: "Fast retrieval of sequence features from generic TAB-delimited files."
 aliases:
   tabix: /usr/bin/tabix

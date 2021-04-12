@@ -6,5 +6,4 @@ tags:
 filter:
   - "v*"
 maintainer: "@vsoch"
-description: "The Picard command-line tools are packaged as executable jar files."
 url: https://hub.docker.com/r/biocontainers/picard-tools/tags

@@ -7,7 +7,6 @@ filter:
   - "latest"
 maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/openjdk
-description: "Open Java Development Kit"
 aliases:
   jaotc: /opt/view/bin/jaotc
   javadoc: /opt/view/bin/javadoc

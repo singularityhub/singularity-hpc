@@ -7,7 +7,6 @@ filter:
   - "latest"
 maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/heaptrack
-description: "Heaptrack traces all memory allocations and annotates these events with stack traces."
 aliases:
   heaptrack: /opt/view/bin/heaptrack
   heaptrack_print: /opt/view/bin/heaptrack_print

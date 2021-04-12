@@ -7,7 +7,6 @@ filter:
   - "latest"
 maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/hmmer
-description: "HMMER is used for searching sequence databases for sequence homologs, and for making sequence alignments."
 aliases:
   hmmalign: /opt/view/bin/hmmalign 
   hmmemit: /opt/view/bin/hmmemit 

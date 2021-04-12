@@ -7,7 +7,6 @@ filter:
   - "latest"
 maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/ffmpeg
-description: "FFmpeg is a free and open-source software project consisting of a large suite of libraries and programs for handling video, audio, and other multimedia files and streams."
 aliases:
   ffmpeg: /opt/view/bin/ffmpeg
   ffprobe: /opt/view/bin/ffprobe

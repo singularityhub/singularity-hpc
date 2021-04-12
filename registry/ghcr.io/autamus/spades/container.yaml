@@ -7,7 +7,6 @@ filter:
   - "latest"
 maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/spades
-description: "St. Petersburg genome assembler – an assembly toolkit containing various assembly pipelines."
 aliases:
   spades.py: /opt/view/bin/spades.py
   spades-bwa: /opt/view/bin/spades-bwa

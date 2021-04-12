@@ -7,7 +7,6 @@ filter:
   - "latest"
 maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/gsl
-description: "The GNU Scientific Library."
 aliases:
   gsl-config: /opt/view/bin/gsl-config
   gsl-histogram: /opt/view/bin/gsl-histogram

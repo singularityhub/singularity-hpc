@@ -6,5 +6,4 @@ tags:
 filter:
   - "latest"
 maintainer: "@vsoch"
-description: "several hash-map implementations, similar in API to SGI's hash_map class, but with different performance characteristics."
 url: https://github.com/orgs/autamus/packages/container/package/sparsehash
