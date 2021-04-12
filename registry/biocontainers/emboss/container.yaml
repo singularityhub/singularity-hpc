@@ -7,6 +7,7 @@ filter:
   - "v*"
 maintainer: "@vsoch"
 url: https://hub.docker.com/r/biocontainers/emboss  
+description: "Free Open Source software analysis package which covers several molecular biology tools."
 aliases:
   embossdata: /usr/bin/embossdata
   embossupdate: /usr/bin/embossupdate

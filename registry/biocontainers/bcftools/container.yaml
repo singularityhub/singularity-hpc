@@ -7,5 +7,6 @@ filter:
   - "v*"
 maintainer: "@vsoch"
 url: https://hub.docker.com/r/biocontainers/bcftools
+description: "BCFtools is a set of utilities that manipulate variant calls in the Variant Call Format (VCF) and its binary counterpart BCF."
 aliases:
   bcftools: /usr/bin/bcftools

@@ -6,4 +6,5 @@ tags:
 filter:
   - "v*"
 maintainer: "@vsoch"
+description: "A quality control tool for high throughput sequence data."
 url: https://hub.docker.com/r/biocontainers/fastqc

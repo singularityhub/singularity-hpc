@@ -7,5 +7,6 @@ filter:
   - "latest"
 maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/salmon
+description: "Salmon is a wicked-fast program to produce a highly-accurate, transcript-level quantification estimates from RNA-seq data."
 aliases:
   salmon: /opt/view/bin/salmon
