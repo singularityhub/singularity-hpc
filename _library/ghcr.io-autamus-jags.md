@@ -3,19 +3,17 @@ layout: container
 name:  "ghcr.io/autamus/jags"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/jags/container.yaml"
-updated_at: "2021-04-11 23:57:20.778883"
+updated_at: "2021-04-12 00:19:39.426306"
 container_url: ""
 aliases:
  - "jags"
 
 versions:
  - "latest"
-description: |
-"Just Another Gibbs Sampler. A program for analysis of Bayesian hierarchical models using Markov Chain Monte Carlo (MCMC) simulation."
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/jags.
-Just Another Gibbs Sampler. A program for analysis of Bayesian hierarchical models using Markov Chain Monte Carlo (MCMC) simulation.
+
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

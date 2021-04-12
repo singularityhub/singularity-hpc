@@ -3,15 +3,13 @@ layout: container
 name:  "jupyter/datascience-notebook"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/jupyter/datascience-notebook/container.yaml"
-updated_at: "2021-04-11 23:57:23.691959"
+updated_at: "2021-04-12 00:19:43.054403"
 container_url: ""
 aliases:
  - "run-notebook"
 
 versions:
  - "latest"
-description: |
-"Jupyter Datascience Notebook from https://github.com/jupyter/docker-stacks"
 ---
 
 This module is a singularity container wrapper for jupyter/datascience-notebook.

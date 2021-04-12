@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/hmmer"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/hmmer/container.yaml"
-updated_at: "2021-04-11 23:57:17.290071"
+updated_at: "2021-04-12 00:19:34.949823"
 container_url: ""
 aliases:
  - "hmmalign"
@@ -34,12 +34,10 @@ aliases:
 
 versions:
  - "latest"
-description: |
-"HMMER is used for searching sequence databases for sequence homologs, and for making sequence alignments."
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/hmmer.
-HMMER is used for searching sequence databases for sequence homologs, and for making sequence alignments.
+
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

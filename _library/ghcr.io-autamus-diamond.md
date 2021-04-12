@@ -3,19 +3,17 @@ layout: container
 name:  "ghcr.io/autamus/diamond"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/diamond/container.yaml"
-updated_at: "2021-04-11 23:57:19.403508"
+updated_at: "2021-04-12 00:19:37.710721"
 container_url: ""
 aliases:
  - "diamond"
 
 versions:
  - "latest"
-description: |
-"A sequence aligner for protein and translated DNA searches, designed for high performance analysis of big sequence data."
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/diamond.
-A sequence aligner for protein and translated DNA searches, designed for high performance analysis of big sequence data.
+
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

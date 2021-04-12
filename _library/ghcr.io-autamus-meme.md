@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/meme"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/meme/container.yaml"
-updated_at: "2021-04-11 23:57:21.120751"
+updated_at: "2021-04-12 00:19:39.839410"
 container_url: ""
 aliases:
  - "meme"
@@ -14,12 +14,10 @@ aliases:
 
 versions:
  - "latest"
-description: |
-"The MEME suite provides online tools for discovering and using protein and DNA sequence motifs."
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/meme.
-The MEME suite provides online tools for discovering and using protein and DNA sequence motifs.
+
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

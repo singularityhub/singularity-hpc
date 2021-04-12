@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/mummer"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/mummer/container.yaml"
-updated_at: "2021-04-11 23:57:17.630205"
+updated_at: "2021-04-12 00:19:35.376725"
 container_url: ""
 aliases:
  - "mummer"
@@ -12,12 +12,10 @@ aliases:
 
 versions:
  - "latest"
-description: |
-"MUMmer is a system for rapidly aligning entire genomes."
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/mummer.
-MUMmer is a system for rapidly aligning entire genomes.
+
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

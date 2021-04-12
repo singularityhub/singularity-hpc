@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/cufflinks"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/cufflinks/container.yaml"
-updated_at: "2021-04-11 23:57:20.949406"
+updated_at: "2021-04-12 00:19:39.633944"
 container_url: ""
 aliases:
  - "cufflinks"
@@ -20,12 +20,10 @@ aliases:
 
 versions:
  - "latest"
-description: |
-"Cufflinks assembles transcripts, estimates their abundances, and tests for differential expression and regulation in RNA-Seq samples."
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/cufflinks.
-Cufflinks assembles transcripts, estimates their abundances, and tests for differential expression and regulation in RNA-Seq samples.
+
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

@@ -3,15 +3,13 @@ layout: container
 name:  "quay.io/vgteam/vg"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/vgteam/vg/container.yaml"
-updated_at: "2021-04-11 23:57:16.082362"
+updated_at: "2021-04-12 00:19:33.464203"
 container_url: ""
 aliases:
  - "vg"
 
 versions:
  - "latest"
-description: |
-"Tools for working with genomic variation graphs. https://github.com/vgteam/vg"
 ---
 
 This module is a singularity container wrapper for quay.io/vgteam/vg.

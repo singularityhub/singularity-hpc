@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/spades"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/spades/container.yaml"
-updated_at: "2021-04-11 23:57:16.605496"
+updated_at: "2021-04-12 00:19:34.113499"
 container_url: ""
 aliases:
  - "spades.py"
@@ -38,12 +38,10 @@ aliases:
 
 versions:
  - "latest"
-description: |
-"St. Petersburg genome assembler – an assembly toolkit containing various assembly pipelines."
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/spades.
-St. Petersburg genome assembler – an assembly toolkit containing various assembly pipelines.
+
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

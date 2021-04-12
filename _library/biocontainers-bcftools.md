@@ -3,19 +3,17 @@ layout: container
 name:  "biocontainers/bcftools"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/biocontainers/bcftools/container.yaml"
-updated_at: "2021-04-11 23:57:13.531212"
+updated_at: "2021-04-12 00:19:30.260994"
 container_url: ""
 aliases:
  - "bcftools"
 
 versions:
  - "v1.9-1-deb_cv1"
-description: |
-"BCFtools is a set of utilities that manipulate variant calls in the Variant Call Format (VCF) and its binary counterpart BCF."
 ---
 
 This module is a singularity container wrapper for biocontainers/bcftools.
-BCFtools is a set of utilities that manipulate variant calls in the Variant Call Format (VCF) and its binary counterpart BCF.
+
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

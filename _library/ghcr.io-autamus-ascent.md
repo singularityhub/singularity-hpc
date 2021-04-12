@@ -3,17 +3,15 @@ layout: container
 name:  "ghcr.io/autamus/ascent"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/ascent/container.yaml"
-updated_at: "2021-04-11 23:57:18.888144"
+updated_at: "2021-04-12 00:19:37.061792"
 container_url: ""
 
 versions:
  - "latest"
-description: |
-"An open source many-core capable lightweight in situ visualization and analysis infrastructure for multi-physics HPC simulations."
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/ascent.
-An open source many-core capable lightweight in situ visualization and analysis infrastructure for multi-physics HPC simulations.
+
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

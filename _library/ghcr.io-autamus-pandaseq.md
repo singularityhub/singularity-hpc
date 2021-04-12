@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/pandaseq"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/pandaseq/container.yaml"
-updated_at: "2021-04-11 23:57:18.714613"
+updated_at: "2021-04-12 00:19:36.845881"
 container_url: ""
 aliases:
  - "pandaseq"
@@ -18,12 +18,10 @@ aliases:
 
 versions:
  - "latest"
-description: |
-"A program to align Illumina reads, optionally with PCR primers embedded in the sequence, and reconstruct an overlapping sequence."
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/pandaseq.
-A program to align Illumina reads, optionally with PCR primers embedded in the sequence, and reconstruct an overlapping sequence.
+
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

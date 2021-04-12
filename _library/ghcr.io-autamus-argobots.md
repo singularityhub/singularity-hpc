@@ -3,17 +3,15 @@ layout: container
 name:  "ghcr.io/autamus/argobots"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/argobots/container.yaml"
-updated_at: "2021-04-11 23:57:18.085996"
+updated_at: "2021-04-12 00:19:36.013064"
 container_url: ""
 
 versions:
  - "latest"
-description: |
-"A lightweight runtime system that supports integrated computation and data movement with massive concurrency."
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/argobots.
-A lightweight runtime system that supports integrated computation and data movement with massive concurrency.
+
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

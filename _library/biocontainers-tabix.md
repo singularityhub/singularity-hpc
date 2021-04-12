@@ -3,19 +3,17 @@ layout: container
 name:  "biocontainers/tabix"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/biocontainers/tabix/container.yaml"
-updated_at: "2021-04-11 23:57:14.721247"
+updated_at: "2021-04-12 00:19:31.741003"
 container_url: ""
 aliases:
  - "tabix"
 
 versions:
  - "v1.9-11-deb_cv1"
-description: |
-"Fast retrieval of sequence features from generic TAB-delimited files."
 ---
 
 This module is a singularity container wrapper for biocontainers/tabix.
-Fast retrieval of sequence features from generic TAB-delimited files.
+
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

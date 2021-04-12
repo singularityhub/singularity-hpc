@@ -3,19 +3,17 @@ layout: container
 name:  "biocontainers/bamtools"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/biocontainers/bamtools/container.yaml"
-updated_at: "2021-04-11 23:57:13.361025"
+updated_at: "2021-04-12 00:19:30.052319"
 container_url: ""
 aliases:
  - "bamtools"
 
 versions:
  - "v2.5.1dfsg-3-deb_cv1"
-description: |
-"BamTools is a toolkit for handling BAM files."
 ---
 
 This module is a singularity container wrapper for biocontainers/bamtools.
-BamTools is a toolkit for handling BAM files.
+
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

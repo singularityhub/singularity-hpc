@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/gsl"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/gsl/container.yaml"
-updated_at: "2021-04-11 23:57:20.438093"
+updated_at: "2021-04-12 00:19:39.005171"
 container_url: ""
 aliases:
  - "gsl-config"
@@ -14,12 +14,10 @@ aliases:
 
 versions:
  - "latest"
-description: |
-"The GNU Scientific Library."
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/gsl.
-The GNU Scientific Library.
+
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

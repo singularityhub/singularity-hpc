@@ -3,15 +3,13 @@ layout: container
 name:  "jupyter/scipy-notebook"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/jupyter/scipy-notebook/container.yaml"
-updated_at: "2021-04-11 23:57:23.004359"
+updated_at: "2021-04-12 00:19:42.195013"
 container_url: ""
 aliases:
  - "run-notebook"
 
 versions:
  - "latest"
-description: |
-"Jupyter Notebook Scientific Python Stack from https://github.com/jupyter/docker-stacks"
 ---
 
 This module is a singularity container wrapper for jupyter/scipy-notebook.

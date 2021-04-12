@@ -3,15 +3,13 @@ layout: container
 name:  "nvcr.io/hpc/autodock"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/nvcr.io/hpc/autodock/container.yaml"
-updated_at: "2021-04-11 23:57:24.646348"
+updated_at: "2021-04-12 00:19:44.353169"
 container_url: ""
 aliases:
  - "autodock-gpu"
 
 versions:
  - "2020.06"
-description: |
-"The AutoDock-GPU Suite is a growing collection of methods for computational docking and virtual screening, for use in structure-based drug discovery and exploration of the basic mechanisms of biomolecular structure and function. More info on AutoDock-GPU be located at https://ccsb.scripps.edu/autodock/ and https://github.com/ccsb-scripps/AutoDock-GPU#usage."
 ---
 
 This module is a singularity container wrapper for nvcr.io/hpc/autodock.

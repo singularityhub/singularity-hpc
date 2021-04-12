@@ -3,7 +3,7 @@ layout: container
 name:  "nvcr.io/hpc/namd"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/nvcr.io/hpc/namd/container.yaml"
-updated_at: "2021-04-11 23:57:24.340724"
+updated_at: "2021-04-12 00:19:43.917887"
 container_url: ""
 aliases:
  - "charmrun"
@@ -22,8 +22,6 @@ aliases:
 
 versions:
  - "3.0-alpha3-singlenode"
-description: |
-"NAMD is a parallel molecular dynamics code designed for high-performance simulation of large biomolecular systems. NAMD uses the popular molecular graphics program VMD for simulation setup and trajectory analysis, but is also file-comp atible with AMBER, CHARMM, and X-PLOR."
 ---
 
 This module is a singularity container wrapper for nvcr.io/hpc/namd.

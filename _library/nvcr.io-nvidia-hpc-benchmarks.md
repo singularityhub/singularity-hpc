@@ -3,13 +3,11 @@ layout: container
 name:  "nvcr.io/nvidia/hpc-benchmarks"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/nvcr.io/nvidia/hpc-benchmarks/container.yaml"
-updated_at: "2021-04-11 23:57:24.949412"
+updated_at: "2021-04-12 00:19:44.788965"
 container_url: ""
 
 versions:
  - "20.10-hpl"
-description: |
-"The NVIDIA HPC-Benchmarks collection provides three NVIDIA accelerated HPC benchmarks: HPL-NVIDIA, HPL-AI-NVIDIA, and HPCG-NVIDIA."
 ---
 
 This module is a singularity container wrapper for nvcr.io/nvidia/hpc-benchmarks.

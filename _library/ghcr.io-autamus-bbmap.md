@@ -3,17 +3,15 @@ layout: container
 name:  "ghcr.io/autamus/bbmap"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/bbmap/container.yaml"
-updated_at: "2021-04-11 23:57:18.546280"
+updated_at: "2021-04-12 00:19:36.637776"
 container_url: ""
 
 versions:
  - "latest"
-description: |
-"A suite of fast, multithreaded bioinformatics tools designed for analysis of DNA and RNA sequence data."
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/bbmap.
-A suite of fast, multithreaded bioinformatics tools designed for analysis of DNA and RNA sequence data.
+
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

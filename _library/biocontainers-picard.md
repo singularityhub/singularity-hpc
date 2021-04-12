@@ -3,15 +3,13 @@ layout: container
 name:  "biocontainers/picard"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/biocontainers/picard/container.yaml"
-updated_at: "2021-04-11 23:57:14.381357"
+updated_at: "2021-04-12 00:19:31.312745"
 container_url: ""
 aliases:
  - "picard"
 
 versions:
  - "v1.139_cv3"
-description: |
-"Java CLI tools for manipulating HTS data and formats"
 ---
 
 This module is a singularity container wrapper for biocontainers/picard.

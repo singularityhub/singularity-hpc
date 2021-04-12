@@ -3,19 +3,17 @@ layout: container
 name:  "biocontainers/samtools"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/biocontainers/samtools/container.yaml"
-updated_at: "2021-04-11 23:57:15.401507"
+updated_at: "2021-04-12 00:19:32.613252"
 container_url: ""
 aliases:
  - "samtools"
 
 versions:
  - "v1.9-4-deb_cv1"
-description: |
-"Samtools is a suite of programs for interacting with high-throughput sequencing data."
 ---
 
 This module is a singularity container wrapper for biocontainers/samtools.
-Samtools is a suite of programs for interacting with high-throughput sequencing data.
+
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

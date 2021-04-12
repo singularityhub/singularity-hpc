@@ -3,7 +3,7 @@ layout: container
 name:  "r-base"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/r-base/container.yaml"
-updated_at: "2021-04-11 23:57:23.861254"
+updated_at: "2021-04-12 00:19:43.272958"
 container_url: ""
 aliases:
  - "R"
@@ -12,7 +12,6 @@ aliases:
 
 versions:
  - "latest"
-
 ---
 
 This module is a singularity container wrapper for r-base.

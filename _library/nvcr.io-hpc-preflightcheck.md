@@ -3,13 +3,11 @@ layout: container
 name:  "nvcr.io/hpc/preflightcheck"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/nvcr.io/hpc/preflightcheck/container.yaml"
-updated_at: "2021-04-11 23:57:24.031615"
+updated_at: "2021-04-12 00:19:43.493267"
 container_url: ""
 
 versions:
  - "20.11"
-description: |
-"The Pre-Flight Check container verifies that the container runtime is setup correctly for GPUs and InfiniBand."
 ---
 
 This module is a singularity container wrapper for nvcr.io/hpc/preflightcheck.

@@ -3,14 +3,13 @@ layout: container
 name:  "poldracklab/mriqc"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/poldracklab/mriqc/container.yaml"
-updated_at: "2021-04-11 23:57:26.316541"
+updated_at: "2021-04-12 00:19:46.731971"
 container_url: ""
 aliases:
  - "mriqc"
 
 versions:
  - "0.16.1"
-
 ---
 
 This module is a singularity container wrapper for poldracklab/mriqc.
