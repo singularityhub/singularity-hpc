@@ -3,13 +3,14 @@ layout: container
 name:  "nvcr.io/hpc/gromacs"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/nvcr.io/hpc/gromacs/container.yaml"
-updated_at: "2021-04-12 00:19:44.137203"
+updated_at: "2021-04-12 00:51:15.368439"
 container_url: ""
 aliases:
  - "python"
 
 versions:
  - "2020.2"
+description: "GROMACS is a popular molecular dynamics application used to simulate proteins and lipids."
 ---
 
 This module is a singularity container wrapper for nvcr.io/hpc/gromacs.

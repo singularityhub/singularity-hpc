@@ -3,15 +3,16 @@ layout: container
 name:  "ghcr.io/autamus/r-seqlogo"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/r-seqlogo/container.yaml"
-updated_at: "2021-04-12 00:19:35.593421"
+updated_at: "2021-04-12 00:51:07.053052"
 container_url: ""
 
 versions:
  - "latest"
+description: "Sequence logos for DNA sequence alignments"
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/r-seqlogo.
-
+Sequence logos for DNA sequence alignments
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

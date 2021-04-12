@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/ffmpeg"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/ffmpeg/container.yaml"
-updated_at: "2021-04-12 00:19:35.801603"
+updated_at: "2021-04-12 00:51:07.255529"
 container_url: ""
 aliases:
  - "ffmpeg"
@@ -12,10 +12,11 @@ aliases:
 
 versions:
  - "latest"
+description: "FFmpeg is a free and open-source software project consisting of a large suite of libraries and programs for handling video, audio, and other multimedia files and streams."
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/ffmpeg.
-
+FFmpeg is a free and open-source software project consisting of a large suite of libraries and programs for handling video, audio, and other multimedia files and streams.
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

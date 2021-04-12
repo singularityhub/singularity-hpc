@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/clingo"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/clingo/container.yaml"
-updated_at: "2021-04-12 00:19:39.218169"
+updated_at: "2021-04-12 00:51:10.599219"
 container_url: ""
 aliases:
  - "clingo"
@@ -12,6 +12,7 @@ aliases:
 
 versions:
  - "latest"
+
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/clingo.

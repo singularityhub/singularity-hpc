@@ -3,17 +3,18 @@ layout: container
 name:  "ghcr.io/autamus/plink"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/plink/container.yaml"
-updated_at: "2021-04-12 00:19:40.051380"
+updated_at: "2021-04-12 00:51:11.425909"
 container_url: ""
 aliases:
  - "plink"
 
 versions:
  - "latest"
+description: "PLINK is a free, open-source whole genome association analysis toolset, designed to perform a range of basic, large-scale analyses in a computationally efficient manner."
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/plink.
-
+PLINK is a free, open-source whole genome association analysis toolset, designed to perform a range of basic, large-scale analyses in a computationally efficient manner.
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

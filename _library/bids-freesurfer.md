@@ -3,15 +3,16 @@ layout: container
 name:  "bids/freesurfer"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/bids/freesurfer/container.yaml"
-updated_at: "2021-04-12 00:19:46.940850"
+updated_at: "2021-04-12 00:51:18.039302"
 container_url: ""
 
 versions:
  - "latest"
+description: "Surface reconstruction using Freesurfer"
 ---
 
 This module is a singularity container wrapper for bids/freesurfer.
-
+Surface reconstruction using Freesurfer
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

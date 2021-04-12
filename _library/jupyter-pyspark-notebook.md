@@ -3,13 +3,14 @@ layout: container
 name:  "jupyter/pyspark-notebook"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/jupyter/pyspark-notebook/container.yaml"
-updated_at: "2021-04-12 00:19:42.410983"
+updated_at: "2021-04-12 00:51:13.713826"
 container_url: ""
 aliases:
  - "run-notebook"
 
 versions:
  - "latest"
+
 ---
 
 This module is a singularity container wrapper for jupyter/pyspark-notebook.

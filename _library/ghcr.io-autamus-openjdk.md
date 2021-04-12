@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/openjdk"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/openjdk/container.yaml"
-updated_at: "2021-04-12 00:19:38.569106"
+updated_at: "2021-04-12 00:51:09.980094"
 container_url: ""
 aliases:
  - "jaotc"
@@ -58,10 +58,11 @@ aliases:
 
 versions:
  - "latest"
+description: "Open Java Development Kit"
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/openjdk.
-
+Open Java Development Kit
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

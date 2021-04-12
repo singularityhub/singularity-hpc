@@ -3,7 +3,7 @@ layout: container
 name:  "biocontainers/emboss"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/biocontainers/emboss/container.yaml"
-updated_at: "2021-04-12 00:19:33.257827"
+updated_at: "2021-04-12 00:51:04.824226"
 container_url: ""
 aliases:
  - "embossdata"
@@ -22,10 +22,11 @@ aliases:
 
 versions:
  - "v6.6.0dfsg-7b1-deb_cv1"
+description: "Free Open Source software analysis package which covers several molecular biology tools."
 ---
 
 This module is a singularity container wrapper for biocontainers/emboss.
-
+Free Open Source software analysis package which covers several molecular biology tools.
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

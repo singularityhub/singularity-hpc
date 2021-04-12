@@ -3,13 +3,14 @@ layout: container
 name:  "singularityhub/singularity-deploy"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/singularityhub/singularity-deploy/container.yaml"
-updated_at: "2021-04-12 00:19:46.513492"
+updated_at: "2021-04-12 00:51:17.635088"
 container_url: ""
 aliases:
  - "salad"
 
 versions:
  - "salad"
+
 ---
 
 This module is a singularity container wrapper for singularityhub/singularity-deploy.

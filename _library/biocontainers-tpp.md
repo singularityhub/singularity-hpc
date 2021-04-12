@@ -3,7 +3,7 @@ layout: container
 name:  "biocontainers/tpp"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/biocontainers/tpp/container.yaml"
-updated_at: "2021-04-12 00:19:32.388055"
+updated_at: "2021-04-12 00:51:04.006891"
 container_url: ""
 aliases:
  - "config_data"
@@ -20,10 +20,11 @@ aliases:
 
 versions:
  - "v5.2_cv1"
+description: "The Trans-Proteomic Pipeline (TPP) is a collection of integrated tools for MS/MS proteomics, developed at the SPC."
 ---
 
 This module is a singularity container wrapper for biocontainers/tpp.
-
+The Trans-Proteomic Pipeline (TPP) is a collection of integrated tools for MS/MS proteomics, developed at the SPC.
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

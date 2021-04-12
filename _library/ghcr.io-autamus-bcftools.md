@@ -3,17 +3,18 @@ layout: container
 name:  "ghcr.io/autamus/bcftools"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/bcftools/container.yaml"
-updated_at: "2021-04-12 00:19:36.219276"
+updated_at: "2021-04-12 00:51:07.671864"
 container_url: ""
 aliases:
  - "bcftools"
 
 versions:
  - "latest"
+description: "BCFtools is a set of utilities that manipulate variant calls in the Variant Call Format (VCF) and its binary counterpart BCF."
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/bcftools.
-
+BCFtools is a set of utilities that manipulate variant calls in the Variant Call Format (VCF) and its binary counterpart BCF.
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

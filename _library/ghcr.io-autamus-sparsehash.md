@@ -3,15 +3,16 @@ layout: container
 name:  "ghcr.io/autamus/sparsehash"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/sparsehash/container.yaml"
-updated_at: "2021-04-12 00:19:40.694086"
+updated_at: "2021-04-12 00:51:12.061426"
 container_url: ""
 
 versions:
  - "latest"
+description: "several hash-map implementations, similar in API to SGI's hash_map class, but with different performance characteristics."
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/sparsehash.
-
+several hash-map implementations, similar in API to SGI's hash_map class, but with different performance characteristics.
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

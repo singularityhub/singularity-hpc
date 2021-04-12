@@ -3,7 +3,7 @@ layout: container
 name:  "python"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/python/container.yaml"
-updated_at: "2021-04-12 00:19:33.679644"
+updated_at: "2021-04-12 00:51:05.220880"
 container_url: ""
 aliases:
  - "python"
@@ -11,6 +11,7 @@ aliases:
 versions:
  - "3.9.2-slim"
  - "3.9.2-alpine"
+
 ---
 
 This module is a singularity container wrapper for python.

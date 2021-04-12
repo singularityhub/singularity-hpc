@@ -3,17 +3,18 @@ layout: container
 name:  "bids/spm"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/bids/spm/container.yaml"
-updated_at: "2021-04-12 00:19:47.386854"
+updated_at: "2021-04-12 00:51:18.453191"
 container_url: ""
 aliases:
  - "spm12"
 
 versions:
  - "latest"
+description: "The implementation of the theoretical concepts of Statistical Parametric Mapping in a complete analysis package."
 ---
 
 This module is a singularity container wrapper for bids/spm.
-
+The implementation of the theoretical concepts of Statistical Parametric Mapping in a complete analysis package.
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

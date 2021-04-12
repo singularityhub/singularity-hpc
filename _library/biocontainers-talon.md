@@ -3,7 +3,7 @@ layout: container
 name:  "biocontainers/talon"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/biocontainers/talon/container.yaml"
-updated_at: "2021-04-12 00:19:32.827066"
+updated_at: "2021-04-12 00:51:04.422725"
 container_url: ""
 aliases:
  - "talon"
@@ -30,10 +30,11 @@ aliases:
 
 versions:
  - "v5.0_cv1"
+description: "Mailgun library to extract message quotations and signatures."
 ---
 
 This module is a singularity container wrapper for biocontainers/talon.
-
+Mailgun library to extract message quotations and signatures.
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

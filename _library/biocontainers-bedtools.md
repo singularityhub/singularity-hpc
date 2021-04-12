@@ -3,13 +3,14 @@ layout: container
 name:  "biocontainers/bedtools"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/biocontainers/bedtools/container.yaml"
-updated_at: "2021-04-12 00:19:30.894932"
+updated_at: "2021-04-12 00:51:02.612993"
 container_url: ""
 aliases:
  - "bedtools"
 
 versions:
  - "v2.27.1dfsg-4-deb_cv1"
+
 ---
 
 This module is a singularity container wrapper for biocontainers/bedtools.

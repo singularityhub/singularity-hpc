@@ -3,17 +3,18 @@ layout: container
 name:  "biocontainers/bwa"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/biocontainers/bwa/container.yaml"
-updated_at: "2021-04-12 00:19:31.956721"
+updated_at: "2021-04-12 00:51:03.605553"
 container_url: ""
 aliases:
  - "bwa"
 
 versions:
  - "0.7.15"
+description: "BWA is a software package for mapping low-divergent sequences against a large reference genome, such as the human genome."
 ---
 
 This module is a singularity container wrapper for biocontainers/bwa.
-
+BWA is a software package for mapping low-divergent sequences against a large reference genome, such as the human genome.
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

@@ -3,17 +3,18 @@ layout: container
 name:  "ghcr.io/autamus/alps"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/alps/container.yaml"
-updated_at: "2021-04-12 00:19:34.741890"
+updated_at: "2021-04-12 00:51:06.244271"
 container_url: ""
 aliases:
  - "alpspython"
 
 versions:
  - "latest"
+description: "Algorithms and Libraries for Physics Simulations."
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/alps.
-
+Algorithms and Libraries for Physics Simulations.
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

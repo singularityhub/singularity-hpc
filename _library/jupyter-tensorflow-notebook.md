@@ -3,13 +3,14 @@ layout: container
 name:  "jupyter/tensorflow-notebook"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/jupyter/tensorflow-notebook/container.yaml"
-updated_at: "2021-04-12 00:19:42.631843"
+updated_at: "2021-04-12 00:51:13.919147"
 container_url: ""
 aliases:
  - "run-notebook"
 
 versions:
  - "latest"
+description: "Jupyter Tensorflow Notebook from https://github.com/jupyter/docker-stacks"
 ---
 
 This module is a singularity container wrapper for jupyter/tensorflow-notebook.

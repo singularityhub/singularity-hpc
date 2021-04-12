@@ -3,13 +3,14 @@ layout: container
 name:  "jupyter/minimal-notebook"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/jupyter/minimal-notebook/container.yaml"
-updated_at: "2021-04-12 00:19:42.841834"
+updated_at: "2021-04-12 00:51:14.130242"
 container_url: ""
 aliases:
  - "run-notebook"
 
 versions:
  - "latest"
+description: "Jupyter Minimal Notebook from https://github.com/jupyter/docker-stacks"
 ---
 
 This module is a singularity container wrapper for jupyter/minimal-notebook.

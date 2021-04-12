@@ -3,15 +3,16 @@ layout: container
 name:  "biocontainers/fastqc"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/biocontainers/fastqc/container.yaml"
-updated_at: "2021-04-12 00:19:30.685871"
+updated_at: "2021-04-12 00:51:02.416381"
 container_url: ""
 
 versions:
  - "v0.11.5"
+description: "A quality control tool for high throughput sequence data."
 ---
 
 This module is a singularity container wrapper for biocontainers/fastqc.
-
+A quality control tool for high throughput sequence data.
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

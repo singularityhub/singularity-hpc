@@ -3,15 +3,16 @@ layout: container
 name:  "ghcr.io/autamus/gromacs"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/gromacs/container.yaml"
-updated_at: "2021-04-12 00:19:38.134882"
+updated_at: "2021-04-12 00:51:09.564201"
 container_url: ""
 
 versions:
  - "latest"
+description: "A versatile package to perform molecular dynamics."
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/gromacs.
-
+A versatile package to perform molecular dynamics.
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

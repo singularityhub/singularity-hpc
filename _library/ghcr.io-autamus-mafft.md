@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/mafft"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/mafft/container.yaml"
-updated_at: "2021-04-12 00:19:34.539264"
+updated_at: "2021-04-12 00:51:06.040849"
 container_url: ""
 aliases:
  - "mafft"
@@ -32,10 +32,11 @@ aliases:
 
 versions:
  - "latest"
+description: "MAFFT is a multiple sequence alignment program for unix-like operating systems."
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/mafft.
-
+MAFFT is a multiple sequence alignment program for unix-like operating systems.
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

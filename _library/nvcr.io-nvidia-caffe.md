@@ -3,13 +3,14 @@ layout: container
 name:  "nvcr.io/nvidia/caffe"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/nvcr.io/nvidia/caffe/container.yaml"
-updated_at: "2021-04-12 00:19:45.010943"
+updated_at: "2021-04-12 00:51:16.187409"
 container_url: ""
 aliases:
  - "python"
 
 versions:
  - "20.03-py3"
+description: "NVIDIA Caffe, also known as NVCaffe, is an NVIDIA-maintained fork of Berkeley Vision and Learning Center (BVLC) Caffe tuned for NVIDIA GPUs, particularly in multi-GPU configurations."
 ---
 
 This module is a singularity container wrapper for nvcr.io/nvidia/caffe.

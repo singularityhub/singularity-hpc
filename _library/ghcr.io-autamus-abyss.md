@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/abyss"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/abyss/container.yaml"
-updated_at: "2021-04-12 00:19:38.793468"
+updated_at: "2021-04-12 00:51:10.191362"
 container_url: ""
 aliases:
  - "abyss-align"
@@ -84,10 +84,11 @@ aliases:
 
 versions:
  - "latest"
+description: "ABySS is a de novo, parallel, paired-end sequence assembler that is designed for short reads."
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/abyss.
-
+ABySS is a de novo, parallel, paired-end sequence assembler that is designed for short reads.
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash

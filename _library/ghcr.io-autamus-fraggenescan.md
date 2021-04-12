@@ -3,15 +3,16 @@ layout: container
 name:  "ghcr.io/autamus/fraggenescan"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/fraggenescan/container.yaml"
-updated_at: "2021-04-12 00:19:34.323710"
+updated_at: "2021-04-12 00:51:05.833812"
 container_url: ""
 
 versions:
  - "latest"
+description: "An application for finding (fragmented) genes in short reads."
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/fraggenescan.
-
+An application for finding (fragmented) genes in short reads.
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash
