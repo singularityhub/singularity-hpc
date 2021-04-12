@@ -7,6 +7,5 @@ filter:
   - "latest"
 maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/alan
-description: "A simple in-terminal alignment viewer."
 aliases:
   alan: /opt/view/bin/alan

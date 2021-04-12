@@ -7,6 +7,5 @@ filter:
   - "v*"
 maintainer: "@vsoch"
 url: https://hub.docker.com/r/bids/spm
-description: "The implementation of the theoretical concepts of Statistical Parametric Mapping in a complete analysis package."
 aliases:
   spm12: /opt/spm12/spm12

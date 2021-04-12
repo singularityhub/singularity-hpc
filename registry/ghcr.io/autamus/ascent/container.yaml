@@ -6,5 +6,4 @@ tags:
 filter:
   - "latest"
 maintainer: "@vsoch"
-description: "An open source many-core capable lightweight in situ visualization and analysis infrastructure for multi-physics HPC simulations."
 url: https://github.com/orgs/autamus/packages/container/package/ascent

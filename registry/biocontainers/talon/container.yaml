@@ -7,7 +7,6 @@ filter:
   - "v*"
 maintainer: "@vsoch"
 url: https://hub.docker.com/r/biocontainers/talon
-description: "Mailgun library to extract message quotations and signatures."
 aliases:
   talon: /usr/local/bin/talon
   talon_create_GTF: /usr/local/bin/talon_create_GTF

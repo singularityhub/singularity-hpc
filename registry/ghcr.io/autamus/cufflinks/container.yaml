@@ -7,7 +7,6 @@ filter:
   - "latest"
 maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/cufflinks
-description: "Cufflinks assembles transcripts, estimates their abundances, and tests for differential expression and regulation in RNA-Seq samples."
 aliases:
   cufflinks: /opt/view/bin/cufflinks
   cuffcompare: /opt/view/bin/cuffcompare

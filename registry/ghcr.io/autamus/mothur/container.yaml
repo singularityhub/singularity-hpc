@@ -7,6 +7,5 @@ filter:
   - "latest"
 maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/mothur
-description: "A single piece of open-source, expandable software to fill the bioinformatics needs of the microbial ecology community."
 aliases:
   mothur: /opt/view/bin/mothur

@@ -7,6 +7,5 @@ filter:
   - "latest"
 maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/node-js
-description: "A JavaScript runtime built on Chrome's V8 JavaScript engine."
 aliases:
   node: /opt/view/bin/node  

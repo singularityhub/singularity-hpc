@@ -7,6 +7,5 @@ filter:
   - "latest"
 maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/julia
-description: "Julia is a high-level, high-performance, dynamic programming language."
 aliases:
   julia: /opt/view/bin/julia

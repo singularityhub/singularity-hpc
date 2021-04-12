@@ -6,7 +6,6 @@ tags:
 filter:
   - "v*"
 maintainer: "@vsoch"
-description: "Samtools is a suite of programs for interacting with high-throughput sequencing data."
 url: https://hub.docker.com/r/biocontainers/samtools  
 aliases:
   samtools: /usr/bin/samtools

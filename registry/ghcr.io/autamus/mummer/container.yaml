@@ -7,7 +7,6 @@ filter:
   - "latest"
 maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/mummer
-description: "MUMmer is a system for rapidly aligning entire genomes."
 aliases:
   mummer: /opt/view/bin/mummer
   mummerplot: /opt/view/bin/mummerplot

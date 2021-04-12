@@ -7,6 +7,5 @@ filter:
   - "latest"
 maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/diamond
-description: "A sequence aligner for protein and translated DNA searches, designed for high performance analysis of big sequence data."
 aliases:
   diamond: /opt/view/bin/diamond

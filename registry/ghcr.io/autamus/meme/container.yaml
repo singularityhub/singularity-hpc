@@ -7,7 +7,6 @@ filter:
   - "latest"
 maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/meme
-description: "The MEME suite provides online tools for discovering and using protein and DNA sequence motifs."
 aliases:
   meme: /opt/view/bin/meme
   meme-chip: /opt/view/bin/meme-chip
