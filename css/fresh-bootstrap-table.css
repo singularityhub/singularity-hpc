@@ -1141,7 +1141,8 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
   border-radius: 30px !important;
 }
 .fresh-table a {
-  color: #AAAAAA;
+  color: #E53129;
+  font-weight: bold;
 }
 .fresh-table a:hover, .fresh-table a:focus {
   color: #898989;

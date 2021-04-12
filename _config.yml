@@ -39,6 +39,7 @@ github: https://github.com/singularityhub
 repo: https://github.com/singularityhub/singularity-hpc
 docs: https://singularity-hpc.readthedocs.io/
 maintainer: "@vsoch"
+maintainer_url: https://github.com/vsoch
 social:
   - title: twitter
     url: https://www.twitter.com/vsoch
