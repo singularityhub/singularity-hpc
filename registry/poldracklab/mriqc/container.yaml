@@ -6,6 +6,7 @@ tags:
 filter:
   - "2.*"
 maintainer: "@vsoch"
+description: "Automatic prediction of quality and visual reporting of MRI scans."
 url: https://hub.docker.com/r/poldracklab/mriqc
 aliases:
   mriqc: /usr/local/miniconda/bin/mriqc

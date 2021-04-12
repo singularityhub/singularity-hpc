@@ -8,7 +8,8 @@ filter:
   - "3.9.*"
 maintainer: "@vsoch"
 url: https://hub.docker.com/_/python
+description: "An interpreted, high-level and general-purpose programming language."
 aliases:
-  python: /usr/local/bin/python
+  python: /usr/local/bin/python  
 test: |
    /usr/local/bin/python -c "import sys; print(sys.version_info)"

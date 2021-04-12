@@ -7,6 +7,7 @@ filter:
   - "latest"
 maintainer: "@vsoch"
 url: https://hub.docker.com/r/jupyter/pyspark-notebook
+description: "Jupyter Pyspark Notebook from https://github.com/jupyter/docker-stacks"
 aliases:
   - name: run-notebook
     command: jupyter notebook --no-browser --port=$(shuf -i 2000-65000 -n 1) --ip 0.0.0.0
