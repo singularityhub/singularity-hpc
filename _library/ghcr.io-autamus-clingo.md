@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/clingo"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/clingo/container.yaml"
-updated_at: "2021-04-12 01:13:08.862690"
+updated_at: "2021-04-12 01:20:41.267704"
 container_url: ""
 aliases:
  - "clingo"
@@ -12,11 +12,11 @@ aliases:
 
 versions:
  - "latest"
-
+description: "An ASP system to ground and solve logic programs."
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/clingo.
-
+An ASP system to ground and solve logic programs.
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash
