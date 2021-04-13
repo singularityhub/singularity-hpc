@@ -1,0 +1,10 @@
+docker: bids/hcppipelines
+latest:
+  "latest": "sha256:aea536f1dde005bc0e30451a42709d436146e373c2088b10614b5d3a1614b52b"
+tags:
+  "latest": "sha256:aea536f1dde005bc0e30451a42709d436146e373c2088b10614b5d3a1614b52b"
+filter:
+  - "v*"
+maintainer: "@vsoch"
+description: "BIDS-ified HPC Piplines to process MRI data for the Human Connectome Project (https://github.com/BIDS-Apps/HCPPipelines)"
+url: https://hub.docker.com/r/bids/hcppipelines

@@ -1,0 +1,10 @@
+docker: bids/brainiak-srm
+latest:
+  "latest": "sha256:5ff856420a178be4e8150e574251a44885451050e9803515269e5ff15cd67430"
+tags:
+  "latest": "sha256:5ff856420a178be4e8150e574251a44885451050e9803515269e5ff15cd67430"
+filter:
+  - "v*"
+maintainer: "@vsoch"
+description: "Shared Response Model (SRM) from the Brain Imaging Analysis Kit (BrainIAK) (https://github.com/BIDS-Apps/brainiak-srm)"
+url: https://hub.docker.com/r/bids/brainiak-srm

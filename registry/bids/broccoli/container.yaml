@@ -1,0 +1,11 @@
+docker: bids/broccoli
+# The rest of this container's tags are unknown
+latest:
+  "enh_v": "sha256:1ae7cc35e6299fbd6ee020fbe39379d65bc7103b853eae707b8f3f2581c3bee4"
+tags:
+  "enh_v": "sha256:1ae7cc35e6299fbd6ee020fbe39379d65bc7103b853eae707b8f3f2581c3bee4"
+filter:
+  - "enh_v"
+maintainer: "@vsoch"
+description: "BROCCOLI is a software for analysis of fMRI (functional magnetic resonance imaging) data and is written in OpenCL (Open Computing Language).  (https://github.com/BIDS-Apps/BROCCOLI)"
+url: https://hub.docker.com/r/bids/broccoli

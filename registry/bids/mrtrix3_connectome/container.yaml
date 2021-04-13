@@ -1,0 +1,10 @@
+docker: bids/mrtrix3_connectome
+latest:
+  "latest": "sha256:84a9d4be8686b025bf6949c6067d7cf8f48fbd535d9bd8acc0a8ac6e0996b28b"
+tags:
+  "latest": "sha256:84a9d4be8686b025bf6949c6067d7cf8f48fbd535d9bd8acc0a8ac6e0996b28b"
+filter:
+  - "v*"
+maintainer: "@vsoch"
+description: "Generation and subsequent group analysis of structural connectomes generated from diffusion MRI data (via the MRtrix3 software package). https://github.com/BIDS-Apps/MRtrix3_connectome"
+url: https://hub.docker.com/r/bids/mrtrix3_connectome

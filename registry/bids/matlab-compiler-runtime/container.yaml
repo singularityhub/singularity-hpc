@@ -1,0 +1,10 @@
+docker: bids/matlab-compiler-runtime
+latest:
+  "R2016b": "sha256:cd3170ac40fe8c00e84f69963a3cf8a5c39e2c9c25bb9df899754c3d31252bd1"
+tags:
+  "R2016b": "sha256:cd3170ac40fe8c00e84f69963a3cf8a5c39e2c9c25bb9df899754c3d31252bd1"
+filter:
+  - "R2016b"
+maintainer: "@vsoch"
+description: "Base image with Matlab compiler runtime (https://github.com/BIDS-Apps/matlab-compiler-runtime)"
+url: https://hub.docker.com/r/bids/matlab-compiler-runtime

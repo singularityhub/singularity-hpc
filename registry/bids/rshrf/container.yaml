@@ -1,0 +1,12 @@
+docker: bids/rshrf
+latest:
+  "latest": "sha256:0e7abbe256f66cdb2846b46830a74d846e02fc7344cb30f609e1b7c2f08a5052"
+tags:
+  "latest": "sha256:0e7abbe256f66cdb2846b46830a74d846e02fc7344cb30f609e1b7c2f08a5052"
+filter:
+  - "v*"
+maintainer: "@vsoch"
+description: "Resting state HRF estimation and deconvolution (https://github.com/BIDS-Apps/rsHRF)"
+url: https://hub.docker.com/r/bids/rshrf
+aliases:
+  rsHRF: /usr/bin/rsHRF

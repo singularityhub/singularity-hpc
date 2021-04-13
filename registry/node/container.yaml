@@ -1,0 +1,18 @@
+docker: node
+latest:
+  latest: "sha256:0bb7063dae2d6e3e6989f1c2348a50c03bc9d9c1e2f7ea6a0a36e9f0728ac78e"
+tags:
+  latest: "sha256:0bb7063dae2d6e3e6989f1c2348a50c03bc9d9c1e2f7ea6a0a36e9f0728ac78e"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://hub.docker.com/r/_/node
+description: "Node.js is a software platform for scalable server-side and networking applications."
+aliases:
+  npm: /usr/local/bin/npm
+  yarnpkg: /usr/local/bin/yarnpkg
+  node: /usr/local/bin/node
+  npx: /usr/local/bin/npx
+  nodejs: /usr/local/bin/nodejs
+  yarn: /usr/local/bin/yarn
+

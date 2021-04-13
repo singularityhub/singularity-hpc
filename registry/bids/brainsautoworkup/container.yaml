@@ -1,0 +1,10 @@
+docker: bids/brainsautoworkup
+latest:
+  "latest": "sha256:39fb638ba68955e2964a2c6cdab6cf7857b248f2b30d6b69b6f0a9a3401a376e"
+tags:
+  "latest": "sha256:39fb638ba68955e2964a2c6cdab6cf7857b248f2b30d6b69b6f0a9a3401a376e"
+filter:
+  - "v*"
+maintainer: "@vsoch"
+description: "A BIDS App for running BRAINSAutoWorkup (https://github.com/BIDS-Apps/BRAINSAutoworkup)"
+url: https://hub.docker.com/r/bids/brainsautoworkup

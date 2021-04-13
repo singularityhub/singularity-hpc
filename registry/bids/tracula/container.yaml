@@ -1,0 +1,10 @@
+docker: bids/tracula
+latest:
+  "latest": "sha256:578a493569bdc8c170a9f83d4e2ae4fde565bee723221e7fc4f6b145dc96624d"
+tags:
+  "latest": "sha256:578a493569bdc8c170a9f83d4e2ae4fde565bee723221e7fc4f6b145dc96624d"
+filter:
+  - "v*"
+maintainer: "@vsoch"
+description: "Implements Freesurfer's TRACULA (TRActs Constrained by UnderLying Anatomy) tool for cross-sectional as well as longitudinal (multi session) input data (https://github.com/BIDS-Apps/tracula)"
+url: https://hub.docker.com/r/bids/tracula

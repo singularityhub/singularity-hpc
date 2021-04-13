@@ -1,0 +1,11 @@
+docker: bids/aa
+# Most of the tags/digests on Docker Hub seem to be unknown
+latest:
+  "enh_various": "sha256:c5b2c733ee6475449066f7dfe7865cc4bf2c74fe3c1150fd4f61a6fed2a6f78b"
+tags:
+  "enh_various": "sha256:c5b2c733ee6475449066f7dfe7865cc4bf2c74fe3c1150fd4f61a6fed2a6f78b"
+filter:
+  - "enh_various"
+maintainer: "@vsoch"
+description: "BIDS App containing an instance of the Automatic Analysis. (https://github.com/BIDS-Apps/aa)"
+url: https://hub.docker.com/r/bids/aa
