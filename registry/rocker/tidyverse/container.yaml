@@ -1,0 +1,19 @@
+docker: rocker/tidyverse
+latest:
+  latest: "sha256:4bb9be025ad7a13b46a44f6a5bc9c604d2d5814fa37625d6ad36897777fc5280"
+tags:
+  latest: "sha256:4bb9be025ad7a13b46a44f6a5bc9c604d2d5814fa37625d6ad36897777fc5280"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://hub.docker.com/r/rocker/tidyverse
+description: "Version-stable build of R, rstudio, and R packages "
+aliases:
+  rocker-tidyverse-run: /bin/bash  
+  rocker-ml-run: /bin/bash
+  R: /usr/local/bin/R
+  Rscript: /usr/local/bin/Rscript
+  rserver: /usr/lib/rstudio-server/bin/rserver
+  rserver-pam: /usr/lib/rstudio-server/bin/rserver-pam
+  rsession: /usr/lib/rstudio-server/bin/rsession
+  rstudio-server: /usr/lib/rstudio-server/bin/rstudio-server
