@@ -1,28 +1,44 @@
 ---
 layout: container
-name:  "nvcr.io/hpc/preflightcheck"
+name:  "rocker/ml-verse"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/nvcr.io/hpc/preflightcheck/container.yaml"
-updated_at: "2021-04-14 07:38:38.870132"
+github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/rocker/ml-verse/container.yaml"
+updated_at: "2021-04-14 07:38:42.751317"
 container_url: ""
+aliases:
+ - "rocker-ml-verse-run"
+
+ - "rocker-ml-run"
+
+ - "R"
+
+ - "Rscript"
+
+ - "rserver"
+
+ - "rserver-pam"
+
+ - "rsession"
+
+ - "rstudio-server"
 
 versions:
- - "20.11"
-description: "The Pre-Flight Check container verifies that the container runtime is setup correctly for GPUs and InfiniBand."
+ - "latest"
+description: "Machine learning in R."
 ---
 
-This module is a singularity container wrapper for nvcr.io/hpc/preflightcheck.
-The Pre-Flight Check container verifies that the container runtime is setup correctly for GPUs and InfiniBand.
+This module is a singularity container wrapper for rocker/ml-verse.
+Machine learning in R.
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash
-$ shpc install nvcr.io/hpc/preflightcheck
+$ shpc install rocker/ml-verse
 ```
 
 Or a specific version:
 
 ```bash
-$ shpc install nvcr.io/hpc/preflightcheck:20.11
+$ shpc install rocker/ml-verse:latest
 ```
 
 And then you can tell lmod about your modules folder:
@@ -34,8 +50,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load nvcr.io/hpc/preflightcheck/20.11
-$ module help nvcr.io/hpc/preflightcheck/20.11
+$ module load rocker/ml-verse/latest
+$ module help rocker/ml-verse/latest
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
@@ -46,43 +62,92 @@ You can use tab for auto-completion of module names or commands that are provide
 
 When you install this module, you'll be able to load it to make the following commands accessible:
 
-#### nvcr.io-hpc-preflightcheck-run:
+#### rocker-ml-verse-run:
 
 ```bash
 $ singularity run <container>
 ```
 
-#### nvcr.io-hpc-preflightcheck-shell:
+#### rocker-ml-verse-shell:
 
 ```bash
 $ singularity shell -s /bin/bash <container>
 ```
 
-#### nvcr.io-hpc-preflightcheck-exec:
+#### rocker-ml-verse-exec:
 
 ```bash
 $ singularity exec -s /bin/bash <container> "$@"
 ```
 
-#### nvcr.io-hpc-preflightcheck-inspect-runscript:
+#### rocker-ml-verse-inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### nvcr.io-hpc-preflightcheck-inspect-deffile:
+#### rocker-ml-verse-inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>
 ```
 
 
-
-#### nvcr.io-hpc-preflightcheck
-
+#### rocker-ml-verse-run
+       
 ```bash
-$ singularity run <container>
+$ singularity exec <container> /bin/bash
 ```
+
+
+#### rocker-ml-run
+       
+```bash
+$ singularity exec <container> /bin/bash
+```
+
+
+#### R
+       
+```bash
+$ singularity exec <container> /usr/local/bin/R
+```
+
+
+#### Rscript
+       
+```bash
+$ singularity exec <container> /usr/local/bin/Rscript
+```
+
+
+#### rserver
+       
+```bash
+$ singularity exec <container> /usr/lib/rstudio-server/bin/rserver
+```
+
+
+#### rserver-pam
+       
+```bash
+$ singularity exec <container> /usr/lib/rstudio-server/bin/rserver-pam
+```
+
+
+#### rsession
+       
+```bash
+$ singularity exec <container> /usr/lib/rstudio-server/bin/rsession
+```
+
+
+#### rstudio-server
+       
+```bash
+$ singularity exec <container> /usr/lib/rstudio-server/bin/rstudio-server
+```
+
 
 
 In the above, the `<container>` directive will reference an actual container provided

@@ -3,7 +3,7 @@ layout: container
 name:  "mariadb"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/mariadb/container.yaml"
-updated_at: "2021-04-14 05:49:45.739670"
+updated_at: "2021-04-14 07:38:43.230618"
 container_url: ""
 aliases:
  - "mariabackup"

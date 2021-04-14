@@ -1,28 +1,32 @@
 ---
 layout: container
-name:  "nvcr.io/hpc/preflightcheck"
+name:  "rocker/shiny"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/nvcr.io/hpc/preflightcheck/container.yaml"
-updated_at: "2021-04-14 07:38:38.870132"
+github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/rocker/shiny/container.yaml"
+updated_at: "2021-04-14 07:38:42.297840"
 container_url: ""
+aliases:
+ - "rocker-shiny-run"
+
+ - "shiny-server"
 
 versions:
- - "20.11"
-description: "The Pre-Flight Check container verifies that the container runtime is setup correctly for GPUs and InfiniBand."
+ - "latest"
+description: "Docker image with R + Shiny."
 ---
 
-This module is a singularity container wrapper for nvcr.io/hpc/preflightcheck.
-The Pre-Flight Check container verifies that the container runtime is setup correctly for GPUs and InfiniBand.
+This module is a singularity container wrapper for rocker/shiny.
+Docker image with R + Shiny.
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash
-$ shpc install nvcr.io/hpc/preflightcheck
+$ shpc install rocker/shiny
 ```
 
 Or a specific version:
 
 ```bash
-$ shpc install nvcr.io/hpc/preflightcheck:20.11
+$ shpc install rocker/shiny:latest
 ```
 
 And then you can tell lmod about your modules folder:
@@ -34,8 +38,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load nvcr.io/hpc/preflightcheck/20.11
-$ module help nvcr.io/hpc/preflightcheck/20.11
+$ module load rocker/shiny/latest
+$ module help rocker/shiny/latest
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
@@ -46,43 +50,50 @@ You can use tab for auto-completion of module names or commands that are provide
 
 When you install this module, you'll be able to load it to make the following commands accessible:
 
-#### nvcr.io-hpc-preflightcheck-run:
+#### rocker-shiny-run:
 
 ```bash
 $ singularity run <container>
 ```
 
-#### nvcr.io-hpc-preflightcheck-shell:
+#### rocker-shiny-shell:
 
 ```bash
 $ singularity shell -s /bin/bash <container>
 ```
 
-#### nvcr.io-hpc-preflightcheck-exec:
+#### rocker-shiny-exec:
 
 ```bash
 $ singularity exec -s /bin/bash <container> "$@"
 ```
 
-#### nvcr.io-hpc-preflightcheck-inspect-runscript:
+#### rocker-shiny-inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### nvcr.io-hpc-preflightcheck-inspect-deffile:
+#### rocker-shiny-inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>
 ```
 
 
-
-#### nvcr.io-hpc-preflightcheck
-
+#### rocker-shiny-run
+       
 ```bash
-$ singularity run <container>
+$ singularity exec <container> /bin/bash
 ```
+
+
+#### shiny-server
+       
+```bash
+$ singularity exec <container> /opt/shiny-server
+```
+
 
 
 In the above, the `<container>` directive will reference an actual container provided

@@ -1,28 +1,34 @@
 ---
 layout: container
-name:  "nvcr.io/hpc/preflightcheck"
+name:  "spack/ubuntu-bionic"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/nvcr.io/hpc/preflightcheck/container.yaml"
-updated_at: "2021-04-14 07:38:38.870132"
+github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/spack/ubuntu-bionic/container.yaml"
+updated_at: "2021-04-14 07:38:26.725853"
 container_url: ""
+aliases:
+ - "sbang"
+
+ - "spack"
+
+ - "spack-python"
 
 versions:
- - "20.11"
-description: "The Pre-Flight Check container verifies that the container runtime is setup correctly for GPUs and InfiniBand."
+ - "latest"
+description: "Ubuntu 18.04 with Spack preinstalled."
 ---
 
-This module is a singularity container wrapper for nvcr.io/hpc/preflightcheck.
-The Pre-Flight Check container verifies that the container runtime is setup correctly for GPUs and InfiniBand.
+This module is a singularity container wrapper for spack/ubuntu-bionic.
+Ubuntu 18.04 with Spack preinstalled.
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash
-$ shpc install nvcr.io/hpc/preflightcheck
+$ shpc install spack/ubuntu-bionic
 ```
 
 Or a specific version:
 
 ```bash
-$ shpc install nvcr.io/hpc/preflightcheck:20.11
+$ shpc install spack/ubuntu-bionic:latest
 ```
 
 And then you can tell lmod about your modules folder:
@@ -34,8 +40,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load nvcr.io/hpc/preflightcheck/20.11
-$ module help nvcr.io/hpc/preflightcheck/20.11
+$ module load spack/ubuntu-bionic/latest
+$ module help spack/ubuntu-bionic/latest
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
@@ -46,43 +52,57 @@ You can use tab for auto-completion of module names or commands that are provide
 
 When you install this module, you'll be able to load it to make the following commands accessible:
 
-#### nvcr.io-hpc-preflightcheck-run:
+#### spack-ubuntu-bionic-run:
 
 ```bash
 $ singularity run <container>
 ```
 
-#### nvcr.io-hpc-preflightcheck-shell:
+#### spack-ubuntu-bionic-shell:
 
 ```bash
 $ singularity shell -s /bin/bash <container>
 ```
 
-#### nvcr.io-hpc-preflightcheck-exec:
+#### spack-ubuntu-bionic-exec:
 
 ```bash
 $ singularity exec -s /bin/bash <container> "$@"
 ```
 
-#### nvcr.io-hpc-preflightcheck-inspect-runscript:
+#### spack-ubuntu-bionic-inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### nvcr.io-hpc-preflightcheck-inspect-deffile:
+#### spack-ubuntu-bionic-inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>
 ```
 
 
-
-#### nvcr.io-hpc-preflightcheck
-
+#### sbang
+       
 ```bash
-$ singularity run <container>
+$ singularity exec <container> /opt/spack/bin/sbang
 ```
+
+
+#### spack
+       
+```bash
+$ singularity exec <container> /opt/spack/bin/spack
+```
+
+
+#### spack-python
+       
+```bash
+$ singularity exec <container> /opt/spack/bin/spack-python
+```
+
 
 
 In the above, the `<container>` directive will reference an actual container provided
