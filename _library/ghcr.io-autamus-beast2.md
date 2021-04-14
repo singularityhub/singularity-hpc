@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/beast2"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/beast2/container.yaml"
-updated_at: "2021-04-14 00:13:17.620619"
+updated_at: "2021-04-14 05:49:39.230488"
 container_url: ""
 aliases:
  - "beast"
