@@ -1,0 +1,12 @@
+docker: vault
+latest:
+  latest: "sha256:b374bf9a8d703434241a265ffd5a158849f074b53136631073b2adfe852d8568"
+tags:
+  latest: "sha256:b374bf9a8d703434241a265ffd5a158849f074b53136631073b2adfe852d8568"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://hub.docker.com/_/vault
+description: "Vault is a tool for securely accessing secrets via a unified interface and tight access control."
+aliases:
+  vault: /bin/vault

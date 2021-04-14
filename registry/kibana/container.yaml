@@ -1,0 +1,15 @@
+docker: kibana
+latest:
+  "7.12.0": "sha256:daaaf1f52a9d9350d53b584998f07a2d9ddde0eca24588b068311c2347811967"
+tags:
+  "7.12.0": "sha256:daaaf1f52a9d9350d53b584998f07a2d9ddde0eca24588b068311c2347811967"
+filter:
+  - "7.*"
+maintainer: "@vsoch"
+url: https://hub.docker.com/_/kibana
+description: "Kibana gives shape to any kind of data — structured and unstructured — indexed in Elasticsearch."
+aliases:
+  kibana: /usr/share/kibana/bin/kibana
+  kibana-encryption-keys: /usr/share/kibana/bin/kibana-encryption-keys
+  kibana-keystore: /usr/share/kibana/bin/kibana-keystore
+  kibana-plugin: /usr/share/kibana/bin/kibana-plugin

@@ -1,0 +1,16 @@
+docker: php
+latest:
+  latest: "sha256:bce126aafab367ba5a0fcf237ad73a5f80e9b3413e1321f01f143e7d3e002786"
+tags:
+  latest: "sha256:bce126aafab367ba5a0fcf237ad73a5f80e9b3413e1321f01f143e7d3e002786"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://hub.docker.com/_/php
+description: "While designed for web development, the PHP scripting language also provides general-purpose use."
+aliases:
+  php: /usr/local/bin/php
+  php-cgi: /usr/local/bin/php-cgi
+  php-config: /usr/local/bin/php-config
+  phpdbg: /usr/local/bin/phpdbg
+  phpize: /usr/local/bin/phpize

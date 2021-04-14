@@ -1,0 +1,14 @@
+docker: solr
+latest:
+  latest: "sha256:81946285195d651f374a09d4c490b5d90fe5ce85c8e657c11076a157dbd70bdc"
+tags:
+  latest: "sha256:81946285195d651f374a09d4c490b5d90fe5ce85c8e657c11076a157dbd70bdc"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://hub.docker.com/_/solr
+description: "Solr is the popular, blazing-fast, open source enterprise search platform built on Apache Lucene™."
+aliases:
+  post: /opt/solr/bin/post
+  postlogs: /opt/solr/bin/postlogs
+  solr: /opt/solr/bin/solr

@@ -1,0 +1,29 @@
+docker: elasticsearch
+latest:
+  "7.12.0": "sha256:337003ae571eedd3272cfa935386fa4ea52f74f5a4531f70790a74f092437122"
+tags:
+  "7.12.0": "sha256:337003ae571eedd3272cfa935386fa4ea52f74f5a4531f70790a74f092437122"
+filter:
+  - "7.*"
+maintainer: "@vsoch"
+url: https://hub.docker.com/_/elasticsearch
+description: "Elasticsearch is a powerful open source search and analytics engine that makes data easy to explore."
+aliases:
+  elasticsearch: /usr/share/elasticsearch/bin/elasticsearch
+  elasticsearch-certgen: /usr/share/elasticsearch/bin/elasticsearch-certgen
+  elasticsearch-certutil: /usr/share/elasticsearch/bin/elasticsearch-certutil
+  elasticsearch-cli: /usr/share/elasticsearch/bin/elasticsearch-cli
+  elasticsearch-croneval: /usr/share/elasticsearch/bin/elasticsearch-croneval
+  elasticsearch-env: /usr/share/elasticsearch/bin/elasticsearch-env
+  elasticsearch-env-from-file: /usr/share/elasticsearch/bin/elasticsearch-env-from-file
+  elasticsearch-keystore: /usr/share/elasticsearch/bin/elasticsearch-keystore
+  elasticsearch-migrate: /usr/share/elasticsearch/bin/elasticsearch-migrate
+  elasticsearch-node: /usr/share/elasticsearch/bin/elasticsearch-node
+  elasticsearch-plugin: /usr/share/elasticsearch/bin/elasticsearch-plugin
+  elasticsearch-saml-metadata: /usr/share/elasticsearch/bin/elasticsearch-saml-metadata
+  elasticsearch-setup-passwords: /usr/share/elasticsearch/bin/elasticsearch-setup-passwords
+  elasticsearch-shard: /usr/share/elasticsearch/bin/elasticsearch-shard
+  elasticsearch-sql-cli: /usr/share/elasticsearch/bin/elasticsearch-sql-cli
+  elasticsearch-sql-cli-7.12.0.jar: java jar /usr/share/elasticsearch/bin/elasticsearch-sql-cli-7.12.0.jar
+  elasticsearch-syskeygen: /usr/share/elasticsearch/bin/elasticsearch-syskeygen
+  elasticsearch-users: /usr/share/elasticsearch/bin/elasticsearch-users

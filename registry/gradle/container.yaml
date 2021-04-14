@@ -1,0 +1,12 @@
+docker: gradle
+latest:
+  latest: "sha256:85b5f0e5cba0008b780d8f0a009701061bfdda0e7f3755ef6cdcb52253e44e82"
+tags:
+  latest: "sha256:85b5f0e5cba0008b780d8f0a009701061bfdda0e7f3755ef6cdcb52253e44e82"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://hub.docker.com/_/gradle
+description: "Gradle is a build tool with a focus on build automation and support for multi-language development."
+aliases:
+  gradle: /usr/bin/gradle
