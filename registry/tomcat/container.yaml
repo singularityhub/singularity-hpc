@@ -1,0 +1,10 @@
+docker: tomcat
+latest:
+  latest: "sha256:dc6853a01a360e30fdda154821960752cec2996ed1541cd0ce8023678b86564f"
+tags:
+  latest: "sha256:dc6853a01a360e30fdda154821960752cec2996ed1541cd0ce8023678b86564f"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://hub.docker.com/_/tomcat
+description: "Apache Tomcat is an open source implementation of the Java Servlet and JavaServer Pages technologies"

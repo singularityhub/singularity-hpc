@@ -1,0 +1,38 @@
+docker: openjdk
+latest:
+  latest: "sha256:a7e2172a3f36e3903f39044274ed170eaf3b162e9140a2877fce08d69dfa3b20"
+tags:
+  latest: "sha256:a7e2172a3f36e3903f39044274ed170eaf3b162e9140a2877fce08d69dfa3b20"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://hub.docker.com/_/openjdk
+description: "OpenJDK is an open-source implementation of the Java Platform, Standard Edition."
+aliases:
+  jar: /usr/bin/jar
+  jarsigner: /usr/bin/jarsigner
+  java: /usr/bin/java
+  javac: /usr/bin/javac
+  javadoc: /usr/bin/javadoc
+  javap: /usr/bin/javap
+  jcmd: /usr/bin/jcmd
+  jconsole: /usr/bin/jconsole
+  jdb: /usr/bin/jdb
+  jdeprscan: /usr/bin/jdeprscan
+  jdeps: /usr/bin/jdeps
+  jfr: /usr/bin/jfr
+  jhsdb: /usr/bin/jhsdb
+  jimage: /usr/bin/jimage
+  jinfo: /usr/bin/jinfo
+  jlink: /usr/bin/jlink
+  jmap: /usr/bin/jmap
+  jmod: /usr/bin/jmod
+  jobs: /usr/bin/jobs
+  join: /usr/bin/join
+  jpackage: /usr/bin/jpackage
+  jps: /usr/bin/jps
+  jrunscript: /usr/bin/jrunscript
+  jshell: /usr/bin/jshell
+  jstack: /usr/bin/jstack
+  jstat: /usr/bin/jstat
+  jstatd: /usr/bin/jstatd

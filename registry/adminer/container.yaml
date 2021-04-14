@@ -1,0 +1,10 @@
+docker: adminer
+latest:
+  latest: "sha256:23e9ce0c4c930f23046866bb34300dab07528f510e7b48364aeb6228652ee115"
+tags:
+  latest: "sha256:23e9ce0c4c930f23046866bb34300dab07528f510e7b48364aeb6228652ee115"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://hub.docker.com/_/adminer
+description: "Database management in a single PHP file."
