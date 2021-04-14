@@ -1,0 +1,13 @@
+docker: rocker/shiny
+latest:
+  latest: "sha256:ef51af198e92cd284a0df80c5a6c91bb1367a14b610255490593a07a5a51415e"
+tags:
+  latest: "sha256:ef51af198e92cd284a0df80c5a6c91bb1367a14b610255490593a07a5a51415e"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://hub.docker.com/r/rocker/shiny
+description: "Docker image with R + Shiny."
+aliases:
+  rocker-shiny-run: /bin/bash
+  shiny-server: /opt/shiny-server
