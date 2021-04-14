@@ -1,0 +1,10 @@
+docker: bids/baracus
+latest:
+  "latest": "sha256:8e42305ab7321fcdb468c22a87b5a9b248866a5821e64721200f927c2019dcb4"
+tags:
+  "latest": "sha256:8e42305ab7321fcdb468c22a87b5a9b248866a5821e64721200f927c2019dcb4"
+filter:
+  - "v*"
+maintainer: "@vsoch"
+description: "Brain-Age Regression Analysis and Computation Utility Software (https://github.com/BIDS-Apps/baracus)"
+url: https://hub.docker.com/r/bids/baracus

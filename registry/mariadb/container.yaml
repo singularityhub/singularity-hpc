@@ -1,0 +1,44 @@
+docker: mariadb
+latest:
+  latest: "sha256:7e244fae615587335176db07e88b43eee5e4762f35306e17c13c68125d93b9bf"
+tags:
+  latest: "sha256:7e244fae615587335176db07e88b43eee5e4762f35306e17c13c68125d93b9bf"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://hub.docker.com/r/_/mariadb
+description: "MariaDB Server is one of the most popular database servers in the world. It’s made by the original developers of MySQL and guaranteed to stay open source. Notable users include Wikipedia, DBS Bank and ServiceNow."
+aliases:
+  mariabackup: /usr/bin/mariabackup
+  mariadb: /usr/bin/mariadb
+  mariadb-access: /usr/bin/mariadb-access
+  mariadb-admin: /usr/bin/mariadb-admin
+  mariadb-analyze: /usr/bin/mariadb-analyze
+  mariadb-backup: /usr/bin/mariadb-backup
+  mariadb-binlog: /usr/bin/mariadb-binlog
+  mariadb-check: /usr/bin/mariadb-check
+  mariadb-conv: /usr/bin/mariadb-conv
+  mariadb-convert-table-format: /usr/bin/mariadb-convert-table-format
+  mariadb-dump: /usr/bin/mariadb-dump
+  mariadb-dumpslow: /usr/bin/mariadb-dumpslow
+  mariadb-find-rows: /usr/bin/mariadb-find-rows
+  mariadb-fix-extensions: /usr/bin/mariadb-fix-extensions
+  mariadb-hotcopy: /usr/bin/mariadb-hotcopy
+  mariadb-import: /usr/bin/mariadb-import
+  mariadb-install-db: /usr/bin/mariadb-install-db
+  mariadb-optimize: /usr/bin/mariadb-optimize
+  mariadb-plugin: /usr/bin/mariadb-plugin
+  mariadb-repair: /usr/bin/mariadb-repair
+  mariadb-report: /usr/bin/mariadb-report
+  mariadb-secure-installation: /usr/bin/mariadb-secure-installation
+  mariadb-service-convert: /usr/bin/mariadb-service-convert
+  mariadb-setpermission: /usr/bin/mariadb-setpermission
+  mariadb-show: /usr/bin/mariadb-show
+  mariadb-slap: /usr/bin/mariadb-slap
+  mariadb-tzinfo-to-sql: /usr/bin/mariadb-tzinfo-to-sql
+  mariadb-upgrade: /usr/bin/mariadb-upgrade
+  mariadb-waitpid: /usr/bin/mariadb-waitpid
+  mariadbcheck: /usr/bin/mariadbcheck
+  mariadbd-multi: /usr/bin/mariadbd-multi
+  mariadbd-safe: /usr/bin/mariadbd-safe
+  mariadbd-safe-helper: /usr/bin/mariadbd-safe-helper

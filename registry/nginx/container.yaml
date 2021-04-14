@@ -1,0 +1,13 @@
+docker: nginx
+latest:
+  latest: "sha256:42bba58a1c5a6e2039af02302ba06ee66c446e9547cbfb0da33f4267638cdb53"
+tags:
+  latest: "sha256:42bba58a1c5a6e2039af02302ba06ee66c446e9547cbfb0da33f4267638cdb53"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://hub.docker.com/r/_/nginx
+description: "Nginx (pronounced 'engine-x') is an open source reverse proxy server for HTTP, HTTPS, SMTP, POP3, and IMAP protocols, as well as a load balancer, HTTP cache, and a web server (origin server)."
+aliases:
+  nginx: /usr/sbin/nginx
+  nginx-debug: /usr/sbin/nginx-debug

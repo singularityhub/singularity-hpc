@@ -1,0 +1,10 @@
+docker: bids/pymvpa
+latest:
+  "latest": "sha256:923d3112afcde2dc182aea054ec70efdf42fc70e2e0a2bb252f7b9203965e250"
+tags:
+  "latest": "sha256:923d3112afcde2dc182aea054ec70efdf42fc70e2e0a2bb252f7b9203965e250"
+filter:
+  - "v*"
+maintainer: "@vsoch"
+description: "Take fMRI data and generates ROI based MultiVariate Pattern Analysis (MVPA) outputs (https://github.com/BIDS-Apps/PyMVPA)"
+url: https://hub.docker.com/r/bids/pymvpa
