@@ -1,0 +1,20 @@
+docker: ghcr.io/autamus/python
+latest:
+  "latest": "sha256:bc121a7e3474e2b6aecddd91306e879b0497c9013b24e52e566627bbb89762de"
+tags:
+  "latest": "sha256:bc121a7e3474e2b6aecddd91306e879b0497c9013b24e52e566627bbb89762de"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/python
+description: "An interpreted, high-level and general-purpose programming language."
+aliases:
+  pydoc3: /opt/view/bin/pydoc3
+  pydoc3.8: /opt/view/bin/pydoc3.8
+  python: /opt/view/bin/python
+  python-config: /opt/view/bin/python-config
+  python3: /opt/view/bin/python3
+  python3-config: /opt/view/bin/python3-config
+  python3.8: /opt/view/bin/python3.8
+  python3.8-config: /opt/view/bin/python3.8-config
+  python3.8-gdb.py: /opt/view/bin/python3.8-gdb.py
