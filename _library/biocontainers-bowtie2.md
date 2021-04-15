@@ -3,7 +3,7 @@ layout: container
 name:  "biocontainers/bowtie2"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/biocontainers/bowtie2/container.yaml"
-updated_at: "2021-04-14 07:38:24.016720"
+updated_at: "2021-04-15 04:05:44.008498"
 container_url: ""
 aliases:
  - "bowtie2"

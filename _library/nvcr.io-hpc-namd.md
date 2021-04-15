@@ -3,7 +3,7 @@ layout: container
 name:  "nvcr.io/hpc/namd"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/nvcr.io/hpc/namd/container.yaml"
-updated_at: "2021-04-14 07:38:39.315362"
+updated_at: "2021-04-15 04:05:59.086635"
 container_url: ""
 aliases:
  - "charmrun"
