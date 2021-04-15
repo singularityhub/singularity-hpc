@@ -1,0 +1,12 @@
+docker: ghcr.io/autamus/lp-solve
+latest:
+  "latest": "sha256:365aabc949cef8d583e86401d456063a4c06512c077492e9c41ecf01f36efd62u"
+tags:
+  "latest": "sha256:365aabc949cef8d583e86401d456063a4c06512c077492e9c41ecf01f36efd62"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/lp-solve
+description: ""
+aliases:
+  lp_solve: /opt/view/bin/lp_solve

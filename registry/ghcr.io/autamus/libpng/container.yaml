@@ -1,0 +1,15 @@
+docker: ghcr.io/autamus/libpng
+latest:
+  "latest": "sha256:82dfe33a7530cf6c60fea4ea1aa97058d05caac2a15fb2eb69f26a92a6425e7c"
+tags:
+  "latest": "sha256:82dfe33a7530cf6c60fea4ea1aa97058d05caac2a15fb2eb69f26a92a6425e7c"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/libpng
+description: "libpng is the official PNG reference library."
+aliases:
+  libpng-config: /opt/view/bin/libpng-config
+  libpng16-config: /opt/view/bin/libpng16-config
+  png-fix-itxt: /opt/view/bin/png-fix-itxt
+  pngfix: /opt/view/bin/pngfix

@@ -1,0 +1,26 @@
+docker: ghcr.io/autamus/samtools
+latest:
+  "latest": "sha256:6ae380a981b4f61efd288eff6e6b5e200ed5bb69f22977a05fa4647d63c786bc"
+tags:
+  "latest": "sha256:6ae380a981b4f61efd288eff6e6b5e200ed5bb69f22977a05fa4647d63c786bc"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/samtools
+description: "Samtools is a suite of programs for interacting with high-throughput sequencing data."
+aliases:
+  sam2vcf.pl: /opt/view/bin/sam2vcf.pl
+  samtools: /opt/view/bin/samtools
+  blast2sam.pl: /opt/view/bin/blast2sam.pl
+  bowtie2sam.pl: /opt/view/bin/bowtie2sam.pl
+  export2sam.pl: /opt/view/bin/export2sam.pl
+  fasta-sanitize.pl: /opt/view/bin/fasta-sanitize.pl
+  interpolate_sam.pl: /opt/view/bin/interpolate_sam.pl
+  novo2sam.pl: /opt/view/bin/novo2sam.pl
+  psl2sam.pl: /opt/view/bin/psl2sam.pl
+  sam2vcf.pl: /opt/view/bin/sam2vcf.pl
+  samtools.pl: /opt/view/bin/samtools.pl
+  seq_cache_populate.pl: /opt/view/bin/seq_cache_populate.pl
+  soap2sam.pl: /opt/view/bin/soap2sam.pl
+  wgsim_eval.pl: /opt/view/bin/wgsim_eval.pl
+  zoom2sam.pl: /opt/view/bin/zoom2sam.pl

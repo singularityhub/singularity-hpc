@@ -1,0 +1,34 @@
+docker: ghcr.io/autamus/nco
+latest:
+  "latest": "sha256:1e67403beaf3e7cac0b36aa43c8436f2111a3eb489b32271c2ffeb0b20e2ec5a"
+tags:
+  "latest": "sha256:1e67403beaf3e7cac0b36aa43c8436f2111a3eb489b32271c2ffeb0b20e2ec5a"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/nco
+description: ""
+aliases:
+  nc-config: /opt/view/bin/nc-config
+  ncap2: /opt/view/bin/ncap2
+  ncatted: /opt/view/bin/ncatted
+  ncbo: /opt/view/bin/ncbo
+  ncclimo: /opt/view/bin/ncclimo
+  nccopy: /opt/view/bin/nccopy
+  ncdiff: /opt/view/bin/ncdiff
+  ncdump: /opt/view/bin/ncdump
+  ncea: /opt/view/bin/ncea
+  ncecat: /opt/view/bin/ncecat
+  nces: /opt/view/bin/nces
+  ncflint: /opt/view/bin/ncflint
+  ncgen: /opt/view/bin/ncgen
+  ncgen3: /opt/view/bin/ncgen3
+  ncks: /opt/view/bin/ncks
+  ncpdq: /opt/view/bin/ncpdq
+  ncra: /opt/view/bin/ncra
+  ncrcat: /opt/view/bin/ncrcat
+  ncremap: /opt/view/bin/ncremap
+  ncrename: /opt/view/bin/ncrename
+  ncurses6-config: /opt/view/bin/ncurses6-config
+  ncursesw6-config: /opt/view/bin/ncursesw6-config
+  ncwa: /opt/view/bin/ncwa

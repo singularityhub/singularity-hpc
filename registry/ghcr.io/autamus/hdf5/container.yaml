@@ -1,0 +1,29 @@
+docker: ghcr.io/autamus/hdf5
+latest:
+  "latest": "sha256:3d24a1a34461bf4d8ac607bd2125d88828ab1a1f02061a848a6c88f09518d517"
+tags:
+  "latest": "sha256:3d24a1a34461bf4d8ac607bd2125d88828ab1a1f02061a848a6c88f09518d517"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/hdf5
+description: "HDF5 is a unique technology suite that makes possible the management of extremely large and complex data collections."
+aliases:
+  h5clear: /opt/view/bin/h5clear
+  h5copy: /opt/view/bin/h5copy
+  h5debug: /opt/view/bin/h5debug
+  h5diff: /opt/view/bin/h5diff
+  h5dump: /opt/view/bin/h5dump
+  h5format_convert: /opt/view/bin/h5format_convert
+  h5import: /opt/view/bin/h5import
+  h5jam: /opt/view/bin/h5jam
+  h5ls: /opt/view/bin/h5ls
+  h5mkgrp: /opt/view/bin/h5mkgrp
+  h5pcc: /opt/view/bin/h5pcc
+  h5perf: /opt/view/bin/h5perf
+  h5perf_serial: /opt/view/bin/h5perf_serial
+  h5redeploy: /opt/view/bin/h5redeploy
+  h5repack: /opt/view/bin/h5repack
+  h5repart: /opt/view/bin/h5repart
+  h5stat: /opt/view/bin/h5stat
+  h5unjam: /opt/view/bin/h5unjam

@@ -1,0 +1,12 @@
+docker: ghcr.io/autamus/r
+latest:
+  "latest": "sha256:96f9384a69eb30bc5c74c98c65d003d15241a32946fa2784ae8e7437fbda50a3"
+tags:
+  "latest": "sha256:96f9384a69eb30bc5c74c98c65d003d15241a32946fa2784ae8e7437fbda50a3"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/r
+description: "R is a language and environment for statistical computing and graphics."
+aliases:
+  R: /opt/view/bin/R

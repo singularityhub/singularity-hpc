@@ -1,0 +1,11 @@
+docker: ghcr.io/autamus/htslib
+latest:
+  "latest": "sha256:be2abc338c62ab1570a6e8f40ebc4be1b7f709d63599fa2143027d2271fefdd1"
+tags:
+  "latest": "sha256:be2abc338c62ab1570a6e8f40ebc4be1b7f709d63599fa2143027d2271fefdd1"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/htslib
+description: "A C library for reading/writing high-throughput sequencing data."
+  htsfile: /opt/view/bin/htsfile
