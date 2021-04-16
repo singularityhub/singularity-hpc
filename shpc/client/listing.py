@@ -3,7 +3,7 @@ __copyright__ = "Copyright 2021, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
 
-def main(args, parser, extra):
+def main(args, parser, extra, subparser):
 
     from shpc.main import get_client
 

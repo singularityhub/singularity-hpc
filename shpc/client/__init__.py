@@ -245,6 +245,19 @@ def run_shpc():
         debug=args.debug,
     )
 
+    # retrieve subparser (with help) from parser
+    helper = None
+    subparsers_actions = [
+        action
+        for action in parser._actions
+        if isinstance(action, argparse._SubParsersAction)
+    ]
+    for subparsers_action in subparsers_actions:
+        for choice, subparser in subparsers_action.choices.items():
+            if choice == args.command:
+                helper = subparser
+                break
+
     # Does the user want a shell?
     if args.command == "add":
         from .add import main
@@ -278,7 +291,7 @@ def run_shpc():
     # Pass on to the correct parser
     return_code = 0
     try:
-        main(args=args, parser=parser, extra=extra)
+        main(args=args, parser=parser, extra=extra, subparser=helper)
         sys.exit(return_code)
     except UnboundLocalError:
         return_code = 1

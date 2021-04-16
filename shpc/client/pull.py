@@ -5,7 +5,7 @@ __license__ = "MPL 2.0"
 import shpc.main.container as container
 
 
-def main(args, parser, extra):
+def main(args, parser, extra, subparser):
 
     # We currently support GitHub and Docker URIs
     if not re.search("^(gh|docker)", args.uri):
