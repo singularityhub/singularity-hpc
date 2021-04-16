@@ -3,7 +3,7 @@ layout: container
 name:  "nvcr.io/hpc/quantum_espresso"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/nvcr.io/hpc/quantum_espresso/container.yaml"
-updated_at: "2021-04-15 04:05:59.693839"
+updated_at: "2021-04-16 03:43:25.313395"
 container_url: ""
 
 versions:

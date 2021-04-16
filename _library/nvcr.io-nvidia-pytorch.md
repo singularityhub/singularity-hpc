@@ -3,7 +3,7 @@ layout: container
 name:  "nvcr.io/nvidia/pytorch"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/nvcr.io/nvidia/pytorch/container.yaml"
-updated_at: "2021-04-15 04:06:00.302452"
+updated_at: "2021-04-16 03:43:25.876585"
 container_url: ""
 
 versions:
