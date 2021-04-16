@@ -180,6 +180,11 @@ class Client(BaseClient):
         )
         out.write(result)
 
+    def shell(self, module_name):
+        """Shell into an installed module container"""
+        sif = self.get(module_name)
+        self._container.shell(sif)
+
     def inspect(self, module_name):
         """
         Return complete metadata for the user from a container.

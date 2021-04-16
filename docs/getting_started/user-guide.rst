@@ -453,6 +453,26 @@ Or to get the entire metadata entry dumped as json to the terminal:
 .. _getting_started-commands-test:
 
 
+Shell
+-----
+
+If you want a quick way to shell into an installed module's container
+(perhaps to look around or debug without lmod being available) you can use
+``shell``. For example:
+
+.. code-block:: console
+
+    shpc shell vanessa/salad/latest
+    Singularity> /code/salad fork
+
+     My life purpose: I cut butter.  
+    
+                       ________  .====
+                      [________>< :===
+                                 '==== 
+
+
+
 Test
 ----
 
