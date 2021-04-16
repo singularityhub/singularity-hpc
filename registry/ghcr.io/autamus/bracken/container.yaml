@@ -1,0 +1,10 @@
+docker: ghcr.io/autamus/bracken
+latest:
+  "latest": "sha256:4e936aaed094f83fed9f5f72fcf2bbee56da6a6e972c08ac5601b1669b7575ea"
+tags:
+  "latest": "sha256:4e936aaed094f83fed9f5f72fcf2bbee56da6a6e972c08ac5601b1669b7575ea"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/bracken
+description: "Bracken (Bayesian Reestimation of Abundance with KrakEN) is a highly accurate statistical method that computes the abundance of species in DNA sequences from a metagenomics sample."

@@ -1,0 +1,12 @@
+docker: ghcr.io/autamus/aria2
+latest:
+  "latest": "sha256:dbb1d142f260c976295628d61a8ebe28df8d211ed01c914dd7474d480ff6044d"
+tags:
+  "latest": "sha256:dbb1d142f260c976295628d61a8ebe28df8d211ed01c914dd7474d480ff6044d"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/aria2
+description: "aria2 is a lightweight multi-protocol & multi-source command-line download utility."
+aliases:
+  aria2c: opt/view/bin/aria2c

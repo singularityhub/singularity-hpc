@@ -1,0 +1,12 @@
+docker: ghcr.io/autamus/abi-dumper
+latest:
+  "latest": "sha256:acd849e20260a036921380e1c2f0796facc59bfc5c964a4a83848f8ce8d797d2"
+tags:
+  "latest": "sha256:acd849e20260a036921380e1c2f0796facc59bfc5c964a4a83848f8ce8d797d2"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/abi-dumper
+description: "ABI Dumper is a tool for dumping ABI information of an ELF object containing DWARF debug info."
+aliases:
+  abi-dumper: /opt/view/bin/abi-dumper

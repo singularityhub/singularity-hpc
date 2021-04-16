@@ -1,0 +1,14 @@
+docker: ghcr.io/autamus/proj
+latest:
+  "latest": "sha256:6d28e682c517b376ac73b8385de3d40bbe8d755c6e1d03d7ce5087d47ef0adc5"
+tags:
+  "latest": "sha256:6d28e682c517b376ac73b8385de3d40bbe8d755c6e1d03d7ce5087d47ef0adc5"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/proj
+description: "PROJ is a generic coordinate transformation software, that transforms coordinates from one coordinate reference system (CRS) to another."
+aliases:
+  proj: /opt/view/bin/proj
+  projinfo: /opt/view/bin/projinfo
+  projsync: /opt/view/bin/projsync

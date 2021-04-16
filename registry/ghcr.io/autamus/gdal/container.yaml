@@ -1,0 +1,31 @@
+docker: ghcr.io/autamus/gdal
+latest:
+  "latest": "sha256:4652264b7a69ffacea345eb551fc20a7abc733d0c9ee6a935114dbabce274411"
+tags:
+  "latest": "sha256:4652264b7a69ffacea345eb551fc20a7abc733d0c9ee6a935114dbabce274411"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/gdal
+description: "GDAL is a translator library for raster and vector geospatial data formats that is released under an X/MIT style Open Source License by the Open Source Geospatial Foundation. "
+aliases:
+  gdal-config: /opt/view/bin/gdal-config
+  gdal_contour: /opt/view/bin/gdal_contour
+  gdal_create: /opt/view/bin/gdal_create
+  gdal_grid: /opt/view/bin/gdal_grid
+  gdal_rasterize: /opt/view/bin/gdal_rasterize
+  gdal_translate: /opt/view/bin/gdal_translate
+  gdal_viewshed: /opt/view/bin/gdal_viewshed
+  gdaladdo: /opt/view/bin/gdaladdo
+  gdalbuildvrt: /opt/view/bin/gdalbuildvrt
+  gdaldem: /opt/view/bin/gdaldem
+  gdalenhance: /opt/view/bin/gdalenhance
+  gdalinfo: /opt/view/bin/gdalinfo
+  gdallocationinfo: /opt/view/bin/gdallocationinfo
+  gdalmanage: /opt/view/bin/gdalmanage
+  gdalmdiminfo: /opt/view/bin/gdalmdiminfo
+  gdalmdimtranslate: /opt/view/bin/gdalmdimtranslate
+  gdalsrsinfo: /opt/view/bin/gdalsrsinfo
+  gdaltindex: /opt/view/bin/gdaltindex
+  gdaltransform: /opt/view/bin/gdaltransform
+  gdalwarp: /opt/view/bin/gdalwarp

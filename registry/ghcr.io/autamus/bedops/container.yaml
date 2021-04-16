@@ -1,0 +1,52 @@
+docker: ghcr.io/autamus/bedops
+latest:
+  "latest": "sha256:f497b47acb7136187f7baff6a2ebd68457b7ac18c434904a1e264d3b44186387"
+tags:
+  "latest": "sha256:f497b47acb7136187f7baff6a2ebd68457b7ac18c434904a1e264d3b44186387"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/bedops
+description: "BEDOPS is an open-source command-line toolkit that performs highly efficient and scalable Boolean and other set operations, statistical calculations, archiving, conversion and other management of genomic data of arbitrary scale."
+aliases:
+  bam2bed: /opt/view/bin/bam2bed
+  bam2bed_gnuParallel: /opt/view/bin/bam2bed_gnuParallel
+  bam2bed_sge: /opt/view/bin/bam2bed_sge
+  bam2bed_slurm: /opt/view/bin/bam2bed_slurm
+  bam2starch: /opt/view/bin/bam2starch
+  bam2starch_gnuParallel: /opt/view/bin/bam2starch_gnuParallel
+  bam2starch_sge: /opt/view/bin/bam2starch_sge
+  bam2starch_slurm: /opt/view/bin/bam2starch_slurm
+  bedextract: /opt/view/bin/bedextract
+  bedmap: /opt/view/bin/bedmap
+  bedops: /opt/view/bin/bedops
+  closest-features: /opt/view/bin/closest-features
+  convert2bed: /opt/view/bin/convert2bed
+  gff2bed: /opt/view/bin/gff2bed
+  gff2starch: /opt/view/bin/gff2starch
+  gtf2bed: /opt/view/bin/gtf2bed
+  gtf2starch: /opt/view/bin/gtf2starch
+  gvf2bed: /opt/view/bin/gvf2bed
+  gvf2starch: /opt/view/bin/gvf2starch
+  psl2bed: /opt/view/bin/psl2bed
+  psl2starch: /opt/view/bin/psl2starch
+  rmsk2bed: /opt/view/bin/rmsk2bed
+  rmsk2starch: /opt/view/bin/rmsk2starch
+  sam2bed: /opt/view/bin/sam2bed
+  sam2starch: /opt/view/bin/sam2starch
+  sort-bed: /opt/view/bin/sort-bed
+  starch: /opt/view/bin/starch
+  starch-diff: /opt/view/bin/starch-diff
+  starchcat: /opt/view/bin/starchcat
+  starchcluster_gnuParallel: /opt/view/bin/starchcluster_gnuParallel
+  starchcluster_sge: /opt/view/bin/starchcluster_sge
+  starchcluster_slurm: /opt/view/bin/starchcluster_slurm
+  starchstrip: /opt/view/bin/starchstrip
+  unstarch: /opt/view/bin/unstarch
+  update-sort-bed-migrate-candidates: /opt/view/bin/update-sort-bed-migrate-candidates
+  update-sort-bed-slurm: /opt/view/bin/update-sort-bed-slurm
+  update-sort-bed-starch-slurm: /opt/view/bin/update-sort-bed-starch-slurm
+  vcf2bed: /opt/view/bin/vcf2bed
+  vcf2starch: /opt/view/bin/vcf2starch
+  wig2bed: /opt/view/bin/wig2bed
+  wig2starch: /opt/view/bin/wig2starch

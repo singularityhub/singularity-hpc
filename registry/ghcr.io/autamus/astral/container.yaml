@@ -1,0 +1,12 @@
+docker: ghcr.io/autamus/astral
+latest:
+  "latest": "sha256:071aaa91502149e02f31b7adf0a563da0a7adbbb7ea3ac4d780bb65a18847108"
+tags:
+  "latest": "sha256:071aaa91502149e02f31b7adf0a563da0a7adbbb7ea3ac4d780bb65a18847108"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/astral
+description: "ASTRAL is a tool for estimating an unrooted species tree given a set of unrooted gene trees."
+aliases:
+  astral: /opt/view/bin/astral

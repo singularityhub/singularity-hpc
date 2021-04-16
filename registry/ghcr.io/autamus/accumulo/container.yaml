@@ -1,0 +1,10 @@
+docker: ghcr.io/autamus/accumulo
+latest:
+  "latest": "sha256:5ad3905517cb8ae1dede4b3f80f9fc46eae9456abf681d91236474c326fb463c"
+tags:
+  "latest": "sha256:5ad3905517cb8ae1dede4b3f80f9fc46eae9456abf681d91236474c326fb463c"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/accumulo
+description: "Apache Accumulo is a sorted, distributed key/value store that provides robust, scalable data storage and retrieval."

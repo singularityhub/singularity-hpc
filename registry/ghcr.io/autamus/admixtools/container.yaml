@@ -1,0 +1,43 @@
+docker: ghcr.io/autamus/admixtools
+latest:
+  "latest": "sha256:9e7e09e0e24888d896d341e3afb879e86cff4085ac4f3f4578dc786db17875ce"
+tags:
+  "latest": "sha256:9e7e09e0e24888d896d341e3afb879e86cff4085ac4f3f4578dc786db17875ce"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/admixtools
+description: "ADMIXTOOLS is a collection of programs which use genetic data to infer how populations are related to one another."
+aliases:
+  convertf: /opt/view/bin/convertf
+  dowtjack: /opt/view/bin/dowtjack
+  expfit.sh: /opt/view/bin/expfit.sh
+  gcount: /opt/view/bin/gcount
+  grabpars: /opt/view/bin/grabpars
+  gsl-config: /opt/view/bin/gsl-config
+  gsl-histogram: /opt/view/bin/gsl-histogram
+  gsl-randist: /opt/view/bin/gsl-randist
+  jackdiff: /opt/view/bin/jackdiff
+  kimf: /opt/view/bin/kimf
+  mergeit: /opt/view/bin/mergeit
+  mkpretty: /opt/view/bin/mkpretty
+  qp3Pop: /opt/view/bin/qp3Pop
+  qp4diff: /opt/view/bin/qp4diff
+  qpAdm: /opt/view/bin/qpAdm
+  qpBound: /opt/view/bin/qpBound
+  qpDpart: /opt/view/bin/qpDpart
+  qpDstat: /opt/view/bin/qpDstat
+  qpF4ratio: /opt/view/bin/qpF4ratio
+  qpGraph: /opt/view/bin/qpGraph
+  qpWave: /opt/view/bin/qpWave
+  qpdslow: /opt/view/bin/qpdslow
+  qpff3base: /opt/view/bin/qpff3base
+  qpfmv: /opt/view/bin/qpfmv
+  qpfstats: /opt/view/bin/qpfstats
+  qpreroot: /opt/view/bin/qpreroot
+  rexpfit.r: /opt/view/bin/rexpfit.r
+  rolloff: /opt/view/bin/rolloff
+  rolloffp: /opt/view/bin/rolloffp
+  simpjack2: /opt/view/bin/simpjack2
+  twtable: /opt/view/bin/twtable
+  wtjack.pl: /opt/view/bin/wtjack.pl

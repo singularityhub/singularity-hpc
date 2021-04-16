@@ -1,0 +1,12 @@
+docker: ghcr.io/autamus/bwa
+latest:
+  "latest": "sha256:046c59960a4b9e7394746b984c5808e8037f42b9fe05a020c3c03a020af2dd19"
+tags:
+  "latest": "sha256:046c59960a4b9e7394746b984c5808e8037f42b9fe05a020c3c03a020af2dd19"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/bwa
+description: "BWA is a software package for mapping low-divergent sequences against a large reference genome, such as the human genome."
+aliases:
+  bwa: /opt/view/bin/bwa

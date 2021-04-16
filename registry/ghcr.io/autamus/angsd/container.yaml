@@ -1,0 +1,12 @@
+docker: ghcr.io/autamus/angsd
+latest:
+  "latest": "sha256:faecbe362c7c78defdaa33eb6914a68ad0d5c793e7d193bb3e00cb7d9316516f"
+tags:
+  "latest": "sha256:faecbe362c7c78defdaa33eb6914a68ad0d5c793e7d193bb3e00cb7d9316516f"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/angsd
+description: "ANGSD is a software for analyzing next generation sequencing data."
+aliases:
+  angsd: /opt/view/bin/angsd
