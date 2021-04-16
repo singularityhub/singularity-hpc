@@ -35,7 +35,7 @@ if you install to a system python, meaning either of these commands:
 
 .. code:: console
 
-    $ python setup.py develop
+    $ python setup.py install
     $ pip install .
 
 You will need to put the registry files elsewhere (update the ``registry`` config argument to the path), as they will not be installed
@@ -59,18 +59,39 @@ to your module path.
 Once it's installed, you should be able to inspect the client!
 
 
-.. code:: console
+.. code-block:: console
 
     $ shpc --help
 
-You'll want to configure and create your registry, discussed next in
- :ref:`getting-started`.
+
+You'll next want to configure and create your registry, discussed next in
+ :ref:`getting-started`. Generally, remember that your modules will be installed in
+ the ``modules`` folder, and container recipes are nested in ``registry``.  You
+ can change these easily with ``shpc config``, as they are defined via these
+ variables in the config:
  
+
+.. code-black:: console
  
+
+    $ shpc config registry:/<DIR>
+    # shpc config lmod_base:/<DIR> 
+
+
+You can also easily (manually) update any settings in the ``shpc/settings.yaml`` file. 
+Again, see the :ref:`getting-started` pages for next steps for setup and configuration,
+and interacting with your modules.
+
+.. warning::
+
+    As Singularity is the main container tool, you must have Singularity installed in your $PATH
+    to install container modules.
+     
+
 Pypi
 ====
 
-The module is avaiable in pypi as [singularity-hpc](https://pypi.org/project/singularity-hpc/), 
+The module is avaiable in pypi as `singularity-hpc <https://pypi.org/project/singularity-hpc/>`_,
 and this is primairly to have a consistent means for release, and an interface to show the package. Since the registry
 files will not install and you would need to change the registry path
 and module base (making it hard to update from the git remote) we do not

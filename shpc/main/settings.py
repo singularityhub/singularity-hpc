@@ -5,7 +5,7 @@ __license__ = "MPL 2.0"
 
 from shpc.logger import logger
 import shpc.defaults as defaults
-import shpc.main.schemas as schemas
+import shpc.main.schemas
 
 try:
     from ruamel_yaml import YAML
@@ -46,7 +46,7 @@ class Settings:
         """
         Validate the loaded settings with jsonschema
         """
-        jsonschema.validate(instance=self._settings, schema=schemas.settings)
+        jsonschema.validate(instance=self._settings, schema=shpc.main.schemas.settings)
 
     def load(self, settings_file=None):
         """
