@@ -1,0 +1,12 @@
+docker: ghcr.io/autamus/cowsay
+latest:
+  "latest": "sha256:97160e208484c6d3abc9349ab25fb269f62d12c8a45575bc190e5f702557e961"
+tags:
+  "latest": "sha256:97160e208484c6d3abc9349ab25fb269f62d12c8a45575bc190e5f702557e961"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/cowsay
+description: "What does the cow say?"
+aliases:
+  cowsay: /opt/view/bin/cowsay

@@ -1,0 +1,14 @@
+docker: ghcr.io/autamus/addrwatch
+latest:
+  "latest": "sha256:996c421f6fc751bb9166134db064a4c5a971bedac460bbf17647e0bc3ebc7372"
+tags:
+  "latest": "sha256:996c421f6fc751bb9166134db064a4c5a971bedac460bbf17647e0bc3ebc7372"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/addrwatch
+description: "addrwatch is a similar software to arpwatch. It main purpose is to monitor network and log ethernet/ip pairings."
+aliases:
+  addrwatch: /opt/view/bin/addrwatch
+  addrwatch_stdout: /opt/view/bin/addrwatch_stdout
+  addrwatch_syslog: /opt/view/bin/addrwatch_syslog

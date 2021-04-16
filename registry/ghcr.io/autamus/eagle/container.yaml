@@ -1,0 +1,14 @@
+docker: ghcr.io/autamus/eagle
+latest:
+  "latest": "sha256:d1af6981b6bae36d861b4121997034499094c4142172c3d423ddaf90b2427262"
+tags:
+  "latest": "sha256:d1af6981b6bae36d861b4121997034499094c4142172c3d423ddaf90b2427262"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/eagle
+description: "Explicit Alternative Genome Likelihood Evaluator"
+aliases:
+  eagle: /opt/view/bin/eagle
+  eagle-nm: /opt/view/bin/eagle-nm
+  eagle-rc: /opt/view/bin/eagle-rc

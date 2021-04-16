@@ -1,0 +1,20 @@
+docker: ghcr.io/autamus/bowtie2
+latest:
+  "latest": "sha256:09680a60589c6a0bff6334a042343d14649af2618ec1a6372ed92b5a396fd0e9"
+tags:
+  "latest": "sha256:09680a60589c6a0bff6334a042343d14649af2618ec1a6372ed92b5a396fd0e9"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/bowtie2
+description: "Bowtie 2 is an ultrafast and memory-efficient tool for aligning sequencing reads to long reference sequences."
+aliases:
+  bowtie2: /opt/view/bin/bowtie2
+  bowtie2-align-l: /opt/view/bin/bowtie2-align-l
+  bowtie2-align-s: /opt/view/bin/bowtie2-align-s
+  bowtie2-build: /opt/view/bin/bowtie2-build
+  bowtie2-build-l: /opt/view/bin/bowtie2-build-l
+  bowtie2-build-s: /opt/view/bin/bowtie2-build-s
+  bowtie2-inspect: /opt/view/bin/bowtie2-inspect
+  bowtie2-inspect-l: /opt/view/bin/bowtie2-inspect-l
+  bowtie2-inspect-s: /opt/view/bin/bowtie2-inspect-s

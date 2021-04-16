@@ -1,0 +1,12 @@
+docker: ghcr.io/autamus/cloc
+latest:
+  "latest": "sha256:2b06674d98ede480eac9f2ebee14e7aa79751cb36ba09b2e2a8acb24cc09cb14"
+tags:
+  "latest": "sha256:2b06674d98ede480eac9f2ebee14e7aa79751cb36ba09b2e2a8acb24cc09cb14"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/cloc
+description: "cloc is a command line program that takes file, directory, and/or archive names as inputs."
+aliases:
+  cloc: /opt/view/bin/cloc

@@ -1,0 +1,12 @@
+docker: ghcr.io/autamus/rclone
+latest:
+  "latest": "sha256:8a8c07e1759f8ad45b34828b5adc6b43b811569f84093970d0366afd9f7b4b5f"
+tags:
+  "latest": "sha256:8a8c07e1759f8ad45b34828b5adc6b43b811569f84093970d0366afd9f7b4b5f"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/rclone
+description: "Rclone is a command line program to manage files on cloud storage."
+aliases:
+  rclone: /opt/view/bin/rclone

@@ -1,0 +1,12 @@
+docker: ghcr.io/autamus/fastqc
+latest:
+  "latest": "sha256:0ee3b79137798ce397ce4f693cd5722b6a5ccf70692e1b97864854249ed72315"
+tags:
+  "latest": "sha256:0ee3b79137798ce397ce4f693cd5722b6a5ccf70692e1b97864854249ed72315"
+filter:
+  - "latest"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/fastqc
+description: "A quality control tool for high throughput sequence data."
+aliases:
+  fastqc: /opt/view/bin/fastqc
