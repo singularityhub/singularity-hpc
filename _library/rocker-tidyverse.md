@@ -3,7 +3,7 @@ layout: container
 name:  "rocker/tidyverse"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/rocker/tidyverse/container.yaml"
-updated_at: "2021-04-16 03:43:27.391496"
+updated_at: "2021-04-16 04:04:20.084295"
 container_url: ""
 aliases:
  - "rocker-tidyverse-run"
