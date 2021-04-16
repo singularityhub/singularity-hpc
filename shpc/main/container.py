@@ -32,6 +32,12 @@ class SingularityContainer:
         except:
             logger.exit("singularity python (spython) is required to use singularity.")
 
+    def shell(self, image):
+        """
+        Interactive shell into a container image.
+        """
+        self.client.shell(image)
+
     def pull(self, uri, dest):
         """
         Pull a container to a destination

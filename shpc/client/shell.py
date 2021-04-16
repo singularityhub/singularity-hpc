@@ -8,6 +8,11 @@ def main(args, parser, extra):
     lookup = {"ipython": ipython, "python": python, "bpython": bpython}
     shells = ["ipython", "python", "bpython"]
 
+    # Case 1. shell into a container
+    if args.module_name:
+        client = create_client(args)
+        return client.shell(args.module_name)
+
     # The default shell determined by the command line client
     shell = args.interpreter
     if shell is not None:

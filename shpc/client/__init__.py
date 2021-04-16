@@ -60,6 +60,7 @@ def get_parser():
     shell = subparsers.add_parser(
         "shell", help="shell into a Python session with a client."
     )
+    shell.add_argument("module_name", help="module to inspect", nargs="?")
     shell.add_argument(
         "--interpreter",
         "-i",
