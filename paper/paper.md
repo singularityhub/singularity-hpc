@@ -1,5 +1,5 @@
 ---
-title: 'Collaborative Container Modules with Singularity Registry HPC (shpc)'
+title: 'Collaborative Container Modules with Singularity Registry HPC'
 tags:
   - containers
   - singularity
@@ -18,11 +18,13 @@ bibliography: paper.bib
 
 # Summary
 
-Singularity Registry HPC is a collaborative framework to easily provide
+Singularity Registry HPC (shpc) is a collaborative framework to easily provide
 containers as modules for high performance computing (HPC) centers.
 Whether you are a user or a cluster administrator, installing the software
 gives you an easy means to install Singularity containers [@Kurtzer2017-xj] as
-environment modules [@environment_modules]. With over 150 containers readily avilable
+environment modules [@McLay2011-wu]. Unlike registry servers [@SRegistry] that expect a user to pull a container directly, shpc provide a simple command line client to manage 
+this interaction for you, and make container commands easily available
+as command line aliases. With over 150 containers readily avilable
 from biocontainers [@da2017biocontainers] to Nvidia's Container Catalog [@noauthor_undated-kp] 
 to brain imaging data structure apps [@gorgolewski2017bids], to core containers
 on Docker Hub [@noauthor_undated-xn], and software from [@gamblin2015spack] made available via the Autamus registry [@autamus], with just a few clicks you quickly can assemble your own collection of custom containers modules for yourself or your user base.
@@ -34,10 +36,14 @@ Using environment modules on high performance computing clusters is a common
 trend. Although writing the recipes can be complex and beyond the ability of the scientific
 user, it's a fairly common practice for cluster administrators to provide
 a set of natively installed recipes for their users. The practice is so common
-that it's fairly easy to find repositories of lua files shared in version control (e.g., https://github.com/OSGConnect/modulefiles), or even generation of module files with well known package managers [@noauthor_undated-dj, @noauthor_undated-ae]. Using containers in this context is also not a novel idea [@noauthor_undated-rc, @noauthor_undated-r]. However, the majority of these approaches and tools do not make the process of installing container modules easy. They either require a root
+that it's fairly easy to find repositories of lua files shared in version control (e.g., https://github.com/OSGConnect/modulefiles), or even generation of module files with well known package managers [@noauthor_undated-dj, @noauthor_undated-ae]. Using containers in this context is also not a novel idea [@noauthor_undated-rc, @noauthor_undated-rj]. However, the majority of these approaches and tools do not make the process of installing container modules easy. They either require a root
 user to build, writing complex recipes, or using a less than simple command line interface.
 The package manager approaches require relying on some subset of system software, the
 underlying operating system, or even making changes to the system. Using Singularity containers, although it requires the Singularity software, places no limitation on what can be installed.
+Further, with traditional environment modules, given the nature of modules having dependencies,
+it can be complicated to load more than a few that might have conflicts. The benefit of container
+modules is that the entire software stack is packaged in a single container binary,
+and no additional dependencies are required on the system.
 
 Whether the user is an administrator or a researcher, installing Singularity HPC (shpc) is as easy as cloning the repository and using Python or pip to install in place:
 
@@ -57,9 +63,9 @@ $ shpc install biocontainers/samtools
 ```
 
 And then telling the environment modules software to use the shpc modules directory,
-which defaults to `modules` in the repository. A cluster administrator would do
-this for the user base, so the researcher does not have to. However, a researcher
-is still empowered to add their own custom intallation directory of modules.
+which defaults to `modules` in the repository. A cluster administrator would have modules
+loaded automatically via a start script or bash profile, so the researcher does 
+not have to. However, a researcher is also empowered to add their own custom intallation directory of modules.
 
 ```bash
 $ module use ./modules
@@ -85,9 +91,7 @@ Containers allow for encapsulation of an entire software package, including
 everything from the libraries to the underlying operating system. By pinning
 an exact version of a scientific software stack provided in a container and
 exposed as a set of module commands, researchers on high performance computing
-clusters can have more confidence in the reproducibility of their work.
-Importantly, while interacting with a container is generally complicated
-as the user needs to know the command to run, Singularity Registry HPC recipes
+clusters can have more confidence in the reproducibility of their work [@Santana-Perez2015-wo, @Boettiger2014-cz, @Wandell2015-yt]. Importantly, while interacting with a container is generally complicated as the user needs to know the command to run, Singularity Registry HPC recipes
 expose a set of shell aliases that are easy to understand and use for any container.
 For example, when using the `biocontainers/samtools` container via Singularity, 
 a user might typically need to pull the container, and then manually run any one 
@@ -103,7 +107,8 @@ were to pull this container again, it might have changed. More ideally, the user
 would choose an actual digest that is associated with an exact container:
 
 ```bash
-$ singularity pull docker://biocontainers/samtools@sha256:da61624fda230e94867c9429ca1112e1e77c24e500b52dfc84eaf2f5820b4a2a
+$ digest=sha256:da61624fda230e94867c9429ca1112e1e77c24e500b52dfc84eaf2f5820b4a2a
+$ singularity pull docker://biocontainers/samtools@${digest}
 ```
 
 However in practice this is not common, as it requires extra clicks and knowledge
@@ -141,19 +146,19 @@ module search:
 
 ```bash
 $ module spider samtools
-------------------------------------------------------------------------------------------------------------------------------------------
-  biocontainers/samtools/v1.9-4-deb_cv1: biocontainers/samtools/v1.9-4-deb_cv1/module
-------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+  biocontainers/samtools/v1.9-4-deb_cv1: biocontainers/samtools/v1.9-4-deb_cv1
+------------------------------------------------------------------------------
 
-    This module can be loaded directly: module load biocontainers/samtools/v1.9-4-deb_cv1/module
+    This module can be loaded directly: 
+    module load biocontainers/samtools/v1.9-4-deb_cv1/module
 
     Help:
-      This module is a singularity container wrapper for biocontainers/samtools vv1.9-4-deb_cv1
-      Samtools is a suite of programs for interacting with high-throughput sequencing data.
+      This module is a singularity container wrapper for
+      biocontainers/samtools vv1.9-4-deb_cv1 Samtools is a suite of 
+      programs for interacting with high-throughput sequencing data.
       
-      Container:
-      
-       - /code/modules/biocontainers/samtools/v1.9-4-deb_cv1/biocontainers-samtools-v1.9-4-deb_cv1-sha256:da61624fda230e94867c9429ca1112e1e77c24e500b52dfc84eaf2f5820b4a2a.sif
+...
       
       Commands include:
       
@@ -170,15 +175,14 @@ $ module spider samtools
 
        - samtools:
              singularity exec <container> /usr/bin/samtools
-      
-      
-      For each of the above, you can export:
-      
-       - SINGULARITY_OPTS: to define custom options for singularity (e.g., --debug)
-       - SINGULARITY_COMMAND_OPTS: to define custom options for the command (e.g., -b)
+            
 ```
 
-Importantly, the module system provides command line completion, so the user can
+The container paths and more detailed usage sections and environment variables
+available have been left out of the above. Notice that every module includes
+a help section with a description, a complete list of commands that map to
+interactions with the container, and (not shown) a list of environment variables
+also available. Importantly, the module system provides command line completion, so the user can
 use tabs to autocomplete the load line:
 
 ```bash
@@ -205,7 +209,7 @@ $ biocontainers-samtools-inspect-runscript
 $ biocontainers-samtools-inspect-deffile
 ```
 
-Finally, the core software in the container is also exposed as one or more aliase.s
+Finally, the core software in the container is also exposed as one or more aliases.
 In the case of samtools, the samtools executable is likely desired:
 
 ```bash
@@ -228,7 +232,9 @@ A full interaction might look like the following:
 # pull the latest container, a moving target
 $ singularity pull docker://jupyter/minimal-notebook
 
-$ singularity exec --home ${HOME} --bind ${HOME}/.local:/home/joyvan/.local minimal-notebook_latest.sif jupyter notebook --no-browser --port=12345 --ip 0.0.0.0
+$ singularity exec --home ${HOME} --bind ${HOME}/.local:/home/joyvan/.local \
+   minimal-notebook_latest.sif \
+   jupyter notebook --no-browser --port=12345 --ip 0.0.0.0
 ```
 
 With Singularity Registry HPC, the interaction to run the notebook can be figured
@@ -242,10 +248,9 @@ I 12:01:45.417 NotebookApp] Use Control-C to stop this server and shut down all 
 [C 12:01:45.421 NotebookApp] 
     
     To access the notebook, open this file in a browser:
-        file:///home/vanessa/.local/share/jupyter/runtime/nbserver-1805124-open.html
+    ...
     Or copy and paste one of these URLs:
-        http://vanessa-ThinkPad-T490s:26253/?token=3b022fdfc193e22993e2623c0a191f4fc87f7a3bae7909ec
-     or http://127.0.0.1:26253/?token=3b022fdfc193e22993e2623c0a191f4fc87f7a3bae7909ec
+    ...
 ```
 
 which automatically selects a random port, binds the expected directories, and 
@@ -286,8 +291,9 @@ are used on HPC, it should be of interest to the larger scientific and high
 performance computing communities.
 
 While the Singularity software is currently popular for running containers on HPC,
-it might not always be that way. It could also be the case that different module
-systems arise. For this purpose, Singularity Registry HPC is designed in a modular
+it might not always be that way. Although LMOD [@McLay2011-wu] is the most popular
+module system currently, there are several older versions [@environment_modules, @noauthor_undated-jo] and it could be the case that new module systems arise. 
+For this purpose, Singularity Registry HPC is designed in a modular
 fashion. There is already support for containers served in a traditional registry like
 Docker Hub, or served as GitHub releases generated by Singularity Deploy [@noauthor_undated-ok],
 and the software is designed to make it easy to extend to other container
