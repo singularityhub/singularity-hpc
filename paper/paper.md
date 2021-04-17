@@ -9,9 +9,14 @@ authors:
  - name: Vanessa Sochat
    orcid: 0000-0002-4387-3819
    affiliation: 1
+ - name: Alec Scott
+   orcid: 0000-0001-6255-1308
+   affiliation: 2
 affiliations:
  - name: Lawrence Livermore National Lab
    index: 1
+ - name: University of Arizona Research Computing
+   index: 2
 date: 17 April 2021
 bibliography: paper.bib
 ---
@@ -35,7 +40,7 @@ Using environment modules on high performance computing clusters is a common
 trend. Although writing the recipes can be complex and beyond the ability of the scientific
 user [@noauthor_undated-bt], it's a fairly common practice for cluster administrators to provide
 a set of natively installed recipes for their users. The practice is so common
-that it's fairly easy to find repositories of lua files, a format for the popular module system LMOD [@cLay2011-wu], shared in version control (e.g., https://github.com/OSGConnect/modulefiles), or even generation of module files with well known package managers like Spack [@noauthor_undated-ae] and EasyBuild [@noauthor_undated-dj]. Using containers in this context is also not a novel idea [@noauthor_undated-rc], and has been discussed previously [@noauthor_undated-rj]. However, the majority of these approaches and tools do not make the process of installing container modules easy. They either require a root user to build, writing complex recipes, or using a less than simple command line interface. The package manager approaches require relying on some subset of system software, the underlying operating system, or even making changes to the system. Using Singularity containers, although it requires the Singularity software, places relatively no limitation on what can be installed. Further, unlike traditional environment modules, a container as a module
+that it's fairly easy to find repositories of lua files, a format for the popular module system LMOD [@McLay2011-wu], shared in version control (e.g., https://github.com/OSGConnect/modulefiles), or even generation of module files with well known package managers like Spack [@noauthor_undated-ae] and EasyBuild [@noauthor_undated-dj]. Using containers in this context is also not a novel idea [@noauthor_undated-rc], and has been discussed previously [@noauthor_undated-rj]. However, the majority of these approaches and tools do not make the process of installing container modules easy. They either require a root user to build, writing complex recipes, or using a less than simple command line interface. The package manager approaches require relying on some subset of system software, the underlying operating system, or even making changes to the system. Using Singularity containers, although it requires the Singularity software, places relatively no limitation on what can be installed. Further, unlike traditional environment modules, a container as a module
 requires no other dependencies, ensuring consistency in usage and fewer conflicts.
 
 Whether the user is an administrator or a researcher, installing Singularity HPC (shpc) is as easy as cloning the repository and using Python or pip to install in place:
@@ -50,9 +55,20 @@ Although it's possible to install the software alongside other Python site packa
 this local or development install is recommended to make it easy to retrieve updated recipes
 from the registry on GitHub via a simple `git pull.`
 While the defaults are suitable for most, there are three locations that 
-can be customized, including the registry of container recipes, the module directory to which modules are installed, and the directory to which containers are installed. By default, containers
-are installed alongside the respective modules. The user can then use `shpc show` to see readily
-available recipes, or browse the [library](https://singularityhub.github.io/singularity-hpc/) for an easily searchable interface. Installation comes down to installing a chosen module:
+can be customized, including the registry of container recipes, the module directory to which modules are installed, and the directory to which containers are installed. This
+is done simply with `shpc config`:
+
+```bash
+$ shpc config lmod_base:/my/custom/path/modules
+$ shpc config registry:/my/private/registry
+$ shpc config container_base:/my/separate/containers
+```
+
+By default, containers are installed alongside the respective modules,
+but as you can see above, this can be changed. 
+Users that don't want to interact with the shpc client to update settings can
+open the "settings.yml" file directly, which is included in the repository.
+The user can then use `shpc show` to see readily available recipes, or browse the [library](https://singularityhub.github.io/singularity-hpc/) for an easily searchable interface. Installation comes down to installing a chosen module:
 
 ```bash
 $ shpc install biocontainers/samtools
