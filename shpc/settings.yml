@@ -13,7 +13,7 @@ registry: $root_dir/registry
 lmod_base: $root_dir/modules
 
 # store containers separately from module files
-container_base: /tmp/containers
+container_base: null
 
 # disable keeping a sqlite database with metadata
 database_disable: false
