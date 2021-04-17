@@ -5,6 +5,7 @@ __license__ = "MPL 2.0"
 import hashlib
 import errno
 import os
+import re
 import shutil
 import tempfile
 

@@ -27,7 +27,7 @@ Commands include:
        singularity inspect -d <container>
 
 {% if aliases %}{% for alias in aliases %} - {{ alias.name }}:
-       singularity exec {% if bindpaths %}-B {{ bindpaths }} {% endif %}{% if alias.options %}{{ alias.options }} {% endif %}<container> {{ alias.command }}"
+       singularity exec {% if bindpaths %}-B {{ bindpaths }} {% endif %}{% if alias.options %}{{ alias.options }} {% endif %}<container> {{ alias.command }}
 {% endfor %}{% else %} - {{ prefix }}{{ flatname }}: singularity run {% if bindpaths %}-B {{ bindpaths }}{% endif %}<container>{% endif %}
 
 For each of the above, you can export:
