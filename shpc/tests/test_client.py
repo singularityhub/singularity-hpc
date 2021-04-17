@@ -9,6 +9,7 @@
 import pytest
 import shutil
 import os
+import io
 
 from shpc.main import get_client
 
@@ -30,7 +31,9 @@ def init_client(tmpdir):
 
     # The module folder needs to be temporary too
     modules = os.path.join(tmpdir, "modules")
+    modules = os.path.join(tmpdir, "containers")
     client.settings.set("lmod_base", modules)
+    client.settings.set("container_base", modules)
     client.settings.save()
     return client
 
@@ -51,6 +54,16 @@ def test_install_get(tmp_path):
     assert os.path.exists(module_file)
 
     assert client.get("python/3.9.2-alpine")
+
+
+def test_docgen(tmp_path):
+    """Test docgen"""
+    client = init_client(str(tmp_path))
+    client.install("python:3.9.2-slim")
+    out = io.StringIO()
+    docs = client.docgen("python:3.9.2-slim", out)
+    docs = docs.getvalue()
+    assert "python:3.9.2-slim" in docs
 
 
 def test_inspect(tmp_path):

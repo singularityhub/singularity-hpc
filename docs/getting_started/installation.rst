@@ -66,7 +66,9 @@ Once it's installed, you should be able to inspect the client!
 
 You'll next want to configure and create your registry, discussed next in
  :ref:`getting-started`. Generally, remember that your modules will be installed in
- the ``modules`` folder, and container recipes are nested in ``registry``.  You
+ the ``modules`` folder, and container recipes are nested in ``registry``. If you don't
+ want your container images (sif files) installed alongside your module recipes,
+ then you can define ``container_base`` to be somewhere else. You
  can change these easily with ``shpc config``, as they are defined via these
  variables in the config:
  
@@ -75,7 +77,8 @@ You'll next want to configure and create your registry, discussed next in
  
 
     $ shpc config registry:/<DIR>
-    # shpc config lmod_base:/<DIR> 
+    $ shpc config lmod_base:/<DIR> 
+    $ shpc config container_base:/<DIR> 
 
 
 You can also easily (manually) update any settings in the ``shpc/settings.yaml`` file. 

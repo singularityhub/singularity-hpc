@@ -12,6 +12,9 @@ registry: $root_dir/registry
 # The install directory for modules. Defaults to the install directory/modules
 lmod_base: $root_dir/modules
 
+# store containers separately from module files
+container_base: /tmp/containers
+
 # disable keeping a sqlite database with metadata
 database_disable: false
 
@@ -19,13 +22,14 @@ database_disable: false
 database_file: $root_dir/shpc.db
 
 # if defined, add to lmod script to load this Singularity module first
-singularity_module: null
+singularity_module:
 
 # if set, prefix module alias names with prefix (another kind of namespacing)
 lmod_exc_prefix: ''
 
 # string with comma separated list of paths to binds. If set, expored to SINGULARITY_BINDPATH
-bindpaths: null
+bindpaths:
 
 # exported to SINGULARITY_SHELL, defaults to /bin/bash.
 singularity_shell: /bin/bash
+updated_at: '2021-04-16T16:50:16Z'
