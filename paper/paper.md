@@ -31,7 +31,7 @@ this interaction for you, and make container commands easily available
 as command line aliases. With over 150 containers readily avilable
 from biocontainers [@da2017biocontainers] to Nvidia's Container Catalog [@noauthor_undated-kp] 
 to brain imaging data structure apps [@gorgolewski2017bids], to core containers
-on Docker Hub [@noauthor_undated-xn], and software from package managers like Spack [@gamblin2015spack] made available via the Autamus registry [@autamus], with just a few clicks you quickly can assemble your own collection of custom containers modules for yourself or your user base.
+on Docker Hub [@noauthor_undated-xn], and software from package managers like Spack [@gamblin2015spack] made available via the Autamus registry [@autamus], with just a few clicks you can quickly assemble your own collection of custom containers modules for yourself or your user base.
 
 
 ## Background
@@ -40,19 +40,31 @@ Using environment modules on high performance computing clusters is a common
 trend. Although writing the recipes can be complex and beyond the ability of the scientific
 user [@noauthor_undated-bt], it's a fairly common practice for cluster administrators to provide
 a set of natively installed recipes for their users. The practice is so common
-that it's fairly easy to find repositories of lua files, a format for the popular module system LMOD [@McLay2011-wu], shared in version control (e.g., https://github.com/OSGConnect/modulefiles), or even generation of module files with well known package managers like Spack [@noauthor_undated-ae] and EasyBuild [@noauthor_undated-dj]. Using containers in this context is also not a novel idea [@noauthor_undated-rc], and has been discussed previously [@noauthor_undated-rj]. However, the majority of these approaches and tools do not make the process of installing container modules easy. They either require a root user to build, writing complex recipes, or using a less than simple command line interface. The package manager approaches require relying on some subset of system software, the underlying operating system, or even making changes to the system. Using Singularity containers, although it requires the Singularity software, places relatively no limitation on what can be installed. Further, unlike traditional environment modules, a container as a module
+that it's relatively easy to find repositories of lua files, a format for the popular module system LMOD [@McLay2011-wu], shared in version control (e.g., https://github.com/OSGConnect/modulefiles), or even generation of module files with well known package managers like Spack [@noauthor_undated-ae] and EasyBuild [@noauthor_undated-dj]. Using containers in this context is also not a novel idea [@noauthor_undated-rc], and has been discussed previously [@noauthor_undated-rj]. However, the majority of these approaches and tools do not make the process of installing container modules easy. They either require a root user to build, writing complex recipes, or using a less than simple command line interface. The package manager approaches require relying on some subset of system software, the underlying operating system, or even making changes to the system. Using Singularity containers, although it requires the Singularity software, places relatively no limitation on what can be installed. Further, unlike traditional environment modules, a container as a module
 requires no other dependencies, ensuring consistency in usage and fewer conflicts.
 
-Whether the user is an administrator or a researcher, installing Singularity HPC (shpc) is as easy as cloning the repository and using Python or pip to install in place:
+Whether the user is an administrator or a researcher, installing shpc is as easy as cloning the repository and using Python or pip to install in place:
 
 ```bash
-git clone https://github.com/singularityhub/singularity-hpc
-cd singularity-hpc
-pip install -e .
+$ git clone https://github.com/singularityhub/singularity-hpc
+$ cd singularity-hpc
+
+# install with pip
+$ pip install -e .
+
+# or with Python setuptools
+% python setup.py develop
 ```
 
-Although it's possible to install the software alongside other Python site packages,
-this local or development install is recommended to make it easy to retrieve updated recipes
+Although it's possible to install the software alongside other Python site packages, e.g.,
+meaning either of these commands:
+
+```bash
+$ python setup.py install
+$ pip install .
+```
+
+a local or development install is recommended to make it easy to retrieve updated recipes
 from the registry on GitHub via a simple `git pull.`
 While the defaults are suitable for most, there are three locations that 
 can be customized, including the registry of container recipes, the module directory to which modules are installed, and the directory to which containers are installed. This
@@ -75,13 +87,13 @@ $ shpc install biocontainers/samtools
 ```
 
 And then telling the environment modules software to use the shpc modules directory,
-which defaults to the "modules" directory in the repository. A cluster administrator would have modules loaded automatically via a start script or bash profile, so the researcher typcically does 
-not need to execute any extra commands. However, with this command, that same researcher is empowered to add their own custom intallation directory of modules that might not be
-available from their system administrators.
+which defaults to the "modules" directory in the repository. 
 
 ```bash
 $ module use ./modules
 ```
+
+A cluster administrator would have modules loaded automatically via a start script or bash profile, so the researcher typcically does not need to execute this extra command. However, with this command, that same researcher is empowered to add their own custom installation directory of modules that might not be available from their system administrators.
 
 The container can then be loaded, and is then available as an exposed set of 
 shell aliases that look like simple executable commands:
@@ -101,10 +113,10 @@ via a reproducible and easy to use registry, discussed next.
 
 Containers allow for encapsulation of an entire software package, including
 everything from the libraries to the underlying operating system. By pinning
-an exact version of a scientific software stack provided in a container and
+an exact version of a scientific software stack provided in a container,
 exposed as a set of module commands, researchers on high performance computing
-clusters can have more confidence in the reproducibility of their work [@Santana-Perez2015-wo][@Boettiger2014-cz][@Wandell2015-yt]. Importantly, while interacting with a container is generally complicated as the user needs to know some of the underlying structure of the container and
-the command to run, Singularity Registry HPC recipes
+clusters can have more confidence in the reproducibility of their work [@Santana-Perez2015-wo, @Boettiger2014-cz, @Wandell2015-yt]. Importantly, while interacting with a container is generally complicated as the user needs to know some of the underlying structure of the container and
+the command(s) to run, Singularity Registry HPC recipes
 expose a set of shell aliases that are easy to understand and use for any container.
 For example, when using the `biocontainers/samtools` container via Singularity, 
 a user might typically need to pull the container,
@@ -123,7 +135,7 @@ $ singularity run samtools_latest.sif
 Note that the user has no easy way, aside from looking at the original recipe
 to build the container, or shelling inside to inspect, what the run command will do.
 Also note that the user needs to find a particular version on Docker Hub (the tag digest
-represented as `v1.9-4-deb_cv1`) which unfortunately is a moving target - if the user
+represented as "v1.9-4-deb_cv1") which unfortunately is a moving target - if the user
 were to pull this container again, it might have changed. More ideally, the user
 would choose an actual digest that is associated with an exact container:
 
@@ -135,7 +147,7 @@ $ singularity pull docker://biocontainers/samtools@${digest}
 However in practice this is not common, as it requires extra clicks and knowledge
 about container registries that the average user is unlikely to have, or just not
 have the time to think about. In the case that the user understands the underlying
-structure of the container, they then needs to execute a command to the container to use it:
+structure of the container, they then need to execute a command to the container to use it:
 
 ```bash
 # interact with samtools
@@ -144,10 +156,10 @@ $ singularity exec samtools_latest.sif /usr/bin/samtools
 
 The user may not know the path to the desired executable in advance, and need to
 spend extra time exploring the container. This is no small task, as containers typically
-differ in where some set of primary binaries are installed. Ideally the user would then provide a full path so that samtools in the container is used.  Not using a full path
-can lead to unexpected consequences. Since Singularity containers
-have a seamless environent with the host, it could be possible, given an exec
-of a general `samtools`, to actually hit a version outside the container on the user's
+differ in where some set of primary binaries are installed. Ideally, as shown above,
+ the user would then provide a full path so that samtools in the container is used.  Not using a full path can lead to unexpected consequences. Since Singularity containers
+have a seamless environent with the host, it could be possible to 
+actually hit a version of "samtools" available outside of the container on the user's
 path. Instead of this complex workflow, Singularity Registry HPC makes it much easier.
 After finding the `biocontainers/samtools` container via the library web interface
 or the command line client, the user simply installs it.
@@ -158,7 +170,8 @@ $ shpc install biocontainers/samtools
 Module biocontainers-samtools/v1.9-4-deb_cv1 was created.
 ```
 
-Installing includes generation of a module file from the registry recipe
+Installing includes generation of a module file from the registry recipe,
+a simple `container.yaml` file with basic metadata and description,
 that exposes any and all important entrypoints, and pulls an exact hash of a container.
 The user does not need to look in advance for a version if want the latest provided
 by the registry. More realistically, a cluster administrator will install some subset of versions
@@ -209,10 +222,9 @@ use tabs to autocomplete the module names:
 $ module load biocontainers/samtools/v1.9-4-deb_cv1
 ```
 
-And then all the commands to shell, run a custom exec, or simply to use samtools
+And then all the commands to shell, execute a custom command, or simply to use samtools
 are available, also with autocomplete, for the user. Instead of needing to 
-write a complex shell, exec, or run command using Singularity, a single
-alias can be used:
+write these commands manually, a single alias can be used:
 
 ```bash
 $ biocontainer-samtools-run
@@ -259,12 +271,12 @@ $ singularity exec --home ${HOME} --bind ${HOME}/.local:/home/joyvan/.local \
 
 With Singularity Registry HPC, the interaction to run the notebook can be figured
 out and written down once, and provided as a community recipe. In this case, it's
-exposed as `run-notebook`:
+exposed as the command "run-notebook":
 
 ```bash
 $ run-notebook
 
-I 12:01:45.417 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+I 12:01:45.417 NotebookApp] Use Control-C to stop this server and shut ...
 [C 12:01:45.421 NotebookApp] 
     
     To access the notebook, open this file in a browser:
@@ -279,7 +291,7 @@ to get the full command and container path, and then edit it as desired, or expo
 a subset of environment variables to change behavior. Since Singularity tends
 to be seamless with the host environment, common filesystem locations such as
 temporary locations, the user's home directory, and other work locations are automatically
-bound to the container, and arguments or options can easily be provided to the container. 
+bound to the container, and arguments or options are passed to the different alias entrypoints. 
 The administrator can easily provide an example of loading and running this command as an interactive job, and then connecting to the exposed ports. 
 
 The above discussion only covers two of the over 160 containers that have been carefully crafted for ease of use. The open source, collaborative nature of this registry is discussed next.
@@ -291,7 +303,9 @@ Adding a container to the registry is as simple as creating a yaml file in
 the registry directory of the repository, organized by the container unique resource
 identifier. The file also includes the container unique resource identifer
 (e.g., a container on Docker Hub or another registry), and then a tag 
-for the latest, and any other desired tags. A description and url is added for
+for the latest, and any other desired tags. If only a subset of tags are desired
+to be automatically discovered during a recipe update, the recipe writer can
+provide a filter to limit this set. A description and url is added for
 updating the [library](https://singularityhub.github.io/singularity-hpc/),
 and importantly, the creator then defines a set of aliases to expose to the user.
 The default alias for shell, exec, run, and inspect are generated automatically
