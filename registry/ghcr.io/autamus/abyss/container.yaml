@@ -3,8 +3,6 @@ latest:
   "latest": "sha256:9db3f63f194790895d20b36a9a682f1e531a8f634563e91c3320318867462d61"
 tags:
   "latest": "sha256:9db3f63f194790895d20b36a9a682f1e531a8f634563e91c3320318867462d61"
-filter:
-  - "latest"
 maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/abyss
 description: "ABySS is a de novo, parallel, paired-end sequence assembler that is designed for short reads."

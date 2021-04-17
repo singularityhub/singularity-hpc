@@ -3,8 +3,6 @@ latest:
   "latest": "sha256:4cd56dd236840af1b1ce759f01e660460f92b2864875c8f49abb16ee4b0e0432"
 tags:
   "latest": "sha256:4cd56dd236840af1b1ce759f01e660460f92b2864875c8f49abb16ee4b0e0432"
-filter:
-  - "latest"
 maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/raxml
 description: "RAxML (Randomized Axelerated Maximum Likelihood) is a popular program for phylogenetic analysis of large datasets under maximum likelihood."

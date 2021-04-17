@@ -3,8 +3,6 @@ latest:
   "latest": "sha256:163b8f4872b98d165e18f98a390c77a2b6276c810c60d44b108250ff3167e25a"
 tags:
   "latest": "sha256:163b8f4872b98d165e18f98a390c77a2b6276c810c60d44b108250ff3167e25a"
-filter:
-  - "latest"
 maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/cufflinks
 description: "Cufflinks assembles transcripts, estimates their abundances, and tests for differential expression and regulation in RNA-Seq samples."

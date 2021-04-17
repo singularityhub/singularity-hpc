@@ -3,8 +3,6 @@ latest:
   "latest": "sha256:3d24a1a34461bf4d8ac607bd2125d88828ab1a1f02061a848a6c88f09518d517"
 tags:
   "latest": "sha256:3d24a1a34461bf4d8ac607bd2125d88828ab1a1f02061a848a6c88f09518d517"
-filter:
-  - "latest"
 maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/hdf5
 description: "HDF5 is a unique technology suite that makes possible the management of extremely large and complex data collections."

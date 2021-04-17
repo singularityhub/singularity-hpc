@@ -3,8 +3,6 @@ latest:
   "latest": "sha256:6ae380a981b4f61efd288eff6e6b5e200ed5bb69f22977a05fa4647d63c786bc"
 tags:
   "latest": "sha256:6ae380a981b4f61efd288eff6e6b5e200ed5bb69f22977a05fa4647d63c786bc"
-filter:
-  - "latest"
 maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/samtools
 description: "Samtools is a suite of programs for interacting with high-throughput sequencing data."

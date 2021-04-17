@@ -3,8 +3,6 @@ latest:
   "latest": "sha256:d0040fd7694ef3933f1be5f10e2e0ec7cdda68f838d97ce5a386aa1fd2ade240"
 tags:
   "latest": "sha256:d0040fd7694ef3933f1be5f10e2e0ec7cdda68f838d97ce5a386aa1fd2ade240"
-filter:
-  - "latest"
 maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/diamond
 description: "A sequence aligner for protein and translated DNA searches, designed for high performance analysis of big sequence data."

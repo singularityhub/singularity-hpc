@@ -3,8 +3,6 @@ latest:
   "latest": "sha256:87ac88c3db4f5a80af3701ceb43e29fac4fdab86db71f6763425881f28f51335"
 tags:
   "latest": "sha256:87ac88c3db4f5a80af3701ceb43e29fac4fdab86db71f6763425881f28f51335"
-filter:
-  - "latest"
 maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/hmmer
 description: "HMMER is used for searching sequence databases for sequence homologs, and for making sequence alignments."

@@ -3,8 +3,6 @@ latest:
   "latest": "sha256:1e67403beaf3e7cac0b36aa43c8436f2111a3eb489b32271c2ffeb0b20e2ec5a"
 tags:
   "latest": "sha256:1e67403beaf3e7cac0b36aa43c8436f2111a3eb489b32271c2ffeb0b20e2ec5a"
-filter:
-  - "latest"
 maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/nco
 description: ""

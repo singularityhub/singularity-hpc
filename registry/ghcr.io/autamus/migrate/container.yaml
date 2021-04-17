@@ -3,8 +3,6 @@ latest:
   "latest": "sha256:248656eaf78aca2b3079fb593dbb3410b7e17fb075d89a402e28e8743b1c99c5"
 tags:
   "latest": "sha256:248656eaf78aca2b3079fb593dbb3410b7e17fb075d89a402e28e8743b1c99c5"
-filter:
-  - "latest"
 maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/migrate
 description: "Migrate estimates effective population sizes and past migration rates between n population assuming a migration matrix model with asymmetric migration rates and different subpopulation sizes"

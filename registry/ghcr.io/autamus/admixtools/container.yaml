@@ -3,8 +3,6 @@ latest:
   "latest": "sha256:9e7e09e0e24888d896d341e3afb879e86cff4085ac4f3f4578dc786db17875ce"
 tags:
   "latest": "sha256:9e7e09e0e24888d896d341e3afb879e86cff4085ac4f3f4578dc786db17875ce"
-filter:
-  - "latest"
 maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/admixtools
 description: "ADMIXTOOLS is a collection of programs which use genetic data to infer how populations are related to one another."

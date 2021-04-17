@@ -3,8 +3,6 @@ latest:
   "latest": "sha256:6643e1b1c2f333f755e9c1cbeeb2d15881fb77303150e61642a1d51b4855a515"
 tags:
   "latest": "sha256:6643e1b1c2f333f755e9c1cbeeb2d15881fb77303150e61642a1d51b4855a515"
-filter:
-  - "latest"
 maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/heaptrack
 description: "Heaptrack traces all memory allocations and annotates these events with stack traces."

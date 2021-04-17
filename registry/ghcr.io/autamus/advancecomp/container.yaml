@@ -3,8 +3,6 @@ latest:
   "latest": "sha256:aab9bd1d152a11b24031a31671b79bebdcf50a7603dd0f059564109914247dde"
 tags:
   "latest": "sha256:aab9bd1d152a11b24031a31671b79bebdcf50a7603dd0f059564109914247dde"
-filter:
-  - "latest"
 maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/advancecomp
 description: "AdvanceCOMP is a set of cross-platform command line data (re-)compression tools."
