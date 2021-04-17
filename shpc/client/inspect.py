@@ -6,7 +6,7 @@ __license__ = "MPL 2.0"
 import json
 
 
-def main(args, parser, extra):
+def main(args, parser, extra, subparser):
 
     from shpc.main import get_client
 

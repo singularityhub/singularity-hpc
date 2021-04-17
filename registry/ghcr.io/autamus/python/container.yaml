@@ -3,8 +3,6 @@ latest:
   "latest": "sha256:bc121a7e3474e2b6aecddd91306e879b0497c9013b24e52e566627bbb89762de"
 tags:
   "latest": "sha256:bc121a7e3474e2b6aecddd91306e879b0497c9013b24e52e566627bbb89762de"
-filter:
-  - "latest"
 maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/python
 description: "An interpreted, high-level and general-purpose programming language."

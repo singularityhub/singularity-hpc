@@ -3,8 +3,6 @@ latest:
   "latest": "sha256:07ca9aaa0b4ce1a5a69eee124b9474add332838b3fa86c8ef3eba6be2c40537e"
 tags:
   "latest": "sha256:07ca9aaa0b4ce1a5a69eee124b9474add332838b3fa86c8ef3eba6be2c40537e"
-filter:
-  - "latest"
 maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/octave
 description: "GNU Octave is a high-level interpreted language, primarily intended for numerical computations (like an open source Matlab)"

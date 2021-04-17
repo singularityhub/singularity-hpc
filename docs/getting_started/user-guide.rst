@@ -170,6 +170,9 @@ A summary table of variables is included below, and then further discussed in de
    * - lmod_base
      - The install directory for modules. Defaults to the install directory/modules
      - $root_dir/modules
+   * - container_base
+     - Where to install containers. If not defined, they are installed alongside modules.
+     - null
    * - database_disable
      - disable keeping a sqlite database with metadata
      - false
@@ -230,6 +233,22 @@ Although your LMOD path might have multiple locations, Singularity Registry HPC
 assumes this one location to install container modules to in order to ensure
 a unique namespace. 
 
+
+Container Images Folder
+^^^^^^^^^^^^^^^^^^^^^^^
+
+If you don't want your container images (sif files) to live alongside your
+module files, then you should define the ``container_base`` to be something
+non-null (a path that exists). For example:
+
+.. code-block:: console
+
+    $ mkdir -p /tmp/containers
+    $ shpc config container_base:/tmp/containers
+
+
+The same hierarchy will be preserved as to not put all containers in the same
+directory.
 
 Database Setup
 ^^^^^^^^^^^^^^

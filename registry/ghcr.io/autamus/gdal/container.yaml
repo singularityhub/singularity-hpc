@@ -3,8 +3,6 @@ latest:
   "latest": "sha256:4652264b7a69ffacea345eb551fc20a7abc733d0c9ee6a935114dbabce274411"
 tags:
   "latest": "sha256:4652264b7a69ffacea345eb551fc20a7abc733d0c9ee6a935114dbabce274411"
-filter:
-  - "latest"
 maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/gdal
 description: "GDAL is a translator library for raster and vector geospatial data formats that is released under an X/MIT style Open Source License by the Open Source Geospatial Foundation. "

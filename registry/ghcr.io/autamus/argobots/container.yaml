@@ -3,8 +3,6 @@ latest:
   "latest": "sha256:64935399fc88177db1ecb2ed5431329fc06e7424dd99f55de36a3a4b0565a291"
 tags:
   "latest": "sha256:64935399fc88177db1ecb2ed5431329fc06e7424dd99f55de36a3a4b0565a291"
-filter:
-  - "latest"
 maintainer: "@vsoch"
 description: "A lightweight runtime system that supports integrated computation and data movement with massive concurrency."
 url: https://github.com/orgs/autamus/packages/container/package/argobots

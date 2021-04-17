@@ -3,8 +3,6 @@ latest:
   "latest": "sha256:45194ad9d5e3b16907569170e8aac894a2e545f14a94d5137e3e32b9e23e4707"
 tags:
   "latest": "sha256:45194ad9d5e3b16907569170e8aac894a2e545f14a94d5137e3e32b9e23e4707"
-filter:
-  - "latest"
 maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/openjdk
 description: "Open Java Development Kit"

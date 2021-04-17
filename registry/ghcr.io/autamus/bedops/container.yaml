@@ -3,8 +3,6 @@ latest:
   "latest": "sha256:f497b47acb7136187f7baff6a2ebd68457b7ac18c434904a1e264d3b44186387"
 tags:
   "latest": "sha256:f497b47acb7136187f7baff6a2ebd68457b7ac18c434904a1e264d3b44186387"
-filter:
-  - "latest"
 maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/bedops
 description: "BEDOPS is an open-source command-line toolkit that performs highly efficient and scalable Boolean and other set operations, statistical calculations, archiving, conversion and other management of genomic data of arbitrary scale."

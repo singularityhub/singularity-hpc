@@ -1,0 +1,16 @@
+docker: nvcr.io/nvidia-hpcvis/paraview
+latest:
+  "egl-py3-5.9.0": "sha256:8733b19cad0a415d523d8c5e0dffb46a182b056e3f7bd4a2606ab588eed4cbda"
+tags:
+  "egl-py3-5.9.0": "sha256:8733b19cad0a415d523d8c5e0dffb46a182b056e3f7bd4a2606ab588eed4cbda"
+filter:
+  - "egl*"
+maintainer: "@vsoch"
+url: "https://ngc.nvidia.com/catalog/containers/nvidia-hpcvis:paraview/tags"
+description: "ParaView is one of the most popular visualization software for analyzing HPC datasets."
+aliases:
+  pvdataserver: /opt/paraview/bin/pvdataserver
+  pvrenderserver: /opt/paraview/bin/pvrenderserver
+  pvbatch: /opt/paraview/bin/pvbatch
+  pypython: /opt/paraview/bin/pvpython
+  pvserver: /opt/paraview/bin/pvserver

@@ -3,8 +3,6 @@ latest:
   "latest": "sha256:7d0c93a527f7130d6e37cee7f26c56154f505f1f20a1b1be33ad1d0c847f98be"
 tags:
   "latest": "sha256:7d0c93a527f7130d6e37cee7f26c56154f505f1f20a1b1be33ad1d0c847f98be"
-filter:
-  - "latest"
 maintainer: "@vsoch"
 description: "A versatile package to perform molecular dynamics."
 url: https://github.com/orgs/autamus/packages/container/package/gromacs

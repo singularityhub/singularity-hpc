@@ -3,8 +3,6 @@ latest:
   "latest": "sha256:5eae1eabe7b127b3847401fe69e3430f97936d7ef7198287aabe01c5e1a957cf"
 tags:
   "latest": "sha256:5eae1eabe7b127b3847401fe69e3430f97936d7ef7198287aabe01c5e1a957cf"
-filter:
-  - "latest"
 maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/beast2
 description: "BEAST 2 is a cross-platform program for Bayesian phylogenetic analysis of molecular sequences."

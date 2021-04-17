@@ -3,8 +3,6 @@ latest:
   latest: "sha256:ad614eb639a7ca2c484042b81285c86982fde3fb6bcd1f573c779ad734f16f40"
 tags:
   latest: "sha256:ad614eb639a7ca2c484042b81285c86982fde3fb6bcd1f573c779ad734f16f40"
-filter:
-  - "latest"
 maintainer: "@vsoch"
 url: https://hub.docker.com/r/jupyter/minimal-notebook
 description: "Jupyter Minimal Notebook from https://github.com/jupyter/docker-stacks"

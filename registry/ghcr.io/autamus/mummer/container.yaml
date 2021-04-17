@@ -3,8 +3,6 @@ latest:
   "latest": "sha256:c429317f2ddaa3cd4b4790f8bae218677a59e40e1b8be54e7b40d022602723d7"
 tags:
   "latest": "sha256:c429317f2ddaa3cd4b4790f8bae218677a59e40e1b8be54e7b40d022602723d7"
-filter:
-  - "latest"
 maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/mummer
 description: "MUMmer is a system for rapidly aligning entire genomes."

@@ -3,8 +3,6 @@ latest:
   "latest": "sha256:416988da0725af56e8f74233752c6780a9a9369fe56310048478233b36f3a32f"
 tags:
   "latest": "sha256:416988da0725af56e8f74233752c6780a9a9369fe56310048478233b36f3a32f"
-filter:
-  - "latest"
 maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/mafft
 description: "MAFFT is a multiple sequence alignment program for unix-like operating systems."

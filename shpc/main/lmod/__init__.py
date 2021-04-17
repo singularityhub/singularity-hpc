@@ -51,13 +51,29 @@ class Client(BaseClient):
                 break
             shutil.rmtree(module_dir)
 
+    def container_dir(self, name):
+        """
+        Use a custom container directory, otherwise default to module dir.
+        """
+        if not self.settings.container_base:
+            return os.path.join(self.settings.lmod_base, name)
+        return os.path.join(self.settings.container_base, name)
+
     def uninstall(self, name, force=False):
         """
         Given a unique resource identifier, uninstall a module
         """
         # The name can either be a folder or an install directory
         module_dir = os.path.join(self.settings.lmod_base, name)
+        container_dir = self.container_dir(name)
+        if container_dir != module_dir:
+            self._uninstall(container_dir, "$container_base/%s" % name, force)
+        self._uninstall(module_dir, "$lmod_base/%s" % name, force)
 
+    def _uninstall(self, module_dir, name, force=False):
+        """
+        Sub function, so we can pass more than one folder from uninstall
+        """
         if os.path.exists(module_dir) and not force:
             msg = "%s, and all content below it? " % name
             if utils.confirm_uninstall(msg, force):
@@ -92,6 +108,14 @@ class Client(BaseClient):
         utils.write_file(test_file, out)
         return subprocess.call(["/bin/bash", test_file])
 
+    def _mkdirp(self, dirnames):
+        """
+        Create one or more directories
+        """
+        for dirname in dirnames:
+            if not os.path.exists(dirname):
+                os.makedirs(dirname)
+
     def add(self, sif, module_name):
         """
         Add a container directly as a module
@@ -112,14 +136,15 @@ class Client(BaseClient):
                     % subfolder
                 )
 
+        # The user can have a different container directory defined
         module_dir = os.path.join(self.settings.lmod_base, module_name)
-        if not os.path.exists(module_dir):
-            os.makedirs(module_dir)
+        container_dir = self.container_dir(module_name)
+        self._mkdirp([module_dir, container_dir])
 
         # Name the container appropriately
         name = module_name.replace("/", "-")
         digest = utils.get_file_hash(sif)
-        dest = os.path.join(module_dir, "%s-sha256:%s.sif" % (name, digest))
+        dest = os.path.join(container_dir, "%s-sha256:%s.sif" % (name, digest))
         shutil.move(sif, dest)
         self._install(module_dir, dest, name)
         logger.info("Module %s was created." % (module_name))
@@ -128,14 +153,14 @@ class Client(BaseClient):
         """
         Get the path to a container for a module
         """
-        module_dir = os.path.join(self.settings.lmod_base, module_name)
+        # This can be the module or container directory
+        container_dir = self.container_dir(module_name)
 
         # A container must be present
-        sif = glob("%s%s*.sif" % (module_dir, os.sep))
+        sif = glob("%s%s*.sif" % (container_dir, os.sep))
         if not sif:
             logger.exit(
-                "%s is not a module tag folder, or does not have a sif binary."
-                % module_name
+                "%s is not a known tag, or does not have a sif binary." % module_name
             )
 
         # Currently we only allow one container per module folder
@@ -179,6 +204,7 @@ class Client(BaseClient):
             flatname=module_name.replace("/", "-"),
         )
         out.write(result)
+        return out
 
     def shell(self, module_name):
         """Shell into an installed module container"""
@@ -325,15 +351,14 @@ class Client(BaseClient):
         # This is a tag object with name and digest
         tag = config.tag
 
-        # Pull the container to the module directory
+        # Pull the container to the module directory OR container base
         module_dir = os.path.join(self.settings.lmod_base, uri, tag.name)
-
-        if not os.path.exists(module_dir):
-            os.makedirs(module_dir)
+        container_dir = self.container_dir(os.path.join(uri, tag.name))
+        self._mkdirp([module_dir, container_dir])
 
         # Preserve name and version of container if it's ever moved
         container_path = os.path.join(
-            module_dir, "%s-%s-%s.sif" % (config.name, tag.name, tag.digest)
+            container_dir, "%s-%s-%s.sif" % (config.name, tag.name, tag.digest)
         )
 
         # We pull by the digest

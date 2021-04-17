@@ -3,8 +3,6 @@ latest:
   "latest": "sha256:c4c8b5ccd5c8a070ed4db0bdcd5819712466d59a32e41fcb058ae1682b0162f9"
 tags:
   "latest": "sha256:c4c8b5ccd5c8a070ed4db0bdcd5819712466d59a32e41fcb058ae1682b0162f9"
-filter:
-  - "latest"
 maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/spades
 description: "St. Petersburg genome assembler – an assembly toolkit containing various assembly pipelines."

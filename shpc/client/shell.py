@@ -3,7 +3,7 @@ __copyright__ = "Copyright 2021, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
 
-def main(args, parser, extra):
+def main(args, parser, extra, subparser):
 
     lookup = {"ipython": ipython, "python": python, "bpython": bpython}
     shells = ["ipython", "python", "bpython"]

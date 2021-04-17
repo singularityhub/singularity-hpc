@@ -3,8 +3,6 @@ latest:
   "latest": "sha256:c98a480f85a68063dfb9c4cb6eedfbe0cf84a1af737b73ef2d94213fffd91ff5"
 tags:
   "latest": "sha256:c98a480f85a68063dfb9c4cb6eedfbe0cf84a1af737b73ef2d94213fffd91ff5"
-filter:
-  - "latest"
 maintainer: "@vsoch"
 description: "An ASP system to ground and solve logic programs."
 url: https://github.com/orgs/autamus/packages/container/package/clingo
