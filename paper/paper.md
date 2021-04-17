@@ -27,14 +27,14 @@ this interaction for you, and make container commands easily available
 as command line aliases. With over 150 containers readily avilable
 from biocontainers [@da2017biocontainers] to Nvidia's Container Catalog [@noauthor_undated-kp] 
 to brain imaging data structure apps [@gorgolewski2017bids], to core containers
-on Docker Hub [@noauthor_undated-xn], and software from [@gamblin2015spack] made available via the Autamus registry [@autamus], with just a few clicks you quickly can assemble your own collection of custom containers modules for yourself or your user base.
+on Docker Hub [@noauthor_undated-xn], and software from package managers like Spack [@gamblin2015spack] made available via the Autamus registry [@autamus], with just a few clicks you quickly can assemble your own collection of custom containers modules for yourself or your user base.
 
 
 ## Background
 
 Using environment modules on high performance computing clusters is a common
 trend. Although writing the recipes can be complex and beyond the ability of the scientific
-user, it's a fairly common practice for cluster administrators to provide
+user [@noauthor_undated-bt], it's a fairly common practice for cluster administrators to provide
 a set of natively installed recipes for their users. The practice is so common
 that it's fairly easy to find repositories of lua files shared in version control (e.g., https://github.com/OSGConnect/modulefiles), or even generation of module files with well known package managers [@noauthor_undated-dj, @noauthor_undated-ae]. Using containers in this context is also not a novel idea [@noauthor_undated-rc, @noauthor_undated-rj]. However, the majority of these approaches and tools do not make the process of installing container modules easy. They either require a root
 user to build, writing complex recipes, or using a less than simple command line interface.
@@ -277,7 +277,11 @@ an issue. Automation also ensures that adding new containers, or working on the
 code base, is easy. Tests are run automatically for the software, and when adding
 a new container, a maintainer simply needs to apply a `container-recipe` label
 to trigger a workflow that discovers the new recipe, and tests installing the
-container. On merge to the main branch, the documentation and library
+container. Once a container is added, no further work is needed to update
+versions for it. By way of a GitHub bot named Binoc (short for "binoculars"),
+[@noauthor_undated-eh] both the latest and available tags are updated automatically, following
+any filters that the recipe creator has provided for which tags should be added.
+Finally, on merge to the main branch, the documentation and library
 are also automatically updated.
 
 ## Conclusion
