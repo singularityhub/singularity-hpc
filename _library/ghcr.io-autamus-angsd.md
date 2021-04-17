@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/angsd"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/angsd/container.yaml"
-updated_at: "2021-04-16 04:04:14.687410"
+updated_at: "2021-04-17 22:44:14.661635"
 container_url: ""
 aliases:
  - "angsd"

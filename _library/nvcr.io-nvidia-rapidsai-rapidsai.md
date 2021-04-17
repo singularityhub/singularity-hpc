@@ -1,30 +1,30 @@
 ---
 layout: container
-name:  "ghcr.io/autamus/wget"
+name:  "nvcr.io/nvidia/rapidsai/rapidsai"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/wget/container.yaml"
-updated_at: "2021-04-17 22:44:05.474892"
+github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/nvcr.io/nvidia/rapidsai/rapidsai/container.yaml"
+updated_at: "2021-04-17 22:44:19.973460"
 container_url: ""
 aliases:
- - "wget"
+ - "python"
 
 versions:
- - "latest"
-description: "GNU Wget is a free software package for retrieving files using HTTP, HTTPS, FTP and FTPS, the most widely used Internet protocols."
+ - "0.18-cuda11.0-runtime-centos7"
+description: "The RAPIDS suite of software libraries gives you the freedom to execute end-to-end data science and analytics pipelines entirely on GPUs."
 ---
 
-This module is a singularity container wrapper for ghcr.io/autamus/wget.
-GNU Wget is a free software package for retrieving files using HTTP, HTTPS, FTP and FTPS, the most widely used Internet protocols.
+This module is a singularity container wrapper for nvcr.io/nvidia/rapidsai/rapidsai.
+The RAPIDS suite of software libraries gives you the freedom to execute end-to-end data science and analytics pipelines entirely on GPUs.
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash
-$ shpc install ghcr.io/autamus/wget
+$ shpc install nvcr.io/nvidia/rapidsai/rapidsai
 ```
 
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/wget:latest
+$ shpc install nvcr.io/nvidia/rapidsai/rapidsai:0.18-cuda11.0-runtime-centos7
 ```
 
 And then you can tell lmod about your modules folder:
@@ -36,8 +36,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/wget/latest
-$ module help ghcr.io/autamus/wget/latest
+$ module load nvcr.io/nvidia/rapidsai/rapidsai/0.18-cuda11.0-runtime-centos7
+$ module help nvcr.io/nvidia/rapidsai/rapidsai/0.18-cuda11.0-runtime-centos7
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
@@ -48,41 +48,41 @@ You can use tab for auto-completion of module names or commands that are provide
 
 When you install this module, you'll be able to load it to make the following commands accessible:
 
-#### ghcr.io-autamus-wget-run:
+#### nvcr.io-nvidia-rapidsai-rapidsai-run:
 
 ```bash
 $ singularity run <container>
 ```
 
-#### ghcr.io-autamus-wget-shell:
+#### nvcr.io-nvidia-rapidsai-rapidsai-shell:
 
 ```bash
 $ singularity shell -s /bin/bash <container>
 ```
 
-#### ghcr.io-autamus-wget-exec:
+#### nvcr.io-nvidia-rapidsai-rapidsai-exec:
 
 ```bash
 $ singularity exec -s /bin/bash <container> "$@"
 ```
 
-#### ghcr.io-autamus-wget-inspect-runscript:
+#### nvcr.io-nvidia-rapidsai-rapidsai-inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### ghcr.io-autamus-wget-inspect-deffile:
+#### nvcr.io-nvidia-rapidsai-rapidsai-inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>
 ```
 
 
-#### wget
+#### python
        
 ```bash
-$ singularity exec <container> /opt/view/bin/wget
+$ singularity exec <container> /opt/conda/bin/python
 ```
 
 

@@ -1,30 +1,38 @@
 ---
 layout: container
-name:  "ghcr.io/autamus/wget"
+name:  "nvcr.io/nvidia-hpcvis/paraview"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/wget/container.yaml"
-updated_at: "2021-04-17 22:44:05.474892"
+github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/nvcr.io/nvidia-hpcvis/paraview/container.yaml"
+updated_at: "2021-04-17 22:44:18.959221"
 container_url: ""
 aliases:
- - "wget"
+ - "pvdataserver"
+
+ - "pvrenderserver"
+
+ - "pvbatch"
+
+ - "pypython"
+
+ - "pvserver"
 
 versions:
- - "latest"
-description: "GNU Wget is a free software package for retrieving files using HTTP, HTTPS, FTP and FTPS, the most widely used Internet protocols."
+ - "egl-py3-5.9.0"
+description: "ParaView is one of the most popular visualization software for analyzing HPC datasets."
 ---
 
-This module is a singularity container wrapper for ghcr.io/autamus/wget.
-GNU Wget is a free software package for retrieving files using HTTP, HTTPS, FTP and FTPS, the most widely used Internet protocols.
+This module is a singularity container wrapper for nvcr.io/nvidia-hpcvis/paraview.
+ParaView is one of the most popular visualization software for analyzing HPC datasets.
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash
-$ shpc install ghcr.io/autamus/wget
+$ shpc install nvcr.io/nvidia-hpcvis/paraview
 ```
 
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/wget:latest
+$ shpc install nvcr.io/nvidia-hpcvis/paraview:egl-py3-5.9.0
 ```
 
 And then you can tell lmod about your modules folder:
@@ -36,8 +44,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/wget/latest
-$ module help ghcr.io/autamus/wget/latest
+$ module load nvcr.io/nvidia-hpcvis/paraview/egl-py3-5.9.0
+$ module help nvcr.io/nvidia-hpcvis/paraview/egl-py3-5.9.0
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
@@ -48,41 +56,69 @@ You can use tab for auto-completion of module names or commands that are provide
 
 When you install this module, you'll be able to load it to make the following commands accessible:
 
-#### ghcr.io-autamus-wget-run:
+#### nvcr.io-nvidia-hpcvis-paraview-run:
 
 ```bash
 $ singularity run <container>
 ```
 
-#### ghcr.io-autamus-wget-shell:
+#### nvcr.io-nvidia-hpcvis-paraview-shell:
 
 ```bash
 $ singularity shell -s /bin/bash <container>
 ```
 
-#### ghcr.io-autamus-wget-exec:
+#### nvcr.io-nvidia-hpcvis-paraview-exec:
 
 ```bash
 $ singularity exec -s /bin/bash <container> "$@"
 ```
 
-#### ghcr.io-autamus-wget-inspect-runscript:
+#### nvcr.io-nvidia-hpcvis-paraview-inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### ghcr.io-autamus-wget-inspect-deffile:
+#### nvcr.io-nvidia-hpcvis-paraview-inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>
 ```
 
 
-#### wget
+#### pvdataserver
        
 ```bash
-$ singularity exec <container> /opt/view/bin/wget
+$ singularity exec <container> /opt/paraview/bin/pvdataserver
+```
+
+
+#### pvrenderserver
+       
+```bash
+$ singularity exec <container> /opt/paraview/bin/pvrenderserver
+```
+
+
+#### pvbatch
+       
+```bash
+$ singularity exec <container> /opt/paraview/bin/pvbatch
+```
+
+
+#### pypython
+       
+```bash
+$ singularity exec <container> /opt/paraview/bin/pvpython
+```
+
+
+#### pvserver
+       
+```bash
+$ singularity exec <container> /opt/paraview/bin/pvserver
 ```
 
 

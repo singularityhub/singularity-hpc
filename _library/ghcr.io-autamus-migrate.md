@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/migrate"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/migrate/container.yaml"
-updated_at: "2021-04-16 04:04:04.486614"
+updated_at: "2021-04-17 22:44:02.613943"
 container_url: ""
 aliases:
  - "migrate-n"
