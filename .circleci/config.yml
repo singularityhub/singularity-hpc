@@ -13,7 +13,7 @@ workflows:
           filters:
             branches:
               ignore:
-                - binoc/*
+                - binoc/**
                 - main
 
 setup_environment: &setup_environment

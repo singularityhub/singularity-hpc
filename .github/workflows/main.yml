@@ -1,8 +1,10 @@
 name: singularity-hpc
 
 on:
-  pull_request:
+  # This should run on a push to any branch except main, gh-pages, and binoc
+  push:
     branches_ignore:
+      - main
       - gh-pages
       - binoc/**
 

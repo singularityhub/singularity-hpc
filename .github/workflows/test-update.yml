@@ -1,7 +1,8 @@
 name: test-update
 
 on:
-  pull_request:
+  # Run on any push to a binoc branch, which is a container recipe update
+  push:
     branches:
       - binoc/**
 
