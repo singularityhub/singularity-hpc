@@ -3,7 +3,7 @@ layout: container
 name:  "bids/rshrf"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/bids/rshrf/container.yaml"
-updated_at: "2021-04-18 08:43:23.463033"
+updated_at: "2021-04-18 11:25:51.246896"
 container_url: ""
 aliases:
  - "rsHRF"
