@@ -3,18 +3,18 @@ layout: container
 name:  "ghcr.io/autamus/lp-solve"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/lp-solve/container.yaml"
-updated_at: "2021-04-18 20:39:39.087868"
+updated_at: "2021-04-18 20:40:51.261046"
 container_url: ""
 aliases:
  - "lp_solve"
 
 versions:
  - "latest"
-
+description: "Lp_solve is freely available (under LGPL 2) software for solving linear, integer and mixed integer programs."
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/lp-solve.
-
+Lp_solve is freely available (under LGPL 2) software for solving linear, integer and mixed integer programs.
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash
