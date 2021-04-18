@@ -1,13 +1,12 @@
 docker: couchdb
-latest:
-  latest: "sha256:e66b728bfd839339858b6624e67089708f70ee829be131b0d6fee5a37b47ad90"
-tags:
-  latest: "sha256:e66b728bfd839339858b6624e67089708f70ee829be131b0d6fee5a37b47ad90"
-filter:
-  - "latest"
-maintainer: "@vsoch"
 url: https://hub.docker.com/_/couchdb
-description: "CouchDB is a database that uses JSON for documents, an HTTP API, & JavaScript/declarative indexing."
+maintainer: '@vsoch'
+description: CouchDB is a database that uses JSON for documents, an HTTP API, & JavaScript/declarative
+  indexing.
+latest:
+  latest: sha256:fe85e61b62eec34a0fe7bcc4b85a4c876d733587102edb1a3fa4d77ae74bb436
+tags:
+  latest: sha256:fe85e61b62eec34a0fe7bcc4b85a4c876d733587102edb1a3fa4d77ae74bb436
 aliases:
   couchdb: /opt/couchdb/bin/couchdb
   couchdb.cmd: /opt/couchdb/bin/couchdb.cmd
