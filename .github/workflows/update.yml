@@ -20,5 +20,5 @@ jobs:
           git_email: ${{ secrets.BINOC_GIT_EMAIL }}
           git_name: ${{ secrets.BINOC_GIT_NAME }}
           general_action: 'true'
-          repo_path: 'registry/'
+          repo_path: '/'
           parsers_loaded: "shpc"
