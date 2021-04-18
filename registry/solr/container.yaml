@@ -11,5 +11,3 @@ aliases:
   post: /opt/solr/bin/post
   postlogs: /opt/solr/bin/postlogs
   solr: /opt/solr/bin/solr
-filter:
-- latest
