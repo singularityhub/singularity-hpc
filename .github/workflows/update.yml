@@ -2,9 +2,8 @@ name: 'update-container-versions-binoc'
 
 on:
   schedule:
-    - cron: '0 14 * * *'
-  push:
-    branches: main
+  # Delayed Binoc execution time to mid day just in case we need to step in.
+    - cron: '0 20 * * *'
 
 
 jobs:
