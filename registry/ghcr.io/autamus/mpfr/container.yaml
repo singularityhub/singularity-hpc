@@ -1,0 +1,8 @@
+docker: ghcr.io/autamus/mpfr
+latest:
+  "latest": "sha256:50419ca4d371149f734315c6fcd6b4747ed692067dab3214181a6726fed9cfa2"
+tags:
+  "latest": "sha256:50419ca4d371149f734315c6fcd6b4747ed692067dab3214181a6726fed9cfa2"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/mpfr
+description: "The MPFR library is a C library for multiple-precision floating-point computations with correct rounding."

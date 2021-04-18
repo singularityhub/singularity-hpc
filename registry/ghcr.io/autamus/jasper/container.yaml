@@ -1,0 +1,11 @@
+docker: ghcr.io/autamus/jasper
+latest:
+  "latest": "sha256:94211a44f1fe235d8ac0855e30b872578ffe0b60794b072f5a422fa9c87a88b5"
+tags:
+  "latest": "sha256:94211a44f1fe235d8ac0855e30b872578ffe0b60794b072f5a422fa9c87a88b5"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/jasper
+description: "JasPer is a collection of software (i.e., a library and application programs) for the coding and manipulation of images."
+aliases:
+  jasper: /opt/view/bin/jasper
+  jpegtran: /opt/view/bin/jpegtran

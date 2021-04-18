@@ -1,0 +1,10 @@
+docker: ghcr.io/autamus/udunits
+latest:
+  "latest": "sha256:6c461312262426b7c349d0bc2a4f90817655b4c7ea603aa26203e86189c21895"
+tags:
+  "latest": "sha256:6c461312262426b7c349d0bc2a4f90817655b4c7ea603aa26203e86189c21895"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/udunits
+description: "The UDUNITS package supports units of physical quantities. Its C library provides for arithmetic manipulation of units and for conversion of numeric values between compatible units."
+aliases:
+  udunits2: /opt/view/bin/udunits2

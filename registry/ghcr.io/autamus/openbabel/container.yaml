@@ -1,0 +1,28 @@
+docker: ghcr.io/autamus/openbabel
+latest:
+  "latest": "sha256:779c7dec57e0001240d9422e3df73cb16cfa1563c72a363ac11326f89ced7f00"
+tags:
+  "latest": "sha256:779c7dec57e0001240d9422e3df73cb16cfa1563c72a363ac11326f89ced7f00"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/openbabel
+description: "Open Babel is a chemical toolbox designed to speak the many languages of chemical data. It's an open, collaborative project allowing anyone to search, convert, analyze, or store data from molecular modeling, chemistry, solid-state materials, biochemistry, or related areas."
+aliases:
+  obabel: /opt/view/bin/obabel
+  obconformer: /opt/view/bin/obconformer
+  obdistgen: /opt/view/bin/obdistgen
+  obenergy: /opt/view/bin/obenergy
+  obfit: /opt/view/bin/obfit
+  obfitall: /opt/view/bin/obfitall
+  obgen: /opt/view/bin/obgen
+  obgrep: /opt/view/bin/obgrep
+  obminimize: /opt/view/bin/obminimize
+  obmm: /opt/view/bin/obmm
+  obprobe: /opt/view/bin/obprobe
+  obprop: /opt/view/bin/obprop
+  obrms: /opt/view/bin/obrms
+  obrotamer: /opt/view/bin/obrotamer
+  obrotate: /opt/view/bin/obrotate
+  obspectrophore: /opt/view/bin/obspectrophore
+  obsym: /opt/view/bin/obsym
+  obtautomer: /opt/view/bin/obtautomer
+  obthermo: /opt/view/bin/obthermo

@@ -1,0 +1,10 @@
+docker: ghcr.io/autamus/siesta
+latest:
+  "latest": "sha256:c569feb9b75ca5d6e3f946f244c7a0fef945a28e0090cf8548c1d3cc21627a7d"
+tags:
+  "latest": "sha256:c569feb9b75ca5d6e3f946f244c7a0fef945a28e0090cf8548c1d3cc21627a7d"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/siesta
+description: "SIESTA performs electronic structure calculations and ab initio molecular dynamics simulations of molecules and solids."
+aliases:
+  siesta: /opt/view/bin/siesta

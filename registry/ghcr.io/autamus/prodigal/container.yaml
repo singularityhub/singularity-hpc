@@ -1,0 +1,10 @@
+docker: ghcr.io/autamus/prodigal
+latest:
+  "latest": "sha256:299171c1a1eb6ae28dfa3bd319c1d23d7131aaba0057a479716c15b29f6d2c77"
+tags:
+  "latest": "sha256:299171c1a1eb6ae28dfa3bd319c1d23d7131aaba0057a479716c15b29f6d2c77"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/prodigal
+description: "Prodigal Gene Prediction Software"
+aliases:
+  prodigal: /opt/view/prodigal

@@ -1,0 +1,12 @@
+docker: ghcr.io/autamus/curl
+latest:
+  "latest": "sha256:c81ee86e14a1437ec7b50eb8aef4d3d01019fff8be7c6ac66d3085ca4e2ba184"
+tags:
+  "latest": "sha256:c81ee86e14a1437ec7b50eb8aef4d3d01019fff8be7c6ac66d3085ca4e2ba184"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/curl
+description: "cURL is a computer software project providing a library and command-line tool for transferring data using various network protocols. The name stands for 'Client URL', which was first released in 1997."
+aliases:
+  c_rehash: /opt/view/bin/c_rehash
+  curl: /opt/view/bin/curl
+  curl-config: /opt/view/bin/curl-config

@@ -1,0 +1,40 @@
+docker: ghcr.io/autamus/geant4
+latest:
+  "latest": "sha256:c80db8c3b3102b4986cfed8c8545f2b36c4eae641003946d21f0d75fc1874e30"
+tags:
+  "latest": "sha256:c80db8c3b3102b4986cfed8c8545f2b36c4eae641003946d21f0d75fc1874e30"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/geant4
+description: "Geant4 is a platform for the simulation of the passage of particles through matter using Monte Carlo methods."
+aliases:
+  Cast-config: /opt/view/bin/Cast-config
+  CreateDOMDocument: /opt/view/bin/CreateDOMDocument
+  DOMCount: /opt/view/bin/DOMCount
+  DOMPrint: /opt/view/bin/DOMPrint
+  EnumVal: /opt/view/bin/EnumVal
+  Evaluator-config: /opt/view/bin/Evaluator-config
+  Exceptions-config: /opt/view/bin/Exceptions-config
+  GenericFunctions-config: /opt/view/bin/GenericFunctions-config
+  Geometry-config: /opt/view/bin/Geometry-config
+  Matrix-config: /opt/view/bin/Matrix-config
+  MemParse: /opt/view/bin/MemParse
+  PParse: /opt/view/bin/PParse
+  PSVIWriter: /opt/view/bin/PSVIWriter
+  Random-config: /opt/view/bin/Random-config
+  RandomObjects-config: /opt/view/bin/RandomObjects-config
+  Redirect: /opt/view/bin/Redirect
+  RefCount-config: /opt/view/bin/RefCount-config
+  SAX2Count: /opt/view/bin/SAX2Count
+  SAX2Print: /opt/view/bin/SAX2Print
+  SAXCount: /opt/view/bin/SAXCount
+  SAXPrint: /opt/view/bin/SAXPrint
+  SCMPrint: /opt/view/bin/SCMPrint
+  SEnumVal: /opt/view/bin/SEnumVal
+  StdInParse: /opt/view/bin/StdInParse
+  Units-config: /opt/view/bin/Units-config
+  Utility-config: /opt/view/bin/Utility-config
+  Vector-config: /opt/view/bin/Vector-config
+  XInclude: /opt/view/bin/XInclude
+  geant4-config: /opt/view/bin/geant4-config
+  geant4.csh: /opt/view/bin/geant4.csh
+  geant4.sh: /opt/view/bin/geant4.sh

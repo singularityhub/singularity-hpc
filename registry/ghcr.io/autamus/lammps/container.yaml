@@ -1,0 +1,8 @@
+docker: ghcr.io/autamus/lammps
+latest:
+  "latest": "sha256:720e64cf5f6c16697becfb1aff5df918e1179cbdb3bc100574c93966de7ecb92"
+tags:
+  "latest": "sha256:720e64cf5f6c16697becfb1aff5df918e1179cbdb3bc100574c93966de7ecb92"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/lammps
+description: "LAMMPS is a classical molecular dynamics code with a focus on materials modeling."

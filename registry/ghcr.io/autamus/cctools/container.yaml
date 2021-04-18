@@ -1,0 +1,35 @@
+docker: ghcr.io/autamus/cctools
+latest:
+  "latest": "sha256:0f8d8b5ef556bce3aab4fd70ce4b1f085d1116b2950d772db472e2d2ecb68be0"
+tags:
+  "latest": "sha256:0f8d8b5ef556bce3aab4fd70ce4b1f085d1116b2950d772db472e2d2ecb68be0"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/cctools
+description: "The Cooperative Computing Tools (CCTools) are a collection of programs that enable large scale distributed computing on systems such as clusters, clouds, and grids."
+aliases:
+  c_rehash: /opt/view/bin/c_rehash
+  captoinfo: /opt/view/bin/captoinfo
+  catalog_query: /opt/view/bin/catalog_query
+  catalog_server: /opt/view/bin/catalog_server
+  catalog_update: /opt/view/bin/catalog_update
+  ccache-swig: /opt/view/bin/ccache-swig
+  cctools_gpu_autodetect: /opt/view/bin/cctools_gpu_autodetect
+  chirp: /opt/view/bin/chirp
+  chirp_audit_cluster: /opt/view/bin/chirp_audit_cluster
+  chirp_benchmark: /opt/view/bin/chirp_benchmark
+  chirp_distribute: /opt/view/bin/chirp_distribute
+  chirp_fuse: /opt/view/bin/chirp_fuse
+  chirp_get: /opt/view/bin/chirp_get
+  chirp_put: /opt/view/bin/chirp_put
+  chirp_server: /opt/view/bin/chirp_server
+  chirp_server_hdfs: /opt/view/bin/chirp_server_hdfs
+  chirp_status: /opt/view/bin/chirp_status
+  chirp_stream_files: /opt/view/bin/chirp_stream_files
+  chroot_package_run: /opt/view/bin/chroot_package_run
+  clear: /opt/view/bin/clear
+  condor_submit_makeflow: /opt/view/bin/condor_submit_makeflow
+  condor_submit_workers: /opt/view/bin/condor_submit_workers
+  confuga_adm: /opt/view/bin/confuga_adm
+  corelist: /opt/view/bin/corelist
+  cpan: /opt/view/bin/cpan
+  cpanm: /opt/view/bin/cpanm

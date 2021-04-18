@@ -1,0 +1,8 @@
+docker: ghcr.io/autamus/libxpm
+latest:
+  "latest": "sha256:61102a118d41984eec7bc19dfd103587d3ed2e264364fe3b8d290cd96de31986"
+tags:
+  "latest": "sha256:61102a118d41984eec7bc19dfd103587d3ed2e264364fe3b8d290cd96de31986"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/libxpm
+description: "The X PixMap image format is an extension of the monochrome X BitMap format specified in the X protocol, and is commonly used in traditional X applications."
