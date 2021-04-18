@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/ffmpeg"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/ffmpeg/container.yaml"
-updated_at: "2021-04-18 00:50:25.191885"
+updated_at: "2021-04-18 00:51:39.057273"
 container_url: ""
 aliases:
  - "ffmpeg"
