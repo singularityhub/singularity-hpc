@@ -3,11 +3,12 @@ layout: container
 name:  "bids/hcppipelines"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/bids/hcppipelines/container.yaml"
-updated_at: "2021-04-18 07:39:30.477282"
+updated_at: "2021-04-18 07:41:14.245968"
 container_url: ""
 
 versions:
  - "latest"
+ - "v4.1.3-1"
 description: "BIDS-ified HPC Piplines to process MRI data for the Human Connectome Project (https://github.com/BIDS-Apps/HCPPipelines)"
 ---
 
