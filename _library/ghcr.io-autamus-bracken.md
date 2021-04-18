@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/bracken"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/bracken/container.yaml"
-updated_at: "2021-04-18 21:08:51.191498"
+updated_at: "2021-04-18 21:09:52.944040"
 container_url: ""
 
 versions:
