@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/bcftools"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/bcftools/container.yaml"
-updated_at: "2021-04-18 06:43:37.242616"
+updated_at: "2021-04-18 07:12:18.160312"
 container_url: ""
 aliases:
  - "bcftools"
