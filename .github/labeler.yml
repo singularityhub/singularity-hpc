@@ -1,0 +1,2 @@
+container-recipe:
+- any: ['registry/*', 'registry/**/*', 'registry/**/**/*', 'registry/**/**/**/*']
