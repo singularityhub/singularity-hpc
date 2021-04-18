@@ -1,13 +1,15 @@
 docker: mariadb
-latest:
-  latest: "sha256:7e244fae615587335176db07e88b43eee5e4762f35306e17c13c68125d93b9bf"
-tags:
-  latest: "sha256:7e244fae615587335176db07e88b43eee5e4762f35306e17c13c68125d93b9bf"
-filter:
-  - "latest"
-maintainer: "@vsoch"
 url: https://hub.docker.com/r/_/mariadb
-description: "MariaDB Server is one of the most popular database servers in the world. It’s made by the original developers of MySQL and guaranteed to stay open source. Notable users include Wikipedia, DBS Bank and ServiceNow."
+maintainer: '@vsoch'
+description: MariaDB Server is one of the most popular database servers in the world.
+  It’s made by the original developers of MySQL and guaranteed to stay open source.
+  Notable users include Wikipedia, DBS Bank and ServiceNow.
+latest:
+  latest: sha256:9c681cefe72e257c6d58f839bb504f50bf259a0221c883fcc220f0755563fa46
+tags:
+  latest: sha256:9c681cefe72e257c6d58f839bb504f50bf259a0221c883fcc220f0755563fa46
+filter:
+- latest
 aliases:
   mariabackup: /usr/bin/mariabackup
   mariadb: /usr/bin/mariadb
