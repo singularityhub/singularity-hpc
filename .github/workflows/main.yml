@@ -6,6 +6,7 @@ on:
     branches_ignore:
       - main
       - gh-pages
+      - binoc/*
       - binoc/**
 
 jobs:
