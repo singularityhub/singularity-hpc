@@ -9,5 +9,3 @@ tags:
   latest: sha256:0dc30c8081ea3cb4a90c908a571cb4aa469ae9e3d2b27d9fb713031127360e42
 aliases:
   consul: /bin/consul
-filter:
-- latest
