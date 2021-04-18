@@ -1,12 +1,6 @@
 name: singularity-hpc
 
 on:
-  push:
-    branches:
-      - main
-    ignore:
-      - gh-pages
-      - binoc/*
   pull_request:
     branches_ignore:
       - gh-pages
