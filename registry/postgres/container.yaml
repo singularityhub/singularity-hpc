@@ -1,13 +1,12 @@
 docker: postgres
-latest:
-  latest: "sha256:b8a95fca95479c5370fe52dfa753940bf7b037e30a121e3ece2106a8841709c0"
-tags:
-  latest: "sha256:b8a95fca95479c5370fe52dfa753940bf7b037e30a121e3ece2106a8841709c0"
-filter:
-  - "latest"
-maintainer: "@vsoch"
 url: https://hub.docker.com/r/_/postgres
-description: "PostgreSQL, often simply 'Postgres', is an object-relational database management system (ORDBMS) with an emphasis on extensibility and standards-compliance."
+maintainer: '@vsoch'
+description: PostgreSQL, often simply 'Postgres', is an object-relational database
+  management system (ORDBMS) with an emphasis on extensibility and standards-compliance.
+latest:
+  latest: sha256:61d5d8ef6cb4e2035f053f26b6b455c201a809354084cc8426b6904b8dd35602
+tags:
+  latest: sha256:61d5d8ef6cb4e2035f053f26b6b455c201a809354084cc8426b6904b8dd35602
 aliases:
   clusterdb: /usr/lib/postgresql/13/bin/clusterdb
   createdb: /usr/lib/postgresql/13/bin/createdb
@@ -18,7 +17,6 @@ aliases:
   oid2name: /usr/lib/postgresql/13/bin/oid2name
   pg_archivecleanup: /usr/lib/postgresql/13/bin/pg_archivecleanup
   pg_basebackup: /usr/lib/postgresql/13/bin/pg_basebackup
-  pgbench: /usr/lib/postgresql/13/bin/pgbench
   pg_checksums: /usr/lib/postgresql/13/bin/pg_checksums
   pg_config: /usr/lib/postgresql/13/bin/pg_config
   pg_controldata: /usr/lib/postgresql/13/bin/pg_controldata
@@ -37,9 +35,12 @@ aliases:
   pg_upgrade: /usr/lib/postgresql/13/bin/pg_upgrade
   pg_verifybackup: /usr/lib/postgresql/13/bin/pg_verifybackup
   pg_waldump: /usr/lib/postgresql/13/bin/pg_waldump
+  pgbench: /usr/lib/postgresql/13/bin/pgbench
   postgres: /usr/lib/postgresql/13/bin/postgres
   postmaster: /usr/lib/postgresql/13/bin/postmaster
   psql: /usr/lib/postgresql/13/bin/psql
   reindexdb: /usr/lib/postgresql/13/bin/reindexdb
   vacuumdb: /usr/lib/postgresql/13/bin/vacuumdb
   vacuumlo: /usr/lib/postgresql/13/bin/vacuumlo
+filter:
+- latest
