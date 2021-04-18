@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/meme"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/meme/container.yaml"
-updated_at: "2021-04-18 20:45:50.769847"
+updated_at: "2021-04-18 20:46:12.412927"
 container_url: ""
 aliases:
  - "meme"
