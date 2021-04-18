@@ -1,14 +1,14 @@
 docker: spack/ubuntu-bionic
-latest:
-  latest: "sha256:0b49f5603e0ee27174c68e49baf451938b7a0cab98dc4c9acafb05b6107bcf66"
-tags:
-  latest: "sha256:0b49f5603e0ee27174c68e49baf451938b7a0cab98dc4c9acafb05b6107bcf66"
-filter:
-  - "latest"
-maintainer: "@vsoch"
 url: https://hub.docker.com/r/spack/ubuntu-bionic
-description: "Ubuntu 18.04 with Spack preinstalled."
+maintainer: '@vsoch'
+description: Ubuntu 18.04 with Spack preinstalled.
+latest:
+  latest: sha256:57bffff6a40d4a682a07e9dc5029fe073784e78323f3d30e4731c93fa4ee430c
+tags:
+  latest: sha256:57bffff6a40d4a682a07e9dc5029fe073784e78323f3d30e4731c93fa4ee430c
 aliases:
   sbang: /opt/spack/bin/sbang
   spack: /opt/spack/bin/spack
   spack-python: /opt/spack/bin/spack-python
+filter:
+- latest
