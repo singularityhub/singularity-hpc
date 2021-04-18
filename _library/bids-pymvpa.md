@@ -3,11 +3,12 @@ layout: container
 name:  "bids/pymvpa"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/bids/pymvpa/container.yaml"
-updated_at: "2021-04-18 07:50:11.505325"
+updated_at: "2021-04-18 07:57:42.083252"
 container_url: ""
 
 versions:
  - "latest"
+ - "v2.0.2"
 description: "Take fMRI data and generates ROI based MultiVariate Pattern Analysis (MVPA) outputs (https://github.com/BIDS-Apps/PyMVPA)"
 ---
 
