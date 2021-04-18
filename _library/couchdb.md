@@ -3,7 +3,7 @@ layout: container
 name:  "couchdb"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/couchdb/container.yaml"
-updated_at: "2021-04-18 18:21:11.637693"
+updated_at: "2021-04-18 18:25:56.577106"
 container_url: ""
 aliases:
  - "couchdb"
@@ -15,6 +15,7 @@ aliases:
  - "remsh"
 
 versions:
+ - "2"
  - "latest"
 description: "CouchDB is a database that uses JSON for documents, an HTTP API, & JavaScript/declarative indexing."
 ---
@@ -30,7 +31,7 @@ $ shpc install couchdb
 Or a specific version:
 
 ```bash
-$ shpc install couchdb:latest
+$ shpc install couchdb:2
 ```
 
 And then you can tell lmod about your modules folder:
@@ -42,8 +43,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load couchdb/latest
-$ module help couchdb/latest
+$ module load couchdb/2
+$ module help couchdb/2
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

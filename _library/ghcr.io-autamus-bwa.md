@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/bwa"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/bwa/container.yaml"
-updated_at: "2021-04-18 18:21:23.244152"
+updated_at: "2021-04-18 18:26:06.110955"
 container_url: ""
 aliases:
  - "bwa"
