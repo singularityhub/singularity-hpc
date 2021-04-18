@@ -1,4 +1,4 @@
-name: 'update-container-versions-binoc'
+name: 'Binoc Auto Scan'
 
 on:
   schedule:
