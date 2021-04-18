@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/kraken2"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/kraken2/container.yaml"
-updated_at: "2021-04-18 05:58:40.110814"
+updated_at: "2021-04-18 06:00:13.731206"
 container_url: ""
 aliases:
  - "kraken2"
