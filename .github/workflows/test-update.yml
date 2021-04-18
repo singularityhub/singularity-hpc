@@ -28,21 +28,6 @@ jobs:
         with:
           singularity-version: 3.6.4
 
-      - name: Derive number of commits
-        run: |
-            touch changes.txt
-            # the bot should only have one commit
-            for container_yaml in $(git diff --name-only HEAD~1..HEAD .); do
-                echo $container_yaml >> changes.txt
-            done            
-            cat changes.txt
-
-      - name: Save changelist
-        uses: actions/upload-artifact@v2
-        with:
-          name: changes.txt
-          path: /opt/singularity-hpc/registry/changes.txt
-
       - name: Create conda environment
         run: conda create --quiet -c conda-forge --name shpc spython
 
@@ -53,18 +38,15 @@ jobs:
           source activate shpc
           pip install -e .
 
-      - name: Download changelist
-        uses: actions/download-artifact@v2
-        with:
-          name: changes.txt
-
       - name: Run module tests
         run: |
           export PATH="/usr/share/miniconda/bin:$PATH"
 
           source activate shpc
           cd registry
-          for container_yaml in $(cat ../changes.txt); do
+
+          # There should only be one commit with changes.
+          for container_yaml in $(git diff --name-only HEAD~1..main .); do
               module=$(dirname $container_yaml)
               module=$(echo "${module/registry\//}")
               echo "Testing $module"
