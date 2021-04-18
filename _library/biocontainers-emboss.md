@@ -3,7 +3,7 @@ layout: container
 name:  "biocontainers/emboss"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/biocontainers/emboss/container.yaml"
-updated_at: "2021-04-18 11:25:25.618638"
+updated_at: "2021-04-18 11:54:02.250955"
 container_url: ""
 aliases:
  - "embossdata"
