@@ -1,11 +1,9 @@
-name: 'update-container-versions-binoc'
+name: 'Binoc Auto Scan'
 
 on:
   schedule:
     # Delayed Binoc execution time to mid day just in case we need to step in.
     - cron: '0 20 * * *'
-  push:
-    branches: main
 
 jobs:
   auto-scan:
