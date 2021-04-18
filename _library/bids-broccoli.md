@@ -3,7 +3,7 @@ layout: container
 name:  "bids/broccoli"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/bids/broccoli/container.yaml"
-updated_at: "2021-04-18 00:51:57.010012"
+updated_at: "2021-04-18 05:58:51.721843"
 container_url: ""
 
 versions:

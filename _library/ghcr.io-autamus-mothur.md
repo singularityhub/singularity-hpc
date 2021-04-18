@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/mothur"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/mothur/container.yaml"
-updated_at: "2021-04-18 00:51:39.735535"
+updated_at: "2021-04-18 05:58:31.852879"
 container_url: ""
 aliases:
  - "mothur"

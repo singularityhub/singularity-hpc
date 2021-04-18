@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/libpng"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/libpng/container.yaml"
-updated_at: "2021-04-18 00:51:48.591263"
+updated_at: "2021-04-18 05:58:42.058146"
 container_url: ""
 aliases:
  - "libpng-config"
