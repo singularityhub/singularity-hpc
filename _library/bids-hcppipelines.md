@@ -3,7 +3,7 @@ layout: container
 name:  "bids/hcppipelines"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/bids/hcppipelines/container.yaml"
-updated_at: "2021-04-18 08:21:48.162262"
+updated_at: "2021-04-18 08:24:47.225549"
 container_url: ""
 
 versions:

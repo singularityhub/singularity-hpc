@@ -3,13 +3,14 @@ layout: container
 name:  "biocontainers/bwa"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/biocontainers/bwa/container.yaml"
-updated_at: "2021-04-18 08:21:19.656524"
+updated_at: "2021-04-18 08:24:15.184025"
 container_url: ""
 aliases:
  - "bwa"
 
 versions:
  - "0.7.15"
+ - "v0.7.17_cv1"
 description: "BWA is a software package for mapping low-divergent sequences against a large reference genome, such as the human genome."
 ---
 
