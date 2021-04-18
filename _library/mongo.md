@@ -3,26 +3,26 @@ layout: container
 name:  "mongo"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/mongo/container.yaml"
-updated_at: "2021-04-18 20:41:08.607567"
+updated_at: "2021-04-18 20:45:26.623402"
 container_url: ""
 aliases:
  - "mongo"
 
- - "mongodump"
-
- - "mongofiles"
-
- - "mongostore"
-
- - "mongostat"
-
  - "mongod"
 
+ - "mongodump"
+
  - "mongoexport"
+
+ - "mongofiles"
 
  - "mongoimport"
 
  - "mongos"
+
+ - "mongostat"
+
+ - "mongostore"
 
  - "mongotop"
 
@@ -104,34 +104,6 @@ $ singularity exec <container> /usr/bin/mongo
 ```
 
 
-#### mongodump
-       
-```bash
-$ singularity exec <container> /usr/bin/mongodump
-```
-
-
-#### mongofiles
-       
-```bash
-$ singularity exec <container> /usr/bin/mongofiles
-```
-
-
-#### mongostore
-       
-```bash
-$ singularity exec <container> /usr/bin/mongorestore
-```
-
-
-#### mongostat
-       
-```bash
-$ singularity exec <container> /usr/bin/mongostat
-```
-
-
 #### mongod
        
 ```bash
@@ -139,10 +111,24 @@ $ singularity exec <container> /usr/bin/mongod
 ```
 
 
+#### mongodump
+       
+```bash
+$ singularity exec <container> /usr/bin/mongodump
+```
+
+
 #### mongoexport
        
 ```bash
 $ singularity exec <container> /usr/bin/mongoexport
+```
+
+
+#### mongofiles
+       
+```bash
+$ singularity exec <container> /usr/bin/mongofiles
 ```
 
 
@@ -157,6 +143,20 @@ $ singularity exec <container> /usr/bin/mongoimport
        
 ```bash
 $ singularity exec <container> /usr/bin/mongos
+```
+
+
+#### mongostat
+       
+```bash
+$ singularity exec <container> /usr/bin/mongostat
+```
+
+
+#### mongostore
+       
+```bash
+$ singularity exec <container> /usr/bin/mongorestore
 ```
 
 
