@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/alan"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/alan/container.yaml"
-updated_at: "2021-04-18 07:13:12.030595"
+updated_at: "2021-04-18 07:18:51.020743"
 container_url: ""
 aliases:
  - "alan"
