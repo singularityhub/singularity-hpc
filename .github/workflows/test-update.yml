@@ -30,21 +30,9 @@ jobs:
 
       - name: Derive number of commits
         run: |
-            cd /opt
-            branch="${{ github.head_ref }}"
-            git config --global user.email "github-actions"
-            git config --global user.name "github-actions@noreply.github.users.com"
-            git clone -b main https://github.com/singularityhub/singularity-hpc
-            cd singularity-hpc
-            git checkout -b $branch
-            git pull origin $branch
-            commits=$(git log --oneline "$branch" ^main | wc -l)
-            echo "Found $commits since main"
-            cd registry
             touch changes.txt
-            # Note that you can also do: git diff --name-only $branch..main .
-            # We show the count of commits as a sanity check to the developer
-            for container_yaml in $(git diff --name-only HEAD~$commits..HEAD .); do
+            # the bot should only have one commit
+            for container_yaml in $(git diff --name-only HEAD~1..HEAD .); do
                 echo $container_yaml >> changes.txt
             done            
             cat changes.txt
