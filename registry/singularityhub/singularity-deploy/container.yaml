@@ -1,10 +1,12 @@
 gh: singularityhub/singularity-deploy
-latest:
-  salad: "0.0.1"
-tags:
-  salad: "0.0.1"
-maintainer: "@vsoch"
 url: https://github.com/singularityhub/singularity-deploy
-description: "Example shpc container using Singularity Deploy, build and serve from GitHub releases."
+maintainer: '@vsoch'
+description: Example shpc container using Singularity Deploy, build and serve from
+  GitHub releases.
+latest:
+  0.0.12: singularityhub/singularity-deploy
+tags:
+  0.0.12: singularityhub/singularity-deploy
+  salad: 0.0.1
 aliases:
   salad: /code/salad

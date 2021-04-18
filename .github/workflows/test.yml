@@ -1,4 +1,4 @@
-name: singularity-hpc-test-registry
+name: Test Registry Module
 
 on:
   pull_request:
