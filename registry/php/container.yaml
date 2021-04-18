@@ -7,8 +7,6 @@ latest:
   latest: sha256:4b1016d76de017cb030009c358cad5eb28cfa5856b4f16e933b81605edade881
 tags:
   latest: sha256:4b1016d76de017cb030009c358cad5eb28cfa5856b4f16e933b81605edade881
-filter:
-- latest
 aliases:
   php: /usr/local/bin/php
   php-cgi: /usr/local/bin/php-cgi
