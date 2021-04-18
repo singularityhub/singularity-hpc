@@ -1,8 +1,9 @@
 docker: ghcr.io/autamus/ascent
-latest:
-  "latest": "sha256:cb72b68e00b81b6655e7e93bace76ba73f1c98d14d8cef42a435c37b8c6a6ef9"
-tags:
-  "latest": "sha256:cb72b68e00b81b6655e7e93bace76ba73f1c98d14d8cef42a435c37b8c6a6ef9"
-maintainer: "@vsoch"
-description: "An open source many-core capable lightweight in situ visualization and analysis infrastructure for multi-physics HPC simulations."
 url: https://github.com/orgs/autamus/packages/container/package/ascent
+maintainer: '@vsoch'
+description: An open source many-core capable lightweight in situ visualization and
+  analysis infrastructure for multi-physics HPC simulations.
+latest:
+  latest: sha256:c025f72e442b7a4f5626e0520e09e8a7a5e5f5c630565cbd8d0d178ff2585ee6
+tags:
+  latest: sha256:c025f72e442b7a4f5626e0520e09e8a7a5e5f5c630565cbd8d0d178ff2585ee6
