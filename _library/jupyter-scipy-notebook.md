@@ -3,7 +3,7 @@ layout: container
 name:  "jupyter/scipy-notebook"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/jupyter/scipy-notebook/container.yaml"
-updated_at: "2021-04-18 17:19:48.221449"
+updated_at: "2021-04-18 17:23:55.697663"
 container_url: ""
 aliases:
  - "run-notebook"
