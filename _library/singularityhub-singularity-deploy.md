@@ -3,12 +3,13 @@ layout: container
 name:  "singularityhub/singularity-deploy"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/singularityhub/singularity-deploy/container.yaml"
-updated_at: "2021-04-18 17:18:58.324546"
+updated_at: "2021-04-18 17:19:57.000847"
 container_url: ""
 aliases:
  - "salad"
 
 versions:
+ - "0.0.12"
  - "salad"
 description: "Example shpc container using Singularity Deploy, build and serve from GitHub releases."
 ---
@@ -24,7 +25,7 @@ $ shpc install singularityhub/singularity-deploy
 Or a specific version:
 
 ```bash
-$ shpc install singularityhub/singularity-deploy:salad
+$ shpc install singularityhub/singularity-deploy:0.0.12
 ```
 
 And then you can tell lmod about your modules folder:
@@ -36,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load singularityhub/singularity-deploy/salad
-$ module help singularityhub/singularity-deploy/salad
+$ module load singularityhub/singularity-deploy/0.0.12
+$ module help singularityhub/singularity-deploy/0.0.12
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

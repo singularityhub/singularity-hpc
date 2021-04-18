@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/eagle"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/eagle/container.yaml"
-updated_at: "2021-04-18 17:18:44.166423"
+updated_at: "2021-04-18 17:19:43.124507"
 container_url: ""
 aliases:
  - "eagle"
