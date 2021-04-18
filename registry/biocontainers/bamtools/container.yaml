@@ -1,12 +1,13 @@
 docker: biocontainers/bamtools
-latest:
- "v2.5.1dfsg-3-deb_cv1": "sha256:d92eff2abaf77885c5c729f972eb05bfc7d04b5b223b841ca4b8ee2f6de2310d"
-tags:
- "v2.5.1dfsg-3-deb_cv1": "sha256:d92eff2abaf77885c5c729f972eb05bfc7d04b5b223b841ca4b8ee2f6de2310d"
-filter:
-  - "v*"
-maintainer: "@vsoch"
-description: "BamTools is a toolkit for handling BAM files."
 url: https://hub.docker.com/r/biocontainers/bamtools
+maintainer: '@vsoch'
+description: BamTools is a toolkit for handling BAM files.
+latest:
+  2.5.1.dfsg.3.deb.cv.1: sha256:d92eff2abaf77885c5c729f972eb05bfc7d04b5b223b841ca4b8ee2f6de2310d
+tags:
+  2.5.1.dfsg.3.deb.cv.1: sha256:d92eff2abaf77885c5c729f972eb05bfc7d04b5b223b841ca4b8ee2f6de2310d
+  v2.5.1dfsg-3-deb_cv1: sha256:d92eff2abaf77885c5c729f972eb05bfc7d04b5b223b841ca4b8ee2f6de2310d
 aliases:
   bamtools: /usr/bin/bamtools
+filter:
+- v*
