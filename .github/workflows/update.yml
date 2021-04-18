@@ -1,6 +1,8 @@
 name: 'Binoc Auto Scan'
 
 on:
+  push:
+    branches: [main]
   schedule:
     # Delayed Binoc execution time to mid day just in case we need to step in.
     - cron: '0 20 * * *'
