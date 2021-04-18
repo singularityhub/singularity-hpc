@@ -80,20 +80,17 @@ By default, containers are installed alongside the respective modules,
 but as shown above, this can be changed. 
 Users that don't want to interact with the shpc client to update settings can
 open the "settings.yml" file directly, which is included in the repository.
-The user can then use `shpc show` to see readily available recipes, or browse the [library](https://singularityhub.github.io/singularity-hpc/) for an easily searchable interface. Installation comes down to installing a chosen module:
+The user can then use `shpc show` to see readily available recipes, or browse the [library](https://singularityhub.github.io/singularity-hpc/) for an easily searchable interface. Installation comes down to installing a chosen module, loading it, and using it:
 
 ```bash
 $ shpc install biocontainers/samtools
+$ module load biocontainers/samtools
+$ samtools
 ```
 
-and then telling the environment modules software to use the shpc modules directory,
-which defaults to the "modules" directory in the repository. 
-
-```bash
-$ module use ./modules
-```
-
-A cluster administrator would have modules loaded automatically via a start script or bash profile, so the researcher typcically does not need to execute this extra command. However, with this command, that same researcher is empowered to add their own custom installation directory of modules that might not be available from their system administrators.
+While a user might need to add a new module directory for LMOD to find with 
+`module use`, a cluster administrator would likely have modules loaded automatically for the user
+via a bash profile. With the `module load` command, the researcher is empowered to add their own custom installation directory of modules that might not be available from their system administrators.
 
 The container can then be loaded, and is then available as an exposed set of 
 shell aliases that look like simple executable commands:

@@ -19,6 +19,23 @@ is wanted, it can be added. The module name would still be appropriate, as
 singularity does imply a single entity that is "one library to rule them all!"
 
 
+Really Quick Start
+==================
+
+Once you have shpc installed, you can easily install, load, and use modules:
+
+.. code-block:: console
+
+    $ shpc install biocontainers/samtools
+    $ module load biocontainers/samtools
+    $ samtools
+
+
+The above assumes that you've installed the software, and have already
+added the modules folder to be seen by LMOD. This step is shown in detail
+in the next section.
+
+
 Quick Start
 ===========
 
@@ -51,7 +68,7 @@ help:
 
 .. code-block:: console
 
-
+    $ module help python/3.9.2-slim
 
 For more detailed tutorials, you should continue reading,
 and see :ref:`getting_started-use-cases`.
@@ -100,7 +117,7 @@ But since latest is already 3.9.2, you could leave out the tag.
 
 .. code-block:: console
 
-    $ shpc install python
+    $ shpc install python/3.9.2
 
 
 And the module folder shown previously would be generated. Currently, we assume
