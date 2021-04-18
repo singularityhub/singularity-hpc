@@ -13,7 +13,7 @@ workflows:
           filters:
             branches:
               ignore:
-                - binoc/.*
+                - /binoc.*/
                 - main
 
 setup_environment: &setup_environment
@@ -89,12 +89,21 @@ test_shpc: &test_shpc
       pytest -sv test_*.py
 
 
+exit_early: &exit_early
+  name: Run docker build
+  command: |
+     if [[ ! << pipeline.git.branch >> =~ ^binoc.* ]]; then
+       printf "Cancelling workflow.\n"
+       curl -X POST https://circleci.com/api/v2/workflow/${CIRCLE_WORKFLOW_ID}/cancel -H 'Accept: application/json' -u '${CIRCLE_TOKEN}:'
+       fi
+
 jobs:
   test_singularity_hpc:
     working_directory: ~/repo
     machine:
       image: ubuntu-2004:202008-01
     steps:
+      - run: *exit_early
       - checkout
       - restore_cache:
           keys: v1-dependencies
