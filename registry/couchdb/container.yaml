@@ -13,3 +13,4 @@ aliases:
   couchdb.cmd: /opt/couchdb/bin/couchdb.cmd
   couchjs: /opt/couchdb/bin/couchjs
   remsh: /opt/couchdb/bin/remsh
+{}
