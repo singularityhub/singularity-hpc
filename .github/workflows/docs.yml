@@ -1,4 +1,4 @@
-name: singularity-docs
+name: Update Docs
 
 on:
   push:
