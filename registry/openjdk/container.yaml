@@ -1,13 +1,12 @@
 docker: openjdk
-latest:
-  latest: "sha256:a7e2172a3f36e3903f39044274ed170eaf3b162e9140a2877fce08d69dfa3b20"
-tags:
-  latest: "sha256:a7e2172a3f36e3903f39044274ed170eaf3b162e9140a2877fce08d69dfa3b20"
-filter:
-  - "latest"
-maintainer: "@vsoch"
 url: https://hub.docker.com/_/openjdk
-description: "OpenJDK is an open-source implementation of the Java Platform, Standard Edition."
+maintainer: '@vsoch'
+description: OpenJDK is an open-source implementation of the Java Platform, Standard
+  Edition.
+latest:
+  latest: sha256:16e7f9c093d49cd3a38b31b11e8b3575609e34eca037b99a33081ece72731266
+tags:
+  latest: sha256:16e7f9c093d49cd3a38b31b11e8b3575609e34eca037b99a33081ece72731266
 aliases:
   jar: /usr/bin/jar
   jarsigner: /usr/bin/jarsigner
@@ -36,3 +35,5 @@ aliases:
   jstack: /usr/bin/jstack
   jstat: /usr/bin/jstat
   jstatd: /usr/bin/jstatd
+filter:
+- latest
