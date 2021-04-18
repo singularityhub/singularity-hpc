@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/admixtools"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/admixtools/container.yaml"
-updated_at: "2021-04-18 08:04:42.519741"
+updated_at: "2021-04-18 08:06:10.493957"
 container_url: ""
 aliases:
  - "convertf"

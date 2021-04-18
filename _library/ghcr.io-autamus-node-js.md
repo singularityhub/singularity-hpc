@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/node-js"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/node-js/container.yaml"
-updated_at: "2021-04-18 08:04:36.990880"
+updated_at: "2021-04-18 08:06:04.564032"
 container_url: ""
 aliases:
  - "node"
