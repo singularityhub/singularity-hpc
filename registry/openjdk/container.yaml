@@ -7,8 +7,6 @@ latest:
   latest: sha256:16e7f9c093d49cd3a38b31b11e8b3575609e34eca037b99a33081ece72731266
 tags:
   latest: sha256:16e7f9c093d49cd3a38b31b11e8b3575609e34eca037b99a33081ece72731266
-filter:
-- latest
 aliases:
   jar: /usr/bin/jar
   jarsigner: /usr/bin/jarsigner
