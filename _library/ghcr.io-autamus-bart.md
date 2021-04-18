@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/bart"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/bart/container.yaml"
-updated_at: "2021-04-17 22:44:15.882519"
+updated_at: "2021-04-18 00:50:38.776067"
 container_url: ""
 aliases:
  - "bart"
