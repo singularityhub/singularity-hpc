@@ -3,11 +3,12 @@ layout: container
 name:  "biocontainers/fastqc"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/biocontainers/fastqc/container.yaml"
-updated_at: "2021-04-18 08:24:33.603355"
+updated_at: "2021-04-18 08:25:21.828737"
 container_url: ""
 
 versions:
  - "v0.11.5"
+ - "v0.11.9_cv8"
 description: "A quality control tool for high throughput sequence data."
 ---
 
