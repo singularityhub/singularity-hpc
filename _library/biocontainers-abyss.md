@@ -3,7 +3,7 @@ layout: container
 name:  "biocontainers/abyss"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/biocontainers/abyss/container.yaml"
-updated_at: "2021-04-18 05:59:54.683593"
+updated_at: "2021-04-18 06:02:39.933977"
 container_url: ""
 aliases:
  - "abyss-fixmate"

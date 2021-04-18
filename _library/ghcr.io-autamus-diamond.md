@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/diamond"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/diamond/container.yaml"
-updated_at: "2021-04-18 06:00:07.730821"
+updated_at: "2021-04-18 06:02:52.201596"
 container_url: ""
 aliases:
  - "diamond"
