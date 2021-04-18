@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/gsl"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/gsl/container.yaml"
-updated_at: "2021-04-18 20:17:16.530334"
+updated_at: "2021-04-18 20:18:14.897409"
 container_url: ""
 aliases:
  - "gsl-config"
