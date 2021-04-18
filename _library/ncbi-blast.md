@@ -3,10 +3,11 @@ layout: container
 name:  "ncbi/blast"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ncbi/blast/container.yaml"
-updated_at: "2021-04-18 20:50:09.812099"
+updated_at: "2021-04-18 20:57:35.746611"
 container_url: ""
 
 versions:
+ - "2.11.0"
  - "latest"
 description: "The Basic Local Alignment Search Tool (BLAST) finds regions of local similarity between sequences."
 ---
@@ -22,7 +23,7 @@ $ shpc install ncbi/blast
 Or a specific version:
 
 ```bash
-$ shpc install ncbi/blast:latest
+$ shpc install ncbi/blast:2.11.0
 ```
 
 And then you can tell lmod about your modules folder:
@@ -34,8 +35,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ncbi/blast/latest
-$ module help ncbi/blast/latest
+$ module load ncbi/blast/2.11.0
+$ module help ncbi/blast/2.11.0
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

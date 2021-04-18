@@ -3,7 +3,7 @@ layout: container
 name:  "postgres"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/postgres/container.yaml"
-updated_at: "2021-04-18 20:49:47.919957"
+updated_at: "2021-04-18 20:57:10.484418"
 container_url: ""
 aliases:
  - "clusterdb"
@@ -23,8 +23,6 @@ aliases:
  - "pg_archivecleanup"
 
  - "pg_basebackup"
-
- - "pgbench"
 
  - "pg_checksums"
 
@@ -61,6 +59,8 @@ aliases:
  - "pg_verifybackup"
 
  - "pg_waldump"
+
+ - "pgbench"
 
  - "postgres"
 
@@ -208,13 +208,6 @@ $ singularity exec <container> /usr/lib/postgresql/13/bin/pg_basebackup
 ```
 
 
-#### pgbench
-       
-```bash
-$ singularity exec <container> /usr/lib/postgresql/13/bin/pgbench
-```
-
-
 #### pg_checksums
        
 ```bash
@@ -338,6 +331,13 @@ $ singularity exec <container> /usr/lib/postgresql/13/bin/pg_verifybackup
        
 ```bash
 $ singularity exec <container> /usr/lib/postgresql/13/bin/pg_waldump
+```
+
+
+#### pgbench
+       
+```bash
+$ singularity exec <container> /usr/lib/postgresql/13/bin/pgbench
 ```
 
 
