@@ -1,9 +1,11 @@
-name: "update-container-versions-binoc"
+name: 'update-container-versions-binoc'
 
 on:
+  pull_request: []
   schedule:
     - cron: '0 14 * * *'
-    
+
+
 jobs:
   auto-scan:
     runs-on: ubuntu-latest
@@ -19,5 +21,4 @@ jobs:
           git_email: ${{ secrets.BINOC_GIT_EMAIL }}
           git_name: ${{ secrets.BINOC_GIT_NAME }}
           general_action: 'true'
-          repo_path: '/'
-          parsers_loaded: "shpc"
+          parsers_loaded: 'shpc'
