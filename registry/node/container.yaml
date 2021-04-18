@@ -7,8 +7,6 @@ latest:
   latest: sha256:6cbc150709d59d2667f5d34cbf03fb4594dc8b34acb8872f9ab27ba915b28b56
 tags:
   latest: sha256:6cbc150709d59d2667f5d34cbf03fb4594dc8b34acb8872f9ab27ba915b28b56
-filter:
-- latest
 aliases:
   node: /usr/local/bin/node
   nodejs: /usr/local/bin/nodejs
