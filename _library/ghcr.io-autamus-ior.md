@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/ior"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/ior/container.yaml"
-updated_at: "2021-04-18 08:26:26.247049"
+updated_at: "2021-04-18 08:26:38.693411"
 container_url: ""
 aliases:
  - "ior"
