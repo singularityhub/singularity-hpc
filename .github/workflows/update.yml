@@ -2,7 +2,8 @@ name: 'update-container-versions-binoc'
 
 on:
   schedule:
-    - cron: '0 14 * * *'
+    # Delayed Binoc execution time to mid day just in case we need to step in.
+    - cron: '0 20 * * *'
   push:
     branches: main
 
@@ -13,6 +14,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          fetch-depth: '0'
 
       - name: Run Binoc Scan
         uses: autamus/binoc@v0.2.0
