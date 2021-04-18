@@ -3,7 +3,7 @@ layout: container
 name:  "nvcr.io/nvidia/hpc-benchmarks"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/nvcr.io/nvidia/hpc-benchmarks/container.yaml"
-updated_at: "2021-04-18 21:10:00.076696"
+updated_at: "2021-04-18 21:11:08.457799"
 container_url: ""
 
 versions:

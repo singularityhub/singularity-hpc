@@ -3,7 +3,7 @@ layout: container
 name:  "bids/mrtrix3_connectome"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/bids/mrtrix3_connectome/container.yaml"
-updated_at: "2021-04-18 21:10:07.700469"
+updated_at: "2021-04-18 21:11:15.704184"
 container_url: ""
 
 versions:
