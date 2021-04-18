@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/python"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/python/container.yaml"
-updated_at: "2021-04-18 08:31:11.594876"
+updated_at: "2021-04-18 08:43:02.514996"
 container_url: ""
 aliases:
  - "pydoc3"
