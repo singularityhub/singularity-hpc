@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/raxml"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/raxml/container.yaml"
-updated_at: "2021-04-18 08:05:58.584792"
+updated_at: "2021-04-18 08:21:25.625081"
 container_url: ""
 aliases:
  - "raxmlHPC"
