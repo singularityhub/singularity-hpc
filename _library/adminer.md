@@ -3,7 +3,7 @@ layout: container
 name:  "adminer"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/adminer/container.yaml"
-updated_at: "2021-04-18 06:37:57.226355"
+updated_at: "2021-04-18 06:41:00.823432"
 container_url: ""
 
 versions:

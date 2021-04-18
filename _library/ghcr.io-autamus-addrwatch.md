@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/addrwatch"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/addrwatch/container.yaml"
-updated_at: "2021-04-18 06:37:47.517421"
+updated_at: "2021-04-18 06:40:50.463202"
 container_url: ""
 aliases:
  - "addrwatch"
