@@ -1,0 +1,11 @@
+docker: ghcr.io/autamus/unixodbc
+latest:
+  "latest": "sha256:76dae6383fcff7b426a7a89fb93b47d293308a5055e9ca2305f4e2fd1f719978"
+tags:
+  "latest": "sha256:76dae6383fcff7b426a7a89fb93b47d293308a5055e9ca2305f4e2fd1f719978"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/unixodbc
+description: "unixODBC-Test containing Qt based ODBC test tool, and autotest framework."
+aliases:
+  odbc_config: /opt/view/bin/odbc_config
+  odbcinst: /opt/view/bin/odbcinst

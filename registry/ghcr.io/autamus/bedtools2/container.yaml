@@ -1,0 +1,40 @@
+docker: ghcr.io/autamus/bedtools2
+latest:
+  "latest": "sha256:e4fe65e9e953468367c2146ecbdb45b148b7e5271f94e16efafca0c02aec75cc"
+tags:
+  "latest": "sha256:e4fe65e9e953468367c2146ecbdb45b148b7e5271f94e16efafca0c02aec75cc"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/bedtools2
+description: "The swiss army knife for genome arithmetic"
+aliases:
+  bedToBam: /opt/view/bin/bedToBam
+  bedToIgv: /opt/view/bin/bedToIgv
+  bedpeToBam: /opt/view/bin/bedpeToBam
+  bedtools: /opt/view/bin/bedtools  
+  annotateBed: /opt/view/bin/annotateBed
+  bamToBed: /opt/view/bin/bamToBed
+  bed12ToBed6: /opt/view/bin/bed12ToBed6
+  closestBed: /opt/view/bin/closestBed
+  clusterBed: /opt/view/bin/clusterBed
+  complementBed: /opt/view/bin/complementBed
+  coverageBed: /opt/view/bin/coverageBed
+  fastaFromBed: /opt/view/bin/fastaFromBed
+  flankBed: /opt/view/bin/flankBed
+  genomeCoverageBed: /opt/view/bin/genomeCoverageBed
+  intersectBed: /opt/view/bin/intersectBed
+  linksBed: /opt/view/bin/linksBed
+  mapBed: /opt/view/bin/mapBed
+  maskFastaFromBed: /opt/view/bin/maskFastaFromBed
+  mergeBed: /opt/view/bin/mergeBed
+  multiIntersectBed: /opt/view/bin/multiIntersectBed
+  nucBed: /opt/view/bin/nucBed
+  pairToBed: /opt/view/bin/pairToBed
+  randomBed: /opt/view/bin/randomBed
+  shiftBed: /opt/view/bin/shiftBed
+  shuffleBed: /opt/view/bin/shuffleBed
+  slopBed: /opt/view/bin/slopBed
+  sortBed: /opt/view/bin/sortBed
+  subtractBed: /opt/view/bin/subtractBed
+  unionBedGraphs: /opt/view/bin/unionBedGraphs
+  windowBed: /opt/view/bin/windowBed
+

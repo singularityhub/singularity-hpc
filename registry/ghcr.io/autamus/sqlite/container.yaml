@@ -1,0 +1,10 @@
+docker: ghcr.io/autamus/sqlite
+latest:
+  "latest": "sha256:6fff31edcc2e88880c57b4ccf77bccfa3d89d626f289aa652103a906b8780880"
+tags:
+  "latest": "sha256:6fff31edcc2e88880c57b4ccf77bccfa3d89d626f289aa652103a906b8780880"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/sqlite
+description: "SQLite is a relational database management system contained in a C library. "
+aliases:
+  sqlite3: /opt/view/bin/sqlite3

@@ -1,0 +1,15 @@
+docker: ghcr.io/autamus/qhull
+latest:
+  "latest": "sha256:9391b171dddd337e97eb193e6501a3a11a0ca19da056b6d9a17b27667f105b61"
+tags:
+  "latest": "sha256:9391b171dddd337e97eb193e6501a3a11a0ca19da056b6d9a17b27667f105b61"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/qhull
+description: "Snappy (previously known as Zippy) is a fast data compression and decompression library written in C++ by Google based on ideas from LZ77 and open-sourced in 2011."
+aliases:
+  qconvex: /opt/view/bin/qconvex
+  qdelaunay: /opt/view/bin/qdelaunay
+  qhalf: /opt/view/bin/qhalf
+  qhull: /opt/view/bin/qhull
+  qvoronoi: /opt/view/bin/qvoronoi
+  rbox: /opt/view/bin/rbox

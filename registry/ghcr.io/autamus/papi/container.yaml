@@ -1,0 +1,23 @@
+docker: ghcr.io/autamus/papi
+latest:
+  "latest": "sha256:fde26e1e268a2bc4f0f10482c15754301eb2c6339856a431bbcccd96c8d78e39"
+tags:
+  "latest": "sha256:fde26e1e268a2bc4f0f10482c15754301eb2c6339856a431bbcccd96c8d78e39"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/papi
+description: "Performance Application Programming Interface."
+aliases:
+  papi_avail: /opt/view/bin/papi_avail
+  papi_clockres: /opt/view/bin/papi_clockres
+  papi_command_line: /opt/view/bin/papi_command_line
+  papi_component_avail: /opt/view/bin/papi_component_avail
+  papi_cost: /opt/view/bin/papi_cost
+  papi_decode: /opt/view/bin/papi_decode
+  papi_error_codes: /opt/view/bin/papi_error_codes
+  papi_event_chooser: /opt/view/bin/papi_event_chooser
+  papi_hl_output_writer.py: /opt/view/bin/papi_hl_output_writer.py
+  papi_mem_info: /opt/view/bin/papi_mem_info
+  papi_multiplex_cost: /opt/view/bin/papi_multiplex_cost
+  papi_native_avail: /opt/view/bin/papi_native_avail
+  papi_version: /opt/view/bin/papi_version
+  papi_xml_event_info: /opt/view/bin/papi_xml_event_info

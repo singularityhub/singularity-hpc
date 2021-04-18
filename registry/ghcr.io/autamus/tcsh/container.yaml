@@ -1,0 +1,10 @@
+docker: ghcr.io/autamus/tcsh
+latest:
+  "latest": "sha256:3e4031ba16dfcececfeedacbb7a6126d3a553da325a86a8470dc6c2aaac37872"
+tags:
+  "latest": "sha256:3e4031ba16dfcececfeedacbb7a6126d3a553da325a86a8470dc6c2aaac37872"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/tcsh
+description: ""
+aliases:
+  tcsh: /opt/view/bin/tcsh

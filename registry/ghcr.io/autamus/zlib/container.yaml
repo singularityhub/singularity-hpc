@@ -1,0 +1,8 @@
+docker: ghcr.io/autamus/zlib
+latest:
+  "latest": "sha256:7f2832f21df9a0d8d84fa018749562102fc7bd6b3aaddd6cbaef3ef05c6d6dde"
+tags:
+  "latest": "sha256:7f2832f21df9a0d8d84fa018749562102fc7bd6b3aaddd6cbaef3ef05c6d6dde"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/zlib
+description: "zlib is a software library used for data compression. zlib was written by Jean-loup Gailly and Mark Adler and is an abstraction of the DEFLATE compression algorithm used in their gzip file compression program."

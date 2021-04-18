@@ -1,0 +1,10 @@
+docker: ghcr.io/autamus/gnuplot
+latest:
+  "latest": "sha256:c05e6c3c0bb77d408aadc403553066e7fceeeabb1ead14b0d5b6c90b02891331"
+tags:
+  "latest": "sha256:c05e6c3c0bb77d408aadc403553066e7fceeeabb1ead14b0d5b6c90b02891331"
+maintainer: "@vsoch"
+url: https://github.com/orgs/autamus/packages/container/package/gnuplot
+description: "Gnuplot is a portable command-line driven graphing utility for Linux, OS/2, MS Windows, OSX, VMS, and many other platforms."
+aliases:
+  gnuplot: /opt/view/bin/gnuplot
