@@ -3,9 +3,9 @@ url: https://hub.docker.com/r/bids/freesurfer
 maintainer: '@vsoch'
 description: Surface reconstruction using Freesurfer
 latest:
-  6.0.1.6.1: sha256:02237eda4a22bb5fd66a50a66d21b13e0f378840fa61a937dab8794ee527cd48
+  v6.0.1-6.1: sha256:02237eda4a22bb5fd66a50a66d21b13e0f378840fa61a937dab8794ee527cd48
 tags:
-  6.0.1.6.1: sha256:02237eda4a22bb5fd66a50a66d21b13e0f378840fa61a937dab8794ee527cd48
   latest: sha256:02237eda4a22bb5fd66a50a66d21b13e0f378840fa61a937dab8794ee527cd48
+  v6.0.1-6.1: sha256:02237eda4a22bb5fd66a50a66d21b13e0f378840fa61a937dab8794ee527cd48
 filter:
 - v*
