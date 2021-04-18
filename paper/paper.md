@@ -90,7 +90,7 @@ $ samtools
 
 While a user might need to add a new module directory for LMOD to find with 
 `module use`, a cluster administrator would likely have modules loaded automatically for the user
-via a bash profile. With the `module load` command, the researcher is empowered to add their own custom installation directory of modules that might not be available from their system administrators.
+via a bash profile. With the `module use` command, the researcher is empowered to add their own custom installation directory of modules that might not be available from their system administrators.
 
 The container can then be loaded, and is then available as an exposed set of 
 shell aliases that look like simple executable commands:
