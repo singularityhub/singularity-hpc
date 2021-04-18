@@ -3,11 +3,10 @@ layout: container
 name:  "bids/baracus"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/bids/baracus/container.yaml"
-updated_at: "2021-04-18 06:41:07.755516"
+updated_at: "2021-04-18 06:43:59.442340"
 container_url: ""
 
 versions:
- - "1.1.4"
  - "latest"
 description: "Brain-Age Regression Analysis and Computation Utility Software (https://github.com/BIDS-Apps/baracus)"
 ---
@@ -23,7 +22,7 @@ $ shpc install bids/baracus
 Or a specific version:
 
 ```bash
-$ shpc install bids/baracus:1.1.4
+$ shpc install bids/baracus:latest
 ```
 
 And then you can tell lmod about your modules folder:
@@ -35,8 +34,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load bids/baracus/1.1.4
-$ module help bids/baracus/1.1.4
+$ module load bids/baracus/latest
+$ module help bids/baracus/latest
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

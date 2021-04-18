@@ -3,7 +3,7 @@ layout: container
 name:  "nginx"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/nginx/container.yaml"
-updated_at: "2021-04-18 06:41:04.200568"
+updated_at: "2021-04-18 06:43:56.230629"
 container_url: ""
 aliases:
  - "nginx"
