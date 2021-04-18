@@ -3,20 +3,20 @@ layout: container
 name:  "ghcr.io/autamus/bismark"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/bismark/container.yaml"
-updated_at: "2021-04-18 08:26:21.931712"
+updated_at: "2021-04-18 08:26:36.342278"
 container_url: ""
 aliases:
  - "bismark"
+
+ - "bismark_genome_preparation"
+
+ - "bismark_methylation_extractor"
 
  - "bismark2bedGraph"
 
  - "bismark2report"
 
  - "bismark2summary"
-
- - "bismark_genome_preparation"
-
- - "bismark_methylation_extractor"
 
 versions:
  - "latest"
@@ -96,6 +96,20 @@ $ singularity exec <container> /opt/view/bin/bismark
 ```
 
 
+#### bismark_genome_preparation
+       
+```bash
+$ singularity exec <container> /opt/view/bin/bismark_genome_preparation
+```
+
+
+#### bismark_methylation_extractor
+       
+```bash
+$ singularity exec <container> /opt/view/bin/bismark_methylation_extractor
+```
+
+
 #### bismark2bedGraph
        
 ```bash
@@ -114,20 +128,6 @@ $ singularity exec <container> /opt/view/bin/bismark2report
        
 ```bash
 $ singularity exec <container> /opt/view/bin/bismark2summary
-```
-
-
-#### bismark_genome_preparation
-       
-```bash
-$ singularity exec <container> /opt/view/bin/bismark_genome_preparation
-```
-
-
-#### bismark_methylation_extractor
-       
-```bash
-$ singularity exec <container> /opt/view/bin/bismark_methylation_extractor
 ```
 
 
