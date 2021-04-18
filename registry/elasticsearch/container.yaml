@@ -1,13 +1,12 @@
 docker: elasticsearch
-latest:
-  "7.12.0": "sha256:337003ae571eedd3272cfa935386fa4ea52f74f5a4531f70790a74f092437122"
-tags:
-  "7.12.0": "sha256:337003ae571eedd3272cfa935386fa4ea52f74f5a4531f70790a74f092437122"
-filter:
-  - "7.*"
-maintainer: "@vsoch"
 url: https://hub.docker.com/_/elasticsearch
-description: "Elasticsearch is a powerful open source search and analytics engine that makes data easy to explore."
+maintainer: '@vsoch'
+description: Elasticsearch is a powerful open source search and analytics engine that
+  makes data easy to explore.
+latest:
+  7.12.0: sha256:383e9fb572f3ca2fdef5ba2edb0dae2c467736af96aba2c193722aa0c08ca7ec
+tags:
+  7.12.0: sha256:383e9fb572f3ca2fdef5ba2edb0dae2c467736af96aba2c193722aa0c08ca7ec
 aliases:
   elasticsearch: /usr/share/elasticsearch/bin/elasticsearch
   elasticsearch-certgen: /usr/share/elasticsearch/bin/elasticsearch-certgen
@@ -27,3 +26,5 @@ aliases:
   elasticsearch-sql-cli-7.12.0.jar: java jar /usr/share/elasticsearch/bin/elasticsearch-sql-cli-7.12.0.jar
   elasticsearch-syskeygen: /usr/share/elasticsearch/bin/elasticsearch-syskeygen
   elasticsearch-users: /usr/share/elasticsearch/bin/elasticsearch-users
+filter:
+- 7.*
