@@ -3,12 +3,13 @@ layout: container
 name:  "consul"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/consul/container.yaml"
-updated_at: "2021-04-18 20:28:12.593178"
+updated_at: "2021-04-18 20:37:51.175877"
 container_url: ""
 aliases:
  - "consul"
 
 versions:
+ - "1.7.14"
  - "latest"
 description: "Consul is a datacenter runtime that provides service discovery, configuration, and orchestration."
 ---
@@ -24,7 +25,7 @@ $ shpc install consul
 Or a specific version:
 
 ```bash
-$ shpc install consul:latest
+$ shpc install consul:1.7.14
 ```
 
 And then you can tell lmod about your modules folder:
@@ -36,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load consul/latest
-$ module help consul/latest
+$ module load consul/1.7.14
+$ module help consul/1.7.14
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

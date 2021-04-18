@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/alps"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/alps/container.yaml"
-updated_at: "2021-04-18 20:28:15.533814"
+updated_at: "2021-04-18 20:37:53.931043"
 container_url: ""
 aliases:
  - "alpspython"
