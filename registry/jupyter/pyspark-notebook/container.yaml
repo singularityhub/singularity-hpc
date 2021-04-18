@@ -1,14 +1,14 @@
 docker: jupyter/pyspark-notebook
-latest:
-  latest: "sha256:129cc2f3f4a0a09880ba318ba28f146c69b738d898c8215b19393cb8670ec63a"
-tags:
-  latest: "sha256:129cc2f3f4a0a09880ba318ba28f146c69b738d898c8215b19393cb8670ec63a"
-filter:
-  - "latest"
-maintainer: "@vsoch"
 url: https://hub.docker.com/r/jupyter/pyspark-notebook
-description: "Jupyter Pyspark Notebook from https://github.com/jupyter/docker-stacks"
+maintainer: '@vsoch'
+description: Jupyter Pyspark Notebook from https://github.com/jupyter/docker-stacks
+latest:
+  latest: sha256:ed68ddf5239ff8b160a73acc81f5f0ce4f95a61ba6687a0319a49bb13eacbffc
+tags:
+  latest: sha256:ed68ddf5239ff8b160a73acc81f5f0ce4f95a61ba6687a0319a49bb13eacbffc
+filter:
+- latest
 aliases:
-  - name: run-notebook
-    command: jupyter notebook --no-browser --port=$(shuf -i 2000-65000 -n 1) --ip 0.0.0.0
-    options: --home ${HOME} --bind ${HOME}/.local:/home/joyvan/.local
+- name: run-notebook
+  command: jupyter notebook --no-browser --port=$(shuf -i 2000-65000 -n 1) --ip 0.0.0.0
+  options: --home ${HOME} --bind ${HOME}/.local:/home/joyvan/.local
