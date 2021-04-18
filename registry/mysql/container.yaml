@@ -1,28 +1,28 @@
 docker: mysql
-latest:
-  latest: "sha256:355617769102e9d2ebb7d5879263a12d230badb7271c91748b2c7b0ac6971083"
-tags:
-  latest: "sha256:355617769102e9d2ebb7d5879263a12d230badb7271c91748b2c7b0ac6971083"
-filter:
-  - "latest"
-maintainer: "@vsoch"
 url: https://hub.docker.com/r/_/mysql
-description: "MySQL is the world's most popular open source database."
+maintainer: '@vsoch'
+description: MySQL is the world's most popular open source database.
+latest:
+  latest: sha256:6e0014cdd88092545557dee5e9eb7e1a3c84c9a14ad2418d5f2231e930967a38
+tags:
+  latest: sha256:6e0014cdd88092545557dee5e9eb7e1a3c84c9a14ad2418d5f2231e930967a38
+filter:
+- latest
 aliases:
   mysql: /usr/bin/mysql
-  mysql_ssl_rsa_setup: /usr/bin/mysql_ssl_rsa_setup
-  mysqldump: /usr/bin/mysqldump
-  mysql_tzinfo_to_sql: /usr/bin/mysql_tzinfo_to_sql
-  mysqldumpslow: /usr/bin/mysqldumpslow
-  mysql_upgrade: /usr/bin/mysql_upgrade
-  mysqlimport: /usr/bin/mysqlimport
-  mysqladmin: /usr/bin/mysqladmin
-  mysqlpump: /usr/bin/mysqlpump
-  mysqlbinlog: /usr/bin/mysqlbinlog
-  mysqlshow: /usr/bin/mysqlshow
-  mysqlcheck: /usr/bin/mysqlcheck
-  mysqlslap: /usr/bin/mysqlslap
   mysql_config_editor: /usr/bin/mysql_config_editor
-  mysqld_multi: /usr/bin/mysqld_multi
   mysql_secure_installation: /usr/bin/mysql_secure_installation
+  mysql_ssl_rsa_setup: /usr/bin/mysql_ssl_rsa_setup
+  mysql_tzinfo_to_sql: /usr/bin/mysql_tzinfo_to_sql
+  mysql_upgrade: /usr/bin/mysql_upgrade
+  mysqladmin: /usr/bin/mysqladmin
+  mysqlbinlog: /usr/bin/mysqlbinlog
+  mysqlcheck: /usr/bin/mysqlcheck
+  mysqld_multi: /usr/bin/mysqld_multi
   mysqld_safe: /usr/bin/mysqld_safe
+  mysqldump: /usr/bin/mysqldump
+  mysqldumpslow: /usr/bin/mysqldumpslow
+  mysqlimport: /usr/bin/mysqlimport
+  mysqlpump: /usr/bin/mysqlpump
+  mysqlshow: /usr/bin/mysqlshow
+  mysqlslap: /usr/bin/mysqlslap
