@@ -3,7 +3,7 @@ layout: container
 name:  "biocontainers/plink1.9"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/biocontainers/plink1.9/container.yaml"
-updated_at: "2021-04-18 12:53:04.389925"
+updated_at: "2021-04-18 12:55:14.730236"
 container_url: ""
 aliases:
  - "plink"

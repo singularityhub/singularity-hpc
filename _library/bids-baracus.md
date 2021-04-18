@@ -3,7 +3,7 @@ layout: container
 name:  "bids/baracus"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/bids/baracus/container.yaml"
-updated_at: "2021-04-18 12:53:38.469554"
+updated_at: "2021-04-18 12:55:46.308861"
 container_url: ""
 
 versions:
