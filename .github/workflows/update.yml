@@ -3,6 +3,8 @@ name: 'update-container-versions-binoc'
 on:
   schedule:
     - cron: '0 14 * * *'
+  push:
+    branches: main
 
 
 jobs:
