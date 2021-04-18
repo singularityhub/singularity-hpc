@@ -1,7 +1,6 @@
 name: "update-container-versions-binoc"
 
 on:
-  pull_request: []
   schedule:
     - cron: '0 14 * * *'
     
@@ -15,10 +14,10 @@ jobs:
       - name: Run Binoc Scan
         uses: autamus/binoc@v0.2.0
         with:
-          git_token: ${{ secrets.GITHUB_TOKEN }}
-          git_username: "github-actions@users.noreply.github.com"
-          git_email: "github-actions"
-          git_name: "github-actions"
+          git_token: ${{ secrets.BINOC_GIT_TOKEN }}
+          git_username: ${{ secrets.BINOC_GIT_USERNAME }}
+          git_email: ${{ secrets.BINOC_GIT_EMAIL }}
+          git_name: ${{ secrets.BINOC_GIT_NAME }}
           general_action: 'true'
           repo_path: '/'
           parsers_loaded: "shpc"
