@@ -3,7 +3,7 @@ layout: container
 name:  "rabbitmq"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/rabbitmq/container.yaml"
-updated_at: "2021-04-18 08:01:36.045370"
+updated_at: "2021-04-18 08:03:04.225271"
 container_url: ""
 aliases:
  - "rabbitmq-defaults"

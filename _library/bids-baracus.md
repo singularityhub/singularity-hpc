@@ -3,11 +3,12 @@ layout: container
 name:  "bids/baracus"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/bids/baracus/container.yaml"
-updated_at: "2021-04-18 08:01:45.732019"
+updated_at: "2021-04-18 08:03:13.413310"
 container_url: ""
 
 versions:
  - "latest"
+ - "v1.1.4"
 description: "Brain-Age Regression Analysis and Computation Utility Software (https://github.com/BIDS-Apps/baracus)"
 ---
 
