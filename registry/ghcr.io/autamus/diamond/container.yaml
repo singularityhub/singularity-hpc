@@ -1,10 +1,11 @@
 docker: ghcr.io/autamus/diamond
-latest:
-  "latest": "sha256:d0040fd7694ef3933f1be5f10e2e0ec7cdda68f838d97ce5a386aa1fd2ade240"
-tags:
-  "latest": "sha256:d0040fd7694ef3933f1be5f10e2e0ec7cdda68f838d97ce5a386aa1fd2ade240"
-maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/diamond
-description: "A sequence aligner for protein and translated DNA searches, designed for high performance analysis of big sequence data."
+maintainer: '@vsoch'
+description: A sequence aligner for protein and translated DNA searches, designed
+  for high performance analysis of big sequence data.
+latest:
+  latest: sha256:489fa9966e1e1f593ff628210f5da4d0892e48dc2ced98942862cc1067a18349
+tags:
+  latest: sha256:489fa9966e1e1f593ff628210f5da4d0892e48dc2ced98942862cc1067a18349
 aliases:
   diamond: /opt/view/bin/diamond
