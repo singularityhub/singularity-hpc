@@ -9,5 +9,3 @@ tags:
   latest: sha256:61a386a6fcb6cb9fa0aa32c8df5c4a913819a6297733ce3a228fa7aaca489f5f
 aliases:
   vault: /bin/vault
-filter:
-- latest
