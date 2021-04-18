@@ -1,11 +1,12 @@
 docker: ghcr.io/autamus/picard
-latest:
-  "latest": "sha256:96f220748e0401063c8542b23114f893b4d166bb126e61c34f24b87c3d601c6d"
-tags:
-  "latest": "sha256:96f220748e0401063c8542b23114f893b4d166bb126e61c34f24b87c3d601c6d"
-maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/picard
-description: "A set of command line tools (in Java) for manipulating high-throughput sequencing (HTS) data and formats such as SAM/BAM/CRAM and VCF."
+maintainer: '@vsoch'
+description: A set of command line tools (in Java) for manipulating high-throughput
+  sequencing (HTS) data and formats such as SAM/BAM/CRAM and VCF.
+latest:
+  latest: sha256:59d36498e8678f471aa46e0f1de0c1f0de953feb826ce76c48bd56ba5d57f35e
+tags:
+  latest: sha256:59d36498e8678f471aa46e0f1de0c1f0de953feb826ce76c48bd56ba5d57f35e
 aliases:
   picard: /opt/view/bin/picard
   picard.jar: /opt/view/bin/java -jar /opt/view/bin/picard.jar
