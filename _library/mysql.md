@@ -3,7 +3,7 @@ layout: container
 name:  "mysql"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/mysql/container.yaml"
-updated_at: "2021-04-18 17:17:10.200929"
+updated_at: "2021-04-18 17:18:26.294557"
 container_url: ""
 aliases:
  - "mysql"

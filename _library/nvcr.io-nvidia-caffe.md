@@ -3,7 +3,7 @@ layout: container
 name:  "nvcr.io/nvidia/caffe"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/nvcr.io/nvidia/caffe/container.yaml"
-updated_at: "2021-04-18 17:17:38.227456"
+updated_at: "2021-04-18 17:18:52.659404"
 container_url: ""
 aliases:
  - "python"
