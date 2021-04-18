@@ -3,7 +3,7 @@ layout: container
 name:  "vault"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/vault/container.yaml"
-updated_at: "2021-04-18 16:56:00.334095"
+updated_at: "2021-04-18 17:14:20.436186"
 container_url: ""
 aliases:
  - "vault"
