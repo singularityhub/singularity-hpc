@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/gatk"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/gatk/container.yaml"
-updated_at: "2021-04-18 20:46:15.879961"
+updated_at: "2021-04-18 20:50:00.948401"
 container_url: ""
 aliases:
  - "gatk"
