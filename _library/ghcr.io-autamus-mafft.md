@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/mafft"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/mafft/container.yaml"
-updated_at: "2021-04-18 20:39:38.464234"
+updated_at: "2021-04-18 20:40:50.770898"
 container_url: ""
 aliases:
  - "mafft"
