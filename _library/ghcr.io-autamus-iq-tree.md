@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/iq-tree"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/iq-tree/container.yaml"
-updated_at: "2021-04-18 17:23:46.128989"
+updated_at: "2021-04-18 17:24:53.916414"
 container_url: ""
 aliases:
  - "iq-tree2"

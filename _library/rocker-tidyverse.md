@@ -3,16 +3,16 @@ layout: container
 name:  "rocker/tidyverse"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/rocker/tidyverse/container.yaml"
-updated_at: "2021-04-18 17:24:01.150093"
+updated_at: "2021-04-18 17:25:08.543182"
 container_url: ""
 aliases:
- - "rocker-tidyverse-run"
-
- - "rocker-ml-run"
-
  - "R"
 
  - "Rscript"
+
+ - "rocker-ml-run"
+
+ - "rocker-tidyverse-run"
 
  - "rserver"
 
@@ -93,20 +93,6 @@ $ singularity inspect -d <container>
 ```
 
 
-#### rocker-tidyverse-run
-       
-```bash
-$ singularity exec <container> /bin/bash
-```
-
-
-#### rocker-ml-run
-       
-```bash
-$ singularity exec <container> /bin/bash
-```
-
-
 #### R
        
 ```bash
@@ -118,6 +104,20 @@ $ singularity exec <container> /usr/local/bin/R
        
 ```bash
 $ singularity exec <container> /usr/local/bin/Rscript
+```
+
+
+#### rocker-ml-run
+       
+```bash
+$ singularity exec <container> /bin/bash
+```
+
+
+#### rocker-tidyverse-run
+       
+```bash
+$ singularity exec <container> /bin/bash
 ```
 
 
