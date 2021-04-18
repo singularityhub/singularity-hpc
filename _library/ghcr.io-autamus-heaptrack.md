@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/heaptrack"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/heaptrack/container.yaml"
-updated_at: "2021-04-18 08:29:18.765367"
+updated_at: "2021-04-18 08:31:18.485532"
 container_url: ""
 aliases:
  - "heaptrack"
