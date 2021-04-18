@@ -3,7 +3,7 @@ layout: container
 name:  "jupyter/r-notebook"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/jupyter/r-notebook/container.yaml"
-updated_at: "2021-04-18 07:45:56.086993"
+updated_at: "2021-04-18 07:49:59.928710"
 container_url: ""
 aliases:
  - "run-notebook"
