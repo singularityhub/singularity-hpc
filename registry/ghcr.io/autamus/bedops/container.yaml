@@ -1,11 +1,13 @@
 docker: ghcr.io/autamus/bedops
-latest:
-  "latest": "sha256:f497b47acb7136187f7baff6a2ebd68457b7ac18c434904a1e264d3b44186387"
-tags:
-  "latest": "sha256:f497b47acb7136187f7baff6a2ebd68457b7ac18c434904a1e264d3b44186387"
-maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/bedops
-description: "BEDOPS is an open-source command-line toolkit that performs highly efficient and scalable Boolean and other set operations, statistical calculations, archiving, conversion and other management of genomic data of arbitrary scale."
+maintainer: '@vsoch'
+description: BEDOPS is an open-source command-line toolkit that performs highly efficient
+  and scalable Boolean and other set operations, statistical calculations, archiving,
+  conversion and other management of genomic data of arbitrary scale.
+latest:
+  latest: sha256:af6de857737f20af944ce09d84628be7e67d5cae36b0d90331958bfc6b8527e9
+tags:
+  latest: sha256:af6de857737f20af944ce09d84628be7e67d5cae36b0d90331958bfc6b8527e9
 aliases:
   bam2bed: /opt/view/bin/bam2bed
   bam2bed_gnuParallel: /opt/view/bin/bam2bed_gnuParallel
