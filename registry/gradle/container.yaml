@@ -7,5 +7,7 @@ latest:
   latest: sha256:1eb0bbf8916cab967ffa7764edaeee8c41c096868c37e2320c43874d07feaf91
 tags:
   latest: sha256:1eb0bbf8916cab967ffa7764edaeee8c41c096868c37e2320c43874d07feaf91
+filter:
+- latest
 aliases:
   gradle: /usr/bin/gradle
