@@ -12,7 +12,9 @@ workflows:
       - test_singularity_hpc:
           filters:
             branches:
-              ignore: master
+              ignore:
+                - binoc/*
+                - main
 
 setup_environment: &setup_environment
   name: Setup environment
