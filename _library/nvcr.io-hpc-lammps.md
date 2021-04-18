@@ -3,7 +3,7 @@ layout: container
 name:  "nvcr.io/hpc/lammps"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/nvcr.io/hpc/lammps/container.yaml"
-updated_at: "2021-04-18 20:38:09.013503"
+updated_at: "2021-04-18 20:39:55.894869"
 container_url: ""
 
 versions:

@@ -3,42 +3,42 @@ layout: container
 name:  "mysql"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/mysql/container.yaml"
-updated_at: "2021-04-18 20:37:46.771186"
+updated_at: "2021-04-18 20:39:32.731458"
 container_url: ""
 aliases:
  - "mysql"
 
- - "mysql_ssl_rsa_setup"
-
- - "mysqldump"
-
- - "mysql_tzinfo_to_sql"
-
- - "mysqldumpslow"
-
- - "mysql_upgrade"
-
- - "mysqlimport"
-
- - "mysqladmin"
-
- - "mysqlpump"
-
- - "mysqlbinlog"
-
- - "mysqlshow"
-
- - "mysqlcheck"
-
- - "mysqlslap"
-
  - "mysql_config_editor"
-
- - "mysqld_multi"
 
  - "mysql_secure_installation"
 
+ - "mysql_ssl_rsa_setup"
+
+ - "mysql_tzinfo_to_sql"
+
+ - "mysql_upgrade"
+
+ - "mysqladmin"
+
+ - "mysqlbinlog"
+
+ - "mysqlcheck"
+
+ - "mysqld_multi"
+
  - "mysqld_safe"
+
+ - "mysqldump"
+
+ - "mysqldumpslow"
+
+ - "mysqlimport"
+
+ - "mysqlpump"
+
+ - "mysqlshow"
+
+ - "mysqlslap"
 
 versions:
  - "latest"
@@ -118,101 +118,10 @@ $ singularity exec <container> /usr/bin/mysql
 ```
 
 
-#### mysql_ssl_rsa_setup
-       
-```bash
-$ singularity exec <container> /usr/bin/mysql_ssl_rsa_setup
-```
-
-
-#### mysqldump
-       
-```bash
-$ singularity exec <container> /usr/bin/mysqldump
-```
-
-
-#### mysql_tzinfo_to_sql
-       
-```bash
-$ singularity exec <container> /usr/bin/mysql_tzinfo_to_sql
-```
-
-
-#### mysqldumpslow
-       
-```bash
-$ singularity exec <container> /usr/bin/mysqldumpslow
-```
-
-
-#### mysql_upgrade
-       
-```bash
-$ singularity exec <container> /usr/bin/mysql_upgrade
-```
-
-
-#### mysqlimport
-       
-```bash
-$ singularity exec <container> /usr/bin/mysqlimport
-```
-
-
-#### mysqladmin
-       
-```bash
-$ singularity exec <container> /usr/bin/mysqladmin
-```
-
-
-#### mysqlpump
-       
-```bash
-$ singularity exec <container> /usr/bin/mysqlpump
-```
-
-
-#### mysqlbinlog
-       
-```bash
-$ singularity exec <container> /usr/bin/mysqlbinlog
-```
-
-
-#### mysqlshow
-       
-```bash
-$ singularity exec <container> /usr/bin/mysqlshow
-```
-
-
-#### mysqlcheck
-       
-```bash
-$ singularity exec <container> /usr/bin/mysqlcheck
-```
-
-
-#### mysqlslap
-       
-```bash
-$ singularity exec <container> /usr/bin/mysqlslap
-```
-
-
 #### mysql_config_editor
        
 ```bash
 $ singularity exec <container> /usr/bin/mysql_config_editor
-```
-
-
-#### mysqld_multi
-       
-```bash
-$ singularity exec <container> /usr/bin/mysqld_multi
 ```
 
 
@@ -223,10 +132,101 @@ $ singularity exec <container> /usr/bin/mysql_secure_installation
 ```
 
 
+#### mysql_ssl_rsa_setup
+       
+```bash
+$ singularity exec <container> /usr/bin/mysql_ssl_rsa_setup
+```
+
+
+#### mysql_tzinfo_to_sql
+       
+```bash
+$ singularity exec <container> /usr/bin/mysql_tzinfo_to_sql
+```
+
+
+#### mysql_upgrade
+       
+```bash
+$ singularity exec <container> /usr/bin/mysql_upgrade
+```
+
+
+#### mysqladmin
+       
+```bash
+$ singularity exec <container> /usr/bin/mysqladmin
+```
+
+
+#### mysqlbinlog
+       
+```bash
+$ singularity exec <container> /usr/bin/mysqlbinlog
+```
+
+
+#### mysqlcheck
+       
+```bash
+$ singularity exec <container> /usr/bin/mysqlcheck
+```
+
+
+#### mysqld_multi
+       
+```bash
+$ singularity exec <container> /usr/bin/mysqld_multi
+```
+
+
 #### mysqld_safe
        
 ```bash
 $ singularity exec <container> /usr/bin/mysqld_safe
+```
+
+
+#### mysqldump
+       
+```bash
+$ singularity exec <container> /usr/bin/mysqldump
+```
+
+
+#### mysqldumpslow
+       
+```bash
+$ singularity exec <container> /usr/bin/mysqldumpslow
+```
+
+
+#### mysqlimport
+       
+```bash
+$ singularity exec <container> /usr/bin/mysqlimport
+```
+
+
+#### mysqlpump
+       
+```bash
+$ singularity exec <container> /usr/bin/mysqlpump
+```
+
+
+#### mysqlshow
+       
+```bash
+$ singularity exec <container> /usr/bin/mysqlshow
+```
+
+
+#### mysqlslap
+       
+```bash
+$ singularity exec <container> /usr/bin/mysqlslap
 ```
 
 
