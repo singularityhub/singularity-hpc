@@ -3,20 +3,20 @@ layout: container
 name:  "node"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/node/container.yaml"
-updated_at: "2021-04-18 21:05:04.711051"
+updated_at: "2021-04-18 21:08:29.378025"
 container_url: ""
 aliases:
- - "npm"
-
- - "yarnpkg"
-
  - "node"
-
- - "npx"
 
  - "nodejs"
 
+ - "npm"
+
+ - "npx"
+
  - "yarn"
+
+ - "yarnpkg"
 
 versions:
  - "latest"
@@ -89,31 +89,10 @@ $ singularity inspect -d <container>
 ```
 
 
-#### npm
-       
-```bash
-$ singularity exec <container> /usr/local/bin/npm
-```
-
-
-#### yarnpkg
-       
-```bash
-$ singularity exec <container> /usr/local/bin/yarnpkg
-```
-
-
 #### node
        
 ```bash
 $ singularity exec <container> /usr/local/bin/node
-```
-
-
-#### npx
-       
-```bash
-$ singularity exec <container> /usr/local/bin/npx
 ```
 
 
@@ -124,10 +103,31 @@ $ singularity exec <container> /usr/local/bin/nodejs
 ```
 
 
+#### npm
+       
+```bash
+$ singularity exec <container> /usr/local/bin/npm
+```
+
+
+#### npx
+       
+```bash
+$ singularity exec <container> /usr/local/bin/npx
+```
+
+
 #### yarn
        
 ```bash
 $ singularity exec <container> /usr/local/bin/yarn
+```
+
+
+#### yarnpkg
+       
+```bash
+$ singularity exec <container> /usr/local/bin/yarnpkg
 ```
 
 
