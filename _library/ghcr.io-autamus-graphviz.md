@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/graphviz"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/graphviz/container.yaml"
-updated_at: "2021-04-19 23:55:19.680997"
+updated_at: "2021-04-19 23:55:54.817792"
 container_url: ""
 aliases:
  - "gc"
