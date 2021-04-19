@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/rclone"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/rclone/container.yaml"
-updated_at: "2021-04-19 23:54:19.593132"
+updated_at: "2021-04-19 23:54:50.461873"
 container_url: ""
 aliases:
  - "rclone"

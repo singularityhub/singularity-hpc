@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/bedtools2"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/bedtools2/container.yaml"
-updated_at: "2021-04-19 23:54:21.370650"
+updated_at: "2021-04-19 23:54:52.045160"
 container_url: ""
 aliases:
  - "bedToBam"

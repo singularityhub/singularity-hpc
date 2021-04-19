@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/protobuf"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/protobuf/container.yaml"
-updated_at: "2021-04-19 23:54:20.972782"
+updated_at: "2021-04-19 23:54:51.693475"
 container_url: ""
 aliases:
  - "protoc"
