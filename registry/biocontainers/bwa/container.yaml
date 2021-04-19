@@ -6,7 +6,7 @@ description: BWA is a software package for mapping low-divergent sequences again
 latest:
   v0.7.17_cv1: sha256:9479b73e108ded3c12cb88bb4e918a5bf720d7861d6d8cdbb46d78a972b6ff1b
 tags:
-  0.7.15: sha256:6f76c11a816b10440fd9d2c64c7183a31cc104a729f31a373c9b2b068138305e
+  0.7.15: sha256:9479b73e108ded3c12cb88bb4e918a5bf720d7861d6d8cdbb46d78a972b6ff1b
   v0.7.17_cv1: sha256:9479b73e108ded3c12cb88bb4e918a5bf720d7861d6d8cdbb46d78a972b6ff1b
 aliases:
   bwa: /opt/conda/bin/bwa
