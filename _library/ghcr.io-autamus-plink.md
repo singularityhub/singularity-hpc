@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/plink"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/plink/container.yaml"
-updated_at: "2021-04-18 22:47:42.475223"
+updated_at: "2021-04-19 23:52:51.984239"
 container_url: ""
 aliases:
  - "plink"

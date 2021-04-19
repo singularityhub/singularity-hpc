@@ -3,7 +3,7 @@ layout: container
 name:  "bids/freesurfer"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/bids/freesurfer/container.yaml"
-updated_at: "2021-04-18 22:47:59.461932"
+updated_at: "2021-04-19 23:53:09.619144"
 container_url: ""
 
 versions:

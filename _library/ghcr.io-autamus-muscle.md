@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/muscle"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/muscle/container.yaml"
-updated_at: "2021-04-18 22:47:37.046866"
+updated_at: "2021-04-19 23:52:46.467235"
 container_url: ""
 aliases:
  - "muscle"
