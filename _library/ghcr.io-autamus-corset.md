@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/corset"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/corset/container.yaml"
-updated_at: "2021-04-19 23:54:50.635569"
+updated_at: "2021-04-19 23:55:13.614804"
 container_url: ""
 aliases:
  - "corset"
