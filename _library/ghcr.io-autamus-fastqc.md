@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/fastqc"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/fastqc/container.yaml"
-updated_at: "2021-04-19 23:52:41.648215"
+updated_at: "2021-04-19 23:54:14.054928"
 container_url: ""
 aliases:
  - "fastqc"

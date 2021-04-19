@@ -3,7 +3,7 @@ layout: container
 name:  "golang"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/golang/container.yaml"
-updated_at: "2021-04-19 23:53:06.988165"
+updated_at: "2021-04-19 23:54:35.465921"
 container_url: ""
 aliases:
  - "go"
