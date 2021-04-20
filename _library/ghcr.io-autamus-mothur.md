@@ -3,12 +3,13 @@ layout: container
 name:  "ghcr.io/autamus/mothur"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/mothur/container.yaml"
-updated_at: "2021-04-20 03:17:35.020733"
+updated_at: "2021-04-20 03:17:42.767425"
 container_url: ""
 aliases:
  - "mothur"
 
 versions:
+ - "1.45.1"
  - "latest"
 description: "A single piece of open-source, expandable software to fill the bioinformatics needs of the microbial ecology community."
 ---
@@ -24,7 +25,7 @@ $ shpc install ghcr.io/autamus/mothur
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/mothur:latest
+$ shpc install ghcr.io/autamus/mothur:1.45.1
 ```
 
 And then you can tell lmod about your modules folder:
@@ -36,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/mothur/latest
-$ module help ghcr.io/autamus/mothur/latest
+$ module load ghcr.io/autamus/mothur/1.45.1
+$ module help ghcr.io/autamus/mothur/1.45.1
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
