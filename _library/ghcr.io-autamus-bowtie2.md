@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/bowtie2"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/bowtie2/container.yaml"
-updated_at: "2021-04-20 02:17:54.365968"
+updated_at: "2021-04-20 02:18:25.281260"
 container_url: ""
 aliases:
  - "bowtie2"
@@ -25,6 +25,7 @@ aliases:
  - "bowtie2-inspect-s"
 
 versions:
+ - "2.4.2"
  - "latest"
 description: "Bowtie 2 is an ultrafast and memory-efficient tool for aligning sequencing reads to long reference sequences."
 ---
@@ -40,7 +41,7 @@ $ shpc install ghcr.io/autamus/bowtie2
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/bowtie2:latest
+$ shpc install ghcr.io/autamus/bowtie2:2.4.2
 ```
 
 And then you can tell lmod about your modules folder:
@@ -52,8 +53,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/bowtie2/latest
-$ module help ghcr.io/autamus/bowtie2/latest
+$ module load ghcr.io/autamus/bowtie2/2.4.2
+$ module help ghcr.io/autamus/bowtie2/2.4.2
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

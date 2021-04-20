@@ -3,10 +3,11 @@ layout: container
 name:  "ghcr.io/autamus/boost"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/boost/container.yaml"
-updated_at: "2021-04-20 02:17:52.950603"
+updated_at: "2021-04-20 02:18:23.704435"
 container_url: ""
 
 versions:
+ - "1.75.0"
  - "latest"
 description: "The Boost project provides free peer-reviewed portable C++ source libraries."
 ---
@@ -22,7 +23,7 @@ $ shpc install ghcr.io/autamus/boost
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/boost:latest
+$ shpc install ghcr.io/autamus/boost:1.75.0
 ```
 
 And then you can tell lmod about your modules folder:
@@ -34,8 +35,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/boost/latest
-$ module help ghcr.io/autamus/boost/latest
+$ module load ghcr.io/autamus/boost/1.75.0
+$ module help ghcr.io/autamus/boost/1.75.0
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
