@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/beast2"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/beast2/container.yaml"
-updated_at: "2021-04-20 02:19:16.159499"
+updated_at: "2021-04-20 02:19:39.193764"
 container_url: ""
 aliases:
  - "beast"
@@ -17,6 +17,7 @@ aliases:
  - "treeannotator"
 
 versions:
+ - "2.6.3"
  - "latest"
 description: "BEAST 2 is a cross-platform program for Bayesian phylogenetic analysis of molecular sequences."
 ---
@@ -32,7 +33,7 @@ $ shpc install ghcr.io/autamus/beast2
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/beast2:latest
+$ shpc install ghcr.io/autamus/beast2:2.6.3
 ```
 
 And then you can tell lmod about your modules folder:
@@ -44,8 +45,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/beast2/latest
-$ module help ghcr.io/autamus/beast2/latest
+$ module load ghcr.io/autamus/beast2/2.6.3
+$ module help ghcr.io/autamus/beast2/2.6.3
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

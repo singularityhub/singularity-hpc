@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/bedops"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/bedops/container.yaml"
-updated_at: "2021-04-20 02:19:04.129899"
+updated_at: "2021-04-20 02:19:27.669651"
 container_url: ""
 aliases:
  - "bam2bed"
@@ -89,6 +89,7 @@ aliases:
  - "wig2starch"
 
 versions:
+ - "2.4.39"
  - "latest"
 description: "BEDOPS is an open-source command-line toolkit that performs highly efficient and scalable Boolean and other set operations, statistical calculations, archiving, conversion and other management of genomic data of arbitrary scale."
 ---
@@ -104,7 +105,7 @@ $ shpc install ghcr.io/autamus/bedops
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/bedops:latest
+$ shpc install ghcr.io/autamus/bedops:2.4.39
 ```
 
 And then you can tell lmod about your modules folder:
@@ -116,8 +117,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/bedops/latest
-$ module help ghcr.io/autamus/bedops/latest
+$ module load ghcr.io/autamus/bedops/2.4.39
+$ module help ghcr.io/autamus/bedops/2.4.39
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
