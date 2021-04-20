@@ -1,10 +1,11 @@
 docker: ghcr.io/autamus/node-js
-latest:
-  "latest": "sha256:26207a822fae42eb5200cdc73b52d0025315bcb2139994ece9d723547b22d4c8"
-tags:
-  "latest": "sha256:26207a822fae42eb5200cdc73b52d0025315bcb2139994ece9d723547b22d4c8"
-maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/node-js
-description: "A JavaScript runtime built on Chrome's V8 JavaScript engine."
+maintainer: '@vsoch'
+description: A JavaScript runtime built on Chrome's V8 JavaScript engine.
+latest:
+  15.3.0: sha256:26207a822fae42eb5200cdc73b52d0025315bcb2139994ece9d723547b22d4c8
+tags:
+  15.3.0: sha256:26207a822fae42eb5200cdc73b52d0025315bcb2139994ece9d723547b22d4c8
+  latest: sha256:26207a822fae42eb5200cdc73b52d0025315bcb2139994ece9d723547b22d4c8
 aliases:
-  node: /opt/view/bin/node  
+  node: /opt/view/bin/node
