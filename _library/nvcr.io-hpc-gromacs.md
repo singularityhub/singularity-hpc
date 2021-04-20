@@ -3,7 +3,7 @@ layout: container
 name:  "nvcr.io/hpc/gromacs"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/nvcr.io/hpc/gromacs/container.yaml"
-updated_at: "2021-04-20 03:17:11.655513"
+updated_at: "2021-04-20 03:17:24.682242"
 container_url: ""
 aliases:
  - "python"

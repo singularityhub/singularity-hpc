@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/papi"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/papi/container.yaml"
-updated_at: "2021-04-20 03:17:07.135987"
+updated_at: "2021-04-20 03:17:19.668580"
 container_url: ""
 aliases:
  - "papi_avail"
@@ -35,6 +35,7 @@ aliases:
  - "papi_xml_event_info"
 
 versions:
+ - "6.0.0.1"
  - "latest"
 description: "Performance Application Programming Interface."
 ---
@@ -50,7 +51,7 @@ $ shpc install ghcr.io/autamus/papi
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/papi:latest
+$ shpc install ghcr.io/autamus/papi:6.0.0.1
 ```
 
 And then you can tell lmod about your modules folder:
@@ -62,8 +63,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/papi/latest
-$ module help ghcr.io/autamus/papi/latest
+$ module load ghcr.io/autamus/papi/6.0.0.1
+$ module help ghcr.io/autamus/papi/6.0.0.1
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

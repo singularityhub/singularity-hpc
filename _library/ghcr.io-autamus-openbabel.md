@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/openbabel"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/openbabel/container.yaml"
-updated_at: "2021-04-20 03:17:05.613795"
+updated_at: "2021-04-20 03:17:17.984965"
 container_url: ""
 aliases:
  - "obabel"
@@ -45,6 +45,7 @@ aliases:
  - "obthermo"
 
 versions:
+ - "3.1.1"
  - "latest"
 description: "Open Babel is a chemical toolbox designed to speak the many languages of chemical data. It's an open, collaborative project allowing anyone to search, convert, analyze, or store data from molecular modeling, chemistry, solid-state materials, biochemistry, or related areas."
 ---
@@ -60,7 +61,7 @@ $ shpc install ghcr.io/autamus/openbabel
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/openbabel:latest
+$ shpc install ghcr.io/autamus/openbabel:3.1.1
 ```
 
 And then you can tell lmod about your modules folder:
@@ -72,8 +73,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/openbabel/latest
-$ module help ghcr.io/autamus/openbabel/latest
+$ module load ghcr.io/autamus/openbabel/3.1.1
+$ module help ghcr.io/autamus/openbabel/3.1.1
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
