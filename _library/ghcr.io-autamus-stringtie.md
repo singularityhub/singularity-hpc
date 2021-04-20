@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/stringtie"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/stringtie/container.yaml"
-updated_at: "2021-04-20 01:47:19.188127"
+updated_at: "2021-04-20 01:47:58.080706"
 container_url: ""
 aliases:
  - "stringtie"
