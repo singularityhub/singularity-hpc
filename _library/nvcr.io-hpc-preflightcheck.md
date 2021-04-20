@@ -3,7 +3,7 @@ layout: container
 name:  "nvcr.io/hpc/preflightcheck"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/nvcr.io/hpc/preflightcheck/container.yaml"
-updated_at: "2021-04-20 02:19:46.952976"
+updated_at: "2021-04-20 02:20:01.238467"
 container_url: ""
 
 versions:

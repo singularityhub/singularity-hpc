@@ -3,12 +3,13 @@ layout: container
 name:  "ghcr.io/autamus/bcftools"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/bcftools/container.yaml"
-updated_at: "2021-04-20 02:19:26.584972"
+updated_at: "2021-04-20 02:19:41.570157"
 container_url: ""
 aliases:
  - "bcftools"
 
 versions:
+ - "1.12"
  - "latest"
 description: "BCFtools is a set of utilities that manipulate variant calls in the Variant Call Format (VCF) and its binary counterpart BCF."
 ---
@@ -24,7 +25,7 @@ $ shpc install ghcr.io/autamus/bcftools
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/bcftools:latest
+$ shpc install ghcr.io/autamus/bcftools:1.12
 ```
 
 And then you can tell lmod about your modules folder:
@@ -36,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/bcftools/latest
-$ module help ghcr.io/autamus/bcftools/latest
+$ module load ghcr.io/autamus/bcftools/1.12
+$ module help ghcr.io/autamus/bcftools/1.12
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

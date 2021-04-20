@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/jasper"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/jasper/container.yaml"
-updated_at: "2021-04-20 02:19:22.311695"
+updated_at: "2021-04-20 02:19:37.371960"
 container_url: ""
 aliases:
  - "jasper"
