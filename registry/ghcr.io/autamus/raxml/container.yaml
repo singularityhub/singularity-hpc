@@ -1,11 +1,13 @@
 docker: ghcr.io/autamus/raxml
-latest:
-  "latest": "sha256:4cd56dd236840af1b1ce759f01e660460f92b2864875c8f49abb16ee4b0e0432"
-tags:
-  "latest": "sha256:4cd56dd236840af1b1ce759f01e660460f92b2864875c8f49abb16ee4b0e0432"
-maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/raxml
-description: "RAxML (Randomized Axelerated Maximum Likelihood) is a popular program for phylogenetic analysis of large datasets under maximum likelihood."
+maintainer: '@vsoch'
+description: RAxML (Randomized Axelerated Maximum Likelihood) is a popular program
+  for phylogenetic analysis of large datasets under maximum likelihood.
+latest:
+  8.2.12: sha256:4cd56dd236840af1b1ce759f01e660460f92b2864875c8f49abb16ee4b0e0432
+tags:
+  8.2.12: sha256:4cd56dd236840af1b1ce759f01e660460f92b2864875c8f49abb16ee4b0e0432
+  latest: sha256:4cd56dd236840af1b1ce759f01e660460f92b2864875c8f49abb16ee4b0e0432
 aliases:
   raxmlHPC: /opt/view/bin/raxmlHPC
   raxmlHPC-AVX: /opt/view/bin/raxmlHPC-AVX
