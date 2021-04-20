@@ -1,11 +1,13 @@
 docker: ghcr.io/autamus/poppler
-latest:
-  "latest": "sha256:8bf4bb498d2edd752994ca6f4ef8288d55beeba577be89019dc706c3534a37bc"
-tags:
-  "latest": "sha256:8bf4bb498d2edd752994ca6f4ef8288d55beeba577be89019dc706c3534a37bc"
-maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/poppler
-description: "Poppler is a free software utility library for rendering Portable Document Format (PDF) documents."
+maintainer: '@vsoch'
+description: Poppler is a free software utility library for rendering Portable Document
+  Format (PDF) documents.
+latest:
+  0.90.1: sha256:8bf4bb498d2edd752994ca6f4ef8288d55beeba577be89019dc706c3534a37bc
+tags:
+  0.90.1: sha256:8bf4bb498d2edd752994ca6f4ef8288d55beeba577be89019dc706c3534a37bc
+  latest: sha256:8bf4bb498d2edd752994ca6f4ef8288d55beeba577be89019dc706c3534a37bc
 aliases:
   pdfattach: /opt/view/bin/pdfattach
   pdfdetach: /opt/view/bin/pdfdetach
