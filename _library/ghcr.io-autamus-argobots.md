@@ -3,10 +3,11 @@ layout: container
 name:  "ghcr.io/autamus/argobots"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/argobots/container.yaml"
-updated_at: "2021-04-20 02:21:34.788316"
+updated_at: "2021-04-20 02:22:07.063430"
 container_url: ""
 
 versions:
+ - "1.1"
  - "latest"
 description: "A lightweight runtime system that supports integrated computation and data movement with massive concurrency."
 ---
@@ -22,7 +23,7 @@ $ shpc install ghcr.io/autamus/argobots
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/argobots:latest
+$ shpc install ghcr.io/autamus/argobots:1.1
 ```
 
 And then you can tell lmod about your modules folder:
@@ -34,8 +35,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/argobots/latest
-$ module help ghcr.io/autamus/argobots/latest
+$ module load ghcr.io/autamus/argobots/1.1
+$ module help ghcr.io/autamus/argobots/1.1
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
