@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/admixtools"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/admixtools/container.yaml"
-updated_at: "2021-04-20 02:22:55.337255"
+updated_at: "2021-04-20 02:23:26.363394"
 container_url: ""
 aliases:
  - "convertf"
@@ -71,6 +71,7 @@ aliases:
  - "wtjack.pl"
 
 versions:
+ - "7.0.1"
  - "latest"
 description: "ADMIXTOOLS is a collection of programs which use genetic data to infer how populations are related to one another."
 ---
@@ -86,7 +87,7 @@ $ shpc install ghcr.io/autamus/admixtools
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/admixtools:latest
+$ shpc install ghcr.io/autamus/admixtools:7.0.1
 ```
 
 And then you can tell lmod about your modules folder:
@@ -98,8 +99,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/admixtools/latest
-$ module help ghcr.io/autamus/admixtools/latest
+$ module load ghcr.io/autamus/admixtools/7.0.1
+$ module help ghcr.io/autamus/admixtools/7.0.1
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

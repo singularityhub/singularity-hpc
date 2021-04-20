@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/advancecomp"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/advancecomp/container.yaml"
-updated_at: "2021-04-20 02:22:40.237906"
+updated_at: "2021-04-20 02:23:09.734255"
 container_url: ""
 aliases:
  - "advdef"
@@ -15,6 +15,7 @@ aliases:
  - "advzip"
 
 versions:
+ - "2.1"
  - "latest"
 description: "AdvanceCOMP is a set of cross-platform command line data (re-)compression tools."
 ---
@@ -30,7 +31,7 @@ $ shpc install ghcr.io/autamus/advancecomp
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/advancecomp:latest
+$ shpc install ghcr.io/autamus/advancecomp:2.1
 ```
 
 And then you can tell lmod about your modules folder:
@@ -42,8 +43,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/advancecomp/latest
-$ module help ghcr.io/autamus/advancecomp/latest
+$ module load ghcr.io/autamus/advancecomp/2.1
+$ module help ghcr.io/autamus/advancecomp/2.1
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
