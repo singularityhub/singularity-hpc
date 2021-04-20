@@ -4,8 +4,9 @@ maintainer: '@vsoch'
 description: A sequence aligner for protein and translated DNA searches, designed
   for high performance analysis of big sequence data.
 latest:
-  latest: sha256:489fa9966e1e1f593ff628210f5da4d0892e48dc2ced98942862cc1067a18349
+  2.0.9: sha256:489fa9966e1e1f593ff628210f5da4d0892e48dc2ced98942862cc1067a18349
 tags:
+  2.0.9: sha256:489fa9966e1e1f593ff628210f5da4d0892e48dc2ced98942862cc1067a18349
   latest: sha256:489fa9966e1e1f593ff628210f5da4d0892e48dc2ced98942862cc1067a18349
 aliases:
   diamond: /opt/view/bin/diamond
