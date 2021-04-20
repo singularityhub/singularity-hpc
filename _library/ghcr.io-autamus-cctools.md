@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/cctools"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/cctools/container.yaml"
-updated_at: "2021-04-20 02:21:31.140780"
+updated_at: "2021-04-20 02:21:33.593525"
 container_url: ""
 aliases:
  - "c_rehash"
