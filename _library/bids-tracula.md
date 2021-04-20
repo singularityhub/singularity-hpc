@@ -3,7 +3,7 @@ layout: container
 name:  "bids/tracula"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/bids/tracula/container.yaml"
-updated_at: "2021-04-20 03:18:43.621977"
+updated_at: "2021-04-20 03:18:48.494996"
 container_url: ""
 
 versions:
