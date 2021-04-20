@@ -1,8 +1,10 @@
 docker: ghcr.io/autamus/argobots
-latest:
-  "latest": "sha256:64935399fc88177db1ecb2ed5431329fc06e7424dd99f55de36a3a4b0565a291"
-tags:
-  "latest": "sha256:64935399fc88177db1ecb2ed5431329fc06e7424dd99f55de36a3a4b0565a291"
-maintainer: "@vsoch"
-description: "A lightweight runtime system that supports integrated computation and data movement with massive concurrency."
 url: https://github.com/orgs/autamus/packages/container/package/argobots
+maintainer: '@vsoch'
+description: A lightweight runtime system that supports integrated computation and
+  data movement with massive concurrency.
+latest:
+  "1.1": sha256:64935399fc88177db1ecb2ed5431329fc06e7424dd99f55de36a3a4b0565a291
+tags:
+  "1.1": sha256:64935399fc88177db1ecb2ed5431329fc06e7424dd99f55de36a3a4b0565a291
+  latest: sha256:64935399fc88177db1ecb2ed5431329fc06e7424dd99f55de36a3a4b0565a291
