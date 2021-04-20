@@ -3,10 +3,11 @@ layout: container
 name:  "ghcr.io/autamus/accumulo"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/accumulo/container.yaml"
-updated_at: "2021-04-20 01:50:41.365069"
+updated_at: "2021-04-20 02:13:59.593253"
 container_url: ""
 
 versions:
+ - "2.0.1"
  - "latest"
 description: "Apache Accumulo is a sorted, distributed key/value store that provides robust, scalable data storage and retrieval."
 ---
@@ -22,7 +23,7 @@ $ shpc install ghcr.io/autamus/accumulo
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/accumulo:latest
+$ shpc install ghcr.io/autamus/accumulo:2.0.1
 ```
 
 And then you can tell lmod about your modules folder:
@@ -34,8 +35,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/accumulo/latest
-$ module help ghcr.io/autamus/accumulo/latest
+$ module load ghcr.io/autamus/accumulo/2.0.1
+$ module help ghcr.io/autamus/accumulo/2.0.1
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

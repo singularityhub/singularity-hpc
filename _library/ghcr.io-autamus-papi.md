@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/papi"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/papi/container.yaml"
-updated_at: "2021-04-20 01:50:41.565418"
+updated_at: "2021-04-20 02:13:59.808940"
 container_url: ""
 aliases:
  - "papi_avail"
