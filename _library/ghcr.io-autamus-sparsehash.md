@@ -3,10 +3,11 @@ layout: container
 name:  "ghcr.io/autamus/sparsehash"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/sparsehash/container.yaml"
-updated_at: "2021-04-20 03:14:31.950672"
+updated_at: "2021-04-20 03:14:45.400636"
 container_url: ""
 
 versions:
+ - "2.0.4"
  - "latest"
 description: "several hash-map implementations, similar in API to SGI's hash_map class, but with different performance characteristics."
 ---
@@ -22,7 +23,7 @@ $ shpc install ghcr.io/autamus/sparsehash
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/sparsehash:latest
+$ shpc install ghcr.io/autamus/sparsehash:2.0.4
 ```
 
 And then you can tell lmod about your modules folder:
@@ -34,8 +35,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/sparsehash/latest
-$ module help ghcr.io/autamus/sparsehash/latest
+$ module load ghcr.io/autamus/sparsehash/2.0.4
+$ module help ghcr.io/autamus/sparsehash/2.0.4
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
