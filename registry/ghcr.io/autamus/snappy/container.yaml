@@ -1,8 +1,10 @@
 docker: ghcr.io/autamus/snappy
-latest:
-  "latest": "sha256:6256570b9eaa75d8b4e4d1e0786097baa0ae463b6e50f3d6c150441d367b0aca"
-tags:
-  "latest": "sha256:6256570b9eaa75d8b4e4d1e0786097baa0ae463b6e50f3d6c150441d367b0aca"
-maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/snappy
-description: "Snappy (previously known as Zippy) is a fast data compression and decompression library written in C++ by Google based on ideas from LZ77 and open-sourced in 2011."
+maintainer: '@vsoch'
+description: Snappy (previously known as Zippy) is a fast data compression and decompression
+  library written in C++ by Google based on ideas from LZ77 and open-sourced in 2011.
+latest:
+  1.1.8: sha256:6256570b9eaa75d8b4e4d1e0786097baa0ae463b6e50f3d6c150441d367b0aca
+tags:
+  1.1.8: sha256:6256570b9eaa75d8b4e4d1e0786097baa0ae463b6e50f3d6c150441d367b0aca
+  latest: sha256:6256570b9eaa75d8b4e4d1e0786097baa0ae463b6e50f3d6c150441d367b0aca
