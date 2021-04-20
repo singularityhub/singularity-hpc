@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/abi-dumper"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/abi-dumper/container.yaml"
-updated_at: "2021-04-20 03:23:49.969618"
+updated_at: "2021-04-20 03:24:25.706551"
 container_url: ""
 aliases:
  - "abi-dumper"
