@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/qhull"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/qhull/container.yaml"
-updated_at: "2021-04-20 03:12:31.328353"
+updated_at: "2021-04-20 03:12:44.872652"
 container_url: ""
 aliases:
  - "qconvex"
@@ -19,6 +19,7 @@ aliases:
  - "rbox"
 
 versions:
+ - "2020.1"
  - "latest"
 description: "Snappy (previously known as Zippy) is a fast data compression and decompression library written in C++ by Google based on ideas from LZ77 and open-sourced in 2011."
 ---
@@ -34,7 +35,7 @@ $ shpc install ghcr.io/autamus/qhull
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/qhull:latest
+$ shpc install ghcr.io/autamus/qhull:2020.1
 ```
 
 And then you can tell lmod about your modules folder:
@@ -46,8 +47,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/qhull/latest
-$ module help ghcr.io/autamus/qhull/latest
+$ module load ghcr.io/autamus/qhull/2020.1
+$ module help ghcr.io/autamus/qhull/2020.1
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
