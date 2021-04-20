@@ -3,12 +3,13 @@ layout: container
 name:  "ghcr.io/autamus/prodigal"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/prodigal/container.yaml"
-updated_at: "2021-04-20 03:16:26.956538"
+updated_at: "2021-04-20 03:16:41.251322"
 container_url: ""
 aliases:
  - "prodigal"
 
 versions:
+ - "2.6.3"
  - "latest"
 description: "Prodigal Gene Prediction Software"
 ---
@@ -24,7 +25,7 @@ $ shpc install ghcr.io/autamus/prodigal
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/prodigal:latest
+$ shpc install ghcr.io/autamus/prodigal:2.6.3
 ```
 
 And then you can tell lmod about your modules folder:
@@ -36,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/prodigal/latest
-$ module help ghcr.io/autamus/prodigal/latest
+$ module load ghcr.io/autamus/prodigal/2.6.3
+$ module help ghcr.io/autamus/prodigal/2.6.3
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

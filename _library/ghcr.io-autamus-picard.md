@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/picard"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/picard/container.yaml"
-updated_at: "2021-04-20 03:16:39.021297"
+updated_at: "2021-04-20 03:16:53.521502"
 container_url: ""
 aliases:
  - "picard"
@@ -11,6 +11,7 @@ aliases:
  - "picard.jar"
 
 versions:
+ - "2.25.2"
  - "latest"
 description: "A set of command line tools (in Java) for manipulating high-throughput sequencing (HTS) data and formats such as SAM/BAM/CRAM and VCF."
 ---
@@ -26,7 +27,7 @@ $ shpc install ghcr.io/autamus/picard
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/picard:latest
+$ shpc install ghcr.io/autamus/picard:2.25.2
 ```
 
 And then you can tell lmod about your modules folder:
@@ -38,8 +39,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/picard/latest
-$ module help ghcr.io/autamus/picard/latest
+$ module load ghcr.io/autamus/picard/2.25.2
+$ module help ghcr.io/autamus/picard/2.25.2
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

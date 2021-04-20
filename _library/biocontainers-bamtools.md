@@ -3,7 +3,7 @@ layout: container
 name:  "biocontainers/bamtools"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/biocontainers/bamtools/container.yaml"
-updated_at: "2021-04-20 03:16:21.100893"
+updated_at: "2021-04-20 03:16:35.309109"
 container_url: ""
 aliases:
  - "bamtools"
