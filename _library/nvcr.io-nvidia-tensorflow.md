@@ -3,11 +3,12 @@ layout: container
 name:  "nvcr.io/nvidia/tensorflow"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/nvcr.io/nvidia/tensorflow/container.yaml"
-updated_at: "2021-04-20 03:22:52.569151"
+updated_at: "2021-04-20 03:23:47.561913"
 container_url: ""
 
 versions:
  - "21.02-tf1-py3"
+ - "21.03-tf1-py3"
 description: "TensorFlow is an open-source software library for high-performance numerical computation. Its flexible architecture allows easy deployment of computation across a variety of platforms (CPUs, GPUs, TPUs), and from desktops to clusters of servers to mobile and edge devices."
 ---
 
