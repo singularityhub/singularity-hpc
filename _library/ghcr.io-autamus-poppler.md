@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/poppler"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/poppler/container.yaml"
-updated_at: "2021-04-20 03:11:37.114633"
+updated_at: "2021-04-20 03:11:53.121182"
 container_url: ""
 aliases:
  - "pdfattach"
@@ -31,6 +31,7 @@ aliases:
  - "pngfix"
 
 versions:
+ - "0.90.1"
  - "latest"
 description: "Poppler is a free software utility library for rendering Portable Document Format (PDF) documents."
 ---
@@ -46,7 +47,7 @@ $ shpc install ghcr.io/autamus/poppler
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/poppler:latest
+$ shpc install ghcr.io/autamus/poppler:0.90.1
 ```
 
 And then you can tell lmod about your modules folder:
@@ -58,8 +59,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/poppler/latest
-$ module help ghcr.io/autamus/poppler/latest
+$ module load ghcr.io/autamus/poppler/0.90.1
+$ module help ghcr.io/autamus/poppler/0.90.1
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
