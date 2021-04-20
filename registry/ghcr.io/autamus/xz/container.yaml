@@ -1,11 +1,13 @@
 docker: ghcr.io/autamus/xz
-latest:
-  "latest": "sha256:2f00872f6175c127a8f228c16c677d945bfe0781851c6b6f57e29a7fd7763f1d"
-tags:
-  "latest": "sha256:2f00872f6175c127a8f228c16c677d945bfe0781851c6b6f57e29a7fd7763f1d"
-maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/xz
-description: "XZ Utils is free general-purpose data compression software with a high compression ratio."
+maintainer: '@vsoch'
+description: XZ Utils is free general-purpose data compression software with a high
+  compression ratio.
+latest:
+  5.2.5: sha256:2f00872f6175c127a8f228c16c677d945bfe0781851c6b6f57e29a7fd7763f1d
+tags:
+  5.2.5: sha256:2f00872f6175c127a8f228c16c677d945bfe0781851c6b6f57e29a7fd7763f1d
+  latest: sha256:2f00872f6175c127a8f228c16c677d945bfe0781851c6b6f57e29a7fd7763f1d
 aliases:
   xz: /opt/view/bin/xz
   xzcat: /opt/view/bin/xzcat
