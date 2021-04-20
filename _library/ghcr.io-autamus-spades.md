@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/spades"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/spades/container.yaml"
-updated_at: "2021-04-20 00:56:22.389336"
+updated_at: "2021-04-20 01:10:50.725817"
 container_url: ""
 aliases:
  - "spades.py"

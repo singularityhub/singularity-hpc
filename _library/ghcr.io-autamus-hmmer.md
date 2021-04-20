@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/hmmer"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/hmmer/container.yaml"
-updated_at: "2021-04-20 00:56:27.815602"
+updated_at: "2021-04-20 01:10:56.537303"
 container_url: ""
 aliases:
  - "hmmalign"
