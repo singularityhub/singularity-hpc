@@ -3,12 +3,13 @@ layout: container
 name:  "ghcr.io/autamus/angsd"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/angsd/container.yaml"
-updated_at: "2021-04-20 01:11:17.026819"
+updated_at: "2021-04-20 01:47:32.386201"
 container_url: ""
 aliases:
  - "angsd"
 
 versions:
+ - "0.935"
  - "latest"
 description: "ANGSD is a software for analyzing next generation sequencing data."
 ---
@@ -24,7 +25,7 @@ $ shpc install ghcr.io/autamus/angsd
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/angsd:latest
+$ shpc install ghcr.io/autamus/angsd:0.935
 ```
 
 And then you can tell lmod about your modules folder:
@@ -36,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/angsd/latest
-$ module help ghcr.io/autamus/angsd/latest
+$ module load ghcr.io/autamus/angsd/0.935
+$ module help ghcr.io/autamus/angsd/0.935
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
