@@ -1,11 +1,13 @@
 docker: ghcr.io/autamus/corset
-latest:
-  "latest": "sha256:bbb486ecf8eecfec2840f78f845110cfcbe61ca23f3b932e4005eee5de83ee45"
-tags:
-  "latest": "sha256:bbb486ecf8eecfec2840f78f845110cfcbe61ca23f3b932e4005eee5de83ee45"
-maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/corset
-description: "Corset is a command-line program to go from a de novo transcriptome assembly to gene-level counts."
+maintainer: '@vsoch'
+description: Corset is a command-line program to go from a de novo transcriptome assembly
+  to gene-level counts.
+latest:
+  "1.09": sha256:bbb486ecf8eecfec2840f78f845110cfcbe61ca23f3b932e4005eee5de83ee45
+tags:
+  "1.09": sha256:bbb486ecf8eecfec2840f78f845110cfcbe61ca23f3b932e4005eee5de83ee45
+  latest: sha256:bbb486ecf8eecfec2840f78f845110cfcbe61ca23f3b932e4005eee5de83ee45
 aliases:
   corset: /opt/view/bin/corset
   corset_fasta_ID_changer: /opt/view/bin/corset_fasta_ID_changer
