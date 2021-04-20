@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/unixodbc"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/unixodbc/container.yaml"
-updated_at: "2021-04-20 03:14:52.838061"
+updated_at: "2021-04-20 03:15:00.478516"
 container_url: ""
 aliases:
  - "odbc_config"
@@ -11,6 +11,7 @@ aliases:
  - "odbcinst"
 
 versions:
+ - "2.3.4"
  - "latest"
 description: "unixODBC-Test containing Qt based ODBC test tool, and autotest framework."
 ---
@@ -26,7 +27,7 @@ $ shpc install ghcr.io/autamus/unixodbc
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/unixodbc:latest
+$ shpc install ghcr.io/autamus/unixodbc:2.3.4
 ```
 
 And then you can tell lmod about your modules folder:
@@ -38,8 +39,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/unixodbc/latest
-$ module help ghcr.io/autamus/unixodbc/latest
+$ module load ghcr.io/autamus/unixodbc/2.3.4
+$ module help ghcr.io/autamus/unixodbc/2.3.4
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

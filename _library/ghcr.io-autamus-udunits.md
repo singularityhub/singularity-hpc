@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/udunits"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/udunits/container.yaml"
-updated_at: "2021-04-20 03:14:53.916015"
+updated_at: "2021-04-20 03:15:01.518721"
 container_url: ""
 aliases:
  - "udunits2"
