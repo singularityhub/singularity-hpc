@@ -3,10 +3,11 @@ layout: container
 name:  "ghcr.io/autamus/cantera"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/cantera/container.yaml"
-updated_at: "2021-04-20 02:17:02.119632"
+updated_at: "2021-04-20 02:17:13.875946"
 container_url: ""
 
 versions:
+ - "2.4.0"
  - "latest"
 description: "Cantera is an open-source collection of object-oriented software tools for problems involving chemical kinetics, thermodynamics, and transport processes."
 ---
@@ -22,7 +23,7 @@ $ shpc install ghcr.io/autamus/cantera
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/cantera:latest
+$ shpc install ghcr.io/autamus/cantera:2.4.0
 ```
 
 And then you can tell lmod about your modules folder:
@@ -34,8 +35,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/cantera/latest
-$ module help ghcr.io/autamus/cantera/latest
+$ module load ghcr.io/autamus/cantera/2.4.0
+$ module help ghcr.io/autamus/cantera/2.4.0
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
