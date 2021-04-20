@@ -3,7 +3,7 @@ layout: container
 name:  "openjdk"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/openjdk/container.yaml"
-updated_at: "2021-04-20 02:22:30.277938"
+updated_at: "2021-04-20 02:23:00.780334"
 container_url: ""
 aliases:
  - "jar"

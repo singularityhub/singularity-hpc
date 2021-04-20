@@ -3,12 +3,13 @@ layout: container
 name:  "ghcr.io/autamus/alan"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/alan/container.yaml"
-updated_at: "2021-04-20 02:22:23.187795"
+updated_at: "2021-04-20 02:22:54.448229"
 container_url: ""
 aliases:
  - "alan"
 
 versions:
+ - "2.1.1"
  - "latest"
 description: "A simple in-terminal alignment viewer."
 ---
@@ -24,7 +25,7 @@ $ shpc install ghcr.io/autamus/alan
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/alan:latest
+$ shpc install ghcr.io/autamus/alan:2.1.1
 ```
 
 And then you can tell lmod about your modules folder:
@@ -36,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/alan/latest
-$ module help ghcr.io/autamus/alan/latest
+$ module load ghcr.io/autamus/alan/2.1.1
+$ module help ghcr.io/autamus/alan/2.1.1
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

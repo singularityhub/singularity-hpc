@@ -3,12 +3,13 @@ layout: container
 name:  "ghcr.io/autamus/alps"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/alps/container.yaml"
-updated_at: "2021-04-20 02:22:04.040208"
+updated_at: "2021-04-20 02:22:37.652581"
 container_url: ""
 aliases:
  - "alpspython"
 
 versions:
+ - "2.3.0"
  - "latest"
 description: "Algorithms and Libraries for Physics Simulations."
 ---
@@ -24,7 +25,7 @@ $ shpc install ghcr.io/autamus/alps
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/alps:latest
+$ shpc install ghcr.io/autamus/alps:2.3.0
 ```
 
 And then you can tell lmod about your modules folder:
@@ -36,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/alps/latest
-$ module help ghcr.io/autamus/alps/latest
+$ module load ghcr.io/autamus/alps/2.3.0
+$ module help ghcr.io/autamus/alps/2.3.0
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
