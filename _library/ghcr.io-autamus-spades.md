@@ -3,40 +3,41 @@ layout: container
 name:  "ghcr.io/autamus/spades"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/spades/container.yaml"
-updated_at: "2021-04-20 03:13:57.703633"
+updated_at: "2021-04-20 03:14:07.032352"
 container_url: ""
 aliases:
- - "spades.py"
-
  - "spades-bwa"
-
- - "spades-gbuilder"
-
- - "spades-ionhammer"
-
- - "spades-truseq-scfcorrection"
 
  - "spades-convert-bin-to-fasta"
 
- - "spades-gmapper"
-
- - "spades-kmer-estimating"
-
  - "spades-core"
-
- - "spades-gsimplifier"
-
- - "spades-kmercount"
 
  - "spades-corrector-core"
 
+ - "spades-gbuilder"
+
+ - "spades-gmapper"
+
+ - "spades-gsimplifier"
+
  - "spades-hammer"
 
- - "spaligner"
+ - "spades-ionhammer"
+
+ - "spades-kmer-estimating"
+
+ - "spades-kmercount"
 
  - "spades-read-filter"
 
+ - "spades-truseq-scfcorrection"
+
+ - "spades.py"
+
+ - "spaligner"
+
 versions:
+ - "3.15.2"
  - "latest"
 description: "St. Petersburg genome assembler – an assembly toolkit containing various assembly pipelines."
 ---
@@ -52,7 +53,7 @@ $ shpc install ghcr.io/autamus/spades
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/spades:latest
+$ shpc install ghcr.io/autamus/spades:3.15.2
 ```
 
 And then you can tell lmod about your modules folder:
@@ -64,8 +65,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/spades/latest
-$ module help ghcr.io/autamus/spades/latest
+$ module load ghcr.io/autamus/spades/3.15.2
+$ module help ghcr.io/autamus/spades/3.15.2
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
@@ -107,38 +108,10 @@ $ singularity inspect -d <container>
 ```
 
 
-#### spades.py
-       
-```bash
-$ singularity exec <container> /opt/view/bin/spades.py
-```
-
-
 #### spades-bwa
        
 ```bash
 $ singularity exec <container> /opt/view/bin/spades-bwa
-```
-
-
-#### spades-gbuilder
-       
-```bash
-$ singularity exec <container> /opt/view/bin/spades-gbuilder
-```
-
-
-#### spades-ionhammer
-       
-```bash
-$ singularity exec <container> /opt/view/bin/spades-ionhammer
-```
-
-
-#### spades-truseq-scfcorrection
-       
-```bash
-$ singularity exec <container> /opt/view/bin/spades-truseq-scfcorrection
 ```
 
 
@@ -149,38 +122,10 @@ $ singularity exec <container> /opt/view/bin/spades-convert-bin-to-fasta
 ```
 
 
-#### spades-gmapper
-       
-```bash
-$ singularity exec <container> /opt/view/bin/spades-gmapper
-```
-
-
-#### spades-kmer-estimating
-       
-```bash
-$ singularity exec <container> /opt/view/bin/spades-kmer-estimating
-```
-
-
 #### spades-core
        
 ```bash
 $ singularity exec <container> /opt/view/bin/spades-core
-```
-
-
-#### spades-gsimplifier
-       
-```bash
-$ singularity exec <container> /opt/view/bin/spades-gsimplifier
-```
-
-
-#### spades-kmercount
-       
-```bash
-$ singularity exec <container> /opt/view/bin/spades-kmercount
 ```
 
 
@@ -191,6 +136,27 @@ $ singularity exec <container> /opt/view/bin/spades-corrector-core
 ```
 
 
+#### spades-gbuilder
+       
+```bash
+$ singularity exec <container> /opt/view/bin/spades-gbuilder
+```
+
+
+#### spades-gmapper
+       
+```bash
+$ singularity exec <container> /opt/view/bin/spades-gmapper
+```
+
+
+#### spades-gsimplifier
+       
+```bash
+$ singularity exec <container> /opt/view/bin/spades-gsimplifier
+```
+
+
 #### spades-hammer
        
 ```bash
@@ -198,10 +164,24 @@ $ singularity exec <container> /opt/view/bin/spades-hammer
 ```
 
 
-#### spaligner
+#### spades-ionhammer
        
 ```bash
-$ singularity exec <container> /opt/view/bin/spaligner
+$ singularity exec <container> /opt/view/bin/spades-ionhammer
+```
+
+
+#### spades-kmer-estimating
+       
+```bash
+$ singularity exec <container> /opt/view/bin/spades-kmer-estimating
+```
+
+
+#### spades-kmercount
+       
+```bash
+$ singularity exec <container> /opt/view/bin/spades-kmercount
 ```
 
 
@@ -209,6 +189,27 @@ $ singularity exec <container> /opt/view/bin/spaligner
        
 ```bash
 $ singularity exec <container> /opt/view/bin/spades-read-filter
+```
+
+
+#### spades-truseq-scfcorrection
+       
+```bash
+$ singularity exec <container> /opt/view/bin/spades-truseq-scfcorrection
+```
+
+
+#### spades.py
+       
+```bash
+$ singularity exec <container> /opt/view/bin/spades.py
+```
+
+
+#### spaligner
+       
+```bash
+$ singularity exec <container> /opt/view/bin/spaligner
 ```
 
 
