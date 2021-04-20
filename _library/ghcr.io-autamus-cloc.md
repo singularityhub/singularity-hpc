@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/cloc"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/cloc/container.yaml"
-updated_at: "2021-04-20 02:18:49.869637"
+updated_at: "2021-04-20 02:19:06.996309"
 container_url: ""
 aliases:
  - "cloc"

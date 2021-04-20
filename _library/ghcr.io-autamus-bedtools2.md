@@ -3,9 +3,15 @@ layout: container
 name:  "ghcr.io/autamus/bedtools2"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/bedtools2/container.yaml"
-updated_at: "2021-04-20 02:18:55.945369"
+updated_at: "2021-04-20 02:19:13.277552"
 container_url: ""
 aliases:
+ - "annotateBed"
+
+ - "bamToBed"
+
+ - "bed12ToBed6"
+
  - "bedToBam"
 
  - "bedToIgv"
@@ -13,12 +19,6 @@ aliases:
  - "bedpeToBam"
 
  - "bedtools"
-
- - "annotateBed"
-
- - "bamToBed"
-
- - "bed12ToBed6"
 
  - "closestBed"
 
@@ -67,6 +67,7 @@ aliases:
  - "windowBed"
 
 versions:
+ - "2.30.0"
  - "latest"
 description: "The swiss army knife for genome arithmetic"
 ---
@@ -82,7 +83,7 @@ $ shpc install ghcr.io/autamus/bedtools2
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/bedtools2:latest
+$ shpc install ghcr.io/autamus/bedtools2:2.30.0
 ```
 
 And then you can tell lmod about your modules folder:
@@ -94,8 +95,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/bedtools2/latest
-$ module help ghcr.io/autamus/bedtools2/latest
+$ module load ghcr.io/autamus/bedtools2/2.30.0
+$ module help ghcr.io/autamus/bedtools2/2.30.0
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
@@ -137,6 +138,27 @@ $ singularity inspect -d <container>
 ```
 
 
+#### annotateBed
+       
+```bash
+$ singularity exec <container> /opt/view/bin/annotateBed
+```
+
+
+#### bamToBed
+       
+```bash
+$ singularity exec <container> /opt/view/bin/bamToBed
+```
+
+
+#### bed12ToBed6
+       
+```bash
+$ singularity exec <container> /opt/view/bin/bed12ToBed6
+```
+
+
 #### bedToBam
        
 ```bash
@@ -162,27 +184,6 @@ $ singularity exec <container> /opt/view/bin/bedpeToBam
        
 ```bash
 $ singularity exec <container> /opt/view/bin/bedtools
-```
-
-
-#### annotateBed
-       
-```bash
-$ singularity exec <container> /opt/view/bin/annotateBed
-```
-
-
-#### bamToBed
-       
-```bash
-$ singularity exec <container> /opt/view/bin/bamToBed
-```
-
-
-#### bed12ToBed6
-       
-```bash
-$ singularity exec <container> /opt/view/bin/bed12ToBed6
 ```
 
 
