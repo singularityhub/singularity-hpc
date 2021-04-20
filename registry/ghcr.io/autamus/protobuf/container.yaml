@@ -1,11 +1,14 @@
 docker: ghcr.io/autamus/protobuf
-latest:
-  "latest": "sha256:f257c20871d7dd135053e650c14a39c4203a1623ac5b9178e70b1ac2052f923f"
-tags:
-  "latest": "sha256:f257c20871d7dd135053e650c14a39c4203a1623ac5b9178e70b1ac2052f923f"
-maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/protobuf
-description: "Protocol Buffers is a method of serializing structured data. It is useful in developing programs to communicate with each other over a network or for storing data."
+maintainer: '@vsoch'
+description: Protocol Buffers is a method of serializing structured data. It is useful
+  in developing programs to communicate with each other over a network or for storing
+  data.
+latest:
+  3.15.8: sha256:f257c20871d7dd135053e650c14a39c4203a1623ac5b9178e70b1ac2052f923f
+tags:
+  3.15.8: sha256:f257c20871d7dd135053e650c14a39c4203a1623ac5b9178e70b1ac2052f923f
+  latest: sha256:f257c20871d7dd135053e650c14a39c4203a1623ac5b9178e70b1ac2052f923f
 aliases:
   protoc: /opt/view/bin/protoc
   protoc-3.15.8.0: /opt/view/bin/protoc-3.15.8.0
