@@ -3,10 +3,11 @@ layout: container
 name:  "ghcr.io/autamus/bbmap"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/bbmap/container.yaml"
-updated_at: "2021-04-20 02:20:04.061071"
+updated_at: "2021-04-20 02:21:00.248895"
 container_url: ""
 
 versions:
+ - "38.63"
  - "latest"
 description: "A suite of fast, multithreaded bioinformatics tools designed for analysis of DNA and RNA sequence data."
 ---
@@ -22,7 +23,7 @@ $ shpc install ghcr.io/autamus/bbmap
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/bbmap:latest
+$ shpc install ghcr.io/autamus/bbmap:38.63
 ```
 
 And then you can tell lmod about your modules folder:
@@ -34,8 +35,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/bbmap/latest
-$ module help ghcr.io/autamus/bbmap/latest
+$ module load ghcr.io/autamus/bbmap/38.63
+$ module help ghcr.io/autamus/bbmap/38.63
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/bart"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/bart/container.yaml"
-updated_at: "2021-04-20 02:20:20.175348"
+updated_at: "2021-04-20 02:21:16.626039"
 container_url: ""
 aliases:
  - "bart"
@@ -11,6 +11,7 @@ aliases:
  - "bartview"
 
 versions:
+ - "0.6.00"
  - "latest"
 description: "BART: Toolbox for Computational Magnetic Resonance Imaging"
 ---
@@ -26,7 +27,7 @@ $ shpc install ghcr.io/autamus/bart
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/bart:latest
+$ shpc install ghcr.io/autamus/bart:0.6.00
 ```
 
 And then you can tell lmod about your modules folder:
@@ -38,8 +39,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/bart/latest
-$ module help ghcr.io/autamus/bart/latest
+$ module load ghcr.io/autamus/bart/0.6.00
+$ module help ghcr.io/autamus/bart/0.6.00
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
