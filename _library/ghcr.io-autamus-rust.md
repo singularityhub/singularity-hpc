@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/rust"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/rust/container.yaml"
-updated_at: "2021-04-20 02:18:24.597217"
+updated_at: "2021-04-20 02:18:49.665886"
 container_url: ""
 aliases:
  - "rust"

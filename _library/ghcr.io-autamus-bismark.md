@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/bismark"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/bismark/container.yaml"
-updated_at: "2021-04-20 02:18:39.850370"
+updated_at: "2021-04-20 02:19:04.228368"
 container_url: ""
 aliases:
  - "bismark"
@@ -19,6 +19,7 @@ aliases:
  - "bismark2summary"
 
 versions:
+ - "0.23.0"
  - "latest"
 description: "Bismark is a program to map bisulfite treated sequencing reads to a genome of interest and perform methylation calls in a single step."
 ---
@@ -34,7 +35,7 @@ $ shpc install ghcr.io/autamus/bismark
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/bismark:latest
+$ shpc install ghcr.io/autamus/bismark:0.23.0
 ```
 
 And then you can tell lmod about your modules folder:
@@ -46,8 +47,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/bismark/latest
-$ module help ghcr.io/autamus/bismark/latest
+$ module load ghcr.io/autamus/bismark/0.23.0
+$ module help ghcr.io/autamus/bismark/0.23.0
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
