@@ -3,7 +3,7 @@ layout: container
 name:  "kibana"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/kibana/container.yaml"
-updated_at: "2021-04-20 01:48:17.178140"
+updated_at: "2021-04-20 01:49:36.114505"
 container_url: ""
 aliases:
  - "kibana"

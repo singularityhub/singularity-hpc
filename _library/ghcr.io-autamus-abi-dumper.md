@@ -3,12 +3,13 @@ layout: container
 name:  "ghcr.io/autamus/abi-dumper"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/abi-dumper/container.yaml"
-updated_at: "2021-04-20 01:47:53.001560"
+updated_at: "2021-04-20 01:49:09.575454"
 container_url: ""
 aliases:
  - "abi-dumper"
 
 versions:
+ - "1.2"
  - "latest"
 description: "ABI Dumper is a tool for dumping ABI information of an ELF object containing DWARF debug info."
 ---
@@ -24,7 +25,7 @@ $ shpc install ghcr.io/autamus/abi-dumper
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/abi-dumper:latest
+$ shpc install ghcr.io/autamus/abi-dumper:1.2
 ```
 
 And then you can tell lmod about your modules folder:
@@ -36,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/abi-dumper/latest
-$ module help ghcr.io/autamus/abi-dumper/latest
+$ module load ghcr.io/autamus/abi-dumper/1.2
+$ module help ghcr.io/autamus/abi-dumper/1.2
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
