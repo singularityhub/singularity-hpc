@@ -3,12 +3,13 @@ layout: container
 name:  "ghcr.io/autamus/migrate"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/migrate/container.yaml"
-updated_at: "2021-04-20 03:18:30.034007"
+updated_at: "2021-04-20 03:19:31.205563"
 container_url: ""
 aliases:
  - "migrate-n"
 
 versions:
+ - "3.7.2"
  - "latest"
 description: "Migrate estimates effective population sizes and past migration rates between n population assuming a migration matrix model with asymmetric migration rates and different subpopulation sizes"
 ---
@@ -24,7 +25,7 @@ $ shpc install ghcr.io/autamus/migrate
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/migrate:latest
+$ shpc install ghcr.io/autamus/migrate:3.7.2
 ```
 
 And then you can tell lmod about your modules folder:
@@ -36,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/migrate/latest
-$ module help ghcr.io/autamus/migrate/latest
+$ module load ghcr.io/autamus/migrate/3.7.2
+$ module help ghcr.io/autamus/migrate/3.7.2
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
