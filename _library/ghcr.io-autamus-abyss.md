@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/abyss"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/abyss/container.yaml"
-updated_at: "2021-04-20 01:49:21.480616"
+updated_at: "2021-04-20 01:50:35.021052"
 container_url: ""
 aliases:
  - "abyss-align"
@@ -83,6 +83,7 @@ aliases:
  - "abyss-tofastq"
 
 versions:
+ - "2.3.0"
  - "latest"
 description: "ABySS is a de novo, parallel, paired-end sequence assembler that is designed for short reads."
 ---
@@ -98,7 +99,7 @@ $ shpc install ghcr.io/autamus/abyss
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/abyss:latest
+$ shpc install ghcr.io/autamus/abyss:2.3.0
 ```
 
 And then you can tell lmod about your modules folder:
@@ -110,8 +111,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/abyss/latest
-$ module help ghcr.io/autamus/abyss/latest
+$ module load ghcr.io/autamus/abyss/2.3.0
+$ module help ghcr.io/autamus/abyss/2.3.0
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
