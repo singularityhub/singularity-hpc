@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/pandaseq"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/pandaseq/container.yaml"
-updated_at: "2021-04-20 02:23:24.961638"
+updated_at: "2021-04-20 02:23:47.787677"
 container_url: ""
 aliases:
  - "pandaseq"
