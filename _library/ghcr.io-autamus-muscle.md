@@ -3,12 +3,13 @@ layout: container
 name:  "ghcr.io/autamus/muscle"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/muscle/container.yaml"
-updated_at: "2021-04-20 02:48:58.056351"
+updated_at: "2021-04-20 03:11:05.485202"
 container_url: ""
 aliases:
  - "muscle"
 
 versions:
+ - "3.8.1551"
  - "latest"
 description: "Multiple Sequence Alignment."
 ---
@@ -24,7 +25,7 @@ $ shpc install ghcr.io/autamus/muscle
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/muscle:latest
+$ shpc install ghcr.io/autamus/muscle:3.8.1551
 ```
 
 And then you can tell lmod about your modules folder:
@@ -36,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/muscle/latest
-$ module help ghcr.io/autamus/muscle/latest
+$ module load ghcr.io/autamus/muscle/3.8.1551
+$ module help ghcr.io/autamus/muscle/3.8.1551
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/curl"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/curl/container.yaml"
-updated_at: "2021-04-20 02:48:51.121769"
+updated_at: "2021-04-20 03:10:59.569379"
 container_url: ""
 aliases:
  - "c_rehash"
@@ -13,6 +13,7 @@ aliases:
  - "curl-config"
 
 versions:
+ - "7.76.1"
  - "latest"
 description: "cURL is a computer software project providing a library and command-line tool for transferring data using various network protocols. The name stands for 'Client URL', which was first released in 1997."
 ---
@@ -28,7 +29,7 @@ $ shpc install ghcr.io/autamus/curl
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/curl:latest
+$ shpc install ghcr.io/autamus/curl:7.76.1
 ```
 
 And then you can tell lmod about your modules folder:
@@ -40,8 +41,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/curl/latest
-$ module help ghcr.io/autamus/curl/latest
+$ module load ghcr.io/autamus/curl/7.76.1
+$ module help ghcr.io/autamus/curl/7.76.1
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

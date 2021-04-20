@@ -3,14 +3,14 @@ layout: container
 name:  "ghcr.io/autamus/cufflinks"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/cufflinks/container.yaml"
-updated_at: "2021-04-20 02:49:03.323810"
+updated_at: "2021-04-20 03:11:09.825715"
 container_url: ""
 aliases:
- - "cufflinks"
-
  - "cuffcompare"
 
  - "cuffdiff"
+
+ - "cufflinks"
 
  - "cuffmerge"
 
@@ -19,6 +19,7 @@ aliases:
  - "cuffquant"
 
 versions:
+ - "2.2.1"
  - "latest"
 description: "Cufflinks assembles transcripts, estimates their abundances, and tests for differential expression and regulation in RNA-Seq samples."
 ---
@@ -34,7 +35,7 @@ $ shpc install ghcr.io/autamus/cufflinks
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/cufflinks:latest
+$ shpc install ghcr.io/autamus/cufflinks:2.2.1
 ```
 
 And then you can tell lmod about your modules folder:
@@ -46,8 +47,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/cufflinks/latest
-$ module help ghcr.io/autamus/cufflinks/latest
+$ module load ghcr.io/autamus/cufflinks/2.2.1
+$ module help ghcr.io/autamus/cufflinks/2.2.1
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
@@ -89,13 +90,6 @@ $ singularity inspect -d <container>
 ```
 
 
-#### cufflinks
-       
-```bash
-$ singularity exec <container> /opt/view/bin/cufflinks
-```
-
-
 #### cuffcompare
        
 ```bash
@@ -107,6 +101,13 @@ $ singularity exec <container> /opt/view/bin/cuffcompare
        
 ```bash
 $ singularity exec <container> /opt/view/bin/cuffdiff
+```
+
+
+#### cufflinks
+       
+```bash
+$ singularity exec <container> /opt/view/bin/cufflinks
 ```
 
 

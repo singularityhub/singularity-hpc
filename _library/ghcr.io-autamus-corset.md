@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/corset"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/corset/container.yaml"
-updated_at: "2021-04-20 02:49:00.301827"
+updated_at: "2021-04-20 03:11:07.335871"
 container_url: ""
 aliases:
  - "corset"
@@ -11,6 +11,7 @@ aliases:
  - "corset_fasta_ID_changer"
 
 versions:
+ - "1.09"
  - "latest"
 description: "Corset is a command-line program to go from a de novo transcriptome assembly to gene-level counts."
 ---
@@ -26,7 +27,7 @@ $ shpc install ghcr.io/autamus/corset
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/corset:latest
+$ shpc install ghcr.io/autamus/corset:1.09
 ```
 
 And then you can tell lmod about your modules folder:
@@ -38,8 +39,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/corset/latest
-$ module help ghcr.io/autamus/corset/latest
+$ module load ghcr.io/autamus/corset/1.09
+$ module help ghcr.io/autamus/corset/1.09
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

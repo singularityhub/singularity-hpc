@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/clhep"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/clhep/container.yaml"
-updated_at: "2021-04-20 02:48:43.655506"
+updated_at: "2021-04-20 03:10:53.396984"
 container_url: ""
 aliases:
  - "Cast-config"
@@ -33,6 +33,7 @@ aliases:
  - "clhep-config"
 
 versions:
+ - "2.4.4.0"
  - "latest"
 description: "CLHEP is a C++ library that provides utility classes for general numerical programming, vector arithmetic, geometry, pseudorandom number generation, and linear algebra, specifically targeted for high energy physics simulation and analysis software."
 ---
@@ -48,7 +49,7 @@ $ shpc install ghcr.io/autamus/clhep
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/clhep:latest
+$ shpc install ghcr.io/autamus/clhep:2.4.4.0
 ```
 
 And then you can tell lmod about your modules folder:
@@ -60,8 +61,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/clhep/latest
-$ module help ghcr.io/autamus/clhep/latest
+$ module load ghcr.io/autamus/clhep/2.4.4.0
+$ module help ghcr.io/autamus/clhep/2.4.4.0
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

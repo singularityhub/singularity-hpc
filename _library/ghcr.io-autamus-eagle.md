@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/eagle"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/eagle/container.yaml"
-updated_at: "2021-04-20 02:49:04.616168"
+updated_at: "2021-04-20 03:11:10.853521"
 container_url: ""
 aliases:
  - "eagle"
@@ -13,6 +13,7 @@ aliases:
  - "eagle-rc"
 
 versions:
+ - "1.1.2"
  - "latest"
 description: "Explicit Alternative Genome Likelihood Evaluator"
 ---
@@ -28,7 +29,7 @@ $ shpc install ghcr.io/autamus/eagle
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/eagle:latest
+$ shpc install ghcr.io/autamus/eagle:1.1.2
 ```
 
 And then you can tell lmod about your modules folder:
@@ -40,8 +41,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/eagle/latest
-$ module help ghcr.io/autamus/eagle/latest
+$ module load ghcr.io/autamus/eagle/1.1.2
+$ module help ghcr.io/autamus/eagle/1.1.2
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

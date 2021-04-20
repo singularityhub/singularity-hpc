@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/dakota"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/dakota/container.yaml"
-updated_at: "2021-04-20 02:48:58.560878"
+updated_at: "2021-04-20 03:11:05.894391"
 container_url: ""
 aliases:
  - "dakota"
@@ -17,6 +17,7 @@ aliases:
  - "dakota_restart_util"
 
 versions:
+ - "6.12"
  - "latest"
 description: "The Dakota project delivers both state-of-the-art research and robust, usable software for optimization and UQ. Broadly, the Dakota software's advanced parametric analyses enable design exploration, model calibration, risk analysis, and quantification of margins and uncertainty with computational models."
 ---
@@ -32,7 +33,7 @@ $ shpc install ghcr.io/autamus/dakota
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/dakota:latest
+$ shpc install ghcr.io/autamus/dakota:6.12
 ```
 
 And then you can tell lmod about your modules folder:
@@ -44,8 +45,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/dakota/latest
-$ module help ghcr.io/autamus/dakota/latest
+$ module load ghcr.io/autamus/dakota/6.12
+$ module help ghcr.io/autamus/dakota/6.12
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

@@ -3,10 +3,11 @@ layout: container
 name:  "ghcr.io/autamus/mpfr"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/mpfr/container.yaml"
-updated_at: "2021-04-20 02:48:48.181415"
+updated_at: "2021-04-20 03:10:57.123954"
 container_url: ""
 
 versions:
+ - "4.1.0"
  - "latest"
 description: "The MPFR library is a C library for multiple-precision floating-point computations with correct rounding."
 ---
@@ -22,7 +23,7 @@ $ shpc install ghcr.io/autamus/mpfr
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/mpfr:latest
+$ shpc install ghcr.io/autamus/mpfr:4.1.0
 ```
 
 And then you can tell lmod about your modules folder:
@@ -34,8 +35,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/mpfr/latest
-$ module help ghcr.io/autamus/mpfr/latest
+$ module load ghcr.io/autamus/mpfr/4.1.0
+$ module help ghcr.io/autamus/mpfr/4.1.0
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
