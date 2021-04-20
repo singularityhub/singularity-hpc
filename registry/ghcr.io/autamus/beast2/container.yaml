@@ -1,11 +1,13 @@
 docker: ghcr.io/autamus/beast2
-latest:
-  "latest": "sha256:5eae1eabe7b127b3847401fe69e3430f97936d7ef7198287aabe01c5e1a957cf"
-tags:
-  "latest": "sha256:5eae1eabe7b127b3847401fe69e3430f97936d7ef7198287aabe01c5e1a957cf"
-maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/beast2
-description: "BEAST 2 is a cross-platform program for Bayesian phylogenetic analysis of molecular sequences."
+maintainer: '@vsoch'
+description: BEAST 2 is a cross-platform program for Bayesian phylogenetic analysis
+  of molecular sequences.
+latest:
+  2.6.3: sha256:5eae1eabe7b127b3847401fe69e3430f97936d7ef7198287aabe01c5e1a957cf
+tags:
+  2.6.3: sha256:5eae1eabe7b127b3847401fe69e3430f97936d7ef7198287aabe01c5e1a957cf
+  latest: sha256:5eae1eabe7b127b3847401fe69e3430f97936d7ef7198287aabe01c5e1a957cf
 aliases:
   beast: /opt/view/bin/beast
   beasti: /opt/view/bin/beasti
