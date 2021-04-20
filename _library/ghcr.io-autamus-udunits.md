@@ -3,12 +3,13 @@ layout: container
 name:  "ghcr.io/autamus/udunits"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/udunits/container.yaml"
-updated_at: "2021-04-20 03:14:43.322103"
+updated_at: "2021-04-20 03:14:53.916015"
 container_url: ""
 aliases:
  - "udunits2"
 
 versions:
+ - "2.2.28"
  - "latest"
 description: "The UDUNITS package supports units of physical quantities. Its C library provides for arithmetic manipulation of units and for conversion of numeric values between compatible units."
 ---
@@ -24,7 +25,7 @@ $ shpc install ghcr.io/autamus/udunits
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/udunits:latest
+$ shpc install ghcr.io/autamus/udunits:2.2.28
 ```
 
 And then you can tell lmod about your modules folder:
@@ -36,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/udunits/latest
-$ module help ghcr.io/autamus/udunits/latest
+$ module load ghcr.io/autamus/udunits/2.2.28
+$ module help ghcr.io/autamus/udunits/2.2.28
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
