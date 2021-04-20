@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/kallisto"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/kallisto/container.yaml"
-updated_at: "2021-04-20 03:16:13.867856"
+updated_at: "2021-04-20 03:16:14.034446"
 container_url: ""
 aliases:
  - "kallisto"
