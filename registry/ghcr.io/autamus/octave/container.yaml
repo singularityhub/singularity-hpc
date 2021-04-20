@@ -1,11 +1,13 @@
 docker: ghcr.io/autamus/octave
-latest:
-  "latest": "sha256:07ca9aaa0b4ce1a5a69eee124b9474add332838b3fa86c8ef3eba6be2c40537e"
-tags:
-  "latest": "sha256:07ca9aaa0b4ce1a5a69eee124b9474add332838b3fa86c8ef3eba6be2c40537e"
-maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/octave
-description: "GNU Octave is a high-level interpreted language, primarily intended for numerical computations (like an open source Matlab)"
+maintainer: '@vsoch'
+description: GNU Octave is a high-level interpreted language, primarily intended for
+  numerical computations (like an open source Matlab)
+latest:
+  6.2.0: sha256:07ca9aaa0b4ce1a5a69eee124b9474add332838b3fa86c8ef3eba6be2c40537e
+tags:
+  6.2.0: sha256:07ca9aaa0b4ce1a5a69eee124b9474add332838b3fa86c8ef3eba6be2c40537e
+  latest: sha256:07ca9aaa0b4ce1a5a69eee124b9474add332838b3fa86c8ef3eba6be2c40537e
 aliases:
   octave: /opt/view/bin/octave
   octave-6.2.0: /opt/view/bin/octave-6.2.0
