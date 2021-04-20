@@ -1,11 +1,13 @@
 docker: ghcr.io/autamus/heaptrack
-latest:
-  "latest": "sha256:6643e1b1c2f333f755e9c1cbeeb2d15881fb77303150e61642a1d51b4855a515"
-tags:
-  "latest": "sha256:6643e1b1c2f333f755e9c1cbeeb2d15881fb77303150e61642a1d51b4855a515"
-maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/heaptrack
-description: "Heaptrack traces all memory allocations and annotates these events with stack traces."
+maintainer: '@vsoch'
+description: Heaptrack traces all memory allocations and annotates these events with
+  stack traces.
+latest:
+  1.2.0: sha256:6643e1b1c2f333f755e9c1cbeeb2d15881fb77303150e61642a1d51b4855a515
+tags:
+  1.2.0: sha256:6643e1b1c2f333f755e9c1cbeeb2d15881fb77303150e61642a1d51b4855a515
+  latest: sha256:6643e1b1c2f333f755e9c1cbeeb2d15881fb77303150e61642a1d51b4855a515
 aliases:
   heaptrack: /opt/view/bin/heaptrack
   heaptrack_print: /opt/view/bin/heaptrack_print
