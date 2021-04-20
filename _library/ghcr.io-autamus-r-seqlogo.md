@@ -3,10 +3,11 @@ layout: container
 name:  "ghcr.io/autamus/r-seqlogo"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/r-seqlogo/container.yaml"
-updated_at: "2021-04-20 03:12:46.506740"
+updated_at: "2021-04-20 03:13:09.177465"
 container_url: ""
 
 versions:
+ - "1.56.0"
  - "latest"
 description: "Sequence logos for DNA sequence alignments"
 ---
@@ -22,7 +23,7 @@ $ shpc install ghcr.io/autamus/r-seqlogo
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/r-seqlogo:latest
+$ shpc install ghcr.io/autamus/r-seqlogo:1.56.0
 ```
 
 And then you can tell lmod about your modules folder:
@@ -34,8 +35,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/r-seqlogo/latest
-$ module help ghcr.io/autamus/r-seqlogo/latest
+$ module load ghcr.io/autamus/r-seqlogo/1.56.0
+$ module help ghcr.io/autamus/r-seqlogo/1.56.0
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

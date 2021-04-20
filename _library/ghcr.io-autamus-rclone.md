@@ -3,12 +3,13 @@ layout: container
 name:  "ghcr.io/autamus/rclone"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/rclone/container.yaml"
-updated_at: "2021-04-20 03:12:55.844519"
+updated_at: "2021-04-20 03:13:16.774191"
 container_url: ""
 aliases:
  - "rclone"
 
 versions:
+ - "1.55.0"
  - "latest"
 description: "Rclone is a command line program to manage files on cloud storage."
 ---
@@ -24,7 +25,7 @@ $ shpc install ghcr.io/autamus/rclone
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/rclone:latest
+$ shpc install ghcr.io/autamus/rclone:1.55.0
 ```
 
 And then you can tell lmod about your modules folder:
@@ -36,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/rclone/latest
-$ module help ghcr.io/autamus/rclone/latest
+$ module load ghcr.io/autamus/rclone/1.55.0
+$ module help ghcr.io/autamus/rclone/1.55.0
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
