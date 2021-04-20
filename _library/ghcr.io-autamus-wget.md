@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/wget"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/wget/container.yaml"
-updated_at: "2021-04-20 02:17:13.717712"
+updated_at: "2021-04-20 02:17:34.376224"
 container_url: ""
 aliases:
  - "wget"
