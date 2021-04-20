@@ -1,11 +1,14 @@
 docker: ghcr.io/autamus/ffmpeg
-latest:
-  "latest": "sha256:df73716a2b4648c4ea99e103d47245c668f13224b80f7285c43922a919e767a1"
-tags:
-  "latest": "sha256:df73716a2b4648c4ea99e103d47245c668f13224b80f7285c43922a919e767a1"
-maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/ffmpeg
-description: "FFmpeg is a free and open-source software project consisting of a large suite of libraries and programs for handling video, audio, and other multimedia files and streams."
+maintainer: '@vsoch'
+description: FFmpeg is a free and open-source software project consisting of a large
+  suite of libraries and programs for handling video, audio, and other multimedia
+  files and streams.
+latest:
+  "4.5": sha256:df73716a2b4648c4ea99e103d47245c668f13224b80f7285c43922a919e767a1
+tags:
+  "4.5": sha256:df73716a2b4648c4ea99e103d47245c668f13224b80f7285c43922a919e767a1
+  latest: sha256:df73716a2b4648c4ea99e103d47245c668f13224b80f7285c43922a919e767a1
 aliases:
   ffmpeg: /opt/view/bin/ffmpeg
   ffprobe: /opt/view/bin/ffprobe
