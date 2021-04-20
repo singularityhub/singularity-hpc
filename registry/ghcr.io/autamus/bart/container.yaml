@@ -1,11 +1,12 @@
 docker: ghcr.io/autamus/bart
-latest:
-  "latest": "sha256:20ad7ad79e8512a6cb2b67f244430ee26af47b052b3f70c97fbe972b73825d2d"
-tags:
-  "latest": "sha256:20ad7ad79e8512a6cb2b67f244430ee26af47b052b3f70c97fbe972b73825d2d"
-maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/bart
-description: "BART: Toolbox for Computational Magnetic Resonance Imaging"
+maintainer: '@vsoch'
+description: 'BART: Toolbox for Computational Magnetic Resonance Imaging'
+latest:
+  0.6.00: sha256:20ad7ad79e8512a6cb2b67f244430ee26af47b052b3f70c97fbe972b73825d2d
+tags:
+  0.6.00: sha256:20ad7ad79e8512a6cb2b67f244430ee26af47b052b3f70c97fbe972b73825d2d
+  latest: sha256:20ad7ad79e8512a6cb2b67f244430ee26af47b052b3f70c97fbe972b73825d2d
 aliases:
   bart: /opt/view/bin/bart
   bartview: /opt/view/bin/bartview
