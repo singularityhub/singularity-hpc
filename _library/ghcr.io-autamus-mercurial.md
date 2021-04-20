@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/mercurial"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/mercurial/container.yaml"
-updated_at: "2021-04-20 03:13:14.830196"
+updated_at: "2021-04-20 03:13:16.631652"
 container_url: ""
 aliases:
  - "hg"
