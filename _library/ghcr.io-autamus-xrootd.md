@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/xrootd"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/xrootd/container.yaml"
-updated_at: "2021-04-20 03:15:41.261952"
+updated_at: "2021-04-20 03:15:55.285100"
 container_url: ""
 aliases:
  - "xrdacctest"
@@ -35,6 +35,7 @@ aliases:
  - "xrootd-config"
 
 versions:
+ - "5.1.0"
  - "latest"
 description: "XRootD software framework is a fully generic suite for fast, low latency and scalable data access, which can serve natively any kind of data, organized as a hierarchical filesystem-like namespace, based on the concept of directory."
 ---
@@ -50,7 +51,7 @@ $ shpc install ghcr.io/autamus/xrootd
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/xrootd:latest
+$ shpc install ghcr.io/autamus/xrootd:5.1.0
 ```
 
 And then you can tell lmod about your modules folder:
@@ -62,8 +63,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/xrootd/latest
-$ module help ghcr.io/autamus/xrootd/latest
+$ module load ghcr.io/autamus/xrootd/5.1.0
+$ module help ghcr.io/autamus/xrootd/5.1.0
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

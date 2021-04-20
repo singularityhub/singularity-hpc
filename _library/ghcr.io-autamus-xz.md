@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/xz"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/xz/container.yaml"
-updated_at: "2021-04-20 03:15:40.840873"
+updated_at: "2021-04-20 03:15:54.877449"
 container_url: ""
 aliases:
  - "xz"
@@ -27,6 +27,7 @@ aliases:
  - "xzmore"
 
 versions:
+ - "5.2.5"
  - "latest"
 description: "XZ Utils is free general-purpose data compression software with a high compression ratio."
 ---
@@ -42,7 +43,7 @@ $ shpc install ghcr.io/autamus/xz
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/xz:latest
+$ shpc install ghcr.io/autamus/xz:5.2.5
 ```
 
 And then you can tell lmod about your modules folder:
@@ -54,8 +55,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/xz/latest
-$ module help ghcr.io/autamus/xz/latest
+$ module load ghcr.io/autamus/xz/5.2.5
+$ module help ghcr.io/autamus/xz/5.2.5
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
