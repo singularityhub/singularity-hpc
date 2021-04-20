@@ -1,11 +1,12 @@
 docker: ghcr.io/autamus/scons
-latest:
-  "latest": "sha256:e7939724a7f553671d98126b868bcf48ce29ef604a209b11a27548c9d80baf14"
-tags:
-  "latest": "sha256:e7939724a7f553671d98126b868bcf48ce29ef604a209b11a27548c9d80baf14"
-maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/scons
-description: "SCons is an Open Source software construction tool."
+maintainer: '@vsoch'
+description: SCons is an Open Source software construction tool.
+latest:
+  3.1.2: sha256:e7939724a7f553671d98126b868bcf48ce29ef604a209b11a27548c9d80baf14
+tags:
+  3.1.2: sha256:e7939724a7f553671d98126b868bcf48ce29ef604a209b11a27548c9d80baf14
+  latest: sha256:e7939724a7f553671d98126b868bcf48ce29ef604a209b11a27548c9d80baf14
 aliases:
   scons: /opt/view/bin/scons
   scons-3.1.2: /opt/view/bin/scons-3.1.2
