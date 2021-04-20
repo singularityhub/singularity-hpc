@@ -3,7 +3,7 @@ layout: container
 name:  "python"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/python/container.yaml"
-updated_at: "2021-04-20 02:22:58.919593"
+updated_at: "2021-04-20 02:23:11.709537"
 container_url: ""
 aliases:
  - "python"

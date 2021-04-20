@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/cowsay"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/cowsay/container.yaml"
-updated_at: "2021-04-20 02:23:27.565417"
+updated_at: "2021-04-20 02:23:39.445393"
 container_url: ""
 aliases:
  - "cowsay"

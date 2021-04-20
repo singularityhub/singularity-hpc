@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/addrwatch"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/addrwatch/container.yaml"
-updated_at: "2021-04-20 02:23:22.106181"
+updated_at: "2021-04-20 02:23:34.272859"
 container_url: ""
 aliases:
  - "addrwatch"
@@ -13,6 +13,7 @@ aliases:
  - "addrwatch_syslog"
 
 versions:
+ - "1.0.2"
  - "latest"
 description: "addrwatch is a similar software to arpwatch. It main purpose is to monitor network and log ethernet/ip pairings."
 ---
@@ -28,7 +29,7 @@ $ shpc install ghcr.io/autamus/addrwatch
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/addrwatch:latest
+$ shpc install ghcr.io/autamus/addrwatch:1.0.2
 ```
 
 And then you can tell lmod about your modules folder:
@@ -40,8 +41,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/addrwatch/latest
-$ module help ghcr.io/autamus/addrwatch/latest
+$ module load ghcr.io/autamus/addrwatch/1.0.2
+$ module help ghcr.io/autamus/addrwatch/1.0.2
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
