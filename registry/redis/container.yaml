@@ -1,17 +1,18 @@
 docker: redis
-latest:
-  latest: "sha256:820582b05253c2b968442b8af31d791ae64478bcc18e04826c5ce42f974d3272"
-tags:
-  latest: "sha256:820582b05253c2b968442b8af31d791ae64478bcc18e04826c5ce42f974d3272"
-filter:
-  - "latest"
-maintainer: "@vsoch"
 url: https://hub.docker.com/r/_/redis
-description: "Redis is an open-source, networked, in-memory, key-value data store with optional durability."
+maintainer: '@vsoch'
+description: Redis is an open-source, networked, in-memory, key-value data store with
+  optional durability.
+latest:
+  latest: sha256:08e282682a708eb7f51b473516be222fff0251cdee5ef8f99f4441a795c335b6
+tags:
+  latest: sha256:08e282682a708eb7f51b473516be222fff0251cdee5ef8f99f4441a795c335b6
+filter:
+- latest
 aliases:
   redis-benchmark: /usr/local/bin/redis-benchmark
-  redis-check-rdb: /usr/local/bin/redis-check-rdb
-  redis-sentinel: /usr/local/bin/redis-sentinel
   redis-check-aof: /usr/local/bin/redis-check-aof
+  redis-check-rdb: /usr/local/bin/redis-check-rdb
   redis-cli: /usr/local/bin/redis-cli
+  redis-sentinel: /usr/local/bin/redis-sentinel
   redis-server: /usr/local/bin/redis-server
