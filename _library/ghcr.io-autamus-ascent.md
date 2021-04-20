@@ -3,10 +3,11 @@ layout: container
 name:  "ghcr.io/autamus/ascent"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/ascent/container.yaml"
-updated_at: "2021-04-20 02:21:02.495425"
+updated_at: "2021-04-20 02:21:34.455712"
 container_url: ""
 
 versions:
+ - "0.7.0"
  - "latest"
 description: "An open source many-core capable lightweight in situ visualization and analysis infrastructure for multi-physics HPC simulations."
 ---
@@ -22,7 +23,7 @@ $ shpc install ghcr.io/autamus/ascent
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/ascent:latest
+$ shpc install ghcr.io/autamus/ascent:0.7.0
 ```
 
 And then you can tell lmod about your modules folder:
@@ -34,8 +35,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/ascent/latest
-$ module help ghcr.io/autamus/ascent/latest
+$ module load ghcr.io/autamus/ascent/0.7.0
+$ module help ghcr.io/autamus/ascent/0.7.0
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

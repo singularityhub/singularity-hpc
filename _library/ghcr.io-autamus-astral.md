@@ -3,12 +3,13 @@ layout: container
 name:  "ghcr.io/autamus/astral"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/astral/container.yaml"
-updated_at: "2021-04-20 02:20:58.813259"
+updated_at: "2021-04-20 02:21:31.475270"
 container_url: ""
 aliases:
  - "astral"
 
 versions:
+ - "5.7.1"
  - "latest"
 description: "ASTRAL is a tool for estimating an unrooted species tree given a set of unrooted gene trees."
 ---
@@ -24,7 +25,7 @@ $ shpc install ghcr.io/autamus/astral
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/astral:latest
+$ shpc install ghcr.io/autamus/astral:5.7.1
 ```
 
 And then you can tell lmod about your modules folder:
@@ -36,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/astral/latest
-$ module help ghcr.io/autamus/astral/latest
+$ module load ghcr.io/autamus/astral/5.7.1
+$ module help ghcr.io/autamus/astral/5.7.1
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
