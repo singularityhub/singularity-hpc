@@ -1,8 +1,10 @@
 docker: ghcr.io/autamus/sparsehash
-latest:
-  "latest": "sha256:be34170eb7700a63eddc78aee5c94635251c7d067730af3d05baad5c17e2dfa6"
-tags:
-  "latest": "sha256:be34170eb7700a63eddc78aee5c94635251c7d067730af3d05baad5c17e2dfa6"
-maintainer: "@vsoch"
-description: "several hash-map implementations, similar in API to SGI's hash_map class, but with different performance characteristics."
 url: https://github.com/orgs/autamus/packages/container/package/sparsehash
+maintainer: '@vsoch'
+description: several hash-map implementations, similar in API to SGI's hash_map class,
+  but with different performance characteristics.
+latest:
+  2.0.4: sha256:be34170eb7700a63eddc78aee5c94635251c7d067730af3d05baad5c17e2dfa6
+tags:
+  2.0.4: sha256:be34170eb7700a63eddc78aee5c94635251c7d067730af3d05baad5c17e2dfa6
+  latest: sha256:be34170eb7700a63eddc78aee5c94635251c7d067730af3d05baad5c17e2dfa6
