@@ -1,11 +1,14 @@
 docker: ghcr.io/autamus/openbabel
-latest:
-  "latest": "sha256:779c7dec57e0001240d9422e3df73cb16cfa1563c72a363ac11326f89ced7f00"
-tags:
-  "latest": "sha256:779c7dec57e0001240d9422e3df73cb16cfa1563c72a363ac11326f89ced7f00"
-maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/openbabel
-description: "Open Babel is a chemical toolbox designed to speak the many languages of chemical data. It's an open, collaborative project allowing anyone to search, convert, analyze, or store data from molecular modeling, chemistry, solid-state materials, biochemistry, or related areas."
+maintainer: '@vsoch'
+description: Open Babel is a chemical toolbox designed to speak the many languages
+  of chemical data. It's an open, collaborative project allowing anyone to search,
+  convert, analyze, or store data from molecular modeling, chemistry, solid-state
+  materials, biochemistry, or related areas.
+latest:
+  latest: sha256:c7326fd6b709ad9af2ba659b1e4842a775c2babd1c9fb2fbcf0a02f41de95942
+tags:
+  latest: sha256:c7326fd6b709ad9af2ba659b1e4842a775c2babd1c9fb2fbcf0a02f41de95942
 aliases:
   obabel: /opt/view/bin/obabel
   obconformer: /opt/view/bin/obconformer
