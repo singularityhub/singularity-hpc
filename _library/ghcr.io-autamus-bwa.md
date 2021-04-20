@@ -3,12 +3,13 @@ layout: container
 name:  "ghcr.io/autamus/bwa"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/bwa/container.yaml"
-updated_at: "2021-04-20 02:17:09.709108"
+updated_at: "2021-04-20 02:17:20.400550"
 container_url: ""
 aliases:
  - "bwa"
 
 versions:
+ - "0.7.17"
  - "latest"
 description: "BWA is a software package for mapping low-divergent sequences against a large reference genome, such as the human genome."
 ---
@@ -24,7 +25,7 @@ $ shpc install ghcr.io/autamus/bwa
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/bwa:latest
+$ shpc install ghcr.io/autamus/bwa:0.7.17
 ```
 
 And then you can tell lmod about your modules folder:
@@ -36,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/bwa/latest
-$ module help ghcr.io/autamus/bwa/latest
+$ module load ghcr.io/autamus/bwa/0.7.17
+$ module help ghcr.io/autamus/bwa/0.7.17
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
