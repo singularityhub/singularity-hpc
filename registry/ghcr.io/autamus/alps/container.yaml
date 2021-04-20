@@ -1,10 +1,11 @@
 docker: ghcr.io/autamus/alps
-latest:
-  "latest": "sha256:38389e73db8a5b59a36804b8a5df4f67ff681c6784546cabccfdd54fe30b590f"
-tags:
-  "latest": "sha256:38389e73db8a5b59a36804b8a5df4f67ff681c6784546cabccfdd54fe30b590f"
-maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/alps
-description: "Algorithms and Libraries for Physics Simulations."
+maintainer: '@vsoch'
+description: Algorithms and Libraries for Physics Simulations.
+latest:
+  2.3.0: sha256:38389e73db8a5b59a36804b8a5df4f67ff681c6784546cabccfdd54fe30b590f
+tags:
+  2.3.0: sha256:38389e73db8a5b59a36804b8a5df4f67ff681c6784546cabccfdd54fe30b590f
+  latest: sha256:38389e73db8a5b59a36804b8a5df4f67ff681c6784546cabccfdd54fe30b590f
 aliases:
   alpspython: /opt/view/bin/alpspython
