@@ -3,12 +3,13 @@ layout: container
 name:  "ghcr.io/autamus/tcsh"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/tcsh/container.yaml"
-updated_at: "2021-04-20 03:14:24.711271"
+updated_at: "2021-04-20 03:14:42.794302"
 container_url: ""
 aliases:
  - "tcsh"
 
 versions:
+ - "6.22.02"
  - "latest"
 
 ---
@@ -24,7 +25,7 @@ $ shpc install ghcr.io/autamus/tcsh
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/tcsh:latest
+$ shpc install ghcr.io/autamus/tcsh:6.22.02
 ```
 
 And then you can tell lmod about your modules folder:
@@ -36,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/tcsh/latest
-$ module help ghcr.io/autamus/tcsh/latest
+$ module load ghcr.io/autamus/tcsh/6.22.02
+$ module help ghcr.io/autamus/tcsh/6.22.02
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

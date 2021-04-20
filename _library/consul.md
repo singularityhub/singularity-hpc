@@ -3,7 +3,7 @@ layout: container
 name:  "consul"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/consul/container.yaml"
-updated_at: "2021-04-20 03:14:22.957267"
+updated_at: "2021-04-20 03:14:41.166250"
 container_url: ""
 aliases:
  - "consul"
