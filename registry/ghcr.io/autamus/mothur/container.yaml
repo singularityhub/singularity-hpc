@@ -1,10 +1,12 @@
 docker: ghcr.io/autamus/mothur
-latest:
-  "latest": "sha256:af8905f940a15b823fab61acf3324630ae8e2b7240d1d28af54317c4e22af384"
-tags:
-  "latest": "sha256:af8905f940a15b823fab61acf3324630ae8e2b7240d1d28af54317c4e22af384"
-maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/mothur
-description: "A single piece of open-source, expandable software to fill the bioinformatics needs of the microbial ecology community."
+maintainer: '@vsoch'
+description: A single piece of open-source, expandable software to fill the bioinformatics
+  needs of the microbial ecology community.
+latest:
+  1.45.1: sha256:af8905f940a15b823fab61acf3324630ae8e2b7240d1d28af54317c4e22af384
+tags:
+  1.45.1: sha256:af8905f940a15b823fab61acf3324630ae8e2b7240d1d28af54317c4e22af384
+  latest: sha256:af8905f940a15b823fab61acf3324630ae8e2b7240d1d28af54317c4e22af384
 aliases:
   mothur: /opt/view/bin/mothur
