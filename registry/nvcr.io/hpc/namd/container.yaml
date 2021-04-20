@@ -8,7 +8,7 @@ description: NAMD is a parallel molecular dynamics code designed for high-perfor
 latest:
   3.0-alpha3-singlenode-x86_64: sha256:040e38a36f467f6a2e61dd343f480e4c7c7a571b6072607922851214070a627e
 tags:
-  3.0-alpha3-singlenode: sha256:7c86abf0442c66ce796d1cc9b598ffbd41ad8eee5e11f01f34f5813bd70aa624
+  3.0-alpha3-singlenode: sha256:9db0e23f0f53dd200568cc57f3618971378173555d30d3158ec41c6df8aee15e
   3.0-alpha3-singlenode-x86_64: sha256:040e38a36f467f6a2e61dd343f480e4c7c7a571b6072607922851214070a627e
 aliases:
   charmrun: /usr/local/bin/charmrun
