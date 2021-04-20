@@ -3,12 +3,13 @@ layout: container
 name:  "ghcr.io/autamus/salmon"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/salmon/container.yaml"
-updated_at: "2021-04-20 03:13:33.736890"
+updated_at: "2021-04-20 03:14:02.577400"
 container_url: ""
 aliases:
  - "salmon"
 
 versions:
+ - "1.4.0"
  - "latest"
 description: "Salmon is a wicked-fast program to produce a highly-accurate, transcript-level quantification estimates from RNA-seq data."
 ---
@@ -24,7 +25,7 @@ $ shpc install ghcr.io/autamus/salmon
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/salmon:latest
+$ shpc install ghcr.io/autamus/salmon:1.4.0
 ```
 
 And then you can tell lmod about your modules folder:
@@ -36,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/salmon/latest
-$ module help ghcr.io/autamus/salmon/latest
+$ module load ghcr.io/autamus/salmon/1.4.0
+$ module help ghcr.io/autamus/salmon/1.4.0
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

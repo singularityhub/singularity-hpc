@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/geos"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/geos/container.yaml"
-updated_at: "2021-04-20 03:13:18.002446"
+updated_at: "2021-04-20 03:13:43.807995"
 container_url: ""
 aliases:
  - "geos-config"

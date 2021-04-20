@@ -3,13 +3,9 @@ layout: container
 name:  "ghcr.io/autamus/samtools"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/samtools/container.yaml"
-updated_at: "2021-04-20 03:13:34.624583"
+updated_at: "2021-04-20 03:14:03.641757"
 container_url: ""
 aliases:
- - "sam2vcf.pl"
-
- - "samtools"
-
  - "blast2sam.pl"
 
  - "bowtie2sam.pl"
@@ -24,6 +20,10 @@ aliases:
 
  - "psl2sam.pl"
 
+ - "sam2vcf.pl"
+
+ - "samtools"
+
  - "samtools.pl"
 
  - "seq_cache_populate.pl"
@@ -35,6 +35,7 @@ aliases:
  - "zoom2sam.pl"
 
 versions:
+ - "1.12"
  - "latest"
 description: "Samtools is a suite of programs for interacting with high-throughput sequencing data."
 ---
@@ -50,7 +51,7 @@ $ shpc install ghcr.io/autamus/samtools
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/samtools:latest
+$ shpc install ghcr.io/autamus/samtools:1.12
 ```
 
 And then you can tell lmod about your modules folder:
@@ -62,8 +63,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/samtools/latest
-$ module help ghcr.io/autamus/samtools/latest
+$ module load ghcr.io/autamus/samtools/1.12
+$ module help ghcr.io/autamus/samtools/1.12
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
@@ -102,20 +103,6 @@ $ singularity inspect -r <container>
 
 ```bash
 $ singularity inspect -d <container>
-```
-
-
-#### sam2vcf.pl
-       
-```bash
-$ singularity exec <container> /opt/view/bin/sam2vcf.pl
-```
-
-
-#### samtools
-       
-```bash
-$ singularity exec <container> /opt/view/bin/samtools
 ```
 
 
@@ -165,6 +152,20 @@ $ singularity exec <container> /opt/view/bin/novo2sam.pl
        
 ```bash
 $ singularity exec <container> /opt/view/bin/psl2sam.pl
+```
+
+
+#### sam2vcf.pl
+       
+```bash
+$ singularity exec <container> /opt/view/bin/sam2vcf.pl
+```
+
+
+#### samtools
+       
+```bash
+$ singularity exec <container> /opt/view/bin/samtools
 ```
 
 

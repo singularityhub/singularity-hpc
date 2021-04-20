@@ -3,32 +3,33 @@ layout: container
 name:  "ghcr.io/autamus/ruby"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/ruby/container.yaml"
-updated_at: "2021-04-20 03:13:14.574307"
+updated_at: "2021-04-20 03:13:39.495557"
 container_url: ""
 aliases:
- - "ruby"
-
  - "bundle"
 
  - "bundler"
 
  - "erb"
 
- - "irb"
-
  - "gem"
 
- - "rake"
-
- - "rdoc"
-
- - "rbs"
+ - "irb"
 
  - "racc"
 
+ - "rake"
+
+ - "rbs"
+
+ - "rdoc"
+
  - "ri"
 
+ - "ruby"
+
 versions:
+ - "3.0.0"
  - "latest"
 description: "An interpreted, high-level, general-purpose programming language."
 ---
@@ -44,7 +45,7 @@ $ shpc install ghcr.io/autamus/ruby
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/ruby:latest
+$ shpc install ghcr.io/autamus/ruby:3.0.0
 ```
 
 And then you can tell lmod about your modules folder:
@@ -56,8 +57,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/ruby/latest
-$ module help ghcr.io/autamus/ruby/latest
+$ module load ghcr.io/autamus/ruby/3.0.0
+$ module help ghcr.io/autamus/ruby/3.0.0
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
@@ -99,13 +100,6 @@ $ singularity inspect -d <container>
 ```
 
 
-#### ruby
-       
-```bash
-$ singularity exec <container> /opt/view/bin/ruby
-```
-
-
 #### bundle
        
 ```bash
@@ -127,13 +121,6 @@ $ singularity exec <container> /opt/view/bin/erb
 ```
 
 
-#### irb
-       
-```bash
-$ singularity exec <container> /opt/view/bin/irb
-```
-
-
 #### gem
        
 ```bash
@@ -141,24 +128,10 @@ $ singularity exec <container> /opt/view/bin/gem
 ```
 
 
-#### rake
+#### irb
        
 ```bash
-$ singularity exec <container> /opt/view/bin/rake
-```
-
-
-#### rdoc
-       
-```bash
-$ singularity exec <container> /opt/view/bin/rdoc
-```
-
-
-#### rbs
-       
-```bash
-$ singularity exec <container> /opt/view/bin/rbs
+$ singularity exec <container> /opt/view/bin/irb
 ```
 
 
@@ -169,10 +142,38 @@ $ singularity exec <container> /opt/view/bin/racc
 ```
 
 
+#### rake
+       
+```bash
+$ singularity exec <container> /opt/view/bin/rake
+```
+
+
+#### rbs
+       
+```bash
+$ singularity exec <container> /opt/view/bin/rbs
+```
+
+
+#### rdoc
+       
+```bash
+$ singularity exec <container> /opt/view/bin/rdoc
+```
+
+
 #### ri
        
 ```bash
 $ singularity exec <container> /opt/view/bin/ri
+```
+
+
+#### ruby
+       
+```bash
+$ singularity exec <container> /opt/view/bin/ruby
 ```
 
 
