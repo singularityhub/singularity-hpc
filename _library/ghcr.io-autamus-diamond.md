@@ -3,12 +3,13 @@ layout: container
 name:  "ghcr.io/autamus/diamond"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/diamond/container.yaml"
-updated_at: "2021-04-20 02:23:58.772286"
+updated_at: "2021-04-20 02:48:56.863589"
 container_url: ""
 aliases:
  - "diamond"
 
 versions:
+ - "2.0.9"
  - "latest"
 description: "A sequence aligner for protein and translated DNA searches, designed for high performance analysis of big sequence data."
 ---
@@ -24,7 +25,7 @@ $ shpc install ghcr.io/autamus/diamond
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/diamond:latest
+$ shpc install ghcr.io/autamus/diamond:2.0.9
 ```
 
 And then you can tell lmod about your modules folder:
@@ -36,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/diamond/latest
-$ module help ghcr.io/autamus/diamond/latest
+$ module load ghcr.io/autamus/diamond/2.0.9
+$ module help ghcr.io/autamus/diamond/2.0.9
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
