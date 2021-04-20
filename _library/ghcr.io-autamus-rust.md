@@ -3,16 +3,18 @@ layout: container
 name:  "ghcr.io/autamus/rust"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/rust/container.yaml"
-updated_at: "2021-04-20 03:16:08.378877"
+updated_at: "2021-04-20 03:16:20.971522"
 container_url: ""
 aliases:
+ - "cargo"
+
+ - "cargo-clippy"
+
+ - "cargo-fmt"
+
+ - "clippy-driver"
+
  - "rust"
-
- - "rustc"
-
- - "rustdoc"
-
- - "rustfmt"
 
  - "rust-gdb"
 
@@ -20,15 +22,14 @@ aliases:
 
  - "rust-lldb"
 
- - "cargo"
+ - "rustc"
 
- - "cargo-fmt"
+ - "rustdoc"
 
- - "cargo-clippy"
-
- - "clippy-driver"
+ - "rustfmt"
 
 versions:
+ - "1.50.0"
  - "latest"
 description: "Rust is a multi-paradigm programming language designed for performance and safety, especially safe concurrency."
 ---
@@ -44,7 +45,7 @@ $ shpc install ghcr.io/autamus/rust
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/rust:latest
+$ shpc install ghcr.io/autamus/rust:1.50.0
 ```
 
 And then you can tell lmod about your modules folder:
@@ -56,8 +57,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/rust/latest
-$ module help ghcr.io/autamus/rust/latest
+$ module load ghcr.io/autamus/rust/1.50.0
+$ module help ghcr.io/autamus/rust/1.50.0
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
@@ -99,31 +100,38 @@ $ singularity inspect -d <container>
 ```
 
 
+#### cargo
+       
+```bash
+$ singularity exec <container> /opt/view/bin/cargo
+```
+
+
+#### cargo-clippy
+       
+```bash
+$ singularity exec <container> /opt/view/bin/cargo-clippy
+```
+
+
+#### cargo-fmt
+       
+```bash
+$ singularity exec <container> /opt/view/bin/cargo-fmt
+```
+
+
+#### clippy-driver
+       
+```bash
+$ singularity exec <container> /opt/view/bin/clippy-driver
+```
+
+
 #### rust
        
 ```bash
 $ singularity exec <container> /opt/view/bin/rust
-```
-
-
-#### rustc
-       
-```bash
-$ singularity exec <container> /opt/view/bin/rustc
-```
-
-
-#### rustdoc
-       
-```bash
-$ singularity exec <container> /opt/view/bin/rustdoc
-```
-
-
-#### rustfmt
-       
-```bash
-$ singularity exec <container> /opt/view/bin/rustfmt
 ```
 
 
@@ -148,31 +156,24 @@ $ singularity exec <container> /opt/view/bin/rust-lldb
 ```
 
 
-#### cargo
+#### rustc
        
 ```bash
-$ singularity exec <container> /opt/view/bin/cargo
+$ singularity exec <container> /opt/view/bin/rustc
 ```
 
 
-#### cargo-fmt
+#### rustdoc
        
 ```bash
-$ singularity exec <container> /opt/view/bin/cargo-fmt
+$ singularity exec <container> /opt/view/bin/rustdoc
 ```
 
 
-#### cargo-clippy
+#### rustfmt
        
 ```bash
-$ singularity exec <container> /opt/view/bin/cargo-clippy
-```
-
-
-#### clippy-driver
-       
-```bash
-$ singularity exec <container> /opt/view/bin/clippy-driver
+$ singularity exec <container> /opt/view/bin/rustfmt
 ```
 
 

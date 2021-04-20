@@ -3,7 +3,7 @@ layout: container
 name:  "singularityhub/singularity-deploy"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/singularityhub/singularity-deploy/container.yaml"
-updated_at: "2021-04-20 03:16:32.879520"
+updated_at: "2021-04-20 03:16:40.199886"
 container_url: ""
 aliases:
  - "salad"

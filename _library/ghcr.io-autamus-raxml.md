@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/raxml"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/raxml/container.yaml"
-updated_at: "2021-04-20 03:16:02.668987"
+updated_at: "2021-04-20 03:16:16.480248"
 container_url: ""
 aliases:
  - "raxmlHPC"
@@ -19,6 +19,7 @@ aliases:
  - "raxmlHPC-SSE3"
 
 versions:
+ - "8.2.12"
  - "latest"
 description: "RAxML (Randomized Axelerated Maximum Likelihood) is a popular program for phylogenetic analysis of large datasets under maximum likelihood."
 ---
@@ -34,7 +35,7 @@ $ shpc install ghcr.io/autamus/raxml
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/raxml:latest
+$ shpc install ghcr.io/autamus/raxml:8.2.12
 ```
 
 And then you can tell lmod about your modules folder:
@@ -46,8 +47,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/raxml/latest
-$ module help ghcr.io/autamus/raxml/latest
+$ module load ghcr.io/autamus/raxml/8.2.12
+$ module help ghcr.io/autamus/raxml/8.2.12
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
