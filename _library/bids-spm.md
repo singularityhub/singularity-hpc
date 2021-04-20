@@ -3,7 +3,7 @@ layout: container
 name:  "bids/spm"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/bids/spm/container.yaml"
-updated_at: "2021-04-20 03:12:55.126524"
+updated_at: "2021-04-20 03:13:06.424380"
 container_url: ""
 aliases:
  - "spm12"

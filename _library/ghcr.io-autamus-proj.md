@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/proj"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/proj/container.yaml"
-updated_at: "2021-04-20 03:12:32.163352"
+updated_at: "2021-04-20 03:12:42.175057"
 container_url: ""
 aliases:
  - "proj"
@@ -13,6 +13,7 @@ aliases:
  - "projsync"
 
 versions:
+ - "7.2.1"
  - "latest"
 description: "PROJ is a generic coordinate transformation software, that transforms coordinates from one coordinate reference system (CRS) to another."
 ---
@@ -28,7 +29,7 @@ $ shpc install ghcr.io/autamus/proj
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/proj:latest
+$ shpc install ghcr.io/autamus/proj:7.2.1
 ```
 
 And then you can tell lmod about your modules folder:
@@ -40,8 +41,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/proj/latest
-$ module help ghcr.io/autamus/proj/latest
+$ module load ghcr.io/autamus/proj/7.2.1
+$ module help ghcr.io/autamus/proj/7.2.1
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
