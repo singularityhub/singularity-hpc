@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/mummer"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/mummer/container.yaml"
-updated_at: "2021-04-20 03:17:14.934435"
+updated_at: "2021-04-20 03:17:30.816043"
 container_url: ""
 aliases:
  - "mummer"
@@ -11,6 +11,7 @@ aliases:
  - "mummerplot"
 
 versions:
+ - "3.23"
  - "latest"
 description: "MUMmer is a system for rapidly aligning entire genomes."
 ---
@@ -26,7 +27,7 @@ $ shpc install ghcr.io/autamus/mummer
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/mummer:latest
+$ shpc install ghcr.io/autamus/mummer:3.23
 ```
 
 And then you can tell lmod about your modules folder:
@@ -38,8 +39,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/mummer/latest
-$ module help ghcr.io/autamus/mummer/latest
+$ module load ghcr.io/autamus/mummer/3.23
+$ module help ghcr.io/autamus/mummer/3.23
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
