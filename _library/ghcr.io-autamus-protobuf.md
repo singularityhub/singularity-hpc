@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/protobuf"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/protobuf/container.yaml"
-updated_at: "2021-04-20 03:16:29.545945"
+updated_at: "2021-04-20 03:16:42.903429"
 container_url: ""
 aliases:
  - "protoc"
@@ -11,6 +11,7 @@ aliases:
  - "protoc-3.15.8.0"
 
 versions:
+ - "3.15.8"
  - "latest"
 description: "Protocol Buffers is a method of serializing structured data. It is useful in developing programs to communicate with each other over a network or for storing data."
 ---
@@ -26,7 +27,7 @@ $ shpc install ghcr.io/autamus/protobuf
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/protobuf:latest
+$ shpc install ghcr.io/autamus/protobuf:3.15.8
 ```
 
 And then you can tell lmod about your modules folder:
@@ -38,8 +39,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/protobuf/latest
-$ module help ghcr.io/autamus/protobuf/latest
+$ module load ghcr.io/autamus/protobuf/3.15.8
+$ module help ghcr.io/autamus/protobuf/3.15.8
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

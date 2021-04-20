@@ -3,7 +3,7 @@ layout: container
 name:  "gradle"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/gradle/container.yaml"
-updated_at: "2021-04-20 03:16:09.143757"
+updated_at: "2021-04-20 03:16:24.921717"
 container_url: ""
 aliases:
  - "gradle"
