@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/cufflinks"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/cufflinks/container.yaml"
-updated_at: "2021-04-20 03:16:58.723493"
+updated_at: "2021-04-20 03:17:02.698069"
 container_url: ""
 aliases:
  - "cuffcompare"
