@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/scons"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/scons/container.yaml"
-updated_at: "2021-04-20 03:13:41.861017"
+updated_at: "2021-04-20 03:13:59.801972"
 container_url: ""
 aliases:
  - "scons"
@@ -27,6 +27,7 @@ aliases:
  - "sconsign-3.1.2"
 
 versions:
+ - "3.1.2"
  - "latest"
 description: "SCons is an Open Source software construction tool."
 ---
@@ -42,7 +43,7 @@ $ shpc install ghcr.io/autamus/scons
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/scons:latest
+$ shpc install ghcr.io/autamus/scons:3.1.2
 ```
 
 And then you can tell lmod about your modules folder:
@@ -54,8 +55,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/scons/latest
-$ module help ghcr.io/autamus/scons/latest
+$ module load ghcr.io/autamus/scons/3.1.2
+$ module help ghcr.io/autamus/scons/3.1.2
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

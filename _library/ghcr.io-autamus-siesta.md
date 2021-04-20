@@ -3,12 +3,13 @@ layout: container
 name:  "ghcr.io/autamus/siesta"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/siesta/container.yaml"
-updated_at: "2021-04-20 03:13:57.553381"
+updated_at: "2021-04-20 03:14:15.607771"
 container_url: ""
 aliases:
  - "siesta"
 
 versions:
+ - "4.0.2"
  - "latest"
 description: "SIESTA performs electronic structure calculations and ab initio molecular dynamics simulations of molecules and solids."
 ---
@@ -24,7 +25,7 @@ $ shpc install ghcr.io/autamus/siesta
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/siesta:latest
+$ shpc install ghcr.io/autamus/siesta:4.0.2
 ```
 
 And then you can tell lmod about your modules folder:
@@ -36,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/siesta/latest
-$ module help ghcr.io/autamus/siesta/latest
+$ module load ghcr.io/autamus/siesta/4.0.2
+$ module help ghcr.io/autamus/siesta/4.0.2
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

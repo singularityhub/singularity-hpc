@@ -3,7 +3,7 @@ layout: container
 name:  "nvcr.io/nvidia/rapidsai/rapidsai"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/nvcr.io/nvidia/rapidsai/rapidsai/container.yaml"
-updated_at: "2021-04-20 03:14:10.235255"
+updated_at: "2021-04-20 03:14:28.406472"
 container_url: ""
 aliases:
  - "python"
