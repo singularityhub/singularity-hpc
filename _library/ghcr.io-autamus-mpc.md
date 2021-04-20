@@ -3,10 +3,11 @@ layout: container
 name:  "ghcr.io/autamus/mpc"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/mpc/container.yaml"
-updated_at: "2021-04-20 03:17:40.764938"
+updated_at: "2021-04-20 03:17:57.470657"
 container_url: ""
 
 versions:
+ - "1.1.0"
  - "latest"
 description: "mithi/mpc: A software pipeline using the Model Predictive Control method to drive a car around a virtual track."
 ---
@@ -22,7 +23,7 @@ $ shpc install ghcr.io/autamus/mpc
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/mpc:latest
+$ shpc install ghcr.io/autamus/mpc:1.1.0
 ```
 
 And then you can tell lmod about your modules folder:
@@ -34,8 +35,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/mpc/latest
-$ module help ghcr.io/autamus/mpc/latest
+$ module load ghcr.io/autamus/mpc/1.1.0
+$ module help ghcr.io/autamus/mpc/1.1.0
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/libtiff"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/libtiff/container.yaml"
-updated_at: "2021-04-20 03:17:59.276554"
+updated_at: "2021-04-20 03:18:15.769885"
 container_url: ""
 aliases:
  - "fax2tiff"
