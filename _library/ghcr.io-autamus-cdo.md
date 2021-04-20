@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/cdo"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/cdo/container.yaml"
-updated_at: "2021-04-20 02:13:42.450234"
+updated_at: "2021-04-20 02:16:47.019862"
 container_url: ""
 aliases:
  - "cdo"

@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/cctools"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/cctools/container.yaml"
-updated_at: "2021-04-20 02:13:43.073694"
+updated_at: "2021-04-20 02:16:47.679790"
 container_url: ""
 aliases:
  - "c_rehash"
@@ -59,6 +59,7 @@ aliases:
  - "cpanm"
 
 versions:
+ - "7.2.4"
  - "latest"
 description: "The Cooperative Computing Tools (CCTools) are a collection of programs that enable large scale distributed computing on systems such as clusters, clouds, and grids."
 ---
@@ -74,7 +75,7 @@ $ shpc install ghcr.io/autamus/cctools
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/cctools:latest
+$ shpc install ghcr.io/autamus/cctools:7.2.4
 ```
 
 And then you can tell lmod about your modules folder:
@@ -86,8 +87,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/cctools/latest
-$ module help ghcr.io/autamus/cctools/latest
+$ module load ghcr.io/autamus/cctools/7.2.4
+$ module help ghcr.io/autamus/cctools/7.2.4
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

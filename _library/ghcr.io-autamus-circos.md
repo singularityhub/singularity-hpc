@@ -3,12 +3,13 @@ layout: container
 name:  "ghcr.io/autamus/circos"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/circos/container.yaml"
-updated_at: "2021-04-20 02:13:37.567125"
+updated_at: "2021-04-20 02:16:42.123487"
 container_url: ""
 aliases:
  - "circos"
 
 versions:
+ - "0.69.6"
  - "latest"
 description: "Circos is a software package for visualizing data and information."
 ---
@@ -24,7 +25,7 @@ $ shpc install ghcr.io/autamus/circos
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/circos:latest
+$ shpc install ghcr.io/autamus/circos:0.69.6
 ```
 
 And then you can tell lmod about your modules folder:
@@ -36,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/circos/latest
-$ module help ghcr.io/autamus/circos/latest
+$ module load ghcr.io/autamus/circos/0.69.6
+$ module help ghcr.io/autamus/circos/0.69.6
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

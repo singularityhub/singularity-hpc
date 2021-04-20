@@ -3,10 +3,11 @@ layout: container
 name:  "ghcr.io/autamus/cfitsio"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/cfitsio/container.yaml"
-updated_at: "2021-04-20 02:14:01.777694"
+updated_at: "2021-04-20 02:17:06.086146"
 container_url: ""
 
 versions:
+ - "3.49"
  - "latest"
 description: "CFITSIO is a library of C and Fortran subroutines for reading and writing data files in FITS (Flexible Image Transport System) data format."
 ---
@@ -22,7 +23,7 @@ $ shpc install ghcr.io/autamus/cfitsio
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/cfitsio:latest
+$ shpc install ghcr.io/autamus/cfitsio:3.49
 ```
 
 And then you can tell lmod about your modules folder:
@@ -34,8 +35,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/cfitsio/latest
-$ module help ghcr.io/autamus/cfitsio/latest
+$ module load ghcr.io/autamus/cfitsio/3.49
+$ module help ghcr.io/autamus/cfitsio/3.49
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
