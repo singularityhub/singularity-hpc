@@ -3,7 +3,7 @@ layout: container
 name:  "tensorflow/tensorflow"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/tensorflow/tensorflow/container.yaml"
-updated_at: "2021-04-20 03:23:50.628220"
+updated_at: "2021-04-20 03:24:07.629674"
 container_url: ""
 aliases:
  - "python"
