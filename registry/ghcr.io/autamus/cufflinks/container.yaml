@@ -1,15 +1,17 @@
 docker: ghcr.io/autamus/cufflinks
-latest:
-  "latest": "sha256:163b8f4872b98d165e18f98a390c77a2b6276c810c60d44b108250ff3167e25a"
-tags:
-  "latest": "sha256:163b8f4872b98d165e18f98a390c77a2b6276c810c60d44b108250ff3167e25a"
-maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/cufflinks
-description: "Cufflinks assembles transcripts, estimates their abundances, and tests for differential expression and regulation in RNA-Seq samples."
+maintainer: '@vsoch'
+description: Cufflinks assembles transcripts, estimates their abundances, and tests
+  for differential expression and regulation in RNA-Seq samples.
+latest:
+  2.2.1: sha256:163b8f4872b98d165e18f98a390c77a2b6276c810c60d44b108250ff3167e25a
+tags:
+  2.2.1: sha256:163b8f4872b98d165e18f98a390c77a2b6276c810c60d44b108250ff3167e25a
+  latest: sha256:163b8f4872b98d165e18f98a390c77a2b6276c810c60d44b108250ff3167e25a
 aliases:
-  cufflinks: /opt/view/bin/cufflinks
   cuffcompare: /opt/view/bin/cuffcompare
   cuffdiff: /opt/view/bin/cuffdiff
+  cufflinks: /opt/view/bin/cufflinks
   cuffmerge: /opt/view/bin/cuffmerge
   cuffnorm: /opt/view/bin/cuffnorm
   cuffquant: /opt/view/bin/cuffquant
