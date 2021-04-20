@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/geant4"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/geant4/container.yaml"
-updated_at: "2021-04-20 03:15:21.260567"
+updated_at: "2021-04-20 03:15:37.701509"
 container_url: ""
 aliases:
  - "Cast-config"

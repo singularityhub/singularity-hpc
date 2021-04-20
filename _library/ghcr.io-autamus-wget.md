@@ -3,12 +3,13 @@ layout: container
 name:  "ghcr.io/autamus/wget"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/wget/container.yaml"
-updated_at: "2021-04-20 03:15:15.267701"
+updated_at: "2021-04-20 03:15:31.192800"
 container_url: ""
 aliases:
  - "wget"
 
 versions:
+ - "1.21.1"
  - "latest"
 description: "GNU Wget is a free software package for retrieving files using HTTP, HTTPS, FTP and FTPS, the most widely used Internet protocols."
 ---
@@ -24,7 +25,7 @@ $ shpc install ghcr.io/autamus/wget
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/wget:latest
+$ shpc install ghcr.io/autamus/wget:1.21.1
 ```
 
 And then you can tell lmod about your modules folder:
@@ -36,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/wget/latest
-$ module help ghcr.io/autamus/wget/latest
+$ module load ghcr.io/autamus/wget/1.21.1
+$ module help ghcr.io/autamus/wget/1.21.1
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
