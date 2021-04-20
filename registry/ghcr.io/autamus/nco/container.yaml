@@ -1,11 +1,12 @@
 docker: ghcr.io/autamus/nco
-latest:
-  "latest": "sha256:1e67403beaf3e7cac0b36aa43c8436f2111a3eb489b32271c2ffeb0b20e2ec5a"
-tags:
-  "latest": "sha256:1e67403beaf3e7cac0b36aa43c8436f2111a3eb489b32271c2ffeb0b20e2ec5a"
-maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/nco
+maintainer: '@vsoch'
 description: ""
+latest:
+  4.9.8: sha256:1e67403beaf3e7cac0b36aa43c8436f2111a3eb489b32271c2ffeb0b20e2ec5a
+tags:
+  4.9.8: sha256:1e67403beaf3e7cac0b36aa43c8436f2111a3eb489b32271c2ffeb0b20e2ec5a
+  latest: sha256:1e67403beaf3e7cac0b36aa43c8436f2111a3eb489b32271c2ffeb0b20e2ec5a
 aliases:
   nc-config: /opt/view/bin/nc-config
   ncap2: /opt/view/bin/ncap2
