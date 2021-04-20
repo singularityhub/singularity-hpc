@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/ruby"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/ruby/container.yaml"
-updated_at: "2021-04-20 02:17:23.787683"
+updated_at: "2021-04-20 02:17:42.222164"
 container_url: ""
 aliases:
  - "ruby"

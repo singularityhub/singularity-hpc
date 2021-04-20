@@ -3,10 +3,11 @@ layout: container
 name:  "ghcr.io/autamus/bracken"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/bracken/container.yaml"
-updated_at: "2021-04-20 02:17:45.108858"
+updated_at: "2021-04-20 02:18:02.990548"
 container_url: ""
 
 versions:
+ - "1.0.0"
  - "latest"
 description: "Bracken (Bayesian Reestimation of Abundance with KrakEN) is a highly accurate statistical method that computes the abundance of species in DNA sequences from a metagenomics sample."
 ---
@@ -22,7 +23,7 @@ $ shpc install ghcr.io/autamus/bracken
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/bracken:latest
+$ shpc install ghcr.io/autamus/bracken:1.0.0
 ```
 
 And then you can tell lmod about your modules folder:
@@ -34,8 +35,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/bracken/latest
-$ module help ghcr.io/autamus/bracken/latest
+$ module load ghcr.io/autamus/bracken/1.0.0
+$ module help ghcr.io/autamus/bracken/1.0.0
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
