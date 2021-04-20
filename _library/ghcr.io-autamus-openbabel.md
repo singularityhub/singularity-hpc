@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/openbabel"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/openbabel/container.yaml"
-updated_at: "2021-04-20 00:25:53.925506"
+updated_at: "2021-04-20 00:26:04.998292"
 container_url: ""
 aliases:
  - "obabel"

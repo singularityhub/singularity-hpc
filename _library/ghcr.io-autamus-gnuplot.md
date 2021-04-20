@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/gnuplot"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/gnuplot/container.yaml"
-updated_at: "2021-04-20 00:25:52.038847"
+updated_at: "2021-04-20 00:26:03.119998"
 container_url: ""
 aliases:
  - "gnuplot"

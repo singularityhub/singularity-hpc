@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/zlib"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/zlib/container.yaml"
-updated_at: "2021-04-20 00:25:31.229622"
+updated_at: "2021-04-20 00:25:42.325761"
 container_url: ""
 
 versions:

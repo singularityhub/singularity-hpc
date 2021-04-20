@@ -3,7 +3,7 @@ layout: container
 name:  "nvcr.io/nvidia-hpcvis/paraview"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/nvcr.io/nvidia-hpcvis/paraview/container.yaml"
-updated_at: "2021-04-20 00:26:02.137877"
+updated_at: "2021-04-20 00:26:12.964802"
 container_url: ""
 aliases:
  - "pvdataserver"

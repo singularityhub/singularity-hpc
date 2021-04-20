@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/hypre"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/hypre/container.yaml"
-updated_at: "2021-04-20 00:25:57.037761"
+updated_at: "2021-04-20 00:26:07.965714"
 container_url: ""
 
 versions:
