@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/octave"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/octave/container.yaml"
-updated_at: "2021-04-20 03:11:08.177246"
+updated_at: "2021-04-20 03:11:32.925484"
 container_url: ""
 aliases:
  - "octave"
@@ -19,6 +19,7 @@ aliases:
  - "octave-config-6.2.0"
 
 versions:
+ - "6.2.0"
  - "latest"
 description: "GNU Octave is a high-level interpreted language, primarily intended for numerical computations (like an open source Matlab)"
 ---
@@ -34,7 +35,7 @@ $ shpc install ghcr.io/autamus/octave
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/octave:latest
+$ shpc install ghcr.io/autamus/octave:6.2.0
 ```
 
 And then you can tell lmod about your modules folder:
@@ -46,8 +47,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/octave/latest
-$ module help ghcr.io/autamus/octave/latest
+$ module load ghcr.io/autamus/octave/6.2.0
+$ module help ghcr.io/autamus/octave/6.2.0
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

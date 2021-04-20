@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/pandaseq"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/pandaseq/container.yaml"
-updated_at: "2021-04-20 03:11:02.422408"
+updated_at: "2021-04-20 03:11:26.226217"
 container_url: ""
 aliases:
  - "pandaseq"
@@ -17,6 +17,7 @@ aliases:
  - "pandaxs"
 
 versions:
+ - "2.11"
  - "latest"
 description: "A program to align Illumina reads, optionally with PCR primers embedded in the sequence, and reconstruct an overlapping sequence."
 ---
@@ -32,7 +33,7 @@ $ shpc install ghcr.io/autamus/pandaseq
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/pandaseq:latest
+$ shpc install ghcr.io/autamus/pandaseq:2.11
 ```
 
 And then you can tell lmod about your modules folder:
@@ -44,8 +45,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/pandaseq/latest
-$ module help ghcr.io/autamus/pandaseq/latest
+$ module load ghcr.io/autamus/pandaseq/2.11
+$ module help ghcr.io/autamus/pandaseq/2.11
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
