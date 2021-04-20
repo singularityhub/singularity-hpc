@@ -3,10 +3,11 @@ layout: container
 name:  "ghcr.io/autamus/zlib"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/zlib/container.yaml"
-updated_at: "2021-04-20 03:15:36.613162"
+updated_at: "2021-04-20 03:15:44.316000"
 container_url: ""
 
 versions:
+ - "1.2.11"
  - "latest"
 description: "zlib is a software library used for data compression. zlib was written by Jean-loup Gailly and Mark Adler and is an abstraction of the DEFLATE compression algorithm used in their gzip file compression program."
 ---
@@ -22,7 +23,7 @@ $ shpc install ghcr.io/autamus/zlib
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/zlib:latest
+$ shpc install ghcr.io/autamus/zlib:1.2.11
 ```
 
 And then you can tell lmod about your modules folder:
@@ -34,8 +35,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/zlib/latest
-$ module help ghcr.io/autamus/zlib/latest
+$ module load ghcr.io/autamus/zlib/1.2.11
+$ module help ghcr.io/autamus/zlib/1.2.11
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
