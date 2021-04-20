@@ -3,12 +3,13 @@ layout: container
 name:  "ghcr.io/autamus/node-js"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/node-js/container.yaml"
-updated_at: "2021-04-20 03:17:16.666336"
+updated_at: "2021-04-20 03:17:23.023555"
 container_url: ""
 aliases:
  - "node"
 
 versions:
+ - "15.3.0"
  - "latest"
 description: "A JavaScript runtime built on Chrome's V8 JavaScript engine."
 ---
@@ -24,7 +25,7 @@ $ shpc install ghcr.io/autamus/node-js
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/node-js:latest
+$ shpc install ghcr.io/autamus/node-js:15.3.0
 ```
 
 And then you can tell lmod about your modules folder:
@@ -36,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/node-js/latest
-$ module help ghcr.io/autamus/node-js/latest
+$ module load ghcr.io/autamus/node-js/15.3.0
+$ module help ghcr.io/autamus/node-js/15.3.0
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
