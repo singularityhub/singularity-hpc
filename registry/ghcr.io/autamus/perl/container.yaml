@@ -1,11 +1,12 @@
 docker: ghcr.io/autamus/perl
-latest:
-  "latest": "sha256:3c416040ae2ce26b3842fc769e3b891da5299268308b8bd6da021897b0383736"
-tags:
-  "latest": "sha256:3c416040ae2ce26b3842fc769e3b891da5299268308b8bd6da021897b0383736"
-maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/perl
-description: "The Perl programming language."
+maintainer: '@vsoch'
+description: The Perl programming language.
+latest:
+  5.33.3: sha256:3c416040ae2ce26b3842fc769e3b891da5299268308b8bd6da021897b0383736
+tags:
+  5.33.3: sha256:3c416040ae2ce26b3842fc769e3b891da5299268308b8bd6da021897b0383736
+  latest: sha256:3c416040ae2ce26b3842fc769e3b891da5299268308b8bd6da021897b0383736
 aliases:
   perl: /opt/view/bin/perl
   perlbug: /opt/view/bin/perlbug
