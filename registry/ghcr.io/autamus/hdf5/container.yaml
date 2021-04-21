@@ -1,11 +1,13 @@
 docker: ghcr.io/autamus/hdf5
-latest:
-  "latest": "sha256:3d24a1a34461bf4d8ac607bd2125d88828ab1a1f02061a848a6c88f09518d517"
-tags:
-  "latest": "sha256:3d24a1a34461bf4d8ac607bd2125d88828ab1a1f02061a848a6c88f09518d517"
-maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/hdf5
-description: "HDF5 is a unique technology suite that makes possible the management of extremely large and complex data collections."
+maintainer: '@vsoch'
+description: HDF5 is a unique technology suite that makes possible the management
+  of extremely large and complex data collections.
+latest:
+  1.12.0: sha256:3d24a1a34461bf4d8ac607bd2125d88828ab1a1f02061a848a6c88f09518d517
+tags:
+  1.12.0: sha256:3d24a1a34461bf4d8ac607bd2125d88828ab1a1f02061a848a6c88f09518d517
+  latest: sha256:3d24a1a34461bf4d8ac607bd2125d88828ab1a1f02061a848a6c88f09518d517
 aliases:
   h5clear: /opt/view/bin/h5clear
   h5copy: /opt/view/bin/h5copy

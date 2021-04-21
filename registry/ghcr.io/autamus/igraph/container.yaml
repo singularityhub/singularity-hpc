@@ -1,8 +1,10 @@
 docker: ghcr.io/autamus/igraph
-latest:
-  "latest": "sha256:a8c99e1ede02eda459f58800129a48d0b9d72b15bb2afbf1b5b6d60400ee7b4c"
-tags:
-  "latest": "sha256:a8c99e1ede02eda459f58800129a48d0b9d72b15bb2afbf1b5b6d60400ee7b4c"
-maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/igraph
-description: "igraph is a library collection for creating and manipulating graphs and analyzing networks. It is written in C and also exists as Python and R packages."
+maintainer: '@vsoch'
+description: igraph is a library collection for creating and manipulating graphs and
+  analyzing networks. It is written in C and also exists as Python and R packages.
+latest:
+  0.7.1: sha256:a8c99e1ede02eda459f58800129a48d0b9d72b15bb2afbf1b5b6d60400ee7b4c
+tags:
+  0.7.1: sha256:a8c99e1ede02eda459f58800129a48d0b9d72b15bb2afbf1b5b6d60400ee7b4c
+  latest: sha256:a8c99e1ede02eda459f58800129a48d0b9d72b15bb2afbf1b5b6d60400ee7b4c

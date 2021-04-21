@@ -1,22 +1,24 @@
 docker: ghcr.io/autamus/hmmer
-latest:
-  "latest": "sha256:87ac88c3db4f5a80af3701ceb43e29fac4fdab86db71f6763425881f28f51335"
-tags:
-  "latest": "sha256:87ac88c3db4f5a80af3701ceb43e29fac4fdab86db71f6763425881f28f51335"
-maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/hmmer
-description: "HMMER is used for searching sequence databases for sequence homologs, and for making sequence alignments."
+maintainer: '@vsoch'
+description: HMMER is used for searching sequence databases for sequence homologs,
+  and for making sequence alignments.
+latest:
+  "3.3": sha256:87ac88c3db4f5a80af3701ceb43e29fac4fdab86db71f6763425881f28f51335
+tags:
+  "3.3": sha256:87ac88c3db4f5a80af3701ceb43e29fac4fdab86db71f6763425881f28f51335
+  latest: sha256:87ac88c3db4f5a80af3701ceb43e29fac4fdab86db71f6763425881f28f51335
 aliases:
-  hmmalign: /opt/view/bin/hmmalign 
-  hmmemit: /opt/view/bin/hmmemit 
-  hmmpgmd: /opt/view/bin/hmmpgmd
-  hmmscan: /opt/view/bin/hmmscan
-  hmmstat: /opt/view/bin/hmmstat
+  hmmalign: /opt/view/bin/hmmalign
   hmmbuild: /opt/view/bin/hmmbuild
-  hmmpgmd_shard: /opt/view/bin/hmmpgmd_shard
-  hmmfetch: /opt/view/bin/hmmfetch
-  hmmsearch: /opt/view/bin/hmmsearch
   hmmconvert: /opt/view/bin/hmmconvert
+  hmmemit: /opt/view/bin/hmmemit
+  hmmfetch: /opt/view/bin/hmmfetch
   hmmlogo: /opt/view/bin/hmmlogo
+  hmmpgmd: /opt/view/bin/hmmpgmd
+  hmmpgmd_shard: /opt/view/bin/hmmpgmd_shard
   hmmpress: /opt/view/bin/hmmpress
+  hmmscan: /opt/view/bin/hmmscan
+  hmmsearch: /opt/view/bin/hmmsearch
   hmmsim: /opt/view/bin/hmmsim
+  hmmstat: /opt/view/bin/hmmstat

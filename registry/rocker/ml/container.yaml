@@ -1,17 +1,17 @@
 docker: rocker/ml
-latest:
-  latest: "sha256:b9b5d2c0000ee1b3877e58f1070ac18d49724ee7c244614e520313bd8e1ab9bc"
-tags:
-  latest: "sha256:b9b5d2c0000ee1b3877e58f1070ac18d49724ee7c244614e520313bd8e1ab9bc"
-filter:
-  - "latest"
-maintainer: "@vsoch"
 url: https://hub.docker.com/r/rocker/ml
-description: "Docker images with R + machine learning libraries (CPU versions)."
+maintainer: '@vsoch'
+description: Docker images with R + machine learning libraries (CPU versions).
+latest:
+  latest: sha256:a80b6d4a72942891bd9deff9d1a3db68ecb4e5a8142249fcc102ffb0ef6aec54
+tags:
+  latest: sha256:a80b6d4a72942891bd9deff9d1a3db68ecb4e5a8142249fcc102ffb0ef6aec54
+filter:
+- latest
 aliases:
-  rocker-ml-run: /bin/bash
   R: /usr/local/bin/R
   Rscript: /usr/local/bin/Rscript
+  rocker-ml-run: /bin/bash
   rserver: /usr/lib/rstudio-server/bin/rserver
   rserver-pam: /usr/lib/rstudio-server/bin/rserver-pam
   rsession: /usr/lib/rstudio-server/bin/rsession

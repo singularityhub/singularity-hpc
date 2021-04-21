@@ -1,13 +1,13 @@
 docker: r-base
-latest:
-  latest: "sha256:076bdc8b18d51d350c45ee196f1fbbf32496f6b2ca92448fe96c7b768c22aef0"
-tags:
-  latest: "sha256:076bdc8b18d51d350c45ee196f1fbbf32496f6b2ca92448fe96c7b768c22aef0"
-filter:
-  - "latest"
-maintainer: "@vsoch"
 url: https://hub.docker.com/_/r-base
-description: "R is a system for statistical computation and graphics."
+maintainer: '@vsoch'
+description: R is a system for statistical computation and graphics.
+latest:
+  latest: sha256:ff41c917e639685e53adf9a881f000c97e7f172e9bde6b1d0ab854db6ca6b593
+tags:
+  latest: sha256:ff41c917e639685e53adf9a881f000c97e7f172e9bde6b1d0ab854db6ca6b593
+filter:
+- latest
 aliases:
   R: /usr/bin/R
   Rscript: /usr/bin/Rscript

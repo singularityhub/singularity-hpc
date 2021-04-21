@@ -1,10 +1,12 @@
 docker: ghcr.io/autamus/gmp
-latest:
-  "latest": "sha256:b37ddb471a8f96f41324e9f3107514784913aa3b1c33740c099b053a4fea7b92"
-tags:
-  "latest": "sha256:b37ddb471a8f96f41324e9f3107514784913aa3b1c33740c099b053a4fea7b92"
-maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/gmp
-description: "GMP is a free library for arbitrary precision arithmetic, operating on signed integers, rational numbers, and floating-point numbers."
+maintainer: '@vsoch'
+description: GMP is a free library for arbitrary precision arithmetic, operating on
+  signed integers, rational numbers, and floating-point numbers.
+latest:
+  6.2.1: sha256:b37ddb471a8f96f41324e9f3107514784913aa3b1c33740c099b053a4fea7b92
+tags:
+  6.2.1: sha256:b37ddb471a8f96f41324e9f3107514784913aa3b1c33740c099b053a4fea7b92
+  latest: sha256:b37ddb471a8f96f41324e9f3107514784913aa3b1c33740c099b053a4fea7b92
 aliases:
   curl: /opt/view/bin/curl

@@ -3,8 +3,9 @@ url: https://github.com/orgs/autamus/packages/container/package/gcc
 maintainer: '@vsoch'
 description: The GNU Compiler Collection
 latest:
-  latest: sha256:92e25a9d8ae9c9af84376dbd42bd4c65df468aec22266e958de710943d5abba8
+  10.3.0: sha256:92e25a9d8ae9c9af84376dbd42bd4c65df468aec22266e958de710943d5abba8
 tags:
+  10.3.0: sha256:92e25a9d8ae9c9af84376dbd42bd4c65df468aec22266e958de710943d5abba8
   latest: sha256:92e25a9d8ae9c9af84376dbd42bd4c65df468aec22266e958de710943d5abba8
 aliases:
   c++: /opt/view/bin/c++
