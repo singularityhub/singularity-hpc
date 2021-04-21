@@ -1,10 +1,9 @@
 name: 'Binoc Auto Scan'
 
 on:
-  pull_request: []
-  #schedule:
-  #  # Delayed Binoc execution time to mid day just in case we need to step in.
-  #  - cron: '0 20 * * *'
+  schedule:
+    # Delayed Binoc execution time to mid day just in case we need to step in.
+    - cron: '0 20 * * *'
 
 jobs:
   auto-scan:
@@ -54,12 +53,12 @@ jobs:
           else
              export OPEN_PULL_REQUEST=1
              printf "Changes\n"
-             git commit -a -m "Automated deployment to update contributors $(date '+%Y-%m-%d')"
+             git commit -a -m "Automated deployment to update containers $(date '+%Y-%m-%d')"
              git push origin "${BRANCH_FROM}"
           fi
           echo "OPEN_PULL_REQUEST=${OPEN_PULL_REQUEST}" >> $GITHUB_ENV
           echo "PULL_REQUEST_FROM_BRANCH=${BRANCH_FROM}" >> $GITHUB_ENV
-          echo "PULL_REQUEST_TITLE=[tributors] ${BRANCH_FROM}" >> $GITHUB_ENV
+          echo "PULL_REQUEST_TITLE=[binoc] ${BRANCH_FROM}" >> $GITHUB_ENV
           echo "PULL_REQUEST_BODY=Update container modules pull request." >> $GITHUB_ENV
       - name: Open Pull Request
         uses: vsoch/pull-request-action@1.0.16
