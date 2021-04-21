@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/kraken2"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/kraken2/container.yaml"
-updated_at: "2021-04-21 05:52:56.425965"
+updated_at: "2021-04-21 05:55:03.057390"
 container_url: ""
 aliases:
  - "kraken2"
@@ -15,6 +15,7 @@ aliases:
  - "kraken2lib.pm"
 
 versions:
+ - "2.1.1"
  - "latest"
 description: "Kraken 2 is the newest version of Kraken, a taxonomic classification system using exact k-mer matches to achieve high accuracy and fast classification speeds."
 ---
@@ -30,7 +31,7 @@ $ shpc install ghcr.io/autamus/kraken2
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/kraken2:latest
+$ shpc install ghcr.io/autamus/kraken2:2.1.1
 ```
 
 And then you can tell lmod about your modules folder:
@@ -42,8 +43,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/kraken2/latest
-$ module help ghcr.io/autamus/kraken2/latest
+$ module load ghcr.io/autamus/kraken2/2.1.1
+$ module help ghcr.io/autamus/kraken2/2.1.1
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

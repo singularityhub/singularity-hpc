@@ -3,12 +3,13 @@ layout: container
 name:  "ghcr.io/autamus/gmp"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/gmp/container.yaml"
-updated_at: "2021-04-21 05:52:47.390816"
+updated_at: "2021-04-21 05:54:54.504260"
 container_url: ""
 aliases:
  - "curl"
 
 versions:
+ - "6.2.1"
  - "latest"
 description: "GMP is a free library for arbitrary precision arithmetic, operating on signed integers, rational numbers, and floating-point numbers."
 ---
@@ -24,7 +25,7 @@ $ shpc install ghcr.io/autamus/gmp
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/gmp:latest
+$ shpc install ghcr.io/autamus/gmp:6.2.1
 ```
 
 And then you can tell lmod about your modules folder:
@@ -36,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/gmp/latest
-$ module help ghcr.io/autamus/gmp/latest
+$ module load ghcr.io/autamus/gmp/6.2.1
+$ module help ghcr.io/autamus/gmp/6.2.1
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/libpng"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/libpng/container.yaml"
-updated_at: "2021-04-21 05:52:58.895447"
+updated_at: "2021-04-21 05:55:05.333089"
 container_url: ""
 aliases:
  - "libpng-config"
@@ -15,6 +15,7 @@ aliases:
  - "pngfix"
 
 versions:
+ - "1.6.37"
  - "latest"
 description: "libpng is the official PNG reference library."
 ---
@@ -30,7 +31,7 @@ $ shpc install ghcr.io/autamus/libpng
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/libpng:latest
+$ shpc install ghcr.io/autamus/libpng:1.6.37
 ```
 
 And then you can tell lmod about your modules folder:
@@ -42,8 +43,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/libpng/latest
-$ module help ghcr.io/autamus/libpng/latest
+$ module load ghcr.io/autamus/libpng/1.6.37
+$ module help ghcr.io/autamus/libpng/1.6.37
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

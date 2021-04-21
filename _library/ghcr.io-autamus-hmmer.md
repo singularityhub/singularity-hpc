@@ -3,36 +3,37 @@ layout: container
 name:  "ghcr.io/autamus/hmmer"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/hmmer/container.yaml"
-updated_at: "2021-04-21 05:52:39.977880"
+updated_at: "2021-04-21 05:54:47.770481"
 container_url: ""
 aliases:
  - "hmmalign"
 
- - "hmmemit"
-
- - "hmmpgmd"
-
- - "hmmscan"
-
- - "hmmstat"
-
  - "hmmbuild"
-
- - "hmmpgmd_shard"
-
- - "hmmfetch"
-
- - "hmmsearch"
 
  - "hmmconvert"
 
+ - "hmmemit"
+
+ - "hmmfetch"
+
  - "hmmlogo"
+
+ - "hmmpgmd"
+
+ - "hmmpgmd_shard"
 
  - "hmmpress"
 
+ - "hmmscan"
+
+ - "hmmsearch"
+
  - "hmmsim"
 
+ - "hmmstat"
+
 versions:
+ - "3.3"
  - "latest"
 description: "HMMER is used for searching sequence databases for sequence homologs, and for making sequence alignments."
 ---
@@ -48,7 +49,7 @@ $ shpc install ghcr.io/autamus/hmmer
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/hmmer:latest
+$ shpc install ghcr.io/autamus/hmmer:3.3
 ```
 
 And then you can tell lmod about your modules folder:
@@ -60,8 +61,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/hmmer/latest
-$ module help ghcr.io/autamus/hmmer/latest
+$ module load ghcr.io/autamus/hmmer/3.3
+$ module help ghcr.io/autamus/hmmer/3.3
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
@@ -110,59 +111,10 @@ $ singularity exec <container> /opt/view/bin/hmmalign
 ```
 
 
-#### hmmemit
-       
-```bash
-$ singularity exec <container> /opt/view/bin/hmmemit
-```
-
-
-#### hmmpgmd
-       
-```bash
-$ singularity exec <container> /opt/view/bin/hmmpgmd
-```
-
-
-#### hmmscan
-       
-```bash
-$ singularity exec <container> /opt/view/bin/hmmscan
-```
-
-
-#### hmmstat
-       
-```bash
-$ singularity exec <container> /opt/view/bin/hmmstat
-```
-
-
 #### hmmbuild
        
 ```bash
 $ singularity exec <container> /opt/view/bin/hmmbuild
-```
-
-
-#### hmmpgmd_shard
-       
-```bash
-$ singularity exec <container> /opt/view/bin/hmmpgmd_shard
-```
-
-
-#### hmmfetch
-       
-```bash
-$ singularity exec <container> /opt/view/bin/hmmfetch
-```
-
-
-#### hmmsearch
-       
-```bash
-$ singularity exec <container> /opt/view/bin/hmmsearch
 ```
 
 
@@ -173,10 +125,38 @@ $ singularity exec <container> /opt/view/bin/hmmconvert
 ```
 
 
+#### hmmemit
+       
+```bash
+$ singularity exec <container> /opt/view/bin/hmmemit
+```
+
+
+#### hmmfetch
+       
+```bash
+$ singularity exec <container> /opt/view/bin/hmmfetch
+```
+
+
 #### hmmlogo
        
 ```bash
 $ singularity exec <container> /opt/view/bin/hmmlogo
+```
+
+
+#### hmmpgmd
+       
+```bash
+$ singularity exec <container> /opt/view/bin/hmmpgmd
+```
+
+
+#### hmmpgmd_shard
+       
+```bash
+$ singularity exec <container> /opt/view/bin/hmmpgmd_shard
 ```
 
 
@@ -187,10 +167,31 @@ $ singularity exec <container> /opt/view/bin/hmmpress
 ```
 
 
+#### hmmscan
+       
+```bash
+$ singularity exec <container> /opt/view/bin/hmmscan
+```
+
+
+#### hmmsearch
+       
+```bash
+$ singularity exec <container> /opt/view/bin/hmmsearch
+```
+
+
 #### hmmsim
        
 ```bash
 $ singularity exec <container> /opt/view/bin/hmmsim
+```
+
+
+#### hmmstat
+       
+```bash
+$ singularity exec <container> /opt/view/bin/hmmstat
 ```
 
 

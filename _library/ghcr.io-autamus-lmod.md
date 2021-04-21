@@ -3,12 +3,13 @@ layout: container
 name:  "ghcr.io/autamus/lmod"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/lmod/container.yaml"
-updated_at: "2021-04-21 05:52:52.698991"
+updated_at: "2021-04-21 05:54:59.492563"
 container_url: ""
 aliases:
  - "module"
 
 versions:
+ - "8.3"
  - "latest"
 description: "The Persistence of Vision Ray Tracer, most commonly acronymed as POV-Ray, is a cross-platform ray-tracing program that generates images from a text-based scene description."
 ---
@@ -24,7 +25,7 @@ $ shpc install ghcr.io/autamus/lmod
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/lmod:latest
+$ shpc install ghcr.io/autamus/lmod:8.3
 ```
 
 And then you can tell lmod about your modules folder:
@@ -36,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/lmod/latest
-$ module help ghcr.io/autamus/lmod/latest
+$ module load ghcr.io/autamus/lmod/8.3
+$ module help ghcr.io/autamus/lmod/8.3
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

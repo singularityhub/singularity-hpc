@@ -3,12 +3,13 @@ layout: container
 name:  "ghcr.io/autamus/htslib"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/htslib/container.yaml"
-updated_at: "2021-04-21 05:52:46.584557"
+updated_at: "2021-04-21 05:54:53.726855"
 container_url: ""
 aliases:
  - "htsfile"
 
 versions:
+ - "1.12"
  - "latest"
 description: "A C library for reading/writing high-throughput sequencing data."
 ---
@@ -24,7 +25,7 @@ $ shpc install ghcr.io/autamus/htslib
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/htslib:latest
+$ shpc install ghcr.io/autamus/htslib:1.12
 ```
 
 And then you can tell lmod about your modules folder:
@@ -36,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/htslib/latest
-$ module help ghcr.io/autamus/htslib/latest
+$ module load ghcr.io/autamus/htslib/1.12
+$ module help ghcr.io/autamus/htslib/1.12
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

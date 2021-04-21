@@ -3,12 +3,13 @@ layout: container
 name:  "ghcr.io/autamus/glpk"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/glpk/container.yaml"
-updated_at: "2021-04-21 05:52:45.129196"
+updated_at: "2021-04-21 05:54:52.430970"
 container_url: ""
 aliases:
  - "glpsol"
 
 versions:
+ - "4.65"
  - "latest"
 description: "The GLPK package is a set of routines written in ANSI C and organized in the form of a callable library. This package is intended for solving large-scale linear programming (LP), mixed integer linear programming (MIP), and other related problems."
 ---
@@ -24,7 +25,7 @@ $ shpc install ghcr.io/autamus/glpk
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/glpk:latest
+$ shpc install ghcr.io/autamus/glpk:4.65
 ```
 
 And then you can tell lmod about your modules folder:
@@ -36,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/glpk/latest
-$ module help ghcr.io/autamus/glpk/latest
+$ module load ghcr.io/autamus/glpk/4.65
+$ module help ghcr.io/autamus/glpk/4.65
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

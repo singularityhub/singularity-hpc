@@ -3,12 +3,13 @@ layout: container
 name:  "ghcr.io/autamus/geos"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/geos/container.yaml"
-updated_at: "2021-04-21 05:52:38.560078"
+updated_at: "2021-04-21 05:54:46.514166"
 container_url: ""
 aliases:
  - "geos-config"
 
 versions:
+ - "3.8.1"
  - "latest"
 description: "GEOS is a C++11 library for performing operations on two-dimensional vector geometries."
 ---
@@ -24,7 +25,7 @@ $ shpc install ghcr.io/autamus/geos
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/geos:latest
+$ shpc install ghcr.io/autamus/geos:3.8.1
 ```
 
 And then you can tell lmod about your modules folder:
@@ -36,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/geos/latest
-$ module help ghcr.io/autamus/geos/latest
+$ module load ghcr.io/autamus/geos/3.8.1
+$ module help ghcr.io/autamus/geos/3.8.1
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

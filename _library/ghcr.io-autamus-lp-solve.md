@@ -3,12 +3,13 @@ layout: container
 name:  "ghcr.io/autamus/lp-solve"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/lp-solve/container.yaml"
-updated_at: "2021-04-21 05:52:37.536141"
+updated_at: "2021-04-21 05:54:45.594185"
 container_url: ""
 aliases:
  - "lp_solve"
 
 versions:
+ - "5.5.2.11"
  - "latest"
 description: "Lp_solve is freely available (under LGPL 2) software for solving linear, integer and mixed integer programs."
 ---
@@ -24,7 +25,7 @@ $ shpc install ghcr.io/autamus/lp-solve
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/lp-solve:latest
+$ shpc install ghcr.io/autamus/lp-solve:5.5.2.11
 ```
 
 And then you can tell lmod about your modules folder:
@@ -36,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/lp-solve/latest
-$ module help ghcr.io/autamus/lp-solve/latest
+$ module load ghcr.io/autamus/lp-solve/5.5.2.11
+$ module help ghcr.io/autamus/lp-solve/5.5.2.11
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

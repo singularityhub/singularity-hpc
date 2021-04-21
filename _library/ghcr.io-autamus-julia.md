@@ -3,12 +3,13 @@ layout: container
 name:  "ghcr.io/autamus/julia"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/julia/container.yaml"
-updated_at: "2021-04-21 05:52:55.183905"
+updated_at: "2021-04-21 05:55:01.882894"
 container_url: ""
 aliases:
  - "julia"
 
 versions:
+ - "1.6.0"
  - "latest"
 description: "Julia is a high-level, high-performance, dynamic programming language."
 ---
@@ -24,7 +25,7 @@ $ shpc install ghcr.io/autamus/julia
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/julia:latest
+$ shpc install ghcr.io/autamus/julia:1.6.0
 ```
 
 And then you can tell lmod about your modules folder:
@@ -36,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/julia/latest
-$ module help ghcr.io/autamus/julia/latest
+$ module load ghcr.io/autamus/julia/1.6.0
+$ module help ghcr.io/autamus/julia/1.6.0
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

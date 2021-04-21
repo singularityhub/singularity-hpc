@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/hdf5"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/hdf5/container.yaml"
-updated_at: "2021-04-21 05:52:56.633589"
+updated_at: "2021-04-21 05:55:03.253775"
 container_url: ""
 aliases:
  - "h5clear"
@@ -43,6 +43,7 @@ aliases:
  - "h5unjam"
 
 versions:
+ - "1.12.0"
  - "latest"
 description: "HDF5 is a unique technology suite that makes possible the management of extremely large and complex data collections."
 ---
@@ -58,7 +59,7 @@ $ shpc install ghcr.io/autamus/hdf5
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/hdf5:latest
+$ shpc install ghcr.io/autamus/hdf5:1.12.0
 ```
 
 And then you can tell lmod about your modules folder:
@@ -70,8 +71,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/hdf5/latest
-$ module help ghcr.io/autamus/hdf5/latest
+$ module load ghcr.io/autamus/hdf5/1.12.0
+$ module help ghcr.io/autamus/hdf5/1.12.0
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

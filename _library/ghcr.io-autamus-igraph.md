@@ -3,10 +3,11 @@ layout: container
 name:  "ghcr.io/autamus/igraph"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/igraph/container.yaml"
-updated_at: "2021-04-21 05:52:59.301658"
+updated_at: "2021-04-21 05:55:05.691616"
 container_url: ""
 
 versions:
+ - "0.7.1"
  - "latest"
 description: "igraph is a library collection for creating and manipulating graphs and analyzing networks. It is written in C and also exists as Python and R packages."
 ---
@@ -22,7 +23,7 @@ $ shpc install ghcr.io/autamus/igraph
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/igraph:latest
+$ shpc install ghcr.io/autamus/igraph:0.7.1
 ```
 
 And then you can tell lmod about your modules folder:
@@ -34,8 +35,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/igraph/latest
-$ module help ghcr.io/autamus/igraph/latest
+$ module load ghcr.io/autamus/igraph/0.7.1
+$ module help ghcr.io/autamus/igraph/0.7.1
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

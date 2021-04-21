@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/ffmpeg"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/ffmpeg/container.yaml"
-updated_at: "2021-04-21 05:52:42.255338"
+updated_at: "2021-04-21 05:54:49.793683"
 container_url: ""
 aliases:
  - "ffmpeg"
@@ -11,6 +11,7 @@ aliases:
  - "ffprobe"
 
 versions:
+ - "4.5"
  - "latest"
 description: "FFmpeg is a free and open-source software project consisting of a large suite of libraries and programs for handling video, audio, and other multimedia files and streams."
 ---
@@ -26,7 +27,7 @@ $ shpc install ghcr.io/autamus/ffmpeg
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/ffmpeg:latest
+$ shpc install ghcr.io/autamus/ffmpeg:4.5
 ```
 
 And then you can tell lmod about your modules folder:
@@ -38,8 +39,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/ffmpeg/latest
-$ module help ghcr.io/autamus/ffmpeg/latest
+$ module load ghcr.io/autamus/ffmpeg/4.5
+$ module help ghcr.io/autamus/ffmpeg/4.5
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

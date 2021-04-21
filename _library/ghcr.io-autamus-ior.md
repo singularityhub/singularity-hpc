@@ -3,12 +3,13 @@ layout: container
 name:  "ghcr.io/autamus/ior"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/ior/container.yaml"
-updated_at: "2021-04-21 05:52:44.915572"
+updated_at: "2021-04-21 05:54:52.243429"
 container_url: ""
 aliases:
  - "ior"
 
 versions:
+ - "3.3.0"
  - "latest"
 description: "IOR is a parallel IO benchmark that can be used to test the performance of parallel storage systems using various interfaces and access patterns. "
 ---
@@ -24,7 +25,7 @@ $ shpc install ghcr.io/autamus/ior
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/ior:latest
+$ shpc install ghcr.io/autamus/ior:3.3.0
 ```
 
 And then you can tell lmod about your modules folder:
@@ -36,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/ior/latest
-$ module help ghcr.io/autamus/ior/latest
+$ module load ghcr.io/autamus/ior/3.3.0
+$ module help ghcr.io/autamus/ior/3.3.0
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

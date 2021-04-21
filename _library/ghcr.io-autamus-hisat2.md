@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/hisat2"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/hisat2/container.yaml"
-updated_at: "2021-04-21 05:52:48.412875"
+updated_at: "2021-04-21 05:54:55.476144"
 container_url: ""
 aliases:
  - "hisat2"
@@ -49,6 +49,7 @@ aliases:
  - "hisatgenotype_locus.py"
 
 versions:
+ - "2.2.0"
  - "latest"
 description: "HISAT2 is a fast and sensitive alignment program for mapping next-generation sequencing reads (both DNA and RNA) to a population of human genomes as well as to a single reference genome."
 ---
@@ -64,7 +65,7 @@ $ shpc install ghcr.io/autamus/hisat2
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/hisat2:latest
+$ shpc install ghcr.io/autamus/hisat2:2.2.0
 ```
 
 And then you can tell lmod about your modules folder:
@@ -76,8 +77,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/hisat2/latest
-$ module help ghcr.io/autamus/hisat2/latest
+$ module load ghcr.io/autamus/hisat2/2.2.0
+$ module help ghcr.io/autamus/hisat2/2.2.0
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

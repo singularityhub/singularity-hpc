@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/geant4"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/geant4/container.yaml"
-updated_at: "2021-04-21 05:52:51.074909"
+updated_at: "2021-04-21 05:54:57.950218"
 container_url: ""
 aliases:
  - "Cast-config"
@@ -69,6 +69,7 @@ aliases:
  - "geant4.sh"
 
 versions:
+ - "10.7.1"
  - "latest"
 description: "Geant4 is a platform for the simulation of the passage of particles through matter using Monte Carlo methods."
 ---
@@ -84,7 +85,7 @@ $ shpc install ghcr.io/autamus/geant4
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/geant4:latest
+$ shpc install ghcr.io/autamus/geant4:10.7.1
 ```
 
 And then you can tell lmod about your modules folder:
@@ -96,8 +97,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/geant4/latest
-$ module help ghcr.io/autamus/geant4/latest
+$ module load ghcr.io/autamus/geant4/10.7.1
+$ module help ghcr.io/autamus/geant4/10.7.1
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

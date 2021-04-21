@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/meme"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/meme/container.yaml"
-updated_at: "2021-04-21 05:52:53.111990"
+updated_at: "2021-04-21 05:54:59.877479"
 container_url: ""
 aliases:
  - "meme"
@@ -13,6 +13,7 @@ aliases:
  - "memhog"
 
 versions:
+ - "5.3.0"
  - "latest"
 description: "The MEME suite provides online tools for discovering and using protein and DNA sequence motifs."
 ---
@@ -28,7 +29,7 @@ $ shpc install ghcr.io/autamus/meme
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/meme:latest
+$ shpc install ghcr.io/autamus/meme:5.3.0
 ```
 
 And then you can tell lmod about your modules folder:
@@ -40,8 +41,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/meme/latest
-$ module help ghcr.io/autamus/meme/latest
+$ module load ghcr.io/autamus/meme/5.3.0
+$ module help ghcr.io/autamus/meme/5.3.0
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

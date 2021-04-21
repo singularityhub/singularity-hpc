@@ -3,14 +3,14 @@ layout: container
 name:  "python"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/python/container.yaml"
-updated_at: "2021-04-21 05:52:33.819428"
+updated_at: "2021-04-21 05:54:42.248373"
 container_url: ""
 aliases:
  - "python"
 
 versions:
- - "3.9.2-slim"
  - "3.9.2-alpine"
+ - "3.9.2-slim"
 description: "An interpreted, high-level and general-purpose programming language."
 ---
 
@@ -25,7 +25,7 @@ $ shpc install python
 Or a specific version:
 
 ```bash
-$ shpc install python:3.9.2-slim
+$ shpc install python:3.9.2-alpine
 ```
 
 And then you can tell lmod about your modules folder:
@@ -37,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load python/3.9.2-slim
-$ module help python/3.9.2-slim
+$ module load python/3.9.2-alpine
+$ module help python/3.9.2-alpine
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

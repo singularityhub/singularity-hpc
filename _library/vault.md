@@ -3,12 +3,13 @@ layout: container
 name:  "vault"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/vault/container.yaml"
-updated_at: "2021-04-21 05:53:06.890692"
+updated_at: "2021-04-21 05:55:12.540745"
 container_url: ""
 aliases:
  - "vault"
 
 versions:
+ - "1.4.7"
  - "latest"
 description: "Vault is a tool for securely accessing secrets via a unified interface and tight access control."
 ---
@@ -24,7 +25,7 @@ $ shpc install vault
 Or a specific version:
 
 ```bash
-$ shpc install vault:latest
+$ shpc install vault:1.4.7
 ```
 
 And then you can tell lmod about your modules folder:
@@ -36,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load vault/latest
-$ module help vault/latest
+$ module load vault/1.4.7
+$ module help vault/1.4.7
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

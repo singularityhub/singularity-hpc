@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/graphviz"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/graphviz/container.yaml"
-updated_at: "2021-04-21 05:52:57.044788"
+updated_at: "2021-04-21 05:55:03.625485"
 container_url: ""
 aliases:
  - "gc"
@@ -33,6 +33,7 @@ aliases:
  - "gxl2gv"
 
 versions:
+ - "2.47.1"
  - "latest"
 description: "Graphviz is open source graph visualization software."
 ---
@@ -48,7 +49,7 @@ $ shpc install ghcr.io/autamus/graphviz
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/graphviz:latest
+$ shpc install ghcr.io/autamus/graphviz:2.47.1
 ```
 
 And then you can tell lmod about your modules folder:
@@ -60,8 +61,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/graphviz/latest
-$ module help ghcr.io/autamus/graphviz/latest
+$ module load ghcr.io/autamus/graphviz/2.47.1
+$ module help ghcr.io/autamus/graphviz/2.47.1
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

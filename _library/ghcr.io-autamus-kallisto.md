@@ -3,12 +3,13 @@ layout: container
 name:  "ghcr.io/autamus/kallisto"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/kallisto/container.yaml"
-updated_at: "2021-04-21 05:52:37.739494"
+updated_at: "2021-04-21 05:54:45.770981"
 container_url: ""
 aliases:
  - "kallisto"
 
 versions:
+ - "0.46.2"
  - "latest"
 description: "kallisto is a program for quantifying abundances of transcripts from bulk and single-cell RNA-Seq data, or more generally of target sequences using high-throughput sequencing reads."
 ---
@@ -24,7 +25,7 @@ $ shpc install ghcr.io/autamus/kallisto
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/kallisto:latest
+$ shpc install ghcr.io/autamus/kallisto:0.46.2
 ```
 
 And then you can tell lmod about your modules folder:
@@ -36,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/kallisto/latest
-$ module help ghcr.io/autamus/kallisto/latest
+$ module load ghcr.io/autamus/kallisto/0.46.2
+$ module help ghcr.io/autamus/kallisto/0.46.2
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

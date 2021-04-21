@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/jasper"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/jasper/container.yaml"
-updated_at: "2021-04-21 05:52:38.761870"
+updated_at: "2021-04-21 05:54:46.689395"
 container_url: ""
 aliases:
  - "jasper"
@@ -11,6 +11,7 @@ aliases:
  - "jpegtran"
 
 versions:
+ - "2.0.32"
  - "latest"
 description: "JasPer is a collection of software (i.e., a library and application programs) for the coding and manipulation of images."
 ---
@@ -26,7 +27,7 @@ $ shpc install ghcr.io/autamus/jasper
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/jasper:latest
+$ shpc install ghcr.io/autamus/jasper:2.0.32
 ```
 
 And then you can tell lmod about your modules folder:
@@ -38,8 +39,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/jasper/latest
-$ module help ghcr.io/autamus/jasper/latest
+$ module load ghcr.io/autamus/jasper/2.0.32
+$ module help ghcr.io/autamus/jasper/2.0.32
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

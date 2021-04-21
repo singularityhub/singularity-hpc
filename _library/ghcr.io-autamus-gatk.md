@@ -3,12 +3,13 @@ layout: container
 name:  "ghcr.io/autamus/gatk"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/gatk/container.yaml"
-updated_at: "2021-04-21 05:52:58.087175"
+updated_at: "2021-04-21 05:55:04.598221"
 container_url: ""
 aliases:
  - "gatk"
 
 versions:
+ - "4.2.0.0"
  - "latest"
 description: "GATK (pronounced 'Gee-ay-tee-kay', not 'Gat-kay'), stands for GenomeAnalysisToolkit. It is a collection of command-line tools for analyzing high-throughput sequencing data with a primary focus on variant discovery."
 ---
@@ -24,7 +25,7 @@ $ shpc install ghcr.io/autamus/gatk
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/gatk:latest
+$ shpc install ghcr.io/autamus/gatk:4.2.0.0
 ```
 
 And then you can tell lmod about your modules folder:
@@ -36,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/gatk/latest
-$ module help ghcr.io/autamus/gatk/latest
+$ module load ghcr.io/autamus/gatk/4.2.0.0
+$ module help ghcr.io/autamus/gatk/4.2.0.0
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

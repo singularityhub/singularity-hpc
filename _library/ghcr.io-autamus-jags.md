@@ -3,12 +3,13 @@ layout: container
 name:  "ghcr.io/autamus/jags"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/jags/container.yaml"
-updated_at: "2021-04-21 05:52:52.494719"
+updated_at: "2021-04-21 05:54:59.313911"
 container_url: ""
 aliases:
  - "jags"
 
 versions:
+ - "4.3.0"
  - "latest"
 description: "Just Another Gibbs Sampler. A program for analysis of Bayesian hierarchical models using Markov Chain Monte Carlo (MCMC) simulation."
 ---
@@ -24,7 +25,7 @@ $ shpc install ghcr.io/autamus/jags
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/jags:latest
+$ shpc install ghcr.io/autamus/jags:4.3.0
 ```
 
 And then you can tell lmod about your modules folder:
@@ -36,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/jags/latest
-$ module help ghcr.io/autamus/jags/latest
+$ module load ghcr.io/autamus/jags/4.3.0
+$ module help ghcr.io/autamus/jags/4.3.0
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

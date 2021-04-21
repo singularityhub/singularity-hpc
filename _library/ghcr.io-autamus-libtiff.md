@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/libtiff"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/libtiff/container.yaml"
-updated_at: "2021-04-21 05:53:00.116742"
+updated_at: "2021-04-21 05:55:06.438152"
 container_url: ""
 aliases:
  - "fax2tiff"
@@ -39,6 +39,7 @@ aliases:
  - "tiffsplit"
 
 versions:
+ - "4.1.0"
  - "latest"
 description: "Libtiff is a library for reading and writing Tagged Image File Format (abbreviated TIFF) files."
 ---
@@ -54,7 +55,7 @@ $ shpc install ghcr.io/autamus/libtiff
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/libtiff:latest
+$ shpc install ghcr.io/autamus/libtiff:4.1.0
 ```
 
 And then you can tell lmod about your modules folder:
@@ -66,8 +67,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/libtiff/latest
-$ module help ghcr.io/autamus/libtiff/latest
+$ module load ghcr.io/autamus/libtiff/4.1.0
+$ module help ghcr.io/autamus/libtiff/4.1.0
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

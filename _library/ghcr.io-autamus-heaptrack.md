@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/heaptrack"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/heaptrack/container.yaml"
-updated_at: "2021-04-21 05:52:56.222284"
+updated_at: "2021-04-21 05:55:02.867960"
 container_url: ""
 aliases:
  - "heaptrack"
@@ -11,6 +11,7 @@ aliases:
  - "heaptrack_print"
 
 versions:
+ - "1.2.0"
  - "latest"
 description: "Heaptrack traces all memory allocations and annotates these events with stack traces."
 ---
@@ -26,7 +27,7 @@ $ shpc install ghcr.io/autamus/heaptrack
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/heaptrack:latest
+$ shpc install ghcr.io/autamus/heaptrack:1.2.0
 ```
 
 And then you can tell lmod about your modules folder:
@@ -38,8 +39,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/heaptrack/latest
-$ module help ghcr.io/autamus/heaptrack/latest
+$ module load ghcr.io/autamus/heaptrack/1.2.0
+$ module help ghcr.io/autamus/heaptrack/1.2.0
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

@@ -3,12 +3,13 @@ layout: container
 name:  "ghcr.io/autamus/grass"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/grass/container.yaml"
-updated_at: "2021-04-21 05:52:37.333732"
+updated_at: "2021-04-21 05:54:45.414639"
 container_url: ""
 aliases:
  - "grass78"
 
 versions:
+ - "7.8.5"
  - "latest"
 description: "GRASS GIS (https://grass.osgeo.org/) is a Geographic Information System used for geospatial data management and analysis, image processing, graphics/map production, spatial modeling, and visualization."
 ---
@@ -24,7 +25,7 @@ $ shpc install ghcr.io/autamus/grass
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/grass:latest
+$ shpc install ghcr.io/autamus/grass:7.8.5
 ```
 
 And then you can tell lmod about your modules folder:
@@ -36,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/grass/latest
-$ module help ghcr.io/autamus/grass/latest
+$ module load ghcr.io/autamus/grass/7.8.5
+$ module help ghcr.io/autamus/grass/7.8.5
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

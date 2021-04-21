@@ -3,10 +3,11 @@ layout: container
 name:  "ghcr.io/autamus/libxpm"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/libxpm/container.yaml"
-updated_at: "2021-04-21 05:52:39.566722"
+updated_at: "2021-04-21 05:54:47.420288"
 container_url: ""
 
 versions:
+ - "3.5.12"
  - "latest"
 description: "The X PixMap image format is an extension of the monochrome X BitMap format specified in the X protocol, and is commonly used in traditional X applications."
 ---
@@ -22,7 +23,7 @@ $ shpc install ghcr.io/autamus/libxpm
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/libxpm:latest
+$ shpc install ghcr.io/autamus/libxpm:3.5.12
 ```
 
 And then you can tell lmod about your modules folder:
@@ -34,8 +35,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/libxpm/latest
-$ module help ghcr.io/autamus/libxpm/latest
+$ module load ghcr.io/autamus/libxpm/3.5.12
+$ module help ghcr.io/autamus/libxpm/3.5.12
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

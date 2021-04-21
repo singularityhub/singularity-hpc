@@ -3,18 +3,18 @@ layout: container
 name:  "redis"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/redis/container.yaml"
-updated_at: "2021-04-21 05:53:08.329403"
+updated_at: "2021-04-21 05:55:13.844481"
 container_url: ""
 aliases:
  - "redis-benchmark"
 
- - "redis-check-rdb"
-
- - "redis-sentinel"
-
  - "redis-check-aof"
 
+ - "redis-check-rdb"
+
  - "redis-cli"
+
+ - "redis-sentinel"
 
  - "redis-server"
 
@@ -96,20 +96,6 @@ $ singularity exec <container> /usr/local/bin/redis-benchmark
 ```
 
 
-#### redis-check-rdb
-       
-```bash
-$ singularity exec <container> /usr/local/bin/redis-check-rdb
-```
-
-
-#### redis-sentinel
-       
-```bash
-$ singularity exec <container> /usr/local/bin/redis-sentinel
-```
-
-
 #### redis-check-aof
        
 ```bash
@@ -117,10 +103,24 @@ $ singularity exec <container> /usr/local/bin/redis-check-aof
 ```
 
 
+#### redis-check-rdb
+       
+```bash
+$ singularity exec <container> /usr/local/bin/redis-check-rdb
+```
+
+
 #### redis-cli
        
 ```bash
 $ singularity exec <container> /usr/local/bin/redis-cli
+```
+
+
+#### redis-sentinel
+       
+```bash
+$ singularity exec <container> /usr/local/bin/redis-sentinel
 ```
 
 

@@ -3,7 +3,7 @@ layout: container
 name:  "php"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/php/container.yaml"
-updated_at: "2021-04-21 05:53:04.603191"
+updated_at: "2021-04-21 05:55:10.493844"
 container_url: ""
 aliases:
  - "php"
@@ -17,6 +17,7 @@ aliases:
  - "phpize"
 
 versions:
+ - "7.3.27-zts-alpine3.12"
  - "latest"
 description: "While designed for web development, the PHP scripting language also provides general-purpose use."
 ---
@@ -32,7 +33,7 @@ $ shpc install php
 Or a specific version:
 
 ```bash
-$ shpc install php:latest
+$ shpc install php:7.3.27-zts-alpine3.12
 ```
 
 And then you can tell lmod about your modules folder:
@@ -44,8 +45,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load php/latest
-$ module help php/latest
+$ module load php/7.3.27-zts-alpine3.12
+$ module help php/7.3.27-zts-alpine3.12
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

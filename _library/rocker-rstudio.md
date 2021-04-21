@@ -3,14 +3,14 @@ layout: container
 name:  "rocker/rstudio"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/rocker/rstudio/container.yaml"
-updated_at: "2021-04-21 05:53:05.226718"
+updated_at: "2021-04-21 05:55:11.023400"
 container_url: ""
 aliases:
- - "rocker-rstudio-run"
-
  - "R"
 
  - "Rscript"
+
+ - "rocker-rstudio-run"
 
  - "rserver"
 
@@ -91,13 +91,6 @@ $ singularity inspect -d <container>
 ```
 
 
-#### rocker-rstudio-run
-       
-```bash
-$ singularity exec <container> /bin/bash
-```
-
-
 #### R
        
 ```bash
@@ -109,6 +102,13 @@ $ singularity exec <container> /usr/local/bin/R
        
 ```bash
 $ singularity exec <container> /usr/local/bin/Rscript
+```
+
+
+#### rocker-rstudio-run
+       
+```bash
+$ singularity exec <container> /bin/bash
 ```
 
 

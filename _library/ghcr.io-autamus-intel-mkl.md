@@ -3,10 +3,11 @@ layout: container
 name:  "ghcr.io/autamus/intel-mkl"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/intel-mkl/container.yaml"
-updated_at: "2021-04-21 05:52:43.657935"
+updated_at: "2021-04-21 05:54:51.120067"
 container_url: ""
 
 versions:
+ - "2020.4.304"
  - "latest"
 description: "Intel oneAPI Math Kernel Library, formerly just Intel Math Kernel Library, is a library of optimized math routines for science, engineering, and financial applications."
 ---
@@ -22,7 +23,7 @@ $ shpc install ghcr.io/autamus/intel-mkl
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/intel-mkl:latest
+$ shpc install ghcr.io/autamus/intel-mkl:2020.4.304
 ```
 
 And then you can tell lmod about your modules folder:
@@ -34,8 +35,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/intel-mkl/latest
-$ module help ghcr.io/autamus/intel-mkl/latest
+$ module load ghcr.io/autamus/intel-mkl/2020.4.304
+$ module help ghcr.io/autamus/intel-mkl/2020.4.304
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

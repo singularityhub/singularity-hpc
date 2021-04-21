@@ -3,12 +3,13 @@ layout: container
 name:  "ghcr.io/autamus/iq-tree"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/iq-tree/container.yaml"
-updated_at: "2021-04-21 05:52:46.992536"
+updated_at: "2021-04-21 05:54:54.123040"
 container_url: ""
 aliases:
  - "iq-tree2"
 
 versions:
+ - "2.0.6"
  - "latest"
 description: "IQ-TREE (http://www.iqtree.org, last accessed February 6, 2020) is a user-friendly and widely used software package for phylogenetic inference using maximum likelihood."
 ---
@@ -24,7 +25,7 @@ $ shpc install ghcr.io/autamus/iq-tree
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/iq-tree:latest
+$ shpc install ghcr.io/autamus/iq-tree:2.0.6
 ```
 
 And then you can tell lmod about your modules folder:
@@ -36,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/iq-tree/latest
-$ module help ghcr.io/autamus/iq-tree/latest
+$ module load ghcr.io/autamus/iq-tree/2.0.6
+$ module help ghcr.io/autamus/iq-tree/2.0.6
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

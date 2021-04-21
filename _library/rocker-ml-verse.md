@@ -3,16 +3,16 @@ layout: container
 name:  "rocker/ml-verse"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/rocker/ml-verse/container.yaml"
-updated_at: "2021-04-21 05:53:05.853588"
+updated_at: "2021-04-21 05:55:11.584379"
 container_url: ""
 aliases:
- - "rocker-ml-verse-run"
-
- - "rocker-ml-run"
-
  - "R"
 
  - "Rscript"
+
+ - "rocker-ml-run"
+
+ - "rocker-ml-verse-run"
 
  - "rserver"
 
@@ -93,20 +93,6 @@ $ singularity inspect -d <container>
 ```
 
 
-#### rocker-ml-verse-run
-       
-```bash
-$ singularity exec <container> /bin/bash
-```
-
-
-#### rocker-ml-run
-       
-```bash
-$ singularity exec <container> /bin/bash
-```
-
-
 #### R
        
 ```bash
@@ -118,6 +104,20 @@ $ singularity exec <container> /usr/local/bin/R
        
 ```bash
 $ singularity exec <container> /usr/local/bin/Rscript
+```
+
+
+#### rocker-ml-run
+       
+```bash
+$ singularity exec <container> /bin/bash
+```
+
+
+#### rocker-ml-verse-run
+       
+```bash
+$ singularity exec <container> /bin/bash
 ```
 
 

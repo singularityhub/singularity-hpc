@@ -3,34 +3,35 @@ layout: container
 name:  "ghcr.io/autamus/mafft"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/mafft/container.yaml"
-updated_at: "2021-04-21 05:52:35.275650"
+updated_at: "2021-04-21 05:54:43.575925"
 container_url: ""
 aliases:
  - "mafft"
 
- - "mafft-fftns"
-
- - "mafft-nwnsi"
-
  - "mafft-distance"
-
- - "mafft-fftnsi"
-
- - "mafft-linsi"
-
- - "mafft-profile"
-
- - "mafft-xinsi"
 
  - "mafft-einsi"
 
+ - "mafft-fftns"
+
+ - "mafft-fftnsi"
+
  - "mafft-ginsi"
+
+ - "mafft-linsi"
 
  - "mafft-nwns"
 
+ - "mafft-nwnsi"
+
+ - "mafft-profile"
+
  - "mafft-qinsi"
 
+ - "mafft-xinsi"
+
 versions:
+ - "7.475"
  - "latest"
 description: "MAFFT is a multiple sequence alignment program for unix-like operating systems."
 ---
@@ -46,7 +47,7 @@ $ shpc install ghcr.io/autamus/mafft
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/mafft:latest
+$ shpc install ghcr.io/autamus/mafft:7.475
 ```
 
 And then you can tell lmod about your modules folder:
@@ -58,8 +59,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/mafft/latest
-$ module help ghcr.io/autamus/mafft/latest
+$ module load ghcr.io/autamus/mafft/7.475
+$ module help ghcr.io/autamus/mafft/7.475
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
@@ -108,52 +109,10 @@ $ singularity exec <container> /opt/view/bin/mafft
 ```
 
 
-#### mafft-fftns
-       
-```bash
-$ singularity exec <container> /opt/view/bin/mafft-fftns
-```
-
-
-#### mafft-nwnsi
-       
-```bash
-$ singularity exec <container> /opt/view/bin/mafft-nwnsi
-```
-
-
 #### mafft-distance
        
 ```bash
 $ singularity exec <container> /opt/view/bin/mafft-distance
-```
-
-
-#### mafft-fftnsi
-       
-```bash
-$ singularity exec <container> /opt/view/bin/mafft-fftnsi
-```
-
-
-#### mafft-linsi
-       
-```bash
-$ singularity exec <container> /opt/view/bin/mafft-linsi
-```
-
-
-#### mafft-profile
-       
-```bash
-$ singularity exec <container> /opt/view/bin/mafft-profile
-```
-
-
-#### mafft-xinsi
-       
-```bash
-$ singularity exec <container> /opt/view/bin/mafft-xinsi
 ```
 
 
@@ -164,10 +123,31 @@ $ singularity exec <container> /opt/view/bin/mafft-einsi
 ```
 
 
+#### mafft-fftns
+       
+```bash
+$ singularity exec <container> /opt/view/bin/mafft-fftns
+```
+
+
+#### mafft-fftnsi
+       
+```bash
+$ singularity exec <container> /opt/view/bin/mafft-fftnsi
+```
+
+
 #### mafft-ginsi
        
 ```bash
 $ singularity exec <container> /opt/view/bin/mafft-ginsi
+```
+
+
+#### mafft-linsi
+       
+```bash
+$ singularity exec <container> /opt/view/bin/mafft-linsi
 ```
 
 
@@ -178,10 +158,31 @@ $ singularity exec <container> /opt/view/bin/mafft-nwns
 ```
 
 
+#### mafft-nwnsi
+       
+```bash
+$ singularity exec <container> /opt/view/bin/mafft-nwnsi
+```
+
+
+#### mafft-profile
+       
+```bash
+$ singularity exec <container> /opt/view/bin/mafft-profile
+```
+
+
 #### mafft-qinsi
        
 ```bash
 $ singularity exec <container> /opt/view/bin/mafft-qinsi
+```
+
+
+#### mafft-xinsi
+       
+```bash
+$ singularity exec <container> /opt/view/bin/mafft-xinsi
 ```
 
 

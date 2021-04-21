@@ -3,10 +3,11 @@ layout: container
 name:  "ghcr.io/autamus/fraggenescan"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/fraggenescan/container.yaml"
-updated_at: "2021-04-21 05:52:34.861682"
+updated_at: "2021-04-21 05:54:43.227431"
 container_url: ""
 
 versions:
+ - "1.31"
  - "latest"
 description: "An application for finding (fragmented) genes in short reads."
 ---
@@ -22,7 +23,7 @@ $ shpc install ghcr.io/autamus/fraggenescan
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/fraggenescan:latest
+$ shpc install ghcr.io/autamus/fraggenescan:1.31
 ```
 
 And then you can tell lmod about your modules folder:
@@ -34,8 +35,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/fraggenescan/latest
-$ module help ghcr.io/autamus/fraggenescan/latest
+$ module load ghcr.io/autamus/fraggenescan/1.31
+$ module help ghcr.io/autamus/fraggenescan/1.31
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

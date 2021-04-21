@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/gsl"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/gsl/container.yaml"
-updated_at: "2021-04-21 05:52:50.869061"
+updated_at: "2021-04-21 05:54:57.756736"
 container_url: ""
 aliases:
  - "gsl-config"
@@ -13,6 +13,7 @@ aliases:
  - "gsl-randist"
 
 versions:
+ - "2.6"
  - "latest"
 description: "The GNU Scientific Library."
 ---
@@ -28,7 +29,7 @@ $ shpc install ghcr.io/autamus/gsl
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/gsl:latest
+$ shpc install ghcr.io/autamus/gsl:2.6
 ```
 
 And then you can tell lmod about your modules folder:
@@ -40,8 +41,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/gsl/latest
-$ module help ghcr.io/autamus/gsl/latest
+$ module load ghcr.io/autamus/gsl/2.6
+$ module help ghcr.io/autamus/gsl/2.6
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
