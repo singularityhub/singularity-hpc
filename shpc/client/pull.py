@@ -6,6 +6,7 @@ import shpc.main.container as container
 from shpc.logger import logger
 import re
 
+
 def main(args, parser, extra, subparser):
 
     # We currently support GitHub and Docker URIs
