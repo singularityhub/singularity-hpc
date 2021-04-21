@@ -1,18 +1,18 @@
 docker: rocker/ml-verse
-latest:
-  latest: "sha256:9a879d274e982ff8ee71bda89a72b7ac2c991684215ec21cfd2e7c21d758f7f8"
-tags:
-  latest: "sha256:9a879d274e982ff8ee71bda89a72b7ac2c991684215ec21cfd2e7c21d758f7f8"
-filter:
-  - "latest"
-maintainer: "@vsoch"
 url: https://hub.docker.com/r/rocker/ml-verse
-description: "Machine learning in R."
+maintainer: '@vsoch'
+description: Machine learning in R.
+latest:
+  latest: sha256:3b8fc7e58b260fdbeeff4de75acadcdfa4b5b83d1b63e8a42d5b13f77ee250a3
+tags:
+  latest: sha256:3b8fc7e58b260fdbeeff4de75acadcdfa4b5b83d1b63e8a42d5b13f77ee250a3
+filter:
+- latest
 aliases:
-  rocker-ml-verse-run: /bin/bash
-  rocker-ml-run: /bin/bash
   R: /usr/local/bin/R
   Rscript: /usr/local/bin/Rscript
+  rocker-ml-run: /bin/bash
+  rocker-ml-verse-run: /bin/bash
   rserver: /usr/lib/rstudio-server/bin/rserver
   rserver-pam: /usr/lib/rstudio-server/bin/rserver-pam
   rsession: /usr/lib/rstudio-server/bin/rsession

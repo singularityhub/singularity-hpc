@@ -1,10 +1,13 @@
 docker: ghcr.io/autamus/lmod
-latest:
-  "latest": "sha256:7f4e27462257d3059f79da144d6797655dac8d41769985bf527e78e632e79794"
-tags:
-  "latest": "sha256:7f4e27462257d3059f79da144d6797655dac8d41769985bf527e78e632e79794"
-maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/lmod
-description: "The Persistence of Vision Ray Tracer, most commonly acronymed as POV-Ray, is a cross-platform ray-tracing program that generates images from a text-based scene description."
+maintainer: '@vsoch'
+description: The Persistence of Vision Ray Tracer, most commonly acronymed as POV-Ray,
+  is a cross-platform ray-tracing program that generates images from a text-based
+  scene description.
+latest:
+  "8.3": sha256:7f4e27462257d3059f79da144d6797655dac8d41769985bf527e78e632e79794
+tags:
+  "8.3": sha256:7f4e27462257d3059f79da144d6797655dac8d41769985bf527e78e632e79794
+  latest: sha256:7f4e27462257d3059f79da144d6797655dac8d41769985bf527e78e632e79794
 aliases:
   module: . /opt/view/lmod/8.3/init/profile && module

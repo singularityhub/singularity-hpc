@@ -4,9 +4,9 @@ maintainer: '@vsoch'
 description: Kibana gives shape to any kind of data — structured and unstructured
   — indexed in Elasticsearch.
 latest:
-  7.12.0: sha256:767581addfa1f3c0520774a30c5d872bbc8f833e172d93685baf89c579a1808a
+  7.12.0: sha256:38ffc2983bcd8cdb8c7f95e3a3c6738ef1bf499626cb6cdc35bfd51a1c6ccc27
 tags:
-  7.12.0: sha256:767581addfa1f3c0520774a30c5d872bbc8f833e172d93685baf89c579a1808a
+  7.12.0: sha256:38ffc2983bcd8cdb8c7f95e3a3c6738ef1bf499626cb6cdc35bfd51a1c6ccc27
 aliases:
   kibana: /usr/share/kibana/bin/kibana
   kibana-encryption-keys: /usr/share/kibana/bin/kibana-encryption-keys

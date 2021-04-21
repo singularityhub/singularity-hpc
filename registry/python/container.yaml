@@ -1,15 +1,13 @@
 docker: python
-latest:
-  3.9.2-slim: "sha256:85ed629e6ff79d0bf796339ea188c863048e9aedbf7f946171266671ee5c04ef"
-tags:
-  3.9.2-slim: "sha256:85ed629e6ff79d0bf796339ea188c863048e9aedbf7f946171266671ee5c04ef"
-  3.9.2-alpine: "sha256:23e717dcd01e31caa4a8c6a6f2d5a222210f63085d87a903e024dd92cb9312fd"
-filter:
-  - "3.9.*"
-maintainer: "@vsoch"
 url: https://hub.docker.com/_/python
-description: "An interpreted, high-level and general-purpose programming language."
+maintainer: '@vsoch'
+description: An interpreted, high-level and general-purpose programming language.
+latest:
+  3.9.2-slim: sha256:ce367bb30b8928efb632c369e3bd4a8dbd7905417bd0a245087a82c250e54a24
+tags:
+  3.9.2-alpine: sha256:f046c06388c0721961fe5c9b6184d2f8aeb7eb01b39601babab06cfd975dae01
+  3.9.2-slim: sha256:ce367bb30b8928efb632c369e3bd4a8dbd7905417bd0a245087a82c250e54a24
+filter:
+- 3.9.*
 aliases:
-  python: /usr/local/bin/python  
-test: |
-   /usr/local/bin/python -c "import sys; print(sys.version_info)"
+  python: /usr/local/bin/python
