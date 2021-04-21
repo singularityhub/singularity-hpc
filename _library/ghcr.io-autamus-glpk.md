@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/glpk"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/glpk/container.yaml"
-updated_at: "2021-04-20 03:26:36.112479"
+updated_at: "2021-04-21 05:52:45.129196"
 container_url: ""
 aliases:
  - "glpsol"
