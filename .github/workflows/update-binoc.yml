@@ -58,7 +58,7 @@ jobs:
           fi
           echo "OPEN_PULL_REQUEST=${OPEN_PULL_REQUEST}" >> $GITHUB_ENV
           echo "PULL_REQUEST_FROM_BRANCH=${BRANCH_FROM}" >> $GITHUB_ENV
-          echo "PULL_REQUEST_TITLE=[binoc] ${BRANCH_FROM}" >> $GITHUB_ENV
+          echo "PULL_REQUEST_TITLE=[bot] ${BRANCH_FROM}" >> $GITHUB_ENV
           echo "PULL_REQUEST_BODY=Update container modules pull request." >> $GITHUB_ENV
       - name: Open Pull Request
         uses: vsoch/pull-request-action@1.0.16
