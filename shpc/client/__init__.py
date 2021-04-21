@@ -187,7 +187,7 @@ def get_parser():
             "--module-sys",
             dest="module",
             help="module system to use (defaults to lmod)",
-            choices=["lmod"],
+            choices=["lmod", "tcl"],
             default="lmod",
         )
         command.add_argument(

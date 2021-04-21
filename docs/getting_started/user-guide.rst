@@ -528,6 +528,7 @@ If you don't have it, you can run tests in the provided docker container.
     docker run --rm -it singularity-hpc shpc test python
 
 
+Note that the ``Dockerfile.tcl`` builds an equivalent container with tcl modules.
 If you want to stage a module install (e.g., install to a temporary directory and not remove it) do:
 
 
@@ -966,9 +967,11 @@ Development or Testing
 ======================
 
 If you first want to test singularity-hpc (shpc) with an LMOD installed in 
-a container, a ``Dockerfile`` is provided. The assumption is that
-you have LMOD installed on your cluster or in the container. If not, you
-can find instructions `here <https://lmod.readthedocs.io/en/latest/030_installing.html>`_.
+a container, a ``Dockerfile`` is provided for LMOD, and ``Dockerfile.tcl``
+for tcl modules. The assumption is that
+you have a module system installed on your cluster or in the container. If not, you
+can find instructions `here <https://lmod.readthedocs.io/en/latest/030_installing.html>`_
+for lmod, or `here _<https://modules.readthedocs.io/en/latest/INSTALL.html>`_ for tcl.
 
 
 .. code-block:: console
