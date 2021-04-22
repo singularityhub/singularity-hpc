@@ -4,9 +4,9 @@ maintainer: '@vsoch'
 description: Solr is the popular, blazing-fast, open source enterprise search platform
   built on Apache Lucene™.
 latest:
-  latest: sha256:cc6e23b42e36deefe77e05cb9e5639507cd809ace05f4c04e0ff281af63e94ea
+  latest: sha256:06268aa91d74c721056cc8a0df9a99daeed2cf4fdf192f23dab3ebdb68981918
 tags:
-  latest: sha256:cc6e23b42e36deefe77e05cb9e5639507cd809ace05f4c04e0ff281af63e94ea
+  latest: sha256:06268aa91d74c721056cc8a0df9a99daeed2cf4fdf192f23dab3ebdb68981918
 aliases:
   post: /opt/solr/bin/post
   postlogs: /opt/solr/bin/postlogs
