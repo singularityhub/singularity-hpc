@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/bowtie2"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/bowtie2/container.yaml"
-updated_at: "2021-04-21 06:03:59.647104"
+updated_at: "2021-04-22 23:21:15.687694"
 container_url: ""
 aliases:
  - "bowtie2"
