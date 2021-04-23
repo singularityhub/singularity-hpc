@@ -6,7 +6,7 @@ description: NAMD is a parallel molecular dynamics code designed for high-perfor
   program VMD for simulation setup and trajectory analysis, but is also file-comp
   atible with AMBER, CHARMM, and X-PLOR.
 latest:
-  3.0-alpha3-singlenode-arm64: sha256:3743f24e1bd353296adef6c14127ae418716ef686f75c790d497f90150785d39
+  3.0-alpha3-singlenode: sha256:3743f24e1bd353296adef6c14127ae418716ef686f75c790d497f90150785d39
 tags:
   3.0-alpha3-singlenode: sha256:3743f24e1bd353296adef6c14127ae418716ef686f75c790d497f90150785d39
   3.0-alpha3-singlenode-arm64: sha256:3743f24e1bd353296adef6c14127ae418716ef686f75c790d497f90150785d39
@@ -19,3 +19,5 @@ aliases:
   psfgen: /usr/local/bin/psfgen
   sortreplicas: /usr/local/bin/sortreplicas
   vmd: /usr/local/bin/vmd
+filter: 
+  - "^((?!arm).)*$"
