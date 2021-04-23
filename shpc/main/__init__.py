@@ -27,7 +27,7 @@ def get_client(quiet=False, **kwargs):
     if module == "lmod":
         from .lmod import Client
     elif module == "tcl":
-        from .tcl import Client    
+        from .tcl import Client
     else:
         from .client import Client
 

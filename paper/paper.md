@@ -28,7 +28,7 @@ Whether you are a user or a cluster administrator, installing the software
 gives you an easy means to install Singularity containers [@Kurtzer2017-xj] as
 environment modules [@McLay2011-wu]. Unlike registry servers [@SRegistry] that expect a user to pull a container directly, shpc provides a simple command line client to manage 
 this interaction for you, and make container commands easily available
-as command line aliases. With over 150 containers readily avilable
+as command line aliases. With over 200 containers readily avilable
 from biocontainers [@da2017biocontainers] to Nvidia's Container Catalog [@noauthor_undated-kp] 
 to brain imaging data structure apps [@gorgolewski2017bids], to core containers
 on Docker Hub [@noauthor_undated-xn], and software from package managers like Spack [@gamblin2015spack] made available via the Autamus registry [@autamus], with just a few clicks you can quickly assemble your own collection of custom containers modules for yourself or your user base.

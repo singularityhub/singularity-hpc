@@ -8,9 +8,9 @@ plugins_enabled: [lmod]
 # Registry Recipes (currently we support just one path)
 registry: $root_dir/registry
 
-# Lmod settings 
+# Lmod or environment module settings 
 # The install directory for modules. Defaults to the install directory/modules
-lmod_base: $root_dir/modules
+module_base: $root_dir/modules
 
 # store containers separately from module files
 container_base: null
@@ -25,10 +25,10 @@ database_file: $root_dir/shpc.db
 singularity_module:
 
 # if set, prefix module alias names with prefix (another kind of namespacing)
-lmod_exc_prefix: ''
+module_exc_prefix: ''
 
 # string with comma separated list of paths to binds. If set, expored to SINGULARITY_BINDPATH
-bindpaths:
+bindpaths: null
 
 # exported to SINGULARITY_SHELL, defaults to /bin/bash.
 singularity_shell: /bin/bash

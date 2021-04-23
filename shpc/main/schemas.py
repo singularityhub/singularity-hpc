@@ -82,11 +82,11 @@ containerConfig = {
 
 ## Settings.yml (loads as json)
 
-# Since we only support lmod, currently all of these are required
+# Currently all of these are required
 
 settingsProperties = {
     "registry": {"type": "string"},
-    "lmod_base": {"type": "string"},
+    "module_base": {"type": "string"},
     "database_disable": {"type": "boolean"},
     "database_file": {"type": "string"},
     "singularity_module": {"type": ["string", "null"]},
@@ -95,7 +95,7 @@ settingsProperties = {
     "singularity_shell": {"type": "string", "enum": ["/bin/bash", "/bin/sh"]},
     "plugins_enabled": {
         "type": "array",
-        "items": {"type": "string", "enum": ["lmod"]},
+        "items": {"type": "string", "enum": ["lmod", "tcl"]},
     },
 }
 
@@ -107,7 +107,7 @@ settings = {
     "required": [
         "plugins_enabled",
         "registry",
-        "lmod_base",
+        "module_base",
         "database_disable",
         "database_file",
         "singularity_module",
