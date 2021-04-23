@@ -3,7 +3,7 @@ layout: container
 name:  "redis"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/redis/container.yaml"
-updated_at: "2021-04-22 23:21:24.000283"
+updated_at: "2021-04-23 23:12:54.407967"
 container_url: ""
 aliases:
  - "redis-benchmark"

@@ -3,7 +3,7 @@ layout: container
 name:  "spack/ubuntu-bionic"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/spack/ubuntu-bionic/container.yaml"
-updated_at: "2021-04-22 23:21:23.591208"
+updated_at: "2021-04-23 23:12:54.006511"
 container_url: ""
 aliases:
  - "sbang"

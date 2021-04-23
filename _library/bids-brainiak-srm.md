@@ -3,7 +3,7 @@ layout: container
 name:  "bids/brainiak-srm"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/bids/brainiak-srm/container.yaml"
-updated_at: "2021-04-22 23:21:21.091804"
+updated_at: "2021-04-23 23:12:51.608533"
 container_url: ""
 
 versions:

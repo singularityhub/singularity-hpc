@@ -3,12 +3,13 @@ layout: container
 name:  "jupyter/minimal-notebook"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/jupyter/minimal-notebook/container.yaml"
-updated_at: "2021-04-22 23:20:47.233263"
+updated_at: "2021-04-23 23:12:19.231896"
 container_url: ""
 aliases:
  - "run-notebook"
 
 versions:
+ - "4.0"
  - "latest"
 description: "Jupyter Minimal Notebook from https://github.com/jupyter/docker-stacks"
 ---
@@ -24,7 +25,7 @@ $ shpc install jupyter/minimal-notebook
 Or a specific version:
 
 ```bash
-$ shpc install jupyter/minimal-notebook:latest
+$ shpc install jupyter/minimal-notebook:4.0
 ```
 
 And then you can tell lmod about your modules folder:
@@ -36,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load jupyter/minimal-notebook/latest
-$ module help jupyter/minimal-notebook/latest
+$ module load jupyter/minimal-notebook/4.0
+$ module help jupyter/minimal-notebook/4.0
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

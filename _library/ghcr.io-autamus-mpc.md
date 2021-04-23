@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/mpc"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/mpc/container.yaml"
-updated_at: "2021-04-22 23:20:56.461774"
+updated_at: "2021-04-23 23:12:28.155380"
 container_url: ""
 
 versions:

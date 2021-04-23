@@ -3,7 +3,7 @@ layout: container
 name:  "solr"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/solr/container.yaml"
-updated_at: "2021-04-22 23:20:41.708445"
+updated_at: "2021-04-23 23:12:13.700022"
 container_url: ""
 aliases:
  - "post"
@@ -13,6 +13,7 @@ aliases:
  - "solr"
 
 versions:
+ - "8.8.2-slim"
  - "latest"
 description: "Solr is the popular, blazing-fast, open source enterprise search platform built on Apache Lucene™."
 ---
@@ -28,7 +29,7 @@ $ shpc install solr
 Or a specific version:
 
 ```bash
-$ shpc install solr:latest
+$ shpc install solr:8.8.2-slim
 ```
 
 And then you can tell lmod about your modules folder:
@@ -40,8 +41,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load solr/latest
-$ module help solr/latest
+$ module load solr/8.8.2-slim
+$ module help solr/8.8.2-slim
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

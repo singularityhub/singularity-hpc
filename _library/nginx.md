@@ -3,7 +3,7 @@ layout: container
 name:  "nginx"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/nginx/container.yaml"
-updated_at: "2021-04-22 23:20:40.670081"
+updated_at: "2021-04-23 23:12:12.662499"
 container_url: ""
 aliases:
  - "nginx"
@@ -11,6 +11,7 @@ aliases:
  - "nginx-debug"
 
 versions:
+ - "1.20.0-alpine-perl"
  - "latest"
  - "stable-alpine-perl"
 description: "Nginx (pronounced 'engine-x') is an open source reverse proxy server for HTTP, HTTPS, SMTP, POP3, and IMAP protocols, as well as a load balancer, HTTP cache, and a web server (origin server)."
@@ -27,7 +28,7 @@ $ shpc install nginx
 Or a specific version:
 
 ```bash
-$ shpc install nginx:latest
+$ shpc install nginx:1.20.0-alpine-perl
 ```
 
 And then you can tell lmod about your modules folder:
@@ -39,8 +40,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load nginx/latest
-$ module help nginx/latest
+$ module load nginx/1.20.0-alpine-perl
+$ module help nginx/1.20.0-alpine-perl
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

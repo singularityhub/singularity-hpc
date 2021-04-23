@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/grass"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/grass/container.yaml"
-updated_at: "2021-04-22 23:20:58.565693"
+updated_at: "2021-04-23 23:12:30.200861"
 container_url: ""
 aliases:
  - "grass78"

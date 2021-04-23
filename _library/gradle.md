@@ -3,12 +3,13 @@ layout: container
 name:  "gradle"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/gradle/container.yaml"
-updated_at: "2021-04-22 23:20:41.293810"
+updated_at: "2021-04-23 23:12:13.279460"
 container_url: ""
 aliases:
  - "gradle"
 
 versions:
+ - "7.0.0-hotspot"
  - "latest"
 description: "Gradle is a build tool with a focus on build automation and support for multi-language development."
 ---
@@ -24,7 +25,7 @@ $ shpc install gradle
 Or a specific version:
 
 ```bash
-$ shpc install gradle:latest
+$ shpc install gradle:7.0.0-hotspot
 ```
 
 And then you can tell lmod about your modules folder:
@@ -36,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load gradle/latest
-$ module help gradle/latest
+$ module load gradle/7.0.0-hotspot
+$ module help gradle/7.0.0-hotspot
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

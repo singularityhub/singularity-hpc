@@ -3,12 +3,13 @@ layout: container
 name:  "ghcr.io/autamus/plink"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/plink/container.yaml"
-updated_at: "2021-04-22 23:21:02.259323"
+updated_at: "2021-04-23 23:12:33.681669"
 container_url: ""
 aliases:
  - "plink"
 
 versions:
+ - "1.9.beta.6.10"
  - "latest"
 description: "PLINK is a free, open-source whole genome association analysis toolset, designed to perform a range of basic, large-scale analyses in a computationally efficient manner."
 ---
@@ -24,7 +25,7 @@ $ shpc install ghcr.io/autamus/plink
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/plink:latest
+$ shpc install ghcr.io/autamus/plink:1.9.beta.6.10
 ```
 
 And then you can tell lmod about your modules folder:
@@ -36,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/plink/latest
-$ module help ghcr.io/autamus/plink/latest
+$ module load ghcr.io/autamus/plink/1.9.beta.6.10
+$ module help ghcr.io/autamus/plink/1.9.beta.6.10
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

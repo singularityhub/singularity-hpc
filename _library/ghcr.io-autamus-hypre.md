@@ -3,10 +3,11 @@ layout: container
 name:  "ghcr.io/autamus/hypre"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/hypre/container.yaml"
-updated_at: "2021-04-22 23:21:03.328450"
+updated_at: "2021-04-23 23:12:34.694998"
 container_url: ""
 
 versions:
+ - "2.20.0"
  - "latest"
 description: "A library of high performance preconditioners and solvers featuring multigrid methods for the solution of large, sparse linear systems of equations on massively parallel computers."
 ---
@@ -22,7 +23,7 @@ $ shpc install ghcr.io/autamus/hypre
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/hypre:latest
+$ shpc install ghcr.io/autamus/hypre:2.20.0
 ```
 
 And then you can tell lmod about your modules folder:
@@ -34,8 +35,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/hypre/latest
-$ module help ghcr.io/autamus/hypre/latest
+$ module load ghcr.io/autamus/hypre/2.20.0
+$ module help ghcr.io/autamus/hypre/2.20.0
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

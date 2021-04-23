@@ -3,10 +3,11 @@ layout: container
 name:  "tomcat"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/tomcat/container.yaml"
-updated_at: "2021-04-22 23:20:52.451001"
+updated_at: "2021-04-23 23:12:24.293583"
 container_url: ""
 
 versions:
+ - "10.0.5-jdk11-adoptopenjdk-hotspot"
  - "latest"
 description: "Apache Tomcat is an open source implementation of the Java Servlet and JavaServer Pages technologies"
 ---
@@ -22,7 +23,7 @@ $ shpc install tomcat
 Or a specific version:
 
 ```bash
-$ shpc install tomcat:latest
+$ shpc install tomcat:10.0.5-jdk11-adoptopenjdk-hotspot
 ```
 
 And then you can tell lmod about your modules folder:
@@ -34,8 +35,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load tomcat/latest
-$ module help tomcat/latest
+$ module load tomcat/10.0.5-jdk11-adoptopenjdk-hotspot
+$ module help tomcat/10.0.5-jdk11-adoptopenjdk-hotspot
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

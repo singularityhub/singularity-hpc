@@ -3,7 +3,7 @@ layout: container
 name:  "node"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/node/container.yaml"
-updated_at: "2021-04-22 23:20:47.430389"
+updated_at: "2021-04-23 23:12:19.433937"
 container_url: ""
 aliases:
  - "node"
@@ -19,6 +19,7 @@ aliases:
  - "yarnpkg"
 
 versions:
+ - "15.14.0-alpine"
  - "latest"
 description: "Node.js is a software platform for scalable server-side and networking applications."
 ---
@@ -34,7 +35,7 @@ $ shpc install node
 Or a specific version:
 
 ```bash
-$ shpc install node:latest
+$ shpc install node:15.14.0-alpine
 ```
 
 And then you can tell lmod about your modules folder:
@@ -46,8 +47,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load node/latest
-$ module help node/latest
+$ module load node/15.14.0-alpine
+$ module help node/15.14.0-alpine
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

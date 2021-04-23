@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/bismark"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/bismark/container.yaml"
-updated_at: "2021-04-22 23:20:56.041859"
+updated_at: "2021-04-23 23:12:27.748909"
 container_url: ""
 aliases:
  - "bismark"
