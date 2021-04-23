@@ -23,6 +23,12 @@ def get_client(quiet=False, **kwargs):
     module = kwargs.get("module")
     container = kwargs.get("container_tech")
 
+    # Load user settings to add to client
+    settings = Settings(kwargs.get("settings_file"))
+
+    # Use the user provided module OR the default
+    module = module or settings.get("module_sys", "lmod")
+
     # Determine the client based on the module name (defaults to base client)
     if module == "lmod":
         from .lmod import Client
@@ -41,24 +47,5 @@ def get_client(quiet=False, **kwargs):
     if not check_install():
         logger.warning("Singularity is not installed, functionality might be limited.")
     Client.quiet = quiet
-
-    # Load user settings, add to client
-    settings = Settings(kwargs.get("settings_file"))
-    sqlite_enabled = False
-
-    # Add dummy or real database functions to the client (not currently needed)
-    if not sqlite_enabled or settings.get("disable_database", False):
-        # logger.warning("Database disabled. Install sqlalchemy for full functionality")
-        from shpc.database.dummy import init_db
-
-        Client._init_db = init_db
-    else:
-        logger.warning("Using a database is not yet supported, and may be removed.")
-        from shpc.database.models import init_db
-
-        # Add database actions
-        Client._init_db = init_db
-
-    # Initialize the database and client
     Client.settings = settings
     return Client()

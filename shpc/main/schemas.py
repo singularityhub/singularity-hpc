@@ -87,16 +87,11 @@ containerConfig = {
 settingsProperties = {
     "registry": {"type": "string"},
     "module_base": {"type": "string"},
-    "database_disable": {"type": "boolean"},
-    "database_file": {"type": "string"},
     "singularity_module": {"type": ["string", "null"]},
     "bindpaths": {"type": ["string", "null"]},
     "updated_at": {"type": "string"},
     "singularity_shell": {"type": "string", "enum": ["/bin/bash", "/bin/sh"]},
-    "plugins_enabled": {
-        "type": "array",
-        "items": {"type": "string", "enum": ["lmod", "tcl"]},
-    },
+    "module_sys": {"type": "string", "enum": ["lmod", "tcl", None]},
 }
 
 
@@ -105,11 +100,9 @@ settings = {
     "title": "Settings Schema",
     "type": "object",
     "required": [
-        "plugins_enabled",
+        "module_sys",
         "registry",
         "module_base",
-        "database_disable",
-        "database_file",
         "singularity_module",
         "bindpaths",
         "singularity_shell",

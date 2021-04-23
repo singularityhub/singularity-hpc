@@ -188,7 +188,7 @@ def get_parser():
             dest="module",
             help="module system to use (defaults to lmod)",
             choices=["lmod", "tcl"],
-            default="lmod",
+            default=None,
         )
         command.add_argument(
             "--container_tech",

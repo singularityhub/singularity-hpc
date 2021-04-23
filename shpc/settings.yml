@@ -1,9 +1,10 @@
 # The Singularity HPC settings file holds basic information about the
 # module system to use, and where modules are stored.
 
+# set a default module system
 # Currently only lmod is supported. To request an additional system, 
 # please open an issue https://github.com/singularityhub/singularity-hpc
-plugins_enabled: [lmod]
+module_sys: lmod
 
 # Registry Recipes (currently we support just one path)
 registry: $root_dir/registry
@@ -14,12 +15,6 @@ module_base: $root_dir/modules
 
 # store containers separately from module files
 container_base: null
-
-# disable keeping a sqlite database with metadata
-database_disable: false
-
-# default database file
-database_file: $root_dir/shpc.db
 
 # if defined, add to lmod script to load this Singularity module first
 singularity_module:
@@ -32,4 +27,3 @@ bindpaths: null
 
 # exported to SINGULARITY_SHELL, defaults to /bin/bash.
 singularity_shell: /bin/bash
-updated_at: '2021-04-16T16:50:16Z'

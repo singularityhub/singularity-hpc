@@ -72,7 +72,7 @@ help:
     $ module help python/3.9.2-slim
 
 For more detailed tutorials, you should continue reading,
-and see :ref:`getting_started-use-cases`.
+and see :ref:`getting_started-use-cases`. Also see the :ref:`getting_started-commands-config` for how to update configuration values with ``shpc config``.
 
 
 Creating a Registry
@@ -179,8 +179,8 @@ A summary table of variables is included below, and then further discussed in de
    * - Name
      - Description
      - Default
-   * - plugins_enabled
-     - A list of plugins enabled. Currently lmod and tcl are supported
+   * - module_sys
+     - Set a default module system. Currently lmod and tcl are supported
      - [lmod, tcl]
    * - registry
      - The full path to the registry folder (with subfolders with container.yaml recipes)
@@ -191,12 +191,6 @@ A summary table of variables is included below, and then further discussed in de
    * - container_base
      - Where to install containers. If not defined, they are installed alongside modules.
      - null
-   * - database_disable
-     - disable keeping a sqlite database with metadata
-     - false
-   * - database_file
-     - default database file
-     - $root_dir/shpc.db
    * - updated_at
      - a timestamp to keep track of when you last saved
      - never
@@ -268,27 +262,6 @@ non-null (a path that exists). For example:
 The same hierarchy will be preserved as to not put all containers in the same
 directory.
 
-Database Setup
-^^^^^^^^^^^^^^
-
-By default, shpc installs with the ability to create a local database for you
-to keep track of your containers (as an admin), which is not accessible to the
-user. However, it's not entirely needed because you can easily use your module
-system to do the management. Here are the configuration options available to you:
-
-
-.. code-block:: yaml
-
-    # disable keeping a sqlite database with metadata
-    database_disable: false
-
-    # default database file
-    database_file: "$install_dir/shpc.db"
-
-
-See the :ref:`getting_started-commands-config` for how to update these
-values with the command line client ``shpc config``.
-
 
 Registry
 ^^^^^^^^
@@ -317,7 +290,23 @@ Module Software
 
 The default module software is currently LMOD, and there is also support for tcl. If you
 are interested in adding another module type, please `open an issue <https://github.com/singularityhub/singularity-hpc>`_ and
-provide description and links to what you have in mind.
+provide description and links to what you have in mind. You can either specify the
+module software on the command line:
+
+
+.. code-block:: console
+
+    $ shpc install --module-sys tcl python
+
+
+or you can set the global variable to what you want to use (it defaults to lmod):
+
+.. code-block:: console
+
+    $ shpc config module_sys:tcl
+
+
+The command line argument, if provided, always over-rides the default.
 
 Container Technology
 --------------------
@@ -451,7 +440,6 @@ can do that as follows:
 .. code-block:: console
 
     $ shpc inspect python/3.9.2-slim
-    [shpc-client] [database|dummy]
     👉️ ENVIRONMENT 👈️
     /.singularity.d/env/10-docker2singularity.sh : #!/bin/sh
     export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
@@ -681,7 +669,6 @@ As shown above, show is a general command to show the metadata file for a regist
 .. code-block:: console
 
     $ shpc show python
-    [shpc-client] [database|sqlite:////home/vanessa/Desktop/Code/singularity-hpc/shpc.db]
     docker: python
     latest:
       3.9.2-slim: sha256:85ed629e6ff79d0bf796339ea188c863048e9aedbf7f946171266671ee5c04ef
@@ -700,7 +687,6 @@ Or without any arguments, it will show a list of all registry entries available:
 .. code-block:: console
 
     $ shpc show
-    [shpc-client] [database|sqlite:////home/vanessa/Desktop/Code/singularity-hpc/shpc.db]
     python
 
 
