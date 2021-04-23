@@ -8,5 +8,5 @@ description: PyTorch is a GPU accelerated tensor computational framework with a 
 latest:
   21.03-py3: sha256:6aeffe9d0d90bdbb18185da71d2bfe2b4e73e3c506b678b5befc68214c2dbdcb
 tags:
-  21.02-py3: sha256:d0fd1375f4c730a3fcff3b501856e087853fa627dc5c18649b72056b06c5ba03
+  21.02-py3: sha256:6aeffe9d0d90bdbb18185da71d2bfe2b4e73e3c506b678b5befc68214c2dbdcb
   21.03-py3: sha256:6aeffe9d0d90bdbb18185da71d2bfe2b4e73e3c506b678b5befc68214c2dbdcb

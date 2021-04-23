@@ -3,8 +3,9 @@ url: https://hub.docker.com/r/jupyter/minimal-notebook
 maintainer: '@vsoch'
 description: Jupyter Minimal Notebook from https://github.com/jupyter/docker-stacks
 latest:
-  latest: sha256:cf8e569ca7f27a5ccf1c1001b8e03fe601ed144b788126dec0535228b824ba1e
+  "4.0": sha256:6f9d189494fe091700681eb39b429dfe1420ad0717697c2e2293779fcb80cd1e
 tags:
+  "4.0": sha256:6f9d189494fe091700681eb39b429dfe1420ad0717697c2e2293779fcb80cd1e
   latest: sha256:cf8e569ca7f27a5ccf1c1001b8e03fe601ed144b788126dec0535228b824ba1e
 aliases:
 - name: run-notebook
