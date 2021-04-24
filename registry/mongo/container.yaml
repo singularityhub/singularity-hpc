@@ -8,8 +8,6 @@ latest:
   latest: sha256:64be89e169fc33f3fa140c2c548186be4acd972bd7174344505fc5630dcf707c
 tags:
   latest: sha256:64be89e169fc33f3fa140c2c548186be4acd972bd7174344505fc5630dcf707c
-filter:
-- latest
 aliases:
   mongo: /usr/bin/mongo
   mongod: /usr/bin/mongod
