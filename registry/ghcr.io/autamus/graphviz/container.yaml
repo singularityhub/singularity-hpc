@@ -1,11 +1,12 @@
 docker: ghcr.io/autamus/graphviz
-latest:
-  "latest": "sha256:6f4921204d4fdd4e2301de4ec88ef07aafb71eac3be2adc0adbe80b64e957d97"
-tags:
-  "latest": "sha256:6f4921204d4fdd4e2301de4ec88ef07aafb71eac3be2adc0adbe80b64e957d97"
-maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/graphviz
-description: "Graphviz is open source graph visualization software."
+maintainer: '@vsoch'
+description: Graphviz is open source graph visualization software.
+latest:
+  2.47.1: sha256:6f4921204d4fdd4e2301de4ec88ef07aafb71eac3be2adc0adbe80b64e957d97
+tags:
+  2.47.1: sha256:6f4921204d4fdd4e2301de4ec88ef07aafb71eac3be2adc0adbe80b64e957d97
+  latest: sha256:6f4921204d4fdd4e2301de4ec88ef07aafb71eac3be2adc0adbe80b64e957d97
 aliases:
   gc: /opt/view/bin/gc
   gml2gv: /opt/view/bin/gml2gv

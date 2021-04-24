@@ -1,11 +1,12 @@
 docker: ghcr.io/autamus/papi
-latest:
-  "latest": "sha256:fde26e1e268a2bc4f0f10482c15754301eb2c6339856a431bbcccd96c8d78e39"
-tags:
-  "latest": "sha256:fde26e1e268a2bc4f0f10482c15754301eb2c6339856a431bbcccd96c8d78e39"
-maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/papi
-description: "Performance Application Programming Interface."
+maintainer: '@vsoch'
+description: Performance Application Programming Interface.
+latest:
+  6.0.0.1: sha256:fde26e1e268a2bc4f0f10482c15754301eb2c6339856a431bbcccd96c8d78e39
+tags:
+  6.0.0.1: sha256:fde26e1e268a2bc4f0f10482c15754301eb2c6339856a431bbcccd96c8d78e39
+  latest: sha256:fde26e1e268a2bc4f0f10482c15754301eb2c6339856a431bbcccd96c8d78e39
 aliases:
   papi_avail: /opt/view/bin/papi_avail
   papi_clockres: /opt/view/bin/papi_clockres

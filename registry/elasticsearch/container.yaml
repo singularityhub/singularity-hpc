@@ -26,5 +26,3 @@ aliases:
   elasticsearch-sql-cli-7.12.0.jar: java jar /usr/share/elasticsearch/bin/elasticsearch-sql-cli-7.12.0.jar
   elasticsearch-syskeygen: /usr/share/elasticsearch/bin/elasticsearch-syskeygen
   elasticsearch-users: /usr/share/elasticsearch/bin/elasticsearch-users
-filter:
-- 7.*

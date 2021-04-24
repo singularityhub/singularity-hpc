@@ -6,10 +6,11 @@ description: NAMD is a parallel molecular dynamics code designed for high-perfor
   program VMD for simulation setup and trajectory analysis, but is also file-comp
   atible with AMBER, CHARMM, and X-PLOR.
 latest:
-  3.0-alpha3-singlenode-x86_64: sha256:040e38a36f467f6a2e61dd343f480e4c7c7a571b6072607922851214070a627e
+  3.0-alpha3-singlenode: sha256:3743f24e1bd353296adef6c14127ae418716ef686f75c790d497f90150785d39
 tags:
-  3.0-alpha3-singlenode: sha256:7c86abf0442c66ce796d1cc9b598ffbd41ad8eee5e11f01f34f5813bd70aa624
-  3.0-alpha3-singlenode-x86_64: sha256:040e38a36f467f6a2e61dd343f480e4c7c7a571b6072607922851214070a627e
+  3.0-alpha3-singlenode: sha256:3743f24e1bd353296adef6c14127ae418716ef686f75c790d497f90150785d39
+  3.0-alpha3-singlenode-arm64: sha256:3743f24e1bd353296adef6c14127ae418716ef686f75c790d497f90150785d39
+  3.0-alpha3-singlenode-x86_64: sha256:3743f24e1bd353296adef6c14127ae418716ef686f75c790d497f90150785d39
 aliases:
   charmrun: /usr/local/bin/charmrun
   flipbinpdb: /usr/local/bin/flipbinpdb
@@ -18,3 +19,5 @@ aliases:
   psfgen: /usr/local/bin/psfgen
   sortreplicas: /usr/local/bin/sortreplicas
   vmd: /usr/local/bin/vmd
+filter: 
+  - "^((?!arm).)*$"

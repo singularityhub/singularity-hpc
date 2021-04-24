@@ -1,12 +1,13 @@
 docker: jupyter/minimal-notebook
-latest:
-  latest: "sha256:ad614eb639a7ca2c484042b81285c86982fde3fb6bcd1f573c779ad734f16f40"
-tags:
-  latest: "sha256:ad614eb639a7ca2c484042b81285c86982fde3fb6bcd1f573c779ad734f16f40"
-maintainer: "@vsoch"
 url: https://hub.docker.com/r/jupyter/minimal-notebook
-description: "Jupyter Minimal Notebook from https://github.com/jupyter/docker-stacks"
+maintainer: '@vsoch'
+description: Jupyter Minimal Notebook from https://github.com/jupyter/docker-stacks
+latest:
+  "4.0": sha256:6f9d189494fe091700681eb39b429dfe1420ad0717697c2e2293779fcb80cd1e
+tags:
+  "4.0": sha256:6f9d189494fe091700681eb39b429dfe1420ad0717697c2e2293779fcb80cd1e
+  latest: sha256:cf8e569ca7f27a5ccf1c1001b8e03fe601ed144b788126dec0535228b824ba1e
 aliases:
-  - name: run-notebook
-    command: jupyter notebook --no-browser --port=$(shuf -i 2000-65000 -n 1) --ip 0.0.0.0
-    options: --home ${HOME} --bind ${HOME}/.local:/home/joyvan/.local
+- name: run-notebook
+  command: jupyter notebook --no-browser --port=$(shuf -i 2000-65000 -n 1) --ip 0.0.0.0
+  options: --home ${HOME} --bind ${HOME}/.local:/home/joyvan/.local

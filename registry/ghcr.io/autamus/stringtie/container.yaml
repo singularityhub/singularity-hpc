@@ -1,10 +1,12 @@
 docker: ghcr.io/autamus/stringtie
-latest:
-  "latest": "sha256:788dc373f3c6cb2bb23e1d5e77af0764981deb999f03366e8ebb3098a7f1342f"
-tags:
-  "latest": "sha256:788dc373f3c6cb2bb23e1d5e77af0764981deb999f03366e8ebb3098a7f1342f"
-maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/stringtie
-description: "StringTie is a fast and highly efficient assembler of RNA-Seq alignments into potential transcripts."
+maintainer: '@vsoch'
+description: StringTie is a fast and highly efficient assembler of RNA-Seq alignments
+  into potential transcripts.
+latest:
+  2.1.5: sha256:788dc373f3c6cb2bb23e1d5e77af0764981deb999f03366e8ebb3098a7f1342f
+tags:
+  2.1.5: sha256:788dc373f3c6cb2bb23e1d5e77af0764981deb999f03366e8ebb3098a7f1342f
+  latest: sha256:788dc373f3c6cb2bb23e1d5e77af0764981deb999f03366e8ebb3098a7f1342f
 aliases:
   stringtie: /opt/view/bin/stringtie

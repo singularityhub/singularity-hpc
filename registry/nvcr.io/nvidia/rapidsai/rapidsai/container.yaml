@@ -1,12 +1,15 @@
 docker: nvcr.io/nvidia/rapidsai/rapidsai
+url: https://ngc.nvidia.com/catalog/containers/nvidia:rapidsai:rapidsai/tags
+maintainer: '@vsoch'
+description: The RAPIDS suite of software libraries gives you the freedom to execute
+  end-to-end data science and analytics pipelines entirely on GPUs.
 latest:
-  "0.18-cuda11.0-runtime-centos7": "sha256:9491e49936e10fc6e7c5b90a1d8141bab74e5879e1681146f0d2cf9aa6a9d24a"
+  0.18-cuda11.0-runtime-centos7: sha256:b896ce6622668b9960398041488ec5d8b7f6c37fce9ab2c6fe40dedd427d2183
 tags:
-  "0.18-cuda11.0-runtime-centos7": "sha256:9491e49936e10fc6e7c5b90a1d8141bab74e5879e1681146f0d2cf9aa6a9d24a"
+  0.18-cuda11.0-runtime-centos7: sha256:b896ce6622668b9960398041488ec5d8b7f6c37fce9ab2c6fe40dedd427d2183
 filter:
-  - "0.**"
-maintainer: "@vsoch"
-url: "https://ngc.nvidia.com/catalog/containers/nvidia:rapidsai:rapidsai/tags"
-description: "The RAPIDS suite of software libraries gives you the freedom to execute end-to-end data science and analytics pipelines entirely on GPUs."
+- 0.**
 aliases:
   python: /opt/conda/bin/python
+filter: 
+  - "^((?!base).)*$"

@@ -3,11 +3,12 @@ url: https://hub.docker.com/r/bids/validator
 maintainer: '@vsoch'
 description: A validator for BIDS (Brain Imaging Data Structure) datasets.
 latest:
-  v1.7.0: sha256:51c9481b357448cc2138909e03dfa8e053d424d5e776e94dbec929aeb96f9563
+  v1.7.1: sha256:d07b847f26e77e842abfd5b964f8553eb458ca796f4f0f5d1ca8d9290552ac2c
 tags:
-  latest: sha256:3c1d7b291fc2e9dc3598ad66f81efad749d44df7e88e9b1bd1c5a9bdeb9162a8
+  latest: sha256:d07b847f26e77e842abfd5b964f8553eb458ca796f4f0f5d1ca8d9290552ac2c
   v1.7.0: sha256:51c9481b357448cc2138909e03dfa8e053d424d5e776e94dbec929aeb96f9563
-aliases:
-  bids-validator: /usr/local/bin/bids-validator
+  v1.7.1: sha256:d07b847f26e77e842abfd5b964f8553eb458ca796f4f0f5d1ca8d9290552ac2c
 filter:
 - v*
+aliases:
+  bids-validator: /usr/local/bin/bids-validator

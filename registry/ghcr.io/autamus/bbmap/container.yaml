@@ -1,8 +1,10 @@
 docker: ghcr.io/autamus/bbmap
-latest:
-  "latest": "sha256:e9187056011f6000c68b52016659d888a89e109976d2966fab5edee281990272"
-tags:
-  "latest": "sha256:e9187056011f6000c68b52016659d888a89e109976d2966fab5edee281990272"
-maintainer: "@vsoch"
-description: "A suite of fast, multithreaded bioinformatics tools designed for analysis of DNA and RNA sequence data."
 url: https://github.com/orgs/autamus/packages/container/package/bbmap
+maintainer: '@vsoch'
+description: A suite of fast, multithreaded bioinformatics tools designed for analysis
+  of DNA and RNA sequence data.
+latest:
+  "38.63": sha256:e9187056011f6000c68b52016659d888a89e109976d2966fab5edee281990272
+tags:
+  "38.63": sha256:e9187056011f6000c68b52016659d888a89e109976d2966fab5edee281990272
+  latest: sha256:e9187056011f6000c68b52016659d888a89e109976d2966fab5edee281990272

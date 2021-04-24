@@ -4,9 +4,10 @@ maintainer: '@vsoch'
 description: OpenJDK is an open-source implementation of the Java Platform, Standard
   Edition.
 latest:
-  latest: sha256:16e7f9c093d49cd3a38b31b11e8b3575609e34eca037b99a33081ece72731266
+  16.0.1-buster: sha256:a0168916eecee7337948e66604681a40c973715455cdca50ab519b8da3c20760
 tags:
-  latest: sha256:16e7f9c093d49cd3a38b31b11e8b3575609e34eca037b99a33081ece72731266
+  16.0.1-buster: sha256:a0168916eecee7337948e66604681a40c973715455cdca50ab519b8da3c20760
+  latest: sha256:3f032cf26beef3150eb2abb5144dfdbfdf9d25cef0580d8b68af9eb0035d47db
 aliases:
   jar: /usr/bin/jar
   jarsigner: /usr/bin/jarsigner

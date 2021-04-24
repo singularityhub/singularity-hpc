@@ -1,11 +1,13 @@
 docker: ghcr.io/autamus/libtiff
-latest:
-  "latest": "sha256:b2a8de30b56e500e3a99780f187780bac6cb0f2d9a9fa09d4e0d62879bf8cddd"
-tags:
-  "latest": "sha256:b2a8de30b56e500e3a99780f187780bac6cb0f2d9a9fa09d4e0d62879bf8cddd"
-maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/libtiff
-description: "Libtiff is a library for reading and writing Tagged Image File Format (abbreviated TIFF) files."
+maintainer: '@vsoch'
+description: Libtiff is a library for reading and writing Tagged Image File Format
+  (abbreviated TIFF) files.
+latest:
+  4.1.0: sha256:b2a8de30b56e500e3a99780f187780bac6cb0f2d9a9fa09d4e0d62879bf8cddd
+tags:
+  4.1.0: sha256:b2a8de30b56e500e3a99780f187780bac6cb0f2d9a9fa09d4e0d62879bf8cddd
+  latest: sha256:b2a8de30b56e500e3a99780f187780bac6cb0f2d9a9fa09d4e0d62879bf8cddd
 aliases:
   fax2tiff: /opt/view/bin/fax2tiff
   ppm2tiff: /opt/view/bin/ppm2tiff

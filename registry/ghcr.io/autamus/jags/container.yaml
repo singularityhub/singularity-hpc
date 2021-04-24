@@ -1,10 +1,12 @@
 docker: ghcr.io/autamus/jags
-latest:
-  "latest": "sha256:60540737fee6646f22d7b6afeeaab5e3ca9ad3e8c4e38da65e98b677a8ccb4b0"
-tags:
-  "latest": "sha256:60540737fee6646f22d7b6afeeaab5e3ca9ad3e8c4e38da65e98b677a8ccb4b0"
-maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/jags
-description: "Just Another Gibbs Sampler. A program for analysis of Bayesian hierarchical models using Markov Chain Monte Carlo (MCMC) simulation."
+maintainer: '@vsoch'
+description: Just Another Gibbs Sampler. A program for analysis of Bayesian hierarchical
+  models using Markov Chain Monte Carlo (MCMC) simulation.
+latest:
+  4.3.0: sha256:60540737fee6646f22d7b6afeeaab5e3ca9ad3e8c4e38da65e98b677a8ccb4b0
+tags:
+  4.3.0: sha256:60540737fee6646f22d7b6afeeaab5e3ca9ad3e8c4e38da65e98b677a8ccb4b0
+  latest: sha256:60540737fee6646f22d7b6afeeaab5e3ca9ad3e8c4e38da65e98b677a8ccb4b0
 aliases:
   jags: /opt/view/bin/jags

@@ -1,11 +1,14 @@
 docker: ghcr.io/autamus/clhep
-latest:
-  "latest": "sha256:6aeea263dc8b8d03374fb940651e2d1eefb3acda10b2cab7bf0b0c175b19876c"
-tags:
-  "latest": "sha256:6aeea263dc8b8d03374fb940651e2d1eefb3acda10b2cab7bf0b0c175b19876c"
-maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/clhep
-description: "CLHEP is a C++ library that provides utility classes for general numerical programming, vector arithmetic, geometry, pseudorandom number generation, and linear algebra, specifically targeted for high energy physics simulation and analysis software."
+maintainer: '@vsoch'
+description: CLHEP is a C++ library that provides utility classes for general numerical
+  programming, vector arithmetic, geometry, pseudorandom number generation, and linear
+  algebra, specifically targeted for high energy physics simulation and analysis software.
+latest:
+  2.4.4.0: sha256:6aeea263dc8b8d03374fb940651e2d1eefb3acda10b2cab7bf0b0c175b19876c
+tags:
+  2.4.4.0: sha256:6aeea263dc8b8d03374fb940651e2d1eefb3acda10b2cab7bf0b0c175b19876c
+  latest: sha256:6aeea263dc8b8d03374fb940651e2d1eefb3acda10b2cab7bf0b0c175b19876c
 aliases:
   Cast-config: /opt/view/bin/Cast-config
   Evaluator-config: /opt/view/bin/Evaluator-config

@@ -1,10 +1,12 @@
 docker: ghcr.io/autamus/salmon
-latest:
-  "latest": "sha256:290b4d392bbe77360d2b76baa23cd84249a8489089fe8af49f91c20aa5187811"
-tags:
-  "latest": "sha256:290b4d392bbe77360d2b76baa23cd84249a8489089fe8af49f91c20aa5187811"
-maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/salmon
-description: "Salmon is a wicked-fast program to produce a highly-accurate, transcript-level quantification estimates from RNA-seq data."
+maintainer: '@vsoch'
+description: Salmon is a wicked-fast program to produce a highly-accurate, transcript-level
+  quantification estimates from RNA-seq data.
+latest:
+  1.4.0: sha256:290b4d392bbe77360d2b76baa23cd84249a8489089fe8af49f91c20aa5187811
+tags:
+  1.4.0: sha256:290b4d392bbe77360d2b76baa23cd84249a8489089fe8af49f91c20aa5187811
+  latest: sha256:290b4d392bbe77360d2b76baa23cd84249a8489089fe8af49f91c20aa5187811
 aliases:
   salmon: /opt/view/bin/salmon

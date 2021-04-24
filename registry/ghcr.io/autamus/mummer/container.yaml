@@ -1,11 +1,12 @@
 docker: ghcr.io/autamus/mummer
-latest:
-  "latest": "sha256:c429317f2ddaa3cd4b4790f8bae218677a59e40e1b8be54e7b40d022602723d7"
-tags:
-  "latest": "sha256:c429317f2ddaa3cd4b4790f8bae218677a59e40e1b8be54e7b40d022602723d7"
-maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/mummer
-description: "MUMmer is a system for rapidly aligning entire genomes."
+maintainer: '@vsoch'
+description: MUMmer is a system for rapidly aligning entire genomes.
+latest:
+  "3.23": sha256:c429317f2ddaa3cd4b4790f8bae218677a59e40e1b8be54e7b40d022602723d7
+tags:
+  "3.23": sha256:c429317f2ddaa3cd4b4790f8bae218677a59e40e1b8be54e7b40d022602723d7
+  latest: sha256:c429317f2ddaa3cd4b4790f8bae218677a59e40e1b8be54e7b40d022602723d7
 aliases:
   mummer: /opt/view/bin/mummer
   mummerplot: /opt/view/bin/mummerplot

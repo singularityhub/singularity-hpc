@@ -4,8 +4,10 @@ maintainer: '@vsoch'
 description: While designed for web development, the PHP scripting language also provides
   general-purpose use.
 latest:
-  latest: sha256:4b1016d76de017cb030009c358cad5eb28cfa5856b4f16e933b81605edade881
+  8.0.3-alpine: sha256:f32cd843417d9271d1500ed3867922175604a243d8033ad1572d617ad7954171
 tags:
+  7.3.27-zts-alpine3.12: sha256:f32cd843417d9271d1500ed3867922175604a243d8033ad1572d617ad7954171
+  8.0.3-alpine: sha256:f32cd843417d9271d1500ed3867922175604a243d8033ad1572d617ad7954171
   latest: sha256:4b1016d76de017cb030009c358cad5eb28cfa5856b4f16e933b81605edade881
 aliases:
   php: /usr/local/bin/php

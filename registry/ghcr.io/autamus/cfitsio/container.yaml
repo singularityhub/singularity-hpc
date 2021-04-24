@@ -1,8 +1,10 @@
 docker: ghcr.io/autamus/cfitsio
-latest:
-  "latest": "sha256:22f792b38e4aa43e3cfbebd9812170cb383b629ca2ee92192761b7ecc379a75f"
-tags:
-  "latest": "sha256:22f792b38e4aa43e3cfbebd9812170cb383b629ca2ee92192761b7ecc379a75f"
-maintainer: "@vsoch"
-description: "CFITSIO is a library of C and Fortran subroutines for reading and writing data files in FITS (Flexible Image Transport System) data format."
 url: https://github.com/orgs/autamus/packages/container/package/cfitsio
+maintainer: '@vsoch'
+description: CFITSIO is a library of C and Fortran subroutines for reading and writing
+  data files in FITS (Flexible Image Transport System) data format.
+latest:
+  "3.49": sha256:22f792b38e4aa43e3cfbebd9812170cb383b629ca2ee92192761b7ecc379a75f
+tags:
+  "3.49": sha256:22f792b38e4aa43e3cfbebd9812170cb383b629ca2ee92192761b7ecc379a75f
+  latest: sha256:22f792b38e4aa43e3cfbebd9812170cb383b629ca2ee92192761b7ecc379a75f
