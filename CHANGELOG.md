@@ -14,8 +14,9 @@ and **Merged pull requests**. Critical items to know are:
 The versions coincide with releases on pip. Only major versions will be released as tags on Github.
 
 ## [0.0.x](https://github.com/singularityhub/singularity-hpc/tree/master) (0.0.x)
- - allowing for a custom container base, container_base (0.0.2)
- - adding more nvidia containers, rapidsai and paraview
+ - addition of tcl modules, removal of un-needed database (0.0.22)
+ - allowing for a custom container base, container_base (0.0.21)
+ - adding more nvidia containers, rapidsai and paraview (0.0.2)
  - more packages and shell for a container (0.0.19)
  - adding description to docgen, and descriptions for all containers (0.0.18)
  - descriptions are now required
