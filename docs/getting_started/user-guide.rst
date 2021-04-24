@@ -32,7 +32,7 @@ Once you have shpc installed, you can easily install, load, and use modules:
 
 
 The above assumes that you've installed the software, and have already
-added the modules folder to be seen by LMOD. This step is shown in detail
+added the modules folder to be seen by your module software. This step is shown in detail
 in the next section.
 
 
@@ -47,7 +47,8 @@ at ``~/singularity-hpc`` you can install a container:
     $ shpc install python
     
 Add the modules folder to your lmod (you can run this in a bash profile or
-manually).
+manually, and note that if you want to use environment modules, you need to add
+``--module-sys tcl``).
 
 
 .. code-block:: console
@@ -71,14 +72,14 @@ help:
     $ module help python/3.9.2-slim
 
 For more detailed tutorials, you should continue reading,
-and see :ref:`getting_started-use-cases`.
+and see :ref:`getting_started-use-cases`. Also see the :ref:`getting_started-commands-config` for how to update configuration values with ``shpc config``.
 
 
 Creating a Registry
 ===================
 
 A registry consists of a database of local containers files, which are added
-to LMOD as executables for your user base. This typically means that you are a
+to the module system as executables for your user base. This typically means that you are a
 linux administrator of your cluster, and shpc should be installed for you to use
 (but your users will not be interacting with it).
 
@@ -107,7 +108,7 @@ that would be installed to your modules as we showed above:
     aliases:
       python: python
 
-And then you would install the lmod file and container as follows:
+And then you would install the module file and container as follows:
 
 .. code-block:: console
 
@@ -178,31 +179,25 @@ A summary table of variables is included below, and then further discussed in de
    * - Name
      - Description
      - Default
-   * - plugins_enabled
-     - A list of plugins enabled. Currently only lmod is supported.
-     - [lmod]
+   * - module_sys
+     - Set a default module system. Currently lmod and tcl are supported
+     - [lmod, tcl]
    * - registry
      - The full path to the registry folder (with subfolders with container.yaml recipes)
      - $root_dir/registry
-   * - lmod_base
+   * - module_base
      - The install directory for modules. Defaults to the install directory/modules
      - $root_dir/modules
    * - container_base
      - Where to install containers. If not defined, they are installed alongside modules.
      - null
-   * - database_disable
-     - disable keeping a sqlite database with metadata
-     - false
-   * - database_file
-     - default database file
-     - $root_dir/shpc.db
    * - updated_at
      - a timestamp to keep track of when you last saved
      - never
    * - singularity_module
-     - if defined, add to lmod script to load this Singularity module first
+     - if defined, add to module script to load this Singularity module first
      - null
-   * - lmod_exc_prefix
+   * - module_exc_prefix
      - If set, prefix module alias names with prefix (another kind of namespacing)
      - ""
    * - bindpaths
@@ -228,10 +223,10 @@ your install:
 .. code-block:: console
 
     # an absolute path
-    $ shpc config lmod_base:/opt/lmod/modules
+    $ shpc config module_base:/opt/lmod/modules
 
     # or a path relative to a variable location remember to escape the "$"
-    $ shpc config lmod_base:\$root_dir/modules
+    $ shpc config module_base:\$root_dir/modules
 
 
 This directory will be the base where lua files are added, and container are stored.
@@ -246,7 +241,7 @@ you would see:
             ├── module.lua
             └── python-3.9.2.sif
 
-Although your LMOD path might have multiple locations, Singularity Registry HPC 
+Although your module path might have multiple locations, Singularity Registry HPC 
 assumes this one location to install container modules to in order to ensure
 a unique namespace. 
 
@@ -267,27 +262,6 @@ non-null (a path that exists). For example:
 The same hierarchy will be preserved as to not put all containers in the same
 directory.
 
-Database Setup
-^^^^^^^^^^^^^^
-
-By default, shpc installs with the ability to create a local database for you
-to keep track of your containers (as an admin), which is not accessible to the
-user. However, it's not entirely needed because you can easily use lmod. Here
-are the configuration options available to you:
-
-
-.. code-block:: yaml
-
-    # disable keeping a sqlite database with metadata
-    database_disable: false
-
-    # default database file
-    database_file: "$install_dir/shpc.db"
-
-
-See the :ref:`getting_started-commands-config` for how to update these
-values with the command line client ``shpc config``.
-
 
 Registry
 ^^^^^^^^
@@ -307,17 +281,32 @@ Prefixes
 ^^^^^^^^
 
 If you want your modules to have an alias prefix, you can
-set ``lmod_exc_prefix`` (an alias prefix). If you want your modules
+set ``module_exc_prefix`` (an alias prefix). If you want your modules
 to have a directory prefix, simply create the directory and then update
-the ``lmod_base`` path.
+the ``module_base`` path.
 
 Module Software
 ---------------
 
-The default module software is currently LMOD, but others could be added. If you
+The default module software is currently LMOD, and there is also support for tcl. If you
 are interested in adding another module type, please `open an issue <https://github.com/singularityhub/singularity-hpc>`_ and
-provide description and links to what you have in mind. Currently, only lmod is
-supported.
+provide description and links to what you have in mind. You can either specify the
+module software on the command line:
+
+
+.. code-block:: console
+
+    $ shpc install --module-sys tcl python
+
+
+or you can set the global variable to what you want to use (it defaults to lmod):
+
+.. code-block:: console
+
+    $ shpc config module_sys:tcl
+
+
+The command line argument, if provided, always over-rides the default.
 
 Container Technology
 --------------------
@@ -326,8 +315,7 @@ The default container technology to pull and then provide to users is Singularit
 which makes sense because we can add executables to the path that are Singularity containers.
 If you would like support for a different container technology, please also
 `open an issue <https://github.com/singularityhub/singularity-hpc>`_ and
-provide description and links to what you have in mind. Currently, only lmod is
-supported.
+provide description and links to what you have in mind.
 
 
 .. _getting_started-commands:
@@ -335,7 +323,14 @@ supported.
 Commands
 ========
 
-The following commands are available!
+The following commands are available! For any command, the default module system
+is lmod, and you can change this to tcl by way of adding the ``--module-sys`` argument
+after your command of interest.
+
+.. code-block:: console
+
+    $ shpc <command> --module-sys tcl <args>
+
 
 .. _getting_started-commands-config:
 
@@ -345,15 +340,15 @@ Config
 
 If you want to edit a configuration value, you can either edit the ``shpc/settings.yml``
 file directly, or you can use ``shpc config``. The following example shows changing
-the default lmod_base path from the install directory modules folder.
+the default module_base path from the install directory modules folder.
 
 .. code-block:: console
 
     # an absolute path
-    $ shpc config lmod_base:/opt/lmod/modules
+    $ shpc config module_base:/opt/lmod/modules
 
     # or a path relative to the install directory, remember to escape the "$"
-    $ shpc config lmod_base:\$install_dir/modules
+    $ shpc config module_base:\$install_dir/modules
 
 
 Show and Install
@@ -419,12 +414,10 @@ You can also install a specific tag (as shown in list).
 
     $ shpc install python:3.9.2-alpine
     
-Note that since we only have one module system (lmod) and one
-HPC container technology (Singularity) these are the defaults. However, they
-are parser options and can be customized to use something else if this is
-added in the future.
 
-If you don't have lmod on your system, you can now test interacting
+Note that LMOD is the default for the module system, and Singularity for
+the container technology.
+If you don't have any module software on your system, you can now test interacting
 with the module via the :ref:`getting_started-development` instructions.
 
 List
@@ -447,7 +440,6 @@ can do that as follows:
 .. code-block:: console
 
     $ shpc inspect python/3.9.2-slim
-    [shpc-client] [database|dummy]
     👉️ ENVIRONMENT 👈️
     /.singularity.d/env/10-docker2singularity.sh : #!/bin/sh
     export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
@@ -493,7 +485,7 @@ Shell
 -----
 
 If you want a quick way to shell into an installed module's container
-(perhaps to look around or debug without lmod being available) you can use
+(perhaps to look around or debug without the module software being available) you can use
 ``shell``. For example:
 
 .. code-block:: console
@@ -513,7 +505,7 @@ Test
 ----
 
 Singularity HPC makes it easy to test the full flow of installing and interacting
-with modules. This functionality requires lmod to be installed. 
+with modules. This functionality requires a module system (e.g., LMOD) to be installed. 
 
 .. code-block:: console
 
@@ -526,6 +518,13 @@ If you don't have it, you can run tests in the provided docker container.
 
     docker build -t singularity-hpc .
     docker run --rm -it singularity-hpc shpc test python
+
+
+Note that the ``Dockerfile.tcl`` builds an equivalent container with tcl modules.
+
+.. code-block:: console
+
+    $ docker build -f Dockerfile.tcl -t singularity-hpc .
 
 
 If you want to stage a module install (e.g., install to a temporary directory and not remove it) do:
@@ -548,7 +547,7 @@ To do this with Docker you would do:
 
 And then the last line printed is the directory where the stage exists,
 which is normally cleaned up. You can also choose to skip testing the module
-(e.g., typically lmod):
+(e.g., lmod):
 
 
 .. code-block:: console
@@ -670,7 +669,6 @@ As shown above, show is a general command to show the metadata file for a regist
 .. code-block:: console
 
     $ shpc show python
-    [shpc-client] [database|sqlite:////home/vanessa/Desktop/Code/singularity-hpc/shpc.db]
     docker: python
     latest:
       3.9.2-slim: sha256:85ed629e6ff79d0bf796339ea188c863048e9aedbf7f946171266671ee5c04ef
@@ -689,7 +687,6 @@ Or without any arguments, it will show a list of all registry entries available:
 .. code-block:: console
 
     $ shpc show
-    [shpc-client] [database|sqlite:////home/vanessa/Desktop/Code/singularity-hpc/shpc.db]
     python
 
 
@@ -892,9 +889,8 @@ Choosing Containers to Contribute
 How should you choose container bases to contribute? You might consider using
 smaller images, when possible (take advantage of multi-stage builds) and
 for aliases, make sure (if possible) that you use full paths. If there is a
-directive that you need for creating the LMOD lua file that isn't there, please
-open an issue so it can be added. Finally, if you don't have time to contribute directly, suggesting an idea via an issue
-or Slack to a maintainer (@vsoch).
+directive that you need for creating the module file that isn't there, please
+open an issue so it can be added. Finally, if you don't have time to contribute directly, suggesting an idea via an issue or Slack to a maintainer (@vsoch).
 
 
 Registry Yaml Fields
@@ -966,16 +962,18 @@ Development or Testing
 ======================
 
 If you first want to test singularity-hpc (shpc) with an LMOD installed in 
-a container, a ``Dockerfile`` is provided. The assumption is that
-you have LMOD installed on your cluster or in the container. If not, you
-can find instructions `here <https://lmod.readthedocs.io/en/latest/030_installing.html>`_.
+a container, a ``Dockerfile`` is provided for LMOD, and ``Dockerfile.tcl``
+for tcl modules. The assumption is that
+you have a module system installed on your cluster or in the container. If not, you
+can find instructions `here <https://lmod.readthedocs.io/en/latest/030_installing.html>`_
+for lmod, or `here _<https://modules.readthedocs.io/en/latest/INSTALL.html>`_ for tcl.
 
 
 .. code-block:: console
     
     $ docker build -t singularity-hpc .
 
-If you are developing the library and need lmod, you can easily bind your
+If you are developing the library and need the module software, you can easily bind your
 code as follows:
 
 
@@ -983,7 +981,7 @@ code as follows:
 
     $ docker run -it --rm -v $PWD/:/code singularity-hpc
 
-Once you are in the container, you can direct LMOD to use your module files:
+Once you are in the container, you can direct the module software to use your module files:
 
 .. code-block:: console
 
@@ -1041,7 +1039,7 @@ or ask for help directly!
 
 
 Note that you typically can't run or execute containers within another container, but 
-you can interact with lmod. Also notice that for every container, we expose easy
+you can interact with the module system. Also notice that for every container, we expose easy
 commands to shell, run, exec, and inspect. The custom commands (e.g., Python) are then provided below that.
 
 Make sure to write to files outside of the container so you don't muck with permissions.

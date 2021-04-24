@@ -17,7 +17,7 @@ here = os.path.dirname(os.path.abspath(__file__))
 root = os.path.dirname(here)
 
 
-def init_client(tmpdir):
+def init_client(tmpdir, module_sys):
     """Get a common client for singularity and lmod"""
     settings_file = os.path.join(root, "settings.yml")
     new_settings = os.path.join(tmpdir, "settings.yml")
@@ -25,40 +25,44 @@ def init_client(tmpdir):
     client = get_client(
         quiet=False,
         settings_file=new_settings,
-        module="lmod",
+        module=module_sys,
         container_tech="singularity",
     )
 
     # The module folder needs to be temporary too
     modules = os.path.join(tmpdir, "modules")
     modules = os.path.join(tmpdir, "containers")
-    client.settings.set("lmod_base", modules)
+    client.settings.set("module_base", modules)
     client.settings.set("container_base", modules)
     client.settings.save()
     return client
 
 
-def test_install_get(tmp_path):
+@pytest.mark.parametrize(
+    "module_sys,module_file", [("lmod", "module.lua"), ("tcl", "module.tcl")]
+)
+def test_install_get(tmp_path, module_sys, module_file):
     """Test install and get"""
-    client = init_client(str(tmp_path))
+    client = init_client(str(tmp_path), module_sys)
 
     # Install known tag
     client.install("python:3.9.2-alpine")
 
     # Modules folder is created
-    assert os.path.exists(client.settings.lmod_base)
+    assert os.path.exists(client.settings.module_base)
 
-    module_dir = os.path.join(client.settings.lmod_base, "python", "3.9.2-alpine")
+    module_dir = os.path.join(client.settings.module_base, "python", "3.9.2-alpine")
     assert os.path.exists(module_dir)
-    module_file = os.path.join(module_dir, "module.lua")
+    module_file = os.path.join(module_dir, module_file)
     assert os.path.exists(module_file)
 
     assert client.get("python/3.9.2-alpine")
 
 
-def test_docgen(tmp_path):
+@pytest.mark.parametrize("module_sys", [("lmod"), ("tcl")])
+def test_docgen(tmp_path, module_sys):
     """Test docgen"""
-    client = init_client(str(tmp_path))
+    client = init_client(str(tmp_path), module_sys)
     client.install("python:3.9.2-slim")
     out = io.StringIO()
     docs = client.docgen("python:3.9.2-slim", out)
@@ -66,9 +70,10 @@ def test_docgen(tmp_path):
     assert "python:3.9.2-slim" in docs
 
 
-def test_inspect(tmp_path):
+@pytest.mark.parametrize("module_sys", [("lmod"), ("tcl")])
+def test_inspect(tmp_path, module_sys):
     """Test inspect"""
-    client = init_client(str(tmp_path))
+    client = init_client(str(tmp_path), module_sys)
     client.install("python:3.9.2-slim")
 
     # Install known registry item latest
@@ -80,18 +85,20 @@ def test_inspect(tmp_path):
     assert "attributes" in metadata
 
 
-def test_check(tmp_path):
+@pytest.mark.parametrize("module_sys", [("lmod"), ("tcl")])
+def test_check(tmp_path, module_sys):
     """Test check"""
-    client = init_client(str(tmp_path))
+    client = init_client(str(tmp_path), module_sys)
     client.install("python:3.9.2-slim")
 
     # Python won't have much TODO we should test a custom container
     client.check("python/3.9.2-slim")
 
 
-def test_add(tmp_path):
+@pytest.mark.parametrize("module_sys", [("lmod"), ("tcl")])
+def test_add(tmp_path, module_sys):
     """Test adding a custom container"""
-    client = init_client(str(tmp_path))
+    client = init_client(str(tmp_path), module_sys)
 
     # Create a copy of the latest image to add
     container = os.path.join(str(tmp_path), "salad_latest.sif")

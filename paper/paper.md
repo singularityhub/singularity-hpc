@@ -28,7 +28,7 @@ Whether you are a user or a cluster administrator, installing the software
 gives you an easy means to install Singularity containers [@Kurtzer2017-xj] as
 environment modules [@McLay2011-wu]. Unlike registry servers [@SRegistry] that expect a user to pull a container directly, shpc provides a simple command line client to manage 
 this interaction for you, and make container commands easily available
-as command line aliases. With over 150 containers readily avilable
+as command line aliases. With over 200 containers readily avilable
 from biocontainers [@da2017biocontainers] to Nvidia's Container Catalog [@noauthor_undated-kp] 
 to brain imaging data structure apps [@gorgolewski2017bids], to core containers
 on Docker Hub [@noauthor_undated-xn], and software from package managers like Spack [@gamblin2015spack] made available via the Autamus registry [@autamus], with just a few clicks you can quickly assemble your own collection of custom containers modules for yourself or your user base.
@@ -40,8 +40,7 @@ Using environment modules on high performance computing clusters is a common
 trend. Although writing the recipes can be complex and beyond the ability of the scientific
 user, it's a fairly common practice for cluster administrators to provide
 a set of natively installed recipes for their users [@noauthor_undated-bt]. The practice is so common
-that it's relatively easy to find repositories of lua files, a format for the popular module system LMOD [@McLay2011-wu], shared in version control (e.g., https://github.com/OSGConnect/modulefiles), or even generation of module files with well-known package managers like Spack [@noauthor_undated-ae] and EasyBuild [@noauthor_undated-dj]. Using containers in this context is also not a novel idea [@noauthor_undated-rc], and has been discussed previously [@noauthor_undated-rj]. However, the majority of these approaches and tools do not make the process of installing container modules easy. They either require a root user to build, writing complex recipes, or using a less-than-simple command line interface. The package manager approaches require relying on some subset of system software, the underlying operating system, or even making changes to the system. Using Singularity containers, although it requires the Singularity software, places relatively no limitation on what can be installed. Further, unlike traditional environment modules, a container as a module
-requires no other dependencies, ensuring consistency in usage and fewer conflicts.
+that it's relatively easy to find repositories of module files either for LMOD or environment modules [@McLay2011-wu], shared in version control (e.g., https://github.com/OSGConnect/modulefiles), or even generation of module files with well-known package managers like Spack [@noauthor_undated-ae] and EasyBuild [@noauthor_undated-dj]. Using containers in this context is also not a novel idea [@noauthor_undated-rc], and has been discussed previously [@noauthor_undated-rj]. However, the majority of these approaches and tools do not make the process of installing container modules easy. They either require a root user to build, writing complex recipes, or using a less-than-simple command line interface. The package manager approaches require relying on some subset of system software, the underlying operating system, or even making changes to the system. Using Singularity containers, although it requires the Singularity software, places relatively no limitation on what can be installed. Further, unlike traditional environment modules, a container as a module requires no other dependencies, ensuring consistency in usage and fewer conflicts.
 
 Whether the user is an administrator or a researcher, installing shpc is as easy as cloning the repository and using Python or pip to install in place:
 
@@ -88,7 +87,7 @@ $ module load biocontainers/samtools
 $ samtools
 ```
 
-While a user might need to add a new module directory for LMOD to find with 
+While a user might need to add a new module directory for the module software to find with 
 `module use`, a cluster administrator would likely have modules loaded automatically for the user
 via a bash profile. With the `module use` command, the researcher is empowered to add their own custom installation directory of modules that might not be available from their system administrators.
 
@@ -330,9 +329,10 @@ are used on HPC, it should be of interest to the larger scientific and high
 performance computing communities.
 
 While the Singularity software is currently popular for running containers on HPC,
-it might not always be that way. Although LMOD [@McLay2011-wu] is the most popular
-module system currently, there are several older versions such as environment modules [@environment_modules] and cmod [@noauthor_undated-jo] that could be supported on
-user request, and it could be the case that new module systems arise. 
+it might not always be that way. For modules, shpc offers support for each of
+ LMOD [@McLay2011-wu] and environment modules [@environment_modules]. Older
+ module software (e.g., cmod [@noauthor_undated-jo]) are currently not supported,
+ but could be supported on user request. It could also be the case that new module systems arise. 
 For this reason, Singularity Registry HPC is designed in a modular
 fashion. There is already support for containers served in a traditional registry like
 Docker Hub, or served as GitHub releases generated by Singularity Deploy [@noauthor_undated-ok],

@@ -49,7 +49,7 @@ setenv("SINGULARITY_SHELL", "{{ singularity_shell }}")
 local containerPath = '{{ container_sif }}'
 local shellCmd = "singularity ${SINGULARITY_OPTS} shell ${SINGULARITY_COMMAND_OPTS} -s {{ singularity_shell }} {% if bindpaths %}-B {{ bindpaths }}{% endif %} " .. containerPath
 local execCmd = "singularity ${SINGULARITY_OPTS} exec ${SINGULARITY_COMMAND_OPTS} {% if bindpaths %}-B {{ bindpaths }}{% endif %} "
-local runCmd = "singularity ${SINGULARITY_OPTS} run ${SINGULARITY_COMMAND_OPTS} {% if bindpaths %}-B {{ bindpaths }}{% endif %} " .. containerPath .. " {{ SINGULARITY_COMMAND_ARGS }}"
+local runCmd = "singularity ${SINGULARITY_OPTS} run ${SINGULARITY_COMMAND_OPTS} {% if bindpaths %}-B {{ bindpaths }}{% endif %} " .. containerPath .. " ${ SINGULARITY_COMMAND_ARGS }"
 local inspectCmd = "singularity ${SINGULARITY_OPTS} inspect ${SINGULARITY_COMMAND_OPTS} " 
 
 -- set_shell_function takes bashStr and cshStr
