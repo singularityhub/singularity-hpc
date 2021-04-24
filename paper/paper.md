@@ -34,6 +34,16 @@ to brain imaging data structure apps [@gorgolewski2017bids], to core containers
 on Docker Hub [@noauthor_undated-xn], and software from package managers like Spack [@gamblin2015spack] made available via the Autamus registry [@autamus], with just a few clicks you can quickly assemble your own collection of custom containers modules for yourself or your user base.
 
 
+## Statement of Need
+
+To use software on a high performance computing (HPC) system, a user typically needs to request it
+to be installed by an administrator, or if they have expertise with container software,
+the user can pull a container from an external registry. Requiring each user to find,
+pull, and interact with containers not only creates redundancy in terms of filesystem space,
+but also is a risk to reproducibility. Although containers are considered reproducible, it's
+uncommon for a user to pull a specific digest, or an exact version of a container. Writing complex commands to control binds, the environment, or even find software in the container adds an additional level of complexity. Ideally, it would be easy for an administrator, a group, or an individual to maintain a _local_ container registry, and one that provides a community maintained collection of versioned containers and aliases for the most popular scientific software. Singularity Registry HPC (shpc) is this local registry, and the first of its kind to offer a means to manage containers natively on an HPC system.
+
+
 ## Background
 
 Using environment modules on high performance computing clusters is a common
@@ -41,6 +51,8 @@ trend. Although writing the recipes can be complex and beyond the ability of the
 user, it's a fairly common practice for cluster administrators to provide
 a set of natively installed recipes for their users [@noauthor_undated-bt]. The practice is so common
 that it's relatively easy to find repositories of module files either for LMOD or environment modules [@McLay2011-wu], shared in version control (e.g., https://github.com/OSGConnect/modulefiles), or even generation of module files with well-known package managers like Spack [@noauthor_undated-ae] and EasyBuild [@noauthor_undated-dj]. Using containers in this context is also not a novel idea [@noauthor_undated-rc], and has been discussed previously [@noauthor_undated-rj]. However, the majority of these approaches and tools do not make the process of installing container modules easy. They either require a root user to build, writing complex recipes, or using a less-than-simple command line interface. The package manager approaches require relying on some subset of system software, the underlying operating system, or even making changes to the system. Using Singularity containers, although it requires the Singularity software, places relatively no limitation on what can be installed. Further, unlike traditional environment modules, a container as a module requires no other dependencies, ensuring consistency in usage and fewer conflicts.
+
+## Usage
 
 Whether the user is an administrator or a researcher, installing shpc is as easy as cloning the repository and using Python or pip to install in place:
 
