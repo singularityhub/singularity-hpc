@@ -5,11 +5,9 @@ description: MariaDB Server is one of the most popular database servers in the w
   It’s made by the original developers of MySQL and guaranteed to stay open source.
   Notable users include Wikipedia, DBS Bank and ServiceNow.
 latest:
-  latest: sha256:9c681cefe72e257c6d58f839bb504f50bf259a0221c883fcc220f0755563fa46
+  latest: sha256:36288c675a192bd0a8a99cd6ba0780e31df85f0bfd0cbb204837cd108be3d236
 tags:
-  latest: sha256:9c681cefe72e257c6d58f839bb504f50bf259a0221c883fcc220f0755563fa46
-filter:
-- latest
+  latest: sha256:36288c675a192bd0a8a99cd6ba0780e31df85f0bfd0cbb204837cd108be3d236
 aliases:
   mariabackup: /usr/bin/mariabackup
   mariadb: /usr/bin/mariadb
