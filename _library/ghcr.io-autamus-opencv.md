@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/opencv"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/opencv/container.yaml"
-updated_at: "2021-04-24 20:00:31.784816"
+updated_at: "2021-04-24 20:40:30.457584"
 container_url: ""
 aliases:
  - "opencv_version"
