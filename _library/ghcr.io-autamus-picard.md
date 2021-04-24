@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/picard"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/picard/container.yaml"
-updated_at: "2021-04-24 00:28:58.527419"
+updated_at: "2021-04-24 20:00:36.633326"
 container_url: ""
 aliases:
  - "picard"

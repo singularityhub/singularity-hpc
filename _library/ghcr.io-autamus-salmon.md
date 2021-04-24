@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/salmon"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/salmon/container.yaml"
-updated_at: "2021-04-24 00:28:56.072253"
+updated_at: "2021-04-24 20:00:34.090160"
 container_url: ""
 aliases:
  - "salmon"
