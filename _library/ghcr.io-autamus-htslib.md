@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/htslib"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/htslib/container.yaml"
-updated_at: "2021-04-25 12:09:22.234056"
+updated_at: "2021-04-25 20:27:44.788356"
 container_url: ""
 aliases:
  - "htsfile"

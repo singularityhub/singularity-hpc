@@ -3,11 +3,12 @@ layout: container
 name:  "ghcr.io/autamus/cantera"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/cantera/container.yaml"
-updated_at: "2021-04-25 12:09:15.156578"
+updated_at: "2021-04-25 20:27:38.891097"
 container_url: ""
 
 versions:
  - "2.4.0"
+ - "2.5.1"
  - "latest"
 description: "Cantera is an open-source collection of object-oriented software tools for problems involving chemical kinetics, thermodynamics, and transport processes."
 ---

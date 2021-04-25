@@ -3,7 +3,7 @@ layout: container
 name:  "rabbitmq"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/rabbitmq/container.yaml"
-updated_at: "2021-04-25 12:09:42.614451"
+updated_at: "2021-04-25 20:28:01.518467"
 container_url: ""
 aliases:
  - "rabbitmq-defaults"
@@ -23,6 +23,7 @@ aliases:
  - "rabbitmqctl"
 
 versions:
+ - "3.8.15-rc.2-alpine"
  - "latest"
 description: "RabbitMQ is an open source multi-protocol messaging broker."
 ---
@@ -38,7 +39,7 @@ $ shpc install rabbitmq
 Or a specific version:
 
 ```bash
-$ shpc install rabbitmq:latest
+$ shpc install rabbitmq:3.8.15-rc.2-alpine
 ```
 
 And then you can tell lmod about your modules folder:
@@ -50,8 +51,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load rabbitmq/latest
-$ module help rabbitmq/latest
+$ module load rabbitmq/3.8.15-rc.2-alpine
+$ module help rabbitmq/3.8.15-rc.2-alpine
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

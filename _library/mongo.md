@@ -3,7 +3,7 @@ layout: container
 name:  "mongo"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/mongo/container.yaml"
-updated_at: "2021-04-25 12:09:37.623437"
+updated_at: "2021-04-25 20:27:57.368534"
 container_url: ""
 aliases:
  - "mongo"
@@ -27,6 +27,7 @@ aliases:
  - "mongotop"
 
 versions:
+ - "4.4.5-bionic"
  - "latest"
 description: "MongoDB is a free and open-source cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with schemata."
 ---
@@ -42,7 +43,7 @@ $ shpc install mongo
 Or a specific version:
 
 ```bash
-$ shpc install mongo:latest
+$ shpc install mongo:4.4.5-bionic
 ```
 
 And then you can tell lmod about your modules folder:
@@ -54,8 +55,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load mongo/latest
-$ module help mongo/latest
+$ module load mongo/4.4.5-bionic
+$ module help mongo/4.4.5-bionic
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

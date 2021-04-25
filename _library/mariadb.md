@@ -3,7 +3,7 @@ layout: container
 name:  "mariadb"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/mariadb/container.yaml"
-updated_at: "2021-04-25 12:08:58.348755"
+updated_at: "2021-04-25 20:27:25.066373"
 container_url: ""
 aliases:
  - "mariabackup"
@@ -73,6 +73,7 @@ aliases:
  - "mariadbd-safe-helper"
 
 versions:
+ - "10.5.9-focal"
  - "latest"
 description: "MariaDB Server is one of the most popular database servers in the world. It’s made by the original developers of MySQL and guaranteed to stay open source. Notable users include Wikipedia, DBS Bank and ServiceNow."
 ---
@@ -88,7 +89,7 @@ $ shpc install mariadb
 Or a specific version:
 
 ```bash
-$ shpc install mariadb:latest
+$ shpc install mariadb:10.5.9-focal
 ```
 
 And then you can tell lmod about your modules folder:
@@ -100,8 +101,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load mariadb/latest
-$ module help mariadb/latest
+$ module load mariadb/10.5.9-focal
+$ module help mariadb/10.5.9-focal
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/xrootd"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/xrootd/container.yaml"
-updated_at: "2021-04-25 12:09:23.115832"
+updated_at: "2021-04-25 20:27:45.525504"
 container_url: ""
 aliases:
  - "xrdacctest"

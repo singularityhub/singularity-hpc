@@ -3,7 +3,7 @@ layout: container
 name:  "jupyter/tensorflow-notebook"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/jupyter/tensorflow-notebook/container.yaml"
-updated_at: "2021-04-25 12:09:03.209484"
+updated_at: "2021-04-25 20:27:29.040184"
 container_url: ""
 aliases:
  - "run-notebook"
