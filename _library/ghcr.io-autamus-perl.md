@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/perl"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/perl/container.yaml"
-updated_at: "2021-04-24 20:40:50.944019"
+updated_at: "2021-04-25 12:09:34.356461"
 container_url: ""
 aliases:
  - "perl"

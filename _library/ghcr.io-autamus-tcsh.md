@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/tcsh"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/tcsh/container.yaml"
-updated_at: "2021-04-24 20:40:48.478405"
+updated_at: "2021-04-25 12:09:31.486687"
 container_url: ""
 aliases:
  - "tcsh"

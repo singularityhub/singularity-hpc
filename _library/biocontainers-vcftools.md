@@ -3,7 +3,7 @@ layout: container
 name:  "biocontainers/vcftools"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/biocontainers/vcftools/container.yaml"
-updated_at: "2021-04-24 20:40:22.962197"
+updated_at: "2021-04-25 12:09:01.420494"
 container_url: ""
 aliases:
  - "vcftools"

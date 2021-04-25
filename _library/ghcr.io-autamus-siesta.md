@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/siesta"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/siesta/container.yaml"
-updated_at: "2021-04-24 20:40:41.702163"
+updated_at: "2021-04-25 12:09:23.545738"
 container_url: ""
 aliases:
  - "siesta"
