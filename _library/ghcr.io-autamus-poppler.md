@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/poppler"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/poppler/container.yaml"
-updated_at: "2021-04-25 20:27:38.705618"
+updated_at: "2021-04-26 20:25:43.280578"
 container_url: ""
 aliases:
  - "pdfattach"

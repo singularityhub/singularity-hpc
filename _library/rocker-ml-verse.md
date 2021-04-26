@@ -3,7 +3,7 @@ layout: container
 name:  "rocker/ml-verse"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/rocker/ml-verse/container.yaml"
-updated_at: "2021-04-25 20:27:29.959156"
+updated_at: "2021-04-26 20:25:32.569708"
 container_url: ""
 aliases:
  - "R"

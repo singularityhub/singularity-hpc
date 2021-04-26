@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/hisat2"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/hisat2/container.yaml"
-updated_at: "2021-04-25 20:27:56.121294"
+updated_at: "2021-04-26 20:26:05.115457"
 container_url: ""
 aliases:
  - "hisat2"

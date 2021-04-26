@@ -3,7 +3,7 @@ layout: container
 name:  "nvcr.io/nvidia/digits"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/nvcr.io/nvidia/digits/container.yaml"
-updated_at: "2021-04-25 20:27:32.006271"
+updated_at: "2021-04-26 20:25:35.016246"
 container_url: ""
 aliases:
  - "python"

@@ -3,13 +3,14 @@ layout: container
 name:  "ghcr.io/autamus/rclone"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/rclone/container.yaml"
-updated_at: "2021-04-25 20:27:56.835371"
+updated_at: "2021-04-26 20:26:06.032986"
 container_url: ""
 aliases:
  - "rclone"
 
 versions:
  - "1.55.0"
+ - "1.55.1"
  - "latest"
 description: "Rclone is a command line program to manage files on cloud storage."
 ---

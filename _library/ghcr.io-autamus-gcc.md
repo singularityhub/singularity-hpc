@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/gcc"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/gcc/container.yaml"
-updated_at: "2021-04-25 20:27:38.156548"
+updated_at: "2021-04-26 20:25:42.611126"
 container_url: ""
 aliases:
  - "c++"
