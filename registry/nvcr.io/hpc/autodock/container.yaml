@@ -6,13 +6,13 @@ description: The AutoDock-GPU Suite is a growing collection of methods for compu
   of the basic mechanisms of biomolecular structure and function. More info on AutoDock-GPU
   be located at https://ccsb.scripps.edu/autodock/ and https://github.com/ccsb-scripps/AutoDock-GPU#usage.
 latest:
-  "2020.06": sha256:2d881faf0b20866826a2f0ebbd87ed9791b64222489814901a090e5ed1aa3252
+  "2020.06": sha256:a968fa5391281f168e1daf5a4fccfbd0d8228d794ee693ba1a637e5147c3b798
 tags:
-  "2020.06": sha256:2d881faf0b20866826a2f0ebbd87ed9791b64222489814901a090e5ed1aa3252
+  "2020.06": sha256:a968fa5391281f168e1daf5a4fccfbd0d8228d794ee693ba1a637e5147c3b798
   2020.06-arm64: sha256:2d881faf0b20866826a2f0ebbd87ed9791b64222489814901a090e5ed1aa3252
+filter:
+- ^((?!arm).)*$
 aliases:
 - name: autodock-gpu
   command: /opt/AutoDock-GPU/bin/autodock_gpu_128wi
   options: --nv
-filter: 
-  - "^((?!arm).)*$"
