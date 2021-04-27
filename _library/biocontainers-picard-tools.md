@@ -3,7 +3,7 @@ layout: container
 name:  "biocontainers/picard-tools"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/biocontainers/picard-tools/container.yaml"
-updated_at: "2021-04-26 20:25:27.814548"
+updated_at: "2021-04-27 21:45:16.531429"
 container_url: ""
 
 versions:

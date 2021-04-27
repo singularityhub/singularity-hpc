@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/povray"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/povray/container.yaml"
-updated_at: "2021-04-26 20:25:38.319378"
+updated_at: "2021-04-27 21:45:26.630451"
 container_url: ""
 aliases:
  - "povray"
