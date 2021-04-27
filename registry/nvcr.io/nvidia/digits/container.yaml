@@ -4,10 +4,11 @@ maintainer: '@vsoch'
 description: The NVIDIA Deep Learning GPU Training System (DIGITS) puts the power
   of deep learning into the hands of engineers and data scientists.
 latest:
-  21.03-tensorflow-py3: sha256:ad2aa71d8650ea403437f86fc9a33760af8a20d980f64d660e8ef649e0d9296d
+  21.04-tensorflow-py3: sha256:b72344b124b07742f5a908566c5f1905edc3d58956e446db925cf153facdf9f9
 tags:
-  21.02-tensorflow-py3: sha256:ad2aa71d8650ea403437f86fc9a33760af8a20d980f64d660e8ef649e0d9296d
-  21.03-tensorflow-py3: sha256:ad2aa71d8650ea403437f86fc9a33760af8a20d980f64d660e8ef649e0d9296d
+  21.02-tensorflow-py3: sha256:b72344b124b07742f5a908566c5f1905edc3d58956e446db925cf153facdf9f9
+  21.03-tensorflow-py3: sha256:b72344b124b07742f5a908566c5f1905edc3d58956e446db925cf153facdf9f9
+  21.04-tensorflow-py3: sha256:b72344b124b07742f5a908566c5f1905edc3d58956e446db925cf153facdf9f9
 filter:
 - 21*
 aliases:
