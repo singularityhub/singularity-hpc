@@ -5,7 +5,7 @@ description: Rclone is a command line program to manage files on cloud storage.
 latest:
   1.55.1: sha256:3922bc117960bcd907d1dd0ab2e0b60d4804bb83be467410c05a908fe15ea81e
 tags:
-  1.55.0: sha256:3922bc117960bcd907d1dd0ab2e0b60d4804bb83be467410c05a908fe15ea81e
+  1.55.0: sha256:8a8c07e1759f8ad45b34828b5adc6b43b811569f84093970d0366afd9f7b4b5f
   1.55.1: sha256:3922bc117960bcd907d1dd0ab2e0b60d4804bb83be467410c05a908fe15ea81e
   latest: sha256:3922bc117960bcd907d1dd0ab2e0b60d4804bb83be467410c05a908fe15ea81e
 aliases:

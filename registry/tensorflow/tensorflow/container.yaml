@@ -5,7 +5,7 @@ description: An end-to-end open source platform for machine learning.
 latest:
   2.5.0rc0-gpu-jupyter: sha256:9808e04142b09482bb6b3d1738430ae7472a214dd38e086d41e481b376fa9abd
 tags:
-  2.2.2: sha256:9808e04142b09482bb6b3d1738430ae7472a214dd38e086d41e481b376fa9abd
+  2.2.2: sha256:e2cde2bb70055511521d995cba58a28561089dfc443895fd5c66e65bbf33bfc0
   2.5.0rc0-gpu-jupyter: sha256:9808e04142b09482bb6b3d1738430ae7472a214dd38e086d41e481b376fa9abd
 filter:
 - 2.*
