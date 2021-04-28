@@ -3,12 +3,12 @@ url: https://hub.docker.com/_/python
 maintainer: '@vsoch'
 description: An interpreted, high-level and general-purpose programming language.
 latest:
-  3.9.4-alpine: sha256:2a9b93b032246dabbec008c1527bd0ef31947e7fd351a200aec5a46eea68d776
+  3.9.4-alpine: sha256:d99057843248ef90e62f4ef1a7d403e538d4730e7a84c3719714943682ac000c
 tags:
   3.9.2-alpine: sha256:f046c06388c0721961fe5c9b6184d2f8aeb7eb01b39601babab06cfd975dae01
   3.9.2-slim: sha256:ce367bb30b8928efb632c369e3bd4a8dbd7905417bd0a245087a82c250e54a24
-  3.9.4-alpine: sha256:2a9b93b032246dabbec008c1527bd0ef31947e7fd351a200aec5a46eea68d776
-  3.10.0a7-alpine: sha256:2e625ee489e52418589ea1798b333e9231bc0b72395a2a2aa35c248e97daf760
+  3.9.4-alpine: sha256:d99057843248ef90e62f4ef1a7d403e538d4730e7a84c3719714943682ac000c
+  3.10.0a7-alpine: sha256:d817652f7365d8afde1c7dd8de4b96d88ca8d09b14524fefa7ea2f54c436cc46
 filter:
 - 3.9.*
 aliases:

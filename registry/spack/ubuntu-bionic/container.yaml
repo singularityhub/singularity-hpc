@@ -6,7 +6,7 @@ latest:
   0.16.1: sha256:8261977ff63fe420446c349f0e3bd4e09a6417ebb1008ab472861041f1edd11b
 tags:
   0.16.1: sha256:8261977ff63fe420446c349f0e3bd4e09a6417ebb1008ab472861041f1edd11b
-  latest: sha256:a95500c71e83faa2280501eebb1a88a2eab8466c876d3b11e61368b7c271f227
+  latest: sha256:7f0444a703db0081677cd13e3fdd92ee567f90e4f2460ac182102bfafab4500f
 aliases:
   sbang: /opt/spack/bin/sbang
   spack: /opt/spack/bin/spack
