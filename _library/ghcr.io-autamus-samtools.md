@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/samtools"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/samtools/container.yaml"
-updated_at: "2021-04-27 21:45:36.728694"
+updated_at: "2021-04-28 20:37:51.867995"
 container_url: ""
 aliases:
  - "blast2sam.pl"
