@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/lmod"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/lmod/container.yaml"
-updated_at: "2021-04-28 20:37:50.070217"
+updated_at: "2021-04-29 15:05:25.232416"
 container_url: ""
 aliases:
  - "module"

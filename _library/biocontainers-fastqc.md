@@ -3,7 +3,7 @@ layout: container
 name:  "biocontainers/fastqc"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/biocontainers/fastqc/container.yaml"
-updated_at: "2021-04-28 20:37:33.322407"
+updated_at: "2021-04-29 15:05:05.607475"
 container_url: ""
 
 versions:
