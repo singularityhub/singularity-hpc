@@ -4,10 +4,10 @@ maintainer: '@vsoch'
 description: Rust is a multi-paradigm programming language designed for performance
   and safety, especially safe concurrency.
 latest:
-  1.50.0: sha256:721fe367069e6c5ef10a89ec43faff5ef6ad07e3d7324b5ca1841c19dba89d14
+  1.50.0: sha256:238c8e6fd628cea11f9023ab4b92b1e1295cae1400548b318c62fbe9be616611
 tags:
-  1.50.0: sha256:721fe367069e6c5ef10a89ec43faff5ef6ad07e3d7324b5ca1841c19dba89d14
-  latest: sha256:721fe367069e6c5ef10a89ec43faff5ef6ad07e3d7324b5ca1841c19dba89d14
+  1.50.0: sha256:238c8e6fd628cea11f9023ab4b92b1e1295cae1400548b318c62fbe9be616611
+  latest: sha256:238c8e6fd628cea11f9023ab4b92b1e1295cae1400548b318c62fbe9be616611
 aliases:
   cargo: /opt/view/bin/cargo
   cargo-clippy: /opt/view/bin/cargo-clippy

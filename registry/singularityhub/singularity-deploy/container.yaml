@@ -4,8 +4,8 @@ maintainer: '@vsoch'
 description: Example shpc container using Singularity Deploy, build and serve from
   GitHub releases.
 latest:
-  salad: 0.0.1
+  salad: 0.0.12
 tags:
-  salad: 0.0.1
+  salad: 0.0.12
 aliases:
   salad: /code/salad

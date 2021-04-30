@@ -6,7 +6,7 @@ description: ABySS is a de novo, parallel, paired-end sequence assembler that is
 latest:
   2.3.1: sha256:92b2975865998a0560f66d2120d224822e8e1ab350b606a0e308e1fbbbaecd9d
 tags:
-  2.3.0: sha256:92b2975865998a0560f66d2120d224822e8e1ab350b606a0e308e1fbbbaecd9d
+  2.3.0: sha256:09dabf5c3f3babf2e3a64c0ba712047ee11555a7dc799273b647359bea1cb59b
   2.3.1: sha256:92b2975865998a0560f66d2120d224822e8e1ab350b606a0e308e1fbbbaecd9d
   latest: sha256:92b2975865998a0560f66d2120d224822e8e1ab350b606a0e308e1fbbbaecd9d
 aliases:
