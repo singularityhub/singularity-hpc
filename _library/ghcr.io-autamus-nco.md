@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/nco"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/nco/container.yaml"
-updated_at: "2021-04-30 08:37:21.172659"
+updated_at: "2021-04-30 20:02:32.946032"
 container_url: ""
 aliases:
  - "nc-config"

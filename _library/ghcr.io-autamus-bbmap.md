@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/bbmap"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/bbmap/container.yaml"
-updated_at: "2021-04-30 08:37:24.373903"
+updated_at: "2021-04-30 20:02:36.732726"
 container_url: ""
 
 versions:

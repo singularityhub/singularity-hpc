@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/advancecomp"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/advancecomp/container.yaml"
-updated_at: "2021-04-30 08:37:12.566497"
+updated_at: "2021-04-30 20:02:22.833251"
 container_url: ""
 aliases:
  - "advdef"

@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/clingo"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/clingo/container.yaml"
-updated_at: "2021-04-30 08:37:15.937151"
+updated_at: "2021-04-30 20:02:26.766278"
 container_url: ""
 aliases:
  - "clingo"
