@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/picard"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/picard/container.yaml"
-updated_at: "2021-04-29 15:05:21.889025"
+updated_at: "2021-04-30 08:37:09.485996"
 container_url: ""
 aliases:
  - "picard"
@@ -12,6 +12,7 @@ aliases:
 
 versions:
  - "2.25.2"
+ - "2.25.3"
  - "latest"
 description: "A set of command line tools (in Java) for manipulating high-throughput sequencing (HTS) data and formats such as SAM/BAM/CRAM and VCF."
 ---

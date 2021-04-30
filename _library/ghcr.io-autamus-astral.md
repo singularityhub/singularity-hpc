@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/astral"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/astral/container.yaml"
-updated_at: "2021-04-29 15:05:42.003847"
+updated_at: "2021-04-30 08:37:23.873178"
 container_url: ""
 aliases:
  - "astral"
