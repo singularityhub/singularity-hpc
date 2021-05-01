@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/lp-solve"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/lp-solve/container.yaml"
-updated_at: "2021-04-30 20:02:26.962810"
+updated_at: "2021-05-01 15:22:19.019248"
 container_url: ""
 aliases:
  - "lp_solve"
