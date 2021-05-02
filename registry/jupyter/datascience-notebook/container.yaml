@@ -3,9 +3,9 @@ url: https://hub.docker.com/r/jupyter/datascience-notebook
 maintainer: '@vsoch'
 description: Jupyter Datascience Notebook from https://github.com/jupyter/docker-stacks
 latest:
-  latest: sha256:ef4ec44b850b5482eb45e67c7bd33b54ff5d264d57fd6ce850a58ba19c0663fc
+  latest: sha256:827f8694f2c887ca971861ec623ca0363f031352199a3e9633b8f0e020be1d33
 tags:
-  latest: sha256:ef4ec44b850b5482eb45e67c7bd33b54ff5d264d57fd6ce850a58ba19c0663fc
+  latest: sha256:827f8694f2c887ca971861ec623ca0363f031352199a3e9633b8f0e020be1d33
 filter:
 - latest
 aliases:

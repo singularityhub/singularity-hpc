@@ -3,9 +3,9 @@ url: https://hub.docker.com/r/jupyter/pyspark-notebook
 maintainer: '@vsoch'
 description: Jupyter Pyspark Notebook from https://github.com/jupyter/docker-stacks
 latest:
-  latest: sha256:ed68ddf5239ff8b160a73acc81f5f0ce4f95a61ba6687a0319a49bb13eacbffc
+  latest: sha256:e0b3c4b21a7b24291e14de812fdf315684d3d41a996f6d1c9a30124fb22bddf2
 tags:
-  latest: sha256:ed68ddf5239ff8b160a73acc81f5f0ce4f95a61ba6687a0319a49bb13eacbffc
+  latest: sha256:e0b3c4b21a7b24291e14de812fdf315684d3d41a996f6d1c9a30124fb22bddf2
 filter:
 - latest
 aliases:

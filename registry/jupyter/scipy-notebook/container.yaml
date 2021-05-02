@@ -3,9 +3,9 @@ url: https://hub.docker.com/r/jupyter/scipy-notebook
 maintainer: '@vsoch'
 description: Jupyter Notebook Scientific Python Stack from https://github.com/jupyter/docker-stacks
 latest:
-  latest: sha256:00af391facb071b6b6191893555811a7680a3d7c40eb1bac5c17540e6131f625
+  latest: sha256:1741d5fc49e0ab6d574870a73ec8de8e972873a69f768c1dc0f0c727c7aa3011
 tags:
-  latest: sha256:00af391facb071b6b6191893555811a7680a3d7c40eb1bac5c17540e6131f625
+  latest: sha256:1741d5fc49e0ab6d574870a73ec8de8e972873a69f768c1dc0f0c727c7aa3011
 filter:
 - latest
 aliases:
