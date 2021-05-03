@@ -3,8 +3,9 @@ url: https://hub.docker.com/r/jupyter/r-notebook
 maintainer: '@vsoch'
 description: Jupyter R Notebook from https://github.com/jupyter/docker-stacks
 latest:
-  latest: sha256:7062ab1bc3a1ef5272a345beb5cd8308f2265434efd5a983177e5999fa251f37
+  "4.0": sha256:8c9e0ae86ef780855cba13e48adbcd9a43a12f93e61fe424a1e3398700ce0b51
 tags:
+  "4.0": sha256:8c9e0ae86ef780855cba13e48adbcd9a43a12f93e61fe424a1e3398700ce0b51
   latest: sha256:7062ab1bc3a1ef5272a345beb5cd8308f2265434efd5a983177e5999fa251f37
 aliases:
 - name: run-notebook
