@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/jags"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/jags/container.yaml"
-updated_at: "2021-05-02 16:04:41.934679"
+updated_at: "2021-05-03 09:51:47.531024"
 container_url: ""
 aliases:
  - "jags"

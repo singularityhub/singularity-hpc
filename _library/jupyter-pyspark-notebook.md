@@ -3,12 +3,13 @@ layout: container
 name:  "jupyter/pyspark-notebook"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/jupyter/pyspark-notebook/container.yaml"
-updated_at: "2021-05-02 16:04:08.566962"
+updated_at: "2021-05-03 09:51:16.914082"
 container_url: ""
 aliases:
  - "run-notebook"
 
 versions:
+ - "4.0"
  - "latest"
 description: "Jupyter Pyspark Notebook from https://github.com/jupyter/docker-stacks"
 ---
@@ -24,7 +25,7 @@ $ shpc install jupyter/pyspark-notebook
 Or a specific version:
 
 ```bash
-$ shpc install jupyter/pyspark-notebook:latest
+$ shpc install jupyter/pyspark-notebook:4.0
 ```
 
 And then you can tell lmod about your modules folder:
@@ -36,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load jupyter/pyspark-notebook/latest
-$ module help jupyter/pyspark-notebook/latest
+$ module load jupyter/pyspark-notebook/4.0
+$ module help jupyter/pyspark-notebook/4.0
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
