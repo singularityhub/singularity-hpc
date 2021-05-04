@@ -4,9 +4,9 @@ maintainer: '@vsoch'
 description: Redis is an open-source, networked, in-memory, key-value data store with
   optional durability.
 latest:
-  latest: sha256:e10f55f92478715698a2cef97c2bbdc48df2a05081edd884938903aa60df6396
+  latest: sha256:eff56acc5fc7b909183da93236ba09d3b8cb7d6db31d5b25e9a46dac9b5e699b
 tags:
-  latest: sha256:e10f55f92478715698a2cef97c2bbdc48df2a05081edd884938903aa60df6396
+  latest: sha256:eff56acc5fc7b909183da93236ba09d3b8cb7d6db31d5b25e9a46dac9b5e699b
 filter:
 - latest
 aliases:
