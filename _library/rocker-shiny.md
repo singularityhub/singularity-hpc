@@ -3,7 +3,7 @@ layout: container
 name:  "rocker/shiny"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/rocker/shiny/container.yaml"
-updated_at: "2021-05-03 09:51:18.772857"
+updated_at: "2021-05-05 00:26:27.962550"
 container_url: ""
 aliases:
  - "rocker-shiny-run"

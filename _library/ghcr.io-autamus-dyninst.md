@@ -1,30 +1,28 @@
 ---
 layout: container
-name:  "singularityhub/singularity-deploy"
+name:  "ghcr.io/autamus/dyninst"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/singularityhub/singularity-deploy/container.yaml"
-updated_at: "2021-05-05 00:27:03.291490"
+github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/dyninst/container.yaml"
+updated_at: "2021-05-05 00:26:48.801004"
 container_url: ""
-aliases:
- - "salad"
 
 versions:
- - "salad"
-description: "Example shpc container using Singularity Deploy, build and serve from GitHub releases."
+ - "11.0.0"
+description: "DyninstAPI - Tools for binary instrumentation, analysis, and modification."
 ---
 
-This module is a singularity container wrapper for singularityhub/singularity-deploy.
-Example shpc container using Singularity Deploy, build and serve from GitHub releases.
+This module is a singularity container wrapper for ghcr.io/autamus/dyninst.
+DyninstAPI - Tools for binary instrumentation, analysis, and modification.
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash
-$ shpc install singularityhub/singularity-deploy
+$ shpc install ghcr.io/autamus/dyninst
 ```
 
 Or a specific version:
 
 ```bash
-$ shpc install singularityhub/singularity-deploy:salad
+$ shpc install ghcr.io/autamus/dyninst:11.0.0
 ```
 
 And then you can tell lmod about your modules folder:
@@ -36,8 +34,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load singularityhub/singularity-deploy/salad
-$ module help singularityhub/singularity-deploy/salad
+$ module load ghcr.io/autamus/dyninst/11.0.0
+$ module help ghcr.io/autamus/dyninst/11.0.0
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
@@ -48,43 +46,43 @@ You can use tab for auto-completion of module names or commands that are provide
 
 When you install this module, you'll be able to load it to make the following commands accessible:
 
-#### singularityhub-singularity-deploy-run:
+#### ghcr.io-autamus-dyninst-run:
 
 ```bash
 $ singularity run <container>
 ```
 
-#### singularityhub-singularity-deploy-shell:
+#### ghcr.io-autamus-dyninst-shell:
 
 ```bash
 $ singularity shell -s /bin/bash <container>
 ```
 
-#### singularityhub-singularity-deploy-exec:
+#### ghcr.io-autamus-dyninst-exec:
 
 ```bash
 $ singularity exec -s /bin/bash <container> "$@"
 ```
 
-#### singularityhub-singularity-deploy-inspect-runscript:
+#### ghcr.io-autamus-dyninst-inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### singularityhub-singularity-deploy-inspect-deffile:
+#### ghcr.io-autamus-dyninst-inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>
 ```
 
 
-#### salad
-       
-```bash
-$ singularity exec <container> /code/salad
-```
 
+#### ghcr.io-autamus-dyninst
+
+```bash
+$ singularity run <container>
+```
 
 
 In the above, the `<container>` directive will reference an actual container provided

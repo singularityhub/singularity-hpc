@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/aria2"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/aria2/container.yaml"
-updated_at: "2021-05-03 09:51:34.949685"
+updated_at: "2021-05-05 00:26:44.265940"
 container_url: ""
 aliases:
  - "aria2c"

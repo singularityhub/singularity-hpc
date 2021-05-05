@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/scons"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/scons/container.yaml"
-updated_at: "2021-05-03 09:51:40.569543"
+updated_at: "2021-05-05 00:26:50.341062"
 container_url: ""
 aliases:
  - "scons"
