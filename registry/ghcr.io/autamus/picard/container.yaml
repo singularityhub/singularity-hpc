@@ -4,11 +4,12 @@ maintainer: '@vsoch'
 description: A set of command line tools (in Java) for manipulating high-throughput
   sequencing (HTS) data and formats such as SAM/BAM/CRAM and VCF.
 latest:
-  2.25.3: sha256:5ad0c904339aedf7f6e2feb20706bbe594ecff5226b5df947bccc817f25bc882
+  2.25.4: sha256:f9e420ca9ee6587356f413a079d587ad0e2f94c326b2433b70fa0265f17d963a
 tags:
   2.25.2: sha256:59d36498e8678f471aa46e0f1de0c1f0de953feb826ce76c48bd56ba5d57f35e
   2.25.3: sha256:5ad0c904339aedf7f6e2feb20706bbe594ecff5226b5df947bccc817f25bc882
-  latest: sha256:5ad0c904339aedf7f6e2feb20706bbe594ecff5226b5df947bccc817f25bc882
+  2.25.4: sha256:f9e420ca9ee6587356f413a079d587ad0e2f94c326b2433b70fa0265f17d963a
+  latest: sha256:f9e420ca9ee6587356f413a079d587ad0e2f94c326b2433b70fa0265f17d963a
 aliases:
   picard: /opt/view/bin/picard
   picard.jar: /opt/view/bin/java -jar /opt/view/bin/picard.jar
