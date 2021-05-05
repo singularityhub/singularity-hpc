@@ -3,13 +3,14 @@ layout: container
 name:  "jupyter/tensorflow-notebook"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/jupyter/tensorflow-notebook/container.yaml"
-updated_at: "2021-05-05 00:26:26.287300"
+updated_at: "2021-05-05 15:43:24.547324"
 container_url: ""
 aliases:
  - "run-notebook"
 
 versions:
  - "latest"
+ - "ubuntu-20.04"
 description: "Jupyter Tensorflow Notebook from https://github.com/jupyter/docker-stacks"
 ---
 
