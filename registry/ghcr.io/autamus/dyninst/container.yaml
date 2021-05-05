@@ -1,0 +1,8 @@
+docker: ghcr.io/autamus/dyninst
+url: https://github.com/orgs/autamus/packages/container/package/dyninst
+maintainer: '@vsoch'
+description: DyninstAPI - Tools for binary instrumentation, analysis, and modification.
+latest:
+  11.0.0: sha256:da26a34223860e3770931a67f196474d9181d2c69e80832d6234f35ea22943cc
+tags:
+  11.0.0: sha256:da26a34223860e3770931a67f196474d9181d2c69e80832d6234f35ea22943cc
