@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/gmp"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/gmp/container.yaml"
-updated_at: "2021-05-05 15:43:03.996844"
+updated_at: "2021-05-06 12:52:13.251765"
 container_url: ""
 aliases:
  - "curl"

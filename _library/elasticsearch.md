@@ -3,7 +3,7 @@ layout: container
 name:  "elasticsearch"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/elasticsearch/container.yaml"
-updated_at: "2021-05-05 15:42:55.493348"
+updated_at: "2021-05-06 12:52:02.037329"
 container_url: ""
 aliases:
  - "elasticsearch"
