@@ -6,5 +6,3 @@ latest:
   latest: sha256:ace4f8160eaee416242599f63a740317a99936a417fe99e0780aa09f8ea717ff
 tags:
   latest: sha256:ace4f8160eaee416242599f63a740317a99936a417fe99e0780aa09f8ea717ff
-filter:
-- latest
