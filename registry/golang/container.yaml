@@ -3,11 +3,9 @@ url: https://hub.docker.com/r/_/golang
 maintainer: '@vsoch'
 description: Go (a.k.a., Golang) is a programming language first developed at Google.
 latest:
-  latest: sha256:f7d3519759ba6988a2b73b5874b17c5958ac7d0aa48a8b1d84d66ef25fa345f1
+  latest: sha256:07a471a939cd942ed5c23714185dac476df214f94cf073ef2fbfa748d4926a48
 tags:
-  latest: sha256:f7d3519759ba6988a2b73b5874b17c5958ac7d0aa48a8b1d84d66ef25fa345f1
-filter:
-- latest
+  latest: sha256:07a471a939cd942ed5c23714185dac476df214f94cf073ef2fbfa748d4926a48
 aliases:
   go: /usr/local/go/bin/go
   gofmt: /usr/local/go/bin/gofmt

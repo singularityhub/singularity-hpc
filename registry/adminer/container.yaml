@@ -3,8 +3,6 @@ url: https://hub.docker.com/_/adminer
 maintainer: '@vsoch'
 description: Database management in a single PHP file.
 latest:
-  latest: sha256:a3e73e13e4f3f1bd1007d7a5d75a6bd23846c3252b71ab7a5817de9ffec04826
+  latest: sha256:ace4f8160eaee416242599f63a740317a99936a417fe99e0780aa09f8ea717ff
 tags:
-  latest: sha256:a3e73e13e4f3f1bd1007d7a5d75a6bd23846c3252b71ab7a5817de9ffec04826
-filter:
-- latest
+  latest: sha256:ace4f8160eaee416242599f63a740317a99936a417fe99e0780aa09f8ea717ff
