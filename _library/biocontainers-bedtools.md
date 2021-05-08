@@ -3,8 +3,8 @@ layout: container
 name:  "biocontainers/bedtools"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/biocontainers/bedtools/container.yaml"
-updated_at: "2021-05-08 15:45:07.167856"
-container_url: ""
+updated_at: "2021-05-08 17:35:29.556250"
+container_url: "https://hub.docker.com/r/biocontainers/bedtools"
 aliases:
  - "bedtools"
 

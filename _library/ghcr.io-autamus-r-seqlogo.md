@@ -3,8 +3,8 @@ layout: container
 name:  "ghcr.io/autamus/r-seqlogo"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/r-seqlogo/container.yaml"
-updated_at: "2021-05-08 15:44:40.317347"
-container_url: ""
+updated_at: "2021-05-08 17:35:54.341034"
+container_url: "https://github.com/orgs/autamus/packages/container/package/r-seqlogo"
 
 versions:
  - "1.56.0"

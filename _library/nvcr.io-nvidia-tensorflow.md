@@ -3,8 +3,8 @@ layout: container
 name:  "nvcr.io/nvidia/tensorflow"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/nvcr.io/nvidia/tensorflow/container.yaml"
-updated_at: "2021-05-08 15:45:02.828405"
-container_url: ""
+updated_at: "2021-05-08 17:35:26.414466"
+container_url: "https://ngc.nvidia.com/catalog/containers/nvidia:tensorflow/tags"
 
 versions:
  - "21.02-tf1-py3"
