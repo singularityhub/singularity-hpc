@@ -14,6 +14,7 @@ and **Merged pull requests**. Critical items to know are:
 The versions coincide with releases on pip. Only major versions will be released as tags on Github.
 
 ## [0.0.x](https://github.com/singularityhub/singularity-hpc/tree/master) (0.0.x)
+ - container url does not render in docs (0.0.23)
  - addition of tcl modules, removal of un-needed database (0.0.22)
  - first update of all containers, and bugfix to pull (0.0.21)
  - allowing for a custom container base, container_base (0.0.2)
