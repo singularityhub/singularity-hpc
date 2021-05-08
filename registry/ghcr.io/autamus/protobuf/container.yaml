@@ -5,10 +5,11 @@ description: Protocol Buffers is a method of serializing structured data. It is 
   in developing programs to communicate with each other over a network or for storing
   data.
 latest:
-  3.15.8: sha256:f257c20871d7dd135053e650c14a39c4203a1623ac5b9178e70b1ac2052f923f
+  3.16.0: sha256:fc8106e5c6ffa0400f41af5be4f3977c09cf9b511e5863563b61d56c458b8836
 tags:
   3.15.8: sha256:f257c20871d7dd135053e650c14a39c4203a1623ac5b9178e70b1ac2052f923f
-  latest: sha256:f257c20871d7dd135053e650c14a39c4203a1623ac5b9178e70b1ac2052f923f
+  3.16.0: sha256:fc8106e5c6ffa0400f41af5be4f3977c09cf9b511e5863563b61d56c458b8836
+  latest: sha256:fc8106e5c6ffa0400f41af5be4f3977c09cf9b511e5863563b61d56c458b8836
 aliases:
   protoc: /opt/view/bin/protoc
   protoc-3.15.8.0: /opt/view/bin/protoc-3.15.8.0
