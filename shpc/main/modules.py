@@ -195,7 +195,7 @@ class ModuleBase(BaseClient):
             aliases=aliases,
             versions=config.tags.keys(),
             github_url=github_url,
-            url=config.url,
+            container_url=config.url,
             prefix=self.settings.module_exc_prefix,
             creation_date=datetime.now(),
             name=module_name,
