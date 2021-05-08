@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/protobuf"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/protobuf/container.yaml"
-updated_at: "2021-05-07 08:58:40.488169"
+updated_at: "2021-05-08 15:44:38.183809"
 container_url: ""
 aliases:
  - "protoc"
@@ -12,6 +12,7 @@ aliases:
 
 versions:
  - "3.15.8"
+ - "3.16.0"
  - "latest"
 description: "Protocol Buffers is a method of serializing structured data. It is useful in developing programs to communicate with each other over a network or for storing data."
 ---

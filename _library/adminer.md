@@ -3,10 +3,11 @@ layout: container
 name:  "adminer"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/adminer/container.yaml"
-updated_at: "2021-05-07 08:58:31.614233"
+updated_at: "2021-05-08 15:44:31.602298"
 container_url: ""
 
 versions:
+ - "4.8.0-fastcgi"
  - "latest"
 description: "Database management in a single PHP file."
 ---
@@ -22,7 +23,7 @@ $ shpc install adminer
 Or a specific version:
 
 ```bash
-$ shpc install adminer:latest
+$ shpc install adminer:4.8.0-fastcgi
 ```
 
 And then you can tell lmod about your modules folder:
@@ -34,8 +35,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load adminer/latest
-$ module help adminer/latest
+$ module load adminer/4.8.0-fastcgi
+$ module help adminer/4.8.0-fastcgi
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

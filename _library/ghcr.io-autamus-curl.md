@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/curl"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/curl/container.yaml"
-updated_at: "2021-05-07 08:59:04.838864"
+updated_at: "2021-05-08 15:44:56.603586"
 container_url: ""
 aliases:
  - "c_rehash"

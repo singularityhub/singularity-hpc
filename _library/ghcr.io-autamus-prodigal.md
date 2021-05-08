@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/prodigal"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/prodigal/container.yaml"
-updated_at: "2021-05-07 08:58:46.112063"
+updated_at: "2021-05-08 15:44:42.437702"
 container_url: ""
 aliases:
  - "prodigal"

@@ -3,7 +3,7 @@ layout: container
 name:  "r-base"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/r-base/container.yaml"
-updated_at: "2021-05-07 08:59:16.130638"
+updated_at: "2021-05-08 15:45:04.601248"
 container_url: ""
 aliases:
  - "R"

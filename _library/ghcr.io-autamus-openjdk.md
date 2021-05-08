@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/openjdk"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/openjdk/container.yaml"
-updated_at: "2021-05-07 08:58:37.704406"
+updated_at: "2021-05-08 15:44:36.061545"
 container_url: ""
 aliases:
  - "jaotc"
