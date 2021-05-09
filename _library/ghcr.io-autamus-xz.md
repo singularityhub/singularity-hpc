@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/xz"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/xz/container.yaml"
-updated_at: "2021-05-08 23:45:45.696968"
+updated_at: "2021-05-09 15:34:42.458610"
 container_url: "https://github.com/orgs/autamus/packages/container/package/xz"
 aliases:
  - "xz"
