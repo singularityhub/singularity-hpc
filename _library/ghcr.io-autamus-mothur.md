@@ -3,13 +3,14 @@ layout: container
 name:  "ghcr.io/autamus/mothur"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/mothur/container.yaml"
-updated_at: "2021-05-09 15:34:55.683883"
+updated_at: "2021-05-10 15:19:22.735032"
 container_url: "https://github.com/orgs/autamus/packages/container/package/mothur"
 aliases:
  - "mothur"
 
 versions:
  - "1.45.1"
+ - "1.45.3"
  - "latest"
 description: "A single piece of open-source, expandable software to fill the bioinformatics needs of the microbial ecology community."
 ---
