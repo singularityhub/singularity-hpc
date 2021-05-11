@@ -4,9 +4,10 @@ maintainer: '@vsoch'
 description: Gradle is a build tool with a focus on build automation and support for
   multi-language development.
 latest:
-  7.0.0-hotspot: sha256:25ecb23e3516b697219f5a780bf68598318cf13b35ca616f4521c7e9e115a11e
+  7.0.1-hotspot: sha256:f3207f774a8ceb3286e0b65ca1864cfab639797a307c3d505bc6775adfb28d66
 tags:
-  7.0.0-hotspot: sha256:25ecb23e3516b697219f5a780bf68598318cf13b35ca616f4521c7e9e115a11e
-  latest: sha256:9b0871b0061cae621a5f9ca67359da36810e5aeae3a917f4c78ae3cbed6313a5
+  7.0.0-hotspot: sha256:cef49a7bdb0c53dc0d64ed24f375fb0fdd6e3489d0b4fcd393f0c8c09be11320
+  7.0.1-hotspot: sha256:f3207f774a8ceb3286e0b65ca1864cfab639797a307c3d505bc6775adfb28d66
+  latest: sha256:3bd635d745de79f439e361325149d829d5c316e31a3e65af20a9afeee4db4acc
 aliases:
   gradle: /usr/bin/gradle
