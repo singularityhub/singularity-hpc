@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/kraken2"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/kraken2/container.yaml"
-updated_at: "2021-05-10 15:19:06.558261"
+updated_at: "2021-05-11 13:30:36.248420"
 container_url: "https://github.com/orgs/autamus/packages/container/package/kraken2"
 aliases:
  - "kraken2"
@@ -16,6 +16,7 @@ aliases:
 
 versions:
  - "2.1.1"
+ - "2.1.2"
  - "latest"
 description: "Kraken 2 is the newest version of Kraken, a taxonomic classification system using exact k-mer matches to achieve high accuracy and fast classification speeds."
 ---
