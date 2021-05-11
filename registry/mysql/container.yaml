@@ -3,11 +3,9 @@ url: https://hub.docker.com/r/_/mysql
 maintainer: '@vsoch'
 description: MySQL is the world's most popular open source database.
 latest:
-  latest: sha256:04ee7141256e83797ea4a84a4d31b1f1bc10111c8d1bc1879d52729ccd19e20a
+  latest: sha256:cd42db5e061f8d1b1854e5fe597ad7ab9b9a5198ca1a2a560e5c4135b2d2b005
 tags:
-  latest: sha256:04ee7141256e83797ea4a84a4d31b1f1bc10111c8d1bc1879d52729ccd19e20a
-filter:
-- latest
+  latest: sha256:cd42db5e061f8d1b1854e5fe597ad7ab9b9a5198ca1a2a560e5c4135b2d2b005
 aliases:
   mysql: /usr/bin/mysql
   mysql_config_editor: /usr/bin/mysql_config_editor
