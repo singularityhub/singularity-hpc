@@ -7,8 +7,6 @@ latest:
   latest: sha256:6cddb3822e19f09a6a369c35680562ddd2e44bd3bfd6fe25ec6456c42f45728b
 tags:
   latest: sha256:6cddb3822e19f09a6a369c35680562ddd2e44bd3bfd6fe25ec6456c42f45728b
-filter:
-- latest
 aliases:
   redis-benchmark: /usr/local/bin/redis-benchmark
   redis-check-aof: /usr/local/bin/redis-check-aof
