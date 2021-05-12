@@ -7,8 +7,6 @@ latest:
   latest: sha256:bdb1933c8b24cfd0ec8e38de28c6599dd35b70f9289bfdf9e4f46b1d323e9314
 tags:
   latest: sha256:bdb1933c8b24cfd0ec8e38de28c6599dd35b70f9289bfdf9e4f46b1d323e9314
-filter:
-- latest
 aliases:
   clusterdb: /usr/lib/postgresql/13/bin/clusterdb
   createdb: /usr/lib/postgresql/13/bin/createdb
