@@ -7,8 +7,6 @@ latest:
   latest: sha256:0a63efa1831b00397f234668c8cc1257bcc426da965679fabd204b6cc51063b9
 tags:
   latest: sha256:0a63efa1831b00397f234668c8cc1257bcc426da965679fabd204b6cc51063b9
-filter:
-- latest
 aliases:
   bundle: /usr/local/bin/bundle
   bundler: /usr/local/bin/bundler
