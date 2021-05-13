@@ -3,7 +3,7 @@ layout: container
 name:  "jupyter/pyspark-notebook"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/jupyter/pyspark-notebook/container.yaml"
-updated_at: "2021-05-12 15:40:35.902323"
+updated_at: "2021-05-13 14:46:46.487817"
 container_url: "https://hub.docker.com/r/jupyter/pyspark-notebook"
 aliases:
  - "run-notebook"

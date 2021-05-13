@@ -3,7 +3,7 @@ layout: container
 name:  "ruby"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ruby/container.yaml"
-updated_at: "2021-05-12 15:40:33.907355"
+updated_at: "2021-05-13 14:46:44.099694"
 container_url: "https://hub.docker.com/_/ruby"
 aliases:
  - "bundle"
@@ -31,6 +31,7 @@ aliases:
  - "typeprof"
 
 versions:
+ - "3.0.1-alpine"
  - "latest"
 description: "Ruby is a dynamic, reflective, object-oriented, general-purpose, open-source programming language."
 ---
@@ -46,7 +47,7 @@ $ shpc install ruby
 Or a specific version:
 
 ```bash
-$ shpc install ruby:latest
+$ shpc install ruby:3.0.1-alpine
 ```
 
 And then you can tell lmod about your modules folder:
@@ -58,8 +59,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ruby/latest
-$ module help ruby/latest
+$ module load ruby/3.0.1-alpine
+$ module help ruby/3.0.1-alpine
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

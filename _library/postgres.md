@@ -3,7 +3,7 @@ layout: container
 name:  "postgres"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/postgres/container.yaml"
-updated_at: "2021-05-12 15:40:38.448792"
+updated_at: "2021-05-13 14:46:49.524278"
 container_url: "https://hub.docker.com/r/_/postgres"
 aliases:
  - "clusterdb"
@@ -75,6 +75,7 @@ aliases:
  - "vacuumlo"
 
 versions:
+ - "13.2-alpine"
  - "latest"
 description: "PostgreSQL, often simply 'Postgres', is an object-relational database management system (ORDBMS) with an emphasis on extensibility and standards-compliance."
 ---
@@ -90,7 +91,7 @@ $ shpc install postgres
 Or a specific version:
 
 ```bash
-$ shpc install postgres:latest
+$ shpc install postgres:13.2-alpine
 ```
 
 And then you can tell lmod about your modules folder:
@@ -102,8 +103,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load postgres/latest
-$ module help postgres/latest
+$ module load postgres/13.2-alpine
+$ module help postgres/13.2-alpine
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
