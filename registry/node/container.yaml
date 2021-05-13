@@ -9,7 +9,7 @@ tags:
   15.14.0-alpine: sha256:3ca0132180509b9fd68545b2232dd9fc01726c06fc36b772389d41b82d81a8de
   16.0.0-alpine: sha256:fabc6adac6dba5e150130e10acfc11a81447be93f4bf384076abdb63dbd34033
   16.1.0-alpine: sha256:8704247878fe10eddfcb5c26540112b15e50d21ce8e5c7a7f6caf5cf857de219
-  latest: sha256:160ff8d8211c94e651604bb2414b2cacea36472fd8495f95e43bcd01d063e4ab
+  latest: sha256:fc7a47442a743e34050576adea835cd0fec7f3f75039c9393010b1735d42cef9
 aliases:
   node: /usr/local/bin/node
   nodejs: /usr/local/bin/nodejs
