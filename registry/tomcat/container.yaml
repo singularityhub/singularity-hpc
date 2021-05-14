@@ -4,7 +4,8 @@ maintainer: '@vsoch'
 description: Apache Tomcat is an open source implementation of the Java Servlet and
   JavaServer Pages technologies
 latest:
-  10.0.5-jdk11-adoptopenjdk-hotspot: sha256:a7418f29d3dd7ad20bcf052b3b6dc2777d118344286c6374bc447fb217a97c08
+  10.0.6-jdk11-adoptopenjdk-hotspot: sha256:902dac765990548da3cc4564630349bbd97de09526f254edb8b0961c9dda8374
 tags:
   10.0.5-jdk11-adoptopenjdk-hotspot: sha256:a7418f29d3dd7ad20bcf052b3b6dc2777d118344286c6374bc447fb217a97c08
-  latest: sha256:906baf28bd9a929544c87f649edcb9780e9739678e833be5a7a62a47f7ff2dd3
+  10.0.6-jdk11-adoptopenjdk-hotspot: sha256:902dac765990548da3cc4564630349bbd97de09526f254edb8b0961c9dda8374
+  latest: sha256:10842dab06b5e52233ad977d4689522d4fbaa9c21e6df387d7a530e02316fb45
