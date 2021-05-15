@@ -3,7 +3,7 @@ layout: container
 name:  "bids/validator"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/bids/validator/container.yaml"
-updated_at: "2021-05-14 14:52:57.037525"
+updated_at: "2021-05-15 14:09:47.980258"
 container_url: "https://hub.docker.com/r/bids/validator"
 aliases:
  - "bids-validator"
@@ -12,6 +12,7 @@ versions:
  - "latest"
  - "v1.7.0"
  - "v1.7.1"
+ - "v1.7.3-dev.0"
 description: "A validator for BIDS (Brain Imaging Data Structure) datasets."
 ---
 

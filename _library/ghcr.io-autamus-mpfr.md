@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/mpfr"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/mpfr/container.yaml"
-updated_at: "2021-05-14 14:53:06.584754"
+updated_at: "2021-05-15 14:09:57.855306"
 container_url: "https://github.com/orgs/autamus/packages/container/package/mpfr"
 
 versions:

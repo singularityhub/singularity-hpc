@@ -3,7 +3,7 @@ layout: container
 name:  "rocker/rstudio"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/rocker/rstudio/container.yaml"
-updated_at: "2021-05-14 14:52:55.787140"
+updated_at: "2021-05-15 14:09:46.704863"
 container_url: "https://hub.docker.com/r/rocker/rstudio"
 aliases:
  - "R"
