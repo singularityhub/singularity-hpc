@@ -3,7 +3,7 @@ layout: container
 name:  "nvcr.io/hpc/lammps"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/nvcr.io/hpc/lammps/container.yaml"
-updated_at: "2021-05-16 20:39:49.394815"
+updated_at: "2021-05-17 14:28:30.368481"
 container_url: "https://ngc.nvidia.com/catalog/containers/hpc:lammps/tags"
 
 versions:

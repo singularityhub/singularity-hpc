@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/julia"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/julia/container.yaml"
-updated_at: "2021-05-16 20:39:30.893080"
+updated_at: "2021-05-17 14:28:08.247534"
 container_url: "https://github.com/orgs/autamus/packages/container/package/julia"
 aliases:
  - "julia"

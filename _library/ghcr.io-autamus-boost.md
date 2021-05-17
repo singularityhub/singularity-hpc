@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/boost"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/boost/container.yaml"
-updated_at: "2021-05-16 20:39:42.069345"
+updated_at: "2021-05-17 14:28:21.633300"
 container_url: "https://github.com/orgs/autamus/packages/container/package/boost"
 
 versions:
