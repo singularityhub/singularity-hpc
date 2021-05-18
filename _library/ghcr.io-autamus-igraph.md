@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/igraph"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/igraph/container.yaml"
-updated_at: "2021-05-17 14:28:07.406263"
+updated_at: "2021-05-18 14:04:26.232577"
 container_url: "https://github.com/orgs/autamus/packages/container/package/igraph"
 
 versions:
