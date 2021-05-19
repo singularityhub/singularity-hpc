@@ -3,7 +3,7 @@ layout: container
 name:  "php"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/php/container.yaml"
-updated_at: "2021-05-18 14:04:40.105710"
+updated_at: "2021-05-19 12:16:57.892116"
 container_url: "https://hub.docker.com/_/php"
 aliases:
  - "php"
