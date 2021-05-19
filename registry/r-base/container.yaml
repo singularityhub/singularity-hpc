@@ -6,8 +6,6 @@ latest:
   latest: sha256:bb4c6d75aa1ee2675de80ce663bdcd668c399245b01463c9a18a6fe3579b54dd
 tags:
   latest: sha256:bb4c6d75aa1ee2675de80ce663bdcd668c399245b01463c9a18a6fe3579b54dd
-filter:
-- latest
 aliases:
   R: /usr/bin/R
   Rscript: /usr/bin/Rscript
