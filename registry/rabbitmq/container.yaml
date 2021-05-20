@@ -7,7 +7,7 @@ latest:
 tags:
   3.8.15-rc.2-alpine: sha256:56682567544860464b89625edbd28b524ca12aa5cae4e76ee9e5b887a2db7a06
   3.8.16-alpine: sha256:27582b160c2c4194826083c91ebcbff631bfbcd16a1bd9358872f0dabd523fba
-  latest: sha256:bab178419907cdbc561c0222ac4cdbbbdea2d390dab0a84d7972be3bdb537d13
+  latest: sha256:e93170cb83032b0f88daff054ea5da2465229f851537a4e938726652b2c04c70
 aliases:
   rabbitmq-defaults: /opt/rabbitmq/sbin/rabbitmq-defaults
   rabbitmq-diagnostics: /opt/rabbitmq/sbin/rabbitmq-diagnostics

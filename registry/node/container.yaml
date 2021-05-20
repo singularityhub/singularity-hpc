@@ -4,12 +4,13 @@ maintainer: '@vsoch'
 description: Node.js is a software platform for scalable server-side and networking
   applications.
 latest:
-  16.1.0-alpine: sha256:8704247878fe10eddfcb5c26540112b15e50d21ce8e5c7a7f6caf5cf857de219
+  16.2.0-alpine: sha256:65f488a99e7eb9899dd4ed35cadbea85f64eb3d51604962375bc118a2082f4e5
 tags:
   15.14.0-alpine: sha256:3ca0132180509b9fd68545b2232dd9fc01726c06fc36b772389d41b82d81a8de
   16.0.0-alpine: sha256:fabc6adac6dba5e150130e10acfc11a81447be93f4bf384076abdb63dbd34033
   16.1.0-alpine: sha256:8704247878fe10eddfcb5c26540112b15e50d21ce8e5c7a7f6caf5cf857de219
-  latest: sha256:fc7a47442a743e34050576adea835cd0fec7f3f75039c9393010b1735d42cef9
+  16.2.0-alpine: sha256:65f488a99e7eb9899dd4ed35cadbea85f64eb3d51604962375bc118a2082f4e5
+  latest: sha256:025d33d7797aaad52c0e3c96699814946093d4b50f792ec35cbd2f57278b94f2
 aliases:
   node: /usr/local/bin/node
   nodejs: /usr/local/bin/nodejs
