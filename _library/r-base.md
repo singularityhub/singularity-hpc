@@ -3,7 +3,7 @@ layout: container
 name:  "r-base"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/r-base/container.yaml"
-updated_at: "2021-05-19 12:17:32.921765"
+updated_at: "2021-05-20 15:24:53.506533"
 container_url: "https://hub.docker.com/_/r-base"
 aliases:
  - "R"
@@ -11,6 +11,7 @@ aliases:
  - "Rscript"
 
 versions:
+ - "4.1.0"
  - "latest"
 description: "R is a system for statistical computation and graphics."
 ---
@@ -26,7 +27,7 @@ $ shpc install r-base
 Or a specific version:
 
 ```bash
-$ shpc install r-base:latest
+$ shpc install r-base:4.1.0
 ```
 
 And then you can tell lmod about your modules folder:
@@ -38,8 +39,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load r-base/latest
-$ module help r-base/latest
+$ module load r-base/4.1.0
+$ module help r-base/4.1.0
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
