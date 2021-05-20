@@ -4,9 +4,10 @@ maintainer: '@vsoch'
 description: Ruby is a dynamic, reflective, object-oriented, general-purpose, open-source
   programming language.
 latest:
-  latest: sha256:091ee4779c0d90155b6d1a317855ce64714e6485f9db4413c812ddd112df7dc7
+  3.0.1-alpine: sha256:944eae3da4a1fa4beb9796e62a9bdcac627800eb56dbc6f668dfb9b15e58719f
 tags:
-  latest: sha256:091ee4779c0d90155b6d1a317855ce64714e6485f9db4413c812ddd112df7dc7
+  3.0.1-alpine: sha256:944eae3da4a1fa4beb9796e62a9bdcac627800eb56dbc6f668dfb9b15e58719f
+  latest: sha256:aea7b356effbb6c27500e456859948731f83e58d3502aa083802552c9fddd0c3
 aliases:
   bundle: /usr/local/bin/bundle
   bundler: /usr/local/bin/bundler
@@ -20,5 +21,3 @@ aliases:
   ri: /usr/local/bin/ri
   ruby: /usr/local/bin/ruby
   typeprof: /usr/local/bin/typeprof
-filter:
-- latest
