@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/fraggenescan"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/fraggenescan/container.yaml"
-updated_at: "2021-05-20 15:24:18.374132"
+updated_at: "2021-05-20 18:41:34.065896"
 container_url: "https://github.com/orgs/autamus/packages/container/package/fraggenescan"
 
 versions:
