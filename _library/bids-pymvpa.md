@@ -3,7 +3,7 @@ layout: container
 name:  "bids/pymvpa"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/bids/pymvpa/container.yaml"
-updated_at: "2021-05-21 09:55:39.738229"
+updated_at: "2021-05-22 15:46:59.332164"
 container_url: "https://hub.docker.com/r/bids/pymvpa"
 
 versions:

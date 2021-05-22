@@ -3,11 +3,12 @@ layout: container
 name:  "ghcr.io/autamus/ascent"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/ascent/container.yaml"
-updated_at: "2021-05-21 09:55:20.886891"
+updated_at: "2021-05-22 15:46:42.124977"
 container_url: "https://github.com/orgs/autamus/packages/container/package/ascent"
 
 versions:
  - "0.7.0"
+ - "0.7.1"
  - "latest"
 description: "An open source many-core capable lightweight in situ visualization and analysis infrastructure for multi-physics HPC simulations."
 ---
