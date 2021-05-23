@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/rust"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/rust/container.yaml"
-updated_at: "2021-05-22 15:46:32.849941"
+updated_at: "2021-05-23 12:56:40.937227"
 container_url: "https://github.com/orgs/autamus/packages/container/package/rust"
 aliases:
  - "cargo"
@@ -30,6 +30,7 @@ aliases:
 
 versions:
  - "1.50.0"
+ - "1.52.1"
  - "latest"
 description: "Rust is a multi-paradigm programming language designed for performance and safety, especially safe concurrency."
 ---
