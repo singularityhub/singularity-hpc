@@ -3,7 +3,7 @@ layout: container
 name:  "bids/brainsautoworkup"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/bids/brainsautoworkup/container.yaml"
-updated_at: "2021-05-23 12:57:13.502378"
+updated_at: "2021-05-24 15:03:21.547667"
 container_url: "https://hub.docker.com/r/bids/brainsautoworkup"
 
 versions:
