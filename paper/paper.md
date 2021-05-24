@@ -28,7 +28,7 @@ Portability and reproducibility of complex software stacks is essential for rese
 Singularity Registry HPC (shpc) is the first of its kind to provide an easy means for a researcher to add their research software for sharing and collaboration with other researchers to an existing collection of over 200 popular scientific libraries [@da2017biocontainers; @noauthor_undated-kp, @gorgolewski2017bids; @gamblin2015spack; @autamus]. The software installs these containers as environment modules [@McLay2011-wu] that are easy to use and read documentation for, and exposes aliases for commands in the container that the researcher can add to his or her pipeline without thinking about complex interactions with a container. The simple addition of an entry to the registry maintained by shpc comes down to adding a yaml file, and after doing this, another researcher can easily install the same software, down to the digest, to reproduce the original work.
 
 
-## Background
+## Statement of Need
 
 Using environment modules [@McLay2011-wu] on HPC clusters is a common
 trend. Although writing the recipes can be complex, it's a fairly common practice for cluster administrators to provide
