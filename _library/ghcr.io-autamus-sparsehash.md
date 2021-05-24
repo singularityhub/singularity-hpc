@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/sparsehash"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/sparsehash/container.yaml"
-updated_at: "2021-05-24 15:02:55.534661"
+updated_at: "2021-05-24 15:21:49.432225"
 container_url: "https://github.com/orgs/autamus/packages/container/package/sparsehash"
 
 versions:
