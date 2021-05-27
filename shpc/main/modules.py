@@ -49,6 +49,15 @@ class ModuleBase(BaseClient):
                 break
             shutil.rmtree(module_dir)
 
+    @property
+    def container_base(self):
+        """
+        Quickly return what is being used for the container base
+        """
+        if not self.settings.container_base:
+            return self.settings.module_base
+        return self.settings.container_base
+
     def container_dir(self, name):
         """
         Use a custom container directory, otherwise default to module dir.
@@ -213,9 +222,8 @@ class ModuleBase(BaseClient):
         """
         Return complete metadata for the user from a container.
         """
-        module_dir = os.path.join(self.settings.module_base, module_name)
-        if not os.path.exists(module_dir):
-            logger.exit("%s does not exist." % module_dir)
+        if not os.path.exists(self.container_base):
+            logger.exit("%s does not exist." % self.container_base)
 
         sif = self.get(module_name)
         return self._container.inspect(sif[0])
