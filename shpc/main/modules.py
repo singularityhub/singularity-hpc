@@ -94,7 +94,7 @@ class ModuleBase(BaseClient):
         Run specific tests for this module
         """
         # Generate a test template
-        template = self._load_template(template)
+        template = self._load_template(template or "test.sh")
         test_file = os.path.join(module_dir, "test.sh")
 
         # Generate the test script
@@ -116,7 +116,7 @@ class ModuleBase(BaseClient):
 
     def add(self, sif, module_name):
         """
-        Add a container directly as a module
+        Add a container directly as a module, copying the file.
         """
         registry_dir = self.settings.registry
 
@@ -143,7 +143,7 @@ class ModuleBase(BaseClient):
         name = module_name.replace("/", "-")
         digest = utils.get_file_hash(sif)
         dest = os.path.join(container_dir, "%s-sha256:%s.sif" % (name, digest))
-        shutil.move(sif, dest)
+        shutil.copyfile(sif, dest)
         self._install(module_dir, dest, name)
         logger.info("Module %s was created." % (module_name))
 
