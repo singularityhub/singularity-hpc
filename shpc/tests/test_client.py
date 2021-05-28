@@ -86,6 +86,19 @@ def test_inspect(tmp_path, module_sys):
 
 
 @pytest.mark.parametrize("module_sys", [("lmod"), ("tcl")])
+def test_namespace_and_show(tmp_path, module_sys):
+    """Test namespace and show"""
+    client = init_client(str(tmp_path), module_sys)
+    client.show("vanessa/salad:latest")
+
+    with pytest.raises(SystemExit):
+        client.show("salad:latest")
+    client.settings.set("namespace", "vanessa")
+    client.show("salad:latest")
+    client.settings.set("namespace", None)
+
+
+@pytest.mark.parametrize("module_sys", [("lmod"), ("tcl")])
 def test_check(tmp_path, module_sys):
     """Test check"""
     client = init_client(str(tmp_path), module_sys)
