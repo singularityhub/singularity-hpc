@@ -57,6 +57,9 @@ Resources
 `Singularity HPC Library <https://github.com/singularityhub/singularity-hpc/issues>`_
     Shows modules available to install as containers.
 
+`Autamus Registry <https://autamus.io>`_
+    Provides many of the shpc container modules, built directly from spack.
+
 
 .. toctree::
    :caption: Getting started

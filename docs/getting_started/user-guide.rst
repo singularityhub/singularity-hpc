@@ -206,6 +206,9 @@ A summary table of variables is included below, and then further discussed in de
    * - singularity_shell
      - exported to SINGULARITY_SHELL, defaults to /bin/bash.
      - /bin/bash
+   * - namespace
+     - Set a default module namespace that you want to install from.
+     - null
 
 
 
@@ -339,16 +342,29 @@ Config
 ------
 
 If you want to edit a configuration value, you can either edit the ``shpc/settings.yml``
-file directly, or you can use ``shpc config``. The following example shows changing
-the default module_base path from the install directory modules folder.
+file directly, or you can use ``shpc config``, which will accept:
+
+ - set to set a parameter and value
+ - get to get a parameter by name
+
+
+The following example shows changing the default module_base path from the install directory modules folder.
 
 .. code-block:: console
 
     # an absolute path
-    $ shpc config module_base:/opt/lmod/modules
+    $ shpc config set module_base:/opt/lmod/modules
 
     # or a path relative to the install directory, remember to escape the "$"
-    $ shpc config module_base:\$install_dir/modules
+    $ shpc config set module_base:\$install_dir/modules
+
+
+And then to get values:
+
+.. code-block:: console
+
+    $ shpc config get module_base
+
 
 
 Show and Install
@@ -419,6 +435,70 @@ Note that LMOD is the default for the module system, and Singularity for
 the container technology.
 If you don't have any module software on your system, you can now test interacting
 with the module via the :ref:`getting_started-development` instructions.
+
+
+Namespace
+---------
+
+Let's say that you are exclusively using continers in the namespace ghcr.io/autamus.
+
+.. code-block:: console
+
+    registry/ghcr.io/
+    └── autamus
+        ├── abi-dumper
+        ├── abyss
+        ├── accumulo
+        ├── addrwatch
+        ...
+        ├── xrootd
+        ├── xz
+        └── zlib
+
+
+It can become arduous to type the entire namespace every time! For this purpose,
+you can set a namespace:
+
+.. code-block:: console
+
+    $ shpc namespace use ghcr.io/autamus
+
+And then instead of asking to install clingo as follows:
+
+.. code-block:: console
+
+    $ shpc install ghcr.io/autamus/clingo
+    
+
+You can simply ask for:
+
+
+.. code-block:: console
+
+    $ shpc install clingo
+    
+    
+And when you are done, unset the namespace.
+
+
+.. code-block:: console
+
+    $ shpc namespace unset
+
+
+Note that you can also set the namespace as any other setting:
+
+.. code-block:: console
+
+    $ shpc config set namespace:ghcr.io/autamus
+
+Namespaces currently work with:
+
+ - install
+ - uninstall
+ - show
+ - add
+ - check
 
 List
 ----

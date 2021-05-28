@@ -62,6 +62,7 @@ class ModuleBase(BaseClient):
         Given a unique resource identifier, uninstall a module
         """
         # The name can either be a folder or an install directory
+        name = self.add_namespace(name)
         module_dir = os.path.join(self.settings.module_base, name)
         container_dir = self.container_dir(name)
         if container_dir != module_dir:
@@ -118,6 +119,7 @@ class ModuleBase(BaseClient):
         """
         Add a container directly as a module
         """
+        name = self.add_namespace(module_name)
         registry_dir = self.settings.registry
 
         # Ensure the container exists
@@ -234,7 +236,7 @@ class ModuleBase(BaseClient):
             if names_only:
                 out.write("%s\n" % module_name)
             else:
-                out.write("%s: %s\n" % (module_name, ", ".join(versions)))
+                out.write("%s: %s\n" % (module_name.rjust(30), ", ".join(versions)))
 
     def _get_module_lookup(self, base, filename, pattern=None):
         """A shared function to get a lookup of installed modules or registry entries"""
@@ -256,6 +258,8 @@ class ModuleBase(BaseClient):
         at updates for entire tags. If a specific folder is provided with
         a container, check the digest.
         """
+        module_name = self.add_namespace(module_name)
+
         # If a tag is provided, convert to directory
         module_name = module_name.replace(":", os.sep)
 
@@ -333,6 +337,7 @@ class ModuleBase(BaseClient):
         container to it, and writing a module file there. We've already
         grabbed the name from docker (which is currently the only supported).
         """
+        name = self.add_namespace(name)
         config = self._load_container(name, tag)
 
         # The chosen tag is set for the config (or defaults to latest)

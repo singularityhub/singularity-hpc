@@ -76,9 +76,9 @@ You'll next want to configure and create your registry, discussed next in
 .. code-black:: console
  
 
-    $ shpc config registry:/<DIR>
-    $ shpc config lmod_base:/<DIR> 
-    $ shpc config container_base:/<DIR> 
+    $ shpc config set registry:/<DIR>
+    $ shpc config set lmod_base:/<DIR> 
+    $ shpc config set container_base:/<DIR> 
 
 
 You can also easily (manually) update any settings in the ``shpc/settings.yaml`` file. 
