@@ -116,5 +116,5 @@ def test_add(tmp_path, module_sys):
     # Create a copy of the latest image to add
     container = os.path.join(str(tmp_path), "salad_latest.sif")
     shutil.copyfile(os.path.join(here, "testdata", "salad_latest.sif"), container)
-    client.add(container, "vanessa/salad/latest")
-    assert client.get("vanessa/salad/latest")
+    client.add(container, "dinosaur/salad/latest")
+    assert client.get("dinosaur/salad/latest")
