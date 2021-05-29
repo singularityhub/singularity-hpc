@@ -7,6 +7,7 @@ from shpc.logger import logger
 from datetime import datetime
 import shpc.utils as utils
 import shpc.defaults as defaults
+import shpc.main.templates
 from jinja2 import Template
 
 from glob import glob
@@ -389,6 +390,7 @@ class ModuleBase(BaseClient):
 
         # prepare aliases
         aliases = config.get_aliases()
+        envars = config.get_envars()
 
         self._install(
             module_dir,
@@ -399,8 +401,19 @@ class ModuleBase(BaseClient):
             description=config.description,
             version=tag.name,
         )
+
+        # Write the environment file to be bound to the container
+        self._add_environment(module_dir, envars)
         logger.info("Module %s/%s was created." % (config.name, tag.name))
         return container_path
+
+    def _add_environment(self, module_dir, envars):
+        """
+        Given one or more environment variables in a dictionary, write to file
+        """
+        out = Template(shpc.main.templates.environment_file).render(envars=envars)
+        env_file = os.path.join(module_dir, self.settings.environment_file)
+        utils.write_file(env_file, out)
 
     def _install(
         self,
@@ -461,5 +474,6 @@ class ModuleBase(BaseClient):
             creation_date=datetime.now(),
             name=name,
             flatname=name.replace("/", "-"),
+            envfile=self.settings.environment_file,
         )
         utils.write_file(module_path, out)

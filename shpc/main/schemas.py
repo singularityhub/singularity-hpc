@@ -57,6 +57,7 @@ containerConfigProperties = {
         "type": "array",
         "items": {"type": "string"},
     },
+    "env": aliases,
     "aliases": {
         "oneOf": [
             aliases,

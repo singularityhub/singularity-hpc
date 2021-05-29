@@ -31,3 +31,7 @@ singularity_shell: /bin/bash
 # the module namespace you want to install from. E.g., if you have ghcr.io/autamus/clingo
 # and you set the namespace to ghcr.io/autamus, you can just do: shpc install clingo.
 namespace: null
+
+# THe name of the environment file to bind to the container.
+# This determines order of load
+environment_file: "99-shpc.sh"

@@ -209,6 +209,9 @@ A summary table of variables is included below, and then further discussed in de
    * - namespace
      - Set a default module namespace that you want to install from.
      - null
+   * - environment_file
+     - The name of the environment file to generate and bind to the container.
+     - 99-shpc.sh
 
 
 
@@ -721,6 +724,7 @@ bypython (per what is available on your system). To start a shell:
 
     $ shpc shell
 
+
 or with a specific interpreter:
 
 .. code-block:: console
@@ -937,6 +941,51 @@ Since we want to add the "--nv" flag, we add it as an option. Keep in mind
 that since we have a list, you technically could provide duplicate commands.
 However, the list is parsed into a dictionary, so only unique values are 
 enforced. If you accidentally have a repeated value, a warning will be printed.
+
+Environment Variables
+---------------------
+
+
+Finally, each recipe has an optional section for environment variables. For
+example, the container ``vanessa/salad`` shows definition of one environment
+variable:
+
+.. code-block:: yaml
+
+    docker: vanessa/salad
+    url: https://hub.docker.com/r/vanessa/salad
+    maintainer: '@vsoch'
+    description: A container all about fork and spoon puns.
+    latest:
+      latest: sha256:e8302da47e3200915c1d3a9406d9446f04da7244e4995b7135afd2b79d4f63db
+    tags:
+      latest: sha256:e8302da47e3200915c1d3a9406d9446f04da7244e4995b7135afd2b79d4f63db
+    aliases:
+      salad: /code/salad
+    env:
+      maintainer: vsoch
+
+And then during build, this variable is written to a ``99-shpc.sh`` file that
+is mounted into the countainer. For the above, the following will be written:
+
+.. code-block:: console
+
+    export maintainer=vsoch
+
+If a recipe does not have environment variables in the container.yaml, you have
+two options for adding a variable after install. For a more permanent solution,
+you can update the container.yaml file and install again. The container won't
+be re-pulled, but the environment file will be re-generated. If you want to 
+manually add them to the container, each module folder will have an environment
+file added regardless of having this section or not, so you can export them there.
+When you shell, exec, or run the container (all but inspect) you should be able
+to see your environment variables:
+
+.. code-block:: console
+
+    $ echo $maintainer
+    vsoch
+
 
 Singularity Deploy
 ------------------

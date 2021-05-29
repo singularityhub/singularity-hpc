@@ -214,6 +214,12 @@ class ContainerConfig:
         """
         jsonschema.validate(instance=self._config, schema=schemas.containerConfig)
 
+    def get_envars(self):
+        """
+        Return loaded environment variables.
+        """
+        return dict(self.env) if self.env else {}
+
     def get_aliases(self):
         """
         Return a consistently formatted list of aliases

@@ -55,6 +55,8 @@ def test_install_get(tmp_path, module_sys, module_file):
     assert os.path.exists(module_dir)
     module_file = os.path.join(module_dir, module_file)
     assert os.path.exists(module_file)
+    env_file = os.path.join(module_dir, client.settings.environment_file)
+    assert os.path.exists(env_file)
 
     assert client.get("python/3.9.2-alpine")
 
