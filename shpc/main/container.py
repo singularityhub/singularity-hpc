@@ -140,6 +140,95 @@ class SingularityContainer(ContainerTechnology):
         return self.client.pull(url, name=name, pull_folder=os.path.dirname(dest))
 
 
+class PodmanContainer(ContainerTechnology):
+    """
+    A Podman container controleer.
+    """
+
+    # The module technology adds extensions here
+    templatefile = "podman"
+
+    # TODO: how to define gpu for podman
+    features = {"gpu": {"nvidia": "", "amd": ""}}
+
+    def __init__(self):
+        print("INIT")
+        import IPython
+        IPython.embed()
+        try:
+            from spython.main import Client
+
+            self.client = Client
+        except:
+            logger.exit("podman (pip install podman) is required to use podman.")
+
+    def shell(self, image):
+        """
+        Interactive shell into a container image.
+        """
+        print("SHELL")
+        import IPython
+        IPython.embed()
+        self.client.shell(image)
+
+    def pull(self, uri, dest):
+        """
+        Pull a container to a destination
+        """
+        print("PULL")
+        import IPython
+        IPython.embed()
+
+        if re.search("^(docker|shub|https)", uri):
+            return self._pull(uri, dest)
+        elif uri.startswith("gh://"):
+            return self._pull_github(uri, dest)
+
+    def _pull(self, uri, dest):
+        """
+        Pull a URI that Singularity recognizes
+        """
+        pull_folder = os.path.dirname(dest)
+        name = os.path.basename(dest)
+        return self.client.pull(uri, name=name, pull_folder=pull_folder)
+
+    def inspect(self, image):
+        """
+        Inspect an image and return metadata.
+        """
+        return self.client.inspect(image)
+
+    def _pull_github(self, uri, dest=None):
+        """
+        Pull a singularity-deploy container to a destination
+        """
+        # Assemble the url based on the container uri
+        uri = uri.replace("gh://", "", 1)
+
+        # repository name and image prefix
+        repo = "/".join(uri.split("/")[0:2])
+        prefix = repo.replace("/", "-")
+
+        # The tag includes release and contianer tag (e.g., 0.0.1:latest)
+        tag = uri.replace(repo, "", 1).strip("/")
+        github_tag, container_tag = tag.split(":", 1)
+
+        # Assemble the artifact url
+        url = "https://github.com/%s/releases/download/%s/%s.%s.sif" % (
+            repo,
+            github_tag,
+            prefix,
+            container_tag,
+        )
+
+        # If no destination, default to present working directory
+        if not dest:
+            dest = os.path.basename(url)
+        name = os.path.basename(dest)
+        return self.client.pull(url, name=name, pull_folder=os.path.dirname(dest))
+
+
+
 class Tags:
     """Make it easy to interact with tags (name and version)"""
 

@@ -40,8 +40,11 @@ def get_client(quiet=False, **kwargs):
     # Add the container operator
     if container == "singularity":
         from .container import SingularityContainer
-
         Client._container = SingularityContainer()
+
+    elif container == "podman"
+        from .container import PodmanContainer
+        Client._container = PodmanContainer()
 
     # Give the user a warning:
     if not check_install():

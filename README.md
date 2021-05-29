@@ -4,11 +4,16 @@
 
 ![https://raw.githubusercontent.com/singularityhub/singularity-hpc/main/docs/assets/img/shpc.png](https://raw.githubusercontent.com/singularityhub/singularity-hpc/main/docs/assets/img/shpc.png)
 
-Singularity HPC is based off of the [Singularity Registry Client](https://github.com/singularityhub/sregistry-cli), but instead of
-being intended for general interaction with Singularity containers and a local database, it's optimized for managing containers
-in an HPC environment. Currently, this includes:
+Singularity HPC is optimized for managing containers in an HPC environment. Currently, this includes
+module technologies:
 
  - [LMOD](https://lmod.readthedocs.io/en/latest/)
+ - [Environment Modules](http://modules.sourceforge.net/)
+
+And container technologies:
+
+ - [Singularity](https://github.com/sylabs/singularity)
+ - [Podman](https://podman.io)
 
 You can use shpc if you are:
 
@@ -29,11 +34,6 @@ There are other tools that you might be interested in!
  - [Community Collections](https://github.com/community-collections/community-collections)
  - [Spack](https://spack.readthedocs.io/en/latest/module_file_support.html) installs modules for software built from source (not containers).
  
-## TODOS
- 
- - add other registry containers
- - the admin that runs shpc should have an easier way to see commands (other than lmod)
- - ensure that we print columns to shpc list
 
 ## License
 

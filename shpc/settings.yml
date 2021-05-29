@@ -7,7 +7,7 @@
 # please open an issue https://github.com/singularityhub/singularity-hpc
 module_sys: lmod
 
-# set a default container technology (currently only singularity supported)
+# set a default container technology (singularity or podman)
 container_tech: singularity
 
 # Registry Recipes (currently we support just one path)

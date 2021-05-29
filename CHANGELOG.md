@@ -13,7 +13,8 @@ and **Merged pull requests**. Critical items to know are:
 
 The versions coincide with releases on pip. Only major versions will be released as tags on Github.
 
-## [0.0.x](https://github.com/singularityhub/singularity-hpc/tree/master) (0.0.x)
+## [0.0.x](https://github.scom/singularityhub/singularity-hpc/tree/master) (0.0.x)
+ - Podman support (0.0.25)
  - adding namespaces to make module install, show, inspect easier (0.0.24)
  - added support for env section to render to bound environment file
  - added support for container features like gpu
