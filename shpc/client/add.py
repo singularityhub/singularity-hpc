@@ -13,4 +13,4 @@ def main(args, parser, extra, subparser):
         module=args.module,
         container_tech=args.container_tech,
     )
-    cli.add(args.paths[0], args.paths[1])
+    cli.add(args.sif_path[0], args.module_id[0])

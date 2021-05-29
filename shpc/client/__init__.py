@@ -102,7 +102,10 @@ def get_parser():
 
     # Add a container direcly
     add = subparsers.add_parser("add", help="add an image to local storage")
-    add.add_argument("paths", help="full path to container image file", nargs=2)
+    add.add_argument("sif_path", help="full path to container image file", nargs=1)
+    add.add_argument(
+        "module_id", help='desired identifier for module (e.g. "name/version")', nargs=1
+    )
 
     check = subparsers.add_parser("check", help="check if you have latest installed.")
     check.add_argument("module_name", help="module to check (module/version)")

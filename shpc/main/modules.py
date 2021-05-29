@@ -157,6 +157,7 @@ class ModuleBase(BaseClient):
         dest = os.path.join(container_dir, "%s-sha256:%s.sif" % (name, digest))
         shutil.copyfile(sif, dest)
         self._install(module_dir, dest, name)
+        self._add_environment(module_dir, {})
         logger.info("Module %s was created." % (module_name))
 
     def get(self, module_name):
