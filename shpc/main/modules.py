@@ -49,6 +49,15 @@ class ModuleBase(BaseClient):
                 break
             shutil.rmtree(module_dir)
 
+    @property
+    def container_base(self):
+        """
+        Quickly return what is being used for the container base
+        """
+        if not self.settings.container_base:
+            return self.settings.module_base
+        return self.settings.container_base
+
     def container_dir(self, name):
         """
         Use a custom container directory, otherwise default to module dir.
@@ -95,7 +104,7 @@ class ModuleBase(BaseClient):
         Run specific tests for this module
         """
         # Generate a test template
-        template = self._load_template(template)
+        template = self._load_template(template or "test.sh")
         test_file = os.path.join(module_dir, "test.sh")
 
         # Generate the test script
@@ -117,7 +126,7 @@ class ModuleBase(BaseClient):
 
     def add(self, sif, module_name):
         """
-        Add a container directly as a module
+        Add a container directly as a module, copying the file.
         """
         name = self.add_namespace(module_name)
         registry_dir = self.settings.registry
@@ -145,7 +154,7 @@ class ModuleBase(BaseClient):
         name = module_name.replace("/", "-")
         digest = utils.get_file_hash(sif)
         dest = os.path.join(container_dir, "%s-sha256:%s.sif" % (name, digest))
-        shutil.move(sif, dest)
+        shutil.copyfile(sif, dest)
         self._install(module_dir, dest, name)
         logger.info("Module %s was created." % (module_name))
 
@@ -215,9 +224,8 @@ class ModuleBase(BaseClient):
         """
         Return complete metadata for the user from a container.
         """
-        module_dir = os.path.join(self.settings.module_base, module_name)
-        if not os.path.exists(module_dir):
-            logger.exit("%s does not exist." % module_dir)
+        if not os.path.exists(self.container_base):
+            logger.exit("%s does not exist." % self.container_base)
 
         sif = self.get(module_name)
         return self._container.inspect(sif[0])
