@@ -71,6 +71,10 @@ class ModuleBase(BaseClient):
         """
         Use a custom container directory, otherwise default to module dir.
         """
+        # If the user provided a tag, tags are converted to folders
+        if ":" in name:
+            name = name.replace(":", os.sep)
+
         if not self.settings.container_base:
             return os.path.join(self.settings.module_base, name)
         return os.path.join(self.settings.container_base, name)
