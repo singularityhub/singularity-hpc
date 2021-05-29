@@ -106,6 +106,14 @@ class Client:
         """
         raise NotImplementedError
 
+    def add_namespace(self, name):
+        """
+        If a namespace is defined in settings, use it
+        """
+        if self.settings.namespace:
+            name = "%s/%s" % (self.settings.namespace.strip("/"), name)
+        return name
+
     def _load_container(self, name, tag=None):
         """
         Given a name and an optional tag to default to, load a package
@@ -225,6 +233,7 @@ class Client:
         Show available packages
         """
         if name:
+            name = self.add_namespace(name)
             config = self._load_container(name)
             config.dump(out)
         else:

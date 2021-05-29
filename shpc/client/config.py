@@ -17,11 +17,31 @@ def main(args, parser, extra, subparser):
         print(subparser.format_help())
         sys.exit(0)
 
-    # For each new setting, update and save!
-    for param in args.params:
-        key, value = param.split(":", 1)
-        logger.info("Updating %s to be %s" % (key, value))
-        cli.settings.set(key, value)
+    # The first "param" is either set of get
+    command = args.params.pop(0)
 
-    # Save settings
-    cli.settings.save()
+    # For each new setting, update and save!
+    if command == "set":
+        for param in args.params:
+            if ":" not in param:
+                logger.warning(
+                    "Param %s is missing a :, should be key:value pair. Skipping."
+                    % param
+                )
+                continue
+            key, value = param.split(":", 1)
+            logger.info("Updating %s to be %s" % (key, value))
+            cli.settings.set(key, value)
+
+        # Save settings
+        cli.settings.save()
+
+    # For each get request, print the param pair
+    elif command == "get":
+        for key in args.params:
+            value = cli.settings.get(key)
+            value = value or "is unset"
+            logger.info("%s %s" % (key.ljust(30), value))
+
+    else:
+        logger.error("%s is not a recognized command." % command)

@@ -1,6 +1,7 @@
 shpc.db
 singularity_hpc.egg-info/
 .env
+env
 build
 docs/_build
 release

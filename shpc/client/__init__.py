@@ -12,7 +12,10 @@ import os
 
 
 def get_parser():
-    parser = argparse.ArgumentParser(description="Singularity Registry (HPC)")
+    parser = argparse.ArgumentParser(
+        description="Singularity Registry (HPC)",
+        formatter_class=argparse.RawTextHelpFormatter,
+    )
 
     # Global Variables
     parser.add_argument(
@@ -104,7 +107,10 @@ def get_parser():
     check = subparsers.add_parser("check", help="check if you have latest installed.")
     check.add_argument("module_name", help="module to check (module/version)")
 
-    config = subparsers.add_parser("config", help="update configuration settings.")
+    config = subparsers.add_parser(
+        "config",
+        help="update configuration settings. Use set or get to see or set information.",
+    )
     config.add_argument(
         "params",
         nargs="*",
@@ -198,6 +204,16 @@ def get_parser():
             default="singularity",
         )
 
+    namespace = subparsers.add_parser(
+        "namespace",
+        help="set or unset the install namespace. E.g.,:\n    shpc namespace set <namespace>\n    shpc namespace unset",
+    )
+    namespace.add_argument(
+        "namespace",
+        help="command (use/unset) and if use, the namespace to set",
+        nargs="*",
+    )
+
     show = subparsers.add_parser("show", help="show the config for a registry entry.")
     show.add_argument(
         "--versions", help="include versions", default=False, action="store_true"
@@ -277,6 +293,8 @@ def run_shpc():
         from .inspect import main
     elif args.command == "list":
         from .listing import main
+    elif args.command == "namespace":
+        from .namespace import main
     elif args.command == "shell":
         from .shell import main
     elif args.command == "show":

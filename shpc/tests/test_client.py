@@ -86,6 +86,19 @@ def test_inspect(tmp_path, module_sys):
 
 
 @pytest.mark.parametrize("module_sys", [("lmod"), ("tcl")])
+def test_namespace_and_show(tmp_path, module_sys):
+    """Test namespace and show"""
+    client = init_client(str(tmp_path), module_sys)
+    client.show("vanessa/salad:latest")
+
+    with pytest.raises(SystemExit):
+        client.show("salad:latest")
+    client.settings.set("namespace", "vanessa")
+    client.show("salad:latest")
+    client.settings.set("namespace", None)
+
+
+@pytest.mark.parametrize("module_sys", [("lmod"), ("tcl")])
 def test_check(tmp_path, module_sys):
     """Test check"""
     client = init_client(str(tmp_path), module_sys)
@@ -103,5 +116,5 @@ def test_add(tmp_path, module_sys):
     # Create a copy of the latest image to add
     container = os.path.join(str(tmp_path), "salad_latest.sif")
     shutil.copyfile(os.path.join(here, "testdata", "salad_latest.sif"), container)
-    client.add(container, "vanessa/salad/latest")
-    assert client.get("vanessa/salad/latest")
+    client.add(container, "dinosaur/salad/latest")
+    assert client.get("dinosaur/salad/latest")
