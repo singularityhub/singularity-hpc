@@ -79,7 +79,7 @@ def test_features(tmp_path, module_sys, module_file):
     content = shpc.utils.read_file(module_file)
     assert "--nv" not in content
 
-    client.uninstall("python:3.9.2-alpine")
+    client.uninstall("python:3.9.2-alpine", force=True)
 
     # Now update settings
     client.settings.set("container_features:gpu", "nvidia")

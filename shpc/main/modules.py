@@ -247,7 +247,7 @@ class ModuleBase(BaseClient):
             logger.exit("%s does not exist." % self.container_base)
 
         sif = self.get(module_name)
-        return self._container.inspect(sif[0])
+        return self._container.inspect(sif)
 
     def _list_modules(
         self, base, filename, pattern=None, names_only=False, out=None, short=False
