@@ -1,29 +1,30 @@
 ---
 layout: container
-name:  "adminer"
+name:  "vanessa/salad"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/adminer/container.yaml"
-updated_at: "2021-05-29 01:53:14.340747"
-container_url: "https://hub.docker.com/_/adminer"
+github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/vanessa/salad/container.yaml"
+updated_at: "2021-05-29 01:53:29.056156"
+container_url: "https://hub.docker.com/r/vanessa/salad"
+aliases:
+ - "salad"
 
 versions:
- - "4.8.0-fastcgi"
  - "latest"
-description: "Database management in a single PHP file."
+description: "A container all about fork and spoon puns."
 ---
 
-This module is a singularity container wrapper for adminer.
-Database management in a single PHP file.
+This module is a singularity container wrapper for vanessa/salad.
+A container all about fork and spoon puns.
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash
-$ shpc install adminer
+$ shpc install vanessa/salad
 ```
 
 Or a specific version:
 
 ```bash
-$ shpc install adminer:4.8.0-fastcgi
+$ shpc install vanessa/salad:latest
 ```
 
 And then you can tell lmod about your modules folder:
@@ -35,8 +36,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load adminer/4.8.0-fastcgi
-$ module help adminer/4.8.0-fastcgi
+$ module load vanessa/salad/latest
+$ module help vanessa/salad/latest
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
@@ -47,43 +48,43 @@ You can use tab for auto-completion of module names or commands that are provide
 
 When you install this module, you'll be able to load it to make the following commands accessible:
 
-#### adminer-run:
+#### vanessa-salad-run:
 
 ```bash
 $ singularity run <container>
 ```
 
-#### adminer-shell:
+#### vanessa-salad-shell:
 
 ```bash
 $ singularity shell -s /bin/bash <container>
 ```
 
-#### adminer-exec:
+#### vanessa-salad-exec:
 
 ```bash
 $ singularity exec -s /bin/bash <container> "$@"
 ```
 
-#### adminer-inspect-runscript:
+#### vanessa-salad-inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### adminer-inspect-deffile:
+#### vanessa-salad-inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>
 ```
 
 
-
-#### adminer
-
+#### salad
+       
 ```bash
-$ singularity run <container>
+$ singularity exec <container> /code/salad
 ```
+
 
 
 In the above, the `<container>` directive will reference an actual container provided

@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/proj"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/proj/container.yaml"
-updated_at: "2021-05-24 15:21:46.359741"
+updated_at: "2021-05-29 01:52:49.323775"
 container_url: "https://github.com/orgs/autamus/packages/container/package/proj"
 aliases:
  - "proj"
