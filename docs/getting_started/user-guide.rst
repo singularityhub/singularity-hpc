@@ -481,11 +481,39 @@ List
 ----
 
 Once a module is installed, you can use list to show installed modules (and versions).
+The default list will flatten out module names and tags into a single list
+to make it easy to copy paste:
 
 .. code-block:: console
 
     $ shpc list
-    python: 3.9.2-alpine, 3.9.2-slim
+        biocontainers/samtools:v1.9-4-deb_cv1
+                        python:3.9.2-alpine
+                        python:3.9.5-alpine
+                        python:3.9.2-slim
+                      dinosaur:fork
+                 vanessa/salad:latest
+                         salad:latest
+      ghcr.io/autamus/prodigal:latest
+      ghcr.io/autamus/samtools:latest
+        ghcr.io/autamus/clingo:5.5.0
+
+
+However, if you want a shorter version that shows multiple tags alongside
+each unique module name, just add ``--short``:
+
+.. code-block:: console
+
+    $ shpc list --short
+
+        biocontainers/samtools: v1.9-4-deb_cv1
+                        python: 3.9.5-alpine, 3.9.2-alpine, 3.9.2-slim
+                      dinosaur: fork
+                 vanessa/salad: latest
+                         salad: latest
+      ghcr.io/autamus/prodigal: latest
+      ghcr.io/autamus/samtools: latest
+        ghcr.io/autamus/clingo: 5.5.0
 
 
 Inspect

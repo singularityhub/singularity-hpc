@@ -187,12 +187,17 @@ class ModuleBase(BaseClient):
             logger.exit("Found more than one sif in module folder.")
         return sif[0]
 
-    def list(self, pattern=None, names_only=False, out=None):
+    def list(self, pattern=None, names_only=False, out=None, short=False):
         """
         List installed modules.
         """
         self._list_modules(
-            self.settings.module_base, self.modulefile, pattern, names_only, out
+            self.settings.module_base,
+            self.modulefile,
+            pattern,
+            names_only,
+            out,
+            short=short,
         )
 
     def docgen(self, module_name, out=None):
@@ -240,7 +245,9 @@ class ModuleBase(BaseClient):
         sif = self.get(module_name)
         return self._container.inspect(sif[0])
 
-    def _list_modules(self, base, filename, pattern=None, names_only=False, out=None):
+    def _list_modules(
+        self, base, filename, pattern=None, names_only=False, out=None, short=False
+    ):
         """A shared function to list modules or registry entries."""
         out = out or sys.stdout
         modules = self._get_module_lookup(base, filename, pattern)
@@ -253,8 +260,11 @@ class ModuleBase(BaseClient):
         for module_name, versions in modules.items():
             if names_only:
                 out.write("%s\n" % module_name)
-            else:
+            elif short:
                 out.write("%s: %s\n" % (module_name.rjust(30), ", ".join(versions)))
+            else:
+                for version in versions:
+                    out.write("%s:%s\n" % (module_name.rjust(30), version))
 
     def _get_module_lookup(self, base, filename, pattern=None):
         """A shared function to get a lookup of installed modules or registry entries"""

@@ -17,6 +17,7 @@ The versions coincide with releases on pip. Only major versions will be released
  - adding namespaces to make module install, show, inspect easier (0.0.24)
  - added support for env section to render to bound environment file
  - added support for container features like gpu
+ - list defaults to showing modules/tags one per line, unless --short used
  - container url does not render in docs (0.0.23)
  - addition of tcl modules, removal of un-needed database (0.0.22)
  - first update of all containers, and bugfix to pull (0.0.21)

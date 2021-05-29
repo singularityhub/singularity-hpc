@@ -84,6 +84,13 @@ def get_parser():
         "--names-only", help="omit versions", default=False, action="store_true"
     )
 
+    listing.add_argument(
+        "--short",
+        help="multiple tags per line for shorter length output.",
+        default=False,
+        action="store_true",
+    )
+
     # List local containers and collections
     inspect = subparsers.add_parser(
         "inspect", help="inspect an installed module image."

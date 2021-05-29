@@ -14,4 +14,4 @@ def main(args, parser, extra, subparser):
         container_tech=args.container_tech,
     )
 
-    cli.list(args.pattern, args.names_only)
+    cli.list(args.pattern, args.names_only, short=args.short)

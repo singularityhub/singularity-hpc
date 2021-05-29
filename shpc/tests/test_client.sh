@@ -68,6 +68,7 @@ echo
 echo "#### Testing list "
 runTest 0 $output shpc --settings-file $settings list --help
 runTest 0 $output shpc --settings-file $settings list
+runTest 0 $output shpc --settings-file $settings list --short
 runTest 0 $output shpc --settings-file $settings list salad
 
 echo
