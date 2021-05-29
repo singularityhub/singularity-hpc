@@ -13,6 +13,6 @@ tags:
 filter:
 - 21*
 aliases:
-- name: python
-  command: /usr/bin/python
-  options: --nv
+  python: /usr/bin/python
+features:
+  gpu: true

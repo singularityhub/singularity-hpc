@@ -12,7 +12,7 @@ tags:
   2020.06-arm64: sha256:2d881faf0b20866826a2f0ebbd87ed9791b64222489814901a090e5ed1aa3252
 filter:
 - ^((?!arm).)*$
+features:
+  gpu: true
 aliases:
-- name: autodock-gpu
-  command: /opt/AutoDock-GPU/bin/autodock_gpu_128wi
-  options: --nv
+  autodock: /opt/AutoDock-GPU/bin/autodock_gpu_128wi

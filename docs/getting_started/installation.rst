@@ -73,7 +73,7 @@ You'll next want to configure and create your registry, discussed next in
  variables in the config:
  
 
-.. code-black:: console
+.. code-block:: console
  
 
     $ shpc config set registry:/<DIR>

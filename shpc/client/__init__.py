@@ -202,9 +202,9 @@ def get_parser():
         command.add_argument(
             "--container_tech",
             dest="container_tech",
-            help="container technology to use (defaults to singularity)",
+            help="container technology to use to override settings.yaml",
             choices=["singularity"],
-            default="singularity",
+            default=None,
         )
 
     namespace = subparsers.add_parser(

@@ -17,12 +17,61 @@ import jsonschema
 import sys
 
 
-class SingularityContainer:
+class ContainerTechnology:
+    """
+    A base class for a container technology
+    """
+
+    # The module technology adds extensions here
+    modulefile = "module"
+
+    # By default, no extra features
+    features = {}
+
+    def get_features(self, config_features, settings_features, extra=None):
+        """
+        Get feature values based onsettings and features defined for the container.
+        """
+        config_features = config_features or {}
+        extra = extra or []
+
+        # If extra features are added at runtime, they are set to true
+        for extra_feature in extra:
+            if extra_feature not in config_features:
+                config_features[extra_feature.lower()] = True
+
+        features = {}
+
+        # The config features (defined by the container) determine what we add
+        for key, value in config_features.items():
+
+            # If the container technology has the feature and is defined in settings
+            if key in self.features and key in settings_features:
+
+                # And if the settings feature is known to the container technology
+                if settings_features[key] in self.features[key]:
+
+                    # Add the feature to be given to the container!
+                    features[key] = self.features[key][settings_features[key]]
+
+        return features
+
+    def __str__(self):
+        return str(self.__class__.__name__)
+
+
+class SingularityContainer(ContainerTechnology):
     """
     A Singularity container controller.
 
     All container controllers should have the same general interface.
     """
+
+    # The module technology adds extensions here
+    templatefile = "singularity"
+
+    # Singularity container features
+    features = {"gpu": {"nvidia": "--nv", "amd": "--rocm"}}
 
     def __init__(self):
         try:

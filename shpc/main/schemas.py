@@ -17,6 +17,25 @@ aliases = {
     },
 }
 
+
+# Features in container.yaml can be boolean or null, as they need to be
+# container technology agnostic
+features = {
+    "type": "object",
+    "patternProperties": {"\\w[\\w-]*": {"type": ["boolean", "null"]}},
+}
+
+# container features can be null or a known string
+container_features = {
+    "type": "object",
+    "properties": {
+        "gpu": {
+            "oneOf": [{"type": "null"}, {"type": "string", "enum": ["nvidia", "amd"]}]
+        }
+    },
+}
+
+
 # Or a list
 aliases_list = {
     "type": "array",
@@ -58,6 +77,7 @@ containerConfigProperties = {
         "items": {"type": "string"},
     },
     "env": aliases,
+    "features": features,
     "aliases": {
         "oneOf": [
             aliases,
@@ -91,8 +111,11 @@ settingsProperties = {
     "singularity_module": {"type": ["string", "null"]},
     "bindpaths": {"type": ["string", "null"]},
     "updated_at": {"type": "string"},
+    "environment_file": {"type": "string"},
+    "container_tech": {"type": "string", "enum": ["singularity"]},
     "singularity_shell": {"type": "string", "enum": ["/bin/bash", "/bin/sh"]},
     "module_sys": {"type": "string", "enum": ["lmod", "tcl", None]},
+    "container_features": container_features,
 }
 
 
@@ -105,8 +128,11 @@ settings = {
         "registry",
         "module_base",
         "singularity_module",
+        "environment_file",
+        "container_tech",
         "bindpaths",
         "singularity_shell",
+        "container_features",
     ],
     "properties": settingsProperties,
 }

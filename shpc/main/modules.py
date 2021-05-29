@@ -59,6 +59,14 @@ class ModuleBase(BaseClient):
             return self.settings.module_base
         return self.settings.container_base
 
+    @property
+    def modulefile(self):
+        return "%s.%s" % (self._container.modulefile, self.module_extension)
+
+    @property
+    def templatefile(self):
+        return "%s.%s" % (self._container.templatefile, self.module_extension)
+
     def container_dir(self, name):
         """
         Use a custom container directory, otherwise default to module dir.
@@ -339,7 +347,7 @@ class ModuleBase(BaseClient):
         else:
             logger.exit("👉️ tag %s requires an update! 👈️" % tag.name)
 
-    def install(self, name, tag=None):
+    def install(self, name, tag=None, **kwargs):
         """
         Given a unique resource identifier, install a recipe.
 
@@ -389,22 +397,25 @@ class ModuleBase(BaseClient):
             self._cleanup(os.path.dirname(container_path))
             logger.exit("There was an issue pulling %s" % container_path)
 
-        # prepare aliases
-        aliases = config.get_aliases()
-        envars = config.get_envars()
+        # Container features are defined in container.yaml and the settings
+        # and specific values are determined by the container technology
+        features = self._container.get_features(
+            config.features, self.settings.container_features, kwargs.get("features")
+        )
 
         self._install(
             module_dir,
             container_path,
             name,
-            aliases,
+            aliases=config.get_aliases(),
+            features=features,
             url=config.url,
             description=config.description,
             version=tag.name,
         )
 
         # Write the environment file to be bound to the container
-        self._add_environment(module_dir, envars)
+        self._add_environment(module_dir, envars=config.get_envars())
         logger.info("Module %s/%s was created." % (config.name, tag.name))
         return container_path
 
@@ -422,6 +433,7 @@ class ModuleBase(BaseClient):
         container_path,
         name,
         aliases=None,
+        features=None,
         template_name=None,
         url=None,
         description=None,
@@ -467,6 +479,7 @@ class ModuleBase(BaseClient):
             description=description,
             aliases=aliases,
             url=url,
+            features=features,
             version=version,
             module_dir=module_dir,
             labels=labels,

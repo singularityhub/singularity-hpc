@@ -76,7 +76,7 @@ class Client:
     def __str__(self):
         return "[shpc-client]"
 
-    def install(self, name, tag=None):
+    def install(self, name, tag=None, **kwargs):
         """
         Install must be implemented by the subclass (e.g., lmod)
         """

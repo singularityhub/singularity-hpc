@@ -8,5 +8,7 @@ tags:
   latest: sha256:e8302da47e3200915c1d3a9406d9446f04da7244e4995b7135afd2b79d4f63db
 aliases:
   salad: /code/salad
+features:
+  gpu: true
 env:
   maintainer: vsoch

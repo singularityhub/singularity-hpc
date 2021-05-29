@@ -11,6 +11,7 @@ import shutil
 import os
 import io
 
+import shpc.utils
 from shpc.main import get_client
 
 here = os.path.dirname(os.path.abspath(__file__))
@@ -59,6 +60,34 @@ def test_install_get(tmp_path, module_sys, module_file):
     assert os.path.exists(env_file)
 
     assert client.get("python/3.9.2-alpine")
+
+
+@pytest.mark.parametrize(
+    "module_sys,module_file", [("lmod", "module.lua"), ("tcl", "module.tcl")]
+)
+def test_features(tmp_path, module_sys, module_file):
+    """Test adding features"""
+    client = init_client(str(tmp_path), module_sys)
+
+    # Install known tag
+    client.install("python:3.9.2-alpine")
+
+    module_dir = os.path.join(client.settings.module_base, "python", "3.9.2-alpine")
+    module_file = os.path.join(module_dir, module_file)
+
+    # Should not have nvidia flag
+    content = shpc.utils.read_file(module_file)
+    assert "--nv" not in content
+
+    client.uninstall("python:3.9.2-alpine")
+
+    # Now update settings
+    client.settings.set("container_features:gpu", "nvidia")
+
+    # Install known tag, add extra feature of gpu
+    client.install("python:3.9.2-alpine", features=["gpu"])
+    content = shpc.utils.read_file(module_file)
+    assert "--nv" in content
 
 
 @pytest.mark.parametrize("module_sys", [("lmod"), ("tcl")])

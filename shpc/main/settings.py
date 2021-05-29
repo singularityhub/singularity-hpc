@@ -76,15 +76,28 @@ class Settings:
         return self.get(key)
 
     def set(self, key, value):
+        """
+        Set a setting based on key and value. If the key has :, it's nested
+        """
         value = True if value == "true" else value
         value = False if value == "false" else value
-        self._settings[key] = value
+
+        # This is a reference to a dictionary (object) setting
+        if ":" in key:
+            key, subkey = key.split(":")
+            self._settings[key][subkey] = value
+        else:
+            self._settings[key] = value
 
     def _substitutions(self, value):
         """
         Given a value, make substitutions
         """
         if isinstance(value, bool) or not value:
+            return value
+
+        # Currently dicts only support boolean or null so we return as is
+        elif isinstance(value, dict):
             return value
 
         for rep, repvalue in defaults.reps.items():

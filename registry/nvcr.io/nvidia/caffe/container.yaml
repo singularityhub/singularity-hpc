@@ -9,6 +9,6 @@ latest:
 tags:
   20.03-py3: sha256:c6fb6d8309be4c43ccdc7dd19dde73d186404df3627f660866178eff507e22c7
 aliases:
-- name: python
-  command: /usr/bin/python
-  options: --nv
+  python: /usr/bin/python
+features:
+  gpu: true

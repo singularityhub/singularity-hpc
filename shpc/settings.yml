@@ -1,10 +1,14 @@
 # The Singularity HPC settings file holds basic information about the
-# module system to use, and where modules are stored.
+# module system to use, and where modules are stored. All settings are
+# currently specific to singularity, but can be extended to other technologies.
 
 # set a default module system
 # Currently only lmod is supported. To request an additional system, 
 # please open an issue https://github.com/singularityhub/singularity-hpc
 module_sys: lmod
+
+# set a default container technology (currently only singularity supported)
+container_tech: singularity
 
 # Registry Recipes (currently we support just one path)
 registry: $root_dir/registry
@@ -17,7 +21,7 @@ module_base: $root_dir/modules
 container_base:
 
 # if defined, add to lmod script to load this Singularity module first
-singularity_module:
+singularity_module: null
 
 # if set, prefix module alias names with prefix (another kind of namespacing)
 module_exc_prefix: ''
@@ -35,3 +39,7 @@ namespace: null
 # THe name of the environment file to bind to the container.
 # This determines order of load
 environment_file: "99-shpc.sh"
+
+# container features like gpu will modify generated recipes
+container_features:
+  gpu: null # one of null, amd, or nvidia

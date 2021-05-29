@@ -14,19 +14,19 @@ proc ModulesHelp { } {
     puts stderr " - {{ container_sif }}"
     puts stderr "Commands include:"
     puts stderr " - {{ prefix }}{{ flatname }}-run:"
-    puts stderr "       singularity run {% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }} {% endif %}<container>"
+    puts stderr "       singularity run {% if features.gpu %}{{ features.gpu }} {% endif %}{% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }} {% endif %}<container>"
     puts stderr " - {{ prefix }}{{ flatname }}-shell:"
-    puts stderr "       singularity shell -s {{ singularity_shell }} {% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }} {% endif %}<container>"
+    puts stderr "       singularity shell -s {{ singularity_shell }} {% if features.gpu %}{{ features.gpu }} {% endif %}{% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }} {% endif %}<container>"
     puts stderr " - {{ prefix }}{{ flatname }}-exec:"
-    puts stderr "       singularity exec -s {{ singularity_shell }} {% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }} {% endif %}<container> \"$@\""
+    puts stderr "       singularity exec -s {{ singularity_shell }} {% if features.gpu %}{{ features.gpu }} {% endif %}{% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }} {% endif %}<container> \"$@\""
     puts stderr " - {{ prefix }}{{ flatname }}-inspect-runscript:"
     puts stderr "       singularity inspect -r <container>"
     puts stderr " - {{ prefix }}{{ flatname }}-inspect-deffile:"
     puts stderr "       singularity inspect -d <container>"
 
 {% if aliases %}{% for alias in aliases %}    puts stderr " - {{ alias.name }}:"
-    puts stderr "       singularity exec {% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }} {% endif %}{% if alias.options %}{{ alias.options }} {% endif %}<container> {{ alias.command }}"
-{% endfor %}{% else %}    puts stderr " - {{ prefix }}{{ flatname }}: singularity run {% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }}{% endif %}<container>"{% endif %}
+    puts stderr "       singularity exec {% if features.gpu %}{{ features.gpu }} {% endif %}{% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }} {% endif %}{% if alias.options %}{{ alias.options }} {% endif %}<container> {{ alias.command }}"
+{% endfor %}{% else %}    puts stderr " - {{ prefix }}{{ flatname }}: singularity run {% if features.gpu %}{{ features.gpu }} {% endif %}{% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }}{% endif %}<container>"{% endif %}
 
     puts stderr "For each of the above, you can export:"
 
@@ -58,9 +58,9 @@ conflict {{ name }}
 setenv SINGULARITY_SHELL {{ singularity_shell }}
 
 # interactive shell to any container, plus exec for aliases
-set shellCmd "singularity \${SINGULARITY_OPTS} shell \${SINGULARITY_COMMAND_OPTS} -s {{ singularity_shell }} {% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }}{% endif %} ${containerPath}" 
-set execCmd "singularity \${SINGULARITY_OPTS} exec \${SINGULARITY_COMMAND_OPTS} {% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }}{% endif %} "
-set runCmd "singularity \${SINGULARITY_OPTS} run \${SINGULARITY_COMMAND_OPTS} {% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }}{% endif %} ${containerPath} \${SINGULARITY_COMMAND_ARGS}"
+set shellCmd "singularity \${SINGULARITY_OPTS} shell \${SINGULARITY_COMMAND_OPTS} -s {{ singularity_shell }} {% if features.gpu %}{{ features.gpu }} {% endif %}{% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }}{% endif %} ${containerPath}" 
+set execCmd "singularity \${SINGULARITY_OPTS} exec \${SINGULARITY_COMMAND_OPTS} {% if features.gpu %}{{ features.gpu }} {% endif %}{% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }}{% endif %} "
+set runCmd "singularity \${SINGULARITY_OPTS} run \${SINGULARITY_COMMAND_OPTS} {% if features.gpu %}{{ features.gpu }} {% endif %}{% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }}{% endif %} ${containerPath} \${SINGULARITY_COMMAND_ARGS}"
 set inspectCmd "singularity \${SINGULARITY_OPTS} inspect \${SINGULARITY_COMMAND_OPTS} " 
 
 # set_shell_function takes bashStr and cshStr

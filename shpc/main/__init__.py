@@ -19,12 +19,12 @@ def get_client(quiet=False, **kwargs):
     quiet: if True, suppress most output about the client (e.g. speak)
 
     """
-    # The name of the module and container technology to use
+    # The name of the module
     module = kwargs.get("module")
-    container = kwargs.get("container_tech")
 
-    # Load user settings to add to client
+    # Load user settings to add to client, and container technology
     settings = Settings(kwargs.get("settings_file"))
+    container = kwargs.get("container_tech") or settings.container_tech
 
     # Use the user provided module OR the default
     module = module or settings.get("module_sys", "lmod")

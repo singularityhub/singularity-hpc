@@ -11,7 +11,7 @@ tags:
   "2021": sha256:aa095dcdb175e10132a5862204bf91e6f374f72ba9f2360d9ff5c45ae67785fd
 filter:
 - ^((?!arm).)*$
+features:
+  gpu: true
 aliases:
-- name: python
-  command: /usr/bin/python
-  options: --nv
+  python: /usr/bin/python
