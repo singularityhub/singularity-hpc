@@ -15,20 +15,20 @@ Container:
 
 Commands include:
 
- - {{ prefix }}{{ flatname }}-run:
+ - {|module_name|}-run:
        singularity run {% if features.gpu %}{{ features.gpu }} {% endif %}{% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }} {% endif %}<container>
- - {{ prefix }}{{ flatname }}-shell:
+ - {|module_name|}-shell:
        singularity shell -s {{ singularity_shell }} {% if features.gpu %}{{ features.gpu }} {% endif %}{% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }} {% endif %}<container>
- - {{ prefix }}{{ flatname }}-exec:
-       singularity exec -s {{ singularity_shell }} {% if features.gpu %}{{ features.gpu }} {% endif %}{% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }} {% endif %}<container> "$@"
- - {{ prefix }}{{ flatname }}-inspect-runscript:
+ - {|module_name|}-exec:
+       singularity exec {% if features.gpu %}{{ features.gpu }} {% endif %}{% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }} {% endif %}<container> "$@"
+ - {|module_name|}-inspect-runscript:
        singularity inspect -r <container>
- - {{ prefix }}{{ flatname }}-inspect-deffile:
+ - {|module_name|}-inspect-deffile:
        singularity inspect -d <container>
 
 {% if aliases %}{% for alias in aliases %} - {{ alias.name }}:
        singularity exec {% if features.gpu %}{{ features.gpu }} {% endif %}{% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }} {% endif %}{% if alias.options %}{{ alias.options }} {% endif %}<container> {{ alias.command }}
-{% endfor %}{% else %} - {{ prefix }}{{ flatname }}: singularity run {% if features.gpu %}{{ features.gpu }} {% endif %}{% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }}{% endif %}<container>{% endif %}
+{% endfor %}{% else %} - {|module_name|}: singularity run {% if features.gpu %}{{ features.gpu }} {% endif %}{% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }}{% endif %}<container>{% endif %}
 
 For each of the above, you can export:
 
@@ -44,16 +44,18 @@ local MODULEPATH="{{ module_dir }}"
 -- singularity environment variables to bind the paths and set shell
 {% if bindpaths %}setenv("SINGULARITY_BINDPATH", "{{ bindpaths }}"){% endif %}
 setenv("SINGULARITY_SHELL", "{{ singularity_shell }}")
+setenv ("SINGULARITY_OPTS", "")
+setenv ("SINGULARITY_COMMAND_OPTS", "")
 
 -- interactive shell to any container, plus exec for aliases
 local containerPath = '{{ container_sif }}'
 local shellCmd = "singularity ${SINGULARITY_OPTS} shell ${SINGULARITY_COMMAND_OPTS} -s {{ singularity_shell }} {% if features.gpu %}{{ features.gpu }} {% endif %}{% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }}{% endif %} " .. containerPath
 local execCmd = "singularity ${SINGULARITY_OPTS} exec ${SINGULARITY_COMMAND_OPTS} {% if features.gpu %}{{ features.gpu }} {% endif %}{% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }}{% endif %} "
-local runCmd = "singularity ${SINGULARITY_OPTS} run ${SINGULARITY_COMMAND_OPTS} {% if features.gpu %}{{ features.gpu }} {% endif %}{% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }}{% endif %} " .. containerPath .. " ${ SINGULARITY_COMMAND_ARGS }"
+local runCmd = "singularity ${SINGULARITY_OPTS} run ${SINGULARITY_COMMAND_OPTS} {% if features.gpu %}{{ features.gpu }} {% endif %}{% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }}{% endif %} " .. containerPath .. " ${SINGULARITY_COMMAND_ARGS}"
 local inspectCmd = "singularity ${SINGULARITY_OPTS} inspect ${SINGULARITY_COMMAND_OPTS} " 
 
 -- set_shell_function takes bashStr and cshStr
-set_shell_function("{{ prefix }}{{ flatname }}-shell", shellCmd,  shellCmd)
+set_shell_function("{|module_name|}-shell", shellCmd,  shellCmd)
 
 -- conflict with modules with the same name
 conflict(myModuleName(){% if aliases %}{% for alias in aliases %},"{{ alias.name }}"{% endfor %}{% endif %})
@@ -63,19 +65,25 @@ conflict(myModuleName(){% if aliases %}{% for alias in aliases %},"{{ alias.name
 set_shell_function("{{ alias.name }}", execCmd .. {% if alias.options %} "{{ alias.options }} " .. {% endif %} containerPath .. " {{ alias.command }} $@", execCmd .. {% if alias.options %} "{{ alias.options }} " .. {% endif %} containerPath .. " {{ alias.command }} $*")
 {% endfor %}{% endif %}
 
+{% if aliases %}
+if (myShellName() == "bash") then
+{% for alias in aliases %}execute{cmd="export -f {{ alias.name }}", modeA={"load"}}
+{% endfor %}
+end{% endif %}
+
 -- A customizable exec function
-set_shell_function("{{ prefix }}{{ flatname }}-exec", execCmd .. containerPath .. " ${SINGULARITY_COMMAND_ARGS}  $@",  execCmd .. containerPath .. " ${SINGULARITY_COMMAND_ARGS} $*")
+set_shell_function("{|module_name|}-exec", execCmd .. containerPath .. " ${SINGULARITY_COMMAND_ARGS}  $@",  execCmd .. containerPath .. " ${SINGULARITY_COMMAND_ARGS} $*")
 
 -- Always provide a container run
-set_shell_function("{{ prefix }}{{ flatname }}-run", runCmd .. " $@",  runCmd .. " $*")
+set_shell_function("{|module_name|}-run", runCmd .. " $@",  runCmd .. " $*")
 
 -- Inspect runscript or deffile easily!
-set_shell_function("{{ prefix }}{{ flatname }}-inspect-runscript", inspectCmd .. " -r  " .. containerPath,  inspectCmd .. containerPath)
-set_shell_function("{{ prefix }}{{ flatname }}-inspect-deffile", inspectCmd .. " -d  " .. containerPath,  inspectCmd .. containerPath)
+set_shell_function("{|module_name|}-inspect-runscript", inspectCmd .. " -r  " .. containerPath,  inspectCmd .. containerPath)
+set_shell_function("{|module_name|}-inspect-deffile", inspectCmd .. " -d  " .. containerPath,  inspectCmd .. containerPath)
 
 whatis("Name        : " .. myModuleName())
 whatis("Version     : " .. myModuleVersion())
-{% if description %}whatis("Category    : {{ description }}"){% endif %}
-{% if url %}whatis("URL         : {{ url }}"){% endif %}
+{% if description %}whatis("Description    : {{ description }}"){% endif %}
+{% if url %}whatis("Url         : {{ url }}"){% endif %}
 {% if labels %}{% for key, value in labels.items() %}whatis("{{ key }}    : {{ value }}")
 {% endfor %}{% endif %}

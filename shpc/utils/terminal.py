@@ -59,7 +59,7 @@ def which(software=None, strip_newline=True):
         return None
 
 
-def check_install(software=None, quiet=True, command="--version"):
+def check_install(software, quiet=True, command="--version"):
     """check_install will attempt to run the singularity command, and
     return True if installed. The command line utils will not run
     without this check.
@@ -70,7 +70,6 @@ def check_install(software=None, quiet=True, command="--version"):
     quiet: should we be quiet? (default True)
     command: the command to use to check (defaults to --version)
     """
-    software = software or "singularity"
     cmd = [software, command]
     try:
         version = run_command(cmd, software)
@@ -89,7 +88,7 @@ def get_installdir():
     return os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 
 
-def run_command(cmd, sudo=False):
+def run_command(cmd, sudo=False, stream=False):
     """run_command uses subprocess to send a command to the terminal.
 
     Parameters
@@ -99,11 +98,12 @@ def run_command(cmd, sudo=False):
     if none specified, will alert that command failed.
 
     """
+    stdout = PIPE if not stream else None
     if sudo is True:
         cmd = ["sudo"] + cmd
 
     try:
-        output = Popen(cmd, stderr=STDOUT, stdout=PIPE)
+        output = Popen(cmd, stderr=STDOUT, stdout=stdout)
 
     except FileNotFoundError:
         cmd.pop(0)

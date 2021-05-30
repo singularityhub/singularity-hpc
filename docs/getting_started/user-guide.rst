@@ -83,6 +83,14 @@ help:
 
     $ module help python/3.9.2-slim
 
+If you want to add the modules folder to your modules path more permanently,
+you can add it to ``MODULEPATH`` in your bash profile.
+
+.. code-block:: console
+
+    export MODULEPATH=$HOME/singularity-hpc/modules:$MODULEPATH
+
+
 For more detailed tutorials, you should continue reading,
 and see :ref:`getting_started-use-cases`. Also see the :ref:`getting_started-commands-config` for how to update configuration values with ``shpc config``.
 
@@ -121,20 +129,29 @@ A summary table of variables is included below, and then further discussed in de
    * - container_base
      - Where to install containers. If not defined, they are installed alongside modules.
      - null
+   * - container_tech
+     - The container technology to use (singularity or podman)
+     - singularity
    * - updated_at
      - a timestamp to keep track of when you last saved
      - never
    * - singularity_module
      - if defined, add to module script to load this Singularity module first
      - null
-   * - module_exc_prefix
-     - If set, prefix module alias names with prefix (another kind of namespacing)
-     - ""
+   * - module_name
+     - Format string for module commands exec,shell,run (not aliases) can include ``{{ registry }}``, ``{{ namespace }}``, ``{{ tool }}`` and ``{{ version }}``
+     - ``{{ tool }}``
    * - bindpaths
      - string with comma separated list of paths to binds. If set, expored to SINGULARITY_BINDPATH
      - null
    * - singularity_shell
      - exported to SINGULARITY_SHELL, defaults to /bin/bash.
+     - /bin/bash
+   * - podman_shell
+     - The shell used for podman
+     - /bin/bash
+   * - test_shell
+     - The shell used for the test.sh file
      - /bin/bash
    * - namespace
      - Set a default module namespace that you want to install from.
@@ -142,6 +159,9 @@ A summary table of variables is included below, and then further discussed in de
    * - environment_file
      - The name of the environment file to generate and bind to the container.
      - 99-shpc.sh
+   * - config_editor
+     - The editor to use for your config editing
+     - vim
    * - features
      - A key, value paired set of features to add to the container (see table below)
      - All features default to null
@@ -256,13 +276,55 @@ be a custom one with the config variable ``registry``
 
 
 
-Prefixes
---------
+Module Names
+------------
 
-If you want your modules to have an alias prefix, you can
-set ``module_exc_prefix`` (an alias prefix). If you want your modules
-to have a directory prefix, simply create the directory and then update
-the ``module_base`` path.
+The setting ``module_name`` is a format string in `Jinja2 <https://jinja.palletsprojects.com/en/3.0.x/>`_ 
+that is used to generate your module command names. For each module, in addition
+to aliases that are custom to the module, a set of commands for run, inspect, exec,
+and shell are generated. These commands will use the ``module_name`` format string
+to determine their names. For example, for a python container with the default ``module_name``
+of "{{ tool }}" we will derive the following aliases for a Singularity module:
+
+.. code-block:: console
+
+    python-shell
+    python-run
+    python-exec
+    python-inspect-deffile
+    python-inspect-runscript
+
+A container identifier is parsed as follows:
+
+.. code-block:: console
+
+    # quay.io   /biocontainers/samtools:latest
+    # <registry>/  <namespace>/  <tool>/<version>
+
+
+So by default, we use tool because it's likely closest to the command that is wanted.
+But let's say you had two versions of samtools - the namespaces would conflict! You
+would want to change your format string to ``{{ namespace }}-{{ tool }}`` to be
+perhaps "biocontainers-samtools-exec" and "another-samtools-exec." 
+If you change the format string to ``{{ tool }}-{{ version }}`` you would see:
+
+.. code-block:: console
+
+    python-3.9.5-alpine-shell
+    python-3.9.5-alpine-run
+    python-3.9.5-alpine-exec
+    python-3.9.5-alpine-deffile
+    python-3.9.5-alpine-runscript
+
+
+And of course you are free to add any string that you wish, e.g., ``plab-{{ tool }}``
+
+.. code-block:: console
+
+    plab-python-shell
+
+These prefixes are currently only provided to the automatically generated
+commands. Aliases that are custom to the container are not modified.
 
 
 Module Software
@@ -293,6 +355,7 @@ Container Technology
 
 The default container technology to pull and then provide to users is Singularity,
 which makes sense because we can add executables to the path that are Singularity containers.
+We have also recently added Podman, and will add support for Shifter and Sarus soon.
 If you would like support for a different container technology, please also
 `open an issue <https://github.com/singularityhub/singularity-hpc>`_ and
 provide description and links to what you have in mind.
@@ -324,7 +387,6 @@ file directly, or you can use ``shpc config``, which will accept:
  - set to set a parameter and value
  - get to get a parameter by name
 
-
 The following example shows changing the default module_base path from the install directory modules folder.
 
 .. code-block:: console
@@ -343,6 +405,14 @@ And then to get values:
     $ shpc config get module_base
 
 
+You can also open the config in the editor defined in settings at ``config_editor``
+
+.. code-block:: console
+
+    $ shpc config edit
+    
+
+which defaults to vim.
 
 Show and Install
 ----------------
@@ -368,6 +438,18 @@ versions for each, you can do:
     python:3.9.2-slim
     python:3.9.2-alpine
     singularityhub/singularity-deploy:salad
+
+
+To filter down the result set, use ``--filter``:
+
+
+.. code-block:: console
+
+    $ shpc show --filter bio
+    biocontainers/bcftools
+    biocontainers/vcftools
+    biocontainers/bedtools
+    biocontainers/tpp
 
 
 To get details about a package, you would then add it's name to show:
@@ -571,7 +653,11 @@ Test
 ----
 
 Singularity HPC makes it easy to test the full flow of installing and interacting
-with modules. This functionality requires a module system (e.g., LMOD) to be installed. 
+with modules. This functionality requires a module system (e.g., LMOD) to be installed,
+and the assumption is that the test is being run in a shell environment where any
+supporting modules (e.g., loading Singularity or Podman) would be found if needed.
+This is done by way of extending the exported ``$MODULEPATH``. To run a test, you
+can do:
 
 .. code-block:: console
 
@@ -648,7 +734,8 @@ You can also uninstall an entire family  of modules:
 
     $ shpc uninstall python
 
-
+The uninstall will go up to the top level module folder but not remove it
+in the case that you've added it to your ``MODULEPATH``.
 
 Pull
 ----
@@ -843,6 +930,14 @@ If you select a higher level module directory or there is no sif, you'll see:
 
     $ shpc get tensorflow/tensorflow
     tensorflow/tensorflow is not a module tag folder, or does not have a sif binary.
+
+
+You can add ``-e`` to get the environment file:
+
+
+.. code-block:: console
+
+    $ shpc get -e tensorflow/tensorflow
 
 
 We could update this command to allow for listing all sif files within a top level

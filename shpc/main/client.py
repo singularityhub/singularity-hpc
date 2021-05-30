@@ -9,6 +9,7 @@ import shpc.utils as utils
 from .settings import Settings
 
 import os
+import re
 import shutil
 import sys
 
@@ -34,41 +35,12 @@ class Client:
     def __init__(self, settings_file=None):
 
         # We don't necessarily need a container technology handle
-        if not hasattr(self, "_container"):
-            self._container = None
+        if not hasattr(self, "container"):
+            self.container = None
 
         # If we don't have default settings, load
         if not hasattr(self, "settings"):
             self.settings = Settings(settings_file)
-
-        # If client initialized with _init_db, do it
-        if hasattr(self, "_init_db"):
-            self._init_db(self.settings.database_file)
-
-    def speak(self):
-        """
-        A function for the client to announce him or herself.
-
-        Subclasses can define _speak() to add other meaningful information.
-        """
-        if self.quiet is False:
-            logger.info("%s [database|%s]" % (self, self.database))
-
-            if hasattr(self, "_speak"):
-                self._speak()
-
-    def _speak(self):
-        pass
-
-    def announce(self, command=None):
-        """
-        A wrapper to speak to control what commands are shown.
-
-        the client will announce itself given that a command is not in a
-        particular predefined list.
-        """
-        if command and command not in ["get"] and self.quiet is False:
-            self.speak()
 
     def __repr__(self):
         return str(self)
@@ -88,6 +60,12 @@ class Client:
         """
         raise NotImplementedError
 
+    def get(self, module_name):
+        """
+        Get a container path or uri.
+        """
+        raise NotImplementedError
+
     def add(self, sif, module_name):
         """
         Add a container directly as a module
@@ -97,12 +75,6 @@ class Client:
     def inspect(self, module_name):
         """
         Return complete metadata for the user from a container.
-        """
-        raise NotImplementedError
-
-    def get(self, module_name):
-        """
-        Get the path to a container for a module
         """
         raise NotImplementedError
 
@@ -159,8 +131,15 @@ class Client:
         # Generate a test template
         test_file = os.path.join(tmpdir, "test.sh")
 
+        # If the module name has a tag, only test it
+        if ":" in module_name:
+            module_name = module_name.split(":", 1)[0]
+            tags = [config.tag.name]
+        else:
+            tags = list(config.tags.keys())
+
         # Test all tags (this could be subsetted)
-        for tag in config.tags.keys():
+        for tag in tags:
 
             # Install the recipe
             sif = self.install(module_name, tag)
@@ -228,7 +207,7 @@ class Client:
         """
         raise NotImplementedError
 
-    def show(self, name, names_only=False, out=None):
+    def show(self, name, names_only=False, out=None, filter_string=None):
         """
         Show available packages
         """
@@ -247,6 +226,11 @@ class Client:
                         .replace(self.settings.registry, "")
                         .strip(os.sep)
                     )
+
+                    # If the user has provided a filter, honor it
+                    if filter_string and not re.search(filter_string, module_name):
+                        continue
+
                     if names_only:
                         out.write("%s\n" % module_name)
                     else:

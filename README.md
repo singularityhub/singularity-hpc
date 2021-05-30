@@ -15,6 +15,10 @@ And container technologies:
  - [Singularity](https://github.com/sylabs/singularity)
  - [Podman](https://podman.io)
 
+Coming soon:
+
+ - [Shifter](https://github.com/NERSC/shifter)
+
 You can use shpc if you are:
 
 1. a linux administrator wanting to manage containers as modules for your cluster

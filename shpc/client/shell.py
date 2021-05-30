@@ -59,11 +59,7 @@ def bpython(args):
     import bpython
 
     client = create_client(args)
-    from shpc.database.models import Container, Collection
-
-    bpython.embed(
-        locals_={"client": client, "Container": Container, "Collection": Collection}
-    )
+    bpython.embed(locals_={"client": client})
 
 
 def python(args):
@@ -73,8 +69,4 @@ def python(args):
     import code
 
     client = create_client(args)
-    from shpc.database.models import Container, Collection
-
-    code.interact(
-        local={"client": client, "Container": Container, "Collection": Collection}
-    )
+    code.interact(local={"client": client})

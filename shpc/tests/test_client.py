@@ -18,7 +18,7 @@ here = os.path.dirname(os.path.abspath(__file__))
 root = os.path.dirname(here)
 
 
-def init_client(tmpdir, module_sys):
+def init_client(tmpdir, module_sys, container_tech):
     """Get a common client for singularity and lmod"""
     settings_file = os.path.join(root, "settings.yml")
     new_settings = os.path.join(tmpdir, "settings.yml")
@@ -27,7 +27,7 @@ def init_client(tmpdir, module_sys):
         quiet=False,
         settings_file=new_settings,
         module=module_sys,
-        container_tech="singularity",
+        container_tech=container_tech,
     )
 
     # The module folder needs to be temporary too
@@ -40,11 +40,17 @@ def init_client(tmpdir, module_sys):
 
 
 @pytest.mark.parametrize(
-    "module_sys,module_file", [("lmod", "module.lua"), ("tcl", "module.tcl")]
+    "module_sys,module_file,container_tech",
+    [
+        ("lmod", "module.lua", "singularity"),
+        ("lmod", "module.lua", "podman"),
+        ("tcl", "module.tcl", "singularity"),
+        ("tcl", "module.tcl", "podman"),
+    ],
 )
-def test_install_get(tmp_path, module_sys, module_file):
+def test_install_get(tmp_path, module_sys, module_file, container_tech):
     """Test install and get"""
-    client = init_client(str(tmp_path), module_sys)
+    client = init_client(str(tmp_path), module_sys, container_tech)
 
     # Install known tag
     client.install("python:3.9.2-alpine")
@@ -59,15 +65,18 @@ def test_install_get(tmp_path, module_sys, module_file):
     env_file = os.path.join(module_dir, client.settings.environment_file)
     assert os.path.exists(env_file)
 
-    assert client.get("python/3.9.2-alpine")
+    assert client.get("python:3.9.2-alpine")
 
 
 @pytest.mark.parametrize(
     "module_sys,module_file", [("lmod", "module.lua"), ("tcl", "module.tcl")]
 )
 def test_features(tmp_path, module_sys, module_file):
-    """Test adding features"""
-    client = init_client(str(tmp_path), module_sys)
+    """
+    Test adding features.
+    Features are currently only supported for Singularity.
+    """
+    client = init_client(str(tmp_path), module_sys, "singularity")
 
     # Install known tag
     client.install("python:3.9.2-alpine")
@@ -79,7 +88,7 @@ def test_features(tmp_path, module_sys, module_file):
     content = shpc.utils.read_file(module_file)
     assert "--nv" not in content
 
-    client.uninstall("python:3.9.2-alpine")
+    client.uninstall("python:3.9.2-alpine", force=True)
 
     # Now update settings
     client.settings.set("container_features:gpu", "nvidia")
@@ -93,7 +102,7 @@ def test_features(tmp_path, module_sys, module_file):
 @pytest.mark.parametrize("module_sys", [("lmod"), ("tcl")])
 def test_docgen(tmp_path, module_sys):
     """Test docgen"""
-    client = init_client(str(tmp_path), module_sys)
+    client = init_client(str(tmp_path), module_sys, "singularity")
     client.install("python:3.9.2-slim")
     out = io.StringIO()
     docs = client.docgen("python:3.9.2-slim", out)
@@ -101,25 +110,33 @@ def test_docgen(tmp_path, module_sys):
     assert "python:3.9.2-slim" in docs
 
 
-@pytest.mark.parametrize("module_sys", [("lmod"), ("tcl")])
-def test_inspect(tmp_path, module_sys):
+@pytest.mark.parametrize(
+    "module_sys,container_tech",
+    [
+        ("lmod", "singularity"),
+        ("lmod", "podman"),
+        ("tcl", "singularity"),
+        ("tcl", "podman"),
+    ],
+)
+def test_inspect(tmp_path, module_sys, container_tech):
     """Test inspect"""
-    client = init_client(str(tmp_path), module_sys)
+    client = init_client(str(tmp_path), module_sys, container_tech)
     client.install("python:3.9.2-slim")
-
-    # Install known registry item latest
-    with pytest.raises(SystemExit):
-        client.inspect("python")
+    client.inspect("python")
 
     # Python won't have much TODO we should test a custom container
-    metadata = client.inspect("python/3.9.2-slim")
-    assert "attributes" in metadata
+    metadata = client.inspect("python:3.9.2-slim")
+    if container_tech == "singularity":
+        assert "attributes" in metadata
+    else:
+        assert isinstance(metadata, list)
 
 
 @pytest.mark.parametrize("module_sys", [("lmod"), ("tcl")])
 def test_namespace_and_show(tmp_path, module_sys):
     """Test namespace and show"""
-    client = init_client(str(tmp_path), module_sys)
+    client = init_client(str(tmp_path), module_sys, "singularity")
     client.show("vanessa/salad:latest")
 
     with pytest.raises(SystemExit):
@@ -129,23 +146,29 @@ def test_namespace_and_show(tmp_path, module_sys):
     client.settings.set("namespace", None)
 
 
-@pytest.mark.parametrize("module_sys", [("lmod"), ("tcl")])
-def test_check(tmp_path, module_sys):
+@pytest.mark.parametrize(
+    "module_sys,container_tech",
+    [
+        ("lmod", "singularity"),
+        ("lmod", "podman"),
+        ("tcl", "singularity"),
+        ("tcl", "podman"),
+    ],
+)
+def test_check(tmp_path, module_sys, container_tech):
     """Test check"""
-    client = init_client(str(tmp_path), module_sys)
-    client.install("python:3.9.2-slim")
-
-    # Python won't have much TODO we should test a custom container
-    client.check("python/3.9.2-slim")
+    client = init_client(str(tmp_path), module_sys, container_tech)
+    client.install("vanessa/salad:latest")
+    client.check("vanessa/salad:latest")
 
 
 @pytest.mark.parametrize("module_sys", [("lmod"), ("tcl")])
 def test_add(tmp_path, module_sys):
     """Test adding a custom container"""
-    client = init_client(str(tmp_path), module_sys)
+    client = init_client(str(tmp_path), module_sys, "singularity")
 
     # Create a copy of the latest image to add
     container = os.path.join(str(tmp_path), "salad_latest.sif")
     shutil.copyfile(os.path.join(here, "testdata", "salad_latest.sif"), container)
     client.add(container, "dinosaur/salad/latest")
-    assert client.get("dinosaur/salad/latest")
+    assert client.get("dinosaur/salad:latest")

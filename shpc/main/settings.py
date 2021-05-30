@@ -6,6 +6,7 @@ __license__ = "MPL 2.0"
 from shpc.logger import logger
 import shpc.defaults as defaults
 import shpc.main.schemas
+import shpc.utils
 
 try:
     from ruamel_yaml import YAML
@@ -17,24 +18,14 @@ import jsonschema
 import os
 
 
-class Settings:
-    """
-    The settings class is a wrapper for easily parsing a settings.yml file.
-
-    We parse into a query-able class. It also gives us control to update settings,
-    meaning we change the values and then write them to file. It's basically
-    a dictionary-like class with extra functions.
-    """
-
-    def __init__(self, settings_file):
+class SettingsBase:
+    def __init__(self):
         """
-        Create a new settings object, which requires a settings file to load
+        Create a new settings object not requiring a settings file.
         """
-        self.load(settings_file)
-        self.validate()
-
         # Set an updated time, in case it's written back to file
-        self._settings["updated_at"] = datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ")
+        self._settings = {"updated_at": datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ")}
+        self.settings_file = None
 
     def __str__(self):
         return "[shpc-settings]"
@@ -47,6 +38,14 @@ class Settings:
         Validate the loaded settings with jsonschema
         """
         jsonschema.validate(instance=self._settings, schema=shpc.main.schemas.settings)
+
+    def edit(self):
+        """
+        Interactively edit a config file.
+        """
+        if not self.settings_file or not os.path.exists(self.settings_file):
+            logger.exit("Settings file not found.")
+        shpc.utils.run_command([self.config_editor, self.settings_file], stream=True)
 
     def load(self, settings_file=None):
         """
@@ -114,6 +113,8 @@ class Settings:
 
     def save(self, filename=None):
         filename = filename or self.settings_file
+        if not filename:
+            logger.exit("A filename is required to save to.")
         yaml = YAML()
         with open(filename, "w") as fd:
             yaml.dump(self._settings, fd)
@@ -121,3 +122,23 @@ class Settings:
     def __iter__(self):
         for key, value in self.__dict__.items():
             yield key, value
+
+
+class Settings(SettingsBase):
+    """
+    The settings class is a wrapper for easily parsing a settings.yml file.
+
+    We parse into a query-able class. It also gives us control to update settings,
+    meaning we change the values and then write them to file. It's basically
+    a dictionary-like class with extra functions.
+    """
+
+    def __init__(self, settings_file):
+        """
+        Create a new settings object, which requires a settings file to load
+        """
+        self.load(settings_file)
+        self.validate()
+
+        # Set an updated time, in case it's written back to file
+        self._settings["updated_at"] = datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ")

@@ -56,7 +56,16 @@ build_singularity: &install_singularity
       ./mconfig -p /usr/local && \
       make -C builddir && \
       sudo make -C builddir install
-      
+
+install_podman: &install_podman
+  name: Install Podman
+  command: |-
+    . /etc/os-release
+    echo "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/testing/xUbuntu_${VERSION_ID}/ /" | sudo tee /etc/apt/sources.list.d/devel:kubic:libcontainers:testing.list
+    curl -L https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/testing/xUbuntu_${VERSION_ID}/Release.key | sudo apt-key add -
+    sudo apt-get update -qq
+    sudo apt-get -qq -y install podman
+ 
 install_dependencies: &install_dependencies
   name: install dependencies
   command: |-
@@ -109,6 +118,7 @@ jobs:
           keys: v1-dependencies
       - run: *install_dependencies
       - run: *setup_environment
+      - run: *install_podman
       - run: *update_go
       - run: *fetch_deb_deps
       - run: *install_singularity

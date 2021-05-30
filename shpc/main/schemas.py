@@ -111,6 +111,7 @@ settingsProperties = {
     "singularity_module": {"type": ["string", "null"]},
     "bindpaths": {"type": ["string", "null"]},
     "updated_at": {"type": "string"},
+    "module_name": {"type": "string"},
     "environment_file": {"type": "string"},
     "container_tech": {"type": "string", "enum": ["singularity", "podman"]},
     "singularity_shell": {"type": "string", "enum": ["/bin/bash", "/bin/sh"]},

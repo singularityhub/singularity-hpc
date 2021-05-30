@@ -40,8 +40,8 @@ runTest 0 $output shpc --settings-file $settings --version
 echo
 echo "#### Testing config "
 runTest 0 $output shpc --settings-file $settings config --help
-runTest 0 $output shpc --settings-file $settings config set "lmod_base:${modules}"
-runTest 0 $output shpc --settings-file $settings config get "lmod_base"
+runTest 0 $output shpc --settings-file $settings config set "module_base:${modules}"
+runTest 0 $output shpc --settings-file $settings config get "module_base"
 
 echo
 echo "#### Testing show "
@@ -57,12 +57,15 @@ runTest 0 $output shpc --settings-file $settings add "$container" salad/latest
 echo
 echo "#### Testing install "
 runTest 0 $output shpc --settings-file $settings install --help
-runTest 0 $output shpc --settings-file $settings install python
+runTest 0 $output shpc --settings-file $settings install python:3.9.2-slim
+runTest 0 $output shpc --settings-file $settings install vanessa/salad:latest
+runTest 0 $output shpc --settings-file $settings install --container_tech podman python
 
 echo
 echo "#### Testing get "
 runTest 0 $output shpc --settings-file $settings get --help
-runTest 0 $output shpc --settings-file $settings get vanessa/salad/latest
+runTest 1 $output shpc --settings-file $settings get vanessa/fork:latest
+runTest 0 $output shpc --settings-file $settings get salad:latest
 
 echo
 echo "#### Testing list "
@@ -74,8 +77,8 @@ runTest 0 $output shpc --settings-file $settings list salad
 echo
 echo "#### Testing inspect "
 runTest 0 $output shpc --settings-file $settings inspect --help
-runTest 0 $output shpc --settings-file $settings inspect python/3.9.2-slim
-runTest 0 $output shpc --settings-file $settings inspect vanessa/salad/latest
+runTest 0 $output shpc --settings-file $settings inspect python:3.9.2-slim
+runTest 0 $output shpc --settings-file $settings inspect vanessa/salad:latest
 
 echo
 echo "#### Testing namespace "
@@ -87,14 +90,14 @@ echo
 echo "#### Testing check "
 runTest 0 $output shpc --settings-file $settings check --help
 # This test will succeed if this version is latest!
-runTest 1 $output shpc --settings-file $settings check python/3.9.2-slim
+runTest 0 $output shpc --settings-file $settings check python:3.9.2-slim
 # This test will fail if this is not latest
-runTest 0 $output shpc --settings-file $settings check vanessa/salad/latest
+runTest 0 $output shpc --settings-file $settings check vanessa/salad:latest
 
 echo
 echo "#### Testing uninstall "
 runTest 0 $output shpc --settings-file $settings uninstall --help
-runTest 0 $output shpc --settings-file $settings uninstall --force vanessa/salad/latest
+runTest 0 $output shpc --settings-file $settings uninstall --force vanessa/salad:latest
 
 
 rm -rf ${tmpdir}

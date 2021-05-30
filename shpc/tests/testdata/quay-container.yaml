@@ -1,0 +1,12 @@
+docker: quay.io/vgteam/vg
+url: https://quay.io/repository/vgteam/vg?tab=info
+maintainer: '@vsoch'
+description: Tools for working with genomic variation graphs. https://github.com/vgteam/vg
+latest:
+  latest: sha256:998f14bb85c2bad967d93378f272322ac95e84ccfbb15eddbbb9116e3903595b
+tags:
+  latest: sha256:998f14bb85c2bad967d93378f272322ac95e84ccfbb15eddbbb9116e3903595b
+filter:
+- latest
+aliases:
+  vg: /vg/bin/vg

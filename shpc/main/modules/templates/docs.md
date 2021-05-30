@@ -46,33 +46,45 @@ You can use tab for auto-completion of module names or commands that are provide
 
 ### Commands
 
-When you install this module, you'll be able to load it to make the following commands accessible:
+When you install this module, you'll be able to load it to make the following commands accessible.
+Examples for both Singularity and Podman (container technologies supported) are included.
 
-#### {{ prefix }}{{ flatname }}-run:
+#### {|module_name|}-run:
 
 ```bash
 $ singularity run {% if bindpaths %}-B {{ bindpaths }} {% endif %}<container>
+$ podman run --rm {% if bindpaths %}-v {{ bindpaths }} {% endif %} -v ${PWD} -w ${PWD} <container>
 ```
 
-#### {{ prefix }}{{ flatname }}-shell:
+#### {|module_name|}-shell:
 
 ```bash
-$ singularity shell -s {{ singularity_shell }} {% if bindpaths %}-B {{ bindpaths }} {% endif %}<container>
+$ singularity shell -s {{ shell }} {% if bindpaths %}-B {{ bindpaths }} {% endif %}<container>
+$ podman run --it --rm --entrypoint {{ shell }} {% if bindpaths %}-v {{ bindpaths }} {% endif %} -v ${PWD} -w ${PWD} <container>
 ```
 
-#### {{ prefix }}{{ flatname }}-exec:
+#### {|module_name|}-exec:
 
 ```bash
-$ singularity exec -s {{ singularity_shell }} {% if bindpaths %}-B {{ bindpaths }} {% endif %}<container> "$@"
+$ singularity exec -s {{ shell }} {% if bindpaths %}-B {{ bindpaths }} {% endif %}<container> "$@"
+$ podman run --it --rm --entrypoint "" {% if bindpaths %}-v {{ bindpaths }} {% endif %} -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
-#### {{ prefix }}{{ flatname }}-inspect-runscript:
+#### {|module_name|}-inspect:
+
+Podman only has one inspect type.
+
+```bash
+$ podman inspect <container>
+```
+
+#### {|module_name|}-inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### {{ prefix }}{{ flatname }}-inspect-deffile:
+#### {|module_name|}-inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>
@@ -83,24 +95,29 @@ $ singularity inspect -d <container>
        
 ```bash
 $ singularity exec {% if bindpaths %}-B {{ bindpaths }} {% endif %}{% if alias.options %}{{ alias.options }} {% endif %}<container> {{ alias.command }}
+$ podman run --it --rm --entrypoint {{ alias.entrypoint }} {% if bindpaths %}-v {{ bindpaths }} {% endif %} {% if alias.options %}{{ alias.options }} {% endif %} -v ${PWD} -w ${PWD} <container> -c "{{ alias.args }} $@"
 ```
 
 {% endfor %}{% else %}
 
-#### {{ prefix }}{{ flatname }}
+#### {|module_name|}
 
 ```bash
 $ singularity run {% if bindpaths %}-B {{ bindpaths }}{% endif %}<container>
+$ podman run --rm {% if bindpaths %}-v {{ bindpaths }}{% endif %} -v ${PWD} -w ${PWD} <container>
 ```
 {% endif %}
 
 In the above, the `<container>` directive will reference an actual container provided
-by the module, for the version you have chosen to load. Note that although a container
+by the module, for the version you have chosen to load. An environment file in the
+module folder will also be bound. Note that although a container
 might provide custom commands, every container exposes unique exec, shell, run, and
-inspect aliases. For each of the above, you can export:
+inspect aliases. For anycommands above, you can export:
 
  - SINGULARITY_OPTS: to define custom options for singularity (e.g., --debug)
  - SINGULARITY_COMMAND_OPTS: to define custom options for the command (e.g., -b)
+ - PODMAN_OPTS: to define custom options for podman
+ - PODMAN_COMMAND_OPTS: to define custom options for the command
 
 <br>
   

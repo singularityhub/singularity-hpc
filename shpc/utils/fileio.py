@@ -13,6 +13,14 @@ import json
 from shpc.logger import logger
 
 
+def mkdirp(dirnames):
+    """
+    Create one or more directories
+    """
+    for dirname in dirnames:
+        mkdir_p(dirname)
+
+
 def mkdir_p(path):
     """mkdir_p attempts to get the same functionality as mkdir -p
     :param path: the path to create.

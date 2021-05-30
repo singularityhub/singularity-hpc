@@ -21,7 +21,9 @@ def main(args, parser, extra, subparser):
     command = args.params.pop(0)
 
     # For each new setting, update and save!
-    if command == "set":
+    if command == "edit":
+        return cli.settings.edit()
+    elif command == "set":
         for param in args.params:
             if ":" not in param:
                 logger.warning(
