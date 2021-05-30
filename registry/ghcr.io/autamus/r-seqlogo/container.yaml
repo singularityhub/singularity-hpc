@@ -3,7 +3,7 @@ url: https://github.com/orgs/autamus/packages/container/package/r-seqlogo
 maintainer: '@vsoch'
 description: Sequence logos for DNA sequence alignments
 latest:
-  1.56.0: sha256:fa2b760763992570031b44e32d71a078d5467ab85d542c7a6d264f4ebe455995
+  1.56.0: sha256:077e63efe2bc6aca944213d59df41246b5602569ea08fee6d4728f5f9a5c1a3d
 tags:
-  1.56.0: sha256:fa2b760763992570031b44e32d71a078d5467ab85d542c7a6d264f4ebe455995
-  latest: sha256:fa2b760763992570031b44e32d71a078d5467ab85d542c7a6d264f4ebe455995
+  1.56.0: sha256:077e63efe2bc6aca944213d59df41246b5602569ea08fee6d4728f5f9a5c1a3d
+  latest: sha256:077e63efe2bc6aca944213d59df41246b5602569ea08fee6d4728f5f9a5c1a3d

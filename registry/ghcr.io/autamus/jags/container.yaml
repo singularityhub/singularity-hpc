@@ -4,9 +4,9 @@ maintainer: '@vsoch'
 description: Just Another Gibbs Sampler. A program for analysis of Bayesian hierarchical
   models using Markov Chain Monte Carlo (MCMC) simulation.
 latest:
-  4.3.0: sha256:60540737fee6646f22d7b6afeeaab5e3ca9ad3e8c4e38da65e98b677a8ccb4b0
+  4.3.0: sha256:18a2dc9a51ea966c2b2c5b0a1251eab9eeed35d071d98d390bf3598b740e0fbe
 tags:
-  4.3.0: sha256:60540737fee6646f22d7b6afeeaab5e3ca9ad3e8c4e38da65e98b677a8ccb4b0
-  latest: sha256:60540737fee6646f22d7b6afeeaab5e3ca9ad3e8c4e38da65e98b677a8ccb4b0
+  4.3.0: sha256:18a2dc9a51ea966c2b2c5b0a1251eab9eeed35d071d98d390bf3598b740e0fbe
+  latest: sha256:18a2dc9a51ea966c2b2c5b0a1251eab9eeed35d071d98d390bf3598b740e0fbe
 aliases:
   jags: /opt/view/bin/jags

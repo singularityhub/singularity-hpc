@@ -5,7 +5,7 @@ description: Intel oneAPI Math Kernel Library, formerly just Intel Math Kernel L
   is a library of optimized math routines for science, engineering, and financial
   applications.
 latest:
-  2020.4.304: sha256:f034efae0c4084d664c24a03819f35bf71cc05f82489fd84702a9a8697aacafe
+  2020.4.304: sha256:e0f681f0afee7593df981fa2ca041704c3ee22bac5eebb32a48e45f50a095429
 tags:
-  2020.4.304: sha256:f034efae0c4084d664c24a03819f35bf71cc05f82489fd84702a9a8697aacafe
-  latest: sha256:f034efae0c4084d664c24a03819f35bf71cc05f82489fd84702a9a8697aacafe
+  2020.4.304: sha256:e0f681f0afee7593df981fa2ca041704c3ee22bac5eebb32a48e45f50a095429
+  latest: sha256:e0f681f0afee7593df981fa2ca041704c3ee22bac5eebb32a48e45f50a095429

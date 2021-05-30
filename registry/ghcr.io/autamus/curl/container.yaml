@@ -5,10 +5,10 @@ description: cURL is a computer software project providing a library and command
   tool for transferring data using various network protocols. The name stands for
   'Client URL', which was first released in 1997.
 latest:
-  7.76.1: sha256:c81ee86e14a1437ec7b50eb8aef4d3d01019fff8be7c6ac66d3085ca4e2ba184
+  7.76.1: sha256:997cf56439b4bfbc9d529b94b001bfc8d3e3ea8f74dbb6d18eff2dd6eb556109
 tags:
-  7.76.1: sha256:c81ee86e14a1437ec7b50eb8aef4d3d01019fff8be7c6ac66d3085ca4e2ba184
-  latest: sha256:c81ee86e14a1437ec7b50eb8aef4d3d01019fff8be7c6ac66d3085ca4e2ba184
+  7.76.1: sha256:997cf56439b4bfbc9d529b94b001bfc8d3e3ea8f74dbb6d18eff2dd6eb556109
+  latest: sha256:997cf56439b4bfbc9d529b94b001bfc8d3e3ea8f74dbb6d18eff2dd6eb556109
 aliases:
   c_rehash: /opt/view/bin/c_rehash
   curl: /opt/view/bin/curl

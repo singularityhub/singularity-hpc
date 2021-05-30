@@ -4,10 +4,10 @@ maintainer: '@vsoch'
 description: XZ Utils is free general-purpose data compression software with a high
   compression ratio.
 latest:
-  5.2.5: sha256:2f00872f6175c127a8f228c16c677d945bfe0781851c6b6f57e29a7fd7763f1d
+  5.2.5: sha256:cbf7c88be776fa3425522bdc7615f63b491c2f5fe2fb7b384e66b1258872f2cb
 tags:
-  5.2.5: sha256:2f00872f6175c127a8f228c16c677d945bfe0781851c6b6f57e29a7fd7763f1d
-  latest: sha256:2f00872f6175c127a8f228c16c677d945bfe0781851c6b6f57e29a7fd7763f1d
+  5.2.5: sha256:cbf7c88be776fa3425522bdc7615f63b491c2f5fe2fb7b384e66b1258872f2cb
+  latest: sha256:cbf7c88be776fa3425522bdc7615f63b491c2f5fe2fb7b384e66b1258872f2cb
 aliases:
   xz: /opt/view/bin/xz
   xzcat: /opt/view/bin/xzcat

@@ -1,11 +1,14 @@
 docker: ghcr.io/autamus/gdal
-latest:
-  "latest": "sha256:4652264b7a69ffacea345eb551fc20a7abc733d0c9ee6a935114dbabce274411"
-tags:
-  "latest": "sha256:4652264b7a69ffacea345eb551fc20a7abc733d0c9ee6a935114dbabce274411"
-maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/gdal
-description: "GDAL is a translator library for raster and vector geospatial data formats that is released under an X/MIT style Open Source License by the Open Source Geospatial Foundation. "
+maintainer: '@vsoch'
+description: 'GDAL is a translator library for raster and vector geospatial data formats
+  that is released under an X/MIT style Open Source License by the Open Source Geospatial
+  Foundation. '
+latest:
+  3.3.0: sha256:e4438208114f4ae5b03ac1e6be9847ba857bdfe947574ee6a903e20bdbcc4cf7
+tags:
+  3.3.0: sha256:e4438208114f4ae5b03ac1e6be9847ba857bdfe947574ee6a903e20bdbcc4cf7
+  latest: sha256:e4438208114f4ae5b03ac1e6be9847ba857bdfe947574ee6a903e20bdbcc4cf7
 aliases:
   gdal-config: /opt/view/bin/gdal-config
   gdal_contour: /opt/view/bin/gdal_contour

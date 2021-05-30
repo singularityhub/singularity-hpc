@@ -4,10 +4,10 @@ maintainer: '@vsoch'
 description: Cufflinks assembles transcripts, estimates their abundances, and tests
   for differential expression and regulation in RNA-Seq samples.
 latest:
-  2.2.1: sha256:163b8f4872b98d165e18f98a390c77a2b6276c810c60d44b108250ff3167e25a
+  2.2.1: sha256:ccf683f4992b856d4fb4a726ac2c301d8936453a2df95bc1cf533197957a543b
 tags:
-  2.2.1: sha256:163b8f4872b98d165e18f98a390c77a2b6276c810c60d44b108250ff3167e25a
-  latest: sha256:163b8f4872b98d165e18f98a390c77a2b6276c810c60d44b108250ff3167e25a
+  2.2.1: sha256:ccf683f4992b856d4fb4a726ac2c301d8936453a2df95bc1cf533197957a543b
+  latest: sha256:ccf683f4992b856d4fb4a726ac2c301d8936453a2df95bc1cf533197957a543b
 aliases:
   cuffcompare: /opt/view/bin/cuffcompare
   cuffdiff: /opt/view/bin/cuffdiff

@@ -3,10 +3,10 @@ url: https://github.com/orgs/autamus/packages/container/package/bedtools2
 maintainer: '@vsoch'
 description: The swiss army knife for genome arithmetic
 latest:
-  2.30.0: sha256:e4fe65e9e953468367c2146ecbdb45b148b7e5271f94e16efafca0c02aec75cc
+  2.30.0: sha256:ffc4b941ceb8cb99b53cb6b89ca3c05f2f3fe33a14ed59025f8a4b7e10f998f3
 tags:
-  2.30.0: sha256:e4fe65e9e953468367c2146ecbdb45b148b7e5271f94e16efafca0c02aec75cc
-  latest: sha256:e4fe65e9e953468367c2146ecbdb45b148b7e5271f94e16efafca0c02aec75cc
+  2.30.0: sha256:ffc4b941ceb8cb99b53cb6b89ca3c05f2f3fe33a14ed59025f8a4b7e10f998f3
+  latest: sha256:ffc4b941ceb8cb99b53cb6b89ca3c05f2f3fe33a14ed59025f8a4b7e10f998f3
 aliases:
   annotateBed: /opt/view/bin/annotateBed
   bamToBed: /opt/view/bin/bamToBed

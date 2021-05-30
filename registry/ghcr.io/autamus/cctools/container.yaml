@@ -5,10 +5,10 @@ description: The Cooperative Computing Tools (CCTools) are a collection of progr
   that enable large scale distributed computing on systems such as clusters, clouds,
   and grids.
 latest:
-  7.2.4: sha256:0f8d8b5ef556bce3aab4fd70ce4b1f085d1116b2950d772db472e2d2ecb68be0
+  7.2.4: sha256:c685c9bfa6ad095519d8102dd024acd4c27434444b3da5e5c2fd745ebc09444d
 tags:
-  7.2.4: sha256:0f8d8b5ef556bce3aab4fd70ce4b1f085d1116b2950d772db472e2d2ecb68be0
-  latest: sha256:0f8d8b5ef556bce3aab4fd70ce4b1f085d1116b2950d772db472e2d2ecb68be0
+  7.2.4: sha256:c685c9bfa6ad095519d8102dd024acd4c27434444b3da5e5c2fd745ebc09444d
+  latest: sha256:c685c9bfa6ad095519d8102dd024acd4c27434444b3da5e5c2fd745ebc09444d
 aliases:
   c_rehash: /opt/view/bin/c_rehash
   captoinfo: /opt/view/bin/captoinfo

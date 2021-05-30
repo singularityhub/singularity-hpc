@@ -5,9 +5,9 @@ description: The Persistence of Vision Ray Tracer, most commonly acronymed as PO
   is a cross-platform ray-tracing program that generates images from a text-based
   scene description.
 latest:
-  3.7.0.8: sha256:c3e05a1cfb1199ee248442dd6ec7847d79fd03d9b1f591473ea4e58482c0f1e8
+  3.7.0.8: sha256:f6705f0c21d5379da0e0cf78c3c6ef82922c2aa30131597154a5088e94406b32
 tags:
-  3.7.0.8: sha256:c3e05a1cfb1199ee248442dd6ec7847d79fd03d9b1f591473ea4e58482c0f1e8
-  latest: sha256:c3e05a1cfb1199ee248442dd6ec7847d79fd03d9b1f591473ea4e58482c0f1e8
+  3.7.0.8: sha256:f6705f0c21d5379da0e0cf78c3c6ef82922c2aa30131597154a5088e94406b32
+  latest: sha256:f6705f0c21d5379da0e0cf78c3c6ef82922c2aa30131597154a5088e94406b32
 aliases:
   povray: /opt/view/bin/povray

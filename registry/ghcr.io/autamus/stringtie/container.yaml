@@ -4,9 +4,9 @@ maintainer: '@vsoch'
 description: StringTie is a fast and highly efficient assembler of RNA-Seq alignments
   into potential transcripts.
 latest:
-  2.1.5: sha256:788dc373f3c6cb2bb23e1d5e77af0764981deb999f03366e8ebb3098a7f1342f
+  2.1.5: sha256:17ad259efefe11dea4baf80631a189d2d1ff6c5ff59c339dfadf9c30806668f1
 tags:
-  2.1.5: sha256:788dc373f3c6cb2bb23e1d5e77af0764981deb999f03366e8ebb3098a7f1342f
-  latest: sha256:788dc373f3c6cb2bb23e1d5e77af0764981deb999f03366e8ebb3098a7f1342f
+  2.1.5: sha256:17ad259efefe11dea4baf80631a189d2d1ff6c5ff59c339dfadf9c30806668f1
+  latest: sha256:17ad259efefe11dea4baf80631a189d2d1ff6c5ff59c339dfadf9c30806668f1
 aliases:
   stringtie: /opt/view/bin/stringtie

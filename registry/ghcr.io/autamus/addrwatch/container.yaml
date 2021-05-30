@@ -4,10 +4,10 @@ maintainer: '@vsoch'
 description: addrwatch is a similar software to arpwatch. It main purpose is to monitor
   network and log ethernet/ip pairings.
 latest:
-  1.0.2: sha256:996c421f6fc751bb9166134db064a4c5a971bedac460bbf17647e0bc3ebc7372
+  1.0.2: sha256:6e98e19cbf1cdac3e591809389993855cf5ce5f8ecea8a3bbfe46af40627b3ff
 tags:
-  1.0.2: sha256:996c421f6fc751bb9166134db064a4c5a971bedac460bbf17647e0bc3ebc7372
-  latest: sha256:996c421f6fc751bb9166134db064a4c5a971bedac460bbf17647e0bc3ebc7372
+  1.0.2: sha256:6e98e19cbf1cdac3e591809389993855cf5ce5f8ecea8a3bbfe46af40627b3ff
+  latest: sha256:6e98e19cbf1cdac3e591809389993855cf5ce5f8ecea8a3bbfe46af40627b3ff
 aliases:
   addrwatch: /opt/view/bin/addrwatch
   addrwatch_stdout: /opt/view/bin/addrwatch_stdout

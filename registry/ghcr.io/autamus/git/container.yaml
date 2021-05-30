@@ -1,11 +1,14 @@
 docker: ghcr.io/autamus/git
-latest:
-  "latest": "sha256:b1b4e33e8fffc890d50e968363b57bd00a0c833db3fdc8b1b709677c336d90d6"
-tags:
-  "latest": "sha256:b1b4e33e8fffc890d50e968363b57bd00a0c833db3fdc8b1b709677c336d90d6"
-maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/git
-description: "Git is software for tracking changes in any set of files, usually used for coordinating work among programmers collaboratively developing source code during software development. Its goals include speed, data integrity, and support for distributed, non-linear workflows."
+maintainer: '@vsoch'
+description: Git is software for tracking changes in any set of files, usually used
+  for coordinating work among programmers collaboratively developing source code during
+  software development. Its goals include speed, data integrity, and support for distributed,
+  non-linear workflows.
+latest:
+  latest: sha256:2e9c5ab2acb119e4ca7c1c4eea6bb6f128781d8c40325f3a3edea5a6cd8f51d7
+tags:
+  latest: sha256:2e9c5ab2acb119e4ca7c1c4eea6bb6f128781d8c40325f3a3edea5a6cd8f51d7
 aliases:
   git: /opt/view/bin/git
   git-cvsserver: /opt/view/bin/git-cvsserver

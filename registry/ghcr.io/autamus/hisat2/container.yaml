@@ -5,10 +5,10 @@ description: HISAT2 is a fast and sensitive alignment program for mapping next-g
   sequencing reads (both DNA and RNA) to a population of human genomes as well as
   to a single reference genome.
 latest:
-  2.2.0: sha256:06d162101bcf2a32282231ae532900aa626314083b9938e49664911d86da5e83
+  2.2.0: sha256:8ce9ed3acdcf4c8556797f244e6d2ee05277ec6d6376e5afab5abfdea49bad3c
 tags:
-  2.2.0: sha256:06d162101bcf2a32282231ae532900aa626314083b9938e49664911d86da5e83
-  latest: sha256:06d162101bcf2a32282231ae532900aa626314083b9938e49664911d86da5e83
+  2.2.0: sha256:8ce9ed3acdcf4c8556797f244e6d2ee05277ec6d6376e5afab5abfdea49bad3c
+  latest: sha256:8ce9ed3acdcf4c8556797f244e6d2ee05277ec6d6376e5afab5abfdea49bad3c
 aliases:
   hisat2: /opt/view/bin/hisat2
   hisat2-align-l: /opt/view/bin/hisat2-align-l
