@@ -3,7 +3,7 @@ layout: container
 name:  "biocontainers/tpp"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/biocontainers/tpp/container.yaml"
-updated_at: "2021-06-05 19:32:01.289476"
+updated_at: "2021-06-05 19:34:17.037530"
 container_url: "https://hub.docker.com/r/biocontainers/tpp"
 aliases:
  - "config_data"
