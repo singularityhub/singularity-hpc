@@ -349,9 +349,17 @@ or you can set the global variable to what you want to use (it defaults to lmod)
     $ shpc config set module_sys:tcl
 
 
-The command line argument, if provided, always over-rides the default. The
-same works for the container technology. Here is how to install with a different
-container technology, podman, either for a one-off command:
+The command line argument, if provided, always over-rides the default.
+
+
+Container Technology
+====================
+
+The default container technology to pull and then provide to users is Singularity,
+and we have also recently added Podman, and will add support for Shifter and Sarus soon.
+Akin to module software, you can specify the container technology to use on a global
+setting, or via a one-off command:
+
 
 .. code-block:: console
 
@@ -365,15 +373,8 @@ or for a global setting:
     $ shpc config set container_tech:podman
 
 
-
-Container Technology
-====================
-
-The default container technology to pull and then provide to users is Singularity,
-which makes sense because we can add executables to the path that are Singularity containers.
-We have also recently added Podman, and will add support for Shifter and Sarus soon.
-If you would like support for a different container technology, please also
-`open an issue <https://github.com/singularityhub/singularity-hpc>`_ and
+If you would like support for a different container technology that has not been
+mentioned, please also `open an issue <https://github.com/singularityhub/singularity-hpc>`_ and
 provide description and links to what you have in mind.
 
 .. _getting_started-commands:
