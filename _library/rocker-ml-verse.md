@@ -3,7 +3,7 @@ layout: container
 name:  "rocker/ml-verse"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/rocker/ml-verse/container.yaml"
-updated_at: "2021-05-29 01:53:40.250014"
+updated_at: "2021-06-05 18:57:01.758375"
 container_url: "https://hub.docker.com/r/rocker/ml-verse"
 aliases:
  - "R"
@@ -60,33 +60,45 @@ You can use tab for auto-completion of module names or commands that are provide
 
 ### Commands
 
-When you install this module, you'll be able to load it to make the following commands accessible:
+When you install this module, you'll be able to load it to make the following commands accessible.
+Examples for both Singularity and Podman (container technologies supported) are included.
 
-#### rocker-ml-verse-run:
+#### -run:
 
 ```bash
 $ singularity run <container>
+$ podman run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### rocker-ml-verse-shell:
+#### -shell:
 
 ```bash
-$ singularity shell -s /bin/bash <container>
+$ singularity shell -s /bin/sh <container>
+$ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### rocker-ml-verse-exec:
+#### -exec:
 
 ```bash
-$ singularity exec -s /bin/bash <container> "$@"
+$ singularity exec -s /bin/sh <container> "$@"
+$ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
-#### rocker-ml-verse-inspect-runscript:
+#### -inspect:
+
+Podman only has one inspect type.
+
+```bash
+$ podman inspect <container>
+```
+
+#### -inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### rocker-ml-verse-inspect-deffile:
+#### -inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>
@@ -97,6 +109,7 @@ $ singularity inspect -d <container>
        
 ```bash
 $ singularity exec <container> /usr/local/bin/R
+$ podman run --it --rm --entrypoint /usr/local/bin/R   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -104,6 +117,7 @@ $ singularity exec <container> /usr/local/bin/R
        
 ```bash
 $ singularity exec <container> /usr/local/bin/Rscript
+$ podman run --it --rm --entrypoint /usr/local/bin/Rscript   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -111,6 +125,7 @@ $ singularity exec <container> /usr/local/bin/Rscript
        
 ```bash
 $ singularity exec <container> /bin/bash
+$ podman run --it --rm --entrypoint /bin/bash   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -118,6 +133,7 @@ $ singularity exec <container> /bin/bash
        
 ```bash
 $ singularity exec <container> /bin/bash
+$ podman run --it --rm --entrypoint /bin/bash   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -125,6 +141,7 @@ $ singularity exec <container> /bin/bash
        
 ```bash
 $ singularity exec <container> /usr/lib/rstudio-server/bin/rserver
+$ podman run --it --rm --entrypoint /usr/lib/rstudio-server/bin/rserver   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -132,6 +149,7 @@ $ singularity exec <container> /usr/lib/rstudio-server/bin/rserver
        
 ```bash
 $ singularity exec <container> /usr/lib/rstudio-server/bin/rserver-pam
+$ podman run --it --rm --entrypoint /usr/lib/rstudio-server/bin/rserver-pam   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -139,6 +157,7 @@ $ singularity exec <container> /usr/lib/rstudio-server/bin/rserver-pam
        
 ```bash
 $ singularity exec <container> /usr/lib/rstudio-server/bin/rsession
+$ podman run --it --rm --entrypoint /usr/lib/rstudio-server/bin/rsession   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -146,17 +165,21 @@ $ singularity exec <container> /usr/lib/rstudio-server/bin/rsession
        
 ```bash
 $ singularity exec <container> /usr/lib/rstudio-server/bin/rstudio-server
+$ podman run --it --rm --entrypoint /usr/lib/rstudio-server/bin/rstudio-server   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
 
 In the above, the `<container>` directive will reference an actual container provided
-by the module, for the version you have chosen to load. Note that although a container
+by the module, for the version you have chosen to load. An environment file in the
+module folder will also be bound. Note that although a container
 might provide custom commands, every container exposes unique exec, shell, run, and
-inspect aliases. For each of the above, you can export:
+inspect aliases. For anycommands above, you can export:
 
  - SINGULARITY_OPTS: to define custom options for singularity (e.g., --debug)
  - SINGULARITY_COMMAND_OPTS: to define custom options for the command (e.g., -b)
+ - PODMAN_OPTS: to define custom options for podman
+ - PODMAN_COMMAND_OPTS: to define custom options for the command
 
 <br>
   

@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/graphviz"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/graphviz/container.yaml"
-updated_at: "2021-05-29 01:53:36.933016"
+updated_at: "2021-06-05 18:56:58.063014"
 container_url: "https://github.com/orgs/autamus/packages/container/package/graphviz"
 aliases:
  - "gc"
@@ -71,33 +71,45 @@ You can use tab for auto-completion of module names or commands that are provide
 
 ### Commands
 
-When you install this module, you'll be able to load it to make the following commands accessible:
+When you install this module, you'll be able to load it to make the following commands accessible.
+Examples for both Singularity and Podman (container technologies supported) are included.
 
-#### ghcr.io-autamus-graphviz-run:
+#### -run:
 
 ```bash
 $ singularity run <container>
+$ podman run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### ghcr.io-autamus-graphviz-shell:
+#### -shell:
 
 ```bash
-$ singularity shell -s /bin/bash <container>
+$ singularity shell -s /bin/sh <container>
+$ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### ghcr.io-autamus-graphviz-exec:
+#### -exec:
 
 ```bash
-$ singularity exec -s /bin/bash <container> "$@"
+$ singularity exec -s /bin/sh <container> "$@"
+$ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
-#### ghcr.io-autamus-graphviz-inspect-runscript:
+#### -inspect:
+
+Podman only has one inspect type.
+
+```bash
+$ podman inspect <container>
+```
+
+#### -inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### ghcr.io-autamus-graphviz-inspect-deffile:
+#### -inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>
@@ -108,6 +120,7 @@ $ singularity inspect -d <container>
        
 ```bash
 $ singularity exec <container> /opt/view/bin/gc
+$ podman run --it --rm --entrypoint /opt/view/bin/gc   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -115,6 +128,7 @@ $ singularity exec <container> /opt/view/bin/gc
        
 ```bash
 $ singularity exec <container> /opt/view/bin/gml2gv
+$ podman run --it --rm --entrypoint /opt/view/bin/gml2gv   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -122,6 +136,7 @@ $ singularity exec <container> /opt/view/bin/gml2gv
        
 ```bash
 $ singularity exec <container> /opt/view/bin/graphml2gv
+$ podman run --it --rm --entrypoint /opt/view/bin/graphml2gv   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -129,6 +144,7 @@ $ singularity exec <container> /opt/view/bin/graphml2gv
        
 ```bash
 $ singularity exec <container> /opt/view/bin/gv2gml
+$ podman run --it --rm --entrypoint /opt/view/bin/gv2gml   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -136,6 +152,7 @@ $ singularity exec <container> /opt/view/bin/gv2gml
        
 ```bash
 $ singularity exec <container> /opt/view/bin/gv2gxl
+$ podman run --it --rm --entrypoint /opt/view/bin/gv2gxl   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -143,6 +160,7 @@ $ singularity exec <container> /opt/view/bin/gv2gxl
        
 ```bash
 $ singularity exec <container> /opt/view/bin/gvcolor
+$ podman run --it --rm --entrypoint /opt/view/bin/gvcolor   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -150,6 +168,7 @@ $ singularity exec <container> /opt/view/bin/gvcolor
        
 ```bash
 $ singularity exec <container> /opt/view/bin/gvgen
+$ podman run --it --rm --entrypoint /opt/view/bin/gvgen   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -157,6 +176,7 @@ $ singularity exec <container> /opt/view/bin/gvgen
        
 ```bash
 $ singularity exec <container> /opt/view/bin/gvmap
+$ podman run --it --rm --entrypoint /opt/view/bin/gvmap   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -164,6 +184,7 @@ $ singularity exec <container> /opt/view/bin/gvmap
        
 ```bash
 $ singularity exec <container> /opt/view/bin/gvmap.sh
+$ podman run --it --rm --entrypoint /opt/view/bin/gvmap.sh   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -171,6 +192,7 @@ $ singularity exec <container> /opt/view/bin/gvmap.sh
        
 ```bash
 $ singularity exec <container> /opt/view/bin/gvpack
+$ podman run --it --rm --entrypoint /opt/view/bin/gvpack   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -178,6 +200,7 @@ $ singularity exec <container> /opt/view/bin/gvpack
        
 ```bash
 $ singularity exec <container> /opt/view/bin/gvpr
+$ podman run --it --rm --entrypoint /opt/view/bin/gvpr   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -185,6 +208,7 @@ $ singularity exec <container> /opt/view/bin/gvpr
        
 ```bash
 $ singularity exec <container> /opt/view/bin/gxl2dot
+$ podman run --it --rm --entrypoint /opt/view/bin/gxl2dot   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -192,17 +216,21 @@ $ singularity exec <container> /opt/view/bin/gxl2dot
        
 ```bash
 $ singularity exec <container> /opt/view/bin/gxl2gv
+$ podman run --it --rm --entrypoint /opt/view/bin/gxl2gv   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
 
 In the above, the `<container>` directive will reference an actual container provided
-by the module, for the version you have chosen to load. Note that although a container
+by the module, for the version you have chosen to load. An environment file in the
+module folder will also be bound. Note that although a container
 might provide custom commands, every container exposes unique exec, shell, run, and
-inspect aliases. For each of the above, you can export:
+inspect aliases. For anycommands above, you can export:
 
  - SINGULARITY_OPTS: to define custom options for singularity (e.g., --debug)
  - SINGULARITY_COMMAND_OPTS: to define custom options for the command (e.g., -b)
+ - PODMAN_OPTS: to define custom options for podman
+ - PODMAN_COMMAND_OPTS: to define custom options for the command
 
 <br>
   

@@ -3,7 +3,7 @@ layout: container
 name:  "mongo"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/mongo/container.yaml"
-updated_at: "2021-05-29 01:53:40.620351"
+updated_at: "2021-06-05 18:57:02.170210"
 container_url: "https://hub.docker.com/r/_/mongo"
 aliases:
  - "mongo"
@@ -66,33 +66,45 @@ You can use tab for auto-completion of module names or commands that are provide
 
 ### Commands
 
-When you install this module, you'll be able to load it to make the following commands accessible:
+When you install this module, you'll be able to load it to make the following commands accessible.
+Examples for both Singularity and Podman (container technologies supported) are included.
 
-#### mongo-run:
+#### -run:
 
 ```bash
 $ singularity run <container>
+$ podman run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### mongo-shell:
+#### -shell:
 
 ```bash
-$ singularity shell -s /bin/bash <container>
+$ singularity shell -s /bin/sh <container>
+$ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### mongo-exec:
+#### -exec:
 
 ```bash
-$ singularity exec -s /bin/bash <container> "$@"
+$ singularity exec -s /bin/sh <container> "$@"
+$ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
-#### mongo-inspect-runscript:
+#### -inspect:
+
+Podman only has one inspect type.
+
+```bash
+$ podman inspect <container>
+```
+
+#### -inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### mongo-inspect-deffile:
+#### -inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>
@@ -103,6 +115,7 @@ $ singularity inspect -d <container>
        
 ```bash
 $ singularity exec <container> /usr/bin/mongo
+$ podman run --it --rm --entrypoint /usr/bin/mongo   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -110,6 +123,7 @@ $ singularity exec <container> /usr/bin/mongo
        
 ```bash
 $ singularity exec <container> /usr/bin/mongod
+$ podman run --it --rm --entrypoint /usr/bin/mongod   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -117,6 +131,7 @@ $ singularity exec <container> /usr/bin/mongod
        
 ```bash
 $ singularity exec <container> /usr/bin/mongodump
+$ podman run --it --rm --entrypoint /usr/bin/mongodump   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -124,6 +139,7 @@ $ singularity exec <container> /usr/bin/mongodump
        
 ```bash
 $ singularity exec <container> /usr/bin/mongoexport
+$ podman run --it --rm --entrypoint /usr/bin/mongoexport   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -131,6 +147,7 @@ $ singularity exec <container> /usr/bin/mongoexport
        
 ```bash
 $ singularity exec <container> /usr/bin/mongofiles
+$ podman run --it --rm --entrypoint /usr/bin/mongofiles   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -138,6 +155,7 @@ $ singularity exec <container> /usr/bin/mongofiles
        
 ```bash
 $ singularity exec <container> /usr/bin/mongoimport
+$ podman run --it --rm --entrypoint /usr/bin/mongoimport   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -145,6 +163,7 @@ $ singularity exec <container> /usr/bin/mongoimport
        
 ```bash
 $ singularity exec <container> /usr/bin/mongos
+$ podman run --it --rm --entrypoint /usr/bin/mongos   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -152,6 +171,7 @@ $ singularity exec <container> /usr/bin/mongos
        
 ```bash
 $ singularity exec <container> /usr/bin/mongostat
+$ podman run --it --rm --entrypoint /usr/bin/mongostat   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -159,6 +179,7 @@ $ singularity exec <container> /usr/bin/mongostat
        
 ```bash
 $ singularity exec <container> /usr/bin/mongorestore
+$ podman run --it --rm --entrypoint /usr/bin/mongorestore   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -166,17 +187,21 @@ $ singularity exec <container> /usr/bin/mongorestore
        
 ```bash
 $ singularity exec <container> /usr/bin/mongotop
+$ podman run --it --rm --entrypoint /usr/bin/mongotop   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
 
 In the above, the `<container>` directive will reference an actual container provided
-by the module, for the version you have chosen to load. Note that although a container
+by the module, for the version you have chosen to load. An environment file in the
+module folder will also be bound. Note that although a container
 might provide custom commands, every container exposes unique exec, shell, run, and
-inspect aliases. For each of the above, you can export:
+inspect aliases. For anycommands above, you can export:
 
  - SINGULARITY_OPTS: to define custom options for singularity (e.g., --debug)
  - SINGULARITY_COMMAND_OPTS: to define custom options for the command (e.g., -b)
+ - PODMAN_OPTS: to define custom options for podman
+ - PODMAN_COMMAND_OPTS: to define custom options for the command
 
 <br>
   

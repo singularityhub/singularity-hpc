@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/libtiff"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/libtiff/container.yaml"
-updated_at: "2021-05-29 01:53:22.765292"
+updated_at: "2021-06-05 18:56:42.343038"
 container_url: "https://github.com/orgs/autamus/packages/container/package/libtiff"
 aliases:
  - "fax2tiff"
@@ -77,33 +77,45 @@ You can use tab for auto-completion of module names or commands that are provide
 
 ### Commands
 
-When you install this module, you'll be able to load it to make the following commands accessible:
+When you install this module, you'll be able to load it to make the following commands accessible.
+Examples for both Singularity and Podman (container technologies supported) are included.
 
-#### ghcr.io-autamus-libtiff-run:
+#### -run:
 
 ```bash
 $ singularity run <container>
+$ podman run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### ghcr.io-autamus-libtiff-shell:
+#### -shell:
 
 ```bash
-$ singularity shell -s /bin/bash <container>
+$ singularity shell -s /bin/sh <container>
+$ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### ghcr.io-autamus-libtiff-exec:
+#### -exec:
 
 ```bash
-$ singularity exec -s /bin/bash <container> "$@"
+$ singularity exec -s /bin/sh <container> "$@"
+$ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
-#### ghcr.io-autamus-libtiff-inspect-runscript:
+#### -inspect:
+
+Podman only has one inspect type.
+
+```bash
+$ podman inspect <container>
+```
+
+#### -inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### ghcr.io-autamus-libtiff-inspect-deffile:
+#### -inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>
@@ -114,6 +126,7 @@ $ singularity inspect -d <container>
        
 ```bash
 $ singularity exec <container> /opt/view/bin/fax2tiff
+$ podman run --it --rm --entrypoint /opt/view/bin/fax2tiff   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -121,6 +134,7 @@ $ singularity exec <container> /opt/view/bin/fax2tiff
        
 ```bash
 $ singularity exec <container> /opt/view/bin/ppm2tiff
+$ podman run --it --rm --entrypoint /opt/view/bin/ppm2tiff   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -128,6 +142,7 @@ $ singularity exec <container> /opt/view/bin/ppm2tiff
        
 ```bash
 $ singularity exec <container> /opt/view/bin/raw2tiff
+$ podman run --it --rm --entrypoint /opt/view/bin/raw2tiff   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -135,6 +150,7 @@ $ singularity exec <container> /opt/view/bin/raw2tiff
        
 ```bash
 $ singularity exec <container> /opt/view/bin/tiff2bw
+$ podman run --it --rm --entrypoint /opt/view/bin/tiff2bw   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -142,6 +158,7 @@ $ singularity exec <container> /opt/view/bin/tiff2bw
        
 ```bash
 $ singularity exec <container> /opt/view/bin/tiff2pdf
+$ podman run --it --rm --entrypoint /opt/view/bin/tiff2pdf   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -149,6 +166,7 @@ $ singularity exec <container> /opt/view/bin/tiff2pdf
        
 ```bash
 $ singularity exec <container> /opt/view/bin/tiff2ps
+$ podman run --it --rm --entrypoint /opt/view/bin/tiff2ps   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -156,6 +174,7 @@ $ singularity exec <container> /opt/view/bin/tiff2ps
        
 ```bash
 $ singularity exec <container> /opt/view/bin/tiff2rgba
+$ podman run --it --rm --entrypoint /opt/view/bin/tiff2rgba   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -163,6 +182,7 @@ $ singularity exec <container> /opt/view/bin/tiff2rgba
        
 ```bash
 $ singularity exec <container> /opt/view/bin/tiffcmp
+$ podman run --it --rm --entrypoint /opt/view/bin/tiffcmp   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -170,6 +190,7 @@ $ singularity exec <container> /opt/view/bin/tiffcmp
        
 ```bash
 $ singularity exec <container> /opt/view/bin/tiffcp
+$ podman run --it --rm --entrypoint /opt/view/bin/tiffcp   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -177,6 +198,7 @@ $ singularity exec <container> /opt/view/bin/tiffcp
        
 ```bash
 $ singularity exec <container> /opt/view/bin/tiffcrop
+$ podman run --it --rm --entrypoint /opt/view/bin/tiffcrop   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -184,6 +206,7 @@ $ singularity exec <container> /opt/view/bin/tiffcrop
        
 ```bash
 $ singularity exec <container> /opt/view/bin/tiffdither
+$ podman run --it --rm --entrypoint /opt/view/bin/tiffdither   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -191,6 +214,7 @@ $ singularity exec <container> /opt/view/bin/tiffdither
        
 ```bash
 $ singularity exec <container> /opt/view/bin/tiffdump
+$ podman run --it --rm --entrypoint /opt/view/bin/tiffdump   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -198,6 +222,7 @@ $ singularity exec <container> /opt/view/bin/tiffdump
        
 ```bash
 $ singularity exec <container> /opt/view/bin/tiffinfo
+$ podman run --it --rm --entrypoint /opt/view/bin/tiffinfo   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -205,6 +230,7 @@ $ singularity exec <container> /opt/view/bin/tiffinfo
        
 ```bash
 $ singularity exec <container> /opt/view/bin/tiffmedian
+$ podman run --it --rm --entrypoint /opt/view/bin/tiffmedian   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -212,6 +238,7 @@ $ singularity exec <container> /opt/view/bin/tiffmedian
        
 ```bash
 $ singularity exec <container> /opt/view/bin/tiffset
+$ podman run --it --rm --entrypoint /opt/view/bin/tiffset   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -219,17 +246,21 @@ $ singularity exec <container> /opt/view/bin/tiffset
        
 ```bash
 $ singularity exec <container> /opt/view/bin/tiffsplit
+$ podman run --it --rm --entrypoint /opt/view/bin/tiffsplit   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
 
 In the above, the `<container>` directive will reference an actual container provided
-by the module, for the version you have chosen to load. Note that although a container
+by the module, for the version you have chosen to load. An environment file in the
+module folder will also be bound. Note that although a container
 might provide custom commands, every container exposes unique exec, shell, run, and
-inspect aliases. For each of the above, you can export:
+inspect aliases. For anycommands above, you can export:
 
  - SINGULARITY_OPTS: to define custom options for singularity (e.g., --debug)
  - SINGULARITY_COMMAND_OPTS: to define custom options for the command (e.g., -b)
+ - PODMAN_OPTS: to define custom options for podman
+ - PODMAN_COMMAND_OPTS: to define custom options for the command
 
 <br>
   

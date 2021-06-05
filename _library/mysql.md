@@ -3,7 +3,7 @@ layout: container
 name:  "mysql"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/mysql/container.yaml"
-updated_at: "2021-05-29 01:53:14.184246"
+updated_at: "2021-06-05 18:56:33.093222"
 container_url: "https://hub.docker.com/r/_/mysql"
 aliases:
  - "mysql"
@@ -79,33 +79,45 @@ You can use tab for auto-completion of module names or commands that are provide
 
 ### Commands
 
-When you install this module, you'll be able to load it to make the following commands accessible:
+When you install this module, you'll be able to load it to make the following commands accessible.
+Examples for both Singularity and Podman (container technologies supported) are included.
 
-#### mysql-run:
+#### -run:
 
 ```bash
 $ singularity run <container>
+$ podman run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### mysql-shell:
+#### -shell:
 
 ```bash
-$ singularity shell -s /bin/bash <container>
+$ singularity shell -s /bin/sh <container>
+$ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### mysql-exec:
+#### -exec:
 
 ```bash
-$ singularity exec -s /bin/bash <container> "$@"
+$ singularity exec -s /bin/sh <container> "$@"
+$ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
-#### mysql-inspect-runscript:
+#### -inspect:
+
+Podman only has one inspect type.
+
+```bash
+$ podman inspect <container>
+```
+
+#### -inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### mysql-inspect-deffile:
+#### -inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>
@@ -116,6 +128,7 @@ $ singularity inspect -d <container>
        
 ```bash
 $ singularity exec <container> /usr/bin/mysql
+$ podman run --it --rm --entrypoint /usr/bin/mysql   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -123,6 +136,7 @@ $ singularity exec <container> /usr/bin/mysql
        
 ```bash
 $ singularity exec <container> /usr/bin/mysql_config_editor
+$ podman run --it --rm --entrypoint /usr/bin/mysql_config_editor   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -130,6 +144,7 @@ $ singularity exec <container> /usr/bin/mysql_config_editor
        
 ```bash
 $ singularity exec <container> /usr/bin/mysql_secure_installation
+$ podman run --it --rm --entrypoint /usr/bin/mysql_secure_installation   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -137,6 +152,7 @@ $ singularity exec <container> /usr/bin/mysql_secure_installation
        
 ```bash
 $ singularity exec <container> /usr/bin/mysql_ssl_rsa_setup
+$ podman run --it --rm --entrypoint /usr/bin/mysql_ssl_rsa_setup   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -144,6 +160,7 @@ $ singularity exec <container> /usr/bin/mysql_ssl_rsa_setup
        
 ```bash
 $ singularity exec <container> /usr/bin/mysql_tzinfo_to_sql
+$ podman run --it --rm --entrypoint /usr/bin/mysql_tzinfo_to_sql   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -151,6 +168,7 @@ $ singularity exec <container> /usr/bin/mysql_tzinfo_to_sql
        
 ```bash
 $ singularity exec <container> /usr/bin/mysql_upgrade
+$ podman run --it --rm --entrypoint /usr/bin/mysql_upgrade   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -158,6 +176,7 @@ $ singularity exec <container> /usr/bin/mysql_upgrade
        
 ```bash
 $ singularity exec <container> /usr/bin/mysqladmin
+$ podman run --it --rm --entrypoint /usr/bin/mysqladmin   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -165,6 +184,7 @@ $ singularity exec <container> /usr/bin/mysqladmin
        
 ```bash
 $ singularity exec <container> /usr/bin/mysqlbinlog
+$ podman run --it --rm --entrypoint /usr/bin/mysqlbinlog   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -172,6 +192,7 @@ $ singularity exec <container> /usr/bin/mysqlbinlog
        
 ```bash
 $ singularity exec <container> /usr/bin/mysqlcheck
+$ podman run --it --rm --entrypoint /usr/bin/mysqlcheck   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -179,6 +200,7 @@ $ singularity exec <container> /usr/bin/mysqlcheck
        
 ```bash
 $ singularity exec <container> /usr/bin/mysqld_multi
+$ podman run --it --rm --entrypoint /usr/bin/mysqld_multi   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -186,6 +208,7 @@ $ singularity exec <container> /usr/bin/mysqld_multi
        
 ```bash
 $ singularity exec <container> /usr/bin/mysqld_safe
+$ podman run --it --rm --entrypoint /usr/bin/mysqld_safe   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -193,6 +216,7 @@ $ singularity exec <container> /usr/bin/mysqld_safe
        
 ```bash
 $ singularity exec <container> /usr/bin/mysqldump
+$ podman run --it --rm --entrypoint /usr/bin/mysqldump   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -200,6 +224,7 @@ $ singularity exec <container> /usr/bin/mysqldump
        
 ```bash
 $ singularity exec <container> /usr/bin/mysqldumpslow
+$ podman run --it --rm --entrypoint /usr/bin/mysqldumpslow   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -207,6 +232,7 @@ $ singularity exec <container> /usr/bin/mysqldumpslow
        
 ```bash
 $ singularity exec <container> /usr/bin/mysqlimport
+$ podman run --it --rm --entrypoint /usr/bin/mysqlimport   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -214,6 +240,7 @@ $ singularity exec <container> /usr/bin/mysqlimport
        
 ```bash
 $ singularity exec <container> /usr/bin/mysqlpump
+$ podman run --it --rm --entrypoint /usr/bin/mysqlpump   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -221,6 +248,7 @@ $ singularity exec <container> /usr/bin/mysqlpump
        
 ```bash
 $ singularity exec <container> /usr/bin/mysqlshow
+$ podman run --it --rm --entrypoint /usr/bin/mysqlshow   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -228,17 +256,21 @@ $ singularity exec <container> /usr/bin/mysqlshow
        
 ```bash
 $ singularity exec <container> /usr/bin/mysqlslap
+$ podman run --it --rm --entrypoint /usr/bin/mysqlslap   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
 
 In the above, the `<container>` directive will reference an actual container provided
-by the module, for the version you have chosen to load. Note that although a container
+by the module, for the version you have chosen to load. An environment file in the
+module folder will also be bound. Note that although a container
 might provide custom commands, every container exposes unique exec, shell, run, and
-inspect aliases. For each of the above, you can export:
+inspect aliases. For anycommands above, you can export:
 
  - SINGULARITY_OPTS: to define custom options for singularity (e.g., --debug)
  - SINGULARITY_COMMAND_OPTS: to define custom options for the command (e.g., -b)
+ - PODMAN_OPTS: to define custom options for podman
+ - PODMAN_COMMAND_OPTS: to define custom options for the command
 
 <br>
   

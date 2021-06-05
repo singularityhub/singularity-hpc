@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/cctools"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/cctools/container.yaml"
-updated_at: "2021-05-29 01:53:37.312488"
+updated_at: "2021-06-05 18:56:58.472935"
 container_url: "https://github.com/orgs/autamus/packages/container/package/cctools"
 aliases:
  - "c_rehash"
@@ -97,33 +97,45 @@ You can use tab for auto-completion of module names or commands that are provide
 
 ### Commands
 
-When you install this module, you'll be able to load it to make the following commands accessible:
+When you install this module, you'll be able to load it to make the following commands accessible.
+Examples for both Singularity and Podman (container technologies supported) are included.
 
-#### ghcr.io-autamus-cctools-run:
+#### -run:
 
 ```bash
 $ singularity run <container>
+$ podman run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### ghcr.io-autamus-cctools-shell:
+#### -shell:
 
 ```bash
-$ singularity shell -s /bin/bash <container>
+$ singularity shell -s /bin/sh <container>
+$ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### ghcr.io-autamus-cctools-exec:
+#### -exec:
 
 ```bash
-$ singularity exec -s /bin/bash <container> "$@"
+$ singularity exec -s /bin/sh <container> "$@"
+$ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
-#### ghcr.io-autamus-cctools-inspect-runscript:
+#### -inspect:
+
+Podman only has one inspect type.
+
+```bash
+$ podman inspect <container>
+```
+
+#### -inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### ghcr.io-autamus-cctools-inspect-deffile:
+#### -inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>
@@ -134,6 +146,7 @@ $ singularity inspect -d <container>
        
 ```bash
 $ singularity exec <container> /opt/view/bin/c_rehash
+$ podman run --it --rm --entrypoint /opt/view/bin/c_rehash   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -141,6 +154,7 @@ $ singularity exec <container> /opt/view/bin/c_rehash
        
 ```bash
 $ singularity exec <container> /opt/view/bin/captoinfo
+$ podman run --it --rm --entrypoint /opt/view/bin/captoinfo   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -148,6 +162,7 @@ $ singularity exec <container> /opt/view/bin/captoinfo
        
 ```bash
 $ singularity exec <container> /opt/view/bin/catalog_query
+$ podman run --it --rm --entrypoint /opt/view/bin/catalog_query   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -155,6 +170,7 @@ $ singularity exec <container> /opt/view/bin/catalog_query
        
 ```bash
 $ singularity exec <container> /opt/view/bin/catalog_server
+$ podman run --it --rm --entrypoint /opt/view/bin/catalog_server   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -162,6 +178,7 @@ $ singularity exec <container> /opt/view/bin/catalog_server
        
 ```bash
 $ singularity exec <container> /opt/view/bin/catalog_update
+$ podman run --it --rm --entrypoint /opt/view/bin/catalog_update   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -169,6 +186,7 @@ $ singularity exec <container> /opt/view/bin/catalog_update
        
 ```bash
 $ singularity exec <container> /opt/view/bin/ccache-swig
+$ podman run --it --rm --entrypoint /opt/view/bin/ccache-swig   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -176,6 +194,7 @@ $ singularity exec <container> /opt/view/bin/ccache-swig
        
 ```bash
 $ singularity exec <container> /opt/view/bin/cctools_gpu_autodetect
+$ podman run --it --rm --entrypoint /opt/view/bin/cctools_gpu_autodetect   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -183,6 +202,7 @@ $ singularity exec <container> /opt/view/bin/cctools_gpu_autodetect
        
 ```bash
 $ singularity exec <container> /opt/view/bin/chirp
+$ podman run --it --rm --entrypoint /opt/view/bin/chirp   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -190,6 +210,7 @@ $ singularity exec <container> /opt/view/bin/chirp
        
 ```bash
 $ singularity exec <container> /opt/view/bin/chirp_audit_cluster
+$ podman run --it --rm --entrypoint /opt/view/bin/chirp_audit_cluster   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -197,6 +218,7 @@ $ singularity exec <container> /opt/view/bin/chirp_audit_cluster
        
 ```bash
 $ singularity exec <container> /opt/view/bin/chirp_benchmark
+$ podman run --it --rm --entrypoint /opt/view/bin/chirp_benchmark   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -204,6 +226,7 @@ $ singularity exec <container> /opt/view/bin/chirp_benchmark
        
 ```bash
 $ singularity exec <container> /opt/view/bin/chirp_distribute
+$ podman run --it --rm --entrypoint /opt/view/bin/chirp_distribute   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -211,6 +234,7 @@ $ singularity exec <container> /opt/view/bin/chirp_distribute
        
 ```bash
 $ singularity exec <container> /opt/view/bin/chirp_fuse
+$ podman run --it --rm --entrypoint /opt/view/bin/chirp_fuse   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -218,6 +242,7 @@ $ singularity exec <container> /opt/view/bin/chirp_fuse
        
 ```bash
 $ singularity exec <container> /opt/view/bin/chirp_get
+$ podman run --it --rm --entrypoint /opt/view/bin/chirp_get   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -225,6 +250,7 @@ $ singularity exec <container> /opt/view/bin/chirp_get
        
 ```bash
 $ singularity exec <container> /opt/view/bin/chirp_put
+$ podman run --it --rm --entrypoint /opt/view/bin/chirp_put   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -232,6 +258,7 @@ $ singularity exec <container> /opt/view/bin/chirp_put
        
 ```bash
 $ singularity exec <container> /opt/view/bin/chirp_server
+$ podman run --it --rm --entrypoint /opt/view/bin/chirp_server   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -239,6 +266,7 @@ $ singularity exec <container> /opt/view/bin/chirp_server
        
 ```bash
 $ singularity exec <container> /opt/view/bin/chirp_server_hdfs
+$ podman run --it --rm --entrypoint /opt/view/bin/chirp_server_hdfs   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -246,6 +274,7 @@ $ singularity exec <container> /opt/view/bin/chirp_server_hdfs
        
 ```bash
 $ singularity exec <container> /opt/view/bin/chirp_status
+$ podman run --it --rm --entrypoint /opt/view/bin/chirp_status   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -253,6 +282,7 @@ $ singularity exec <container> /opt/view/bin/chirp_status
        
 ```bash
 $ singularity exec <container> /opt/view/bin/chirp_stream_files
+$ podman run --it --rm --entrypoint /opt/view/bin/chirp_stream_files   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -260,6 +290,7 @@ $ singularity exec <container> /opt/view/bin/chirp_stream_files
        
 ```bash
 $ singularity exec <container> /opt/view/bin/chroot_package_run
+$ podman run --it --rm --entrypoint /opt/view/bin/chroot_package_run   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -267,6 +298,7 @@ $ singularity exec <container> /opt/view/bin/chroot_package_run
        
 ```bash
 $ singularity exec <container> /opt/view/bin/clear
+$ podman run --it --rm --entrypoint /opt/view/bin/clear   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -274,6 +306,7 @@ $ singularity exec <container> /opt/view/bin/clear
        
 ```bash
 $ singularity exec <container> /opt/view/bin/condor_submit_makeflow
+$ podman run --it --rm --entrypoint /opt/view/bin/condor_submit_makeflow   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -281,6 +314,7 @@ $ singularity exec <container> /opt/view/bin/condor_submit_makeflow
        
 ```bash
 $ singularity exec <container> /opt/view/bin/condor_submit_workers
+$ podman run --it --rm --entrypoint /opt/view/bin/condor_submit_workers   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -288,6 +322,7 @@ $ singularity exec <container> /opt/view/bin/condor_submit_workers
        
 ```bash
 $ singularity exec <container> /opt/view/bin/confuga_adm
+$ podman run --it --rm --entrypoint /opt/view/bin/confuga_adm   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -295,6 +330,7 @@ $ singularity exec <container> /opt/view/bin/confuga_adm
        
 ```bash
 $ singularity exec <container> /opt/view/bin/corelist
+$ podman run --it --rm --entrypoint /opt/view/bin/corelist   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -302,6 +338,7 @@ $ singularity exec <container> /opt/view/bin/corelist
        
 ```bash
 $ singularity exec <container> /opt/view/bin/cpan
+$ podman run --it --rm --entrypoint /opt/view/bin/cpan   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -309,17 +346,21 @@ $ singularity exec <container> /opt/view/bin/cpan
        
 ```bash
 $ singularity exec <container> /opt/view/bin/cpanm
+$ podman run --it --rm --entrypoint /opt/view/bin/cpanm   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
 
 In the above, the `<container>` directive will reference an actual container provided
-by the module, for the version you have chosen to load. Note that although a container
+by the module, for the version you have chosen to load. An environment file in the
+module folder will also be bound. Note that although a container
 might provide custom commands, every container exposes unique exec, shell, run, and
-inspect aliases. For each of the above, you can export:
+inspect aliases. For anycommands above, you can export:
 
  - SINGULARITY_OPTS: to define custom options for singularity (e.g., --debug)
  - SINGULARITY_COMMAND_OPTS: to define custom options for the command (e.g., -b)
+ - PODMAN_OPTS: to define custom options for podman
+ - PODMAN_COMMAND_OPTS: to define custom options for the command
 
 <br>
   

@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/mafft"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/mafft/container.yaml"
-updated_at: "2021-05-29 01:53:31.172802"
+updated_at: "2021-06-05 18:56:51.697710"
 container_url: "https://github.com/orgs/autamus/packages/container/package/mafft"
 aliases:
  - "mafft"
@@ -69,33 +69,45 @@ You can use tab for auto-completion of module names or commands that are provide
 
 ### Commands
 
-When you install this module, you'll be able to load it to make the following commands accessible:
+When you install this module, you'll be able to load it to make the following commands accessible.
+Examples for both Singularity and Podman (container technologies supported) are included.
 
-#### ghcr.io-autamus-mafft-run:
+#### -run:
 
 ```bash
 $ singularity run <container>
+$ podman run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### ghcr.io-autamus-mafft-shell:
+#### -shell:
 
 ```bash
-$ singularity shell -s /bin/bash <container>
+$ singularity shell -s /bin/sh <container>
+$ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### ghcr.io-autamus-mafft-exec:
+#### -exec:
 
 ```bash
-$ singularity exec -s /bin/bash <container> "$@"
+$ singularity exec -s /bin/sh <container> "$@"
+$ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
-#### ghcr.io-autamus-mafft-inspect-runscript:
+#### -inspect:
+
+Podman only has one inspect type.
+
+```bash
+$ podman inspect <container>
+```
+
+#### -inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### ghcr.io-autamus-mafft-inspect-deffile:
+#### -inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>
@@ -106,6 +118,7 @@ $ singularity inspect -d <container>
        
 ```bash
 $ singularity exec <container> /opt/view/bin/mafft
+$ podman run --it --rm --entrypoint /opt/view/bin/mafft   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -113,6 +126,7 @@ $ singularity exec <container> /opt/view/bin/mafft
        
 ```bash
 $ singularity exec <container> /opt/view/bin/mafft-distance
+$ podman run --it --rm --entrypoint /opt/view/bin/mafft-distance   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -120,6 +134,7 @@ $ singularity exec <container> /opt/view/bin/mafft-distance
        
 ```bash
 $ singularity exec <container> /opt/view/bin/mafft-einsi
+$ podman run --it --rm --entrypoint /opt/view/bin/mafft-einsi   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -127,6 +142,7 @@ $ singularity exec <container> /opt/view/bin/mafft-einsi
        
 ```bash
 $ singularity exec <container> /opt/view/bin/mafft-fftns
+$ podman run --it --rm --entrypoint /opt/view/bin/mafft-fftns   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -134,6 +150,7 @@ $ singularity exec <container> /opt/view/bin/mafft-fftns
        
 ```bash
 $ singularity exec <container> /opt/view/bin/mafft-fftnsi
+$ podman run --it --rm --entrypoint /opt/view/bin/mafft-fftnsi   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -141,6 +158,7 @@ $ singularity exec <container> /opt/view/bin/mafft-fftnsi
        
 ```bash
 $ singularity exec <container> /opt/view/bin/mafft-ginsi
+$ podman run --it --rm --entrypoint /opt/view/bin/mafft-ginsi   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -148,6 +166,7 @@ $ singularity exec <container> /opt/view/bin/mafft-ginsi
        
 ```bash
 $ singularity exec <container> /opt/view/bin/mafft-linsi
+$ podman run --it --rm --entrypoint /opt/view/bin/mafft-linsi   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -155,6 +174,7 @@ $ singularity exec <container> /opt/view/bin/mafft-linsi
        
 ```bash
 $ singularity exec <container> /opt/view/bin/mafft-nwns
+$ podman run --it --rm --entrypoint /opt/view/bin/mafft-nwns   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -162,6 +182,7 @@ $ singularity exec <container> /opt/view/bin/mafft-nwns
        
 ```bash
 $ singularity exec <container> /opt/view/bin/mafft-nwnsi
+$ podman run --it --rm --entrypoint /opt/view/bin/mafft-nwnsi   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -169,6 +190,7 @@ $ singularity exec <container> /opt/view/bin/mafft-nwnsi
        
 ```bash
 $ singularity exec <container> /opt/view/bin/mafft-profile
+$ podman run --it --rm --entrypoint /opt/view/bin/mafft-profile   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -176,6 +198,7 @@ $ singularity exec <container> /opt/view/bin/mafft-profile
        
 ```bash
 $ singularity exec <container> /opt/view/bin/mafft-qinsi
+$ podman run --it --rm --entrypoint /opt/view/bin/mafft-qinsi   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -183,17 +206,21 @@ $ singularity exec <container> /opt/view/bin/mafft-qinsi
        
 ```bash
 $ singularity exec <container> /opt/view/bin/mafft-xinsi
+$ podman run --it --rm --entrypoint /opt/view/bin/mafft-xinsi   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
 
 In the above, the `<container>` directive will reference an actual container provided
-by the module, for the version you have chosen to load. Note that although a container
+by the module, for the version you have chosen to load. An environment file in the
+module folder will also be bound. Note that although a container
 might provide custom commands, every container exposes unique exec, shell, run, and
-inspect aliases. For each of the above, you can export:
+inspect aliases. For anycommands above, you can export:
 
  - SINGULARITY_OPTS: to define custom options for singularity (e.g., --debug)
  - SINGULARITY_COMMAND_OPTS: to define custom options for the command (e.g., -b)
+ - PODMAN_OPTS: to define custom options for podman
+ - PODMAN_COMMAND_OPTS: to define custom options for the command
 
 <br>
   

@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/rust"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/rust/container.yaml"
-updated_at: "2021-05-29 01:53:16.262427"
+updated_at: "2021-06-05 18:56:35.335365"
 container_url: "https://github.com/orgs/autamus/packages/container/package/rust"
 aliases:
  - "cargo"
@@ -68,33 +68,45 @@ You can use tab for auto-completion of module names or commands that are provide
 
 ### Commands
 
-When you install this module, you'll be able to load it to make the following commands accessible:
+When you install this module, you'll be able to load it to make the following commands accessible.
+Examples for both Singularity and Podman (container technologies supported) are included.
 
-#### ghcr.io-autamus-rust-run:
+#### -run:
 
 ```bash
 $ singularity run <container>
+$ podman run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### ghcr.io-autamus-rust-shell:
+#### -shell:
 
 ```bash
-$ singularity shell -s /bin/bash <container>
+$ singularity shell -s /bin/sh <container>
+$ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### ghcr.io-autamus-rust-exec:
+#### -exec:
 
 ```bash
-$ singularity exec -s /bin/bash <container> "$@"
+$ singularity exec -s /bin/sh <container> "$@"
+$ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
-#### ghcr.io-autamus-rust-inspect-runscript:
+#### -inspect:
+
+Podman only has one inspect type.
+
+```bash
+$ podman inspect <container>
+```
+
+#### -inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### ghcr.io-autamus-rust-inspect-deffile:
+#### -inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>
@@ -105,6 +117,7 @@ $ singularity inspect -d <container>
        
 ```bash
 $ singularity exec <container> /opt/view/bin/cargo
+$ podman run --it --rm --entrypoint /opt/view/bin/cargo   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -112,6 +125,7 @@ $ singularity exec <container> /opt/view/bin/cargo
        
 ```bash
 $ singularity exec <container> /opt/view/bin/cargo-clippy
+$ podman run --it --rm --entrypoint /opt/view/bin/cargo-clippy   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -119,6 +133,7 @@ $ singularity exec <container> /opt/view/bin/cargo-clippy
        
 ```bash
 $ singularity exec <container> /opt/view/bin/cargo-fmt
+$ podman run --it --rm --entrypoint /opt/view/bin/cargo-fmt   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -126,6 +141,7 @@ $ singularity exec <container> /opt/view/bin/cargo-fmt
        
 ```bash
 $ singularity exec <container> /opt/view/bin/clippy-driver
+$ podman run --it --rm --entrypoint /opt/view/bin/clippy-driver   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -133,6 +149,7 @@ $ singularity exec <container> /opt/view/bin/clippy-driver
        
 ```bash
 $ singularity exec <container> /opt/view/bin/rust
+$ podman run --it --rm --entrypoint /opt/view/bin/rust   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -140,6 +157,7 @@ $ singularity exec <container> /opt/view/bin/rust
        
 ```bash
 $ singularity exec <container> /opt/view/bin/rust-gdb
+$ podman run --it --rm --entrypoint /opt/view/bin/rust-gdb   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -147,6 +165,7 @@ $ singularity exec <container> /opt/view/bin/rust-gdb
        
 ```bash
 $ singularity exec <container> /opt/view/bin/rust-gdbgui
+$ podman run --it --rm --entrypoint /opt/view/bin/rust-gdbgui   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -154,6 +173,7 @@ $ singularity exec <container> /opt/view/bin/rust-gdbgui
        
 ```bash
 $ singularity exec <container> /opt/view/bin/rust-lldb
+$ podman run --it --rm --entrypoint /opt/view/bin/rust-lldb   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -161,6 +181,7 @@ $ singularity exec <container> /opt/view/bin/rust-lldb
        
 ```bash
 $ singularity exec <container> /opt/view/bin/rustc
+$ podman run --it --rm --entrypoint /opt/view/bin/rustc   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -168,6 +189,7 @@ $ singularity exec <container> /opt/view/bin/rustc
        
 ```bash
 $ singularity exec <container> /opt/view/bin/rustdoc
+$ podman run --it --rm --entrypoint /opt/view/bin/rustdoc   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -175,17 +197,21 @@ $ singularity exec <container> /opt/view/bin/rustdoc
        
 ```bash
 $ singularity exec <container> /opt/view/bin/rustfmt
+$ podman run --it --rm --entrypoint /opt/view/bin/rustfmt   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
 
 In the above, the `<container>` directive will reference an actual container provided
-by the module, for the version you have chosen to load. Note that although a container
+by the module, for the version you have chosen to load. An environment file in the
+module folder will also be bound. Note that although a container
 might provide custom commands, every container exposes unique exec, shell, run, and
-inspect aliases. For each of the above, you can export:
+inspect aliases. For anycommands above, you can export:
 
  - SINGULARITY_OPTS: to define custom options for singularity (e.g., --debug)
  - SINGULARITY_COMMAND_OPTS: to define custom options for the command (e.g., -b)
+ - PODMAN_OPTS: to define custom options for podman
+ - PODMAN_COMMAND_OPTS: to define custom options for the command
 
 <br>
   

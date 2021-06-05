@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/hisat2"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/hisat2/container.yaml"
-updated_at: "2021-05-29 01:53:22.396695"
+updated_at: "2021-06-05 18:56:41.928823"
 container_url: "https://github.com/orgs/autamus/packages/container/package/hisat2"
 aliases:
  - "hisat2"
@@ -87,33 +87,45 @@ You can use tab for auto-completion of module names or commands that are provide
 
 ### Commands
 
-When you install this module, you'll be able to load it to make the following commands accessible:
+When you install this module, you'll be able to load it to make the following commands accessible.
+Examples for both Singularity and Podman (container technologies supported) are included.
 
-#### ghcr.io-autamus-hisat2-run:
+#### -run:
 
 ```bash
 $ singularity run <container>
+$ podman run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### ghcr.io-autamus-hisat2-shell:
+#### -shell:
 
 ```bash
-$ singularity shell -s /bin/bash <container>
+$ singularity shell -s /bin/sh <container>
+$ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### ghcr.io-autamus-hisat2-exec:
+#### -exec:
 
 ```bash
-$ singularity exec -s /bin/bash <container> "$@"
+$ singularity exec -s /bin/sh <container> "$@"
+$ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
-#### ghcr.io-autamus-hisat2-inspect-runscript:
+#### -inspect:
+
+Podman only has one inspect type.
+
+```bash
+$ podman inspect <container>
+```
+
+#### -inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### ghcr.io-autamus-hisat2-inspect-deffile:
+#### -inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>
@@ -124,6 +136,7 @@ $ singularity inspect -d <container>
        
 ```bash
 $ singularity exec <container> /opt/view/bin/hisat2
+$ podman run --it --rm --entrypoint /opt/view/bin/hisat2   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -131,6 +144,7 @@ $ singularity exec <container> /opt/view/bin/hisat2
        
 ```bash
 $ singularity exec <container> /opt/view/bin/hisat2-align-l
+$ podman run --it --rm --entrypoint /opt/view/bin/hisat2-align-l   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -138,6 +152,7 @@ $ singularity exec <container> /opt/view/bin/hisat2-align-l
        
 ```bash
 $ singularity exec <container> /opt/view/bin/hisat2-align-s
+$ podman run --it --rm --entrypoint /opt/view/bin/hisat2-align-s   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -145,6 +160,7 @@ $ singularity exec <container> /opt/view/bin/hisat2-align-s
        
 ```bash
 $ singularity exec <container> /opt/view/bin/hisat2-build
+$ podman run --it --rm --entrypoint /opt/view/bin/hisat2-build   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -152,6 +168,7 @@ $ singularity exec <container> /opt/view/bin/hisat2-build
        
 ```bash
 $ singularity exec <container> /opt/view/bin/hisat2-build-l
+$ podman run --it --rm --entrypoint /opt/view/bin/hisat2-build-l   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -159,6 +176,7 @@ $ singularity exec <container> /opt/view/bin/hisat2-build-l
        
 ```bash
 $ singularity exec <container> /opt/view/bin/hisat2-build-s
+$ podman run --it --rm --entrypoint /opt/view/bin/hisat2-build-s   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -166,6 +184,7 @@ $ singularity exec <container> /opt/view/bin/hisat2-build-s
        
 ```bash
 $ singularity exec <container> /opt/view/bin/hisat2-inspect
+$ podman run --it --rm --entrypoint /opt/view/bin/hisat2-inspect   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -173,6 +192,7 @@ $ singularity exec <container> /opt/view/bin/hisat2-inspect
        
 ```bash
 $ singularity exec <container> /opt/view/bin/hisat2-inspect-l
+$ podman run --it --rm --entrypoint /opt/view/bin/hisat2-inspect-l   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -180,6 +200,7 @@ $ singularity exec <container> /opt/view/bin/hisat2-inspect-l
        
 ```bash
 $ singularity exec <container> /opt/view/bin/hisat2-inspect-s
+$ podman run --it --rm --entrypoint /opt/view/bin/hisat2-inspect-s   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -187,6 +208,7 @@ $ singularity exec <container> /opt/view/bin/hisat2-inspect-s
        
 ```bash
 $ singularity exec <container> /opt/view/bin/hisat2_extract_exons.py
+$ podman run --it --rm --entrypoint /opt/view/bin/hisat2_extract_exons.py   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -194,6 +216,7 @@ $ singularity exec <container> /opt/view/bin/hisat2_extract_exons.py
        
 ```bash
 $ singularity exec <container> /opt/view/bin/hisat2_extract_snps_haplotypes_UCSC.py
+$ podman run --it --rm --entrypoint /opt/view/bin/hisat2_extract_snps_haplotypes_UCSC.py   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -201,6 +224,7 @@ $ singularity exec <container> /opt/view/bin/hisat2_extract_snps_haplotypes_UCSC
        
 ```bash
 $ singularity exec <container> /opt/view/bin/hisat2_extract_snps_haplotypes_VCF.py
+$ podman run --it --rm --entrypoint /opt/view/bin/hisat2_extract_snps_haplotypes_VCF.py   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -208,6 +232,7 @@ $ singularity exec <container> /opt/view/bin/hisat2_extract_snps_haplotypes_VCF.
        
 ```bash
 $ singularity exec <container> /opt/view/bin/hisat2_extract_splice_sites.py
+$ podman run --it --rm --entrypoint /opt/view/bin/hisat2_extract_splice_sites.py   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -215,6 +240,7 @@ $ singularity exec <container> /opt/view/bin/hisat2_extract_splice_sites.py
        
 ```bash
 $ singularity exec <container> /opt/view/bin/hisat2_read_statistics.py
+$ podman run --it --rm --entrypoint /opt/view/bin/hisat2_read_statistics.py   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -222,6 +248,7 @@ $ singularity exec <container> /opt/view/bin/hisat2_read_statistics.py
        
 ```bash
 $ singularity exec <container> /opt/view/bin/hisat2_simulate_reads.py
+$ podman run --it --rm --entrypoint /opt/view/bin/hisat2_simulate_reads.py   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -229,6 +256,7 @@ $ singularity exec <container> /opt/view/bin/hisat2_simulate_reads.py
        
 ```bash
 $ singularity exec <container> /opt/view/bin/hisatgenotype.py
+$ podman run --it --rm --entrypoint /opt/view/bin/hisatgenotype.py   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -236,6 +264,7 @@ $ singularity exec <container> /opt/view/bin/hisatgenotype.py
        
 ```bash
 $ singularity exec <container> /opt/view/bin/hisatgenotype_build_genome.py
+$ podman run --it --rm --entrypoint /opt/view/bin/hisatgenotype_build_genome.py   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -243,6 +272,7 @@ $ singularity exec <container> /opt/view/bin/hisatgenotype_build_genome.py
        
 ```bash
 $ singularity exec <container> /opt/view/bin/hisatgenotype_extract_reads.py
+$ podman run --it --rm --entrypoint /opt/view/bin/hisatgenotype_extract_reads.py   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -250,6 +280,7 @@ $ singularity exec <container> /opt/view/bin/hisatgenotype_extract_reads.py
        
 ```bash
 $ singularity exec <container> /opt/view/bin/hisatgenotype_extract_vars.py
+$ podman run --it --rm --entrypoint /opt/view/bin/hisatgenotype_extract_vars.py   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -257,6 +288,7 @@ $ singularity exec <container> /opt/view/bin/hisatgenotype_extract_vars.py
        
 ```bash
 $ singularity exec <container> /opt/view/bin/hisatgenotype_hla_cyp.py
+$ podman run --it --rm --entrypoint /opt/view/bin/hisatgenotype_hla_cyp.py   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -264,17 +296,21 @@ $ singularity exec <container> /opt/view/bin/hisatgenotype_hla_cyp.py
        
 ```bash
 $ singularity exec <container> /opt/view/bin/hisatgenotype_locus.py
+$ podman run --it --rm --entrypoint /opt/view/bin/hisatgenotype_locus.py   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
 
 In the above, the `<container>` directive will reference an actual container provided
-by the module, for the version you have chosen to load. Note that although a container
+by the module, for the version you have chosen to load. An environment file in the
+module folder will also be bound. Note that although a container
 might provide custom commands, every container exposes unique exec, shell, run, and
-inspect aliases. For each of the above, you can export:
+inspect aliases. For anycommands above, you can export:
 
  - SINGULARITY_OPTS: to define custom options for singularity (e.g., --debug)
  - SINGULARITY_COMMAND_OPTS: to define custom options for the command (e.g., -b)
+ - PODMAN_OPTS: to define custom options for podman
+ - PODMAN_COMMAND_OPTS: to define custom options for the command
 
 <br>
   

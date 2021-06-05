@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/nco"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/nco/container.yaml"
-updated_at: "2021-05-29 01:53:16.451198"
+updated_at: "2021-06-05 18:56:35.543466"
 container_url: "https://github.com/orgs/autamus/packages/container/package/nco"
 aliases:
  - "nc-config"
@@ -92,33 +92,45 @@ You can use tab for auto-completion of module names or commands that are provide
 
 ### Commands
 
-When you install this module, you'll be able to load it to make the following commands accessible:
+When you install this module, you'll be able to load it to make the following commands accessible.
+Examples for both Singularity and Podman (container technologies supported) are included.
 
-#### ghcr.io-autamus-nco-run:
+#### -run:
 
 ```bash
 $ singularity run <container>
+$ podman run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### ghcr.io-autamus-nco-shell:
+#### -shell:
 
 ```bash
-$ singularity shell -s /bin/bash <container>
+$ singularity shell -s /bin/sh <container>
+$ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### ghcr.io-autamus-nco-exec:
+#### -exec:
 
 ```bash
-$ singularity exec -s /bin/bash <container> "$@"
+$ singularity exec -s /bin/sh <container> "$@"
+$ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
-#### ghcr.io-autamus-nco-inspect-runscript:
+#### -inspect:
+
+Podman only has one inspect type.
+
+```bash
+$ podman inspect <container>
+```
+
+#### -inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### ghcr.io-autamus-nco-inspect-deffile:
+#### -inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>
@@ -129,6 +141,7 @@ $ singularity inspect -d <container>
        
 ```bash
 $ singularity exec <container> /opt/view/bin/nc-config
+$ podman run --it --rm --entrypoint /opt/view/bin/nc-config   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -136,6 +149,7 @@ $ singularity exec <container> /opt/view/bin/nc-config
        
 ```bash
 $ singularity exec <container> /opt/view/bin/ncap2
+$ podman run --it --rm --entrypoint /opt/view/bin/ncap2   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -143,6 +157,7 @@ $ singularity exec <container> /opt/view/bin/ncap2
        
 ```bash
 $ singularity exec <container> /opt/view/bin/ncatted
+$ podman run --it --rm --entrypoint /opt/view/bin/ncatted   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -150,6 +165,7 @@ $ singularity exec <container> /opt/view/bin/ncatted
        
 ```bash
 $ singularity exec <container> /opt/view/bin/ncbo
+$ podman run --it --rm --entrypoint /opt/view/bin/ncbo   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -157,6 +173,7 @@ $ singularity exec <container> /opt/view/bin/ncbo
        
 ```bash
 $ singularity exec <container> /opt/view/bin/ncclimo
+$ podman run --it --rm --entrypoint /opt/view/bin/ncclimo   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -164,6 +181,7 @@ $ singularity exec <container> /opt/view/bin/ncclimo
        
 ```bash
 $ singularity exec <container> /opt/view/bin/nccopy
+$ podman run --it --rm --entrypoint /opt/view/bin/nccopy   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -171,6 +189,7 @@ $ singularity exec <container> /opt/view/bin/nccopy
        
 ```bash
 $ singularity exec <container> /opt/view/bin/ncdiff
+$ podman run --it --rm --entrypoint /opt/view/bin/ncdiff   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -178,6 +197,7 @@ $ singularity exec <container> /opt/view/bin/ncdiff
        
 ```bash
 $ singularity exec <container> /opt/view/bin/ncdump
+$ podman run --it --rm --entrypoint /opt/view/bin/ncdump   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -185,6 +205,7 @@ $ singularity exec <container> /opt/view/bin/ncdump
        
 ```bash
 $ singularity exec <container> /opt/view/bin/ncea
+$ podman run --it --rm --entrypoint /opt/view/bin/ncea   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -192,6 +213,7 @@ $ singularity exec <container> /opt/view/bin/ncea
        
 ```bash
 $ singularity exec <container> /opt/view/bin/ncecat
+$ podman run --it --rm --entrypoint /opt/view/bin/ncecat   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -199,6 +221,7 @@ $ singularity exec <container> /opt/view/bin/ncecat
        
 ```bash
 $ singularity exec <container> /opt/view/bin/nces
+$ podman run --it --rm --entrypoint /opt/view/bin/nces   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -206,6 +229,7 @@ $ singularity exec <container> /opt/view/bin/nces
        
 ```bash
 $ singularity exec <container> /opt/view/bin/ncflint
+$ podman run --it --rm --entrypoint /opt/view/bin/ncflint   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -213,6 +237,7 @@ $ singularity exec <container> /opt/view/bin/ncflint
        
 ```bash
 $ singularity exec <container> /opt/view/bin/ncgen
+$ podman run --it --rm --entrypoint /opt/view/bin/ncgen   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -220,6 +245,7 @@ $ singularity exec <container> /opt/view/bin/ncgen
        
 ```bash
 $ singularity exec <container> /opt/view/bin/ncgen3
+$ podman run --it --rm --entrypoint /opt/view/bin/ncgen3   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -227,6 +253,7 @@ $ singularity exec <container> /opt/view/bin/ncgen3
        
 ```bash
 $ singularity exec <container> /opt/view/bin/ncks
+$ podman run --it --rm --entrypoint /opt/view/bin/ncks   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -234,6 +261,7 @@ $ singularity exec <container> /opt/view/bin/ncks
        
 ```bash
 $ singularity exec <container> /opt/view/bin/ncpdq
+$ podman run --it --rm --entrypoint /opt/view/bin/ncpdq   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -241,6 +269,7 @@ $ singularity exec <container> /opt/view/bin/ncpdq
        
 ```bash
 $ singularity exec <container> /opt/view/bin/ncra
+$ podman run --it --rm --entrypoint /opt/view/bin/ncra   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -248,6 +277,7 @@ $ singularity exec <container> /opt/view/bin/ncra
        
 ```bash
 $ singularity exec <container> /opt/view/bin/ncrcat
+$ podman run --it --rm --entrypoint /opt/view/bin/ncrcat   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -255,6 +285,7 @@ $ singularity exec <container> /opt/view/bin/ncrcat
        
 ```bash
 $ singularity exec <container> /opt/view/bin/ncremap
+$ podman run --it --rm --entrypoint /opt/view/bin/ncremap   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -262,6 +293,7 @@ $ singularity exec <container> /opt/view/bin/ncremap
        
 ```bash
 $ singularity exec <container> /opt/view/bin/ncrename
+$ podman run --it --rm --entrypoint /opt/view/bin/ncrename   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -269,6 +301,7 @@ $ singularity exec <container> /opt/view/bin/ncrename
        
 ```bash
 $ singularity exec <container> /opt/view/bin/ncurses6-config
+$ podman run --it --rm --entrypoint /opt/view/bin/ncurses6-config   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -276,6 +309,7 @@ $ singularity exec <container> /opt/view/bin/ncurses6-config
        
 ```bash
 $ singularity exec <container> /opt/view/bin/ncursesw6-config
+$ podman run --it --rm --entrypoint /opt/view/bin/ncursesw6-config   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -283,17 +317,21 @@ $ singularity exec <container> /opt/view/bin/ncursesw6-config
        
 ```bash
 $ singularity exec <container> /opt/view/bin/ncwa
+$ podman run --it --rm --entrypoint /opt/view/bin/ncwa   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
 
 In the above, the `<container>` directive will reference an actual container provided
-by the module, for the version you have chosen to load. Note that although a container
+by the module, for the version you have chosen to load. An environment file in the
+module folder will also be bound. Note that although a container
 might provide custom commands, every container exposes unique exec, shell, run, and
-inspect aliases. For each of the above, you can export:
+inspect aliases. For anycommands above, you can export:
 
  - SINGULARITY_OPTS: to define custom options for singularity (e.g., --debug)
  - SINGULARITY_COMMAND_OPTS: to define custom options for the command (e.g., -b)
+ - PODMAN_OPTS: to define custom options for podman
+ - PODMAN_COMMAND_OPTS: to define custom options for the command
 
 <br>
   

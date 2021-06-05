@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/gcc"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/gcc/container.yaml"
-updated_at: "2021-05-29 01:53:34.339700"
+updated_at: "2021-06-05 18:56:55.197516"
 container_url: "https://github.com/orgs/autamus/packages/container/package/gcc"
 aliases:
  - "c++"
@@ -69,33 +69,45 @@ You can use tab for auto-completion of module names or commands that are provide
 
 ### Commands
 
-When you install this module, you'll be able to load it to make the following commands accessible:
+When you install this module, you'll be able to load it to make the following commands accessible.
+Examples for both Singularity and Podman (container technologies supported) are included.
 
-#### ghcr.io-autamus-gcc-run:
+#### -run:
 
 ```bash
 $ singularity run <container>
+$ podman run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### ghcr.io-autamus-gcc-shell:
+#### -shell:
 
 ```bash
-$ singularity shell -s /bin/bash <container>
+$ singularity shell -s /bin/sh <container>
+$ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### ghcr.io-autamus-gcc-exec:
+#### -exec:
 
 ```bash
-$ singularity exec -s /bin/bash <container> "$@"
+$ singularity exec -s /bin/sh <container> "$@"
+$ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
-#### ghcr.io-autamus-gcc-inspect-runscript:
+#### -inspect:
+
+Podman only has one inspect type.
+
+```bash
+$ podman inspect <container>
+```
+
+#### -inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### ghcr.io-autamus-gcc-inspect-deffile:
+#### -inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>
@@ -106,6 +118,7 @@ $ singularity inspect -d <container>
        
 ```bash
 $ singularity exec <container> /opt/view/bin/c++
+$ podman run --it --rm --entrypoint /opt/view/bin/c++   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -113,6 +126,7 @@ $ singularity exec <container> /opt/view/bin/c++
        
 ```bash
 $ singularity exec <container> /opt/view/bin/cpp
+$ podman run --it --rm --entrypoint /opt/view/bin/cpp   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -120,6 +134,7 @@ $ singularity exec <container> /opt/view/bin/cpp
        
 ```bash
 $ singularity exec <container> /opt/view/bin/g++
+$ podman run --it --rm --entrypoint /opt/view/bin/g++   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -127,6 +142,7 @@ $ singularity exec <container> /opt/view/bin/g++
        
 ```bash
 $ singularity exec <container> /opt/view/bin/gcc
+$ podman run --it --rm --entrypoint /opt/view/bin/gcc   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -134,6 +150,7 @@ $ singularity exec <container> /opt/view/bin/gcc
        
 ```bash
 $ singularity exec <container> /opt/view/bin/gcc-ar
+$ podman run --it --rm --entrypoint /opt/view/bin/gcc-ar   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -141,6 +158,7 @@ $ singularity exec <container> /opt/view/bin/gcc-ar
        
 ```bash
 $ singularity exec <container> /opt/view/bin/gcc-nm
+$ podman run --it --rm --entrypoint /opt/view/bin/gcc-nm   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -148,6 +166,7 @@ $ singularity exec <container> /opt/view/bin/gcc-nm
        
 ```bash
 $ singularity exec <container> /opt/view/bin/gcc-ranlib
+$ podman run --it --rm --entrypoint /opt/view/bin/gcc-ranlib   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -155,6 +174,7 @@ $ singularity exec <container> /opt/view/bin/gcc-ranlib
        
 ```bash
 $ singularity exec <container> /opt/view/bin/gcov
+$ podman run --it --rm --entrypoint /opt/view/bin/gcov   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -162,6 +182,7 @@ $ singularity exec <container> /opt/view/bin/gcov
        
 ```bash
 $ singularity exec <container> /opt/view/bin/gcov-dump
+$ podman run --it --rm --entrypoint /opt/view/bin/gcov-dump   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -169,6 +190,7 @@ $ singularity exec <container> /opt/view/bin/gcov-dump
        
 ```bash
 $ singularity exec <container> /opt/view/bin/gcov-tool
+$ podman run --it --rm --entrypoint /opt/view/bin/gcov-tool   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -176,6 +198,7 @@ $ singularity exec <container> /opt/view/bin/gcov-tool
        
 ```bash
 $ singularity exec <container> /opt/view/bin/gfortran
+$ podman run --it --rm --entrypoint /opt/view/bin/gfortran   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -183,17 +206,21 @@ $ singularity exec <container> /opt/view/bin/gfortran
        
 ```bash
 $ singularity exec <container> /opt/view/bin/zstd
+$ podman run --it --rm --entrypoint /opt/view/bin/zstd   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
 
 In the above, the `<container>` directive will reference an actual container provided
-by the module, for the version you have chosen to load. Note that although a container
+by the module, for the version you have chosen to load. An environment file in the
+module folder will also be bound. Note that although a container
 might provide custom commands, every container exposes unique exec, shell, run, and
-inspect aliases. For each of the above, you can export:
+inspect aliases. For anycommands above, you can export:
 
  - SINGULARITY_OPTS: to define custom options for singularity (e.g., --debug)
  - SINGULARITY_COMMAND_OPTS: to define custom options for the command (e.g., -b)
+ - PODMAN_OPTS: to define custom options for podman
+ - PODMAN_COMMAND_OPTS: to define custom options for the command
 
 <br>
   

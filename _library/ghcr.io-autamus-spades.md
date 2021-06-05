@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/spades"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/spades/container.yaml"
-updated_at: "2021-05-29 01:53:35.806468"
+updated_at: "2021-06-05 18:56:56.831631"
 container_url: "https://github.com/orgs/autamus/packages/container/package/spades"
 aliases:
  - "spades-bwa"
@@ -75,33 +75,45 @@ You can use tab for auto-completion of module names or commands that are provide
 
 ### Commands
 
-When you install this module, you'll be able to load it to make the following commands accessible:
+When you install this module, you'll be able to load it to make the following commands accessible.
+Examples for both Singularity and Podman (container technologies supported) are included.
 
-#### ghcr.io-autamus-spades-run:
+#### -run:
 
 ```bash
 $ singularity run <container>
+$ podman run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### ghcr.io-autamus-spades-shell:
+#### -shell:
 
 ```bash
-$ singularity shell -s /bin/bash <container>
+$ singularity shell -s /bin/sh <container>
+$ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### ghcr.io-autamus-spades-exec:
+#### -exec:
 
 ```bash
-$ singularity exec -s /bin/bash <container> "$@"
+$ singularity exec -s /bin/sh <container> "$@"
+$ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
-#### ghcr.io-autamus-spades-inspect-runscript:
+#### -inspect:
+
+Podman only has one inspect type.
+
+```bash
+$ podman inspect <container>
+```
+
+#### -inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### ghcr.io-autamus-spades-inspect-deffile:
+#### -inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>
@@ -112,6 +124,7 @@ $ singularity inspect -d <container>
        
 ```bash
 $ singularity exec <container> /opt/view/bin/spades-bwa
+$ podman run --it --rm --entrypoint /opt/view/bin/spades-bwa   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -119,6 +132,7 @@ $ singularity exec <container> /opt/view/bin/spades-bwa
        
 ```bash
 $ singularity exec <container> /opt/view/bin/spades-convert-bin-to-fasta
+$ podman run --it --rm --entrypoint /opt/view/bin/spades-convert-bin-to-fasta   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -126,6 +140,7 @@ $ singularity exec <container> /opt/view/bin/spades-convert-bin-to-fasta
        
 ```bash
 $ singularity exec <container> /opt/view/bin/spades-core
+$ podman run --it --rm --entrypoint /opt/view/bin/spades-core   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -133,6 +148,7 @@ $ singularity exec <container> /opt/view/bin/spades-core
        
 ```bash
 $ singularity exec <container> /opt/view/bin/spades-corrector-core
+$ podman run --it --rm --entrypoint /opt/view/bin/spades-corrector-core   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -140,6 +156,7 @@ $ singularity exec <container> /opt/view/bin/spades-corrector-core
        
 ```bash
 $ singularity exec <container> /opt/view/bin/spades-gbuilder
+$ podman run --it --rm --entrypoint /opt/view/bin/spades-gbuilder   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -147,6 +164,7 @@ $ singularity exec <container> /opt/view/bin/spades-gbuilder
        
 ```bash
 $ singularity exec <container> /opt/view/bin/spades-gmapper
+$ podman run --it --rm --entrypoint /opt/view/bin/spades-gmapper   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -154,6 +172,7 @@ $ singularity exec <container> /opt/view/bin/spades-gmapper
        
 ```bash
 $ singularity exec <container> /opt/view/bin/spades-gsimplifier
+$ podman run --it --rm --entrypoint /opt/view/bin/spades-gsimplifier   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -161,6 +180,7 @@ $ singularity exec <container> /opt/view/bin/spades-gsimplifier
        
 ```bash
 $ singularity exec <container> /opt/view/bin/spades-hammer
+$ podman run --it --rm --entrypoint /opt/view/bin/spades-hammer   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -168,6 +188,7 @@ $ singularity exec <container> /opt/view/bin/spades-hammer
        
 ```bash
 $ singularity exec <container> /opt/view/bin/spades-ionhammer
+$ podman run --it --rm --entrypoint /opt/view/bin/spades-ionhammer   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -175,6 +196,7 @@ $ singularity exec <container> /opt/view/bin/spades-ionhammer
        
 ```bash
 $ singularity exec <container> /opt/view/bin/spades-kmer-estimating
+$ podman run --it --rm --entrypoint /opt/view/bin/spades-kmer-estimating   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -182,6 +204,7 @@ $ singularity exec <container> /opt/view/bin/spades-kmer-estimating
        
 ```bash
 $ singularity exec <container> /opt/view/bin/spades-kmercount
+$ podman run --it --rm --entrypoint /opt/view/bin/spades-kmercount   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -189,6 +212,7 @@ $ singularity exec <container> /opt/view/bin/spades-kmercount
        
 ```bash
 $ singularity exec <container> /opt/view/bin/spades-read-filter
+$ podman run --it --rm --entrypoint /opt/view/bin/spades-read-filter   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -196,6 +220,7 @@ $ singularity exec <container> /opt/view/bin/spades-read-filter
        
 ```bash
 $ singularity exec <container> /opt/view/bin/spades-truseq-scfcorrection
+$ podman run --it --rm --entrypoint /opt/view/bin/spades-truseq-scfcorrection   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -203,6 +228,7 @@ $ singularity exec <container> /opt/view/bin/spades-truseq-scfcorrection
        
 ```bash
 $ singularity exec <container> /opt/view/bin/spades.py
+$ podman run --it --rm --entrypoint /opt/view/bin/spades.py   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -210,17 +236,21 @@ $ singularity exec <container> /opt/view/bin/spades.py
        
 ```bash
 $ singularity exec <container> /opt/view/bin/spaligner
+$ podman run --it --rm --entrypoint /opt/view/bin/spaligner   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
 
 In the above, the `<container>` directive will reference an actual container provided
-by the module, for the version you have chosen to load. Note that although a container
+by the module, for the version you have chosen to load. An environment file in the
+module folder will also be bound. Note that although a container
 might provide custom commands, every container exposes unique exec, shell, run, and
-inspect aliases. For each of the above, you can export:
+inspect aliases. For anycommands above, you can export:
 
  - SINGULARITY_OPTS: to define custom options for singularity (e.g., --debug)
  - SINGULARITY_COMMAND_OPTS: to define custom options for the command (e.g., -b)
+ - PODMAN_OPTS: to define custom options for podman
+ - PODMAN_COMMAND_OPTS: to define custom options for the command
 
 <br>
   

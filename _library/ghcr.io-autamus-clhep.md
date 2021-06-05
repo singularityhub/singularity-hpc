@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/clhep"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/clhep/container.yaml"
-updated_at: "2021-05-29 01:53:23.491704"
+updated_at: "2021-06-05 18:56:43.159237"
 container_url: "https://github.com/orgs/autamus/packages/container/package/clhep"
 aliases:
  - "Cast-config"
@@ -71,33 +71,45 @@ You can use tab for auto-completion of module names or commands that are provide
 
 ### Commands
 
-When you install this module, you'll be able to load it to make the following commands accessible:
+When you install this module, you'll be able to load it to make the following commands accessible.
+Examples for both Singularity and Podman (container technologies supported) are included.
 
-#### ghcr.io-autamus-clhep-run:
+#### -run:
 
 ```bash
 $ singularity run <container>
+$ podman run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### ghcr.io-autamus-clhep-shell:
+#### -shell:
 
 ```bash
-$ singularity shell -s /bin/bash <container>
+$ singularity shell -s /bin/sh <container>
+$ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### ghcr.io-autamus-clhep-exec:
+#### -exec:
 
 ```bash
-$ singularity exec -s /bin/bash <container> "$@"
+$ singularity exec -s /bin/sh <container> "$@"
+$ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
-#### ghcr.io-autamus-clhep-inspect-runscript:
+#### -inspect:
+
+Podman only has one inspect type.
+
+```bash
+$ podman inspect <container>
+```
+
+#### -inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### ghcr.io-autamus-clhep-inspect-deffile:
+#### -inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>
@@ -108,6 +120,7 @@ $ singularity inspect -d <container>
        
 ```bash
 $ singularity exec <container> /opt/view/bin/Cast-config
+$ podman run --it --rm --entrypoint /opt/view/bin/Cast-config   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -115,6 +128,7 @@ $ singularity exec <container> /opt/view/bin/Cast-config
        
 ```bash
 $ singularity exec <container> /opt/view/bin/Evaluator-config
+$ podman run --it --rm --entrypoint /opt/view/bin/Evaluator-config   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -122,6 +136,7 @@ $ singularity exec <container> /opt/view/bin/Evaluator-config
        
 ```bash
 $ singularity exec <container> /opt/view/bin/Exceptions-config
+$ podman run --it --rm --entrypoint /opt/view/bin/Exceptions-config   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -129,6 +144,7 @@ $ singularity exec <container> /opt/view/bin/Exceptions-config
        
 ```bash
 $ singularity exec <container> /opt/view/bin/GenericFunctions-config
+$ podman run --it --rm --entrypoint /opt/view/bin/GenericFunctions-config   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -136,6 +152,7 @@ $ singularity exec <container> /opt/view/bin/GenericFunctions-config
        
 ```bash
 $ singularity exec <container> /opt/view/bin/Geometry-config
+$ podman run --it --rm --entrypoint /opt/view/bin/Geometry-config   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -143,6 +160,7 @@ $ singularity exec <container> /opt/view/bin/Geometry-config
        
 ```bash
 $ singularity exec <container> /opt/view/bin/Matrix-config
+$ podman run --it --rm --entrypoint /opt/view/bin/Matrix-config   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -150,6 +168,7 @@ $ singularity exec <container> /opt/view/bin/Matrix-config
        
 ```bash
 $ singularity exec <container> /opt/view/bin/Random-config
+$ podman run --it --rm --entrypoint /opt/view/bin/Random-config   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -157,6 +176,7 @@ $ singularity exec <container> /opt/view/bin/Random-config
        
 ```bash
 $ singularity exec <container> /opt/view/bin/RandomObjects-config
+$ podman run --it --rm --entrypoint /opt/view/bin/RandomObjects-config   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -164,6 +184,7 @@ $ singularity exec <container> /opt/view/bin/RandomObjects-config
        
 ```bash
 $ singularity exec <container> /opt/view/bin/RefCount-config
+$ podman run --it --rm --entrypoint /opt/view/bin/RefCount-config   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -171,6 +192,7 @@ $ singularity exec <container> /opt/view/bin/RefCount-config
        
 ```bash
 $ singularity exec <container> /opt/view/bin/Units-config
+$ podman run --it --rm --entrypoint /opt/view/bin/Units-config   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -178,6 +200,7 @@ $ singularity exec <container> /opt/view/bin/Units-config
        
 ```bash
 $ singularity exec <container> /opt/view/bin/Utility-config
+$ podman run --it --rm --entrypoint /opt/view/bin/Utility-config   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -185,6 +208,7 @@ $ singularity exec <container> /opt/view/bin/Utility-config
        
 ```bash
 $ singularity exec <container> /opt/view/bin/Vector-config
+$ podman run --it --rm --entrypoint /opt/view/bin/Vector-config   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -192,17 +216,21 @@ $ singularity exec <container> /opt/view/bin/Vector-config
        
 ```bash
 $ singularity exec <container> /opt/view/bin/clhep-config
+$ podman run --it --rm --entrypoint /opt/view/bin/clhep-config   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
 
 In the above, the `<container>` directive will reference an actual container provided
-by the module, for the version you have chosen to load. Note that although a container
+by the module, for the version you have chosen to load. An environment file in the
+module folder will also be bound. Note that although a container
 might provide custom commands, every container exposes unique exec, shell, run, and
-inspect aliases. For each of the above, you can export:
+inspect aliases. For anycommands above, you can export:
 
  - SINGULARITY_OPTS: to define custom options for singularity (e.g., --debug)
  - SINGULARITY_COMMAND_OPTS: to define custom options for the command (e.g., -b)
+ - PODMAN_OPTS: to define custom options for podman
+ - PODMAN_COMMAND_OPTS: to define custom options for the command
 
 <br>
   

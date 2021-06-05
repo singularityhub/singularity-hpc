@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/openbabel"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/openbabel/container.yaml"
-updated_at: "2021-05-29 01:53:30.407163"
+updated_at: "2021-06-05 18:56:50.885932"
 container_url: "https://github.com/orgs/autamus/packages/container/package/openbabel"
 aliases:
  - "obabel"
@@ -83,33 +83,45 @@ You can use tab for auto-completion of module names or commands that are provide
 
 ### Commands
 
-When you install this module, you'll be able to load it to make the following commands accessible:
+When you install this module, you'll be able to load it to make the following commands accessible.
+Examples for both Singularity and Podman (container technologies supported) are included.
 
-#### ghcr.io-autamus-openbabel-run:
+#### -run:
 
 ```bash
 $ singularity run <container>
+$ podman run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### ghcr.io-autamus-openbabel-shell:
+#### -shell:
 
 ```bash
-$ singularity shell -s /bin/bash <container>
+$ singularity shell -s /bin/sh <container>
+$ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### ghcr.io-autamus-openbabel-exec:
+#### -exec:
 
 ```bash
-$ singularity exec -s /bin/bash <container> "$@"
+$ singularity exec -s /bin/sh <container> "$@"
+$ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
-#### ghcr.io-autamus-openbabel-inspect-runscript:
+#### -inspect:
+
+Podman only has one inspect type.
+
+```bash
+$ podman inspect <container>
+```
+
+#### -inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### ghcr.io-autamus-openbabel-inspect-deffile:
+#### -inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>
@@ -120,6 +132,7 @@ $ singularity inspect -d <container>
        
 ```bash
 $ singularity exec <container> /opt/view/bin/obabel
+$ podman run --it --rm --entrypoint /opt/view/bin/obabel   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -127,6 +140,7 @@ $ singularity exec <container> /opt/view/bin/obabel
        
 ```bash
 $ singularity exec <container> /opt/view/bin/obconformer
+$ podman run --it --rm --entrypoint /opt/view/bin/obconformer   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -134,6 +148,7 @@ $ singularity exec <container> /opt/view/bin/obconformer
        
 ```bash
 $ singularity exec <container> /opt/view/bin/obdistgen
+$ podman run --it --rm --entrypoint /opt/view/bin/obdistgen   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -141,6 +156,7 @@ $ singularity exec <container> /opt/view/bin/obdistgen
        
 ```bash
 $ singularity exec <container> /opt/view/bin/obenergy
+$ podman run --it --rm --entrypoint /opt/view/bin/obenergy   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -148,6 +164,7 @@ $ singularity exec <container> /opt/view/bin/obenergy
        
 ```bash
 $ singularity exec <container> /opt/view/bin/obfit
+$ podman run --it --rm --entrypoint /opt/view/bin/obfit   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -155,6 +172,7 @@ $ singularity exec <container> /opt/view/bin/obfit
        
 ```bash
 $ singularity exec <container> /opt/view/bin/obfitall
+$ podman run --it --rm --entrypoint /opt/view/bin/obfitall   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -162,6 +180,7 @@ $ singularity exec <container> /opt/view/bin/obfitall
        
 ```bash
 $ singularity exec <container> /opt/view/bin/obgen
+$ podman run --it --rm --entrypoint /opt/view/bin/obgen   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -169,6 +188,7 @@ $ singularity exec <container> /opt/view/bin/obgen
        
 ```bash
 $ singularity exec <container> /opt/view/bin/obgrep
+$ podman run --it --rm --entrypoint /opt/view/bin/obgrep   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -176,6 +196,7 @@ $ singularity exec <container> /opt/view/bin/obgrep
        
 ```bash
 $ singularity exec <container> /opt/view/bin/obminimize
+$ podman run --it --rm --entrypoint /opt/view/bin/obminimize   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -183,6 +204,7 @@ $ singularity exec <container> /opt/view/bin/obminimize
        
 ```bash
 $ singularity exec <container> /opt/view/bin/obmm
+$ podman run --it --rm --entrypoint /opt/view/bin/obmm   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -190,6 +212,7 @@ $ singularity exec <container> /opt/view/bin/obmm
        
 ```bash
 $ singularity exec <container> /opt/view/bin/obprobe
+$ podman run --it --rm --entrypoint /opt/view/bin/obprobe   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -197,6 +220,7 @@ $ singularity exec <container> /opt/view/bin/obprobe
        
 ```bash
 $ singularity exec <container> /opt/view/bin/obprop
+$ podman run --it --rm --entrypoint /opt/view/bin/obprop   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -204,6 +228,7 @@ $ singularity exec <container> /opt/view/bin/obprop
        
 ```bash
 $ singularity exec <container> /opt/view/bin/obrms
+$ podman run --it --rm --entrypoint /opt/view/bin/obrms   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -211,6 +236,7 @@ $ singularity exec <container> /opt/view/bin/obrms
        
 ```bash
 $ singularity exec <container> /opt/view/bin/obrotamer
+$ podman run --it --rm --entrypoint /opt/view/bin/obrotamer   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -218,6 +244,7 @@ $ singularity exec <container> /opt/view/bin/obrotamer
        
 ```bash
 $ singularity exec <container> /opt/view/bin/obrotate
+$ podman run --it --rm --entrypoint /opt/view/bin/obrotate   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -225,6 +252,7 @@ $ singularity exec <container> /opt/view/bin/obrotate
        
 ```bash
 $ singularity exec <container> /opt/view/bin/obspectrophore
+$ podman run --it --rm --entrypoint /opt/view/bin/obspectrophore   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -232,6 +260,7 @@ $ singularity exec <container> /opt/view/bin/obspectrophore
        
 ```bash
 $ singularity exec <container> /opt/view/bin/obsym
+$ podman run --it --rm --entrypoint /opt/view/bin/obsym   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -239,6 +268,7 @@ $ singularity exec <container> /opt/view/bin/obsym
        
 ```bash
 $ singularity exec <container> /opt/view/bin/obtautomer
+$ podman run --it --rm --entrypoint /opt/view/bin/obtautomer   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -246,17 +276,21 @@ $ singularity exec <container> /opt/view/bin/obtautomer
        
 ```bash
 $ singularity exec <container> /opt/view/bin/obthermo
+$ podman run --it --rm --entrypoint /opt/view/bin/obthermo   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
 
 In the above, the `<container>` directive will reference an actual container provided
-by the module, for the version you have chosen to load. Note that although a container
+by the module, for the version you have chosen to load. An environment file in the
+module folder will also be bound. Note that although a container
 might provide custom commands, every container exposes unique exec, shell, run, and
-inspect aliases. For each of the above, you can export:
+inspect aliases. For anycommands above, you can export:
 
  - SINGULARITY_OPTS: to define custom options for singularity (e.g., --debug)
  - SINGULARITY_COMMAND_OPTS: to define custom options for the command (e.g., -b)
+ - PODMAN_OPTS: to define custom options for podman
+ - PODMAN_COMMAND_OPTS: to define custom options for the command
 
 <br>
   

@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/bowtie2"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/bowtie2/container.yaml"
-updated_at: "2021-05-29 01:53:22.584695"
+updated_at: "2021-06-05 18:56:42.134015"
 container_url: "https://github.com/orgs/autamus/packages/container/package/bowtie2"
 aliases:
  - "bowtie2"
@@ -63,33 +63,45 @@ You can use tab for auto-completion of module names or commands that are provide
 
 ### Commands
 
-When you install this module, you'll be able to load it to make the following commands accessible:
+When you install this module, you'll be able to load it to make the following commands accessible.
+Examples for both Singularity and Podman (container technologies supported) are included.
 
-#### ghcr.io-autamus-bowtie2-run:
+#### -run:
 
 ```bash
 $ singularity run <container>
+$ podman run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### ghcr.io-autamus-bowtie2-shell:
+#### -shell:
 
 ```bash
-$ singularity shell -s /bin/bash <container>
+$ singularity shell -s /bin/sh <container>
+$ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### ghcr.io-autamus-bowtie2-exec:
+#### -exec:
 
 ```bash
-$ singularity exec -s /bin/bash <container> "$@"
+$ singularity exec -s /bin/sh <container> "$@"
+$ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
-#### ghcr.io-autamus-bowtie2-inspect-runscript:
+#### -inspect:
+
+Podman only has one inspect type.
+
+```bash
+$ podman inspect <container>
+```
+
+#### -inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### ghcr.io-autamus-bowtie2-inspect-deffile:
+#### -inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>
@@ -100,6 +112,7 @@ $ singularity inspect -d <container>
        
 ```bash
 $ singularity exec <container> /opt/view/bin/bowtie2
+$ podman run --it --rm --entrypoint /opt/view/bin/bowtie2   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -107,6 +120,7 @@ $ singularity exec <container> /opt/view/bin/bowtie2
        
 ```bash
 $ singularity exec <container> /opt/view/bin/bowtie2-align-l
+$ podman run --it --rm --entrypoint /opt/view/bin/bowtie2-align-l   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -114,6 +128,7 @@ $ singularity exec <container> /opt/view/bin/bowtie2-align-l
        
 ```bash
 $ singularity exec <container> /opt/view/bin/bowtie2-align-s
+$ podman run --it --rm --entrypoint /opt/view/bin/bowtie2-align-s   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -121,6 +136,7 @@ $ singularity exec <container> /opt/view/bin/bowtie2-align-s
        
 ```bash
 $ singularity exec <container> /opt/view/bin/bowtie2-build
+$ podman run --it --rm --entrypoint /opt/view/bin/bowtie2-build   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -128,6 +144,7 @@ $ singularity exec <container> /opt/view/bin/bowtie2-build
        
 ```bash
 $ singularity exec <container> /opt/view/bin/bowtie2-build-l
+$ podman run --it --rm --entrypoint /opt/view/bin/bowtie2-build-l   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -135,6 +152,7 @@ $ singularity exec <container> /opt/view/bin/bowtie2-build-l
        
 ```bash
 $ singularity exec <container> /opt/view/bin/bowtie2-build-s
+$ podman run --it --rm --entrypoint /opt/view/bin/bowtie2-build-s   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -142,6 +160,7 @@ $ singularity exec <container> /opt/view/bin/bowtie2-build-s
        
 ```bash
 $ singularity exec <container> /opt/view/bin/bowtie2-inspect
+$ podman run --it --rm --entrypoint /opt/view/bin/bowtie2-inspect   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -149,6 +168,7 @@ $ singularity exec <container> /opt/view/bin/bowtie2-inspect
        
 ```bash
 $ singularity exec <container> /opt/view/bin/bowtie2-inspect-l
+$ podman run --it --rm --entrypoint /opt/view/bin/bowtie2-inspect-l   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -156,17 +176,21 @@ $ singularity exec <container> /opt/view/bin/bowtie2-inspect-l
        
 ```bash
 $ singularity exec <container> /opt/view/bin/bowtie2-inspect-s
+$ podman run --it --rm --entrypoint /opt/view/bin/bowtie2-inspect-s   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
 
 In the above, the `<container>` directive will reference an actual container provided
-by the module, for the version you have chosen to load. Note that although a container
+by the module, for the version you have chosen to load. An environment file in the
+module folder will also be bound. Note that although a container
 might provide custom commands, every container exposes unique exec, shell, run, and
-inspect aliases. For each of the above, you can export:
+inspect aliases. For anycommands above, you can export:
 
  - SINGULARITY_OPTS: to define custom options for singularity (e.g., --debug)
  - SINGULARITY_COMMAND_OPTS: to define custom options for the command (e.g., -b)
+ - PODMAN_OPTS: to define custom options for podman
+ - PODMAN_COMMAND_OPTS: to define custom options for the command
 
 <br>
   

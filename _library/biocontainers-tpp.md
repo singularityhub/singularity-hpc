@@ -3,7 +3,7 @@ layout: container
 name:  "biocontainers/tpp"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/biocontainers/tpp/container.yaml"
-updated_at: "2021-05-29 01:53:48.475213"
+updated_at: "2021-06-05 18:57:10.907972"
 container_url: "https://hub.docker.com/r/biocontainers/tpp"
 aliases:
  - "config_data"
@@ -56,33 +56,45 @@ You can use tab for auto-completion of module names or commands that are provide
 
 ### Commands
 
-When you install this module, you'll be able to load it to make the following commands accessible:
+When you install this module, you'll be able to load it to make the following commands accessible.
+Examples for both Singularity and Podman (container technologies supported) are included.
 
-#### biocontainers-tpp-run:
+#### -run:
 
 ```bash
 $ singularity run <container>
+$ podman run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### biocontainers-tpp-shell:
+#### -shell:
 
 ```bash
-$ singularity shell -s /bin/bash <container>
+$ singularity shell -s /bin/sh <container>
+$ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### biocontainers-tpp-exec:
+#### -exec:
 
 ```bash
-$ singularity exec -s /bin/bash <container> "$@"
+$ singularity exec -s /bin/sh <container> "$@"
+$ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
-#### biocontainers-tpp-inspect-runscript:
+#### -inspect:
+
+Podman only has one inspect type.
+
+```bash
+$ podman inspect <container>
+```
+
+#### -inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### biocontainers-tpp-inspect-deffile:
+#### -inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>
@@ -93,6 +105,7 @@ $ singularity inspect -d <container>
        
 ```bash
 $ singularity exec <container> /usr/local/bin/config_data
+$ podman run --it --rm --entrypoint /usr/local/bin/config_data   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -100,6 +113,7 @@ $ singularity exec <container> /usr/local/bin/config_data
        
 ```bash
 $ singularity exec <container> /usr/local/bin/json_xs
+$ podman run --it --rm --entrypoint /usr/local/bin/json_xs   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -107,6 +121,7 @@ $ singularity exec <container> /usr/local/bin/json_xs
        
 ```bash
 $ singularity exec <container> /usr/local/bin/lwp-download
+$ podman run --it --rm --entrypoint /usr/local/bin/lwp-download   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -114,6 +129,7 @@ $ singularity exec <container> /usr/local/bin/lwp-download
        
 ```bash
 $ singularity exec <container> /usr/local/bin/lwp-dump
+$ podman run --it --rm --entrypoint /usr/local/bin/lwp-dump   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -121,6 +137,7 @@ $ singularity exec <container> /usr/local/bin/lwp-dump
        
 ```bash
 $ singularity exec <container> /usr/local/bin/lwp-mirror
+$ podman run --it --rm --entrypoint /usr/local/bin/lwp-mirror   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -128,17 +145,21 @@ $ singularity exec <container> /usr/local/bin/lwp-mirror
        
 ```bash
 $ singularity exec <container> /usr/local/bin/lwp-request
+$ podman run --it --rm --entrypoint /usr/local/bin/lwp-request   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
 
 In the above, the `<container>` directive will reference an actual container provided
-by the module, for the version you have chosen to load. Note that although a container
+by the module, for the version you have chosen to load. An environment file in the
+module folder will also be bound. Note that although a container
 might provide custom commands, every container exposes unique exec, shell, run, and
-inspect aliases. For each of the above, you can export:
+inspect aliases. For anycommands above, you can export:
 
  - SINGULARITY_OPTS: to define custom options for singularity (e.g., --debug)
  - SINGULARITY_COMMAND_OPTS: to define custom options for the command (e.g., -b)
+ - PODMAN_OPTS: to define custom options for podman
+ - PODMAN_COMMAND_OPTS: to define custom options for the command
 
 <br>
   

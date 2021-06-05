@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/scons"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/scons/container.yaml"
-updated_at: "2021-05-29 01:53:22.029681"
+updated_at: "2021-06-05 18:56:41.513192"
 container_url: "https://github.com/orgs/autamus/packages/container/package/scons"
 aliases:
  - "scons"
@@ -65,33 +65,45 @@ You can use tab for auto-completion of module names or commands that are provide
 
 ### Commands
 
-When you install this module, you'll be able to load it to make the following commands accessible:
+When you install this module, you'll be able to load it to make the following commands accessible.
+Examples for both Singularity and Podman (container technologies supported) are included.
 
-#### ghcr.io-autamus-scons-run:
+#### -run:
 
 ```bash
 $ singularity run <container>
+$ podman run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### ghcr.io-autamus-scons-shell:
+#### -shell:
 
 ```bash
-$ singularity shell -s /bin/bash <container>
+$ singularity shell -s /bin/sh <container>
+$ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### ghcr.io-autamus-scons-exec:
+#### -exec:
 
 ```bash
-$ singularity exec -s /bin/bash <container> "$@"
+$ singularity exec -s /bin/sh <container> "$@"
+$ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
-#### ghcr.io-autamus-scons-inspect-runscript:
+#### -inspect:
+
+Podman only has one inspect type.
+
+```bash
+$ podman inspect <container>
+```
+
+#### -inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### ghcr.io-autamus-scons-inspect-deffile:
+#### -inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>
@@ -102,6 +114,7 @@ $ singularity inspect -d <container>
        
 ```bash
 $ singularity exec <container> /opt/view/bin/scons
+$ podman run --it --rm --entrypoint /opt/view/bin/scons   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -109,6 +122,7 @@ $ singularity exec <container> /opt/view/bin/scons
        
 ```bash
 $ singularity exec <container> /opt/view/bin/scons-3.1.2
+$ podman run --it --rm --entrypoint /opt/view/bin/scons-3.1.2   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -116,6 +130,7 @@ $ singularity exec <container> /opt/view/bin/scons-3.1.2
        
 ```bash
 $ singularity exec <container> /opt/view/bin/scons-3.1.2.bat
+$ podman run --it --rm --entrypoint /opt/view/bin/scons-3.1.2.bat   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -123,6 +138,7 @@ $ singularity exec <container> /opt/view/bin/scons-3.1.2.bat
        
 ```bash
 $ singularity exec <container> /opt/view/bin/scons-configure-cache
+$ podman run --it --rm --entrypoint /opt/view/bin/scons-configure-cache   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -130,6 +146,7 @@ $ singularity exec <container> /opt/view/bin/scons-configure-cache
        
 ```bash
 $ singularity exec <container> /opt/view/bin/scons-configure-cache-3.1.2
+$ podman run --it --rm --entrypoint /opt/view/bin/scons-configure-cache-3.1.2   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -137,6 +154,7 @@ $ singularity exec <container> /opt/view/bin/scons-configure-cache-3.1.2
        
 ```bash
 $ singularity exec <container> /opt/view/bin/scons-time
+$ podman run --it --rm --entrypoint /opt/view/bin/scons-time   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -144,6 +162,7 @@ $ singularity exec <container> /opt/view/bin/scons-time
        
 ```bash
 $ singularity exec <container> /opt/view/bin/scons-time-3.1.2
+$ podman run --it --rm --entrypoint /opt/view/bin/scons-time-3.1.2   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -151,6 +170,7 @@ $ singularity exec <container> /opt/view/bin/scons-time-3.1.2
        
 ```bash
 $ singularity exec <container> /opt/view/bin/scons.bat
+$ podman run --it --rm --entrypoint /opt/view/bin/scons.bat   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -158,6 +178,7 @@ $ singularity exec <container> /opt/view/bin/scons.bat
        
 ```bash
 $ singularity exec <container> /opt/view/bin/sconsign
+$ podman run --it --rm --entrypoint /opt/view/bin/sconsign   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -165,17 +186,21 @@ $ singularity exec <container> /opt/view/bin/sconsign
        
 ```bash
 $ singularity exec <container> /opt/view/bin/sconsign-3.1.2
+$ podman run --it --rm --entrypoint /opt/view/bin/sconsign-3.1.2   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
 
 In the above, the `<container>` directive will reference an actual container provided
-by the module, for the version you have chosen to load. Note that although a container
+by the module, for the version you have chosen to load. An environment file in the
+module folder will also be bound. Note that although a container
 might provide custom commands, every container exposes unique exec, shell, run, and
-inspect aliases. For each of the above, you can export:
+inspect aliases. For anycommands above, you can export:
 
  - SINGULARITY_OPTS: to define custom options for singularity (e.g., --debug)
  - SINGULARITY_COMMAND_OPTS: to define custom options for the command (e.g., -b)
+ - PODMAN_OPTS: to define custom options for podman
+ - PODMAN_COMMAND_OPTS: to define custom options for the command
 
 <br>
   

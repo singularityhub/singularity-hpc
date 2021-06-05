@@ -3,7 +3,7 @@ layout: container
 name:  "biocontainers/emboss"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/biocontainers/emboss/container.yaml"
-updated_at: "2021-05-29 01:53:48.656930"
+updated_at: "2021-06-05 18:57:11.114694"
 container_url: "https://hub.docker.com/r/biocontainers/emboss"
 aliases:
  - "embossdata"
@@ -58,33 +58,45 @@ You can use tab for auto-completion of module names or commands that are provide
 
 ### Commands
 
-When you install this module, you'll be able to load it to make the following commands accessible:
+When you install this module, you'll be able to load it to make the following commands accessible.
+Examples for both Singularity and Podman (container technologies supported) are included.
 
-#### biocontainers-emboss-run:
+#### -run:
 
 ```bash
 $ singularity run <container>
+$ podman run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### biocontainers-emboss-shell:
+#### -shell:
 
 ```bash
-$ singularity shell -s /bin/bash <container>
+$ singularity shell -s /bin/sh <container>
+$ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### biocontainers-emboss-exec:
+#### -exec:
 
 ```bash
-$ singularity exec -s /bin/bash <container> "$@"
+$ singularity exec -s /bin/sh <container> "$@"
+$ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
-#### biocontainers-emboss-inspect-runscript:
+#### -inspect:
+
+Podman only has one inspect type.
+
+```bash
+$ podman inspect <container>
+```
+
+#### -inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### biocontainers-emboss-inspect-deffile:
+#### -inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>
@@ -95,6 +107,7 @@ $ singularity inspect -d <container>
        
 ```bash
 $ singularity exec <container> /usr/bin/embossdata
+$ podman run --it --rm --entrypoint /usr/bin/embossdata   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -102,6 +115,7 @@ $ singularity exec <container> /usr/bin/embossdata
        
 ```bash
 $ singularity exec <container> /usr/bin/embossupdate
+$ podman run --it --rm --entrypoint /usr/bin/embossupdate   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -109,6 +123,7 @@ $ singularity exec <container> /usr/bin/embossupdate
        
 ```bash
 $ singularity exec <container> /usr/bin/embossversion
+$ podman run --it --rm --entrypoint /usr/bin/embossversion   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -116,6 +131,7 @@ $ singularity exec <container> /usr/bin/embossversion
        
 ```bash
 $ singularity exec <container> /usr/bin/emma
+$ podman run --it --rm --entrypoint /usr/bin/emma   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -123,6 +139,7 @@ $ singularity exec <container> /usr/bin/emma
        
 ```bash
 $ singularity exec <container> /usr/bin/emouse
+$ podman run --it --rm --entrypoint /usr/bin/emouse   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -130,6 +147,7 @@ $ singularity exec <container> /usr/bin/emouse
        
 ```bash
 $ singularity exec <container> /usr/bin/em_pscan
+$ podman run --it --rm --entrypoint /usr/bin/em_pscan   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -137,17 +155,21 @@ $ singularity exec <container> /usr/bin/em_pscan
        
 ```bash
 $ singularity exec <container> /usr/bin/em_cons
+$ podman run --it --rm --entrypoint /usr/bin/em_cons   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
 
 In the above, the `<container>` directive will reference an actual container provided
-by the module, for the version you have chosen to load. Note that although a container
+by the module, for the version you have chosen to load. An environment file in the
+module folder will also be bound. Note that although a container
 might provide custom commands, every container exposes unique exec, shell, run, and
-inspect aliases. For each of the above, you can export:
+inspect aliases. For anycommands above, you can export:
 
  - SINGULARITY_OPTS: to define custom options for singularity (e.g., --debug)
  - SINGULARITY_COMMAND_OPTS: to define custom options for the command (e.g., -b)
+ - PODMAN_OPTS: to define custom options for podman
+ - PODMAN_COMMAND_OPTS: to define custom options for the command
 
 <br>
   

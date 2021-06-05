@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/poppler"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/poppler/container.yaml"
-updated_at: "2021-05-29 01:53:30.027961"
+updated_at: "2021-06-05 18:56:50.463932"
 container_url: "https://github.com/orgs/autamus/packages/container/package/poppler"
 aliases:
  - "pdfattach"
@@ -69,33 +69,45 @@ You can use tab for auto-completion of module names or commands that are provide
 
 ### Commands
 
-When you install this module, you'll be able to load it to make the following commands accessible:
+When you install this module, you'll be able to load it to make the following commands accessible.
+Examples for both Singularity and Podman (container technologies supported) are included.
 
-#### ghcr.io-autamus-poppler-run:
+#### -run:
 
 ```bash
 $ singularity run <container>
+$ podman run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### ghcr.io-autamus-poppler-shell:
+#### -shell:
 
 ```bash
-$ singularity shell -s /bin/bash <container>
+$ singularity shell -s /bin/sh <container>
+$ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### ghcr.io-autamus-poppler-exec:
+#### -exec:
 
 ```bash
-$ singularity exec -s /bin/bash <container> "$@"
+$ singularity exec -s /bin/sh <container> "$@"
+$ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
-#### ghcr.io-autamus-poppler-inspect-runscript:
+#### -inspect:
+
+Podman only has one inspect type.
+
+```bash
+$ podman inspect <container>
+```
+
+#### -inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### ghcr.io-autamus-poppler-inspect-deffile:
+#### -inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>
@@ -106,6 +118,7 @@ $ singularity inspect -d <container>
        
 ```bash
 $ singularity exec <container> /opt/view/bin/pdfattach
+$ podman run --it --rm --entrypoint /opt/view/bin/pdfattach   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -113,6 +126,7 @@ $ singularity exec <container> /opt/view/bin/pdfattach
        
 ```bash
 $ singularity exec <container> /opt/view/bin/pdfdetach
+$ podman run --it --rm --entrypoint /opt/view/bin/pdfdetach   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -120,6 +134,7 @@ $ singularity exec <container> /opt/view/bin/pdfdetach
        
 ```bash
 $ singularity exec <container> /opt/view/bin/pdffonts
+$ podman run --it --rm --entrypoint /opt/view/bin/pdffonts   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -127,6 +142,7 @@ $ singularity exec <container> /opt/view/bin/pdffonts
        
 ```bash
 $ singularity exec <container> /opt/view/bin/pdfimages
+$ podman run --it --rm --entrypoint /opt/view/bin/pdfimages   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -134,6 +150,7 @@ $ singularity exec <container> /opt/view/bin/pdfimages
        
 ```bash
 $ singularity exec <container> /opt/view/bin/pdfinfo
+$ podman run --it --rm --entrypoint /opt/view/bin/pdfinfo   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -141,6 +158,7 @@ $ singularity exec <container> /opt/view/bin/pdfinfo
        
 ```bash
 $ singularity exec <container> /opt/view/bin/pdfseparate
+$ podman run --it --rm --entrypoint /opt/view/bin/pdfseparate   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -148,6 +166,7 @@ $ singularity exec <container> /opt/view/bin/pdfseparate
        
 ```bash
 $ singularity exec <container> /opt/view/bin/pdftohtml
+$ podman run --it --rm --entrypoint /opt/view/bin/pdftohtml   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -155,6 +174,7 @@ $ singularity exec <container> /opt/view/bin/pdftohtml
        
 ```bash
 $ singularity exec <container> /opt/view/bin/pdftops
+$ podman run --it --rm --entrypoint /opt/view/bin/pdftops   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -162,6 +182,7 @@ $ singularity exec <container> /opt/view/bin/pdftops
        
 ```bash
 $ singularity exec <container> /opt/view/bin/pdftotext
+$ podman run --it --rm --entrypoint /opt/view/bin/pdftotext   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -169,6 +190,7 @@ $ singularity exec <container> /opt/view/bin/pdftotext
        
 ```bash
 $ singularity exec <container> /opt/view/bin/pdfunite
+$ podman run --it --rm --entrypoint /opt/view/bin/pdfunite   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -176,6 +198,7 @@ $ singularity exec <container> /opt/view/bin/pdfunite
        
 ```bash
 $ singularity exec <container> /opt/view/bin/png-fix-itxt
+$ podman run --it --rm --entrypoint /opt/view/bin/png-fix-itxt   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -183,17 +206,21 @@ $ singularity exec <container> /opt/view/bin/png-fix-itxt
        
 ```bash
 $ singularity exec <container> /opt/view/bin/pngfix
+$ podman run --it --rm --entrypoint /opt/view/bin/pngfix   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
 
 In the above, the `<container>` directive will reference an actual container provided
-by the module, for the version you have chosen to load. Note that although a container
+by the module, for the version you have chosen to load. An environment file in the
+module folder will also be bound. Note that although a container
 might provide custom commands, every container exposes unique exec, shell, run, and
-inspect aliases. For each of the above, you can export:
+inspect aliases. For anycommands above, you can export:
 
  - SINGULARITY_OPTS: to define custom options for singularity (e.g., --debug)
  - SINGULARITY_COMMAND_OPTS: to define custom options for the command (e.g., -b)
+ - PODMAN_OPTS: to define custom options for podman
+ - PODMAN_COMMAND_OPTS: to define custom options for the command
 
 <br>
   

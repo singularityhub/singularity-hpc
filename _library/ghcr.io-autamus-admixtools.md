@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/admixtools"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/admixtools/container.yaml"
-updated_at: "2021-05-29 01:53:26.123221"
+updated_at: "2021-06-05 18:56:46.037153"
 container_url: "https://github.com/orgs/autamus/packages/container/package/admixtools"
 aliases:
  - "convertf"
@@ -109,33 +109,45 @@ You can use tab for auto-completion of module names or commands that are provide
 
 ### Commands
 
-When you install this module, you'll be able to load it to make the following commands accessible:
+When you install this module, you'll be able to load it to make the following commands accessible.
+Examples for both Singularity and Podman (container technologies supported) are included.
 
-#### ghcr.io-autamus-admixtools-run:
+#### -run:
 
 ```bash
 $ singularity run <container>
+$ podman run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### ghcr.io-autamus-admixtools-shell:
+#### -shell:
 
 ```bash
-$ singularity shell -s /bin/bash <container>
+$ singularity shell -s /bin/sh <container>
+$ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### ghcr.io-autamus-admixtools-exec:
+#### -exec:
 
 ```bash
-$ singularity exec -s /bin/bash <container> "$@"
+$ singularity exec -s /bin/sh <container> "$@"
+$ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
-#### ghcr.io-autamus-admixtools-inspect-runscript:
+#### -inspect:
+
+Podman only has one inspect type.
+
+```bash
+$ podman inspect <container>
+```
+
+#### -inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### ghcr.io-autamus-admixtools-inspect-deffile:
+#### -inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>
@@ -146,6 +158,7 @@ $ singularity inspect -d <container>
        
 ```bash
 $ singularity exec <container> /opt/view/bin/convertf
+$ podman run --it --rm --entrypoint /opt/view/bin/convertf   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -153,6 +166,7 @@ $ singularity exec <container> /opt/view/bin/convertf
        
 ```bash
 $ singularity exec <container> /opt/view/bin/dowtjack
+$ podman run --it --rm --entrypoint /opt/view/bin/dowtjack   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -160,6 +174,7 @@ $ singularity exec <container> /opt/view/bin/dowtjack
        
 ```bash
 $ singularity exec <container> /opt/view/bin/expfit.sh
+$ podman run --it --rm --entrypoint /opt/view/bin/expfit.sh   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -167,6 +182,7 @@ $ singularity exec <container> /opt/view/bin/expfit.sh
        
 ```bash
 $ singularity exec <container> /opt/view/bin/gcount
+$ podman run --it --rm --entrypoint /opt/view/bin/gcount   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -174,6 +190,7 @@ $ singularity exec <container> /opt/view/bin/gcount
        
 ```bash
 $ singularity exec <container> /opt/view/bin/grabpars
+$ podman run --it --rm --entrypoint /opt/view/bin/grabpars   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -181,6 +198,7 @@ $ singularity exec <container> /opt/view/bin/grabpars
        
 ```bash
 $ singularity exec <container> /opt/view/bin/gsl-config
+$ podman run --it --rm --entrypoint /opt/view/bin/gsl-config   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -188,6 +206,7 @@ $ singularity exec <container> /opt/view/bin/gsl-config
        
 ```bash
 $ singularity exec <container> /opt/view/bin/gsl-histogram
+$ podman run --it --rm --entrypoint /opt/view/bin/gsl-histogram   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -195,6 +214,7 @@ $ singularity exec <container> /opt/view/bin/gsl-histogram
        
 ```bash
 $ singularity exec <container> /opt/view/bin/gsl-randist
+$ podman run --it --rm --entrypoint /opt/view/bin/gsl-randist   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -202,6 +222,7 @@ $ singularity exec <container> /opt/view/bin/gsl-randist
        
 ```bash
 $ singularity exec <container> /opt/view/bin/jackdiff
+$ podman run --it --rm --entrypoint /opt/view/bin/jackdiff   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -209,6 +230,7 @@ $ singularity exec <container> /opt/view/bin/jackdiff
        
 ```bash
 $ singularity exec <container> /opt/view/bin/kimf
+$ podman run --it --rm --entrypoint /opt/view/bin/kimf   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -216,6 +238,7 @@ $ singularity exec <container> /opt/view/bin/kimf
        
 ```bash
 $ singularity exec <container> /opt/view/bin/mergeit
+$ podman run --it --rm --entrypoint /opt/view/bin/mergeit   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -223,6 +246,7 @@ $ singularity exec <container> /opt/view/bin/mergeit
        
 ```bash
 $ singularity exec <container> /opt/view/bin/mkpretty
+$ podman run --it --rm --entrypoint /opt/view/bin/mkpretty   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -230,6 +254,7 @@ $ singularity exec <container> /opt/view/bin/mkpretty
        
 ```bash
 $ singularity exec <container> /opt/view/bin/qp3Pop
+$ podman run --it --rm --entrypoint /opt/view/bin/qp3Pop   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -237,6 +262,7 @@ $ singularity exec <container> /opt/view/bin/qp3Pop
        
 ```bash
 $ singularity exec <container> /opt/view/bin/qp4diff
+$ podman run --it --rm --entrypoint /opt/view/bin/qp4diff   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -244,6 +270,7 @@ $ singularity exec <container> /opt/view/bin/qp4diff
        
 ```bash
 $ singularity exec <container> /opt/view/bin/qpAdm
+$ podman run --it --rm --entrypoint /opt/view/bin/qpAdm   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -251,6 +278,7 @@ $ singularity exec <container> /opt/view/bin/qpAdm
        
 ```bash
 $ singularity exec <container> /opt/view/bin/qpBound
+$ podman run --it --rm --entrypoint /opt/view/bin/qpBound   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -258,6 +286,7 @@ $ singularity exec <container> /opt/view/bin/qpBound
        
 ```bash
 $ singularity exec <container> /opt/view/bin/qpDpart
+$ podman run --it --rm --entrypoint /opt/view/bin/qpDpart   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -265,6 +294,7 @@ $ singularity exec <container> /opt/view/bin/qpDpart
        
 ```bash
 $ singularity exec <container> /opt/view/bin/qpDstat
+$ podman run --it --rm --entrypoint /opt/view/bin/qpDstat   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -272,6 +302,7 @@ $ singularity exec <container> /opt/view/bin/qpDstat
        
 ```bash
 $ singularity exec <container> /opt/view/bin/qpF4ratio
+$ podman run --it --rm --entrypoint /opt/view/bin/qpF4ratio   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -279,6 +310,7 @@ $ singularity exec <container> /opt/view/bin/qpF4ratio
        
 ```bash
 $ singularity exec <container> /opt/view/bin/qpGraph
+$ podman run --it --rm --entrypoint /opt/view/bin/qpGraph   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -286,6 +318,7 @@ $ singularity exec <container> /opt/view/bin/qpGraph
        
 ```bash
 $ singularity exec <container> /opt/view/bin/qpWave
+$ podman run --it --rm --entrypoint /opt/view/bin/qpWave   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -293,6 +326,7 @@ $ singularity exec <container> /opt/view/bin/qpWave
        
 ```bash
 $ singularity exec <container> /opt/view/bin/qpdslow
+$ podman run --it --rm --entrypoint /opt/view/bin/qpdslow   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -300,6 +334,7 @@ $ singularity exec <container> /opt/view/bin/qpdslow
        
 ```bash
 $ singularity exec <container> /opt/view/bin/qpff3base
+$ podman run --it --rm --entrypoint /opt/view/bin/qpff3base   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -307,6 +342,7 @@ $ singularity exec <container> /opt/view/bin/qpff3base
        
 ```bash
 $ singularity exec <container> /opt/view/bin/qpfmv
+$ podman run --it --rm --entrypoint /opt/view/bin/qpfmv   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -314,6 +350,7 @@ $ singularity exec <container> /opt/view/bin/qpfmv
        
 ```bash
 $ singularity exec <container> /opt/view/bin/qpfstats
+$ podman run --it --rm --entrypoint /opt/view/bin/qpfstats   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -321,6 +358,7 @@ $ singularity exec <container> /opt/view/bin/qpfstats
        
 ```bash
 $ singularity exec <container> /opt/view/bin/qpreroot
+$ podman run --it --rm --entrypoint /opt/view/bin/qpreroot   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -328,6 +366,7 @@ $ singularity exec <container> /opt/view/bin/qpreroot
        
 ```bash
 $ singularity exec <container> /opt/view/bin/rexpfit.r
+$ podman run --it --rm --entrypoint /opt/view/bin/rexpfit.r   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -335,6 +374,7 @@ $ singularity exec <container> /opt/view/bin/rexpfit.r
        
 ```bash
 $ singularity exec <container> /opt/view/bin/rolloff
+$ podman run --it --rm --entrypoint /opt/view/bin/rolloff   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -342,6 +382,7 @@ $ singularity exec <container> /opt/view/bin/rolloff
        
 ```bash
 $ singularity exec <container> /opt/view/bin/rolloffp
+$ podman run --it --rm --entrypoint /opt/view/bin/rolloffp   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -349,6 +390,7 @@ $ singularity exec <container> /opt/view/bin/rolloffp
        
 ```bash
 $ singularity exec <container> /opt/view/bin/simpjack2
+$ podman run --it --rm --entrypoint /opt/view/bin/simpjack2   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -356,6 +398,7 @@ $ singularity exec <container> /opt/view/bin/simpjack2
        
 ```bash
 $ singularity exec <container> /opt/view/bin/twtable
+$ podman run --it --rm --entrypoint /opt/view/bin/twtable   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -363,17 +406,21 @@ $ singularity exec <container> /opt/view/bin/twtable
        
 ```bash
 $ singularity exec <container> /opt/view/bin/wtjack.pl
+$ podman run --it --rm --entrypoint /opt/view/bin/wtjack.pl   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
 
 In the above, the `<container>` directive will reference an actual container provided
-by the module, for the version you have chosen to load. Note that although a container
+by the module, for the version you have chosen to load. An environment file in the
+module folder will also be bound. Note that although a container
 might provide custom commands, every container exposes unique exec, shell, run, and
-inspect aliases. For each of the above, you can export:
+inspect aliases. For anycommands above, you can export:
 
  - SINGULARITY_OPTS: to define custom options for singularity (e.g., --debug)
  - SINGULARITY_COMMAND_OPTS: to define custom options for the command (e.g., -b)
+ - PODMAN_OPTS: to define custom options for podman
+ - PODMAN_COMMAND_OPTS: to define custom options for the command
 
 <br>
   

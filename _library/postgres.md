@@ -3,7 +3,7 @@ layout: container
 name:  "postgres"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/postgres/container.yaml"
-updated_at: "2021-05-29 01:53:47.717946"
+updated_at: "2021-06-05 18:57:10.085117"
 container_url: "https://hub.docker.com/r/_/postgres"
 aliases:
  - "clusterdb"
@@ -114,33 +114,45 @@ You can use tab for auto-completion of module names or commands that are provide
 
 ### Commands
 
-When you install this module, you'll be able to load it to make the following commands accessible:
+When you install this module, you'll be able to load it to make the following commands accessible.
+Examples for both Singularity and Podman (container technologies supported) are included.
 
-#### postgres-run:
+#### -run:
 
 ```bash
 $ singularity run <container>
+$ podman run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### postgres-shell:
+#### -shell:
 
 ```bash
-$ singularity shell -s /bin/bash <container>
+$ singularity shell -s /bin/sh <container>
+$ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### postgres-exec:
+#### -exec:
 
 ```bash
-$ singularity exec -s /bin/bash <container> "$@"
+$ singularity exec -s /bin/sh <container> "$@"
+$ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
-#### postgres-inspect-runscript:
+#### -inspect:
+
+Podman only has one inspect type.
+
+```bash
+$ podman inspect <container>
+```
+
+#### -inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### postgres-inspect-deffile:
+#### -inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>
@@ -151,6 +163,7 @@ $ singularity inspect -d <container>
        
 ```bash
 $ singularity exec <container> /usr/lib/postgresql/13/bin/clusterdb
+$ podman run --it --rm --entrypoint /usr/lib/postgresql/13/bin/clusterdb   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -158,6 +171,7 @@ $ singularity exec <container> /usr/lib/postgresql/13/bin/clusterdb
        
 ```bash
 $ singularity exec <container> /usr/lib/postgresql/13/bin/createdb
+$ podman run --it --rm --entrypoint /usr/lib/postgresql/13/bin/createdb   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -165,6 +179,7 @@ $ singularity exec <container> /usr/lib/postgresql/13/bin/createdb
        
 ```bash
 $ singularity exec <container> /usr/lib/postgresql/13/bin/createuser
+$ podman run --it --rm --entrypoint /usr/lib/postgresql/13/bin/createuser   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -172,6 +187,7 @@ $ singularity exec <container> /usr/lib/postgresql/13/bin/createuser
        
 ```bash
 $ singularity exec <container> /usr/lib/postgresql/13/bin/dropdb
+$ podman run --it --rm --entrypoint /usr/lib/postgresql/13/bin/dropdb   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -179,6 +195,7 @@ $ singularity exec <container> /usr/lib/postgresql/13/bin/dropdb
        
 ```bash
 $ singularity exec <container> /usr/lib/postgresql/13/bin/dropuser
+$ podman run --it --rm --entrypoint /usr/lib/postgresql/13/bin/dropuser   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -186,6 +203,7 @@ $ singularity exec <container> /usr/lib/postgresql/13/bin/dropuser
        
 ```bash
 $ singularity exec <container> /usr/lib/postgresql/13/bin/initdb
+$ podman run --it --rm --entrypoint /usr/lib/postgresql/13/bin/initdb   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -193,6 +211,7 @@ $ singularity exec <container> /usr/lib/postgresql/13/bin/initdb
        
 ```bash
 $ singularity exec <container> /usr/lib/postgresql/13/bin/oid2name
+$ podman run --it --rm --entrypoint /usr/lib/postgresql/13/bin/oid2name   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -200,6 +219,7 @@ $ singularity exec <container> /usr/lib/postgresql/13/bin/oid2name
        
 ```bash
 $ singularity exec <container> /usr/lib/postgresql/13/bin/pg_archivecleanup
+$ podman run --it --rm --entrypoint /usr/lib/postgresql/13/bin/pg_archivecleanup   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -207,6 +227,7 @@ $ singularity exec <container> /usr/lib/postgresql/13/bin/pg_archivecleanup
        
 ```bash
 $ singularity exec <container> /usr/lib/postgresql/13/bin/pg_basebackup
+$ podman run --it --rm --entrypoint /usr/lib/postgresql/13/bin/pg_basebackup   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -214,6 +235,7 @@ $ singularity exec <container> /usr/lib/postgresql/13/bin/pg_basebackup
        
 ```bash
 $ singularity exec <container> /usr/lib/postgresql/13/bin/pg_checksums
+$ podman run --it --rm --entrypoint /usr/lib/postgresql/13/bin/pg_checksums   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -221,6 +243,7 @@ $ singularity exec <container> /usr/lib/postgresql/13/bin/pg_checksums
        
 ```bash
 $ singularity exec <container> /usr/lib/postgresql/13/bin/pg_config
+$ podman run --it --rm --entrypoint /usr/lib/postgresql/13/bin/pg_config   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -228,6 +251,7 @@ $ singularity exec <container> /usr/lib/postgresql/13/bin/pg_config
        
 ```bash
 $ singularity exec <container> /usr/lib/postgresql/13/bin/pg_controldata
+$ podman run --it --rm --entrypoint /usr/lib/postgresql/13/bin/pg_controldata   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -235,6 +259,7 @@ $ singularity exec <container> /usr/lib/postgresql/13/bin/pg_controldata
        
 ```bash
 $ singularity exec <container> /usr/lib/postgresql/13/bin/pg_ctl
+$ podman run --it --rm --entrypoint /usr/lib/postgresql/13/bin/pg_ctl   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -242,6 +267,7 @@ $ singularity exec <container> /usr/lib/postgresql/13/bin/pg_ctl
        
 ```bash
 $ singularity exec <container> /usr/lib/postgresql/13/bin/pg_dump
+$ podman run --it --rm --entrypoint /usr/lib/postgresql/13/bin/pg_dump   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -249,6 +275,7 @@ $ singularity exec <container> /usr/lib/postgresql/13/bin/pg_dump
        
 ```bash
 $ singularity exec <container> /usr/lib/postgresql/13/bin/pg_dumpall
+$ podman run --it --rm --entrypoint /usr/lib/postgresql/13/bin/pg_dumpall   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -256,6 +283,7 @@ $ singularity exec <container> /usr/lib/postgresql/13/bin/pg_dumpall
        
 ```bash
 $ singularity exec <container> /usr/lib/postgresql/13/bin/pg_isready
+$ podman run --it --rm --entrypoint /usr/lib/postgresql/13/bin/pg_isready   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -263,6 +291,7 @@ $ singularity exec <container> /usr/lib/postgresql/13/bin/pg_isready
        
 ```bash
 $ singularity exec <container> /usr/lib/postgresql/13/bin/pg_receivewal
+$ podman run --it --rm --entrypoint /usr/lib/postgresql/13/bin/pg_receivewal   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -270,6 +299,7 @@ $ singularity exec <container> /usr/lib/postgresql/13/bin/pg_receivewal
        
 ```bash
 $ singularity exec <container> /usr/lib/postgresql/13/bin/pg_recvlogical
+$ podman run --it --rm --entrypoint /usr/lib/postgresql/13/bin/pg_recvlogical   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -277,6 +307,7 @@ $ singularity exec <container> /usr/lib/postgresql/13/bin/pg_recvlogical
        
 ```bash
 $ singularity exec <container> /usr/lib/postgresql/13/bin/pg_resetwal
+$ podman run --it --rm --entrypoint /usr/lib/postgresql/13/bin/pg_resetwal   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -284,6 +315,7 @@ $ singularity exec <container> /usr/lib/postgresql/13/bin/pg_resetwal
        
 ```bash
 $ singularity exec <container> /usr/lib/postgresql/13/bin/pg_restore
+$ podman run --it --rm --entrypoint /usr/lib/postgresql/13/bin/pg_restore   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -291,6 +323,7 @@ $ singularity exec <container> /usr/lib/postgresql/13/bin/pg_restore
        
 ```bash
 $ singularity exec <container> /usr/lib/postgresql/13/bin/pg_rewind
+$ podman run --it --rm --entrypoint /usr/lib/postgresql/13/bin/pg_rewind   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -298,6 +331,7 @@ $ singularity exec <container> /usr/lib/postgresql/13/bin/pg_rewind
        
 ```bash
 $ singularity exec <container> /usr/lib/postgresql/13/bin/pg_standby
+$ podman run --it --rm --entrypoint /usr/lib/postgresql/13/bin/pg_standby   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -305,6 +339,7 @@ $ singularity exec <container> /usr/lib/postgresql/13/bin/pg_standby
        
 ```bash
 $ singularity exec <container> /usr/lib/postgresql/13/bin/pg_test_fsync
+$ podman run --it --rm --entrypoint /usr/lib/postgresql/13/bin/pg_test_fsync   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -312,6 +347,7 @@ $ singularity exec <container> /usr/lib/postgresql/13/bin/pg_test_fsync
        
 ```bash
 $ singularity exec <container> /usr/lib/postgresql/13/bin/pg_test_timing
+$ podman run --it --rm --entrypoint /usr/lib/postgresql/13/bin/pg_test_timing   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -319,6 +355,7 @@ $ singularity exec <container> /usr/lib/postgresql/13/bin/pg_test_timing
        
 ```bash
 $ singularity exec <container> /usr/lib/postgresql/13/bin/pg_upgrade
+$ podman run --it --rm --entrypoint /usr/lib/postgresql/13/bin/pg_upgrade   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -326,6 +363,7 @@ $ singularity exec <container> /usr/lib/postgresql/13/bin/pg_upgrade
        
 ```bash
 $ singularity exec <container> /usr/lib/postgresql/13/bin/pg_verifybackup
+$ podman run --it --rm --entrypoint /usr/lib/postgresql/13/bin/pg_verifybackup   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -333,6 +371,7 @@ $ singularity exec <container> /usr/lib/postgresql/13/bin/pg_verifybackup
        
 ```bash
 $ singularity exec <container> /usr/lib/postgresql/13/bin/pg_waldump
+$ podman run --it --rm --entrypoint /usr/lib/postgresql/13/bin/pg_waldump   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -340,6 +379,7 @@ $ singularity exec <container> /usr/lib/postgresql/13/bin/pg_waldump
        
 ```bash
 $ singularity exec <container> /usr/lib/postgresql/13/bin/pgbench
+$ podman run --it --rm --entrypoint /usr/lib/postgresql/13/bin/pgbench   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -347,6 +387,7 @@ $ singularity exec <container> /usr/lib/postgresql/13/bin/pgbench
        
 ```bash
 $ singularity exec <container> /usr/lib/postgresql/13/bin/postgres
+$ podman run --it --rm --entrypoint /usr/lib/postgresql/13/bin/postgres   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -354,6 +395,7 @@ $ singularity exec <container> /usr/lib/postgresql/13/bin/postgres
        
 ```bash
 $ singularity exec <container> /usr/lib/postgresql/13/bin/postmaster
+$ podman run --it --rm --entrypoint /usr/lib/postgresql/13/bin/postmaster   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -361,6 +403,7 @@ $ singularity exec <container> /usr/lib/postgresql/13/bin/postmaster
        
 ```bash
 $ singularity exec <container> /usr/lib/postgresql/13/bin/psql
+$ podman run --it --rm --entrypoint /usr/lib/postgresql/13/bin/psql   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -368,6 +411,7 @@ $ singularity exec <container> /usr/lib/postgresql/13/bin/psql
        
 ```bash
 $ singularity exec <container> /usr/lib/postgresql/13/bin/reindexdb
+$ podman run --it --rm --entrypoint /usr/lib/postgresql/13/bin/reindexdb   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -375,6 +419,7 @@ $ singularity exec <container> /usr/lib/postgresql/13/bin/reindexdb
        
 ```bash
 $ singularity exec <container> /usr/lib/postgresql/13/bin/vacuumdb
+$ podman run --it --rm --entrypoint /usr/lib/postgresql/13/bin/vacuumdb   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -382,17 +427,21 @@ $ singularity exec <container> /usr/lib/postgresql/13/bin/vacuumdb
        
 ```bash
 $ singularity exec <container> /usr/lib/postgresql/13/bin/vacuumlo
+$ podman run --it --rm --entrypoint /usr/lib/postgresql/13/bin/vacuumlo   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
 
 In the above, the `<container>` directive will reference an actual container provided
-by the module, for the version you have chosen to load. Note that although a container
+by the module, for the version you have chosen to load. An environment file in the
+module folder will also be bound. Note that although a container
 might provide custom commands, every container exposes unique exec, shell, run, and
-inspect aliases. For each of the above, you can export:
+inspect aliases. For anycommands above, you can export:
 
  - SINGULARITY_OPTS: to define custom options for singularity (e.g., --debug)
  - SINGULARITY_COMMAND_OPTS: to define custom options for the command (e.g., -b)
+ - PODMAN_OPTS: to define custom options for podman
+ - PODMAN_COMMAND_OPTS: to define custom options for the command
 
 <br>
   

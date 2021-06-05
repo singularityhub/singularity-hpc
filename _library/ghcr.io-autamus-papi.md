@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/papi"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/papi/container.yaml"
-updated_at: "2021-05-29 01:53:27.767301"
+updated_at: "2021-06-05 18:56:47.925979"
 container_url: "https://github.com/orgs/autamus/packages/container/package/papi"
 aliases:
  - "papi_avail"
@@ -73,33 +73,45 @@ You can use tab for auto-completion of module names or commands that are provide
 
 ### Commands
 
-When you install this module, you'll be able to load it to make the following commands accessible:
+When you install this module, you'll be able to load it to make the following commands accessible.
+Examples for both Singularity and Podman (container technologies supported) are included.
 
-#### ghcr.io-autamus-papi-run:
+#### -run:
 
 ```bash
 $ singularity run <container>
+$ podman run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### ghcr.io-autamus-papi-shell:
+#### -shell:
 
 ```bash
-$ singularity shell -s /bin/bash <container>
+$ singularity shell -s /bin/sh <container>
+$ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### ghcr.io-autamus-papi-exec:
+#### -exec:
 
 ```bash
-$ singularity exec -s /bin/bash <container> "$@"
+$ singularity exec -s /bin/sh <container> "$@"
+$ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
-#### ghcr.io-autamus-papi-inspect-runscript:
+#### -inspect:
+
+Podman only has one inspect type.
+
+```bash
+$ podman inspect <container>
+```
+
+#### -inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### ghcr.io-autamus-papi-inspect-deffile:
+#### -inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>
@@ -110,6 +122,7 @@ $ singularity inspect -d <container>
        
 ```bash
 $ singularity exec <container> /opt/view/bin/papi_avail
+$ podman run --it --rm --entrypoint /opt/view/bin/papi_avail   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -117,6 +130,7 @@ $ singularity exec <container> /opt/view/bin/papi_avail
        
 ```bash
 $ singularity exec <container> /opt/view/bin/papi_clockres
+$ podman run --it --rm --entrypoint /opt/view/bin/papi_clockres   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -124,6 +138,7 @@ $ singularity exec <container> /opt/view/bin/papi_clockres
        
 ```bash
 $ singularity exec <container> /opt/view/bin/papi_command_line
+$ podman run --it --rm --entrypoint /opt/view/bin/papi_command_line   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -131,6 +146,7 @@ $ singularity exec <container> /opt/view/bin/papi_command_line
        
 ```bash
 $ singularity exec <container> /opt/view/bin/papi_component_avail
+$ podman run --it --rm --entrypoint /opt/view/bin/papi_component_avail   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -138,6 +154,7 @@ $ singularity exec <container> /opt/view/bin/papi_component_avail
        
 ```bash
 $ singularity exec <container> /opt/view/bin/papi_cost
+$ podman run --it --rm --entrypoint /opt/view/bin/papi_cost   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -145,6 +162,7 @@ $ singularity exec <container> /opt/view/bin/papi_cost
        
 ```bash
 $ singularity exec <container> /opt/view/bin/papi_decode
+$ podman run --it --rm --entrypoint /opt/view/bin/papi_decode   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -152,6 +170,7 @@ $ singularity exec <container> /opt/view/bin/papi_decode
        
 ```bash
 $ singularity exec <container> /opt/view/bin/papi_error_codes
+$ podman run --it --rm --entrypoint /opt/view/bin/papi_error_codes   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -159,6 +178,7 @@ $ singularity exec <container> /opt/view/bin/papi_error_codes
        
 ```bash
 $ singularity exec <container> /opt/view/bin/papi_event_chooser
+$ podman run --it --rm --entrypoint /opt/view/bin/papi_event_chooser   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -166,6 +186,7 @@ $ singularity exec <container> /opt/view/bin/papi_event_chooser
        
 ```bash
 $ singularity exec <container> /opt/view/bin/papi_hl_output_writer.py
+$ podman run --it --rm --entrypoint /opt/view/bin/papi_hl_output_writer.py   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -173,6 +194,7 @@ $ singularity exec <container> /opt/view/bin/papi_hl_output_writer.py
        
 ```bash
 $ singularity exec <container> /opt/view/bin/papi_mem_info
+$ podman run --it --rm --entrypoint /opt/view/bin/papi_mem_info   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -180,6 +202,7 @@ $ singularity exec <container> /opt/view/bin/papi_mem_info
        
 ```bash
 $ singularity exec <container> /opt/view/bin/papi_multiplex_cost
+$ podman run --it --rm --entrypoint /opt/view/bin/papi_multiplex_cost   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -187,6 +210,7 @@ $ singularity exec <container> /opt/view/bin/papi_multiplex_cost
        
 ```bash
 $ singularity exec <container> /opt/view/bin/papi_native_avail
+$ podman run --it --rm --entrypoint /opt/view/bin/papi_native_avail   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -194,6 +218,7 @@ $ singularity exec <container> /opt/view/bin/papi_native_avail
        
 ```bash
 $ singularity exec <container> /opt/view/bin/papi_version
+$ podman run --it --rm --entrypoint /opt/view/bin/papi_version   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -201,17 +226,21 @@ $ singularity exec <container> /opt/view/bin/papi_version
        
 ```bash
 $ singularity exec <container> /opt/view/bin/papi_xml_event_info
+$ podman run --it --rm --entrypoint /opt/view/bin/papi_xml_event_info   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
 
 In the above, the `<container>` directive will reference an actual container provided
-by the module, for the version you have chosen to load. Note that although a container
+by the module, for the version you have chosen to load. An environment file in the
+module folder will also be bound. Note that although a container
 might provide custom commands, every container exposes unique exec, shell, run, and
-inspect aliases. For each of the above, you can export:
+inspect aliases. For anycommands above, you can export:
 
  - SINGULARITY_OPTS: to define custom options for singularity (e.g., --debug)
  - SINGULARITY_COMMAND_OPTS: to define custom options for the command (e.g., -b)
+ - PODMAN_OPTS: to define custom options for podman
+ - PODMAN_COMMAND_OPTS: to define custom options for the command
 
 <br>
   

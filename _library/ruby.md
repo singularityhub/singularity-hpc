@@ -3,7 +3,7 @@ layout: container
 name:  "ruby"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ruby/container.yaml"
-updated_at: "2021-05-29 01:53:47.528531"
+updated_at: "2021-06-05 18:57:09.869595"
 container_url: "https://hub.docker.com/_/ruby"
 aliases:
  - "bundle"
@@ -69,33 +69,45 @@ You can use tab for auto-completion of module names or commands that are provide
 
 ### Commands
 
-When you install this module, you'll be able to load it to make the following commands accessible:
+When you install this module, you'll be able to load it to make the following commands accessible.
+Examples for both Singularity and Podman (container technologies supported) are included.
 
-#### ruby-run:
+#### -run:
 
 ```bash
 $ singularity run <container>
+$ podman run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### ruby-shell:
+#### -shell:
 
 ```bash
-$ singularity shell -s /bin/bash <container>
+$ singularity shell -s /bin/sh <container>
+$ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### ruby-exec:
+#### -exec:
 
 ```bash
-$ singularity exec -s /bin/bash <container> "$@"
+$ singularity exec -s /bin/sh <container> "$@"
+$ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
-#### ruby-inspect-runscript:
+#### -inspect:
+
+Podman only has one inspect type.
+
+```bash
+$ podman inspect <container>
+```
+
+#### -inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### ruby-inspect-deffile:
+#### -inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>
@@ -106,6 +118,7 @@ $ singularity inspect -d <container>
        
 ```bash
 $ singularity exec <container> /usr/local/bin/bundle
+$ podman run --it --rm --entrypoint /usr/local/bin/bundle   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -113,6 +126,7 @@ $ singularity exec <container> /usr/local/bin/bundle
        
 ```bash
 $ singularity exec <container> /usr/local/bin/bundler
+$ podman run --it --rm --entrypoint /usr/local/bin/bundler   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -120,6 +134,7 @@ $ singularity exec <container> /usr/local/bin/bundler
        
 ```bash
 $ singularity exec <container> /usr/local/bin/erb
+$ podman run --it --rm --entrypoint /usr/local/bin/erb   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -127,6 +142,7 @@ $ singularity exec <container> /usr/local/bin/erb
        
 ```bash
 $ singularity exec <container> /usr/local/bin/gem
+$ podman run --it --rm --entrypoint /usr/local/bin/gem   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -134,6 +150,7 @@ $ singularity exec <container> /usr/local/bin/gem
        
 ```bash
 $ singularity exec <container> /usr/local/bin/irb
+$ podman run --it --rm --entrypoint /usr/local/bin/irb   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -141,6 +158,7 @@ $ singularity exec <container> /usr/local/bin/irb
        
 ```bash
 $ singularity exec <container> /usr/local/bin/racc
+$ podman run --it --rm --entrypoint /usr/local/bin/racc   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -148,6 +166,7 @@ $ singularity exec <container> /usr/local/bin/racc
        
 ```bash
 $ singularity exec <container> /usr/local/bin/rake
+$ podman run --it --rm --entrypoint /usr/local/bin/rake   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -155,6 +174,7 @@ $ singularity exec <container> /usr/local/bin/rake
        
 ```bash
 $ singularity exec <container> /usr/local/bin/rbs
+$ podman run --it --rm --entrypoint /usr/local/bin/rbs   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -162,6 +182,7 @@ $ singularity exec <container> /usr/local/bin/rbs
        
 ```bash
 $ singularity exec <container> /usr/local/bin/rdoc
+$ podman run --it --rm --entrypoint /usr/local/bin/rdoc   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -169,6 +190,7 @@ $ singularity exec <container> /usr/local/bin/rdoc
        
 ```bash
 $ singularity exec <container> /usr/local/bin/ri
+$ podman run --it --rm --entrypoint /usr/local/bin/ri   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -176,6 +198,7 @@ $ singularity exec <container> /usr/local/bin/ri
        
 ```bash
 $ singularity exec <container> /usr/local/bin/ruby
+$ podman run --it --rm --entrypoint /usr/local/bin/ruby   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -183,17 +206,21 @@ $ singularity exec <container> /usr/local/bin/ruby
        
 ```bash
 $ singularity exec <container> /usr/local/bin/typeprof
+$ podman run --it --rm --entrypoint /usr/local/bin/typeprof   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
 
 In the above, the `<container>` directive will reference an actual container provided
-by the module, for the version you have chosen to load. Note that although a container
+by the module, for the version you have chosen to load. An environment file in the
+module folder will also be bound. Note that although a container
 might provide custom commands, every container exposes unique exec, shell, run, and
-inspect aliases. For each of the above, you can export:
+inspect aliases. For anycommands above, you can export:
 
  - SINGULARITY_OPTS: to define custom options for singularity (e.g., --debug)
  - SINGULARITY_COMMAND_OPTS: to define custom options for the command (e.g., -b)
+ - PODMAN_OPTS: to define custom options for podman
+ - PODMAN_COMMAND_OPTS: to define custom options for the command
 
 <br>
   

@@ -3,7 +3,7 @@ layout: container
 name:  "biocontainers/talon"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/biocontainers/talon/container.yaml"
-updated_at: "2021-05-29 01:53:49.419853"
+updated_at: "2021-06-05 18:57:11.931026"
 container_url: "https://hub.docker.com/r/biocontainers/talon"
 aliases:
  - "talon"
@@ -66,33 +66,45 @@ You can use tab for auto-completion of module names or commands that are provide
 
 ### Commands
 
-When you install this module, you'll be able to load it to make the following commands accessible:
+When you install this module, you'll be able to load it to make the following commands accessible.
+Examples for both Singularity and Podman (container technologies supported) are included.
 
-#### biocontainers-talon-run:
+#### -run:
 
 ```bash
 $ singularity run <container>
+$ podman run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### biocontainers-talon-shell:
+#### -shell:
 
 ```bash
-$ singularity shell -s /bin/bash <container>
+$ singularity shell -s /bin/sh <container>
+$ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### biocontainers-talon-exec:
+#### -exec:
 
 ```bash
-$ singularity exec -s /bin/bash <container> "$@"
+$ singularity exec -s /bin/sh <container> "$@"
+$ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
-#### biocontainers-talon-inspect-runscript:
+#### -inspect:
+
+Podman only has one inspect type.
+
+```bash
+$ podman inspect <container>
+```
+
+#### -inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### biocontainers-talon-inspect-deffile:
+#### -inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>
@@ -103,6 +115,7 @@ $ singularity inspect -d <container>
        
 ```bash
 $ singularity exec <container> /usr/local/bin/talon
+$ podman run --it --rm --entrypoint /usr/local/bin/talon   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -110,6 +123,7 @@ $ singularity exec <container> /usr/local/bin/talon
        
 ```bash
 $ singularity exec <container> /usr/local/bin/talon_create_GTF
+$ podman run --it --rm --entrypoint /usr/local/bin/talon_create_GTF   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -117,6 +131,7 @@ $ singularity exec <container> /usr/local/bin/talon_create_GTF
        
 ```bash
 $ singularity exec <container> /usr/local/bin/talon_fetch_reads
+$ podman run --it --rm --entrypoint /usr/local/bin/talon_fetch_reads   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -124,6 +139,7 @@ $ singularity exec <container> /usr/local/bin/talon_fetch_reads
        
 ```bash
 $ singularity exec <container> /usr/local/bin/talon_filter_transcripts
+$ podman run --it --rm --entrypoint /usr/local/bin/talon_filter_transcripts   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -131,6 +147,7 @@ $ singularity exec <container> /usr/local/bin/talon_filter_transcripts
        
 ```bash
 $ singularity exec <container> /usr/local/bin/talon_generate_report
+$ podman run --it --rm --entrypoint /usr/local/bin/talon_generate_report   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -138,6 +155,7 @@ $ singularity exec <container> /usr/local/bin/talon_generate_report
        
 ```bash
 $ singularity exec <container> /usr/local/bin/talon_initialize_database
+$ podman run --it --rm --entrypoint /usr/local/bin/talon_initialize_database   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -145,6 +163,7 @@ $ singularity exec <container> /usr/local/bin/talon_initialize_database
        
 ```bash
 $ singularity exec <container> /usr/local/bin/talon_get_sjs
+$ podman run --it --rm --entrypoint /usr/local/bin/talon_get_sjs   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -152,6 +171,7 @@ $ singularity exec <container> /usr/local/bin/talon_get_sjs
        
 ```bash
 $ singularity exec <container> /usr/local/bin/talon_label_reads
+$ podman run --it --rm --entrypoint /usr/local/bin/talon_label_reads   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -159,6 +179,7 @@ $ singularity exec <container> /usr/local/bin/talon_label_reads
        
 ```bash
 $ singularity exec <container> /usr/local/bin/talon_reformat_gtf
+$ podman run --it --rm --entrypoint /usr/local/bin/talon_reformat_gtf   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -166,6 +187,7 @@ $ singularity exec <container> /usr/local/bin/talon_reformat_gtf
        
 ```bash
 $ singularity exec <container> /usr/local/bin/talon_summarize
+$ podman run --it --rm --entrypoint /usr/local/bin/talon_summarize   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -173,17 +195,21 @@ $ singularity exec <container> /usr/local/bin/talon_summarize
        
 ```bash
 $ singularity exec <container> /usr/local/bin/talon_abundance
+$ podman run --it --rm --entrypoint /usr/local/bin/talon_abundance   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
 
 In the above, the `<container>` directive will reference an actual container provided
-by the module, for the version you have chosen to load. Note that although a container
+by the module, for the version you have chosen to load. An environment file in the
+module folder will also be bound. Note that although a container
 might provide custom commands, every container exposes unique exec, shell, run, and
-inspect aliases. For each of the above, you can export:
+inspect aliases. For anycommands above, you can export:
 
  - SINGULARITY_OPTS: to define custom options for singularity (e.g., --debug)
  - SINGULARITY_COMMAND_OPTS: to define custom options for the command (e.g., -b)
+ - PODMAN_OPTS: to define custom options for podman
+ - PODMAN_COMMAND_OPTS: to define custom options for the command
 
 <br>
   

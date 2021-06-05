@@ -3,7 +3,7 @@ layout: container
 name:  "openjdk"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/openjdk/container.yaml"
-updated_at: "2021-05-29 01:53:40.440682"
+updated_at: "2021-06-05 18:57:01.964531"
 container_url: "https://hub.docker.com/_/openjdk"
 aliases:
  - "jar"
@@ -99,33 +99,45 @@ You can use tab for auto-completion of module names or commands that are provide
 
 ### Commands
 
-When you install this module, you'll be able to load it to make the following commands accessible:
+When you install this module, you'll be able to load it to make the following commands accessible.
+Examples for both Singularity and Podman (container technologies supported) are included.
 
-#### openjdk-run:
+#### -run:
 
 ```bash
 $ singularity run <container>
+$ podman run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### openjdk-shell:
+#### -shell:
 
 ```bash
-$ singularity shell -s /bin/bash <container>
+$ singularity shell -s /bin/sh <container>
+$ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### openjdk-exec:
+#### -exec:
 
 ```bash
-$ singularity exec -s /bin/bash <container> "$@"
+$ singularity exec -s /bin/sh <container> "$@"
+$ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
-#### openjdk-inspect-runscript:
+#### -inspect:
+
+Podman only has one inspect type.
+
+```bash
+$ podman inspect <container>
+```
+
+#### -inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### openjdk-inspect-deffile:
+#### -inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>
@@ -136,6 +148,7 @@ $ singularity inspect -d <container>
        
 ```bash
 $ singularity exec <container> /usr/bin/jar
+$ podman run --it --rm --entrypoint /usr/bin/jar   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -143,6 +156,7 @@ $ singularity exec <container> /usr/bin/jar
        
 ```bash
 $ singularity exec <container> /usr/bin/jarsigner
+$ podman run --it --rm --entrypoint /usr/bin/jarsigner   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -150,6 +164,7 @@ $ singularity exec <container> /usr/bin/jarsigner
        
 ```bash
 $ singularity exec <container> /usr/bin/java
+$ podman run --it --rm --entrypoint /usr/bin/java   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -157,6 +172,7 @@ $ singularity exec <container> /usr/bin/java
        
 ```bash
 $ singularity exec <container> /usr/bin/javac
+$ podman run --it --rm --entrypoint /usr/bin/javac   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -164,6 +180,7 @@ $ singularity exec <container> /usr/bin/javac
        
 ```bash
 $ singularity exec <container> /usr/bin/javadoc
+$ podman run --it --rm --entrypoint /usr/bin/javadoc   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -171,6 +188,7 @@ $ singularity exec <container> /usr/bin/javadoc
        
 ```bash
 $ singularity exec <container> /usr/bin/javap
+$ podman run --it --rm --entrypoint /usr/bin/javap   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -178,6 +196,7 @@ $ singularity exec <container> /usr/bin/javap
        
 ```bash
 $ singularity exec <container> /usr/bin/jcmd
+$ podman run --it --rm --entrypoint /usr/bin/jcmd   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -185,6 +204,7 @@ $ singularity exec <container> /usr/bin/jcmd
        
 ```bash
 $ singularity exec <container> /usr/bin/jconsole
+$ podman run --it --rm --entrypoint /usr/bin/jconsole   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -192,6 +212,7 @@ $ singularity exec <container> /usr/bin/jconsole
        
 ```bash
 $ singularity exec <container> /usr/bin/jdb
+$ podman run --it --rm --entrypoint /usr/bin/jdb   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -199,6 +220,7 @@ $ singularity exec <container> /usr/bin/jdb
        
 ```bash
 $ singularity exec <container> /usr/bin/jdeprscan
+$ podman run --it --rm --entrypoint /usr/bin/jdeprscan   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -206,6 +228,7 @@ $ singularity exec <container> /usr/bin/jdeprscan
        
 ```bash
 $ singularity exec <container> /usr/bin/jdeps
+$ podman run --it --rm --entrypoint /usr/bin/jdeps   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -213,6 +236,7 @@ $ singularity exec <container> /usr/bin/jdeps
        
 ```bash
 $ singularity exec <container> /usr/bin/jfr
+$ podman run --it --rm --entrypoint /usr/bin/jfr   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -220,6 +244,7 @@ $ singularity exec <container> /usr/bin/jfr
        
 ```bash
 $ singularity exec <container> /usr/bin/jhsdb
+$ podman run --it --rm --entrypoint /usr/bin/jhsdb   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -227,6 +252,7 @@ $ singularity exec <container> /usr/bin/jhsdb
        
 ```bash
 $ singularity exec <container> /usr/bin/jimage
+$ podman run --it --rm --entrypoint /usr/bin/jimage   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -234,6 +260,7 @@ $ singularity exec <container> /usr/bin/jimage
        
 ```bash
 $ singularity exec <container> /usr/bin/jinfo
+$ podman run --it --rm --entrypoint /usr/bin/jinfo   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -241,6 +268,7 @@ $ singularity exec <container> /usr/bin/jinfo
        
 ```bash
 $ singularity exec <container> /usr/bin/jlink
+$ podman run --it --rm --entrypoint /usr/bin/jlink   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -248,6 +276,7 @@ $ singularity exec <container> /usr/bin/jlink
        
 ```bash
 $ singularity exec <container> /usr/bin/jmap
+$ podman run --it --rm --entrypoint /usr/bin/jmap   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -255,6 +284,7 @@ $ singularity exec <container> /usr/bin/jmap
        
 ```bash
 $ singularity exec <container> /usr/bin/jmod
+$ podman run --it --rm --entrypoint /usr/bin/jmod   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -262,6 +292,7 @@ $ singularity exec <container> /usr/bin/jmod
        
 ```bash
 $ singularity exec <container> /usr/bin/jobs
+$ podman run --it --rm --entrypoint /usr/bin/jobs   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -269,6 +300,7 @@ $ singularity exec <container> /usr/bin/jobs
        
 ```bash
 $ singularity exec <container> /usr/bin/join
+$ podman run --it --rm --entrypoint /usr/bin/join   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -276,6 +308,7 @@ $ singularity exec <container> /usr/bin/join
        
 ```bash
 $ singularity exec <container> /usr/bin/jpackage
+$ podman run --it --rm --entrypoint /usr/bin/jpackage   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -283,6 +316,7 @@ $ singularity exec <container> /usr/bin/jpackage
        
 ```bash
 $ singularity exec <container> /usr/bin/jps
+$ podman run --it --rm --entrypoint /usr/bin/jps   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -290,6 +324,7 @@ $ singularity exec <container> /usr/bin/jps
        
 ```bash
 $ singularity exec <container> /usr/bin/jrunscript
+$ podman run --it --rm --entrypoint /usr/bin/jrunscript   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -297,6 +332,7 @@ $ singularity exec <container> /usr/bin/jrunscript
        
 ```bash
 $ singularity exec <container> /usr/bin/jshell
+$ podman run --it --rm --entrypoint /usr/bin/jshell   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -304,6 +340,7 @@ $ singularity exec <container> /usr/bin/jshell
        
 ```bash
 $ singularity exec <container> /usr/bin/jstack
+$ podman run --it --rm --entrypoint /usr/bin/jstack   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -311,6 +348,7 @@ $ singularity exec <container> /usr/bin/jstack
        
 ```bash
 $ singularity exec <container> /usr/bin/jstat
+$ podman run --it --rm --entrypoint /usr/bin/jstat   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -318,17 +356,21 @@ $ singularity exec <container> /usr/bin/jstat
        
 ```bash
 $ singularity exec <container> /usr/bin/jstatd
+$ podman run --it --rm --entrypoint /usr/bin/jstatd   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
 
 In the above, the `<container>` directive will reference an actual container provided
-by the module, for the version you have chosen to load. Note that although a container
+by the module, for the version you have chosen to load. An environment file in the
+module folder will also be bound. Note that although a container
 might provide custom commands, every container exposes unique exec, shell, run, and
-inspect aliases. For each of the above, you can export:
+inspect aliases. For anycommands above, you can export:
 
  - SINGULARITY_OPTS: to define custom options for singularity (e.g., --debug)
  - SINGULARITY_COMMAND_OPTS: to define custom options for the command (e.g., -b)
+ - PODMAN_OPTS: to define custom options for podman
+ - PODMAN_COMMAND_OPTS: to define custom options for the command
 
 <br>
   
