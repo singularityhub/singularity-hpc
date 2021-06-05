@@ -14,7 +14,7 @@ and **Merged pull requests**. Critical items to know are:
 The versions coincide with releases on pip. Only major versions will be released as tags on Github.
 
 ## [0.0.x](https://github.scom/singularityhub/singularity-hpc/tree/master) (0.0.x)
- - Podman support (0.0.24)
+ - Podman support (0.0.25)
    - container_tech is now a settings.yml variable
    - allow for custom test interpreter "test_shell"
    - adding config edit for interactive edit
@@ -23,11 +23,11 @@ The versions coincide with releases on pip. Only major versions will be released
    - added automated spell checking with crate-ci/typos
    - support for container features
    - shpc get -e to show path to an envrironment file
-   - adding namespaces to make module install, show, inspect easier
    - added support for env section to render to bound environment file
    - added support for container features like gpu
    - allowing for a `container:tag` convention to be used for commands.
    - list defaults to showing modules/tags one per line, unless --short used
+ - adding namespaces to make module install, show, inspect easier (0.0.24)
  - container url does not render in docs (0.0.23)
  - addition of tcl modules, removal of un-needed database (0.0.22)
  - first update of all containers, and bugfix to pull (0.0.21)

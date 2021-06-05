@@ -4,6 +4,7 @@ recursive-include shpc *.sh
 recursive-include shpc *
 recursive-include registry *
 recursive-include * *.png
+prune env*
 global-exclude .env
 global-exclude *.py[co]
 recursive-exclude .git *
