@@ -10,11 +10,23 @@ Singularity Registry (HPC)
 
 
 
-Singularity Registry HPC (shpc) is based off of the `Singularity Registry Client <https://github.com/singularityhub/sregistry-cli>`_, but instead of
-being intended for general interaction with Singularity containers and a local database, it's optimized for managing containers
-in an HPC environment. Currently, this includes:
+Singularity Registry HPC (shpc) allows you to install containers as modules.
+Currently, this includes:
 
  - `LMOD <https://lmod.readthedocs.io/en/latest/>`_
+ - `Environment Modules <http://modules.sourceforge.net/>`_
+
+And container technologies:
+
+ - `Singularity <https://github.com/sylabs/singularity>`_
+ - `Podman <https://podman.io>`_
+
+And coming soon:
+
+ - `Shifter <https://github.com/NERSC/shifter>`_
+ - `Docker <https://www.docker.com/>`_
+ - `Sarus <https://github.com/eth-cscs/sarus>`_
+
 
 You can use shpc if you are:
 
