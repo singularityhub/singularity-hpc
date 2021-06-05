@@ -11,5 +11,4 @@ class Client(ModuleBase):
         An Lmod client generates an lmod recipe for install
         """
         super(Client, self).__init__(**kwargs)
-        self.modulefile = "module.lua"
-        self.templatefile = "template.lua"
+        self.module_extension = "lua"

@@ -47,8 +47,13 @@ PACKAGE_URL = lookup["PACKAGE_URL"]
 KEYWORDS = lookup["KEYWORDS"]
 DESCRIPTION = lookup["DESCRIPTION"]
 LICENSE = lookup["LICENSE"]
-with open("README.md") as filey:
-    LONG_DESCRIPTION = filey.read()
+
+# Try to read description, otherwise fallback to short description
+try:
+    with open("README.md") as filey:
+        LONG_DESCRIPTION = filey.read()
+except:
+    LONG_DESCRIPTION = DESCRIPTION
 
 ################################################################################
 # MAIN #########################################################################

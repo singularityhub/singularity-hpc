@@ -29,3 +29,14 @@ def test_pull_gh(tmp_path):
     image = os.path.join(str(tmp_path), "latest.sif")
     result = cli.pull("gh://singularityhub/singularity-deploy/0.0.1:latest", image)
     assert os.path.exists(result)
+
+
+def test_podman(tmp_path):
+    """Test a singularity container command"""
+    cli = container.PodmanContainer()
+
+    # Test default Singularity pull
+    result = cli.pull("docker.io/vanessa/salad:latest")
+    assert result
+    cli.delete(result)
+    assert not cli.exists(result)

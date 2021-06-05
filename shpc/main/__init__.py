@@ -5,7 +5,7 @@ __license__ = "MPL 2.0"
 
 from .settings import Settings
 
-from shpc.utils import check_install
+import shpc.utils
 from shpc.logger import logger
 
 
@@ -19,21 +19,21 @@ def get_client(quiet=False, **kwargs):
     quiet: if True, suppress most output about the client (e.g. speak)
 
     """
-    # The name of the module and container technology to use
+    # The name of the module
     module = kwargs.get("module")
-    container = kwargs.get("container_tech")
 
-    # Load user settings to add to client
+    # Load user settings to add to client, and container technology
     settings = Settings(kwargs.get("settings_file"))
+    container = kwargs.get("container_tech") or settings.container_tech
 
     # Use the user provided module OR the default
     module = module or settings.get("module_sys", "lmod")
 
     # Determine the client based on the module name (defaults to base client)
     if module == "lmod":
-        from .lmod import Client
+        from shpc.main.modules.lmod import Client
     elif module == "tcl":
-        from .tcl import Client
+        from shpc.main.modules.tcl import Client
     else:
         from .client import Client
 
@@ -41,11 +41,22 @@ def get_client(quiet=False, **kwargs):
     if container == "singularity":
         from .container import SingularityContainer
 
-        Client._container = SingularityContainer()
+        Client.container = SingularityContainer()
+
+    elif container == "podman":
+        from .container import PodmanContainer
+
+        Client.container = PodmanContainer()
+
+    # The containe should have access to settings too
+    if hasattr(Client, "container"):
+        Client.container.settings = settings
 
     # Give the user a warning:
-    if not check_install():
-        logger.warning("Singularity is not installed, functionality might be limited.")
+    if not shpc.utils.check_install(container):
+        logger.warning(
+            "%s is not installed, functionality might be limited." % container.upper()
+        )
     Client.quiet = quiet
     Client.settings = settings
     return Client()

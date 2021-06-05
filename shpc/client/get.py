@@ -14,6 +14,6 @@ def main(args, parser, extra, subparser):
         container_tech=args.container_tech,
     )
 
-    sif = cli.get(args.module_name)
-    if sif:
-        print(sif)
+    result = cli.get(args.module_name, args.env_file)
+    if result:
+        print(result)

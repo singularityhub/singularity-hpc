@@ -3,92 +3,23 @@ __copyright__ = "Copyright 2021, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
 
+from .singularity import SingularityContainer
+from .podman import PodmanContainer
+import shpc.main.templates as templates
+
 from shpc.logger import logger
 import shpc.main.schemas as schemas
+import shlex
 
 try:
     from ruamel_yaml import YAML
 except:
     from ruamel.yaml import YAML
 
-import re
 import os
+import re
 import jsonschema
 import sys
-
-
-class SingularityContainer:
-    """
-    A Singularity container controller.
-
-    All container controllers should have the same general interface.
-    """
-
-    def __init__(self):
-        try:
-            from spython.main import Client
-
-            self.client = Client
-        except:
-            logger.exit("singularity python (spython) is required to use singularity.")
-
-    def shell(self, image):
-        """
-        Interactive shell into a container image.
-        """
-        self.client.shell(image)
-
-    def pull(self, uri, dest):
-        """
-        Pull a container to a destination
-        """
-        if re.search("^(docker|shub|https)", uri):
-            return self._pull(uri, dest)
-        elif uri.startswith("gh://"):
-            return self._pull_github(uri, dest)
-
-    def _pull(self, uri, dest):
-        """
-        Pull a URI that Singularity recognizes
-        """
-        pull_folder = os.path.dirname(dest)
-        name = os.path.basename(dest)
-        return self.client.pull(uri, name=name, pull_folder=pull_folder)
-
-    def inspect(self, image):
-        """
-        Inspect an image and return metadata.
-        """
-        return self.client.inspect(image)
-
-    def _pull_github(self, uri, dest=None):
-        """
-        Pull a singularity-deploy container to a destination
-        """
-        # Assemble the url based on the container uri
-        uri = uri.replace("gh://", "", 1)
-
-        # repository name and image prefix
-        repo = "/".join(uri.split("/")[0:2])
-        prefix = repo.replace("/", "-")
-
-        # The tag includes release and contianer tag (e.g., 0.0.1:latest)
-        tag = uri.replace(repo, "", 1).strip("/")
-        github_tag, container_tag = tag.split(":", 1)
-
-        # Assemble the artifact url
-        url = "https://github.com/%s/releases/download/%s/%s.%s.sif" % (
-            repo,
-            github_tag,
-            prefix,
-            container_tag,
-        )
-
-        # If no destination, default to present working directory
-        if not dest:
-            dest = os.path.basename(url)
-        name = os.path.basename(dest)
-        return self.client.pull(url, name=name, pull_folder=os.path.dirname(dest))
 
 
 class Tags:
@@ -132,6 +63,32 @@ class Tag:
         return str(self)
 
 
+class ContainerName:
+    """
+    Parse a container name into named parts
+    """
+
+    def __init__(self, raw):
+        self.raw = raw
+        self.registry = None
+        self.namespace = None
+        self.tool = None
+        self.version = None
+        self.digest = None
+        self.parse(raw)
+
+    def parse(self, raw):
+        """
+        Parse a name into known pieces
+        """
+        match = re.search(templates.docker_regex, raw)
+        if not match:
+            logger.exit("%s does not match a known identifier pattern." % raw)
+        for key, value in match.groupdict().items():
+            value = value.strip("/") if value else None
+            setattr(self, key, value)
+
+
 class ContainerConfig:
     """A ContainerConfig wraps a container.yaml file, intended for install."""
 
@@ -156,7 +113,7 @@ class ContainerConfig:
         return Tags(tags, latest)
 
     @property
-    def name(self):
+    def flatname(self):
         """
         Flatten the docker uri into a filesystem appropriate name
         """
@@ -164,6 +121,16 @@ class ContainerConfig:
             return self.docker.replace("/", "-")
         elif self.gh:
             return self.gh.replace("/", "-")
+
+    @property
+    def name(self):
+        """
+        Return the name, whether it's docker or GitHub
+        """
+        if self.docker:
+            return ContainerName(self.docker)
+        elif self.gh:
+            return ContainerName(self.gh)
 
     @property
     def latest(self):
@@ -214,6 +181,12 @@ class ContainerConfig:
         """
         jsonschema.validate(instance=self._config, schema=schemas.containerConfig)
 
+    def get_envars(self):
+        """
+        Return loaded environment variables.
+        """
+        return dict(self.env) if self.env else {}
+
     def get_aliases(self):
         """
         Return a consistently formatted list of aliases
@@ -232,7 +205,15 @@ class ContainerConfig:
         for key, value in self.aliases.items():
             if key in seen:
                 logger.warning("Warning, alias %s is defined more than once." % key)
-            aliases.append({"name": key, "command": value})
+            command_list = shlex.split(value)
+            aliases.append(
+                {
+                    "name": key,
+                    "command": value,
+                    "args": " ".join(command_list[1:]),
+                    "entrypoint": command_list[0],
+                }
+            )
             seen.add(key)
         return aliases
 

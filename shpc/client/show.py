@@ -8,4 +8,4 @@ def main(args, parser, extra, subparser):
     from shpc.main import get_client
 
     cli = get_client(quiet=args.quiet, settings_file=args.settings_file)
-    cli.show(args.name, names_only=not args.versions)
+    cli.show(args.name, names_only=not args.versions, filter_string=args.filter_string)

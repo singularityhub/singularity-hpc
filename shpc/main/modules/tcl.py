@@ -11,5 +11,4 @@ class Client(ModuleBase):
         An Lmod client generates an lmod recipe for install
         """
         super(Client, self).__init__(**kwargs)
-        self.modulefile = "module.tcl"
-        self.templatefile = "template.tcl"
+        self.module_extension = "tcl"

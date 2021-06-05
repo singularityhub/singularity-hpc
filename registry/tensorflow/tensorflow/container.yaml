@@ -10,7 +10,7 @@ tags:
   2.5.0rc0-gpu-jupyter: sha256:9808e04142b09482bb6b3d1738430ae7472a214dd38e086d41e481b376fa9abd
 filter:
 - 2.*
+features:
+  gpu: true
 aliases:
-- name: python
-  command: /usr/local/bin/python
-  options: --nv
+  python: /usr/local/bin/python

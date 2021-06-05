@@ -1,19 +1,35 @@
-name: Test Registry Module
+name: Test Modules
 
 on:
-  pull_request:
-    types: [labeled]
+  pull_request: []
 
 jobs:
-  test-registry:
-    if: ${{ github.event.label.name == 'container-recipe' }}
+  test:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        module: ["lmod", "tcl"]
+        container_tech: ["podman", "singularity"]
     steps:
+
       - name: Install Dependencies
         run: |
           sudo apt-get install lua5.2 liblua5.2-dev lua-filesystem lua-posix tcl tcl-dev
 
+      - name: Install environment modules
+        if: ${{ matrix.module == 'tcl' }}
+        run: |
+         curl -LJO https://github.com/cea-hpc/modules/releases/download/v4.7.1/modules-4.7.1.tar.gz
+         tar xfz modules-4.7.1.tar.gz
+         ls
+         cd modules-4.7.1
+         ./configure
+         make
+         sudo make install
+
       - name: Install LMOD
+        if: ${{ matrix.module == 'lmod' }}
         run: |
           PKG_VERSION=8.4.27
           PKG_URL="https://github.com/TACC/Lmod/archive/${PKG_VERSION}.tar.gz"
@@ -23,36 +39,10 @@ jobs:
           ./configure --prefix=/usr/share && make && make install
 
       - uses: eWaterCycle/setup-singularity@v6
+        if: ${{ matrix.container_tech == 'singularity' }}
         name: Install Singularity
         with:
           singularity-version: 3.6.4
-
-      - name: Derive number of commits
-        run: |
-            cd /opt
-            branch="${{ github.head_ref }}"
-            git config --global user.email "github-actions"
-            git config --global user.name "github-actions@noreply.github.users.com"
-            git clone -b main https://github.com/singularityhub/singularity-hpc
-            cd singularity-hpc
-            git checkout -b $branch
-            git pull origin $branch
-            commits=$(git log --oneline "$branch" ^main | wc -l)
-            echo "Found $commits since main"
-            cd registry
-            touch changes.txt
-            # Note that you can also do: git diff --name-only $branch..main .
-            # We show the count of commits as a sanity check to the developer
-            for container_yaml in $(git diff --name-only HEAD~$commits..HEAD .); do
-                echo $container_yaml >> changes.txt
-            done            
-            cat changes.txt
-
-      - name: Save changelist
-        uses: actions/upload-artifact@v2
-        with:
-          name: changes.txt
-          path: /opt/singularity-hpc/registry/changes.txt
 
       - name: Create conda environment
         run: conda create --quiet -c conda-forge --name shpc spython
@@ -64,20 +54,55 @@ jobs:
           source activate shpc
           pip install -e .
 
-      - name: Download changelist
-        uses: actions/download-artifact@v2
-        with:
-          name: changes.txt
-
-      - name: Run module tests
+      - name: Run python module tests
+        if: ${{ matrix.module == 'lmod' }}
         run: |
           export PATH="/usr/share/miniconda/bin:$PATH"
-
+          . /usr/share/lmod/lmod/init/sh
           source activate shpc
-          cd registry
-          for container_yaml in $(cat ../changes.txt); do
-              module=$(dirname $container_yaml)
-              module=$(echo "${module/registry\//}")
-              echo "Testing $module"
-              shpc test --template ../shpc/tests/test-registry-module.sh --commands $module
-          done
+          shpc config set container_tech:${{ matrix.container_tech }}
+          shpc config set module_sys:${{ matrix.module }}
+          shpc install python:3.9.5-alpine
+          module use ./modules
+          module load python/3.9.5-alpine
+          alias
+
+          printf "\n\nmodule show ============================================\n"
+          module show python/3.9.5-alpine
+
+          printf "\n\nmodule whatis ==========================================\n"
+          module whatis python/3.9.5-alpine
+
+          printf "\n\nmodule help ============================================\n"
+          module help python/3.9.5-alpine
+          python-exec echo donuts
+          python-run python --version
+
+      - name: Run python module tests
+        if: ${{ matrix.module == 'tcl' }}
+        shell: bash
+        run: |
+          export PATH="/usr/share/miniconda/bin:$PATH"
+          . /usr/local/Modules/init/sh
+          source activate shpc
+          shpc config set container_tech:${{ matrix.container_tech }}
+          shpc config set module_sys:${{ matrix.module }}
+          shpc install python:3.9.5-alpine
+
+          shopt expand_aliases || true
+          shopt -s expand_aliases
+
+          module use ./modules
+          module load python/3.9.5-alpine
+          alias
+
+          printf "\n\nmodule show ============================================\n"
+          module show python/3.9.5-alpine
+
+          printf "\n\nmodule whatis ==========================================\n"
+          module whatis python/3.9.5-alpine
+
+          printf "\n\nmodule help ============================================\n"
+          module help python/3.9.5-alpine
+          python-exec echo donuts
+          python-run python --version

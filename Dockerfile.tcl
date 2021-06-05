@@ -17,7 +17,13 @@ RUN apt-get update && \
     python3-dev \
     python3-pip \
     curl \
-    less
+    less \
+    wget
+
+RUN wget -O- http://neuro.debian.net/lists/xenial.us-ca.full | tee /etc/apt/sources.list.d/neurodebian.sources.list && \
+    apt-key adv --recv-keys --keyserver hkp://pool.sks-keyservers.net:80 0xA5D32F012649A5A9 && \
+    apt-get update && \
+    apt-get install -y singularity-container
 
 RUN curl -LJO https://github.com/cea-hpc/modules/releases/download/v4.7.0/modules-4.7.0.tar.gz && \
     tar xfz modules-4.7.0.tar.gz  && \

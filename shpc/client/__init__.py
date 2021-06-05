@@ -61,9 +61,15 @@ def get_parser():
 
     # Local shell with client loaded
     shell = subparsers.add_parser(
-        "shell", help="shell into a Python session with a client."
+        "shell",
+        help="shell into a Python session with a client.",
+        formatter_class=argparse.RawTextHelpFormatter,
     )
-    shell.add_argument("module_name", help="module to inspect", nargs="?")
+    shell.add_argument(
+        "module_name",
+        help="shell into an interactive session.\nshpc shell python (shell into a container)\nshpc shell (python interactive shell)",
+        nargs="?",
+    )
     shell.add_argument(
         "--interpreter",
         "-i",
@@ -74,14 +80,28 @@ def get_parser():
     )
 
     # Install a known recipe from the registry
-    install = subparsers.add_parser("install", help="install a registry recipe.")
-    install.add_argument("install_recipe", help="recipe to install (name:version)")
+    install = subparsers.add_parser(
+        "install",
+        help="install a registry recipe.",
+        formatter_class=argparse.RawTextHelpFormatter,
+    )
+    install.add_argument(
+        "install_recipe",
+        help="recipe to install\nshpc install python\nshpc install python:3.9.5-alpine",
+    )
 
     # List installed modules
     listing = subparsers.add_parser("list", help="list installed modules.")
     listing.add_argument("pattern", help="filter to a pattern", nargs="?")
     listing.add_argument(
         "--names-only", help="omit versions", default=False, action="store_true"
+    )
+
+    listing.add_argument(
+        "--short",
+        help="multiple tags per line for shorter length output.",
+        default=False,
+        action="store_true",
     )
 
     # List local containers and collections
@@ -99,25 +119,35 @@ def get_parser():
     # Get path to an image
     get = subparsers.add_parser("get", help="get an image path for a module")
     get.add_argument("module_name", help="the name of the module")
+    get.add_argument(
+        "-e",
+        "--env-file",
+        help="get the environment file path",
+        default=False,
+        action="store_true",
+    )
 
     # Add a container direcly
-    add = subparsers.add_parser("add", help="add an image to local storage")
-    add.add_argument("paths", help="full path to container image file", nargs=2)
+    add = subparsers.add_parser("add", help="add an image to modules manually")
+    add.add_argument("sif_path", help="full path to container image file", nargs=1)
+    add.add_argument(
+        "module_id", help='desired identifier for module (e.g. "name/version")', nargs=1
+    )
 
     check = subparsers.add_parser("check", help="check if you have latest installed.")
-    check.add_argument("module_name", help="module to check (module/version)")
+    check.add_argument("module_name", help="module to check (module:version)")
 
     config = subparsers.add_parser(
         "config",
         help="update configuration settings. Use set or get to see or set information.",
+        formatter_class=argparse.RawTextHelpFormatter,
     )
     config.add_argument(
         "params",
         nargs="*",
-        help="one or more key value pairs, in format key:value to update.",
+        help="Set or get a config value, or edit the config.\nshpc config set key:value\nshpc config get key\nshpc edit",
         type=str,
     )
-
     # Generate markdown docs for a container registry entry
     docgen = subparsers.add_parser(
         "docgen", help="Generate a markdown document for a container registry entry."
@@ -199,9 +229,9 @@ def get_parser():
         command.add_argument(
             "--container_tech",
             dest="container_tech",
-            help="container technology to use (defaults to singularity)",
-            choices=["singularity"],
-            default="singularity",
+            help="container technology to use to override settings.yaml",
+            choices=["singularity", "podman"],
+            default=None,
         )
 
     namespace = subparsers.add_parser(
@@ -220,6 +250,13 @@ def get_parser():
     )
     show.add_argument(
         "name", help="the name of the container config to show", nargs="?"
+    )
+    show.add_argument(
+        "-f",
+        "--filter",
+        help="filter results by regular expression",
+        default=None,
+        dest="filter_string",
     )
 
     return parser

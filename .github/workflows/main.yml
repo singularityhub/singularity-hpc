@@ -18,6 +18,11 @@ jobs:
       - name: Setup black linter
         run: conda create --quiet --name black pyflakes
 
+      - name: Check Spelling
+        uses: crate-ci/typos@592b36d23c62cb378f6097a292bc902ee73f93ef # version 1.0.4
+        with:
+          files: ./docs/getting_started/ ./docs/index.rst
+
       - name: Lint python code
         run: |
           export PATH="/usr/share/miniconda/bin:$PATH"
@@ -29,4 +34,8 @@ jobs:
         run: |
           export PATH="/usr/share/miniconda/bin:$PATH"
           source activate black
-          pyflakes shpc/main
+          pyflakes shpc/main/*.py
+          pyflakes shpc/main/modules
+          pyflakes shpc/main/container/base.py
+          pyflakes shpc/main/container/podman.py
+          pyflakes shpc/main/container/singularity.py

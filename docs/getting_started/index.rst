@@ -16,4 +16,5 @@ If you have any questions or issues, please `let us know <https://github.com/sin
 
    installation
    user-guide
+   developer-guide
    use-cases
