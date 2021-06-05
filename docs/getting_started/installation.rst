@@ -87,7 +87,7 @@ and interacting with your modules.
 
 .. warning::
 
-    As Singularity is the main container tool, you must have Singularity installed in your $PATH
+    You must have your container technology of choice installed and on your $PATH
     to install container modules.
      
 
