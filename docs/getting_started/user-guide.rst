@@ -330,7 +330,8 @@ commands. Aliases that are custom to the container are not modified.
 Module Software
 ===============
 
-The default module software is currently LMOD, and there is also support for tcl. If you
+The default module software is currently LMOD, and there is also support for environment
+modules that only use tcl (tcl). If you
 are interested in adding another module type, please `open an issue <https://github.com/singularityhub/singularity-hpc>`_ and
 provide description and links to what you have in mind. You can either specify the
 module software on the command line:
@@ -348,7 +349,22 @@ or you can set the global variable to what you want to use (it defaults to lmod)
     $ shpc config set module_sys:tcl
 
 
-The command line argument, if provided, always over-rides the default.
+The command line argument, if provided, always over-rides the default. The
+same works for the container technology. Here is how to install with a different
+container technology, podman, either for a one-off command:
+
+.. code-block:: console
+
+    $ shpc install --container-tech podman python
+
+
+or for a global setting:
+
+.. code-block:: console
+
+    $ shpc config set container_tech:podman
+
+
 
 Container Technology
 ====================

@@ -227,7 +227,7 @@ def get_parser():
             default=None,
         )
         command.add_argument(
-            "--container_tech",
+            "--container-tech",
             dest="container_tech",
             help="container technology to use to override settings.yaml",
             choices=["singularity", "podman"],
