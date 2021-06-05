@@ -88,6 +88,14 @@ class SettingsBase:
         else:
             self._settings[key] = value
 
+        # Don't allow the user to add a setting not known
+        try:
+            self.validate()
+        except jsonschema.exceptions.ValidationError as error:
+            logger.exit(
+                "%s:%s cannot be added to config: %s" % (key, value, error.message)
+            )
+
     def _substitutions(self, value):
         """
         Given a value, make substitutions

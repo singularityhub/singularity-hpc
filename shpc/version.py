@@ -2,12 +2,12 @@ __author__ = "Vanessa Sochat"
 __copyright__ = "Copyright 2021, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
-__version__ = "0.0.25"
+__version__ = "0.0.26"
 AUTHOR = "Vanessa Sochat"
 NAME = "singularity-hpc"
 PACKAGE_URL = "https://github.com/singularityhub/singularity-hpc"
 KEYWORDS = "singularity, containers, hpc, lmd"
-DESCRIPTION = "Local filesystem database for Singularity containers with LMOD"
+DESCRIPTION = "Local registry intended for HPC using containers and system modules."
 LICENSE = "LICENSE"
 
 ################################################################################

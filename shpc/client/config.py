@@ -32,8 +32,8 @@ def main(args, parser, extra, subparser):
                 )
                 continue
             key, value = param.split(":", 1)
-            logger.info("Updating %s to be %s" % (key, value))
             cli.settings.set(key, value)
+            logger.info("Updated %s to be %s" % (key, value))
 
         # Save settings
         cli.settings.save()

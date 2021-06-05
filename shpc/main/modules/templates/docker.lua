@@ -6,7 +6,7 @@
 
 help(
 [[
-This module is a podman container wrapper for {{ name }} v{{ version }}
+This module is a {{ command }} container wrapper for {{ name }} v{{ version }}
 {% if description %}{{ description }}{% endif %}
 
 Container:
@@ -16,38 +16,39 @@ Container:
 Commands include:
 
  - {|module_name|}-run:
-       podman run --rm -it {% if envfile %}--env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} -v ${PWD} -w ${PWD} {% endif %}<container>
+       {{ command }} run --rm -i{% if tty %}t{% endif %} {% if envfile %}--env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} -v ${PWD} -w ${PWD} {% endif %}<container>
  - {|module_name|}-shell:
-       podman run --rm -it {% if envfile %}--env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} -v ${PWD} -w ${PWD} {% endif %}<container>
+       {{ command }} run --rm -i{% if tty %}t{% endif %} {% if envfile %}--env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} -v ${PWD} -w ${PWD} {% endif %}<container>
  - {|module_name|}-exec:
-       podman run -it --rm --entrypoint {{ shell }} {% if envfile %}--env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %} -v ${PWD} -w ${PWD} <container> "$@"
+       {{ command }} run -i{% if tty %}t{% endif %} --rm --entrypoint {{ shell }} {% if envfile %}--env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %} -v ${PWD} -w ${PWD} <container> "$@"
  - {|module_name|}-inspect:
-       podman inspect <container>
+       {{ command }} inspect <container>
 
 {% if aliases %}{% for alias in aliases %} - {{ alias.name }}:
-       podman run --rm -it --entrypoint {{ alias.entrypoint }} {% if envfile %}--env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %}{% if alias.options %}{{ alias.options }} {% endif %} -v ${PWD} -w ${PWD} <container> "{{ alias.args }}"
+       {{ command }} run --rm -i{% if tty %}t{% endif %} --entrypoint {{ alias.entrypoint }} {% if envfile %}--env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %}{% if alias.options %}{{ alias.options }} {% endif %} -v ${PWD} -w ${PWD} <container> "{{ alias.args }}"
 {% endfor %}{% endif %}
 
 For each of the above, you can export:
 
- - PODMAN_OPTS: to define custom options for podman
- - PODMAN_COMMAND_OPTS: to define custom options for the command
+ - DOCKER_OPTS: to define custom options for {{ command }}
+ - DOCKER_COMMAND_OPTS: to define custom options for the command
 ]]) 
 
 {% if podman_module %}load("{{ podman_module }}"){% endif %}
-setenv ("PODMAN_OPTS", "")
-setenv ("PODMAN_COMMAND_OPTS", "")
+setenv ("DOCKER_OPTS", "")
+setenv ("DOCKER_COMMAND_OPTS", "")
 
 -- we probably don't need this
 local MODULEPATH="{{ module_dir }}"
 
 -- interactive shell to any container, plus exec for aliases
 local containerPath = '{{ image }}'
-local shellCmd = "podman ${PODMAN_OPTS} run -it ${PODMAN_COMMAND_OPTS} --entrypoint {{ shell }} --rm {% if envfile %}--env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %} -v ${PWD} -w ${PWD} " .. containerPath
+
+local shellCmd = "{{ command }} ${DOCKER_OPTS} run -i{% if tty %}t{% endif %} ${DOCKER_COMMAND_OPTS} --entrypoint {{ shell }} --rm {% if envfile %}--env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %} -v ${PWD} -w ${PWD} " .. containerPath
 -- execCmd needs entrypoint to be the executor
-local execCmd = "podman ${PODMAN_OPTS} run ${PODMAN_COMMAND_OPTS} -it --rm {% if envfile %}--env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %} -v ${PWD} -w ${PWD} "
-local runCmd = "podman ${PODMAN_OPTS} run ${PODMAN_COMMAND_OPTS} -it --rm {% if envfile %}--env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %} -v ${PWD} -w ${PWD} " .. containerPath
-local inspectCmd = "podman ${PODMAN_OPTS} inspect ${PODMAN_COMMAND_OPTS} " .. containerPath 
+local execCmd = "{{ command }} ${DOCKER_OPTS} run ${DOCKER_COMMAND_OPTS} -i{% if tty %}t{% endif %} --rm {% if envfile %}--env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %} -v ${PWD} -w ${PWD} "
+local runCmd = "{{ command }} ${DOCKER_OPTS} run ${DOCKER_COMMAND_OPTS} -i{% if tty %}t{% endif %} --rm {% if envfile %}--env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %} -v ${PWD} -w ${PWD} " .. containerPath
+local inspectCmd = "{{ command }} ${DOCKER_OPTS} inspect ${DOCKER_COMMAND_OPTS} " .. containerPath 
 
 -- set_shell_function takes bashStr and cshStr
 set_shell_function("{|module_name|}-shell", shellCmd,  shellCmd)

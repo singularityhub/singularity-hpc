@@ -9,6 +9,33 @@ import shpc.utils
 
 from jinja2 import Template
 import os
+import re
+
+
+class ContainerName:
+    """
+    Parse a container name into named parts
+    """
+
+    def __init__(self, raw):
+        self.raw = raw
+        self.registry = None
+        self.namespace = None
+        self.tool = None
+        self.version = None
+        self.digest = None
+        self.parse(raw)
+
+    def parse(self, raw):
+        """
+        Parse a name into known pieces
+        """
+        match = re.search(shpc.main.templates.docker_regex, raw)
+        if not match:
+            logger.exit("%s does not match a known identifier pattern." % raw)
+        for key, value in match.groupdict().items():
+            value = value.strip("/") if value else None
+            setattr(self, key, value)
 
 
 class ContainerTechnology:

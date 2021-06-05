@@ -23,7 +23,7 @@ module_base: $root_dir/modules
 # Format string for module commands exec,run,shell (not aliases) (can also include:
 # {{registry}} , {{ namespace }}, {{tool}}, {{version}}
 # This is where you might add a prefix to your module names, if desired.
-module_name: "{{ tool }}"
+module_name: '{{ tool }}'
 
 # store containers separately from module files
 container_base:
@@ -35,9 +35,13 @@ podman_module:
 # string with comma separated list of paths to binds. If set, expored to SINGULARITY_BINDPATH
 bindpaths:
 
+# for container technologies that can specify a tty input (e.g., -t)
+enable_tty: true
+
 # exported to SINGULARITY_SHELL, defaults to /bin/bash.
 singularity_shell: /bin/sh
 podman_shell: /bin/sh
+docker_shell: /bin/sh
 
 # shell for test.sh file
 test_shell: /bin/bash
