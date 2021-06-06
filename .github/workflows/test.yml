@@ -87,8 +87,15 @@ jobs:
 
           printf "\n\nmodule help ============================================\n"
           module help python/3.9.5-alpine
-          python-exec echo donuts
-          python-run python --version
+
+          python-exec echo donuts >test_output
+          cat test_output
+          grep --quiet donuts test_output
+
+          python-run python --version >test_output
+          cat test_output
+          grep --quiet 'Python 3.9.5' test_output
+          rm test_output
 
       - name: Run python module tests (tcsh)
         shell: tcsh -e {0}
@@ -121,5 +128,12 @@ jobs:
 
           printf "\n\nmodule help ============================================\n"
           module help python/3.9.5-alpine
-          python-exec echo donuts
-          python-run python --version
+
+          python-exec echo donuts >test_output
+          cat test_output
+          grep --quiet donuts test_output
+
+          python-run python --version >test_output
+          cat test_output
+          grep --quiet 'Python 3.9.5' test_output
+          rm test_output
