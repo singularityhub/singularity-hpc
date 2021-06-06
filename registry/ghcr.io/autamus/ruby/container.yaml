@@ -3,10 +3,10 @@ url: https://github.com/orgs/autamus/packages/container/package/ruby
 maintainer: '@vsoch'
 description: An interpreted, high-level, general-purpose programming language.
 latest:
-  3.0.0: sha256:5246831151da8c9b173cb91e3c9028ec4e108cd8b2831dd5c5d0d8363bb430ff
+  3.0.0: sha256:10c699cefbde60c9a3cf35e282de7339d92362d2f95442caa7f4815094dc4d42
 tags:
-  3.0.0: sha256:5246831151da8c9b173cb91e3c9028ec4e108cd8b2831dd5c5d0d8363bb430ff
-  latest: sha256:5246831151da8c9b173cb91e3c9028ec4e108cd8b2831dd5c5d0d8363bb430ff
+  3.0.0: sha256:10c699cefbde60c9a3cf35e282de7339d92362d2f95442caa7f4815094dc4d42
+  latest: sha256:10c699cefbde60c9a3cf35e282de7339d92362d2f95442caa7f4815094dc4d42
 aliases:
   bundle: /opt/view/bin/bundle
   bundler: /opt/view/bin/bundler

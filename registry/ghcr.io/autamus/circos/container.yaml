@@ -3,9 +3,9 @@ url: https://github.com/orgs/autamus/packages/container/package/circos
 maintainer: '@vsoch'
 description: Circos is a software package for visualizing data and information.
 latest:
-  0.69.6: sha256:a10dd4dd00fa1670a86d47f4857a81173a120e674e303adbb7cf523fa063a71e
+  0.69.6: sha256:733e4c4c231ce3ef544b66d0f5d57499349a6e96b3801a984628ce7981f3b52a
 tags:
-  0.69.6: sha256:a10dd4dd00fa1670a86d47f4857a81173a120e674e303adbb7cf523fa063a71e
-  latest: sha256:a10dd4dd00fa1670a86d47f4857a81173a120e674e303adbb7cf523fa063a71e
+  0.69.6: sha256:733e4c4c231ce3ef544b66d0f5d57499349a6e96b3801a984628ce7981f3b52a
+  latest: sha256:733e4c4c231ce3ef544b66d0f5d57499349a6e96b3801a984628ce7981f3b52a
 aliases:
   circos: /opt/view/bin/circos

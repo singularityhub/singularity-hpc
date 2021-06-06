@@ -3,9 +3,9 @@ url: https://github.com/orgs/autamus/packages/container/package/alan
 maintainer: '@vsoch'
 description: A simple in-terminal alignment viewer.
 latest:
-  2.1.1: sha256:28a74fb39db78576e9f87d4a5a06e17fd4bf8e7a003de35093e11f976cfbd6a9
+  2.1.1: sha256:ccadee2a995ef3924f8fdb70b47227b9e7e60632ed5ea63e049d2af32455851c
 tags:
-  2.1.1: sha256:28a74fb39db78576e9f87d4a5a06e17fd4bf8e7a003de35093e11f976cfbd6a9
-  latest: sha256:28a74fb39db78576e9f87d4a5a06e17fd4bf8e7a003de35093e11f976cfbd6a9
+  2.1.1: sha256:ccadee2a995ef3924f8fdb70b47227b9e7e60632ed5ea63e049d2af32455851c
+  latest: sha256:ccadee2a995ef3924f8fdb70b47227b9e7e60632ed5ea63e049d2af32455851c
 aliases:
   alan: /opt/view/bin/alan

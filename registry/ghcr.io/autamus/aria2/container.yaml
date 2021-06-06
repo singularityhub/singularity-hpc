@@ -4,9 +4,9 @@ maintainer: '@vsoch'
 description: aria2 is a lightweight multi-protocol & multi-source command-line download
   utility.
 latest:
-  1.35.0: sha256:dbb1d142f260c976295628d61a8ebe28df8d211ed01c914dd7474d480ff6044d
+  1.35.0: sha256:dfc28bb8d9fd6d2908d564571bd8b5d68abd49fd970f7f6fff6e75161a523696
 tags:
-  1.35.0: sha256:dbb1d142f260c976295628d61a8ebe28df8d211ed01c914dd7474d480ff6044d
-  latest: sha256:dbb1d142f260c976295628d61a8ebe28df8d211ed01c914dd7474d480ff6044d
+  1.35.0: sha256:dfc28bb8d9fd6d2908d564571bd8b5d68abd49fd970f7f6fff6e75161a523696
+  latest: sha256:dfc28bb8d9fd6d2908d564571bd8b5d68abd49fd970f7f6fff6e75161a523696
 aliases:
   aria2c: opt/view/bin/aria2c

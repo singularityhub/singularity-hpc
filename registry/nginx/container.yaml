@@ -5,11 +5,12 @@ description: Nginx (pronounced 'engine-x') is an open source reverse proxy serve
   for HTTP, HTTPS, SMTP, POP3, and IMAP protocols, as well as a load balancer, HTTP
   cache, and a web server (origin server).
 latest:
-  1.20.0-alpine-perl: sha256:00109feeafcc6b80f2322cf70b406d5e521f53d0b0841acfce22aa2a827115d6
+  1.21.0-alpine-perl: sha256:dfcfbd49008ba55421a6ee52c10ed1d8a8b47ae67d5ba1eeb135785daf1b6626
 tags:
   1.20.0-alpine-perl: sha256:00109feeafcc6b80f2322cf70b406d5e521f53d0b0841acfce22aa2a827115d6
-  latest: sha256:df13abe416e37eb3db4722840dd479b00ba193ac6606e7902331dcea50f4f1f2
-  stable-alpine-perl: sha256:00109feeafcc6b80f2322cf70b406d5e521f53d0b0841acfce22aa2a827115d6
+  1.21.0-alpine-perl: sha256:dfcfbd49008ba55421a6ee52c10ed1d8a8b47ae67d5ba1eeb135785daf1b6626
+  latest: sha256:6d75c99af15565a301e48297fa2d121e15d80ad526f8369c526324f0f7ccb750
+  stable-alpine-perl: sha256:2e4d461b2656665c7288e49b260b00a0aaddb8b7520fc8252777f9753e7f9446
 aliases:
   nginx: /usr/sbin/nginx
   nginx-debug: /usr/sbin/nginx-debug

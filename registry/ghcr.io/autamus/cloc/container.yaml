@@ -4,10 +4,10 @@ maintainer: '@vsoch'
 description: cloc is a command line program that takes file, directory, and/or archive
   names as inputs.
 latest:
-  "1.90": sha256:3e298409b923bbd4baced50b0b8a6a758119a0b2b693594a956a05994ebb3146
+  "1.90": sha256:fd3158dd87031cea67d7ca51a2845126873769f0f6f3941ffea73d46f89ae82d
 tags:
   "1.88": sha256:d83cabface35c70df9484dff3f606a10f13432747a7570e238525e3722061c31
-  "1.90": sha256:3e298409b923bbd4baced50b0b8a6a758119a0b2b693594a956a05994ebb3146
-  latest: sha256:3e298409b923bbd4baced50b0b8a6a758119a0b2b693594a956a05994ebb3146
+  "1.90": sha256:fd3158dd87031cea67d7ca51a2845126873769f0f6f3941ffea73d46f89ae82d
+  latest: sha256:fd3158dd87031cea67d7ca51a2845126873769f0f6f3941ffea73d46f89ae82d
 aliases:
   cloc: /opt/view/bin/cloc

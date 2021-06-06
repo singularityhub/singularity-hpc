@@ -4,13 +4,13 @@ maintainer: '@vsoch'
 description: A set of command line tools (in Java) for manipulating high-throughput
   sequencing (HTS) data and formats such as SAM/BAM/CRAM and VCF.
 latest:
-  2.25.5: sha256:76b4ae78a595dd49054c42b3410db4aac6d0b06a8f6b16a88802376197bf3a90
+  2.25.5: sha256:e6b93b8c602c086ba8e5df9f82a265bc6d714e15591ce92b78fb95d2fe72daca
 tags:
   2.25.2: sha256:59d36498e8678f471aa46e0f1de0c1f0de953feb826ce76c48bd56ba5d57f35e
   2.25.3: sha256:5ad0c904339aedf7f6e2feb20706bbe594ecff5226b5df947bccc817f25bc882
   2.25.4: sha256:f9e420ca9ee6587356f413a079d587ad0e2f94c326b2433b70fa0265f17d963a
-  2.25.5: sha256:76b4ae78a595dd49054c42b3410db4aac6d0b06a8f6b16a88802376197bf3a90
-  latest: sha256:76b4ae78a595dd49054c42b3410db4aac6d0b06a8f6b16a88802376197bf3a90
+  2.25.5: sha256:e6b93b8c602c086ba8e5df9f82a265bc6d714e15591ce92b78fb95d2fe72daca
+  latest: sha256:e6b93b8c602c086ba8e5df9f82a265bc6d714e15591ce92b78fb95d2fe72daca
 aliases:
   picard: /opt/view/bin/picard
   picard.jar: /opt/view/bin/java -jar /opt/view/bin/picard.jar

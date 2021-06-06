@@ -3,10 +3,10 @@ url: https://github.com/orgs/autamus/packages/container/package/gsl
 maintainer: '@vsoch'
 description: The GNU Scientific Library.
 latest:
-  "2.6": sha256:bcb21afef09575eb6d2b7cc24f92f673cb27ab07d3878f09827daf2be564ece5
+  "2.6": sha256:f80eab493a7840fa0ff267af8ea15e4f2e1dd416548f733c582a2e10394cdf01
 tags:
-  "2.6": sha256:bcb21afef09575eb6d2b7cc24f92f673cb27ab07d3878f09827daf2be564ece5
-  latest: sha256:bcb21afef09575eb6d2b7cc24f92f673cb27ab07d3878f09827daf2be564ece5
+  "2.6": sha256:f80eab493a7840fa0ff267af8ea15e4f2e1dd416548f733c582a2e10394cdf01
+  latest: sha256:f80eab493a7840fa0ff267af8ea15e4f2e1dd416548f733c582a2e10394cdf01
 aliases:
   gsl-config: /opt/view/bin/gsl-config
   gsl-histogram: /opt/view/bin/gsl-histogram

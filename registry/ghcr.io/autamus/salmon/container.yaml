@@ -4,9 +4,9 @@ maintainer: '@vsoch'
 description: Salmon is a wicked-fast program to produce a highly-accurate, transcript-level
   quantification estimates from RNA-seq data.
 latest:
-  1.4.0: sha256:290b4d392bbe77360d2b76baa23cd84249a8489089fe8af49f91c20aa5187811
+  1.4.0: sha256:9fdf8418563e6e7afc07b5d1eacd85e21f79b555bc1836e89a8f5de59fc75673
 tags:
-  1.4.0: sha256:290b4d392bbe77360d2b76baa23cd84249a8489089fe8af49f91c20aa5187811
-  latest: sha256:290b4d392bbe77360d2b76baa23cd84249a8489089fe8af49f91c20aa5187811
+  1.4.0: sha256:9fdf8418563e6e7afc07b5d1eacd85e21f79b555bc1836e89a8f5de59fc75673
+  latest: sha256:9fdf8418563e6e7afc07b5d1eacd85e21f79b555bc1836e89a8f5de59fc75673
 aliases:
   salmon: /opt/view/bin/salmon

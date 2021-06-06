@@ -4,10 +4,10 @@ maintainer: '@vsoch'
 description: A single piece of open-source, expandable software to fill the bioinformatics
   needs of the microbial ecology community.
 latest:
-  1.45.3: sha256:a8fad18139d4e74f3f5e35ec469ed8bc69ca8515f599c1eb1ae555423b476199
+  1.45.3: sha256:fda17f9efa924a12683d8d0868101004e0ee5fe117974a7a0aa40e36b9c18cc3
 tags:
   1.45.1: sha256:af8905f940a15b823fab61acf3324630ae8e2b7240d1d28af54317c4e22af384
-  1.45.3: sha256:a8fad18139d4e74f3f5e35ec469ed8bc69ca8515f599c1eb1ae555423b476199
-  latest: sha256:a8fad18139d4e74f3f5e35ec469ed8bc69ca8515f599c1eb1ae555423b476199
+  1.45.3: sha256:fda17f9efa924a12683d8d0868101004e0ee5fe117974a7a0aa40e36b9c18cc3
+  latest: sha256:fda17f9efa924a12683d8d0868101004e0ee5fe117974a7a0aa40e36b9c18cc3
 aliases:
   mothur: /opt/view/bin/mothur

@@ -4,10 +4,10 @@ maintainer: '@vsoch'
 description: RAxML (Randomized Axelerated Maximum Likelihood) is a popular program
   for phylogenetic analysis of large datasets under maximum likelihood.
 latest:
-  8.2.12: sha256:4cd56dd236840af1b1ce759f01e660460f92b2864875c8f49abb16ee4b0e0432
+  8.2.12: sha256:7ccb5b60fa0df27fa15ccc967116fa595b1389d0694c4542db17fb8c16dd6385
 tags:
-  8.2.12: sha256:4cd56dd236840af1b1ce759f01e660460f92b2864875c8f49abb16ee4b0e0432
-  latest: sha256:4cd56dd236840af1b1ce759f01e660460f92b2864875c8f49abb16ee4b0e0432
+  8.2.12: sha256:7ccb5b60fa0df27fa15ccc967116fa595b1389d0694c4542db17fb8c16dd6385
+  latest: sha256:7ccb5b60fa0df27fa15ccc967116fa595b1389d0694c4542db17fb8c16dd6385
 aliases:
   raxmlHPC: /opt/view/bin/raxmlHPC
   raxmlHPC-AVX: /opt/view/bin/raxmlHPC-AVX

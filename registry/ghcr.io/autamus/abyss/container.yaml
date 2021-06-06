@@ -4,11 +4,11 @@ maintainer: '@vsoch'
 description: ABySS is a de novo, parallel, paired-end sequence assembler that is designed
   for short reads.
 latest:
-  2.3.1: sha256:92b2975865998a0560f66d2120d224822e8e1ab350b606a0e308e1fbbbaecd9d
+  2.3.1: sha256:ea1693caf9779f4a822dca1c9bf3fba8491057d830870c46e0765424c8dd1d71
 tags:
   2.3.0: sha256:09dabf5c3f3babf2e3a64c0ba712047ee11555a7dc799273b647359bea1cb59b
-  2.3.1: sha256:92b2975865998a0560f66d2120d224822e8e1ab350b606a0e308e1fbbbaecd9d
-  latest: sha256:92b2975865998a0560f66d2120d224822e8e1ab350b606a0e308e1fbbbaecd9d
+  2.3.1: sha256:ea1693caf9779f4a822dca1c9bf3fba8491057d830870c46e0765424c8dd1d71
+  latest: sha256:ea1693caf9779f4a822dca1c9bf3fba8491057d830870c46e0765424c8dd1d71
 aliases:
   abyss-align: /opt/view/bin/abyss-align
   abyss-bloom: /opt/view/bin/abyss-bloom
