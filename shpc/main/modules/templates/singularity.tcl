@@ -72,23 +72,23 @@ set runCmd "singularity \${SINGULARITY_OPTS} run \${SINGULARITY_COMMAND_OPTS} {%
 set inspectCmd "singularity \${SINGULARITY_OPTS} inspect \${SINGULARITY_COMMAND_OPTS} " 
 
 # set_shell_function takes bashStr and cshStr
-set-alias "{|module_name|}-shell" "${shellCmd} $*"
+set-alias {|module_name|}-shell "${shellCmd} $*"
 
 
 # exec functions to provide "alias" to module commands
 {% if aliases %}{% for alias in aliases %}
-set-alias "{{ alias.name }}" "${execCmd} {% if alias.options %} {{ alias.options }} {% endif %} ${containerPath} {{ alias.command }} $*"
+set-alias {{ alias.name }} "${execCmd} {% if alias.options %} {{ alias.options }} {% endif %} ${containerPath} {{ alias.command }} $*"
 {% endfor %}{% endif %}
 
 # A customizable exec function
-set-alias "{|module_name|}-exec" "${execCmd} ${containerPath} \${SINGULARITY_COMMAND_ARGS} $*"
+set-alias {|module_name|}-exec "${execCmd} ${containerPath} \${SINGULARITY_COMMAND_ARGS} $*"
 
 # Always provide a container run
-set-alias "{|module_name|}-run" "${runCmd} $*"
+set-alias {|module_name|}-run "${runCmd} $*"
 
 # Inspect runscript or deffile easily!
-set-alias "{|module_name|}-inspect-runscript" "${inspectCmd} -r ${containerPath}"
-set-alias "{|module_name|}-inspect-deffile" "${inspectCmd} -d ${containerPath}"
+set-alias {|module_name|}-inspect-runscript "${inspectCmd} -r ${containerPath}"
+set-alias {|module_name|}-inspect-deffile "${inspectCmd} -d ${containerPath}"
 
 #=====
 # Module options
