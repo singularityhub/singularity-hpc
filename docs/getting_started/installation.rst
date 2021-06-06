@@ -94,7 +94,7 @@ and interacting with your modules.
 Environment Modules
 -------------------
 
-If you are using `environment modules (tcl) <http://modules.sourceforge.net/>`_
+If you are using `Environment Modules (tcl) <http://modules.sourceforge.net/>`_
 and you find that your aliases do not expand, you can use `shopt <https://www.gnu.org/software/bash/manual/html_node/The-Shopt-Builtin.html>`_ to fix this issue:
 
 .. code-block:: console

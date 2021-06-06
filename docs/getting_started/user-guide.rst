@@ -59,7 +59,7 @@ then install a container:
     $ shpc install python
     
 Add the modules folder to your lmod (you can run this in a bash profile or
-manually, and note that if you want to use environment modules, you need to add
+manually, and note that if you want to use Environment Modules, you need to add
 ``--module-sys tcl``).
 
 

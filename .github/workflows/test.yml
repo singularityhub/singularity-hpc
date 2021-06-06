@@ -17,7 +17,7 @@ jobs:
         run: |
           sudo apt-get install lua5.2 liblua5.2-dev lua-filesystem lua-posix tcl tcl-dev
 
-      - name: Install environment modules
+      - name: Install Environment Modules
         if: ${{ matrix.module == 'tcl' }}
         run: |
          curl -LJO https://github.com/cea-hpc/modules/releases/download/v4.7.1/modules-4.7.1.tar.gz

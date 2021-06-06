@@ -16,7 +16,7 @@ container_tech: singularity
 # Registry Recipes (currently we support just one path)
 registry: $root_dir/registry
 
-# Lmod or environment module settings 
+# Lmod or Environment Modules settings 
 # The install directory for modules. Defaults to the install directory/modules
 module_base: $root_dir/modules
 
