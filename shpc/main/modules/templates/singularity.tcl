@@ -40,8 +40,8 @@ proc ModulesHelp { } {
 }
 
 # Environment
-set ::env(SINGULARITY_OPTS) ""
-set ::env(SINGULARITY_COMMAND_OPTS) ""
+setenv SINGULARITY_OPTS ""
+setenv SINGULARITY_COMMAND_OPTS ""
 
 # Variables
 
