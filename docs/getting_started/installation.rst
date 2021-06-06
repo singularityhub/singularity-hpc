@@ -52,7 +52,7 @@ $ which shpc
 
 This executable should be accessible by an administrator, or anyone that you want
 to be able to manage containers. Your user base will be interacting with your
-containers via LMOD, so they do not need access to `shpc`. 
+containers via Lmod, so they do not need access to `shpc`. 
 If you are a user creating your own folder of modules, you can add them
 to your module path.
 

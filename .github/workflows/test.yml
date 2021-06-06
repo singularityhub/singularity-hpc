@@ -28,7 +28,7 @@ jobs:
          make
          sudo make install
 
-      - name: Install LMOD
+      - name: Install Lmod
         if: ${{ matrix.module == 'lmod' }}
         run: |
           PKG_VERSION=8.4.27

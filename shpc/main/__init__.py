@@ -11,7 +11,7 @@ from shpc.logger import logger
 
 def get_client(quiet=False, **kwargs):
     """
-    Get a singularity HPC client based on the backend (e.g., LMOD)
+    Get a singularity HPC client based on the backend (e.g., Lmod)
     and container technology (currently just Singularity) of interest.
 
     Parameters

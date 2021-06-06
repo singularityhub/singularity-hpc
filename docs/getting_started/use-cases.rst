@@ -42,7 +42,7 @@ Make sure that lmod knows about the folder
 
     $ module use /opt/lmod/shpc
      
-(And likely if you administer an LMOD install you have your preferred way of
+(And likely if you administer an Lmod install you have your preferred way of
 doing this). And then you can use your modules just as you would that are provided on
 your cluster.
 

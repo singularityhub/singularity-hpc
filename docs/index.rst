@@ -13,7 +13,7 @@ Singularity Registry (HPC)
 Singularity Registry HPC (shpc) allows you to install containers as modules.
 Currently, this includes:
 
- - `LMOD <https://lmod.readthedocs.io/en/latest/>`_
+ - `Lmod <https://lmod.readthedocs.io/en/latest/>`_
  - `Environment Modules <http://modules.sourceforge.net/>`_
 
 And container technologies:

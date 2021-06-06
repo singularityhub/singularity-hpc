@@ -1,4 +1,4 @@
--- LMOD Module
+-- Lmod Module
 -- Created by singularity-hpc (https://github.com/singularityhub/singularity-hpc)
 -- ##
 -- {{ name }} on {{ creation_date }}
