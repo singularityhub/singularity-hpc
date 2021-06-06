@@ -42,6 +42,7 @@ proc ModulesHelp { } {
 # Environment
 setenv SINGULARITY_OPTS ""
 setenv SINGULARITY_COMMAND_OPTS ""
+setenv SINGULARITY_COMMAND_ARGS ""
 
 # Variables
 

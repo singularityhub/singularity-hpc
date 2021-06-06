@@ -46,6 +46,7 @@ local MODULEPATH="{{ module_dir }}"
 setenv("SINGULARITY_SHELL", "{{ singularity_shell }}")
 setenv ("SINGULARITY_OPTS", "")
 setenv ("SINGULARITY_COMMAND_OPTS", "")
+setenv ("SINGULARITY_COMMAND_ARGS", "")
 
 -- interactive shell to any container, plus exec for aliases
 local containerPath = '{{ container_sif }}'
