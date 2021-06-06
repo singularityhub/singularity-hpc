@@ -32,6 +32,10 @@ proc ModulesHelp { } {
 
 }
 
+# Environment
+setenv DOCKER_OPTS ""
+setenv DOCKER_COMMAND_OPTS ""
+
 # Variables
 
 set name        "{{ name }}"
