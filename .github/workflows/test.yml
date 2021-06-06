@@ -55,44 +55,25 @@ jobs:
           pip install -e .
 
       - name: Run python module tests
-        if: ${{ matrix.module == 'lmod' }}
-        run: |
-          export PATH="/usr/share/miniconda/bin:$PATH"
-          . /usr/share/lmod/lmod/init/sh
-          source activate shpc
-          shpc config set container_tech:${{ matrix.container_tech }}
-          shpc config set module_sys:${{ matrix.module }}
-          shpc config set enable_tty:false
-          shpc install python:3.9.5-alpine
-          module use ./modules
-          module load python/3.9.5-alpine
-          alias
-
-          printf "\n\nmodule show ============================================\n"
-          module show python/3.9.5-alpine
-
-          printf "\n\nmodule whatis ==========================================\n"
-          module whatis python/3.9.5-alpine
-
-          printf "\n\nmodule help ============================================\n"
-          module help python/3.9.5-alpine
-          python-exec echo donuts
-          python-run python --version
-
-      - name: Run python module tests
-        if: ${{ matrix.module == 'tcl' }}
         shell: bash
         run: |
+          case "${{ matrix.module }}" in
+            lmod)
+              . /usr/share/lmod/lmod/init/bash
+              ;;
+            tcl)
+              . /usr/local/Modules/init/bash
+              shopt expand_aliases || true
+              shopt -s expand_aliases
+              ;;
+          esac
+
           export PATH="/usr/share/miniconda/bin:$PATH"
-          . /usr/local/Modules/init/sh
           source activate shpc
           shpc config set container_tech:${{ matrix.container_tech }}
           shpc config set module_sys:${{ matrix.module }}
           shpc config set enable_tty:false
           shpc install python:3.9.5-alpine
-
-          shopt expand_aliases || true
-          shopt -s expand_aliases
 
           module use ./modules
           module load python/3.9.5-alpine
