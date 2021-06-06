@@ -68,7 +68,7 @@ if (myShellName() == "bash") then
 end{% endif %}
 
 -- A customizable exec function
-set_shell_function("{|module_name|}-exec", execCmd .. " --entrypoint \"\" " .. containerPath .. " $@",  execCmd .. " --entrypoint \"\"" .. containerPath .. " $*")
+set_shell_function("{|module_name|}-exec", execCmd .. " --entrypoint \"\" " .. containerPath .. " $@",  execCmd .. " --entrypoint \"\" " .. containerPath .. " $*")
 
 -- Always provide a container run
 set_shell_function("{|module_name|}-run", runCmd .. " $@",  runCmd .. " $*")
