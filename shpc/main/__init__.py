@@ -48,6 +48,11 @@ def get_client(quiet=False, **kwargs):
 
         Client.container = PodmanContainer()
 
+    elif container == "docker":
+        from .container import DockerContainer
+
+        Client.container = DockerContainer()
+
     # The containe should have access to settings too
     if hasattr(Client, "container"):
         Client.container.settings = settings

@@ -4,10 +4,8 @@ __license__ = "MPL 2.0"
 
 
 from shpc.logger import logger
-import shpc.main.container as containers
-import shpc.main.templates
 import shpc.utils
-from .base import ContainerTechnology
+from .base import ContainerTechnology, ContainerName
 
 from datetime import datetime
 from glob import glob
@@ -101,7 +99,7 @@ class SingularityContainer(ContainerTechnology):
         shutil.copyfile(sif, dest)
 
         # Parse the module name for the user
-        parsed_name = containers.ContainerName(module_name)
+        parsed_name = ContainerName(module_name)
 
         self.install(
             module_path,

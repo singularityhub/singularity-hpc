@@ -146,10 +146,13 @@ A summary table of variables is included below, and then further discussed in de
      - null
    * - singularity_shell
      - exported to SINGULARITY_SHELL, defaults to /bin/bash.
-     - /bin/bash
+     - /bin/sh
    * - podman_shell
      - The shell used for podman
-     - /bin/bash
+     - /bin/sh
+   * - docker_shell
+     - The shell used for docker
+     - /bin/sh
    * - test_shell
      - The shell used for the test.sh file
      - /bin/bash
@@ -159,6 +162,9 @@ A summary table of variables is included below, and then further discussed in de
    * - environment_file
      - The name of the environment file to generate and bind to the container.
      - 99-shpc.sh
+   * - enable_tty
+     - For container technologies that require -t for tty, enable (add) or disable (do not add)
+     - true
    * - config_editor
      - The editor to use for your config editing
      - vim
@@ -356,7 +362,7 @@ Container Technology
 ====================
 
 The default container technology to pull and then provide to users is Singularity,
-and we have also recently added Podman, and will add support for Shifter and Sarus soon.
+and we have also recently added Podman and Docker, and will add support for Shifter and Sarus soon.
 Akin to module software, you can specify the container technology to use on a global
 setting, or via a one-off command:
 

@@ -230,7 +230,7 @@ def get_parser():
             "--container-tech",
             dest="container_tech",
             help="container technology to use to override settings.yaml",
-            choices=["singularity", "podman"],
+            choices=["singularity", "podman", "docker"],
             default=None,
         )
 

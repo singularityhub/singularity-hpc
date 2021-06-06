@@ -98,27 +98,37 @@ containerConfig = {
         "description",
     ],
     "properties": containerConfigProperties,
+    "additionalProperties": False,
 }
 
 
 ## Settings.yml (loads as json)
+
+shells = ["/bin/bash", "/bin/sh", "/bin/csh"]
 
 # Currently all of these are required
 
 settingsProperties = {
     "registry": {"type": "string"},
     "module_base": {"type": "string"},
+    "container_base": {"type": ["string", "null"]},
+    "namespace": {"type": ["string", "null"]},
     "singularity_module": {"type": ["string", "null"]},
+    "podman_module": {"type": ["string", "null"]},
     "bindpaths": {"type": ["string", "null"]},
     "updated_at": {"type": "string"},
     "module_name": {"type": "string"},
+    "config_editor": {"type": "string"},
     "environment_file": {"type": "string"},
-    "container_tech": {"type": "string", "enum": ["singularity", "podman"]},
-    "singularity_shell": {"type": "string", "enum": ["/bin/bash", "/bin/sh"]},
+    "enable_tty": {"type": "boolean"},
+    "container_tech": {"type": "string", "enum": ["singularity", "podman", "docker"]},
+    "singularity_shell": {"type": "string", "enum": shells},
+    "podman_shell": {"type": "string", "enum": shells},
+    "docker_shell": {"type": "string", "enum": shells},
+    "test_shell": {"type": "string", "enum": shells},
     "module_sys": {"type": "string", "enum": ["lmod", "tcl", None]},
     "container_features": container_features,
 }
-
 
 settings = {
     "$schema": schema_url,
@@ -136,4 +146,5 @@ settings = {
         "container_features",
     ],
     "properties": settingsProperties,
+    "additionalProperties": False,
 }

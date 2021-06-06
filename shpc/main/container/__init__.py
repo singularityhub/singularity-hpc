@@ -5,7 +5,7 @@ __license__ = "MPL 2.0"
 
 from .singularity import SingularityContainer
 from .podman import PodmanContainer
-import shpc.main.templates as templates
+from .docker import DockerContainer
 
 from shpc.logger import logger
 import shpc.main.schemas as schemas
@@ -17,7 +17,6 @@ except:
     from ruamel.yaml import YAML
 
 import os
-import re
 import jsonschema
 import sys
 
@@ -63,32 +62,6 @@ class Tag:
         return str(self)
 
 
-class ContainerName:
-    """
-    Parse a container name into named parts
-    """
-
-    def __init__(self, raw):
-        self.raw = raw
-        self.registry = None
-        self.namespace = None
-        self.tool = None
-        self.version = None
-        self.digest = None
-        self.parse(raw)
-
-    def parse(self, raw):
-        """
-        Parse a name into known pieces
-        """
-        match = re.search(templates.docker_regex, raw)
-        if not match:
-            logger.exit("%s does not match a known identifier pattern." % raw)
-        for key, value in match.groupdict().items():
-            value = value.strip("/") if value else None
-            setattr(self, key, value)
-
-
 class ContainerConfig:
     """A ContainerConfig wraps a container.yaml file, intended for install."""
 
@@ -127,6 +100,8 @@ class ContainerConfig:
         """
         Return the name, whether it's docker or GitHub
         """
+        from .base import ContainerName
+
         if self.docker:
             return ContainerName(self.docker)
         elif self.gh:

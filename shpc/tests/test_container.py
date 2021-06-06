@@ -40,3 +40,14 @@ def test_podman(tmp_path):
     assert result
     cli.delete(result)
     assert not cli.exists(result)
+
+
+def test_docker(tmp_path):
+    """Test a singularity container command"""
+    cli = container.DockerContainer()
+
+    # Test default Singularity pull
+    result = cli.pull("docker.io/vanessa/salad:latest")
+    assert result
+    cli.delete(result)
+    assert not cli.exists(result)
