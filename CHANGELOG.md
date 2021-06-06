@@ -14,6 +14,7 @@ and **Merged pull requests**. Critical items to know are:
 The versions coincide with releases on pip. Only major versions will be released as tags on Github.
 
 ## [0.0.x](https://github.scom/singularityhub/singularity-hpc/tree/master) (0.0.x)
+ - Cleanup of module files and docker requirement bugfix (0.0.27)
  - Docker support (0.0.26)
    - added an enable_tty setting to allow disabling add -t in recipes
    - enforced not adding extra settings to setting.yml

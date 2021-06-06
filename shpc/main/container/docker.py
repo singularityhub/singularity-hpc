@@ -25,8 +25,11 @@ class DockerContainer(ContainerTechnology):
     features = {}
 
     def __init__(self):
-        if shpc.utils.which("docker")["return_code"] != 0:
-            logger.exit("Docker is required to use the 'docker' base.")
+        if shpc.utils.which(self.command)["return_code"] != 0:
+            logger.exit(
+                "%s is required to use the '%s' base."
+                % (self.command.capitalize(), self.command)
+            )
         super(DockerContainer, self).__init__()
 
     def shell(self, image):
