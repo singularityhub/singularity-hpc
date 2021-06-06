@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/beast2"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/beast2/container.yaml"
-updated_at: "2021-06-05 21:26:53.410780"
+updated_at: "2021-06-06 14:33:18.044544"
 container_url: "https://github.com/orgs/autamus/packages/container/package/beast2"
 aliases:
  - "beast"
@@ -57,13 +57,14 @@ You can use tab for auto-completion of module names or commands that are provide
 ### Commands
 
 When you install this module, you'll be able to load it to make the following commands accessible.
-Examples for both Singularity and Podman (container technologies supported) are included.
+Examples for both Singularity, Podman, and Docker (container technologies supported) are included.
 
 #### -run:
 
 ```bash
 $ singularity run <container>
 $ podman run --rm  -v ${PWD} -w ${PWD} <container>
+$ docker run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
 #### -shell:
@@ -71,6 +72,7 @@ $ podman run --rm  -v ${PWD} -w ${PWD} <container>
 ```bash
 $ singularity shell -s /bin/sh <container>
 $ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
+$ docker run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
 #### -exec:
@@ -78,14 +80,16 @@ $ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```bash
 $ singularity exec -s /bin/sh <container> "$@"
 $ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
+$ docker run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
 #### -inspect:
 
-Podman only has one inspect type.
+Podman and Docker only have one inspect type.
 
 ```bash
 $ podman inspect <container>
+$ docker inspect <container>
 ```
 
 #### -inspect-runscript:
@@ -106,6 +110,7 @@ $ singularity inspect -d <container>
 ```bash
 $ singularity exec <container> /opt/view/bin/beast
 $ podman run --it --rm --entrypoint /opt/view/bin/beast   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/beast   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -114,6 +119,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/beast   -v ${PWD} -w ${PWD} <c
 ```bash
 $ singularity exec <container> /opt/view/bin/beasti
 $ podman run --it --rm --entrypoint /opt/view/bin/beasti   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/beasti   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -122,6 +128,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/beasti   -v ${PWD} -w ${PWD} <
 ```bash
 $ singularity exec <container> /opt/view/bin/beauti
 $ podman run --it --rm --entrypoint /opt/view/bin/beauti   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/beauti   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -130,6 +137,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/beauti   -v ${PWD} -w ${PWD} <
 ```bash
 $ singularity exec <container> /opt/view/bin/densitree
 $ podman run --it --rm --entrypoint /opt/view/bin/densitree   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/densitree   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -138,6 +146,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/densitree   -v ${PWD} -w ${PWD
 ```bash
 $ singularity exec <container> /opt/view/bin/treeannotator
 $ podman run --it --rm --entrypoint /opt/view/bin/treeannotator   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/treeannotator   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -150,8 +159,8 @@ inspect aliases. For anycommands above, you can export:
 
  - SINGULARITY_OPTS: to define custom options for singularity (e.g., --debug)
  - SINGULARITY_COMMAND_OPTS: to define custom options for the command (e.g., -b)
- - PODMAN_OPTS: to define custom options for podman
- - PODMAN_COMMAND_OPTS: to define custom options for the command
+ - DOCKER_OPTS: to define custom options for podman or docker
+ - DOCKER_COMMAND_OPTS: to define custom options for the command
 
 <br>
   

@@ -3,7 +3,7 @@ layout: container
 name:  "mongo"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/mongo/container.yaml"
-updated_at: "2021-06-05 21:27:04.497202"
+updated_at: "2021-06-06 14:33:29.701714"
 container_url: "https://hub.docker.com/r/_/mongo"
 aliases:
  - "mongo"
@@ -67,13 +67,14 @@ You can use tab for auto-completion of module names or commands that are provide
 ### Commands
 
 When you install this module, you'll be able to load it to make the following commands accessible.
-Examples for both Singularity and Podman (container technologies supported) are included.
+Examples for both Singularity, Podman, and Docker (container technologies supported) are included.
 
 #### -run:
 
 ```bash
 $ singularity run <container>
 $ podman run --rm  -v ${PWD} -w ${PWD} <container>
+$ docker run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
 #### -shell:
@@ -81,6 +82,7 @@ $ podman run --rm  -v ${PWD} -w ${PWD} <container>
 ```bash
 $ singularity shell -s /bin/sh <container>
 $ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
+$ docker run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
 #### -exec:
@@ -88,14 +90,16 @@ $ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```bash
 $ singularity exec -s /bin/sh <container> "$@"
 $ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
+$ docker run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
 #### -inspect:
 
-Podman only has one inspect type.
+Podman and Docker only have one inspect type.
 
 ```bash
 $ podman inspect <container>
+$ docker inspect <container>
 ```
 
 #### -inspect-runscript:
@@ -116,6 +120,7 @@ $ singularity inspect -d <container>
 ```bash
 $ singularity exec <container> /usr/bin/mongo
 $ podman run --it --rm --entrypoint /usr/bin/mongo   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/bin/mongo   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -124,6 +129,7 @@ $ podman run --it --rm --entrypoint /usr/bin/mongo   -v ${PWD} -w ${PWD} <contai
 ```bash
 $ singularity exec <container> /usr/bin/mongod
 $ podman run --it --rm --entrypoint /usr/bin/mongod   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/bin/mongod   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -132,6 +138,7 @@ $ podman run --it --rm --entrypoint /usr/bin/mongod   -v ${PWD} -w ${PWD} <conta
 ```bash
 $ singularity exec <container> /usr/bin/mongodump
 $ podman run --it --rm --entrypoint /usr/bin/mongodump   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/bin/mongodump   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -140,6 +147,7 @@ $ podman run --it --rm --entrypoint /usr/bin/mongodump   -v ${PWD} -w ${PWD} <co
 ```bash
 $ singularity exec <container> /usr/bin/mongoexport
 $ podman run --it --rm --entrypoint /usr/bin/mongoexport   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/bin/mongoexport   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -148,6 +156,7 @@ $ podman run --it --rm --entrypoint /usr/bin/mongoexport   -v ${PWD} -w ${PWD} <
 ```bash
 $ singularity exec <container> /usr/bin/mongofiles
 $ podman run --it --rm --entrypoint /usr/bin/mongofiles   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/bin/mongofiles   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -156,6 +165,7 @@ $ podman run --it --rm --entrypoint /usr/bin/mongofiles   -v ${PWD} -w ${PWD} <c
 ```bash
 $ singularity exec <container> /usr/bin/mongoimport
 $ podman run --it --rm --entrypoint /usr/bin/mongoimport   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/bin/mongoimport   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -164,6 +174,7 @@ $ podman run --it --rm --entrypoint /usr/bin/mongoimport   -v ${PWD} -w ${PWD} <
 ```bash
 $ singularity exec <container> /usr/bin/mongos
 $ podman run --it --rm --entrypoint /usr/bin/mongos   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/bin/mongos   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -172,6 +183,7 @@ $ podman run --it --rm --entrypoint /usr/bin/mongos   -v ${PWD} -w ${PWD} <conta
 ```bash
 $ singularity exec <container> /usr/bin/mongostat
 $ podman run --it --rm --entrypoint /usr/bin/mongostat   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/bin/mongostat   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -180,6 +192,7 @@ $ podman run --it --rm --entrypoint /usr/bin/mongostat   -v ${PWD} -w ${PWD} <co
 ```bash
 $ singularity exec <container> /usr/bin/mongorestore
 $ podman run --it --rm --entrypoint /usr/bin/mongorestore   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/bin/mongorestore   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -188,6 +201,7 @@ $ podman run --it --rm --entrypoint /usr/bin/mongorestore   -v ${PWD} -w ${PWD} 
 ```bash
 $ singularity exec <container> /usr/bin/mongotop
 $ podman run --it --rm --entrypoint /usr/bin/mongotop   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/bin/mongotop   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -200,8 +214,8 @@ inspect aliases. For anycommands above, you can export:
 
  - SINGULARITY_OPTS: to define custom options for singularity (e.g., --debug)
  - SINGULARITY_COMMAND_OPTS: to define custom options for the command (e.g., -b)
- - PODMAN_OPTS: to define custom options for podman
- - PODMAN_COMMAND_OPTS: to define custom options for the command
+ - DOCKER_OPTS: to define custom options for podman or docker
+ - DOCKER_COMMAND_OPTS: to define custom options for the command
 
 <br>
   

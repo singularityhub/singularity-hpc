@@ -3,7 +3,7 @@ layout: container
 name:  "biocontainers/talon"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/biocontainers/talon/container.yaml"
-updated_at: "2021-06-05 21:27:14.670064"
+updated_at: "2021-06-06 14:33:40.189616"
 container_url: "https://hub.docker.com/r/biocontainers/talon"
 aliases:
  - "talon"
@@ -67,13 +67,14 @@ You can use tab for auto-completion of module names or commands that are provide
 ### Commands
 
 When you install this module, you'll be able to load it to make the following commands accessible.
-Examples for both Singularity and Podman (container technologies supported) are included.
+Examples for both Singularity, Podman, and Docker (container technologies supported) are included.
 
 #### -run:
 
 ```bash
 $ singularity run <container>
 $ podman run --rm  -v ${PWD} -w ${PWD} <container>
+$ docker run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
 #### -shell:
@@ -81,6 +82,7 @@ $ podman run --rm  -v ${PWD} -w ${PWD} <container>
 ```bash
 $ singularity shell -s /bin/sh <container>
 $ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
+$ docker run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
 #### -exec:
@@ -88,14 +90,16 @@ $ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```bash
 $ singularity exec -s /bin/sh <container> "$@"
 $ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
+$ docker run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
 #### -inspect:
 
-Podman only has one inspect type.
+Podman and Docker only have one inspect type.
 
 ```bash
 $ podman inspect <container>
+$ docker inspect <container>
 ```
 
 #### -inspect-runscript:
@@ -116,6 +120,7 @@ $ singularity inspect -d <container>
 ```bash
 $ singularity exec <container> /usr/local/bin/talon
 $ podman run --it --rm --entrypoint /usr/local/bin/talon   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/local/bin/talon   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -124,6 +129,7 @@ $ podman run --it --rm --entrypoint /usr/local/bin/talon   -v ${PWD} -w ${PWD} <
 ```bash
 $ singularity exec <container> /usr/local/bin/talon_create_GTF
 $ podman run --it --rm --entrypoint /usr/local/bin/talon_create_GTF   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/local/bin/talon_create_GTF   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -132,6 +138,7 @@ $ podman run --it --rm --entrypoint /usr/local/bin/talon_create_GTF   -v ${PWD} 
 ```bash
 $ singularity exec <container> /usr/local/bin/talon_fetch_reads
 $ podman run --it --rm --entrypoint /usr/local/bin/talon_fetch_reads   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/local/bin/talon_fetch_reads   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -140,6 +147,7 @@ $ podman run --it --rm --entrypoint /usr/local/bin/talon_fetch_reads   -v ${PWD}
 ```bash
 $ singularity exec <container> /usr/local/bin/talon_filter_transcripts
 $ podman run --it --rm --entrypoint /usr/local/bin/talon_filter_transcripts   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/local/bin/talon_filter_transcripts   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -148,6 +156,7 @@ $ podman run --it --rm --entrypoint /usr/local/bin/talon_filter_transcripts   -v
 ```bash
 $ singularity exec <container> /usr/local/bin/talon_generate_report
 $ podman run --it --rm --entrypoint /usr/local/bin/talon_generate_report   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/local/bin/talon_generate_report   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -156,6 +165,7 @@ $ podman run --it --rm --entrypoint /usr/local/bin/talon_generate_report   -v ${
 ```bash
 $ singularity exec <container> /usr/local/bin/talon_initialize_database
 $ podman run --it --rm --entrypoint /usr/local/bin/talon_initialize_database   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/local/bin/talon_initialize_database   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -164,6 +174,7 @@ $ podman run --it --rm --entrypoint /usr/local/bin/talon_initialize_database   -
 ```bash
 $ singularity exec <container> /usr/local/bin/talon_get_sjs
 $ podman run --it --rm --entrypoint /usr/local/bin/talon_get_sjs   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/local/bin/talon_get_sjs   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -172,6 +183,7 @@ $ podman run --it --rm --entrypoint /usr/local/bin/talon_get_sjs   -v ${PWD} -w 
 ```bash
 $ singularity exec <container> /usr/local/bin/talon_label_reads
 $ podman run --it --rm --entrypoint /usr/local/bin/talon_label_reads   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/local/bin/talon_label_reads   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -180,6 +192,7 @@ $ podman run --it --rm --entrypoint /usr/local/bin/talon_label_reads   -v ${PWD}
 ```bash
 $ singularity exec <container> /usr/local/bin/talon_reformat_gtf
 $ podman run --it --rm --entrypoint /usr/local/bin/talon_reformat_gtf   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/local/bin/talon_reformat_gtf   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -188,6 +201,7 @@ $ podman run --it --rm --entrypoint /usr/local/bin/talon_reformat_gtf   -v ${PWD
 ```bash
 $ singularity exec <container> /usr/local/bin/talon_summarize
 $ podman run --it --rm --entrypoint /usr/local/bin/talon_summarize   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/local/bin/talon_summarize   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -196,6 +210,7 @@ $ podman run --it --rm --entrypoint /usr/local/bin/talon_summarize   -v ${PWD} -
 ```bash
 $ singularity exec <container> /usr/local/bin/talon_abundance
 $ podman run --it --rm --entrypoint /usr/local/bin/talon_abundance   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/local/bin/talon_abundance   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -208,8 +223,8 @@ inspect aliases. For anycommands above, you can export:
 
  - SINGULARITY_OPTS: to define custom options for singularity (e.g., --debug)
  - SINGULARITY_COMMAND_OPTS: to define custom options for the command (e.g., -b)
- - PODMAN_OPTS: to define custom options for podman
- - PODMAN_COMMAND_OPTS: to define custom options for the command
+ - DOCKER_OPTS: to define custom options for podman or docker
+ - DOCKER_COMMAND_OPTS: to define custom options for the command
 
 <br>
   

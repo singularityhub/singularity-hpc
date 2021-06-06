@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/bedtools2"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/bedtools2/container.yaml"
-updated_at: "2021-06-05 21:26:55.322933"
+updated_at: "2021-06-06 14:33:20.070051"
 container_url: "https://github.com/orgs/autamus/packages/container/package/bedtools2"
 aliases:
  - "annotateBed"
@@ -106,13 +106,14 @@ You can use tab for auto-completion of module names or commands that are provide
 ### Commands
 
 When you install this module, you'll be able to load it to make the following commands accessible.
-Examples for both Singularity and Podman (container technologies supported) are included.
+Examples for both Singularity, Podman, and Docker (container technologies supported) are included.
 
 #### -run:
 
 ```bash
 $ singularity run <container>
 $ podman run --rm  -v ${PWD} -w ${PWD} <container>
+$ docker run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
 #### -shell:
@@ -120,6 +121,7 @@ $ podman run --rm  -v ${PWD} -w ${PWD} <container>
 ```bash
 $ singularity shell -s /bin/sh <container>
 $ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
+$ docker run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
 #### -exec:
@@ -127,14 +129,16 @@ $ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```bash
 $ singularity exec -s /bin/sh <container> "$@"
 $ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
+$ docker run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
 #### -inspect:
 
-Podman only has one inspect type.
+Podman and Docker only have one inspect type.
 
 ```bash
 $ podman inspect <container>
+$ docker inspect <container>
 ```
 
 #### -inspect-runscript:
@@ -155,6 +159,7 @@ $ singularity inspect -d <container>
 ```bash
 $ singularity exec <container> /opt/view/bin/annotateBed
 $ podman run --it --rm --entrypoint /opt/view/bin/annotateBed   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/annotateBed   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -163,6 +168,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/annotateBed   -v ${PWD} -w ${P
 ```bash
 $ singularity exec <container> /opt/view/bin/bamToBed
 $ podman run --it --rm --entrypoint /opt/view/bin/bamToBed   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/bamToBed   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -171,6 +177,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/bamToBed   -v ${PWD} -w ${PWD}
 ```bash
 $ singularity exec <container> /opt/view/bin/bed12ToBed6
 $ podman run --it --rm --entrypoint /opt/view/bin/bed12ToBed6   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/bed12ToBed6   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -179,6 +186,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/bed12ToBed6   -v ${PWD} -w ${P
 ```bash
 $ singularity exec <container> /opt/view/bin/bedToBam
 $ podman run --it --rm --entrypoint /opt/view/bin/bedToBam   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/bedToBam   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -187,6 +195,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/bedToBam   -v ${PWD} -w ${PWD}
 ```bash
 $ singularity exec <container> /opt/view/bin/bedToIgv
 $ podman run --it --rm --entrypoint /opt/view/bin/bedToIgv   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/bedToIgv   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -195,6 +204,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/bedToIgv   -v ${PWD} -w ${PWD}
 ```bash
 $ singularity exec <container> /opt/view/bin/bedpeToBam
 $ podman run --it --rm --entrypoint /opt/view/bin/bedpeToBam   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/bedpeToBam   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -203,6 +213,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/bedpeToBam   -v ${PWD} -w ${PW
 ```bash
 $ singularity exec <container> /opt/view/bin/bedtools
 $ podman run --it --rm --entrypoint /opt/view/bin/bedtools   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/bedtools   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -211,6 +222,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/bedtools   -v ${PWD} -w ${PWD}
 ```bash
 $ singularity exec <container> /opt/view/bin/closestBed
 $ podman run --it --rm --entrypoint /opt/view/bin/closestBed   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/closestBed   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -219,6 +231,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/closestBed   -v ${PWD} -w ${PW
 ```bash
 $ singularity exec <container> /opt/view/bin/clusterBed
 $ podman run --it --rm --entrypoint /opt/view/bin/clusterBed   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/clusterBed   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -227,6 +240,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/clusterBed   -v ${PWD} -w ${PW
 ```bash
 $ singularity exec <container> /opt/view/bin/complementBed
 $ podman run --it --rm --entrypoint /opt/view/bin/complementBed   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/complementBed   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -235,6 +249,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/complementBed   -v ${PWD} -w $
 ```bash
 $ singularity exec <container> /opt/view/bin/coverageBed
 $ podman run --it --rm --entrypoint /opt/view/bin/coverageBed   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/coverageBed   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -243,6 +258,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/coverageBed   -v ${PWD} -w ${P
 ```bash
 $ singularity exec <container> /opt/view/bin/fastaFromBed
 $ podman run --it --rm --entrypoint /opt/view/bin/fastaFromBed   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/fastaFromBed   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -251,6 +267,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/fastaFromBed   -v ${PWD} -w ${
 ```bash
 $ singularity exec <container> /opt/view/bin/flankBed
 $ podman run --it --rm --entrypoint /opt/view/bin/flankBed   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/flankBed   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -259,6 +276,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/flankBed   -v ${PWD} -w ${PWD}
 ```bash
 $ singularity exec <container> /opt/view/bin/genomeCoverageBed
 $ podman run --it --rm --entrypoint /opt/view/bin/genomeCoverageBed   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/genomeCoverageBed   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -267,6 +285,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/genomeCoverageBed   -v ${PWD} 
 ```bash
 $ singularity exec <container> /opt/view/bin/intersectBed
 $ podman run --it --rm --entrypoint /opt/view/bin/intersectBed   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/intersectBed   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -275,6 +294,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/intersectBed   -v ${PWD} -w ${
 ```bash
 $ singularity exec <container> /opt/view/bin/linksBed
 $ podman run --it --rm --entrypoint /opt/view/bin/linksBed   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/linksBed   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -283,6 +303,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/linksBed   -v ${PWD} -w ${PWD}
 ```bash
 $ singularity exec <container> /opt/view/bin/mapBed
 $ podman run --it --rm --entrypoint /opt/view/bin/mapBed   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/mapBed   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -291,6 +312,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/mapBed   -v ${PWD} -w ${PWD} <
 ```bash
 $ singularity exec <container> /opt/view/bin/maskFastaFromBed
 $ podman run --it --rm --entrypoint /opt/view/bin/maskFastaFromBed   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/maskFastaFromBed   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -299,6 +321,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/maskFastaFromBed   -v ${PWD} -
 ```bash
 $ singularity exec <container> /opt/view/bin/mergeBed
 $ podman run --it --rm --entrypoint /opt/view/bin/mergeBed   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/mergeBed   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -307,6 +330,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/mergeBed   -v ${PWD} -w ${PWD}
 ```bash
 $ singularity exec <container> /opt/view/bin/multiIntersectBed
 $ podman run --it --rm --entrypoint /opt/view/bin/multiIntersectBed   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/multiIntersectBed   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -315,6 +339,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/multiIntersectBed   -v ${PWD} 
 ```bash
 $ singularity exec <container> /opt/view/bin/nucBed
 $ podman run --it --rm --entrypoint /opt/view/bin/nucBed   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/nucBed   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -323,6 +348,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/nucBed   -v ${PWD} -w ${PWD} <
 ```bash
 $ singularity exec <container> /opt/view/bin/pairToBed
 $ podman run --it --rm --entrypoint /opt/view/bin/pairToBed   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/pairToBed   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -331,6 +357,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/pairToBed   -v ${PWD} -w ${PWD
 ```bash
 $ singularity exec <container> /opt/view/bin/randomBed
 $ podman run --it --rm --entrypoint /opt/view/bin/randomBed   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/randomBed   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -339,6 +366,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/randomBed   -v ${PWD} -w ${PWD
 ```bash
 $ singularity exec <container> /opt/view/bin/shiftBed
 $ podman run --it --rm --entrypoint /opt/view/bin/shiftBed   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/shiftBed   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -347,6 +375,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/shiftBed   -v ${PWD} -w ${PWD}
 ```bash
 $ singularity exec <container> /opt/view/bin/shuffleBed
 $ podman run --it --rm --entrypoint /opt/view/bin/shuffleBed   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/shuffleBed   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -355,6 +384,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/shuffleBed   -v ${PWD} -w ${PW
 ```bash
 $ singularity exec <container> /opt/view/bin/slopBed
 $ podman run --it --rm --entrypoint /opt/view/bin/slopBed   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/slopBed   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -363,6 +393,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/slopBed   -v ${PWD} -w ${PWD} 
 ```bash
 $ singularity exec <container> /opt/view/bin/sortBed
 $ podman run --it --rm --entrypoint /opt/view/bin/sortBed   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/sortBed   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -371,6 +402,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/sortBed   -v ${PWD} -w ${PWD} 
 ```bash
 $ singularity exec <container> /opt/view/bin/subtractBed
 $ podman run --it --rm --entrypoint /opt/view/bin/subtractBed   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/subtractBed   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -379,6 +411,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/subtractBed   -v ${PWD} -w ${P
 ```bash
 $ singularity exec <container> /opt/view/bin/unionBedGraphs
 $ podman run --it --rm --entrypoint /opt/view/bin/unionBedGraphs   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/unionBedGraphs   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -387,6 +420,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/unionBedGraphs   -v ${PWD} -w 
 ```bash
 $ singularity exec <container> /opt/view/bin/windowBed
 $ podman run --it --rm --entrypoint /opt/view/bin/windowBed   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/windowBed   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -399,8 +433,8 @@ inspect aliases. For anycommands above, you can export:
 
  - SINGULARITY_OPTS: to define custom options for singularity (e.g., --debug)
  - SINGULARITY_COMMAND_OPTS: to define custom options for the command (e.g., -b)
- - PODMAN_OPTS: to define custom options for podman
- - PODMAN_COMMAND_OPTS: to define custom options for the command
+ - DOCKER_OPTS: to define custom options for podman or docker
+ - DOCKER_COMMAND_OPTS: to define custom options for the command
 
 <br>
   

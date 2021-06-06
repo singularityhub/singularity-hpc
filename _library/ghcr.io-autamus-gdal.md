@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/gdal"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/gdal/container.yaml"
-updated_at: "2021-06-05 21:26:51.873808"
+updated_at: "2021-06-06 14:33:16.465258"
 container_url: "https://github.com/orgs/autamus/packages/container/package/gdal"
 aliases:
  - "gdal-config"
@@ -85,13 +85,14 @@ You can use tab for auto-completion of module names or commands that are provide
 ### Commands
 
 When you install this module, you'll be able to load it to make the following commands accessible.
-Examples for both Singularity and Podman (container technologies supported) are included.
+Examples for both Singularity, Podman, and Docker (container technologies supported) are included.
 
 #### -run:
 
 ```bash
 $ singularity run <container>
 $ podman run --rm  -v ${PWD} -w ${PWD} <container>
+$ docker run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
 #### -shell:
@@ -99,6 +100,7 @@ $ podman run --rm  -v ${PWD} -w ${PWD} <container>
 ```bash
 $ singularity shell -s /bin/sh <container>
 $ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
+$ docker run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
 #### -exec:
@@ -106,14 +108,16 @@ $ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```bash
 $ singularity exec -s /bin/sh <container> "$@"
 $ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
+$ docker run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
 #### -inspect:
 
-Podman only has one inspect type.
+Podman and Docker only have one inspect type.
 
 ```bash
 $ podman inspect <container>
+$ docker inspect <container>
 ```
 
 #### -inspect-runscript:
@@ -134,6 +138,7 @@ $ singularity inspect -d <container>
 ```bash
 $ singularity exec <container> /opt/view/bin/gdal-config
 $ podman run --it --rm --entrypoint /opt/view/bin/gdal-config   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/gdal-config   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -142,6 +147,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/gdal-config   -v ${PWD} -w ${P
 ```bash
 $ singularity exec <container> /opt/view/bin/gdal_contour
 $ podman run --it --rm --entrypoint /opt/view/bin/gdal_contour   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/gdal_contour   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -150,6 +156,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/gdal_contour   -v ${PWD} -w ${
 ```bash
 $ singularity exec <container> /opt/view/bin/gdal_create
 $ podman run --it --rm --entrypoint /opt/view/bin/gdal_create   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/gdal_create   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -158,6 +165,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/gdal_create   -v ${PWD} -w ${P
 ```bash
 $ singularity exec <container> /opt/view/bin/gdal_grid
 $ podman run --it --rm --entrypoint /opt/view/bin/gdal_grid   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/gdal_grid   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -166,6 +174,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/gdal_grid   -v ${PWD} -w ${PWD
 ```bash
 $ singularity exec <container> /opt/view/bin/gdal_rasterize
 $ podman run --it --rm --entrypoint /opt/view/bin/gdal_rasterize   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/gdal_rasterize   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -174,6 +183,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/gdal_rasterize   -v ${PWD} -w 
 ```bash
 $ singularity exec <container> /opt/view/bin/gdal_translate
 $ podman run --it --rm --entrypoint /opt/view/bin/gdal_translate   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/gdal_translate   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -182,6 +192,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/gdal_translate   -v ${PWD} -w 
 ```bash
 $ singularity exec <container> /opt/view/bin/gdal_viewshed
 $ podman run --it --rm --entrypoint /opt/view/bin/gdal_viewshed   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/gdal_viewshed   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -190,6 +201,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/gdal_viewshed   -v ${PWD} -w $
 ```bash
 $ singularity exec <container> /opt/view/bin/gdaladdo
 $ podman run --it --rm --entrypoint /opt/view/bin/gdaladdo   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/gdaladdo   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -198,6 +210,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/gdaladdo   -v ${PWD} -w ${PWD}
 ```bash
 $ singularity exec <container> /opt/view/bin/gdalbuildvrt
 $ podman run --it --rm --entrypoint /opt/view/bin/gdalbuildvrt   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/gdalbuildvrt   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -206,6 +219,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/gdalbuildvrt   -v ${PWD} -w ${
 ```bash
 $ singularity exec <container> /opt/view/bin/gdaldem
 $ podman run --it --rm --entrypoint /opt/view/bin/gdaldem   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/gdaldem   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -214,6 +228,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/gdaldem   -v ${PWD} -w ${PWD} 
 ```bash
 $ singularity exec <container> /opt/view/bin/gdalenhance
 $ podman run --it --rm --entrypoint /opt/view/bin/gdalenhance   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/gdalenhance   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -222,6 +237,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/gdalenhance   -v ${PWD} -w ${P
 ```bash
 $ singularity exec <container> /opt/view/bin/gdalinfo
 $ podman run --it --rm --entrypoint /opt/view/bin/gdalinfo   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/gdalinfo   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -230,6 +246,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/gdalinfo   -v ${PWD} -w ${PWD}
 ```bash
 $ singularity exec <container> /opt/view/bin/gdallocationinfo
 $ podman run --it --rm --entrypoint /opt/view/bin/gdallocationinfo   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/gdallocationinfo   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -238,6 +255,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/gdallocationinfo   -v ${PWD} -
 ```bash
 $ singularity exec <container> /opt/view/bin/gdalmanage
 $ podman run --it --rm --entrypoint /opt/view/bin/gdalmanage   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/gdalmanage   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -246,6 +264,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/gdalmanage   -v ${PWD} -w ${PW
 ```bash
 $ singularity exec <container> /opt/view/bin/gdalmdiminfo
 $ podman run --it --rm --entrypoint /opt/view/bin/gdalmdiminfo   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/gdalmdiminfo   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -254,6 +273,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/gdalmdiminfo   -v ${PWD} -w ${
 ```bash
 $ singularity exec <container> /opt/view/bin/gdalmdimtranslate
 $ podman run --it --rm --entrypoint /opt/view/bin/gdalmdimtranslate   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/gdalmdimtranslate   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -262,6 +282,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/gdalmdimtranslate   -v ${PWD} 
 ```bash
 $ singularity exec <container> /opt/view/bin/gdalsrsinfo
 $ podman run --it --rm --entrypoint /opt/view/bin/gdalsrsinfo   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/gdalsrsinfo   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -270,6 +291,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/gdalsrsinfo   -v ${PWD} -w ${P
 ```bash
 $ singularity exec <container> /opt/view/bin/gdaltindex
 $ podman run --it --rm --entrypoint /opt/view/bin/gdaltindex   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/gdaltindex   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -278,6 +300,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/gdaltindex   -v ${PWD} -w ${PW
 ```bash
 $ singularity exec <container> /opt/view/bin/gdaltransform
 $ podman run --it --rm --entrypoint /opt/view/bin/gdaltransform   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/gdaltransform   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -286,6 +309,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/gdaltransform   -v ${PWD} -w $
 ```bash
 $ singularity exec <container> /opt/view/bin/gdalwarp
 $ podman run --it --rm --entrypoint /opt/view/bin/gdalwarp   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/gdalwarp   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -298,8 +322,8 @@ inspect aliases. For anycommands above, you can export:
 
  - SINGULARITY_OPTS: to define custom options for singularity (e.g., --debug)
  - SINGULARITY_COMMAND_OPTS: to define custom options for the command (e.g., -b)
- - PODMAN_OPTS: to define custom options for podman
- - PODMAN_COMMAND_OPTS: to define custom options for the command
+ - DOCKER_OPTS: to define custom options for podman or docker
+ - DOCKER_COMMAND_OPTS: to define custom options for the command
 
 <br>
   

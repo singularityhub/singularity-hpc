@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/abyss"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/abyss/container.yaml"
-updated_at: "2021-06-05 21:26:37.651478"
+updated_at: "2021-06-06 14:33:01.254586"
 container_url: "https://github.com/orgs/autamus/packages/container/package/abyss"
 aliases:
  - "abyss-align"
@@ -123,13 +123,14 @@ You can use tab for auto-completion of module names or commands that are provide
 ### Commands
 
 When you install this module, you'll be able to load it to make the following commands accessible.
-Examples for both Singularity and Podman (container technologies supported) are included.
+Examples for both Singularity, Podman, and Docker (container technologies supported) are included.
 
 #### -run:
 
 ```bash
 $ singularity run <container>
 $ podman run --rm  -v ${PWD} -w ${PWD} <container>
+$ docker run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
 #### -shell:
@@ -137,6 +138,7 @@ $ podman run --rm  -v ${PWD} -w ${PWD} <container>
 ```bash
 $ singularity shell -s /bin/sh <container>
 $ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
+$ docker run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
 #### -exec:
@@ -144,14 +146,16 @@ $ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```bash
 $ singularity exec -s /bin/sh <container> "$@"
 $ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
+$ docker run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
 #### -inspect:
 
-Podman only has one inspect type.
+Podman and Docker only have one inspect type.
 
 ```bash
 $ podman inspect <container>
+$ docker inspect <container>
 ```
 
 #### -inspect-runscript:
@@ -172,6 +176,7 @@ $ singularity inspect -d <container>
 ```bash
 $ singularity exec <container> /opt/view/bin/abyss-align
 $ podman run --it --rm --entrypoint /opt/view/bin/abyss-align   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/abyss-align   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -180,6 +185,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/abyss-align   -v ${PWD} -w ${P
 ```bash
 $ singularity exec <container> /opt/view/bin/abyss-bloom
 $ podman run --it --rm --entrypoint /opt/view/bin/abyss-bloom   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/abyss-bloom   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -188,6 +194,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/abyss-bloom   -v ${PWD} -w ${P
 ```bash
 $ singularity exec <container> /opt/view/bin/abyss-bloom-dbg
 $ podman run --it --rm --entrypoint /opt/view/bin/abyss-bloom-dbg   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/abyss-bloom-dbg   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -196,6 +203,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/abyss-bloom-dbg   -v ${PWD} -w
 ```bash
 $ singularity exec <container> /opt/view/bin/abyss-bloom-dist.mk
 $ podman run --it --rm --entrypoint /opt/view/bin/abyss-bloom-dist.mk   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/abyss-bloom-dist.mk   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -204,6 +212,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/abyss-bloom-dist.mk   -v ${PWD
 ```bash
 $ singularity exec <container> /opt/view/bin/abyss-bowtie
 $ podman run --it --rm --entrypoint /opt/view/bin/abyss-bowtie   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/abyss-bowtie   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -212,6 +221,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/abyss-bowtie   -v ${PWD} -w ${
 ```bash
 $ singularity exec <container> /opt/view/bin/abyss-bowtie2
 $ podman run --it --rm --entrypoint /opt/view/bin/abyss-bowtie2   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/abyss-bowtie2   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -220,6 +230,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/abyss-bowtie2   -v ${PWD} -w $
 ```bash
 $ singularity exec <container> /opt/view/bin/abyss-bwa
 $ podman run --it --rm --entrypoint /opt/view/bin/abyss-bwa   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/abyss-bwa   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -228,6 +239,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/abyss-bwa   -v ${PWD} -w ${PWD
 ```bash
 $ singularity exec <container> /opt/view/bin/abyss-bwamem
 $ podman run --it --rm --entrypoint /opt/view/bin/abyss-bwamem   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/abyss-bwamem   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -236,6 +248,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/abyss-bwamem   -v ${PWD} -w ${
 ```bash
 $ singularity exec <container> /opt/view/bin/abyss-bwasw
 $ podman run --it --rm --entrypoint /opt/view/bin/abyss-bwasw   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/abyss-bwasw   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -244,6 +257,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/abyss-bwasw   -v ${PWD} -w ${P
 ```bash
 $ singularity exec <container> /opt/view/bin/abyss-db-csv
 $ podman run --it --rm --entrypoint /opt/view/bin/abyss-db-csv   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/abyss-db-csv   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -252,6 +266,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/abyss-db-csv   -v ${PWD} -w ${
 ```bash
 $ singularity exec <container> /opt/view/bin/abyss-db-txt
 $ podman run --it --rm --entrypoint /opt/view/bin/abyss-db-txt   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/abyss-db-txt   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -260,6 +275,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/abyss-db-txt   -v ${PWD} -w ${
 ```bash
 $ singularity exec <container> /opt/view/bin/abyss-dida
 $ podman run --it --rm --entrypoint /opt/view/bin/abyss-dida   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/abyss-dida   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -268,6 +284,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/abyss-dida   -v ${PWD} -w ${PW
 ```bash
 $ singularity exec <container> /opt/view/bin/abyss-fac
 $ podman run --it --rm --entrypoint /opt/view/bin/abyss-fac   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/abyss-fac   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -276,6 +293,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/abyss-fac   -v ${PWD} -w ${PWD
 ```bash
 $ singularity exec <container> /opt/view/bin/abyss-fatoagp
 $ podman run --it --rm --entrypoint /opt/view/bin/abyss-fatoagp   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/abyss-fatoagp   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -284,6 +302,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/abyss-fatoagp   -v ${PWD} -w $
 ```bash
 $ singularity exec <container> /opt/view/bin/abyss-filtergraph
 $ podman run --it --rm --entrypoint /opt/view/bin/abyss-filtergraph   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/abyss-filtergraph   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -292,6 +311,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/abyss-filtergraph   -v ${PWD} 
 ```bash
 $ singularity exec <container> /opt/view/bin/abyss-fixmate
 $ podman run --it --rm --entrypoint /opt/view/bin/abyss-fixmate   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/abyss-fixmate   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -300,6 +320,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/abyss-fixmate   -v ${PWD} -w $
 ```bash
 $ singularity exec <container> /opt/view/bin/abyss-fixmate-ssq
 $ podman run --it --rm --entrypoint /opt/view/bin/abyss-fixmate-ssq   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/abyss-fixmate-ssq   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -308,6 +329,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/abyss-fixmate-ssq   -v ${PWD} 
 ```bash
 $ singularity exec <container> /opt/view/bin/abyss-gapfill
 $ podman run --it --rm --entrypoint /opt/view/bin/abyss-gapfill   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/abyss-gapfill   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -316,6 +338,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/abyss-gapfill   -v ${PWD} -w $
 ```bash
 $ singularity exec <container> /opt/view/bin/abyss-gc
 $ podman run --it --rm --entrypoint /opt/view/bin/abyss-gc   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/abyss-gc   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -324,6 +347,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/abyss-gc   -v ${PWD} -w ${PWD}
 ```bash
 $ singularity exec <container> /opt/view/bin/abyss-index
 $ podman run --it --rm --entrypoint /opt/view/bin/abyss-index   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/abyss-index   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -332,6 +356,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/abyss-index   -v ${PWD} -w ${P
 ```bash
 $ singularity exec <container> /opt/view/bin/abyss-junction
 $ podman run --it --rm --entrypoint /opt/view/bin/abyss-junction   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/abyss-junction   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -340,6 +365,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/abyss-junction   -v ${PWD} -w 
 ```bash
 $ singularity exec <container> /opt/view/bin/abyss-kaligner
 $ podman run --it --rm --entrypoint /opt/view/bin/abyss-kaligner   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/abyss-kaligner   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -348,6 +374,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/abyss-kaligner   -v ${PWD} -w 
 ```bash
 $ singularity exec <container> /opt/view/bin/abyss-layout
 $ podman run --it --rm --entrypoint /opt/view/bin/abyss-layout   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/abyss-layout   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -356,6 +383,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/abyss-layout   -v ${PWD} -w ${
 ```bash
 $ singularity exec <container> /opt/view/bin/abyss-longseqdist
 $ podman run --it --rm --entrypoint /opt/view/bin/abyss-longseqdist   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/abyss-longseqdist   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -364,6 +392,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/abyss-longseqdist   -v ${PWD} 
 ```bash
 $ singularity exec <container> /opt/view/bin/abyss-map
 $ podman run --it --rm --entrypoint /opt/view/bin/abyss-map   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/abyss-map   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -372,6 +401,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/abyss-map   -v ${PWD} -w ${PWD
 ```bash
 $ singularity exec <container> /opt/view/bin/abyss-map-ssq
 $ podman run --it --rm --entrypoint /opt/view/bin/abyss-map-ssq   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/abyss-map-ssq   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -380,6 +410,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/abyss-map-ssq   -v ${PWD} -w $
 ```bash
 $ singularity exec <container> /opt/view/bin/abyss-mergepairs
 $ podman run --it --rm --entrypoint /opt/view/bin/abyss-mergepairs   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/abyss-mergepairs   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -388,6 +419,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/abyss-mergepairs   -v ${PWD} -
 ```bash
 $ singularity exec <container> /opt/view/bin/abyss-overlap
 $ podman run --it --rm --entrypoint /opt/view/bin/abyss-overlap   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/abyss-overlap   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -396,6 +428,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/abyss-overlap   -v ${PWD} -w $
 ```bash
 $ singularity exec <container> /opt/view/bin/abyss-paired-dbg
 $ podman run --it --rm --entrypoint /opt/view/bin/abyss-paired-dbg   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/abyss-paired-dbg   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -404,6 +437,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/abyss-paired-dbg   -v ${PWD} -
 ```bash
 $ singularity exec <container> /opt/view/bin/abyss-paired-dbg-mpi
 $ podman run --it --rm --entrypoint /opt/view/bin/abyss-paired-dbg-mpi   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/abyss-paired-dbg-mpi   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -412,6 +446,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/abyss-paired-dbg-mpi   -v ${PW
 ```bash
 $ singularity exec <container> /opt/view/bin/abyss-pe
 $ podman run --it --rm --entrypoint /opt/view/bin/abyss-pe   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/abyss-pe   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -420,6 +455,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/abyss-pe   -v ${PWD} -w ${PWD}
 ```bash
 $ singularity exec <container> /opt/view/bin/abyss-samtoafg
 $ podman run --it --rm --entrypoint /opt/view/bin/abyss-samtoafg   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/abyss-samtoafg   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -428,6 +464,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/abyss-samtoafg   -v ${PWD} -w 
 ```bash
 $ singularity exec <container> /opt/view/bin/abyss-scaffold
 $ podman run --it --rm --entrypoint /opt/view/bin/abyss-scaffold   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/abyss-scaffold   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -436,6 +473,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/abyss-scaffold   -v ${PWD} -w 
 ```bash
 $ singularity exec <container> /opt/view/bin/abyss-sealer
 $ podman run --it --rm --entrypoint /opt/view/bin/abyss-sealer   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/abyss-sealer   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -444,6 +482,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/abyss-sealer   -v ${PWD} -w ${
 ```bash
 $ singularity exec <container> /opt/view/bin/abyss-stack-size
 $ podman run --it --rm --entrypoint /opt/view/bin/abyss-stack-size   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/abyss-stack-size   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -452,6 +491,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/abyss-stack-size   -v ${PWD} -
 ```bash
 $ singularity exec <container> /opt/view/bin/abyss-tabtomd
 $ podman run --it --rm --entrypoint /opt/view/bin/abyss-tabtomd   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/abyss-tabtomd   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -460,6 +500,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/abyss-tabtomd   -v ${PWD} -w $
 ```bash
 $ singularity exec <container> /opt/view/bin/abyss-todot
 $ podman run --it --rm --entrypoint /opt/view/bin/abyss-todot   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/abyss-todot   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -468,6 +509,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/abyss-todot   -v ${PWD} -w ${P
 ```bash
 $ singularity exec <container> /opt/view/bin/abyss-tofastq
 $ podman run --it --rm --entrypoint /opt/view/bin/abyss-tofastq   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/abyss-tofastq   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -480,8 +522,8 @@ inspect aliases. For anycommands above, you can export:
 
  - SINGULARITY_OPTS: to define custom options for singularity (e.g., --debug)
  - SINGULARITY_COMMAND_OPTS: to define custom options for the command (e.g., -b)
- - PODMAN_OPTS: to define custom options for podman
- - PODMAN_COMMAND_OPTS: to define custom options for the command
+ - DOCKER_OPTS: to define custom options for podman or docker
+ - DOCKER_COMMAND_OPTS: to define custom options for the command
 
 <br>
   

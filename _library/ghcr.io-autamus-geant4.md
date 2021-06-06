@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/geant4"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/geant4/container.yaml"
-updated_at: "2021-06-05 21:26:51.219271"
+updated_at: "2021-06-06 14:33:15.787587"
 container_url: "https://github.com/orgs/autamus/packages/container/package/geant4"
 aliases:
  - "Cast-config"
@@ -108,13 +108,14 @@ You can use tab for auto-completion of module names or commands that are provide
 ### Commands
 
 When you install this module, you'll be able to load it to make the following commands accessible.
-Examples for both Singularity and Podman (container technologies supported) are included.
+Examples for both Singularity, Podman, and Docker (container technologies supported) are included.
 
 #### -run:
 
 ```bash
 $ singularity run <container>
 $ podman run --rm  -v ${PWD} -w ${PWD} <container>
+$ docker run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
 #### -shell:
@@ -122,6 +123,7 @@ $ podman run --rm  -v ${PWD} -w ${PWD} <container>
 ```bash
 $ singularity shell -s /bin/sh <container>
 $ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
+$ docker run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
 #### -exec:
@@ -129,14 +131,16 @@ $ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```bash
 $ singularity exec -s /bin/sh <container> "$@"
 $ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
+$ docker run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
 #### -inspect:
 
-Podman only has one inspect type.
+Podman and Docker only have one inspect type.
 
 ```bash
 $ podman inspect <container>
+$ docker inspect <container>
 ```
 
 #### -inspect-runscript:
@@ -157,6 +161,7 @@ $ singularity inspect -d <container>
 ```bash
 $ singularity exec <container> /opt/view/bin/Cast-config
 $ podman run --it --rm --entrypoint /opt/view/bin/Cast-config   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/Cast-config   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -165,6 +170,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/Cast-config   -v ${PWD} -w ${P
 ```bash
 $ singularity exec <container> /opt/view/bin/CreateDOMDocument
 $ podman run --it --rm --entrypoint /opt/view/bin/CreateDOMDocument   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/CreateDOMDocument   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -173,6 +179,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/CreateDOMDocument   -v ${PWD} 
 ```bash
 $ singularity exec <container> /opt/view/bin/DOMCount
 $ podman run --it --rm --entrypoint /opt/view/bin/DOMCount   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/DOMCount   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -181,6 +188,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/DOMCount   -v ${PWD} -w ${PWD}
 ```bash
 $ singularity exec <container> /opt/view/bin/DOMPrint
 $ podman run --it --rm --entrypoint /opt/view/bin/DOMPrint   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/DOMPrint   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -189,6 +197,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/DOMPrint   -v ${PWD} -w ${PWD}
 ```bash
 $ singularity exec <container> /opt/view/bin/EnumVal
 $ podman run --it --rm --entrypoint /opt/view/bin/EnumVal   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/EnumVal   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -197,6 +206,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/EnumVal   -v ${PWD} -w ${PWD} 
 ```bash
 $ singularity exec <container> /opt/view/bin/Evaluator-config
 $ podman run --it --rm --entrypoint /opt/view/bin/Evaluator-config   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/Evaluator-config   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -205,6 +215,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/Evaluator-config   -v ${PWD} -
 ```bash
 $ singularity exec <container> /opt/view/bin/Exceptions-config
 $ podman run --it --rm --entrypoint /opt/view/bin/Exceptions-config   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/Exceptions-config   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -213,6 +224,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/Exceptions-config   -v ${PWD} 
 ```bash
 $ singularity exec <container> /opt/view/bin/GenericFunctions-config
 $ podman run --it --rm --entrypoint /opt/view/bin/GenericFunctions-config   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/GenericFunctions-config   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -221,6 +233,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/GenericFunctions-config   -v $
 ```bash
 $ singularity exec <container> /opt/view/bin/Geometry-config
 $ podman run --it --rm --entrypoint /opt/view/bin/Geometry-config   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/Geometry-config   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -229,6 +242,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/Geometry-config   -v ${PWD} -w
 ```bash
 $ singularity exec <container> /opt/view/bin/Matrix-config
 $ podman run --it --rm --entrypoint /opt/view/bin/Matrix-config   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/Matrix-config   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -237,6 +251,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/Matrix-config   -v ${PWD} -w $
 ```bash
 $ singularity exec <container> /opt/view/bin/MemParse
 $ podman run --it --rm --entrypoint /opt/view/bin/MemParse   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/MemParse   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -245,6 +260,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/MemParse   -v ${PWD} -w ${PWD}
 ```bash
 $ singularity exec <container> /opt/view/bin/PParse
 $ podman run --it --rm --entrypoint /opt/view/bin/PParse   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/PParse   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -253,6 +269,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/PParse   -v ${PWD} -w ${PWD} <
 ```bash
 $ singularity exec <container> /opt/view/bin/PSVIWriter
 $ podman run --it --rm --entrypoint /opt/view/bin/PSVIWriter   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/PSVIWriter   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -261,6 +278,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/PSVIWriter   -v ${PWD} -w ${PW
 ```bash
 $ singularity exec <container> /opt/view/bin/Random-config
 $ podman run --it --rm --entrypoint /opt/view/bin/Random-config   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/Random-config   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -269,6 +287,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/Random-config   -v ${PWD} -w $
 ```bash
 $ singularity exec <container> /opt/view/bin/RandomObjects-config
 $ podman run --it --rm --entrypoint /opt/view/bin/RandomObjects-config   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/RandomObjects-config   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -277,6 +296,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/RandomObjects-config   -v ${PW
 ```bash
 $ singularity exec <container> /opt/view/bin/Redirect
 $ podman run --it --rm --entrypoint /opt/view/bin/Redirect   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/Redirect   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -285,6 +305,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/Redirect   -v ${PWD} -w ${PWD}
 ```bash
 $ singularity exec <container> /opt/view/bin/RefCount-config
 $ podman run --it --rm --entrypoint /opt/view/bin/RefCount-config   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/RefCount-config   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -293,6 +314,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/RefCount-config   -v ${PWD} -w
 ```bash
 $ singularity exec <container> /opt/view/bin/SAX2Count
 $ podman run --it --rm --entrypoint /opt/view/bin/SAX2Count   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/SAX2Count   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -301,6 +323,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/SAX2Count   -v ${PWD} -w ${PWD
 ```bash
 $ singularity exec <container> /opt/view/bin/SAX2Print
 $ podman run --it --rm --entrypoint /opt/view/bin/SAX2Print   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/SAX2Print   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -309,6 +332,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/SAX2Print   -v ${PWD} -w ${PWD
 ```bash
 $ singularity exec <container> /opt/view/bin/SAXCount
 $ podman run --it --rm --entrypoint /opt/view/bin/SAXCount   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/SAXCount   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -317,6 +341,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/SAXCount   -v ${PWD} -w ${PWD}
 ```bash
 $ singularity exec <container> /opt/view/bin/SAXPrint
 $ podman run --it --rm --entrypoint /opt/view/bin/SAXPrint   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/SAXPrint   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -325,6 +350,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/SAXPrint   -v ${PWD} -w ${PWD}
 ```bash
 $ singularity exec <container> /opt/view/bin/SCMPrint
 $ podman run --it --rm --entrypoint /opt/view/bin/SCMPrint   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/SCMPrint   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -333,6 +359,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/SCMPrint   -v ${PWD} -w ${PWD}
 ```bash
 $ singularity exec <container> /opt/view/bin/SEnumVal
 $ podman run --it --rm --entrypoint /opt/view/bin/SEnumVal   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/SEnumVal   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -341,6 +368,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/SEnumVal   -v ${PWD} -w ${PWD}
 ```bash
 $ singularity exec <container> /opt/view/bin/StdInParse
 $ podman run --it --rm --entrypoint /opt/view/bin/StdInParse   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/StdInParse   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -349,6 +377,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/StdInParse   -v ${PWD} -w ${PW
 ```bash
 $ singularity exec <container> /opt/view/bin/Units-config
 $ podman run --it --rm --entrypoint /opt/view/bin/Units-config   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/Units-config   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -357,6 +386,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/Units-config   -v ${PWD} -w ${
 ```bash
 $ singularity exec <container> /opt/view/bin/Utility-config
 $ podman run --it --rm --entrypoint /opt/view/bin/Utility-config   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/Utility-config   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -365,6 +395,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/Utility-config   -v ${PWD} -w 
 ```bash
 $ singularity exec <container> /opt/view/bin/Vector-config
 $ podman run --it --rm --entrypoint /opt/view/bin/Vector-config   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/Vector-config   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -373,6 +404,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/Vector-config   -v ${PWD} -w $
 ```bash
 $ singularity exec <container> /opt/view/bin/XInclude
 $ podman run --it --rm --entrypoint /opt/view/bin/XInclude   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/XInclude   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -381,6 +413,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/XInclude   -v ${PWD} -w ${PWD}
 ```bash
 $ singularity exec <container> /opt/view/bin/geant4-config
 $ podman run --it --rm --entrypoint /opt/view/bin/geant4-config   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/geant4-config   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -389,6 +422,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/geant4-config   -v ${PWD} -w $
 ```bash
 $ singularity exec <container> /opt/view/bin/geant4.csh
 $ podman run --it --rm --entrypoint /opt/view/bin/geant4.csh   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/geant4.csh   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -397,6 +431,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/geant4.csh   -v ${PWD} -w ${PW
 ```bash
 $ singularity exec <container> /opt/view/bin/geant4.sh
 $ podman run --it --rm --entrypoint /opt/view/bin/geant4.sh   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/geant4.sh   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -409,8 +444,8 @@ inspect aliases. For anycommands above, you can export:
 
  - SINGULARITY_OPTS: to define custom options for singularity (e.g., --debug)
  - SINGULARITY_COMMAND_OPTS: to define custom options for the command (e.g., -b)
- - PODMAN_OPTS: to define custom options for podman
- - PODMAN_COMMAND_OPTS: to define custom options for the command
+ - DOCKER_OPTS: to define custom options for podman or docker
+ - DOCKER_COMMAND_OPTS: to define custom options for the command
 
 <br>
   

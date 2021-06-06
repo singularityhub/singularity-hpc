@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/nco"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/nco/container.yaml"
-updated_at: "2021-06-05 21:26:37.225926"
+updated_at: "2021-06-06 14:33:00.772508"
 container_url: "https://github.com/orgs/autamus/packages/container/package/nco"
 aliases:
  - "nc-config"
@@ -93,13 +93,14 @@ You can use tab for auto-completion of module names or commands that are provide
 ### Commands
 
 When you install this module, you'll be able to load it to make the following commands accessible.
-Examples for both Singularity and Podman (container technologies supported) are included.
+Examples for both Singularity, Podman, and Docker (container technologies supported) are included.
 
 #### -run:
 
 ```bash
 $ singularity run <container>
 $ podman run --rm  -v ${PWD} -w ${PWD} <container>
+$ docker run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
 #### -shell:
@@ -107,6 +108,7 @@ $ podman run --rm  -v ${PWD} -w ${PWD} <container>
 ```bash
 $ singularity shell -s /bin/sh <container>
 $ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
+$ docker run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
 #### -exec:
@@ -114,14 +116,16 @@ $ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```bash
 $ singularity exec -s /bin/sh <container> "$@"
 $ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
+$ docker run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
 #### -inspect:
 
-Podman only has one inspect type.
+Podman and Docker only have one inspect type.
 
 ```bash
 $ podman inspect <container>
+$ docker inspect <container>
 ```
 
 #### -inspect-runscript:
@@ -142,6 +146,7 @@ $ singularity inspect -d <container>
 ```bash
 $ singularity exec <container> /opt/view/bin/nc-config
 $ podman run --it --rm --entrypoint /opt/view/bin/nc-config   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/nc-config   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -150,6 +155,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/nc-config   -v ${PWD} -w ${PWD
 ```bash
 $ singularity exec <container> /opt/view/bin/ncap2
 $ podman run --it --rm --entrypoint /opt/view/bin/ncap2   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/ncap2   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -158,6 +164,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/ncap2   -v ${PWD} -w ${PWD} <c
 ```bash
 $ singularity exec <container> /opt/view/bin/ncatted
 $ podman run --it --rm --entrypoint /opt/view/bin/ncatted   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/ncatted   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -166,6 +173,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/ncatted   -v ${PWD} -w ${PWD} 
 ```bash
 $ singularity exec <container> /opt/view/bin/ncbo
 $ podman run --it --rm --entrypoint /opt/view/bin/ncbo   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/ncbo   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -174,6 +182,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/ncbo   -v ${PWD} -w ${PWD} <co
 ```bash
 $ singularity exec <container> /opt/view/bin/ncclimo
 $ podman run --it --rm --entrypoint /opt/view/bin/ncclimo   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/ncclimo   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -182,6 +191,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/ncclimo   -v ${PWD} -w ${PWD} 
 ```bash
 $ singularity exec <container> /opt/view/bin/nccopy
 $ podman run --it --rm --entrypoint /opt/view/bin/nccopy   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/nccopy   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -190,6 +200,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/nccopy   -v ${PWD} -w ${PWD} <
 ```bash
 $ singularity exec <container> /opt/view/bin/ncdiff
 $ podman run --it --rm --entrypoint /opt/view/bin/ncdiff   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/ncdiff   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -198,6 +209,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/ncdiff   -v ${PWD} -w ${PWD} <
 ```bash
 $ singularity exec <container> /opt/view/bin/ncdump
 $ podman run --it --rm --entrypoint /opt/view/bin/ncdump   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/ncdump   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -206,6 +218,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/ncdump   -v ${PWD} -w ${PWD} <
 ```bash
 $ singularity exec <container> /opt/view/bin/ncea
 $ podman run --it --rm --entrypoint /opt/view/bin/ncea   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/ncea   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -214,6 +227,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/ncea   -v ${PWD} -w ${PWD} <co
 ```bash
 $ singularity exec <container> /opt/view/bin/ncecat
 $ podman run --it --rm --entrypoint /opt/view/bin/ncecat   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/ncecat   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -222,6 +236,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/ncecat   -v ${PWD} -w ${PWD} <
 ```bash
 $ singularity exec <container> /opt/view/bin/nces
 $ podman run --it --rm --entrypoint /opt/view/bin/nces   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/nces   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -230,6 +245,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/nces   -v ${PWD} -w ${PWD} <co
 ```bash
 $ singularity exec <container> /opt/view/bin/ncflint
 $ podman run --it --rm --entrypoint /opt/view/bin/ncflint   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/ncflint   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -238,6 +254,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/ncflint   -v ${PWD} -w ${PWD} 
 ```bash
 $ singularity exec <container> /opt/view/bin/ncgen
 $ podman run --it --rm --entrypoint /opt/view/bin/ncgen   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/ncgen   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -246,6 +263,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/ncgen   -v ${PWD} -w ${PWD} <c
 ```bash
 $ singularity exec <container> /opt/view/bin/ncgen3
 $ podman run --it --rm --entrypoint /opt/view/bin/ncgen3   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/ncgen3   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -254,6 +272,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/ncgen3   -v ${PWD} -w ${PWD} <
 ```bash
 $ singularity exec <container> /opt/view/bin/ncks
 $ podman run --it --rm --entrypoint /opt/view/bin/ncks   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/ncks   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -262,6 +281,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/ncks   -v ${PWD} -w ${PWD} <co
 ```bash
 $ singularity exec <container> /opt/view/bin/ncpdq
 $ podman run --it --rm --entrypoint /opt/view/bin/ncpdq   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/ncpdq   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -270,6 +290,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/ncpdq   -v ${PWD} -w ${PWD} <c
 ```bash
 $ singularity exec <container> /opt/view/bin/ncra
 $ podman run --it --rm --entrypoint /opt/view/bin/ncra   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/ncra   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -278,6 +299,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/ncra   -v ${PWD} -w ${PWD} <co
 ```bash
 $ singularity exec <container> /opt/view/bin/ncrcat
 $ podman run --it --rm --entrypoint /opt/view/bin/ncrcat   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/ncrcat   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -286,6 +308,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/ncrcat   -v ${PWD} -w ${PWD} <
 ```bash
 $ singularity exec <container> /opt/view/bin/ncremap
 $ podman run --it --rm --entrypoint /opt/view/bin/ncremap   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/ncremap   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -294,6 +317,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/ncremap   -v ${PWD} -w ${PWD} 
 ```bash
 $ singularity exec <container> /opt/view/bin/ncrename
 $ podman run --it --rm --entrypoint /opt/view/bin/ncrename   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/ncrename   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -302,6 +326,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/ncrename   -v ${PWD} -w ${PWD}
 ```bash
 $ singularity exec <container> /opt/view/bin/ncurses6-config
 $ podman run --it --rm --entrypoint /opt/view/bin/ncurses6-config   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/ncurses6-config   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -310,6 +335,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/ncurses6-config   -v ${PWD} -w
 ```bash
 $ singularity exec <container> /opt/view/bin/ncursesw6-config
 $ podman run --it --rm --entrypoint /opt/view/bin/ncursesw6-config   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/ncursesw6-config   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -318,6 +344,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/ncursesw6-config   -v ${PWD} -
 ```bash
 $ singularity exec <container> /opt/view/bin/ncwa
 $ podman run --it --rm --entrypoint /opt/view/bin/ncwa   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/ncwa   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -330,8 +357,8 @@ inspect aliases. For anycommands above, you can export:
 
  - SINGULARITY_OPTS: to define custom options for singularity (e.g., --debug)
  - SINGULARITY_COMMAND_OPTS: to define custom options for the command (e.g., -b)
- - PODMAN_OPTS: to define custom options for podman
- - PODMAN_COMMAND_OPTS: to define custom options for the command
+ - DOCKER_OPTS: to define custom options for podman or docker
+ - DOCKER_COMMAND_OPTS: to define custom options for the command
 
 <br>
   

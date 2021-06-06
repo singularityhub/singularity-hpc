@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/openjdk"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/openjdk/container.yaml"
-updated_at: "2021-06-05 21:26:42.416098"
+updated_at: "2021-06-06 14:33:06.396862"
 container_url: "https://github.com/orgs/autamus/packages/container/package/openjdk"
 aliases:
  - "jaotc"
@@ -95,13 +95,14 @@ You can use tab for auto-completion of module names or commands that are provide
 ### Commands
 
 When you install this module, you'll be able to load it to make the following commands accessible.
-Examples for both Singularity and Podman (container technologies supported) are included.
+Examples for both Singularity, Podman, and Docker (container technologies supported) are included.
 
 #### -run:
 
 ```bash
 $ singularity run <container>
 $ podman run --rm  -v ${PWD} -w ${PWD} <container>
+$ docker run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
 #### -shell:
@@ -109,6 +110,7 @@ $ podman run --rm  -v ${PWD} -w ${PWD} <container>
 ```bash
 $ singularity shell -s /bin/sh <container>
 $ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
+$ docker run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
 #### -exec:
@@ -116,14 +118,16 @@ $ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```bash
 $ singularity exec -s /bin/sh <container> "$@"
 $ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
+$ docker run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
 #### -inspect:
 
-Podman only has one inspect type.
+Podman and Docker only have one inspect type.
 
 ```bash
 $ podman inspect <container>
+$ docker inspect <container>
 ```
 
 #### -inspect-runscript:
@@ -144,6 +148,7 @@ $ singularity inspect -d <container>
 ```bash
 $ singularity exec <container> /opt/view/bin/jaotc
 $ podman run --it --rm --entrypoint /opt/view/bin/jaotc   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/jaotc   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -152,6 +157,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/jaotc   -v ${PWD} -w ${PWD} <c
 ```bash
 $ singularity exec <container> /opt/view/bin/javadoc
 $ podman run --it --rm --entrypoint /opt/view/bin/javadoc   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/javadoc   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -160,6 +166,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/javadoc   -v ${PWD} -w ${PWD} 
 ```bash
 $ singularity exec <container> /opt/view/bin/jinfo
 $ podman run --it --rm --entrypoint /opt/view/bin/jinfo   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/jinfo   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -168,6 +175,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/jinfo   -v ${PWD} -w ${PWD} <c
 ```bash
 $ singularity exec <container> /opt/view/bin/jps
 $ podman run --it --rm --entrypoint /opt/view/bin/jps   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/jps   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -176,6 +184,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/jps   -v ${PWD} -w ${PWD} <con
 ```bash
 $ singularity exec <container> /opt/view/bin/jstatd
 $ podman run --it --rm --entrypoint /opt/view/bin/jstatd   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/jstatd   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -184,6 +193,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/jstatd   -v ${PWD} -w ${PWD} <
 ```bash
 $ singularity exec <container> /opt/view/bin/jar
 $ podman run --it --rm --entrypoint /opt/view/bin/jar   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/jar   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -192,6 +202,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/jar   -v ${PWD} -w ${PWD} <con
 ```bash
 $ singularity exec <container> /opt/view/bin/javap
 $ podman run --it --rm --entrypoint /opt/view/bin/javap   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/javap   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -200,6 +211,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/javap   -v ${PWD} -w ${PWD} <c
 ```bash
 $ singularity exec <container> /opt/view/bin/jdeps
 $ podman run --it --rm --entrypoint /opt/view/bin/jdeps   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/jdeps   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -208,6 +220,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/jdeps   -v ${PWD} -w ${PWD} <c
 ```bash
 $ singularity exec <container> /opt/view/bin/jjs
 $ podman run --it --rm --entrypoint /opt/view/bin/jjs   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/jjs   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -216,6 +229,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/jjs   -v ${PWD} -w ${PWD} <con
 ```bash
 $ singularity exec <container> /opt/view/bin/jrunscript
 $ podman run --it --rm --entrypoint /opt/view/bin/jrunscript   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/jrunscript   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -224,6 +238,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/jrunscript   -v ${PWD} -w ${PW
 ```bash
 $ singularity exec <container> /opt/view/bin/jarsigner
 $ podman run --it --rm --entrypoint /opt/view/bin/jarsigner   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/jarsigner   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -232,6 +247,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/jarsigner   -v ${PWD} -w ${PWD
 ```bash
 $ singularity exec <container> /opt/view/bin/jcmd
 $ podman run --it --rm --entrypoint /opt/view/bin/jcmd   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/jcmd   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -240,6 +256,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/jcmd   -v ${PWD} -w ${PWD} <co
 ```bash
 $ singularity exec <container> /opt/view/bin/jfr
 $ podman run --it --rm --entrypoint /opt/view/bin/jfr   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/jfr   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -248,6 +265,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/jfr   -v ${PWD} -w ${PWD} <con
 ```bash
 $ singularity exec <container> /opt/view/bin/jlink
 $ podman run --it --rm --entrypoint /opt/view/bin/jlink   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/jlink   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -256,6 +274,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/jlink   -v ${PWD} -w ${PWD} <c
 ```bash
 $ singularity exec <container> /opt/view/bin/jshell
 $ podman run --it --rm --entrypoint /opt/view/bin/jshell   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/jshell   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -264,6 +283,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/jshell   -v ${PWD} -w ${PWD} <
 ```bash
 $ singularity exec <container> /opt/view/bin/java
 $ podman run --it --rm --entrypoint /opt/view/bin/java   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/java   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -272,6 +292,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/java   -v ${PWD} -w ${PWD} <co
 ```bash
 $ singularity exec <container> /opt/view/bin/jconsole
 $ podman run --it --rm --entrypoint /opt/view/bin/jconsole   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/jconsole   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -280,6 +301,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/jconsole   -v ${PWD} -w ${PWD}
 ```bash
 $ singularity exec <container> /opt/view/bin/jhsdb
 $ podman run --it --rm --entrypoint /opt/view/bin/jhsdb   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/jhsdb   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -288,6 +310,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/jhsdb   -v ${PWD} -w ${PWD} <c
 ```bash
 $ singularity exec <container> /opt/view/bin/jmap
 $ podman run --it --rm --entrypoint /opt/view/bin/jmap   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/jmap   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -296,6 +319,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/jmap   -v ${PWD} -w ${PWD} <co
 ```bash
 $ singularity exec <container> /opt/view/bin/jstack
 $ podman run --it --rm --entrypoint /opt/view/bin/jstack   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/jstack   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -304,6 +328,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/jstack   -v ${PWD} -w ${PWD} <
 ```bash
 $ singularity exec <container> /opt/view/bin/javac
 $ podman run --it --rm --entrypoint /opt/view/bin/javac   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/javac   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -312,6 +337,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/javac   -v ${PWD} -w ${PWD} <c
 ```bash
 $ singularity exec <container> /opt/view/bin/jdb
 $ podman run --it --rm --entrypoint /opt/view/bin/jdb   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/jdb   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -320,6 +346,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/jdb   -v ${PWD} -w ${PWD} <con
 ```bash
 $ singularity exec <container> /opt/view/bin/jimage
 $ podman run --it --rm --entrypoint /opt/view/bin/jimage   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/jimage   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -328,6 +355,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/jimage   -v ${PWD} -w ${PWD} <
 ```bash
 $ singularity exec <container> /opt/view/bin/jmod
 $ podman run --it --rm --entrypoint /opt/view/bin/jmod   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/jmod   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -336,6 +364,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/jmod   -v ${PWD} -w ${PWD} <co
 ```bash
 $ singularity exec <container> /opt/view/bin/jstat
 $ podman run --it --rm --entrypoint /opt/view/bin/jstat   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/jstat   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -348,8 +377,8 @@ inspect aliases. For anycommands above, you can export:
 
  - SINGULARITY_OPTS: to define custom options for singularity (e.g., --debug)
  - SINGULARITY_COMMAND_OPTS: to define custom options for the command (e.g., -b)
- - PODMAN_OPTS: to define custom options for podman
- - PODMAN_COMMAND_OPTS: to define custom options for the command
+ - DOCKER_OPTS: to define custom options for podman or docker
+ - DOCKER_COMMAND_OPTS: to define custom options for the command
 
 <br>
   

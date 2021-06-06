@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/xz"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/xz/container.yaml"
-updated_at: "2021-06-05 21:26:41.601346"
+updated_at: "2021-06-06 14:33:05.480148"
 container_url: "https://github.com/orgs/autamus/packages/container/package/xz"
 aliases:
  - "xz"
@@ -66,13 +66,14 @@ You can use tab for auto-completion of module names or commands that are provide
 ### Commands
 
 When you install this module, you'll be able to load it to make the following commands accessible.
-Examples for both Singularity and Podman (container technologies supported) are included.
+Examples for both Singularity, Podman, and Docker (container technologies supported) are included.
 
 #### -run:
 
 ```bash
 $ singularity run <container>
 $ podman run --rm  -v ${PWD} -w ${PWD} <container>
+$ docker run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
 #### -shell:
@@ -80,6 +81,7 @@ $ podman run --rm  -v ${PWD} -w ${PWD} <container>
 ```bash
 $ singularity shell -s /bin/sh <container>
 $ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
+$ docker run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
 #### -exec:
@@ -87,14 +89,16 @@ $ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```bash
 $ singularity exec -s /bin/sh <container> "$@"
 $ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
+$ docker run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
 #### -inspect:
 
-Podman only has one inspect type.
+Podman and Docker only have one inspect type.
 
 ```bash
 $ podman inspect <container>
+$ docker inspect <container>
 ```
 
 #### -inspect-runscript:
@@ -115,6 +119,7 @@ $ singularity inspect -d <container>
 ```bash
 $ singularity exec <container> /opt/view/bin/xz
 $ podman run --it --rm --entrypoint /opt/view/bin/xz   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/xz   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -123,6 +128,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/xz   -v ${PWD} -w ${PWD} <cont
 ```bash
 $ singularity exec <container> /opt/view/bin/xzcat
 $ podman run --it --rm --entrypoint /opt/view/bin/xzcat   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/xzcat   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -131,6 +137,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/xzcat   -v ${PWD} -w ${PWD} <c
 ```bash
 $ singularity exec <container> /opt/view/bin/xzcmp
 $ podman run --it --rm --entrypoint /opt/view/bin/xzcmp   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/xzcmp   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -139,6 +146,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/xzcmp   -v ${PWD} -w ${PWD} <c
 ```bash
 $ singularity exec <container> /opt/view/bin/xzdec
 $ podman run --it --rm --entrypoint /opt/view/bin/xzdec   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/xzdec   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -147,6 +155,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/xzdec   -v ${PWD} -w ${PWD} <c
 ```bash
 $ singularity exec <container> /opt/view/bin/xzdiff
 $ podman run --it --rm --entrypoint /opt/view/bin/xzdiff   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/xzdiff   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -155,6 +164,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/xzdiff   -v ${PWD} -w ${PWD} <
 ```bash
 $ singularity exec <container> /opt/view/bin/xzegrep
 $ podman run --it --rm --entrypoint /opt/view/bin/xzegrep   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/xzegrep   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -163,6 +173,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/xzegrep   -v ${PWD} -w ${PWD} 
 ```bash
 $ singularity exec <container> /opt/view/bin/xzfgrep
 $ podman run --it --rm --entrypoint /opt/view/bin/xzfgrep   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/xzfgrep   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -171,6 +182,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/xzfgrep   -v ${PWD} -w ${PWD} 
 ```bash
 $ singularity exec <container> /opt/view/bin/xzgrep
 $ podman run --it --rm --entrypoint /opt/view/bin/xzgrep   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/xzgrep   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -179,6 +191,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/xzgrep   -v ${PWD} -w ${PWD} <
 ```bash
 $ singularity exec <container> /opt/view/bin/xzless
 $ podman run --it --rm --entrypoint /opt/view/bin/xzless   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/xzless   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -187,6 +200,7 @@ $ podman run --it --rm --entrypoint /opt/view/bin/xzless   -v ${PWD} -w ${PWD} <
 ```bash
 $ singularity exec <container> /opt/view/bin/xzmore
 $ podman run --it --rm --entrypoint /opt/view/bin/xzmore   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/xzmore   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -199,8 +213,8 @@ inspect aliases. For anycommands above, you can export:
 
  - SINGULARITY_OPTS: to define custom options for singularity (e.g., --debug)
  - SINGULARITY_COMMAND_OPTS: to define custom options for the command (e.g., -b)
- - PODMAN_OPTS: to define custom options for podman
- - PODMAN_COMMAND_OPTS: to define custom options for the command
+ - DOCKER_OPTS: to define custom options for podman or docker
+ - DOCKER_COMMAND_OPTS: to define custom options for the command
 
 <br>
   

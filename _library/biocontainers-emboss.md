@@ -3,7 +3,7 @@ layout: container
 name:  "biocontainers/emboss"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/biocontainers/emboss/container.yaml"
-updated_at: "2021-06-05 21:27:13.833320"
+updated_at: "2021-06-06 14:33:39.288721"
 container_url: "https://hub.docker.com/r/biocontainers/emboss"
 aliases:
  - "embossdata"
@@ -59,13 +59,14 @@ You can use tab for auto-completion of module names or commands that are provide
 ### Commands
 
 When you install this module, you'll be able to load it to make the following commands accessible.
-Examples for both Singularity and Podman (container technologies supported) are included.
+Examples for both Singularity, Podman, and Docker (container technologies supported) are included.
 
 #### -run:
 
 ```bash
 $ singularity run <container>
 $ podman run --rm  -v ${PWD} -w ${PWD} <container>
+$ docker run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
 #### -shell:
@@ -73,6 +74,7 @@ $ podman run --rm  -v ${PWD} -w ${PWD} <container>
 ```bash
 $ singularity shell -s /bin/sh <container>
 $ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
+$ docker run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
 #### -exec:
@@ -80,14 +82,16 @@ $ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```bash
 $ singularity exec -s /bin/sh <container> "$@"
 $ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
+$ docker run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
 #### -inspect:
 
-Podman only has one inspect type.
+Podman and Docker only have one inspect type.
 
 ```bash
 $ podman inspect <container>
+$ docker inspect <container>
 ```
 
 #### -inspect-runscript:
@@ -108,6 +112,7 @@ $ singularity inspect -d <container>
 ```bash
 $ singularity exec <container> /usr/bin/embossdata
 $ podman run --it --rm --entrypoint /usr/bin/embossdata   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/bin/embossdata   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -116,6 +121,7 @@ $ podman run --it --rm --entrypoint /usr/bin/embossdata   -v ${PWD} -w ${PWD} <c
 ```bash
 $ singularity exec <container> /usr/bin/embossupdate
 $ podman run --it --rm --entrypoint /usr/bin/embossupdate   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/bin/embossupdate   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -124,6 +130,7 @@ $ podman run --it --rm --entrypoint /usr/bin/embossupdate   -v ${PWD} -w ${PWD} 
 ```bash
 $ singularity exec <container> /usr/bin/embossversion
 $ podman run --it --rm --entrypoint /usr/bin/embossversion   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/bin/embossversion   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -132,6 +139,7 @@ $ podman run --it --rm --entrypoint /usr/bin/embossversion   -v ${PWD} -w ${PWD}
 ```bash
 $ singularity exec <container> /usr/bin/emma
 $ podman run --it --rm --entrypoint /usr/bin/emma   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/bin/emma   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -140,6 +148,7 @@ $ podman run --it --rm --entrypoint /usr/bin/emma   -v ${PWD} -w ${PWD} <contain
 ```bash
 $ singularity exec <container> /usr/bin/emouse
 $ podman run --it --rm --entrypoint /usr/bin/emouse   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/bin/emouse   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -148,6 +157,7 @@ $ podman run --it --rm --entrypoint /usr/bin/emouse   -v ${PWD} -w ${PWD} <conta
 ```bash
 $ singularity exec <container> /usr/bin/em_pscan
 $ podman run --it --rm --entrypoint /usr/bin/em_pscan   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/bin/em_pscan   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -156,6 +166,7 @@ $ podman run --it --rm --entrypoint /usr/bin/em_pscan   -v ${PWD} -w ${PWD} <con
 ```bash
 $ singularity exec <container> /usr/bin/em_cons
 $ podman run --it --rm --entrypoint /usr/bin/em_cons   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/bin/em_cons   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -168,8 +179,8 @@ inspect aliases. For anycommands above, you can export:
 
  - SINGULARITY_OPTS: to define custom options for singularity (e.g., --debug)
  - SINGULARITY_COMMAND_OPTS: to define custom options for the command (e.g., -b)
- - PODMAN_OPTS: to define custom options for podman
- - PODMAN_COMMAND_OPTS: to define custom options for the command
+ - DOCKER_OPTS: to define custom options for podman or docker
+ - DOCKER_COMMAND_OPTS: to define custom options for the command
 
 <br>
   

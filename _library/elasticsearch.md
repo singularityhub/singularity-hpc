@@ -3,7 +3,7 @@ layout: container
 name:  "elasticsearch"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/elasticsearch/container.yaml"
-updated_at: "2021-06-05 21:26:35.400310"
+updated_at: "2021-06-06 14:32:58.717931"
 container_url: "https://hub.docker.com/_/elasticsearch"
 aliases:
  - "elasticsearch"
@@ -82,13 +82,14 @@ You can use tab for auto-completion of module names or commands that are provide
 ### Commands
 
 When you install this module, you'll be able to load it to make the following commands accessible.
-Examples for both Singularity and Podman (container technologies supported) are included.
+Examples for both Singularity, Podman, and Docker (container technologies supported) are included.
 
 #### -run:
 
 ```bash
 $ singularity run <container>
 $ podman run --rm  -v ${PWD} -w ${PWD} <container>
+$ docker run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
 #### -shell:
@@ -96,6 +97,7 @@ $ podman run --rm  -v ${PWD} -w ${PWD} <container>
 ```bash
 $ singularity shell -s /bin/sh <container>
 $ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
+$ docker run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
 #### -exec:
@@ -103,14 +105,16 @@ $ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```bash
 $ singularity exec -s /bin/sh <container> "$@"
 $ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
+$ docker run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
 #### -inspect:
 
-Podman only has one inspect type.
+Podman and Docker only have one inspect type.
 
 ```bash
 $ podman inspect <container>
+$ docker inspect <container>
 ```
 
 #### -inspect-runscript:
@@ -131,6 +135,7 @@ $ singularity inspect -d <container>
 ```bash
 $ singularity exec <container> /usr/share/elasticsearch/bin/elasticsearch
 $ podman run --it --rm --entrypoint /usr/share/elasticsearch/bin/elasticsearch   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/share/elasticsearch/bin/elasticsearch   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -139,6 +144,7 @@ $ podman run --it --rm --entrypoint /usr/share/elasticsearch/bin/elasticsearch  
 ```bash
 $ singularity exec <container> /usr/share/elasticsearch/bin/elasticsearch-certgen
 $ podman run --it --rm --entrypoint /usr/share/elasticsearch/bin/elasticsearch-certgen   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/share/elasticsearch/bin/elasticsearch-certgen   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -147,6 +153,7 @@ $ podman run --it --rm --entrypoint /usr/share/elasticsearch/bin/elasticsearch-c
 ```bash
 $ singularity exec <container> /usr/share/elasticsearch/bin/elasticsearch-certutil
 $ podman run --it --rm --entrypoint /usr/share/elasticsearch/bin/elasticsearch-certutil   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/share/elasticsearch/bin/elasticsearch-certutil   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -155,6 +162,7 @@ $ podman run --it --rm --entrypoint /usr/share/elasticsearch/bin/elasticsearch-c
 ```bash
 $ singularity exec <container> /usr/share/elasticsearch/bin/elasticsearch-cli
 $ podman run --it --rm --entrypoint /usr/share/elasticsearch/bin/elasticsearch-cli   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/share/elasticsearch/bin/elasticsearch-cli   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -163,6 +171,7 @@ $ podman run --it --rm --entrypoint /usr/share/elasticsearch/bin/elasticsearch-c
 ```bash
 $ singularity exec <container> /usr/share/elasticsearch/bin/elasticsearch-croneval
 $ podman run --it --rm --entrypoint /usr/share/elasticsearch/bin/elasticsearch-croneval   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/share/elasticsearch/bin/elasticsearch-croneval   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -171,6 +180,7 @@ $ podman run --it --rm --entrypoint /usr/share/elasticsearch/bin/elasticsearch-c
 ```bash
 $ singularity exec <container> /usr/share/elasticsearch/bin/elasticsearch-env
 $ podman run --it --rm --entrypoint /usr/share/elasticsearch/bin/elasticsearch-env   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/share/elasticsearch/bin/elasticsearch-env   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -179,6 +189,7 @@ $ podman run --it --rm --entrypoint /usr/share/elasticsearch/bin/elasticsearch-e
 ```bash
 $ singularity exec <container> /usr/share/elasticsearch/bin/elasticsearch-env-from-file
 $ podman run --it --rm --entrypoint /usr/share/elasticsearch/bin/elasticsearch-env-from-file   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/share/elasticsearch/bin/elasticsearch-env-from-file   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -187,6 +198,7 @@ $ podman run --it --rm --entrypoint /usr/share/elasticsearch/bin/elasticsearch-e
 ```bash
 $ singularity exec <container> /usr/share/elasticsearch/bin/elasticsearch-keystore
 $ podman run --it --rm --entrypoint /usr/share/elasticsearch/bin/elasticsearch-keystore   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/share/elasticsearch/bin/elasticsearch-keystore   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -195,6 +207,7 @@ $ podman run --it --rm --entrypoint /usr/share/elasticsearch/bin/elasticsearch-k
 ```bash
 $ singularity exec <container> /usr/share/elasticsearch/bin/elasticsearch-migrate
 $ podman run --it --rm --entrypoint /usr/share/elasticsearch/bin/elasticsearch-migrate   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/share/elasticsearch/bin/elasticsearch-migrate   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -203,6 +216,7 @@ $ podman run --it --rm --entrypoint /usr/share/elasticsearch/bin/elasticsearch-m
 ```bash
 $ singularity exec <container> /usr/share/elasticsearch/bin/elasticsearch-node
 $ podman run --it --rm --entrypoint /usr/share/elasticsearch/bin/elasticsearch-node   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/share/elasticsearch/bin/elasticsearch-node   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -211,6 +225,7 @@ $ podman run --it --rm --entrypoint /usr/share/elasticsearch/bin/elasticsearch-n
 ```bash
 $ singularity exec <container> /usr/share/elasticsearch/bin/elasticsearch-plugin
 $ podman run --it --rm --entrypoint /usr/share/elasticsearch/bin/elasticsearch-plugin   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/share/elasticsearch/bin/elasticsearch-plugin   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -219,6 +234,7 @@ $ podman run --it --rm --entrypoint /usr/share/elasticsearch/bin/elasticsearch-p
 ```bash
 $ singularity exec <container> /usr/share/elasticsearch/bin/elasticsearch-saml-metadata
 $ podman run --it --rm --entrypoint /usr/share/elasticsearch/bin/elasticsearch-saml-metadata   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/share/elasticsearch/bin/elasticsearch-saml-metadata   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -227,6 +243,7 @@ $ podman run --it --rm --entrypoint /usr/share/elasticsearch/bin/elasticsearch-s
 ```bash
 $ singularity exec <container> /usr/share/elasticsearch/bin/elasticsearch-setup-passwords
 $ podman run --it --rm --entrypoint /usr/share/elasticsearch/bin/elasticsearch-setup-passwords   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/share/elasticsearch/bin/elasticsearch-setup-passwords   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -235,6 +252,7 @@ $ podman run --it --rm --entrypoint /usr/share/elasticsearch/bin/elasticsearch-s
 ```bash
 $ singularity exec <container> /usr/share/elasticsearch/bin/elasticsearch-shard
 $ podman run --it --rm --entrypoint /usr/share/elasticsearch/bin/elasticsearch-shard   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/share/elasticsearch/bin/elasticsearch-shard   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -243,6 +261,7 @@ $ podman run --it --rm --entrypoint /usr/share/elasticsearch/bin/elasticsearch-s
 ```bash
 $ singularity exec <container> /usr/share/elasticsearch/bin/elasticsearch-sql-cli
 $ podman run --it --rm --entrypoint /usr/share/elasticsearch/bin/elasticsearch-sql-cli   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/share/elasticsearch/bin/elasticsearch-sql-cli   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -251,6 +270,7 @@ $ podman run --it --rm --entrypoint /usr/share/elasticsearch/bin/elasticsearch-s
 ```bash
 $ singularity exec <container> java jar /usr/share/elasticsearch/bin/elasticsearch-sql-cli-7.12.0.jar
 $ podman run --it --rm --entrypoint java   -v ${PWD} -w ${PWD} <container> -c "jar /usr/share/elasticsearch/bin/elasticsearch-sql-cli-7.12.0.jar $@"
+$ docker run --it --rm --entrypoint java   -v ${PWD} -w ${PWD} <container> -c "jar /usr/share/elasticsearch/bin/elasticsearch-sql-cli-7.12.0.jar $@"
 ```
 
 
@@ -259,6 +279,7 @@ $ podman run --it --rm --entrypoint java   -v ${PWD} -w ${PWD} <container> -c "j
 ```bash
 $ singularity exec <container> /usr/share/elasticsearch/bin/elasticsearch-syskeygen
 $ podman run --it --rm --entrypoint /usr/share/elasticsearch/bin/elasticsearch-syskeygen   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/share/elasticsearch/bin/elasticsearch-syskeygen   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -267,6 +288,7 @@ $ podman run --it --rm --entrypoint /usr/share/elasticsearch/bin/elasticsearch-s
 ```bash
 $ singularity exec <container> /usr/share/elasticsearch/bin/elasticsearch-users
 $ podman run --it --rm --entrypoint /usr/share/elasticsearch/bin/elasticsearch-users   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/share/elasticsearch/bin/elasticsearch-users   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
@@ -279,8 +301,8 @@ inspect aliases. For anycommands above, you can export:
 
  - SINGULARITY_OPTS: to define custom options for singularity (e.g., --debug)
  - SINGULARITY_COMMAND_OPTS: to define custom options for the command (e.g., -b)
- - PODMAN_OPTS: to define custom options for podman
- - PODMAN_COMMAND_OPTS: to define custom options for the command
+ - DOCKER_OPTS: to define custom options for podman or docker
+ - DOCKER_COMMAND_OPTS: to define custom options for the command
 
 <br>
   
