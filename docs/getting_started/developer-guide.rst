@@ -309,8 +309,8 @@ use is the following:
 Development or Testing
 ======================
 
-If you first want to test singularity-hpc (shpc) with an LMOD installed in 
-a container, a ``Dockerfile`` is provided for LMOD, and ``Dockerfile.tcl``
+If you first want to test singularity-hpc (shpc) with an Lmod installed in 
+a container, a ``Dockerfile`` is provided for Lmod, and ``Dockerfile.tcl``
 for tcl modules. The assumption is that
 you have a module system installed on your cluster or in the container. If not, you
 can find instructions `here for lmod <https://lmod.readthedocs.io/en/latest/030_installing.html>`_

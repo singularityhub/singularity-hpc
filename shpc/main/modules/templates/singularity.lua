@@ -1,4 +1,4 @@
--- LMOD Module
+-- Lmod Module
 -- Created by singularity-hpc (https://github.com/singularityhub/singularity-hpc)
 -- ##
 -- {{ name }} on {{ creation_date }}
@@ -51,7 +51,7 @@ setenv ("SINGULARITY_COMMAND_OPTS", "")
 local containerPath = '{{ container_sif }}'
 local shellCmd = "singularity ${SINGULARITY_OPTS} shell ${SINGULARITY_COMMAND_OPTS} -s {{ singularity_shell }} {% if features.gpu %}{{ features.gpu }} {% endif %}{% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }}{% endif %} " .. containerPath
 local execCmd = "singularity ${SINGULARITY_OPTS} exec ${SINGULARITY_COMMAND_OPTS} {% if features.gpu %}{{ features.gpu }} {% endif %}{% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }}{% endif %} "
-local runCmd = "singularity ${SINGULARITY_OPTS} run ${SINGULARITY_COMMAND_OPTS} {% if features.gpu %}{{ features.gpu }} {% endif %}{% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }}{% endif %} " .. containerPath .. " ${SINGULARITY_COMMAND_ARGS}"
+local runCmd = "singularity ${SINGULARITY_OPTS} run ${SINGULARITY_COMMAND_OPTS} {% if features.gpu %}{{ features.gpu }} {% endif %}{% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }}{% endif %} " .. containerPath
 local inspectCmd = "singularity ${SINGULARITY_OPTS} inspect ${SINGULARITY_COMMAND_OPTS} " 
 
 -- set_shell_function takes bashStr and cshStr
@@ -62,7 +62,7 @@ conflict(myModuleName(){% if aliases %}{% for alias in aliases %},"{{ alias.name
 
 -- exec functions to provide "alias" to module commands
 {% if aliases %}{% for alias in aliases %}
-set_shell_function("{{ alias.name }}", execCmd .. {% if alias.options %} "{{ alias.options }} " .. {% endif %} containerPath .. " {{ alias.command }} $@", execCmd .. {% if alias.options %} "{{ alias.options }} " .. {% endif %} containerPath .. " {{ alias.command }} $*")
+set_shell_function("{{ alias.name }}", execCmd .. {% if alias.options %} "{{ alias.options }} " .. {% endif %} containerPath .. " {{ alias.command }} $@", execCmd .. {% if alias.options %} "{{ alias.options }} " .. {% endif %} containerPath .. " {{ alias.command }}")
 {% endfor %}{% endif %}
 
 {% if aliases %}
@@ -72,10 +72,10 @@ if (myShellName() == "bash") then
 end{% endif %}
 
 -- A customizable exec function
-set_shell_function("{|module_name|}-exec", execCmd .. containerPath .. " ${SINGULARITY_COMMAND_ARGS}  $@",  execCmd .. containerPath .. " ${SINGULARITY_COMMAND_ARGS} $*")
+set_shell_function("{|module_name|}-exec", execCmd .. containerPath .. " $@",  execCmd .. containerPath)
 
 -- Always provide a container run
-set_shell_function("{|module_name|}-run", runCmd .. " $@",  runCmd .. " $*")
+set_shell_function("{|module_name|}-run", runCmd .. " $@",  runCmd)
 
 -- Inspect runscript or deffile easily!
 set_shell_function("{|module_name|}-inspect-runscript", inspectCmd .. " -r  " .. containerPath,  inspectCmd .. containerPath)

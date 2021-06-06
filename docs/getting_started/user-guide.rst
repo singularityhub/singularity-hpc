@@ -59,7 +59,7 @@ then install a container:
     $ shpc install python
     
 Add the modules folder to your lmod (you can run this in a bash profile or
-manually, and note that if you want to use environment modules, you need to add
+manually, and note that if you want to use Environment Modules, you need to add
 ``--module-sys tcl``).
 
 
@@ -336,7 +336,7 @@ commands. Aliases that are custom to the container are not modified.
 Module Software
 ===============
 
-The default module software is currently LMOD, and there is also support for environment
+The default module software is currently Lmod, and there is also support for environment
 modules that only use tcl (tcl). If you
 are interested in adding another module type, please `open an issue <https://github.com/singularityhub/singularity-hpc>`_ and
 provide description and links to what you have in mind. You can either specify the
@@ -513,7 +513,7 @@ You can also install a specific tag (as shown in list).
     $ shpc install python:3.9.2-alpine
     
 
-Note that LMOD is the default for the module system, and Singularity for
+Note that Lmod is the default for the module system, and Singularity for
 the container technology.
 If you don't have any module software on your system, you can now test interacting
 with the module via the :ref:`getting_started-development` instructions.
@@ -676,7 +676,7 @@ Test
 ----
 
 Singularity HPC makes it easy to test the full flow of installing and interacting
-with modules. This functionality requires a module system (e.g., LMOD) to be installed,
+with modules. This functionality requires a module system (e.g., Lmod) to be installed,
 and the assumption is that the test is being run in a shell environment where any
 supporting modules (e.g., loading Singularity or Podman) would be found if needed.
 This is done by way of extending the exported ``$MODULEPATH``. To run a test, you

@@ -7,7 +7,7 @@
 Singularity HPC is optimized for managing containers in an HPC environment. Currently, this includes
 module technologies:
 
- - [LMOD](https://lmod.readthedocs.io/en/latest/)
+ - [Lmod](https://lmod.readthedocs.io/en/latest/)
  - [Environment Modules](http://modules.sourceforge.net/)
 
 And container technologies:

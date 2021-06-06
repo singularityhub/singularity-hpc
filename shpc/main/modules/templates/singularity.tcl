@@ -1,4 +1,4 @@
-#%Module 1.0
+#%Module
 
 #=====
 # Created by singularity-hpc (https://github.com/singularityhub/singularity-hpc)
@@ -40,8 +40,8 @@ proc ModulesHelp { } {
 }
 
 # Environment
-set ::env(SINGULARITY_OPTS) ""
-set ::env(SINGULARITY_COMMAND_OPTS) ""
+setenv SINGULARITY_OPTS ""
+setenv SINGULARITY_COMMAND_OPTS ""
 
 # Variables
 
@@ -68,27 +68,27 @@ setenv SINGULARITY_SHELL {{ singularity_shell }}
 # interactive shell to any container, plus exec for aliases
 set shellCmd "singularity \${SINGULARITY_OPTS} shell \${SINGULARITY_COMMAND_OPTS} -s {{ singularity_shell }} {% if features.gpu %}{{ features.gpu }} {% endif %}{% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }}{% endif %} ${containerPath}" 
 set execCmd "singularity \${SINGULARITY_OPTS} exec \${SINGULARITY_COMMAND_OPTS} {% if features.gpu %}{{ features.gpu }} {% endif %}{% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }}{% endif %} "
-set runCmd "singularity \${SINGULARITY_OPTS} run \${SINGULARITY_COMMAND_OPTS} {% if features.gpu %}{{ features.gpu }} {% endif %}{% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }}{% endif %} ${containerPath} \${SINGULARITY_COMMAND_ARGS}"
+set runCmd "singularity \${SINGULARITY_OPTS} run \${SINGULARITY_COMMAND_OPTS} {% if features.gpu %}{{ features.gpu }} {% endif %}{% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }}{% endif %} ${containerPath}"
 set inspectCmd "singularity \${SINGULARITY_OPTS} inspect \${SINGULARITY_COMMAND_OPTS} " 
 
 # set_shell_function takes bashStr and cshStr
-set-alias "{|module_name|}-shell" "${shellCmd} $*"
+set-alias {|module_name|}-shell "${shellCmd}"
 
 
 # exec functions to provide "alias" to module commands
 {% if aliases %}{% for alias in aliases %}
-set-alias "{{ alias.name }}" "${execCmd} {% if alias.options %} {{ alias.options }} {% endif %} ${containerPath} {{ alias.command }} $*"
+set-alias {{ alias.name }} "${execCmd} {% if alias.options %} {{ alias.options }} {% endif %} ${containerPath} {{ alias.command }}"
 {% endfor %}{% endif %}
 
 # A customizable exec function
-set-alias "{|module_name|}-exec" "${execCmd} ${containerPath} \${SINGULARITY_COMMAND_ARGS} $*"
+set-alias {|module_name|}-exec "${execCmd} ${containerPath}"
 
 # Always provide a container run
-set-alias "{|module_name|}-run" "${runCmd} $*"
+set-alias {|module_name|}-run "${runCmd}"
 
 # Inspect runscript or deffile easily!
-set-alias "{|module_name|}-inspect-runscript" "${inspectCmd} -r ${containerPath}"
-set-alias "{|module_name|}-inspect-deffile" "${inspectCmd} -d ${containerPath}"
+set-alias {|module_name|}-inspect-runscript "${inspectCmd} -r ${containerPath}"
+set-alias {|module_name|}-inspect-deffile "${inspectCmd} -d ${containerPath}"
 
 #=====
 # Module options

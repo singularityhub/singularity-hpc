@@ -1,4 +1,4 @@
-#%Module 1.0
+#%Module
 
 #=====
 # Created by singularity-hpc (https://github.com/singularityhub/singularity-hpc)
@@ -32,6 +32,10 @@ proc ModulesHelp { } {
 
 }
 
+# Environment
+setenv DOCKER_OPTS ""
+setenv DOCKER_COMMAND_OPTS ""
+
 # Variables
 
 set name        "{{ name }}"
@@ -60,21 +64,21 @@ set runCmd "{{ command }} \${DOCKER_OPTS} run -i{% if tty %}t{% endif %} \${DOCK
 set inspectCmd "{{ command }} \${DOCKER_OPTS} inspect ${containerPath}" 
 
 # set_shell_function takes bashStr and cshStr
-set-alias "{|module_name|}-shell" "${shellCmd}"
+set-alias {|module_name|}-shell "${shellCmd}"
 
 # exec functions to provide "alias" to module commands
 {% if aliases %}{% for alias in aliases %}
-set-alias "{{ alias.name }}" "${execCmd} {% if alias.options %} {{ alias.options }} {% endif %} --entrypoint {{ alias.entrypoint }} ${containerPath} {{ alias.command }} $*"
+set-alias {{ alias.name }} "${execCmd} {% if alias.options %} {{ alias.options }} {% endif %} --entrypoint {{ alias.entrypoint }} ${containerPath} {{ alias.command }}"
 {% endfor %}{% endif %}
 
 # A customizable exec function
-set-alias "{|module_name|}-exec" "${execCmd} --entrypoint \"\" ${containerPath} $*"
+set-alias {|module_name|}-exec "${execCmd} --entrypoint \"\" ${containerPath}"
 
 # Always provide a container run
-set-alias "{|module_name|}-run" "${runCmd} $*"
+set-alias {|module_name|}-run "${runCmd}"
 
 # Inspect runscript or deffile easily!
-set-alias "{|module_name|}-inspect" "${inspectCmd} ${containerPath} $*"
+set-alias {|module_name|}-inspect "${inspectCmd} ${containerPath}"
 
 #=====
 # Module options

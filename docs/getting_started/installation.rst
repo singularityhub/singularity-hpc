@@ -52,7 +52,7 @@ $ which shpc
 
 This executable should be accessible by an administrator, or anyone that you want
 to be able to manage containers. Your user base will be interacting with your
-containers via LMOD, so they do not need access to `shpc`. 
+containers via Lmod, so they do not need access to `shpc`. 
 If you are a user creating your own folder of modules, you can add them
 to your module path.
 
@@ -94,7 +94,7 @@ and interacting with your modules.
 Environment Modules
 -------------------
 
-If you are using `environment modules (tcl) <http://modules.sourceforge.net/>`_
+If you are using `Environment Modules (tcl) <http://modules.sourceforge.net/>`_
 and you find that your aliases do not expand, you can use `shopt <https://www.gnu.org/software/bash/manual/html_node/The-Shopt-Builtin.html>`_ to fix this issue:
 
 .. code-block:: console

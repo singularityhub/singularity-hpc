@@ -1,4 +1,4 @@
--- LMOD Module
+-- Lmod Module
 -- Created by singularity-hpc (https://github.com/singularityhub/singularity-hpc)
 -- ##
 -- {{ name }} on {{ creation_date }}
@@ -58,7 +58,7 @@ conflict(myModuleName(){% if aliases %}{% for alias in aliases %},"{{ alias.name
 
 -- exec functions to provide "alias" to module commands
 {% if aliases %}{% for alias in aliases %}
-set_shell_function("{{ alias.name }}", execCmd .. {% if alias.options %} "{{ alias.options }} " .. {% endif %} " --entrypoint {{ alias.entrypoint }} " .. containerPath .. " {{ alias.args }} $@", execCmd .. {% if alias.options %} "{{ alias.options }} " .. {% endif %} " --entrypoint {{ alias.entrypoint }} " .. containerPath .. " {{ alias.args }} $*")
+set_shell_function("{{ alias.name }}", execCmd .. {% if alias.options %} "{{ alias.options }} " .. {% endif %} " --entrypoint {{ alias.entrypoint }} " .. containerPath .. " {{ alias.args }} $@", execCmd .. {% if alias.options %} "{{ alias.options }} " .. {% endif %} " --entrypoint {{ alias.entrypoint }} " .. containerPath .. " {{ alias.args }}")
 {% endfor %}{% endif %}
 
 {% if aliases %}
@@ -68,10 +68,10 @@ if (myShellName() == "bash") then
 end{% endif %}
 
 -- A customizable exec function
-set_shell_function("{|module_name|}-exec", execCmd .. " --entrypoint \"\" " .. containerPath .. " $@",  execCmd .. " --entrypoint \"\"" .. containerPath .. " $*")
+set_shell_function("{|module_name|}-exec", execCmd .. " --entrypoint \"\" " .. containerPath .. " $@",  execCmd .. " --entrypoint \"\" " .. containerPath)
 
 -- Always provide a container run
-set_shell_function("{|module_name|}-run", runCmd .. " $@",  runCmd .. " $*")
+set_shell_function("{|module_name|}-run", runCmd .. " $@",  runCmd)
 
 -- Inspect runscript or deffile easily!
 set_shell_function("{|module_name|}-inspect", inspectCmd,  inspectCmd)

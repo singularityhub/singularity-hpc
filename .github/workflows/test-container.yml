@@ -13,7 +13,7 @@ jobs:
         run: |
           sudo apt-get install lua5.2 liblua5.2-dev lua-filesystem lua-posix tcl tcl-dev
 
-      - name: Install LMOD
+      - name: Install Lmod
         run: |
           PKG_VERSION=8.4.27
           PKG_URL="https://github.com/TACC/Lmod/archive/${PKG_VERSION}.tar.gz"

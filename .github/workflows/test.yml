@@ -15,9 +15,9 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          sudo apt-get install lua5.2 liblua5.2-dev lua-filesystem lua-posix tcl tcl-dev
+          sudo apt-get install lua5.2 liblua5.2-dev lua-filesystem lua-posix tcl tcl-dev tcsh
 
-      - name: Install environment modules
+      - name: Install Environment Modules
         if: ${{ matrix.module == 'tcl' }}
         run: |
          curl -LJO https://github.com/cea-hpc/modules/releases/download/v4.7.1/modules-4.7.1.tar.gz
@@ -28,7 +28,7 @@ jobs:
          make
          sudo make install
 
-      - name: Install LMOD
+      - name: Install Lmod
         if: ${{ matrix.module == 'lmod' }}
         run: |
           PKG_VERSION=8.4.27
@@ -54,45 +54,26 @@ jobs:
           source activate shpc
           pip install -e .
 
-      - name: Run python module tests
-        if: ${{ matrix.module == 'lmod' }}
-        run: |
-          export PATH="/usr/share/miniconda/bin:$PATH"
-          . /usr/share/lmod/lmod/init/sh
-          source activate shpc
-          shpc config set container_tech:${{ matrix.container_tech }}
-          shpc config set module_sys:${{ matrix.module }}
-          shpc config set enable_tty:false
-          shpc install python:3.9.5-alpine
-          module use ./modules
-          module load python/3.9.5-alpine
-          alias
-
-          printf "\n\nmodule show ============================================\n"
-          module show python/3.9.5-alpine
-
-          printf "\n\nmodule whatis ==========================================\n"
-          module whatis python/3.9.5-alpine
-
-          printf "\n\nmodule help ============================================\n"
-          module help python/3.9.5-alpine
-          python-exec echo donuts
-          python-run python --version
-
-      - name: Run python module tests
-        if: ${{ matrix.module == 'tcl' }}
+      - name: Run python module tests (bash)
         shell: bash
         run: |
+          case "${{ matrix.module }}" in
+            lmod)
+              . /usr/share/lmod/lmod/init/bash
+              ;;
+            tcl)
+              . /usr/local/Modules/init/bash
+              shopt expand_aliases || true
+              shopt -s expand_aliases
+              ;;
+          esac
+
           export PATH="/usr/share/miniconda/bin:$PATH"
-          . /usr/local/Modules/init/sh
           source activate shpc
           shpc config set container_tech:${{ matrix.container_tech }}
           shpc config set module_sys:${{ matrix.module }}
           shpc config set enable_tty:false
           shpc install python:3.9.5-alpine
-
-          shopt expand_aliases || true
-          shopt -s expand_aliases
 
           module use ./modules
           module load python/3.9.5-alpine
@@ -106,5 +87,53 @@ jobs:
 
           printf "\n\nmodule help ============================================\n"
           module help python/3.9.5-alpine
-          python-exec echo donuts
-          python-run python --version
+
+          python-exec echo donuts >test_output
+          cat test_output
+          grep --quiet donuts test_output
+
+          python-run python --version >test_output
+          cat test_output
+          grep --quiet 'Python 3.9.5' test_output
+          rm test_output
+
+      - name: Run python module tests (tcsh)
+        shell: tcsh -e {0}
+        run: |
+          switch ("${{ matrix.module }}")
+            case lmod:
+              source /usr/share/lmod/lmod/init/tcsh
+              breaksw
+            case tcl:
+              source /usr/local/Modules/init/tcsh
+              breaksw
+          endsw
+
+          source /usr/share/miniconda/etc/profile.d/conda.csh
+          conda activate shpc
+          shpc config set container_tech:${{ matrix.container_tech }}
+          shpc config set module_sys:${{ matrix.module }}
+          shpc config set enable_tty:false
+          shpc install python:3.9.5-alpine
+
+          module use ./modules
+          module load python/3.9.5-alpine
+          alias
+
+          printf "\n\nmodule show ============================================\n"
+          module show python/3.9.5-alpine
+
+          printf "\n\nmodule whatis ==========================================\n"
+          module whatis python/3.9.5-alpine
+
+          printf "\n\nmodule help ============================================\n"
+          module help python/3.9.5-alpine
+
+          python-exec echo donuts >test_output
+          cat test_output
+          grep --quiet donuts test_output
+
+          python-run python --version >test_output
+          cat test_output
+          grep --quiet 'Python 3.9.5' test_output
+          rm test_output
