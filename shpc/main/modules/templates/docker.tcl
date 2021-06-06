@@ -1,4 +1,4 @@
-#%Module 1.0
+#%Module
 
 #=====
 # Created by singularity-hpc (https://github.com/singularityhub/singularity-hpc)
