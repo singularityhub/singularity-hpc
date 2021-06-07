@@ -16,16 +16,16 @@ Container:
 Commands include:
 
  - {|module_name|}-run:
-       {{ command }} run --rm -i{% if tty %}t{% endif %} {% if envfile %}--env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} -v ${PWD} -w ${PWD} {% endif %}<container>
+       {{ command }} run -i{% if tty %}t{% endif %} -u `id -u`:`id -g` --rm {% if envfile %}--env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} -v ${PWD} -w ${PWD} {% endif %}<container> "$@"
  - {|module_name|}-shell:
-       {{ command }} run --rm -i{% if tty %}t{% endif %} {% if envfile %}--env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} -v ${PWD} -w ${PWD} {% endif %}<container>
+       {{ command }} run -i{% if tty %}t{% endif %} -u `id -u`:`id -g` --rm {% if envfile %}--env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} --entrypoint {{ shell }} -v ${PWD} -w ${PWD} {% endif %}<container>
  - {|module_name|}-exec:
-       {{ command }} run -i{% if tty %}t{% endif %} --rm --entrypoint {{ shell }} {% if envfile %}--env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %} -v ${PWD} -w ${PWD} <container> "$@"
+       {{ command }} run -i{% if tty %}t{% endif %} -u `id -u`:`id -g` --rm --entrypoint "" {% if envfile %}--env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %} -v ${PWD} -w ${PWD} <container> "$@"
  - {|module_name|}-inspect:
        {{ command }} inspect <container>
 
 {% if aliases %}{% for alias in aliases %} - {{ alias.name }}:
-       {{ command }} run --rm -i{% if tty %}t{% endif %} --entrypoint {{ alias.entrypoint }} {% if envfile %}--env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %}{% if alias.options %}{{ alias.options }} {% endif %} -v ${PWD} -w ${PWD} <container> "{{ alias.args }}"
+       {{ command }} run -i{% if tty %}t{% endif %} -u `id -u`:`id -g` --rm --entrypoint {{ alias.entrypoint }} {% if envfile %}--env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %}{% if alias.options %}{{ alias.options }} {% endif %} -v ${PWD} -w ${PWD} <container> "{{ alias.args }}"
 {% endfor %}{% endif %}
 
 For each of the above, you can export:
@@ -44,10 +44,10 @@ local MODULEPATH="{{ module_dir }}"
 -- interactive shell to any container, plus exec for aliases
 local containerPath = '{{ image }}'
 
-local shellCmd = "{{ command }} ${DOCKER_OPTS} run -i{% if tty %}t{% endif %} ${DOCKER_COMMAND_OPTS} --entrypoint {{ shell }} --rm {% if envfile %}--env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %} -v ${PWD} -w ${PWD} " .. containerPath
+local shellCmd = "{{ command }} ${DOCKER_OPTS} run -i{% if tty %}t{% endif %} ${DOCKER_COMMAND_OPTS} -u `id -u`:`id -g` --rm --entrypoint {{ shell }} {% if envfile %}--env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %} -v ${PWD} -w ${PWD} " .. containerPath
 -- execCmd needs entrypoint to be the executor
-local execCmd = "{{ command }} ${DOCKER_OPTS} run ${DOCKER_COMMAND_OPTS} -i{% if tty %}t{% endif %} --rm {% if envfile %}--env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %} -v ${PWD} -w ${PWD} "
-local runCmd = "{{ command }} ${DOCKER_OPTS} run ${DOCKER_COMMAND_OPTS} -i{% if tty %}t{% endif %} --rm {% if envfile %}--env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %} -v ${PWD} -w ${PWD} " .. containerPath
+local execCmd = "{{ command }} ${DOCKER_OPTS} run ${DOCKER_COMMAND_OPTS} -i{% if tty %}t{% endif %} -u `id -u`:`id -g` --rm {% if envfile %}--env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %} -v ${PWD} -w ${PWD} "
+local runCmd = "{{ command }} ${DOCKER_OPTS} run ${DOCKER_COMMAND_OPTS} -i{% if tty %}t{% endif %} -u `id -u`:`id -g` --rm {% if envfile %}--env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %} -v ${PWD} -w ${PWD} " .. containerPath
 local inspectCmd = "{{ command }} ${DOCKER_OPTS} inspect ${DOCKER_COMMAND_OPTS} " .. containerPath 
 
 -- set_shell_function takes bashStr and cshStr

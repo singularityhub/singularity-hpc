@@ -123,8 +123,6 @@ def test_inspect(tmp_path, module_sys, container_tech):
     """Test inspect"""
     client = init_client(str(tmp_path), module_sys, container_tech)
     client.install("python:3.9.2-slim")
-    client.inspect("python")
-
     # Python won't have much TODO we should test a custom container
     metadata = client.inspect("python:3.9.2-slim")
     if container_tech == "singularity":

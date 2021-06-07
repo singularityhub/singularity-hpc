@@ -84,6 +84,7 @@ class ModuleBase(BaseClient):
         """
         # The name can either be a folder or an install directory
         name = self.add_namespace(name)
+
         # folder paths do not have :
         name = name.replace(":", os.sep)
         module_dir = os.path.join(self.settings.module_base, name)

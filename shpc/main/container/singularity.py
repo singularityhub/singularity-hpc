@@ -179,7 +179,7 @@ class SingularityContainer(ContainerTechnology):
             name=name,
             tool=parsed_name.tool,
             registry=parsed_name.registry,
-            namespace=parsed_name.namespace,
+            repository=parsed_name.repository,
             envfile=self.settings.environment_file,
         )
         shpc.utils.write_file(module_path, out)
@@ -325,3 +325,23 @@ class SingularityContainer(ContainerTechnology):
             dest = os.path.basename(url)
         name = os.path.basename(dest)
         return self.client.pull(url, name=name, pull_folder=os.path.dirname(dest))
+
+    def test_script(self, image, test_script):
+        """
+        Given a test file, run it and respond accordingly.
+        """
+        command = ["singularity", "exec", image, "/bin/bash", test_script]
+        result = shpc.utils.run_command(command)
+
+        # We can't run on incompatible hosts
+        if (
+            "the image's architecture" in result["message"]
+            and result["return_code"] != 0
+        ):
+            logger.warning(
+                "Cannot run test for incompatible architecture: %s" % result["message"]
+            )
+            return 0
+
+        # Return code
+        return result["return_code"]

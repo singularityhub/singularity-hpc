@@ -20,7 +20,7 @@ class ContainerName:
     def __init__(self, raw):
         self.raw = raw
         self.registry = None
-        self.namespace = None
+        self.repository = None
         self.tool = None
         self.version = None
         self.digest = None
@@ -90,13 +90,17 @@ class ContainerTechnology:
             return os.path.join(self.settings.module_base, name)
         return os.path.join(self.settings.container_base, name)
 
-    def guess_tag(self, module_name):
-        """If a user asks for a name without a tag, try to figure it out."""
+    def guess_tag(self, module_name, allow_fail=False):
+        """
+        If a user asks for a name without a tag, try to figure it out.
+        """
         if ":" in module_name:
             return module_name
         tags = os.listdir(os.path.join(self.settings.module_base, module_name))
-        if not tags:
+        if not tags and allow_fail:
             logger.exit("%s does not have any tags installed." % module_name)
+        elif (tags or len(tags) > 1) and allow_fail:
+            return
         elif len(tags) > 1:
             logger.exit(
                 "Multiple tags found for %s: %s." % (module_name, ", ".join(tags))

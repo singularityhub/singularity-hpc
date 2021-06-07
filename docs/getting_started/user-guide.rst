@@ -139,7 +139,7 @@ A summary table of variables is included below, and then further discussed in de
      - if defined, add to module script to load this Singularity module first
      - null
    * - module_name
-     - Format string for module commands exec,shell,run (not aliases) can include ``{{ registry }}``, ``{{ namespace }}``, ``{{ tool }}`` and ``{{ version }}``
+     - Format string for module commands exec,shell,run (not aliases) can include ``{{ registry }}``, ``{{ repository }}``, ``{{ tool }}`` and ``{{ version }}``
      - ``{{ tool }}``
    * - bindpaths
      - string with comma separated list of paths to binds. If set, expored to SINGULARITY_BINDPATH
@@ -305,12 +305,12 @@ A container identifier is parsed as follows:
 .. code-block:: console
 
     # quay.io   /biocontainers/samtools:latest
-    # <registry>/  <namespace>/  <tool>/<version>
+    # <registry>/  <repository>/  <tool>/<version>
 
 
 So by default, we use tool because it's likely closest to the command that is wanted.
 But let's say you had two versions of samtools - the namespaces would conflict! You
-would want to change your format string to ``{{ namespace }}-{{ tool }}`` to be
+would want to change your format string to ``{{ repository }}-{{ tool }}`` to be
 perhaps "biocontainers-samtools-exec" and "another-samtools-exec." 
 If you change the format string to ``{{ tool }}-{{ version }}`` you would see:
 

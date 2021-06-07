@@ -3,7 +3,7 @@
 # currently specific to singularity, but can be extended to other technologies.
 
 # set a default module system
-# Currently only lmod is supported. To request an additional system, 
+# Currently lmod and tcl are supported. To request an additional system, 
 # please open an issue https://github.com/singularityhub/singularity-hpc
 module_sys: lmod
 
