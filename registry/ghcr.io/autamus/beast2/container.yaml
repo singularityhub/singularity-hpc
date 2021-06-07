@@ -4,11 +4,11 @@ maintainer: '@vsoch'
 description: BEAST 2 is a cross-platform program for Bayesian phylogenetic analysis
   of molecular sequences.
 latest:
-  2.6.4: sha256:84a75511810083d5ff5c21dff67e995dc2049c5dd8f569a616164b75baea9b50
+  2.6.4: sha256:2c1b921b0c1e30e658a27cc22a7082f3367b508c964259f32310626b8b74cd0d
 tags:
   2.6.3: sha256:5eae1eabe7b127b3847401fe69e3430f97936d7ef7198287aabe01c5e1a957cf
-  2.6.4: sha256:84a75511810083d5ff5c21dff67e995dc2049c5dd8f569a616164b75baea9b50
-  latest: sha256:84a75511810083d5ff5c21dff67e995dc2049c5dd8f569a616164b75baea9b50
+  2.6.4: sha256:2c1b921b0c1e30e658a27cc22a7082f3367b508c964259f32310626b8b74cd0d
+  latest: sha256:2c1b921b0c1e30e658a27cc22a7082f3367b508c964259f32310626b8b74cd0d
 aliases:
   beast: /opt/view/bin/beast
   beasti: /opt/view/bin/beasti

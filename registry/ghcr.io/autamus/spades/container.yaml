@@ -4,10 +4,10 @@ maintainer: '@vsoch'
 description: St. Petersburg genome assembler – an assembly toolkit containing various
   assembly pipelines.
 latest:
-  3.15.2: sha256:c4c8b5ccd5c8a070ed4db0bdcd5819712466d59a32e41fcb058ae1682b0162f9
+  3.15.2: sha256:adc978ddda429082144d4b90565ee2e68d8e132316d54366d13d49ef94109bfc
 tags:
-  3.15.2: sha256:c4c8b5ccd5c8a070ed4db0bdcd5819712466d59a32e41fcb058ae1682b0162f9
-  latest: sha256:c4c8b5ccd5c8a070ed4db0bdcd5819712466d59a32e41fcb058ae1682b0162f9
+  3.15.2: sha256:adc978ddda429082144d4b90565ee2e68d8e132316d54366d13d49ef94109bfc
+  latest: sha256:adc978ddda429082144d4b90565ee2e68d8e132316d54366d13d49ef94109bfc
 aliases:
   spades-bwa: /opt/view/bin/spades-bwa
   spades-convert-bin-to-fasta: /opt/view/bin/spades-convert-bin-to-fasta

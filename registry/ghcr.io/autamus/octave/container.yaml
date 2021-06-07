@@ -4,10 +4,10 @@ maintainer: '@vsoch'
 description: GNU Octave is a high-level interpreted language, primarily intended for
   numerical computations (like an open source Matlab)
 latest:
-  6.2.0: sha256:07ca9aaa0b4ce1a5a69eee124b9474add332838b3fa86c8ef3eba6be2c40537e
+  6.2.0: sha256:cc3fcd5e91a506d89ad9e369e37f9b853ab19e0cdf4b8533786a89edd75a4f3b
 tags:
-  6.2.0: sha256:07ca9aaa0b4ce1a5a69eee124b9474add332838b3fa86c8ef3eba6be2c40537e
-  latest: sha256:07ca9aaa0b4ce1a5a69eee124b9474add332838b3fa86c8ef3eba6be2c40537e
+  6.2.0: sha256:cc3fcd5e91a506d89ad9e369e37f9b853ab19e0cdf4b8533786a89edd75a4f3b
+  latest: sha256:cc3fcd5e91a506d89ad9e369e37f9b853ab19e0cdf4b8533786a89edd75a4f3b
 aliases:
   octave: /opt/view/bin/octave
   octave-6.2.0: /opt/view/bin/octave-6.2.0

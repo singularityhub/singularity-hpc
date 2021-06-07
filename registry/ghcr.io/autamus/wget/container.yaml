@@ -4,9 +4,9 @@ maintainer: '@vsoch'
 description: GNU Wget is a free software package for retrieving files using HTTP,
   HTTPS, FTP and FTPS, the most widely used Internet protocols.
 latest:
-  1.21.1: sha256:118febd78a52f4a7b7d85271008dbc8ff944e48d4d3e1025787af2e09cf3c734
+  1.21.1: sha256:acd2b7fe174044242027db3a943beac387f88b79fb36be0482cc260dfeb369ec
 tags:
-  1.21.1: sha256:118febd78a52f4a7b7d85271008dbc8ff944e48d4d3e1025787af2e09cf3c734
-  latest: sha256:118febd78a52f4a7b7d85271008dbc8ff944e48d4d3e1025787af2e09cf3c734
+  1.21.1: sha256:acd2b7fe174044242027db3a943beac387f88b79fb36be0482cc260dfeb369ec
+  latest: sha256:acd2b7fe174044242027db3a943beac387f88b79fb36be0482cc260dfeb369ec
 aliases:
   wget: /opt/view/bin/wget

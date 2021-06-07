@@ -1,11 +1,14 @@
 docker: ghcr.io/autamus/opencv
-latest:
-  "latest": "sha256:16c9ea7972ab98a91a3b6ba1f01c2779a8a008345d3acadded66e202656689a9"
-tags:
-  "latest": "sha256:16c9ea7972ab98a91a3b6ba1f01c2779a8a008345d3acadded66e202656689a9"
-maintainer: "@vsoch"
 url: https://github.com/orgs/autamus/packages/container/package/opencv
-description: "OpenCV is a library of programming functions mainly aimed at real-time computer vision. Originally developed by Intel, it was later supported by Willow Garage then Itseez."
+maintainer: '@vsoch'
+description: OpenCV is a library of programming functions mainly aimed at real-time
+  computer vision. Originally developed by Intel, it was later supported by Willow
+  Garage then Itseez.
+latest:
+  4.5.2: sha256:35413a3f9e8fd2384100fc6a83b64ccc7a8245496d19f6c7a099b46d31d738c7
+tags:
+  4.5.2: sha256:35413a3f9e8fd2384100fc6a83b64ccc7a8245496d19f6c7a099b46d31d738c7
+  latest: sha256:35413a3f9e8fd2384100fc6a83b64ccc7a8245496d19f6c7a099b46d31d738c7
 aliases:
   opencv_version: /opt/view/bin/opencv_version
   setup_vars_opencv4.sh: /opt/view/bin/setup_vars_opencv4.sh

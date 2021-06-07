@@ -4,9 +4,9 @@ maintainer: '@vsoch'
 description: BCFtools is a set of utilities that manipulate variant calls in the Variant
   Call Format (VCF) and its binary counterpart BCF.
 latest:
-  "1.12": sha256:e0f7cc983f03dccf01414f0d8fdf41f266a94ecffd339912fb7fb0cf9ff1ecf5
+  "1.12": sha256:baffef3b6f9ad2cae966f05a3cea7762eb493518acacc34730e387bc6fc0e1dd
 tags:
-  "1.12": sha256:e0f7cc983f03dccf01414f0d8fdf41f266a94ecffd339912fb7fb0cf9ff1ecf5
-  latest: sha256:e0f7cc983f03dccf01414f0d8fdf41f266a94ecffd339912fb7fb0cf9ff1ecf5
+  "1.12": sha256:baffef3b6f9ad2cae966f05a3cea7762eb493518acacc34730e387bc6fc0e1dd
+  latest: sha256:baffef3b6f9ad2cae966f05a3cea7762eb493518acacc34730e387bc6fc0e1dd
 aliases:
   bcftools: /opt/view/bin/bcftools

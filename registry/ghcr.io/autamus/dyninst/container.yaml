@@ -3,6 +3,6 @@ url: https://github.com/orgs/autamus/packages/container/package/dyninst
 maintainer: '@vsoch'
 description: DyninstAPI - Tools for binary instrumentation, analysis, and modification.
 latest:
-  11.0.0: sha256:da26a34223860e3770931a67f196474d9181d2c69e80832d6234f35ea22943cc
+  11.0.0: sha256:c684f2bffc592e8ae8f82e977b93b6d8306483d5ca71dda81fa8828663122e3f
 tags:
-  11.0.0: sha256:da26a34223860e3770931a67f196474d9181d2c69e80832d6234f35ea22943cc
+  11.0.0: sha256:c684f2bffc592e8ae8f82e977b93b6d8306483d5ca71dda81fa8828663122e3f
