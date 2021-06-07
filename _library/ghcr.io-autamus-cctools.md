@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/cctools"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/cctools/container.yaml"
-updated_at: "2021-06-06 20:44:21.273542"
+updated_at: "2021-06-07 16:22:39.674328"
 container_url: "https://github.com/orgs/autamus/packages/container/package/cctools"
 aliases:
  - "c_rehash"
@@ -60,6 +60,7 @@ aliases:
 
 versions:
  - "7.2.4"
+ - "7.2.10"
  - "latest"
 description: "The Cooperative Computing Tools (CCTools) are a collection of programs that enable large scale distributed computing on systems such as clusters, clouds, and grids."
 ---

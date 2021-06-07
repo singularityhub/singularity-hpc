@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/opencv"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/opencv/container.yaml"
-updated_at: "2021-06-06 20:44:00.713052"
+updated_at: "2021-06-07 16:22:18.426508"
 container_url: "https://github.com/orgs/autamus/packages/container/package/opencv"
 aliases:
  - "opencv_version"
@@ -11,6 +11,7 @@ aliases:
  - "setup_vars_opencv4.sh"
 
 versions:
+ - "4.5.2"
  - "latest"
 description: "OpenCV is a library of programming functions mainly aimed at real-time computer vision. Originally developed by Intel, it was later supported by Willow Garage then Itseez."
 ---
@@ -26,7 +27,7 @@ $ shpc install ghcr.io/autamus/opencv
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/opencv:latest
+$ shpc install ghcr.io/autamus/opencv:4.5.2
 ```
 
 And then you can tell lmod about your modules folder:
@@ -38,8 +39,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/opencv/latest
-$ module help ghcr.io/autamus/opencv/latest
+$ module load ghcr.io/autamus/opencv/4.5.2
+$ module help ghcr.io/autamus/opencv/4.5.2
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

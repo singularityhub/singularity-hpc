@@ -3,12 +3,13 @@ layout: container
 name:  "ghcr.io/autamus/cdo"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/cdo/container.yaml"
-updated_at: "2021-06-06 20:43:58.463929"
+updated_at: "2021-06-07 16:22:16.118212"
 container_url: "https://github.com/orgs/autamus/packages/container/package/cdo"
 aliases:
  - "cdo"
 
 versions:
+ - "1.9.10"
  - "latest"
 description: "CDO is a collection of command line Operators to manipulate and analyse Climate and NWP model Data."
 ---
@@ -24,7 +25,7 @@ $ shpc install ghcr.io/autamus/cdo
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/cdo:latest
+$ shpc install ghcr.io/autamus/cdo:1.9.10
 ```
 
 And then you can tell lmod about your modules folder:
@@ -36,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/cdo/latest
-$ module help ghcr.io/autamus/cdo/latest
+$ module load ghcr.io/autamus/cdo/1.9.10
+$ module help ghcr.io/autamus/cdo/1.9.10
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

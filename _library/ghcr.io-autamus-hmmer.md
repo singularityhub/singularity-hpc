@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/hmmer"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/hmmer/container.yaml"
-updated_at: "2021-06-06 20:44:00.931354"
+updated_at: "2021-06-07 16:22:18.651832"
 container_url: "https://github.com/orgs/autamus/packages/container/package/hmmer"
 aliases:
  - "hmmalign"
@@ -34,6 +34,7 @@ aliases:
 
 versions:
  - "3.3"
+ - "3.3.2"
  - "latest"
 description: "HMMER is used for searching sequence databases for sequence homologs, and for making sequence alignments."
 ---

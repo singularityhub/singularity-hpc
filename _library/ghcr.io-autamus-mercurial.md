@@ -3,13 +3,14 @@ layout: container
 name:  "ghcr.io/autamus/mercurial"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/mercurial/container.yaml"
-updated_at: "2021-06-06 20:44:18.236501"
+updated_at: "2021-06-07 16:22:36.560284"
 container_url: "https://github.com/orgs/autamus/packages/container/package/mercurial"
 aliases:
  - "hg"
 
 versions:
  - "5.7.1"
+ - "5.8"
  - "latest"
 description: "Mercurial is a distributed revision control tool for software developers."
 ---

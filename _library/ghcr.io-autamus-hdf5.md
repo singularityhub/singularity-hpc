@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/hdf5"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/hdf5/container.yaml"
-updated_at: "2021-06-06 20:44:05.942773"
+updated_at: "2021-06-07 16:22:23.834191"
 container_url: "https://github.com/orgs/autamus/packages/container/package/hdf5"
 aliases:
  - "h5clear"

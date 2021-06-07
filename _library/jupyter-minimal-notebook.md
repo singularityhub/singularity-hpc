@@ -3,7 +3,7 @@ layout: container
 name:  "jupyter/minimal-notebook"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/jupyter/minimal-notebook/container.yaml"
-updated_at: "2021-06-06 20:44:25.382937"
+updated_at: "2021-06-07 16:22:44.214690"
 container_url: "https://hub.docker.com/r/jupyter/minimal-notebook"
 aliases:
  - "run-notebook"

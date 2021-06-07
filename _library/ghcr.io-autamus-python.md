@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/python"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/python/container.yaml"
-updated_at: "2021-06-06 20:44:12.074907"
+updated_at: "2021-06-07 16:22:30.229773"
 container_url: "https://github.com/orgs/autamus/packages/container/package/python"
 aliases:
  - "pydoc3"
@@ -25,6 +25,7 @@ aliases:
  - "python3.8-gdb.py"
 
 versions:
+ - "3.9.5"
  - "latest"
 description: "An interpreted, high-level and general-purpose programming language."
 ---
@@ -40,7 +41,7 @@ $ shpc install ghcr.io/autamus/python
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/python:latest
+$ shpc install ghcr.io/autamus/python:3.9.5
 ```
 
 And then you can tell lmod about your modules folder:
@@ -52,8 +53,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/python/latest
-$ module help ghcr.io/autamus/python/latest
+$ module load ghcr.io/autamus/python/3.9.5
+$ module help ghcr.io/autamus/python/3.9.5
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/gdal"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/gdal/container.yaml"
-updated_at: "2021-06-06 20:44:12.302245"
+updated_at: "2021-06-07 16:22:30.475543"
 container_url: "https://github.com/orgs/autamus/packages/container/package/gdal"
 aliases:
  - "gdal-config"
@@ -47,6 +47,7 @@ aliases:
  - "gdalwarp"
 
 versions:
+ - "3.3.0"
  - "latest"
 description: "GDAL is a translator library for raster and vector geospatial data formats that is released under an X/MIT style Open Source License by the Open Source Geospatial Foundation. "
 ---
@@ -62,7 +63,7 @@ $ shpc install ghcr.io/autamus/gdal
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/gdal:latest
+$ shpc install ghcr.io/autamus/gdal:3.3.0
 ```
 
 And then you can tell lmod about your modules folder:
@@ -74,8 +75,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/gdal/latest
-$ module help ghcr.io/autamus/gdal/latest
+$ module load ghcr.io/autamus/gdal/3.3.0
+$ module help ghcr.io/autamus/gdal/3.3.0
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
