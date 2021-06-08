@@ -86,6 +86,18 @@ class Client:
             name = "%s/%s" % (self.settings.namespace.strip("/"), name)
         return name
 
+    def load_registry_config(self, name):
+        """
+        Given an identifier, find the first match in the registry.
+        """
+        for registry, fullpath in self.container.iter_registry():
+            package_dir = os.path.join(registry, name)
+            package_file = os.path.join(package_dir, "container.yaml")
+            if package_file == fullpath:
+                return container.ContainerConfig(package_file)
+
+        logger.exit("%s is not a known recipe in any registry." % name)
+
     def _load_container(self, name, tag=None):
         """
         Given a name and an optional tag to default to, load a package
@@ -94,12 +106,8 @@ class Client:
         if ":" in name:
             name, tag = name.split(":", 1)
 
-        # The recipe folder must exist in the registry
-        package_dir = os.path.join(self.settings.registry, name)
-        package_file = os.path.join(package_dir, "container.yaml")
-        config = container.ContainerConfig(package_file)
-
         # If the user provides a tag, set it
+        config = self.load_registry_config(name)
         config.set_tag(tag)
         return config
 
@@ -205,12 +213,10 @@ class Client:
             out = out or sys.stdout
 
             # List the known registry modules
-            for fullpath in utils.recursive_find(self.settings.registry):
+            for registry, fullpath in self.container.iter_registry():
                 if fullpath.endswith("container.yaml"):
                     module_name = (
-                        os.path.dirname(fullpath)
-                        .replace(self.settings.registry, "")
-                        .strip(os.sep)
+                        os.path.dirname(fullpath).replace(registry, "").strip(os.sep)
                     )
 
                     # If the user has provided a filter, honor it

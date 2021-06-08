@@ -43,7 +43,7 @@ def get_parser():
     parser.add_argument(
         "--version",
         dest="version",
-        help="suppress additional output.",
+        help="show software version.",
         default=False,
         action="store_true",
     )
@@ -142,10 +142,26 @@ def get_parser():
         help="update configuration settings. Use set or get to see or set information.",
         formatter_class=argparse.RawTextHelpFormatter,
     )
+
+    config.add_argument(
+        "--central",
+        "-c",
+        dest="central",
+        help="make edits to the central config file.",
+        default=False,
+        action="store_true",
+    )
+
     config.add_argument(
         "params",
         nargs="*",
-        help="Set or get a config value, or edit the config.\nshpc config set key:value\nshpc config get key\nshpc edit",
+        help="""Set or get a config value, edit the config, add or remove a list variable, or create a user-specific config.
+shpc config set key:value
+shpc config get key
+shpc edit
+shpc config inituser
+shpc config add registry:/tmp/registry
+shpc config remove registry:/tmp/registry""",
         type=str,
     )
     # Generate markdown docs for a container registry entry

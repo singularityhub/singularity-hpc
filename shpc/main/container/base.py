@@ -90,6 +90,14 @@ class ContainerTechnology:
             return os.path.join(self.settings.module_base, name)
         return os.path.join(self.settings.container_base, name)
 
+    def iter_registry(self):
+        """
+        Iterate over known registries defined in settings.
+        """
+        for registry in self.settings.registry:
+            for filename in shpc.utils.recursive_find(registry):
+                yield registry, filename
+
     def guess_tag(self, module_name, allow_fail=False):
         """
         If a user asks for a name without a tag, try to figure it out.
@@ -99,15 +107,13 @@ class ContainerTechnology:
         tags = os.listdir(os.path.join(self.settings.module_base, module_name))
         if not tags and allow_fail:
             logger.exit("%s does not have any tags installed." % module_name)
-        elif (tags or len(tags) > 1) and allow_fail:
+        elif tags and len(tags) == 1:
+            return "%s:%s" % (module_name, tags[0])
+        elif tags and len(tags) > 1 and allow_fail:
             return
-        elif len(tags) > 1:
-            logger.exit(
-                "Multiple tags found for %s: %s." % (module_name, ", ".join(tags))
-            )
-        else:
-            module_name = "%s:%s" % (module_name, tags[0])
-        return module_name
+
+        # Length of tags is > 1
+        logger.exit("Multiple tags found for %s: %s." % (module_name, ", ".join(tags)))
 
     def get_environment_file(self, module_name):
         """

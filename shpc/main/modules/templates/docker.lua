@@ -16,11 +16,11 @@ Container:
 Commands include:
 
  - {|module_name|}-run:
-       {{ command }} run -i{% if tty %}t{% endif %} -u `id -u`:`id -g` --rm {% if envfile %}--env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} -v ${PWD} -w ${PWD} {% endif %}<container> "$@"
+       {{ command }} run -i{% if tty %}t{% endif %} -u `id -u`:`id -g` --rm {% if envfile %}--env-file {{ module_dir }}/{{ envfile }} {% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %}-v ${PWD} -w ${PWD} <container> "$@"
  - {|module_name|}-shell:
-       {{ command }} run -i{% if tty %}t{% endif %} -u `id -u`:`id -g` --rm {% if envfile %}--env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} --entrypoint {{ shell }} -v ${PWD} -w ${PWD} {% endif %}<container>
+       {{ command }} run -i{% if tty %}t{% endif %} -u `id -u`:`id -g` --rm {% if envfile %}--env-file {{ module_dir }}/{{ envfile }} {% endif %} {% if bindpaths %}-v {{ bindpaths }} --entrypoint {{ shell }} {% endif %}-v ${PWD} -w ${PWD}<container>
  - {|module_name|}-exec:
-       {{ command }} run -i{% if tty %}t{% endif %} -u `id -u`:`id -g` --rm --entrypoint "" {% if envfile %}--env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %} -v ${PWD} -w ${PWD} <container> "$@"
+       {{ command }} run -i{% if tty %}t{% endif %} -u `id -u`:`id -g` --rm --entrypoint "" {% if envfile %}--env-file {{ module_dir }}/{{ envfile }} {% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %} -v ${PWD} -w ${PWD} <container> "$@"
  - {|module_name|}-inspect:
        {{ command }} inspect <container>
 

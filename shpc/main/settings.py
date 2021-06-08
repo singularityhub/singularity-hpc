@@ -7,6 +7,7 @@ from shpc.logger import logger
 import shpc.defaults as defaults
 import shpc.main.schemas
 import shpc.utils
+import shutil
 
 try:
     from ruamel_yaml import YAML
@@ -39,6 +40,21 @@ class SettingsBase:
         """
         jsonschema.validate(instance=self._settings, schema=shpc.main.schemas.settings)
 
+    def inituser(self):
+        """
+        Create a user specific config in user's home.
+        """
+        user_home = os.path.dirname(defaults.user_settings_file)
+        if not os.path.exists(user_home):
+            os.makedirs(user_home)
+        if os.path.exists(defaults.user_settings_file):
+            logger.exit(
+                "%s already exists! Remove first before re-creating."
+                % defaults.user_settings_file
+            )
+        shutil.copyfile(self.settings_file, defaults.user_settings_file)
+        logger.info("Created user settings file %s" % defaults.user_settings_file)
+
     def edit(self):
         """
         Interactively edit a config file.
@@ -47,11 +63,24 @@ class SettingsBase:
             logger.exit("Settings file not found.")
         shpc.utils.run_command([self.config_editor, self.settings_file], stream=True)
 
+    def get_settings_file(self, settings_file=None):
+        """
+        Get the preferred used settings file.
+        """
+        # Only consider user settings if the file exists!
+        user_settings = None
+        if os.path.exists(defaults.user_settings_file):
+            user_settings = defaults.user_settings_file
+
+        # First preference to command line, then user settings, then default
+        return settings_file or user_settings or defaults.default_settings_file
+
     def load(self, settings_file=None):
         """
         Load the settings file into the settings object
         """
-        self.settings_file = settings_file or defaults.default_settings_file
+        # Get the preferred settings flie
+        self.settings_file = self.get_settings_file(settings_file)
 
         # Exit quickly if the settings file does not exist
         if not os.path.exists(self.settings_file):
@@ -65,14 +94,51 @@ class SettingsBase:
             self._settings = yaml.load(fd.read())
 
     def get(self, key, default=None):
+        """
+        Get a settings value, doing appropriate substitution and expansion.
+        """
         value = self._settings.get(key, default)
-        return self._substitutions(value)
+        value = self._substitutions(value)
+        # If we allow environment substitution, do it
+        if key in defaults.allowed_envars and value:
+            if isinstance(value, list):
+                value = [os.path.expandvars(v) for v in value]
+            else:
+                value = os.path.expandvars(value)
+        return value
 
     def __getattr__(self, key):
         """
         A direct get of an attribute, but default to None if doesn't exist
         """
         return self.get(key)
+
+    def add(self, key, value):
+        """
+        Add a value to a list parameter
+        """
+        # We can only add to lists
+        current = self._settings.get(key)
+        if current and not isinstance(current, list):
+            logger.exit("You cannot only add to a list variable.")
+        # Add to the beginning of the list
+        current = current + [value]
+        value = list(set(current))
+        self._settings[key] = value
+        self.change_validate(key, value)
+
+    def remove(self, key, value):
+        """
+        Remove a value from a list parameter
+        """
+        current = self._settings.get(key)
+        if current and not isinstance(current, list):
+            logger.exit("You cannot only remove from a list variable.")
+        if not current or value not in current:
+            logger.exit("%s is not in %s" % (value, key))
+        current.pop(current.index(value))
+        self._settings[key] = current
+        self.change_validate(key, current)
 
     def set(self, key, value):
         """
@@ -81,6 +147,11 @@ class SettingsBase:
         value = True if value == "true" else value
         value = False if value == "false" else value
 
+        # List values not allowed for set
+        current = self._settings.get(key)
+        if current and isinstance(current, list):
+            logger.exit("You cannot use 'set' for a list. Use add/remove instead.")
+
         # This is a reference to a dictionary (object) setting
         if ":" in key:
             key, subkey = key.split(":")
@@ -88,6 +159,13 @@ class SettingsBase:
         else:
             self._settings[key] = value
 
+        # Validate and catch error message cleanly
+        self.change_validate(key, value)
+
+    def change_validate(self, key, value):
+        """
+        A courtesy function to validate a new config addition.
+        """
         # Don't allow the user to add a setting not known
         try:
             self.validate()
@@ -120,12 +198,21 @@ class SettingsBase:
             del self._settings[key]
 
     def save(self, filename=None):
+        """
+        Save settings, but do not change order of anything.
+        """
         filename = filename or self.settings_file
         if not filename:
             logger.exit("A filename is required to save to.")
         yaml = YAML()
-        with open(filename, "w") as fd:
-            yaml.dump(self._settings, fd)
+
+        # This requires Python 3.7 support
+        try:
+            with open(filename, "w") as fd:
+                yaml.dump(self._settings, fd, sort_keys=False)
+        except:
+            with open(filename, "w") as fd:
+                yaml.dump(self._settings, fd)
 
     def __iter__(self):
         for key, value in self.__dict__.items():

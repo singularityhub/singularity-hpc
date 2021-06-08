@@ -13,16 +13,17 @@ you should do that first.
 Why shpc?
 =========
 
-While the library is currently focused on Singularity containers (hence
-the name) it's created to be modular, meaning that if another container technology
-is wanted, it can be added. The module name would still be appropriate, as
-singularity does imply a single entity that is "one library to rule them all!"
+Singularity Registry HPC is created to be modular, meaning that we support a distinct
+set of container technologies and module systems. The name of the library "Singularity
+Registry HPC" does not refer specifically to the container technology "Singularity,"
+but more generally implies the same spirit -- a single entity that is "one library to rule them all!"
+
 
 What is a registry?
 ===================
 
 A registry consists of a database of local containers configuration files, ``container.yaml``
-files organized in the root of the shpc install in the ``registry`` folder. The namespace
+files organized in the root of the shpc install in one of the ``registry`` folders. The namespace
 is organized by Docker unique resources identifiers. When you install an identifier
 as we saw above, the container binaries and customized module files are added to 
 the ``module_dir`` defined in your settings, which defaults to ``modules`` in the
@@ -99,15 +100,27 @@ Setup
 =====
 
 Setup includes, after installation, editing any configuration values to
-customize your install. The defaults are likely suitable for most.
-For any configuration value that you might set, the following variables
-are available to you:
+customize your install. The configuration file will default to ``shpc/settings.yml``
+in the installed module, however you can create your own user settings file to
+take preference over this one as follows:
+
+.. code-block:: console
+
+    $ shpc config userinit
+
+
+The defaults in either file are likely suitable for most. For any configuration value 
+that you might set, the following variables are available to you:
 
  - ``$install_dir``: the shpc folder
  - ``$root_dir``: the parent directory of shpc (where this README.md is located)
 
 
-A summary table of variables is included below, and then further discussed in detail.
+Additionally, the variables ``module_base``, ``container_base``, and ``registry``
+can be set with environment variables that will be expanded at runtime. You cannot
+use the protected set of substitution variables (``$install_dir`` and ``$install_root``)
+as environment variables, as they will be subbed in by shpc before environment
+variable replacement. A summary table of variables is included below, and then further discussed in detail.
 
 
 .. list-table:: Title
@@ -121,8 +134,8 @@ A summary table of variables is included below, and then further discussed in de
      - Set a default module system. Currently lmod and tcl are supported
      - [lmod, tcl]
    * - registry
-     - The full path to the registry folder (with subfolders with container.yaml recipes)
-     - $root_dir/registry
+     - A list of full paths to one or more registry folders (with subfolders with container.yaml recipes)
+     - [$root_dir/registry]
    * - module_base
      - The install directory for modules. Defaults to the install directory/modules
      - $root_dir/modules
@@ -271,8 +284,10 @@ directory.
 Registry
 --------
 
-The registry folder in the root of the repository, but you can change it to
-be a custom one with the config variable ``registry``
+The registry parameter is a list of one or more registry locations (filesystem
+directories) where shpc will search for ``container.yaml`` files. The default
+registry shipped with shpc is the folder in the root of the repository, but 
+you can add or remove entries via the config variable ``registry``
 
 
 .. code-block:: console
@@ -409,6 +424,8 @@ file directly, or you can use ``shpc config``, which will accept:
 
  - set to set a parameter and value
  - get to get a parameter by name
+ - add to add a value to a parameter that is a list (e.g., registry)
+ - remove to remove a value from a parameter that is a list
 
 The following example shows changing the default module_base path from the install directory modules folder.
 
@@ -426,6 +443,14 @@ And then to get values:
 .. code-block:: console
 
     $ shpc config get module_base
+
+
+And to add and remove a value to a list:
+
+.. code-block::console
+
+    $ shpc config add registry:/tmp/registry
+    $ shpc config remove registry:/tmp/registry
 
 
 You can also open the config in the editor defined in settings at ``config_editor``

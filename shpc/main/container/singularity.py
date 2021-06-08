@@ -71,21 +71,20 @@ class SingularityContainer(ContainerTechnology):
         """
         Manually add a registry container.
         """
-        registry_dir = self.settings.registry
-
         # Ensure the container exists
         sif = os.path.abspath(sif)
         if not os.path.exists(sif):
             logger.exit("%s does not exist." % sif)
 
         # First ensure that we aren't using a known namespace
-        for subfolder in module_name.split("/"):
-            registry_dir = os.path.join(registry_dir, subfolder)
-            if os.path.exists(registry_dir):
-                logger.exit(
-                    "%s is a known registry namespace, choose another for a custom addition."
-                    % subfolder
-                )
+        for registry_dir, _ in self.iter_registry():
+            for subfolder in module_name.split("/"):
+                registry_dir = os.path.join(registry_dir, subfolder)
+                if os.path.exists(registry_dir):
+                    logger.exit(
+                        "%s is a known registry namespace, choose another for a custom addition."
+                        % subfolder
+                    )
 
         # The user can have a different container directory defined
         container_dir = self.container_dir(module_name)
