@@ -27,14 +27,14 @@ proc ModulesHelp { } {
 {% endfor %}{% endif %}
 
     puts stderr "For each of the above, you can export:"
-    puts stderr "        - DOCKER_OPTS: to define custom options for {{ command }}"
-    puts stderr "        - DOCKER_COMMAND_OPTS: to define custom options for the command"
+    puts stderr "        - PODMAN_OPTS: to define custom options for {{ command }}"
+    puts stderr "        - PODMAN_COMMAND_OPTS: to define custom options for the command"
 
 }
 
 # Environment
-setenv DOCKER_OPTS ""
-setenv DOCKER_COMMAND_OPTS ""
+setenv PODMAN_OPTS ""
+setenv PODMAN_COMMAND_OPTS ""
 
 # Variables
 
@@ -51,16 +51,17 @@ set helpcommand "This module is a {{ docker }} container wrapper for {{ name }} 
 {% endfor %}{% endif %}
 
 # conflict with modules with the same alias name
+conflict {{ name }}
 {% if aliases %}{% for alias in aliases %}{% if alias.name != name %}conflict {{ alias.name }}{% endif %}
 {% endfor %}{% endif %}
 
 # interactive shell to any container, plus exec for aliases
-set shellCmd "{{ command }} \${DOCKER_OPTS} run \${DOCKER_COMMAND_OPTS} -u `id -u`:`id -g` --rm -i{% if tty %}t{% endif %} --entrypoint {{ shell }} {% if envfile %}--env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %} -v $workdir -w $workdir ${containerPath}" 
+set shellCmd "{{ command }} \${PODMAN_OPTS} run \${PODMAN_COMMAND_OPTS} -u `id -u`:`id -g` --rm -i{% if tty %}t{% endif %} --entrypoint {{ shell }} {% if envfile %}--env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %} -v $workdir -w $workdir ${containerPath}" 
 
 # execCmd needs entrypoint to be the executor
-set execCmd "{{ command }} \${DOCKER_OPTS} run -i{% if tty %}t{% endif %} \${DOCKER_COMMAND_OPTS} -u `id -u`:`id -g` --rm {% if envfile %} --env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} -v $workdir -w $workdir {% endif %} "
-set runCmd "{{ command }} \${DOCKER_OPTS} run -i{% if tty %}t{% endif %} \${DOCKER_COMMAND_OPTS} -u `id -u`:`id -g` --rm {% if envfile %}--env-file  {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %} -v $workdir -w $workdir ${containerPath}"
-set inspectCmd "{{ command }} \${DOCKER_OPTS} inspect ${containerPath}" 
+set execCmd "{{ command }} \${PODMAN_OPTS} run -i{% if tty %}t{% endif %} \${PODMAN_COMMAND_OPTS} -u `id -u`:`id -g` --rm {% if envfile %} --env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} -v $workdir -w $workdir {% endif %} "
+set runCmd "{{ command }} \${PODMAN_OPTS} run -i{% if tty %}t{% endif %} \${PODMAN_COMMAND_OPTS} -u `id -u`:`id -g` --rm {% if envfile %}--env-file  {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %} -v $workdir -w $workdir ${containerPath}"
+set inspectCmd "{{ command }} \${PODMAN_OPTS} inspect ${containerPath}" 
 
 # set_shell_function takes bashStr and cshStr
 set-alias {|module_name|}-shell "${shellCmd}"

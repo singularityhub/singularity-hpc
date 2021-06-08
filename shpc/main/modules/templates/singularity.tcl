@@ -57,6 +57,7 @@ set helpcommand "This module is a singularity container wrapper for {{ name }} v
 {% endfor %}{% endif %}
 
 # conflict with modules with the same alias name
+conflict {{ name }}
 {% if aliases %}{% for alias in aliases %}{% if alias != name %}conflict {{ alias.name }}{% endif %}
 {% endfor %}{% endif %}
 
