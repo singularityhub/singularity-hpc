@@ -3,7 +3,7 @@ layout: container
 name:  "node"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/node/container.yaml"
-updated_at: "2021-06-07 16:22:59.306273"
+updated_at: "2021-06-08 15:07:01.862349"
 container_url: "https://hub.docker.com/r/_/node"
 aliases:
  - "node"
@@ -173,8 +173,8 @@ inspect aliases. For anycommands above, you can export:
 
  - SINGULARITY_OPTS: to define custom options for singularity (e.g., --debug)
  - SINGULARITY_COMMAND_OPTS: to define custom options for the command (e.g., -b)
- - DOCKER_OPTS: to define custom options for podman or docker
- - DOCKER_COMMAND_OPTS: to define custom options for the command
+ - PODMAN_OPTS: to define custom options for podman or docker
+ - PODMAN_COMMAND_OPTS: to define custom options for the command
 
 <br>
   
