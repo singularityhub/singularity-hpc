@@ -73,6 +73,10 @@ jobs:
           shpc config set container_tech:${{ matrix.container_tech }}
           shpc config set module_sys:${{ matrix.module }}
           shpc config set enable_tty:false
+
+          printf "\n\shpc test ============================================\n"
+          shpc test python:3.9.5-alpine          
+
           shpc install python:3.9.5-alpine
 
           module use ./modules
@@ -96,7 +100,8 @@ jobs:
           cat test_output
           grep --quiet 'Python 3.9.5' test_output
           rm test_output
-
+          shpc uninstall --force python:3.9.5-alpine 
+        
       - name: Run python module tests (tcsh)
         shell: tcsh -e {0}
         run: |
@@ -114,6 +119,7 @@ jobs:
           shpc config set container_tech:${{ matrix.container_tech }}
           shpc config set module_sys:${{ matrix.module }}
           shpc config set enable_tty:false
+
           shpc install python:3.9.5-alpine
 
           module use ./modules
@@ -137,3 +143,4 @@ jobs:
           cat test_output
           grep --quiet 'Python 3.9.5' test_output
           rm test_output
+          shpc uninstall --force python:3.9.5-alpine

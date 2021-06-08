@@ -38,4 +38,5 @@ jobs:
           pyflakes shpc/main/modules
           pyflakes shpc/main/container/base.py
           pyflakes shpc/main/container/podman.py
+          pyflakes shpc/main/container/docker.py
           pyflakes shpc/main/container/singularity.py

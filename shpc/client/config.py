@@ -10,8 +10,6 @@ def main(args, parser, extra, subparser):
 
     from shpc.main import get_client
 
-    cli = get_client(quiet=args.quiet, settings_file=args.settings_file)
-
     # If nothing provided, show help
     if not args.params:
         print(subparser.format_help())
@@ -19,6 +17,11 @@ def main(args, parser, extra, subparser):
 
     # The first "param" is either set of get
     command = args.params.pop(0)
+
+    validate = True if not command == "edit" else False
+    cli = get_client(
+        quiet=args.quiet, settings_file=args.settings_file, validate=validate
+    )
 
     # For each new setting, update and save!
     if command == "edit":

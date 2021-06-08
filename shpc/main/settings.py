@@ -141,12 +141,13 @@ class Settings(SettingsBase):
     a dictionary-like class with extra functions.
     """
 
-    def __init__(self, settings_file):
+    def __init__(self, settings_file, validate=True):
         """
         Create a new settings object, which requires a settings file to load
         """
         self.load(settings_file)
-        self.validate()
+        if validate:
+            self.validate()
 
         # Set an updated time, in case it's written back to file
         self._settings["updated_at"] = datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ")

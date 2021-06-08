@@ -21,9 +21,10 @@ def get_client(quiet=False, **kwargs):
     """
     # The name of the module
     module = kwargs.get("module")
+    validate = kwargs.get("validate", True)
 
     # Load user settings to add to client, and container technology
-    settings = Settings(kwargs.get("settings_file"))
+    settings = Settings(kwargs.get("settings_file"), validate)
     container = kwargs.get("container_tech") or settings.container_tech
 
     # Use the user provided module OR the default

@@ -3,7 +3,7 @@
 # currently specific to singularity, but can be extended to other technologies.
 
 # set a default module system
-# Currently only lmod is supported. To request an additional system, 
+# Currently lmod and tcl are supported. To request an additional system, 
 # please open an issue https://github.com/singularityhub/singularity-hpc
 module_sys: lmod
 
@@ -21,7 +21,7 @@ registry: $root_dir/registry
 module_base: $root_dir/modules
 
 # Format string for module commands exec,run,shell (not aliases) (can also include:
-# {{registry}} , {{ namespace }}, {{tool}}, {{version}}
+# {{registry}} , {{ repository }}, {{tool}}, {{version}}
 # This is where you might add a prefix to your module names, if desired.
 module_name: '{{ tool }}'
 

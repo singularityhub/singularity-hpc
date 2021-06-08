@@ -141,11 +141,7 @@ class Client:
         # Test all tags (this could be subsetted)
         for tag in tags:
 
-            # Install the recipe
-            sif = self.install(module_name, tag)
-
-            # Assert that the container exists
-            assert os.path.exists(sif)
+            image = self.install(module_name, tag)
 
             # Do we want to test loading?
             if not skip_module and hasattr(self, "_test"):
@@ -157,27 +153,17 @@ class Client:
             # Do we want to test the test commands?
             if test_commands and config.test:
                 utils.write_file(test_file, config.test)
-                command = ["singularity", "exec", sif, "/bin/bash", test_file]
-                result = utils.run_command(command)
-
-                # We can't run on incompatible hosts
-                if (
-                    "the image's architecture" in result["message"]
-                    and result["return_code"] != 0
-                ):
-                    logger.warning(
-                        "Cannot run test for container with incompatible architecture: %s"
-                        % result["message"]
-                    )
-                elif result["return_code"] != 0:
+                return_code = self.container.test_script(image, test_file)
+                if return_code != 0:
                     cleanup(tmpdir)
                     logger.exit("Test of %s was not successful." % module_name)
 
             # Test the commands
             if not test_exec:
                 continue
+
             for alias in config.get_aliases():
-                result = self._container.client.execute(sif, alias["command"])
+                result = self.client.execute(image, alias["command"])
 
         # Cleanup the test install
         if stage:

@@ -15,26 +15,26 @@ proc ModulesHelp { } {
     puts stderr " - {{ image }}"
     puts stderr "Commands include:"
     puts stderr " - {|module_name|}-run:"
-    puts stderr "       {{ command }} run -i{% if tty %}t{% endif %} --rm {% if envfile %}--env-file  {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %} -v . -w . <container>"
+    puts stderr "       {{ command }} run -i{% if tty %}t{% endif %} -u `id -u`:`id -g` --rm {% if envfile %}--env-file  {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %} -v . -w . <container>"
     puts stderr " - {|module_name|}-shell:"
-    puts stderr "       {{ command }} run -i{% if tty %}t{% endif %} --rm --entrypoint {{ shell }}{% if envfile %} --env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %} -v . -w . <container>"
+    puts stderr "       {{ command }} run -i{% if tty %}t{% endif %} -u `id -u`:`id -g` --rm --entrypoint {{ shell }}{% if envfile %} --env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %} -v . -w . <container>"
     puts stderr " - {|module_name|}-exec:"
-    puts stderr "       {{ command }} run -i{% if tty %}t{% endif %} --rm --entrypoint {{ shell }}{% if envfile %} --env-file  {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %} -v . -w . <container> $*"
+    puts stderr "       {{ command }} run -i{% if tty %}t{% endif %} -u `id -u`:`id -g` --rm --entrypoint \"\" {% if envfile %} --env-file  {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %} -v . -w . <container> $*"
     puts stderr " - {|module_name|}-inspect:"
     puts stderr "       {{ command }} inspect <container>"
 {% if aliases %}{% for alias in aliases %}    puts stderr " - {{ alias.name }}:"
-    puts stderr "       {{ command }} run -i{% if tty %}t{% endif %} --entrypoint {{ alias.entrypoint }} {% if envfile %}--envfile  {{ module_dir }}/{{ envfile }} {% endif %}{% if bindpaths %}-v {{ bindpaths }} {% endif %}{% if alias.options %}{{ alias.options }} {% endif %} -v . -w . <container> {{ alias.args }}"
+    puts stderr "       {{ command }} run -i{% if tty %}t{% endif %} -u `id -u`:`id -g` --entrypoint {{ alias.entrypoint }} {% if envfile %}--envfile  {{ module_dir }}/{{ envfile }} {% endif %}{% if bindpaths %}-v {{ bindpaths }} {% endif %}{% if alias.options %}{{ alias.options }} {% endif %} -v . -w . <container> {{ alias.args }}"
 {% endfor %}{% endif %}
 
     puts stderr "For each of the above, you can export:"
-    puts stderr "        - DOCKER_OPTS: to define custom options for {{ command }}"
-    puts stderr "        - DOCKER_COMMAND_OPTS: to define custom options for the command"
+    puts stderr "        - PODMAN_OPTS: to define custom options for {{ command }}"
+    puts stderr "        - PODMAN_COMMAND_OPTS: to define custom options for the command"
 
 }
 
 # Environment
-setenv DOCKER_OPTS ""
-setenv DOCKER_COMMAND_OPTS ""
+setenv PODMAN_OPTS ""
+setenv PODMAN_COMMAND_OPTS ""
 
 # Variables
 
@@ -50,18 +50,18 @@ set helpcommand "This module is a {{ docker }} container wrapper for {{ name }} 
 {% if labels %}{% for key, value in labels.items() %}set {{ key }} {{ value }}
 {% endfor %}{% endif %}
 
-# conflict with modules with the same name
+# conflict with modules with the same alias name
 conflict {{ name }}
 {% if aliases %}{% for alias in aliases %}{% if alias.name != name %}conflict {{ alias.name }}{% endif %}
 {% endfor %}{% endif %}
 
 # interactive shell to any container, plus exec for aliases
-set shellCmd "{{ command }} \${DOCKER_OPTS} run \${DOCKER_COMMAND_OPTS} --rm -i{% if tty %}t{% endif %} --entrypoint {{ shell }} {% if envfile %}--env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %} -v $workdir -w $workdir ${containerPath}" 
+set shellCmd "{{ command }} \${PODMAN_OPTS} run \${PODMAN_COMMAND_OPTS} -u `id -u`:`id -g` --rm -i{% if tty %}t{% endif %} --entrypoint {{ shell }} {% if envfile %}--env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %} -v $workdir -w $workdir ${containerPath}" 
 
 # execCmd needs entrypoint to be the executor
-set execCmd "{{ command }} \${DOCKER_OPTS} run -i{% if tty %}t{% endif %} \${DOCKER_COMMAND_OPTS} --rm {% if envfile %} --env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} -v $workdir -w $workdir {% endif %} "
-set runCmd "{{ command }} \${DOCKER_OPTS} run -i{% if tty %}t{% endif %} \${DOCKER_COMMAND_OPTS} --rm {% if envfile %}--env-file  {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %} -v $workdir -w $workdir ${containerPath}"
-set inspectCmd "{{ command }} \${DOCKER_OPTS} inspect ${containerPath}" 
+set execCmd "{{ command }} \${PODMAN_OPTS} run -i{% if tty %}t{% endif %} \${PODMAN_COMMAND_OPTS} -u `id -u`:`id -g` --rm {% if envfile %} --env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} -v $workdir -w $workdir {% endif %} "
+set runCmd "{{ command }} \${PODMAN_OPTS} run -i{% if tty %}t{% endif %} \${PODMAN_COMMAND_OPTS} -u `id -u`:`id -g` --rm {% if envfile %}--env-file  {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %} -v $workdir -w $workdir ${containerPath}"
+set inspectCmd "{{ command }} \${PODMAN_OPTS} inspect ${containerPath}" 
 
 # set_shell_function takes bashStr and cshStr
 set-alias {|module_name|}-shell "${shellCmd}"

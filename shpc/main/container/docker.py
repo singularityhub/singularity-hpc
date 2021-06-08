@@ -99,9 +99,13 @@ class DockerContainer(ContainerTechnology):
         Determine if a container uri exists.
         """
         # If no module tag provided, try to deduce from install tree
-        module_name = self.guess_tag(module_name)
+        full_name = self.guess_tag(module_name, allow_fail=True)
 
-        uri = self.add_registry(module_name)
+        # The user already provided a tag
+        if not full_name:
+            full_name = module_name
+
+        uri = self.add_registry(full_name)
         # If there isn't a tag in the name, add it back
         if ":" not in uri:
             uri = ":".join(uri.rsplit("/", 1))
@@ -131,6 +135,25 @@ class DockerContainer(ContainerTechnology):
                     "👉️ tag %s can be updated to %s! 👈️"
                     % (module_name, config.latest.name)
                 )
+
+    def test_script(self, image, test_script):
+        """
+        Given a test file, run it and respond accordingly.
+        """
+        command = [
+            "docker",
+            "run",
+            "-i",
+            "--entrypoint",
+            "/bin/bash",
+            "-t",
+            image,
+            test_script,
+        ]
+        result = shpc.utils.run_command(command)
+
+        # Return code
+        return result["return_code"]
 
     def install(
         self,
@@ -190,7 +213,7 @@ class DockerContainer(ContainerTechnology):
             name=name,
             tool=parsed_name.tool,
             registry=parsed_name.registry,
-            namespace=parsed_name.namespace,
+            repository=parsed_name.repository,
             envfile=self.settings.environment_file,
             command=self.command,
             tty=self.settings.enable_tty,

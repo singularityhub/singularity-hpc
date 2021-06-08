@@ -14,6 +14,13 @@ and **Merged pull requests**. Critical items to know are:
 The versions coincide with releases on pip. Only major versions will be released as tags on Github.
 
 ## [0.0.x](https://github.scom/singularityhub/singularity-hpc/tree/master) (0.0.x)
+ - Add test for docker and podman (0.0.28)
+   - namespace as format string for command named renamed to repository
+   - shpc test/uninstall should be run for all tests
+   - bug with uninstall
+   - adding user and group ids to docker and podman commands
+   - remove conflict with entire module name, should only be for aliases
+   - fix documentation of commands in Lua module template
  - Cleanup of module files and docker requirement bugfix (0.0.27)
  - Docker support (0.0.26)
    - added an enable_tty setting to allow disabling add -t in recipes
