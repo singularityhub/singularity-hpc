@@ -104,7 +104,7 @@ class ContainerTechnology:
         """
         if ":" in module_name:
             return module_name
-        tags = os.listdir(os.path.join(self.settings.module_base, module_name))
+        tags = self.installed_tags(module_name)
         if not tags and allow_fail:
             logger.exit("%s does not have any tags installed." % module_name)
         elif tags and len(tags) == 1:
@@ -114,6 +114,12 @@ class ContainerTechnology:
 
         # Length of tags is > 1
         logger.exit("Multiple tags found for %s: %s." % (module_name, ", ".join(tags)))
+
+    def installed_tags(self, module_name):
+        """
+        Get a list of installed tags.
+        """
+        return os.listdir(os.path.join(self.settings.module_base, module_name))
 
     def get_environment_file(self, module_name):
         """

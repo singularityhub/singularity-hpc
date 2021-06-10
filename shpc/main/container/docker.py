@@ -127,9 +127,19 @@ class DockerContainer(ContainerTechnology):
         """
         Delete a container when a module is deleted.
         """
-        image = self.get(image)
-        if self.exists(image):
-            shpc.utils.run_command([self.command, "rmi", "--force", image])
+        container = self.get(image)
+
+        # If we can't get a specific image, the user wants to delete all tags
+        # and we have more than one tag!
+        if not container:
+            tags = self.installed_tags(image)
+            containers = ["%s:%s" % (image, tag) for tag in tags]
+        else:
+            containers = [container]
+
+        for container in containers:
+            if self.exists(container):
+                shpc.utils.run_command([self.command, "rmi", "--force", image])
 
     def check(self, module_name, config):
         """
