@@ -13,10 +13,6 @@ config_editor: vim
 # set a default container technology (singularity or podman)
 container_tech: singularity
 
-# Registry Recipes (order of paths here is honored for search path))
-registry:
- - $root_dir/registry
-
 # Lmod or Environment Modules settings 
 # The install directory for modules. Defaults to the install directory/modules
 module_base: $root_dir/modules
@@ -58,3 +54,7 @@ environment_file: 99-shpc.sh
 # container features like gpu will modify generated recipes
 container_features:
   gpu:      # one of null, amd, or nvidia
+
+# Registry Recipes (order of paths here is honored for search path))
+registry:
+ - $root_dir/registry

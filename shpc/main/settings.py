@@ -126,6 +126,9 @@ class SettingsBase:
         value = list(set(current))
         self._settings[key] = value
         self.change_validate(key, value)
+        logger.warning(
+            "Warning: Check with shpc config edit - ordering of list can change."
+        )
 
     def remove(self, key, value):
         """
@@ -139,6 +142,9 @@ class SettingsBase:
         current.pop(current.index(value))
         self._settings[key] = current
         self.change_validate(key, current)
+        logger.warning(
+            "Warning: Check with shpc config edit - ordering of list can change."
+        )
 
     def set(self, key, value):
         """
@@ -206,13 +212,8 @@ class SettingsBase:
             logger.exit("A filename is required to save to.")
         yaml = YAML()
 
-        # This requires Python 3.7 support
-        try:
-            with open(filename, "w") as fd:
-                yaml.dump(self._settings, fd, sort_keys=False)
-        except:
-            with open(filename, "w") as fd:
-                yaml.dump(self._settings, fd)
+        with open(filename, "w") as fd:
+            yaml.dump(self._settings, fd)
 
     def __iter__(self):
         for key, value in self.__dict__.items():
