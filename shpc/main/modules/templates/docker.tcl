@@ -17,7 +17,7 @@ proc ModulesHelp { } {
     puts stderr " - {|module_name|}-run:"
     puts stderr "       {{ command }} run -i{% if tty %}t{% endif %} -u `id -u`:`id -g` --rm {% if envfile %}--env-file  {{ module_dir }}/{{ envfile }} {% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %} -v . -w . <container>"
     puts stderr " - {|module_name|}-shell:"
-    puts stderr "       {{ command }} run -i{% if tty %}t{% endif %} -u `id -u`:`id -g` --rm --entrypoint \"\"{% if envfile %} --env-file {{ module_dir }}/{{ envfile }} {% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %} -v . -w . <container>"
+    puts stderr "       {{ command }} run -i{% if tty %}t{% endif %} -u `id -u`:`id -g` --rm --entrypoint {{ shell }} {% if envfile %} --env-file {{ module_dir }}/{{ envfile }} {% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %} -v . -w . <container>"
     puts stderr " - {|module_name|}-exec:"
     puts stderr "       {{ command }} run -i{% if tty %}t{% endif %} -u `id -u`:`id -g` --rm --entrypoint \"\" {% if envfile %} --env-file  {{ module_dir }}/{{ envfile }} {% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %} -v . -w . <container> $*"
     puts stderr " - {|module_name|}-inspect:"

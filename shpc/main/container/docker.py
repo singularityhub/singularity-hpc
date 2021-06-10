@@ -139,7 +139,7 @@ class DockerContainer(ContainerTechnology):
 
         for container in containers:
             if self.exists(container):
-                shpc.utils.run_command([self.command, "rmi", "--force", image])
+                shpc.utils.run_command([self.command, "rmi", "--force", container])
 
     def check(self, module_name, config):
         """
