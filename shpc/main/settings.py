@@ -11,12 +11,20 @@ import shutil
 
 try:
     from ruamel_yaml import YAML
+    from ruamel_yaml.comments import CommentedSeq
 except:
     from ruamel.yaml import YAML
+    from ruamel.yaml.comments import CommentedSeq
 
 from datetime import datetime
 import jsonschema
 import os
+
+
+def OrderedList(*l):
+    ret = CommentedSeq(l)
+    ret.fa.set_flow_style()
+    return ret
 
 
 class SettingsBase:
@@ -88,6 +96,7 @@ class SettingsBase:
 
         # Default to round trip so we can save comments
         yaml = YAML()
+        yaml.preserve_quotes = True
 
         # Store the original settings for update as we go
         with open(self.settings_file, "r") as fd:
@@ -121,14 +130,16 @@ class SettingsBase:
         current = self._settings.get(key)
         if current and not isinstance(current, list):
             logger.exit("You cannot only add to a list variable.")
-        # Add to the beginning of the list
-        current = current + [value]
-        value = list(set(current))
-        self._settings[key] = value
-        self.change_validate(key, value)
-        logger.warning(
-            "Warning: Check with shpc config edit - ordering of list can change."
-        )
+
+        if value not in current:
+            # Add to the beginning of the list
+            current = [value] + current
+            self._settings[key] = OrderedList()
+            [self._settings[key].append(x) for x in current]
+            self.change_validate(key, value)
+            logger.warning(
+                "Warning: Check with shpc config edit - ordering of list can change."
+            )
 
     def remove(self, key, value):
         """
