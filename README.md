@@ -14,6 +14,7 @@ And container technologies:
 
  - [Singularity](https://github.com/sylabs/singularity)
  - [Podman](https://podman.io)
+ - [Docker](https://docker.io)
 
 Coming soon:
 

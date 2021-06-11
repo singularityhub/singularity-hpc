@@ -14,6 +14,10 @@ and **Merged pull requests**. Critical items to know are:
 The versions coincide with releases on pip. Only major versions will be released as tags on Github.
 
 ## [0.0.x](https://github.scom/singularityhub/singularity-hpc/tree/master) (0.0.x)
+ - Allow environment variables in settings (0.0.29)
+   - User settings file creation and use with shpc config inituser
+   - registry is now a list to support multiple registry locations
+   - config supports add/remove to append/delete from list
  - Add test for docker and podman (0.0.28)
    - namespace as format string for command named renamed to repository
    - shpc test/uninstall should be run for all tests

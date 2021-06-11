@@ -20,11 +20,11 @@ And container technologies:
 
  - `Singularity <https://github.com/sylabs/singularity>`_
  - `Podman <https://podman.io>`_
+ - `Docker <https://www.docker.com/>`_
 
 And coming soon:
 
  - `Shifter <https://github.com/NERSC/shifter>`_
- - `Docker <https://www.docker.com/>`_
  - `Sarus <https://github.com/eth-cscs/sarus>`_
 
 

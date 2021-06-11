@@ -60,9 +60,11 @@ class DockerContainer(ContainerTechnology):
         if pull_type != "docker":
             logger.exit("%s only supports Docker (oci registry) pulls." % self.command)
 
-        # Podman doesn't keep a record of digest->tag, so we use tag
-        uri = "%s:%s" % (self.add_registry(config.docker), tag.name)
-        return self.pull(uri)
+        tag_uri = "%s:%s" % (self.add_registry(config.docker), tag.name)
+        tag_digest = "%s@%s" % (self.add_registry(config.docker), tag.digest)
+        self.pull(tag_digest)
+        # Podman doesn't keep a record of digest->tag, so we tag after
+        return self.tag(tag_digest, tag_uri)
 
     def pull(self, uri):
         """
@@ -72,6 +74,15 @@ class DockerContainer(ContainerTechnology):
         if res["return_code"] != 0:
             logger.exit("There was an issue pulling %s" % uri)
         return uri
+
+    def tag(self, image, tag_as):
+        """
+        Given a container URI, tag as something else.
+        """
+        res = shpc.utils.run_command([self.command, "tag", image, tag_as])
+        if res["return_code"] != 0:
+            logger.exit("There was an issue tagging %s as %s" % (image, tag_as))
+        return tag_as
 
     def inspect(self, image):
         """
@@ -116,9 +127,19 @@ class DockerContainer(ContainerTechnology):
         """
         Delete a container when a module is deleted.
         """
-        image = self.get(image)
-        if self.exists(image):
-            shpc.utils.run_command([self.command, "rmi", image])
+        container = self.get(image)
+
+        # If we can't get a specific image, the user wants to delete all tags
+        # and we have more than one tag!
+        if not container:
+            tags = self.installed_tags(image)
+            containers = ["%s:%s" % (image, tag) for tag in tags]
+        else:
+            containers = [container]
+
+        for container in containers:
+            if self.exists(container):
+                shpc.utils.run_command([self.command, "rmi", "--force", container])
 
     def check(self, module_name, config):
         """

@@ -7,6 +7,7 @@ from .settings import Settings
 
 import shpc.utils
 from shpc.logger import logger
+import shpc.defaults
 
 
 def get_client(quiet=False, **kwargs):

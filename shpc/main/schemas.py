@@ -107,9 +107,8 @@ containerConfig = {
 shells = ["/bin/bash", "/bin/sh", "/bin/csh"]
 
 # Currently all of these are required
-
 settingsProperties = {
-    "registry": {"type": "string"},
+    "registry": {"type": "array", "items": {"type": "string"}},
     "module_base": {"type": "string"},
     "container_base": {"type": ["string", "null"]},
     "namespace": {"type": ["string", "null"]},
