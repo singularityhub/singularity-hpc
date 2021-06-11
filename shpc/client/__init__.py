@@ -57,12 +57,12 @@ def get_parser():
     )
 
     # print version and exit
-    subparsers.add_parser("version", help="show software version")
+    subparsers.add_parser("version", description="show software version")
 
     # Local shell with client loaded
     shell = subparsers.add_parser(
         "shell",
-        help="shell into a Python session with a client.",
+        description="shell into a Python session with a client.",
         formatter_class=argparse.RawTextHelpFormatter,
     )
     shell.add_argument(
@@ -82,7 +82,7 @@ def get_parser():
     # Install a known recipe from the registry
     install = subparsers.add_parser(
         "install",
-        help="install a registry recipe.",
+        description="install a registry recipe.",
         formatter_class=argparse.RawTextHelpFormatter,
     )
     install.add_argument(
@@ -91,7 +91,7 @@ def get_parser():
     )
 
     # List installed modules
-    listing = subparsers.add_parser("list", help="list installed modules.")
+    listing = subparsers.add_parser("list", description="list installed modules.")
     listing.add_argument("pattern", help="filter to a pattern", nargs="?")
     listing.add_argument(
         "--names-only", help="omit versions", default=False, action="store_true"
@@ -106,7 +106,7 @@ def get_parser():
 
     # List local containers and collections
     inspect = subparsers.add_parser(
-        "inspect", help="inspect an installed module image."
+        "inspect", description="inspect an installed module image."
     )
     inspect.add_argument("module_name", help="module to inspect")
     inspect.add_argument(
@@ -117,7 +117,7 @@ def get_parser():
     )
 
     # Get path to an image
-    get = subparsers.add_parser("get", help="get an image path for a module")
+    get = subparsers.add_parser("get", description="get an image path for a module")
     get.add_argument("module_name", help="the name of the module")
     get.add_argument(
         "-e",
@@ -128,18 +128,20 @@ def get_parser():
     )
 
     # Add a container direcly
-    add = subparsers.add_parser("add", help="add an image to modules manually")
+    add = subparsers.add_parser("add", description="add an image to modules manually")
     add.add_argument("sif_path", help="full path to container image file", nargs=1)
     add.add_argument(
         "module_id", help='desired identifier for module (e.g. "name/version")', nargs=1
     )
 
-    check = subparsers.add_parser("check", help="check if you have latest installed.")
+    check = subparsers.add_parser(
+        "check", description="check if you have latest installed."
+    )
     check.add_argument("module_name", help="module to check (module:version)")
 
     config = subparsers.add_parser(
         "config",
-        help="update configuration settings. Use set or get to see or set information.",
+        description="update configuration settings. Use set or get to see or set information.",
         formatter_class=argparse.RawTextHelpFormatter,
     )
 
@@ -166,19 +168,21 @@ shpc config remove registry:/tmp/registry""",
     )
     # Generate markdown docs for a container registry entry
     docgen = subparsers.add_parser(
-        "docgen", help="Generate a markdown document for a container registry entry."
+        "docgen",
+        description="Generate a markdown document for a container registry entry.",
     )
     docgen.add_argument("module_name", help="the module to generate docs for.")
 
     # Pull a nontraditional container type (e.g., github release asset)
     pull = subparsers.add_parser(
-        "pull", help="pull a container built with singularityhub/singularity-deploy"
+        "pull",
+        description="pull a container built with singularityhub/singularity-deploy",
     )
     pull.add_argument("uri", help="the unique resource identifier to pull")
     pull.add_argument("--path", help="A custom path to pull to (defaults to $PWD)")
 
     # Test a registry entry
-    test = subparsers.add_parser("test", help="test a registry entry")
+    test = subparsers.add_parser("test", description="test a registry entry")
     test.add_argument("module_name", help="the module to test")
     test.add_argument(
         "--template", help="a custom test.sh template to use.", default=None
@@ -209,7 +213,7 @@ shpc config remove registry:/tmp/registry""",
     )
 
     # Uninstall a module, or a specific version
-    uninstall = subparsers.add_parser("uninstall", help="uninstall a module")
+    uninstall = subparsers.add_parser("uninstall", description="uninstall a module")
     uninstall.add_argument(
         "--force",
         "-f",
@@ -252,7 +256,8 @@ shpc config remove registry:/tmp/registry""",
 
     namespace = subparsers.add_parser(
         "namespace",
-        help="set or unset the install namespace. E.g.,:\n    shpc namespace set <namespace>\n    shpc namespace unset",
+        description="set or unset the install namespace. E.g.,:\n    shpc namespace set <namespace>\n    shpc namespace unset",
+        formatter_class=argparse.RawTextHelpFormatter,
     )
     namespace.add_argument(
         "namespace",
@@ -260,7 +265,9 @@ shpc config remove registry:/tmp/registry""",
         nargs="*",
     )
 
-    show = subparsers.add_parser("show", help="show the config for a registry entry.")
+    show = subparsers.add_parser(
+        "show", description="show the config for a registry entry."
+    )
     show.add_argument(
         "--versions", help="include versions", default=False, action="store_true"
     )
