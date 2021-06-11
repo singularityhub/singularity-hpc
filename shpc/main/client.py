@@ -177,6 +177,7 @@ class Client:
         if stage:
             logger.info(tmpdir)
         else:
+            self.uninstall(module_name, force=True)
             cleanup(tmpdir)
 
     def check(self, module_name):
