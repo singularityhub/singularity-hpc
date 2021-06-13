@@ -5,11 +5,12 @@ description: MongoDB is a free and open-source cross-platform document-oriented 
   program. Classified as a NoSQL database program, MongoDB uses JSON-like documents
   with schemata.
 latest:
-  4.4.6-bionic: sha256:3dbb3b4b8f33c8a61fa72cf1d05398d6cc09c72aa2a1f664b639d8231b0e83ab
+  5.0.0-rc1-focal: sha256:238ca9b76e3034377a38be3dac927bd3920634c3af68053be000739c15106cec
 tags:
   4.4.5-bionic: sha256:cc8bb8711114fa726ca641f5644791d3d43bdd2c95dac541a5fa2c90a2e6e972
-  4.4.6-bionic: sha256:3dbb3b4b8f33c8a61fa72cf1d05398d6cc09c72aa2a1f664b639d8231b0e83ab
-  latest: sha256:8b35c0a75c2dbf23110ed2485feca567ec9ab743feee7a0d7a148f806daf5e86
+  4.4.6-bionic: sha256:c501da0c5027c054f629d7804a200ea261ffa21b6078e6a69cbb94ce4eb78e6c
+  5.0.0-rc1-focal: sha256:238ca9b76e3034377a38be3dac927bd3920634c3af68053be000739c15106cec
+  latest: sha256:482a562bf25f42f02ce589458f72866bbe9eded5b6f8fa5b1213313f0e00bba2
 aliases:
   mongo: /usr/bin/mongo
   mongod: /usr/bin/mongod
