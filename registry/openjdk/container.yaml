@@ -7,7 +7,7 @@ latest:
   16.0.1-buster: sha256:18db722614083580a6ab8bb91dca3d457c2e5ec9a2781551fd46a0bd80444d90
 tags:
   16.0.1-buster: sha256:18db722614083580a6ab8bb91dca3d457c2e5ec9a2781551fd46a0bd80444d90
-  latest: sha256:94f743e9cd673023f1035f646d3dfb52716419524ec377308676ad442b03d0d5
+  latest: sha256:05eee0694a2ecfc3e94d29d420bd8703fa9dcc64755962e267fd5dfc22f23664
 aliases:
   jar: /usr/bin/jar
   jarsigner: /usr/bin/jarsigner
