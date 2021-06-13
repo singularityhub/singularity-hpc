@@ -3,7 +3,7 @@ layout: container
 name:  "php"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/php/container.yaml"
-updated_at: "2021-06-11 05:57:56.599874"
+updated_at: "2021-06-13 00:49:53.493372"
 container_url: "https://hub.docker.com/_/php"
 aliases:
  - "php"
@@ -22,6 +22,7 @@ versions:
  - "8.0.5-alpine"
  - "8.0.6-alpine"
  - "8.0.7-alpine"
+ - "8.1.0alpha1-alpine"
  - "latest"
 description: "While designed for web development, the PHP scripting language also provides general-purpose use."
 ---

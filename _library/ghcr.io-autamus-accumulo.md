@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/accumulo"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/accumulo/container.yaml"
-updated_at: "2021-06-11 05:58:18.271898"
+updated_at: "2021-06-13 00:50:17.678580"
 container_url: "https://github.com/orgs/autamus/packages/container/package/accumulo"
 
 versions:
