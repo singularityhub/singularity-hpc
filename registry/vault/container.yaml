@@ -4,11 +4,12 @@ maintainer: '@vsoch'
 description: Vault is a tool for securely accessing secrets via a unified interface
   and tight access control.
 latest:
-  1.7.2: sha256:4c94c36bf1d9d58887ccec474cd1cf9a9d9a74f2a4442abdb679092d85edb95c
+  1.8.0-rc1: sha256:cb63a678b0e692c98332e3d933ca8232ffaa741c5cfd47f1ef398283fcf3c023
 tags:
   1.4.7: sha256:3929780d624754b7127293649a2c4af1fbc0e22742ea5414b647db3f5de71960
   1.7.1: sha256:10f564c947706e021e60c84bd22b1e91559db133d6d3a57e930d32cd7e0cbf77
-  1.7.2: sha256:4c94c36bf1d9d58887ccec474cd1cf9a9d9a74f2a4442abdb679092d85edb95c
-  latest: sha256:4c94c36bf1d9d58887ccec474cd1cf9a9d9a74f2a4442abdb679092d85edb95c
+  1.7.2: sha256:ee69b8ba4af9e85449b79f634ae4ddc2f100f466db2dcbb83f6b69c8581de3aa
+  1.8.0-rc1: sha256:cb63a678b0e692c98332e3d933ca8232ffaa741c5cfd47f1ef398283fcf3c023
+  latest: sha256:28c9a18e03194b3644f330e083431250b720ef04855de02bd6f9c06071741781
 aliases:
   vault: /bin/vault
