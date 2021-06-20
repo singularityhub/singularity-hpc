@@ -5,12 +5,13 @@ description: MariaDB Server is one of the most popular database servers in the w
   It’s made by the original developers of MySQL and guaranteed to stay open source.
   Notable users include Wikipedia, DBS Bank and ServiceNow.
 latest:
-  10.6.1-focal: sha256:171746d0e04cf2e68776c76e9cd89fbde9e693842e98b570675000e7045d023a
+  10.6.2-focal: sha256:e240a635d40a88eb5dfa3ea24b3e3a569584142f1b66b9990b02c6bc414d1ad9
 tags:
   10.5.9-focal: sha256:36288c675a192bd0a8a99cd6ba0780e31df85f0bfd0cbb204837cd108be3d236
   10.6.0-focal: sha256:6b687eb768f01add603c1474003c62e13d130bfd7030ac5334c9ae6a73d09e0c
-  10.6.1-focal: sha256:171746d0e04cf2e68776c76e9cd89fbde9e693842e98b570675000e7045d023a
-  latest: sha256:0c3c560359a6da112134a52122aa9b78fec5f9dd292a01ee7954de450f25f0c1
+  10.6.1-focal: sha256:b2ba2c4dcaf9a946241f7e368637d351a74010b58f7c5e50002b9735c95c6326
+  10.6.2-focal: sha256:e240a635d40a88eb5dfa3ea24b3e3a569584142f1b66b9990b02c6bc414d1ad9
+  latest: sha256:cf656762c1727a4e08d838aea95973767cb7a9f7151532f38657189ae57051cc
 aliases:
   mariabackup: /usr/bin/mariabackup
   mariadb: /usr/bin/mariadb

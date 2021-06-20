@@ -3,10 +3,11 @@ url: https://github.com/orgs/autamus/packages/container/package/bart
 maintainer: '@vsoch'
 description: 'BART: Toolbox for Computational Magnetic Resonance Imaging'
 latest:
-  0.6.00: sha256:b34a28af344baff78aa6496214b647295b42291ca99031ce2d4cec30fff2ae13
+  0.7.00: sha256:5f6d8b13ae4aa1b4a8f2b4be67d91d1a0843e68048dee31a785459235a467816
 tags:
   0.6.00: sha256:b34a28af344baff78aa6496214b647295b42291ca99031ce2d4cec30fff2ae13
-  latest: sha256:b34a28af344baff78aa6496214b647295b42291ca99031ce2d4cec30fff2ae13
+  0.7.00: sha256:5f6d8b13ae4aa1b4a8f2b4be67d91d1a0843e68048dee31a785459235a467816
+  latest: sha256:5f6d8b13ae4aa1b4a8f2b4be67d91d1a0843e68048dee31a785459235a467816
 aliases:
   bart: /opt/view/bin/bart
   bartview: /opt/view/bin/bartview

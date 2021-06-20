@@ -3,9 +3,9 @@ url: https://hub.docker.com/r/rocker/shiny
 maintainer: '@vsoch'
 description: Docker image with R + Shiny.
 latest:
-  latest: sha256:a36715f4750cf87677e677afd4a4cea59bf72687ad5c45630917c3db038c6b0b
+  latest: sha256:c8688f60f2c88f200d281f29ba6027a98fd8be4e4fe0c421cfbc5146be167580
 tags:
-  latest: sha256:a36715f4750cf87677e677afd4a4cea59bf72687ad5c45630917c3db038c6b0b
+  latest: sha256:c8688f60f2c88f200d281f29ba6027a98fd8be4e4fe0c421cfbc5146be167580
 filter:
 - latest
 aliases:

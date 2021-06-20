@@ -3,9 +3,9 @@ url: https://hub.docker.com/r/rocker/tidyverse
 maintainer: '@vsoch'
 description: 'Version-stable build of R, rstudio, and R packages '
 latest:
-  latest: sha256:cdf639fd99b81f5b219a689d489489540e9a0d139336003b015cde4b047a294d
+  latest: sha256:33a0bc1f76aa8db226970c461f34536c4169a7e731477ea9eb9b2b2b78a989a3
 tags:
-  latest: sha256:cdf639fd99b81f5b219a689d489489540e9a0d139336003b015cde4b047a294d
+  latest: sha256:33a0bc1f76aa8db226970c461f34536c4169a7e731477ea9eb9b2b2b78a989a3
 filter:
 - latest
 aliases:

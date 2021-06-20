@@ -4,11 +4,11 @@ maintainer: '@vsoch'
 description: PostgreSQL, often simply 'Postgres', is an object-relational database
   management system (ORDBMS) with an emphasis on extensibility and standards-compliance.
 latest:
-  13.3-alpine: sha256:7e2805cfa714bca16c4211b4f102c34934626cd557c73abfc70c1667deba3138
+  13.3-alpine: sha256:77e75aea82dc7d259cadeb5e016a36f1c7e65d131f60906d4747f7567dda71b0
 tags:
   13.2-alpine: sha256:c4c7a1585974706b5f72b8ab595e47399b23b2e03d93bbf75c1b0904be1803dc
-  13.3-alpine: sha256:7e2805cfa714bca16c4211b4f102c34934626cd557c73abfc70c1667deba3138
-  latest: sha256:117c3ea384ce21421541515edfb11f2997b2c853d4fdd58a455b77664c1adc20
+  13.3-alpine: sha256:77e75aea82dc7d259cadeb5e016a36f1c7e65d131f60906d4747f7567dda71b0
+  latest: sha256:a8f25ca44e98a4846cad176be8017f8f9c34028e4eebbf905dd46ccbab77d7a2
 aliases:
   clusterdb: /usr/lib/postgresql/13/bin/clusterdb
   createdb: /usr/lib/postgresql/13/bin/createdb

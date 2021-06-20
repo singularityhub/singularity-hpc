@@ -3,11 +3,12 @@ url: https://github.com/orgs/autamus/packages/container/package/nco
 maintainer: '@vsoch'
 description: ""
 latest:
-  4.9.9: sha256:38c1b5a2a37e6966e095630da89767ba1bd9b20bb06098f273aacaf1840af357
+  5.0.0: sha256:502ab56ebbc502823f9273bb0a486a42bfc7bb2999d3b35c3f78ff9fd8c24a38
 tags:
   4.9.8: sha256:1e67403beaf3e7cac0b36aa43c8436f2111a3eb489b32271c2ffeb0b20e2ec5a
   4.9.9: sha256:38c1b5a2a37e6966e095630da89767ba1bd9b20bb06098f273aacaf1840af357
-  latest: sha256:38c1b5a2a37e6966e095630da89767ba1bd9b20bb06098f273aacaf1840af357
+  5.0.0: sha256:502ab56ebbc502823f9273bb0a486a42bfc7bb2999d3b35c3f78ff9fd8c24a38
+  latest: sha256:502ab56ebbc502823f9273bb0a486a42bfc7bb2999d3b35c3f78ff9fd8c24a38
 aliases:
   nc-config: /opt/view/bin/nc-config
   ncap2: /opt/view/bin/ncap2
