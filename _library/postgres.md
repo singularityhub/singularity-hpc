@@ -3,7 +3,7 @@ layout: container
 name:  "postgres"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/postgres/container.yaml"
-updated_at: "2021-06-13 00:50:31.293722"
+updated_at: "2021-06-20 01:56:40.611063"
 container_url: "https://hub.docker.com/r/_/postgres"
 aliases:
  - "clusterdb"

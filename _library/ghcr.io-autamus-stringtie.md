@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/stringtie"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/stringtie/container.yaml"
-updated_at: "2021-06-13 00:50:13.202698"
+updated_at: "2021-06-20 01:56:50.957674"
 container_url: "https://github.com/orgs/autamus/packages/container/package/stringtie"
 aliases:
  - "stringtie"
@@ -11,6 +11,7 @@ aliases:
 versions:
  - "2.1.5"
  - "2.1.6"
+ - "2.1.7"
  - "latest"
 description: "StringTie is a fast and highly efficient assembler of RNA-Seq alignments into potential transcripts."
 ---

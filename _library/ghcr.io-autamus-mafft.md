@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/mafft"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/mafft/container.yaml"
-updated_at: "2021-06-13 00:50:12.159585"
+updated_at: "2021-06-20 01:56:54.474269"
 container_url: "https://github.com/orgs/autamus/packages/container/package/mafft"
 aliases:
  - "mafft"
@@ -32,6 +32,7 @@ aliases:
 
 versions:
  - "7.475"
+ - "7.481"
  - "latest"
 description: "MAFFT is a multiple sequence alignment program for unix-like operating systems."
 ---

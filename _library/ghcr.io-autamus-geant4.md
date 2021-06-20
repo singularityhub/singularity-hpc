@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/geant4"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/geant4/container.yaml"
-updated_at: "2021-06-13 00:50:09.724561"
+updated_at: "2021-06-20 01:57:11.148587"
 container_url: "https://github.com/orgs/autamus/packages/container/package/geant4"
 aliases:
  - "Cast-config"
@@ -70,6 +70,7 @@ aliases:
 
 versions:
  - "10.7.1"
+ - "10.7.2"
  - "latest"
 description: "Geant4 is a platform for the simulation of the passage of particles through matter using Monte Carlo methods."
 ---

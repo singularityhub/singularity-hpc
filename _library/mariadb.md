@@ -3,7 +3,7 @@ layout: container
 name:  "mariadb"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/mariadb/container.yaml"
-updated_at: "2021-06-13 00:50:36.973331"
+updated_at: "2021-06-20 01:57:17.879610"
 container_url: "https://hub.docker.com/r/_/mariadb"
 aliases:
  - "mariabackup"
@@ -76,6 +76,7 @@ versions:
  - "10.5.9-focal"
  - "10.6.0-focal"
  - "10.6.1-focal"
+ - "10.6.2-focal"
  - "latest"
 description: "MariaDB Server is one of the most popular database servers in the world. It’s made by the original developers of MySQL and guaranteed to stay open source. Notable users include Wikipedia, DBS Bank and ServiceNow."
 ---
