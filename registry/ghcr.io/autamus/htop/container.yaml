@@ -1,0 +1,10 @@
+docker: ghcr.io/autamus/htop
+url: https://github.com/orgs/autamus/packages/container/package/htop
+maintainer: '@vsoch'
+description: htop is an interactive text-mode process viewer for Unix systems. https://github.com/hishamhm/htop
+latest:
+  2.2.0: sha256:017e8c7e87614dddb1fd01fb1892d40947501596504bf4d27af71c677d122851
+tags:
+  2.2.0: sha256:017e8c7e87614dddb1fd01fb1892d40947501596504bf4d27af71c677d122851
+aliases:
+  htop: /opt/view/bin/htop

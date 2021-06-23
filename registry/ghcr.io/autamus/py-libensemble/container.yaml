@@ -1,0 +1,8 @@
+docker: ghcr.io/autamus/py-libensemble
+url: https://github.com/orgs/autamus/packages/container/package/py-libensemble
+maintainer: '@vsoch'
+description: Library for managing ensemble-like collections of computations. 
+latest:
+  "0.7.2": sha256:ac19eb043b9b185e299616ed642d0b9f350c2373ac8b3bb3c415439b89cc8801
+tags:
+  "0.7.2": sha256:ac19eb043b9b185e299616ed642d0b9f350c2373ac8b3bb3c415439b89cc8801

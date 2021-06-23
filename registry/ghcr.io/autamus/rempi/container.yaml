@@ -1,0 +1,13 @@
+docker: ghcr.io/autamus/rempi
+url: https://github.com/orgs/autamus/packages/container/package/rempi
+maintainer: '@vsoch'
+description: ReMPI is a record-and-replay tool for MPI applications.
+latest:
+  "1.1.0": sha256:13f3ae61146c389b0fef9e6e1f331a8f229cc15c886a215c9437249301903400
+tags:
+  "1.1.0": sha256:13f3ae61146c389b0fef9e6e1f331a8f229cc15c886a215c9437249301903400
+aliases:
+  rempi: /opt/view/bin/rempi
+  rempi_record: /opt/view/bin/rempi_record
+  rempi_replay: /opt/view/bin/rempi_replay
+  reset: /opt/view/bin/reset

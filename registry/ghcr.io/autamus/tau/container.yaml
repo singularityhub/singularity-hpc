@@ -1,0 +1,8 @@
+docker: ghcr.io/autamus/tau
+url: https://github.com/orgs/autamus/packages/container/package/tau
+maintainer: '@vsoch'
+description: A portable profiling and tracing toolkit for performance analysis of parallel programs written in Fortran, C, C++, UPC, Java, Python.
+latest:
+  2.30.1: sha256:b98fb90c2261594a3c5682cd049fcbd15c55b581f374187af74af8db20614715
+tags:
+  2.30.1: sha256:b98fb90c2261594a3c5682cd049fcbd15c55b581f374187af74af8db20614715
