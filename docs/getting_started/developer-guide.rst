@@ -71,9 +71,8 @@ for others to use. You should:
 4. You should generally choose smaller images (if possible) and define aliases (entrypoints) for the commands that you think would be useful.
 
 A shell entrypoint for the container will be generated automatically.
-When you open a pull request, if your branch prefix starts with ``recipe`` the PR
-will test your recipe automatically. If you forget, you can ask a maintainer to apply
-the ``container-recipe`` label and it will test accordingly.
+When you open a pull request, a maintainer can apply
+the ``container-recipe`` label and it will test your new or updated recipes accordingly.
 Once your recipe is added to the repository, the versions will be automatically
 updated with a nightly run. This means that you can pull the repository to get
 updated recipes, and then check for updates (the bot to do this is not developed yet):
