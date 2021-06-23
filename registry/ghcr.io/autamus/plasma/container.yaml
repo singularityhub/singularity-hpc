@@ -1,0 +1,10 @@
+docker: ghcr.io/autamus/plasma
+url: https://github.com/orgs/autamus/packages/container/package/plasma
+maintainer: '@vsoch'
+description: Parallel Linear Algebra Software for Multicore Architectures, PLASMA is a software package for solving problems in dense linear algebra using multicore processors and Xeon Phi coprocessors.
+latest:
+  "20.9.20": sha256:a4490385c99235b80515bc9f0c2e26ce236f74087df82f114665aba72668e516
+tags:
+  "20.9.20": sha256:a4490385c99235b80515bc9f0c2e26ce236f74087df82f114665aba72668e516
+aliases:
+  plasmatest: /opt/view/bin/plasmatest

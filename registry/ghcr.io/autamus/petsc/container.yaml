@@ -1,0 +1,8 @@
+docker: ghcr.io/autamus/petsc
+url: https://github.com/orgs/autamus/packages/container/package/petsc
+maintainer: '@vsoch'
+description: PETSc is a suite of data structures and routines for the scalable (parallel) solution of scientific applications modeled by partial differential equations.
+latest:
+  "3.15.1": sha256:b92b678ac4b21a16e71fce014ec110668a8738b2c2732731673f2758794febd8
+tags:
+  "3.15.1": sha256:b92b678ac4b21a16e71fce014ec110668a8738b2c2732731673f2758794febd8

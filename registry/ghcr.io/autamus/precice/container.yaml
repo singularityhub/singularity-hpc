@@ -1,0 +1,8 @@
+docker: ghcr.io/autamus/precice
+url: https://github.com/orgs/autamus/packages/container/package/precice
+maintainer: '@vsoch'
+description: preCICE (Precise Code Interaction Coupling Environment) is a coupling library for partitioned multi-physics simulations.
+latest:
+  1.2.1: sha256:8b656422fbcb27ec143bc60d74778c93bdd914532317ee1551b6864cb1bad30e
+tags:
+  1.2.1: sha256:8b656422fbcb27ec143bc60d74778c93bdd914532317ee1551b6864cb1bad30e

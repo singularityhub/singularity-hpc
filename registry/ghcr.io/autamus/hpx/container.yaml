@@ -1,0 +1,11 @@
+docker: ghcr.io/autamus/hpx
+url: https://github.com/orgs/autamus/packages/container/package/hpx
+maintainer: '@vsoch'
+description: C++ runtime system for parallel and distributed applications. 
+latest:
+  1.6.0: sha256:9bc290e8966273b58ed516831bd5a1a38be57b69aead11cd51afcf77891fb0a0
+tags:
+  1.6.0: sha256:9bc290e8966273b58ed516831bd5a1a38be57b69aead11cd51afcf77891fb0a0
+aliases:
+  hpxcxx: /opt/view/bin/hpxcxx
+  hpxrun.py: /opt/view/bin/hpxrun.py

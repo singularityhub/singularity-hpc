@@ -1,0 +1,8 @@
+docker: ghcr.io/autamus/slate
+url: https://github.com/orgs/autamus/packages/container/package/slate
+maintainer: '@vsoch'
+description: The Software for Linear Algebra Targeting Exascale (SLATE) project is to provide fundamental dense linear algebra capabilities to the US Department of Energy and to the high-performance computing (HPC) community at large.
+latest:
+  "2021.05.02": sha256:456169379053aab9a48293f4ece003e77ed1e3622f40af19d667e82a7a5bd188
+tags:
+  "2021.05.02": sha256:456169379053aab9a48293f4ece003e77ed1e3622f40af19d667e82a7a5bd188
