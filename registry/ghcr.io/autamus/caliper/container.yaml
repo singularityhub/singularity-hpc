@@ -1,0 +1,11 @@
+docker: ghcr.io/autamus/caliper
+url: https://github.com/orgs/autamus/packages/container/package/caliper
+maintainer: '@vsoch'
+description: Caliper is a program instrumentation and performance measurement framework.
+latest:
+  2.6.0: sha256:c40449f8fe16aa226bbe59694956b1ffe0dd4431bb9f4397440cc7daf7cb4077
+tags:
+  2.6.0: sha256:c40449f8fe16aa226bbe59694956b1ffe0dd4431bb9f4397440cc7daf7cb4077
+aliases:
+  cali-query: /opt/view/bin/cali-query
+  cali-stat: /opt/view/bin/cali-stat

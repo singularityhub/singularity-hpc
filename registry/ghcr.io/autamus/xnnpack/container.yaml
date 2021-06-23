@@ -1,0 +1,8 @@
+docker: ghcr.io/autamus/xnnpack
+url: https://github.com/orgs/autamus/packages/container/package/xnnpack
+maintainer: '@vsoch'
+description: High-efficiency floating-point neural network inference operators for mobile, server, and Web 
+latest:
+  "2021.02.22": sha256:95376a0713c56d1b5ed7782a866bb868d344a6b78abdf9d72ad18760851def93
+tags:
+  "2021.02.22": sha256:95376a0713c56d1b5ed7782a866bb868d344a6b78abdf9d72ad18760851def93

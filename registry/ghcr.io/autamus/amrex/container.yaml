@@ -1,0 +1,9 @@
+docker: ghcr.io/autamus/amrex
+url: https://github.com/orgs/autamus/packages/container/package/amrex
+maintainer: '@vsoch'
+description: AMReX is a publicly available software framework designed for building massively parallel block- structured adaptive mesh refinement (AMR) applications.
+latest:
+  "21.06": sha256:1d4d8d9656b5b53a216bd3fe0fbc3c2a12008aae32fd627e47a95628e425bfa1
+tags:
+  "21.06": sha256:1d4d8d9656b5b53a216bd3fe0fbc3c2a12008aae32fd627e47a95628e425bfa1
+
