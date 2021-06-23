@@ -1,0 +1,16 @@
+docker: ghcr.io/autamus/adios
+url: https://github.com/orgs/autamus/packages/container/package/adios
+maintainer: '@vsoch'
+description: The Adaptable IO System (ADIOS) provides a simple, flexible way for scientists to describe the data in their code that may need to be written, read, or processed outside of the running simulation. 
+latest:
+  "1.13.1": sha256:e778e6bb30e65032a2702f9e0ce853ba5816cfc84a40cd3ca1928b2b4436a194
+tags:
+  "1.13.1": sha256:e778e6bb30e65032a2702f9e0ce853ba5816cfc84a40cd3ca1928b2b4436a194
+aliases:
+  adios_config: /opt/view/bin/adios_config
+  adios_lint: /opt/view/bin/adios_lint
+  adios_list_methods: /opt/view/bin/adios_list_methods
+  adios_list_methods_nompi: /opt/view/bin/adios_list_methods_nompi
+  adios_list_methods_readonly: /opt/view/bin/adios_list_methods_readonly
+  adios_list_methods_readonly_nompi: /opt/view/bin/adios_list_methods_readonly_nompi
+

@@ -1,0 +1,9 @@
+docker: ghcr.io/autamus/cabana
+url: https://github.com/orgs/autamus/packages/container/package/cabana
+maintainer: '@vsoch'
+description: The Exascale Co-Design Center for Particle Applications Toolkit 
+latest:
+  0.3.0: sha256:f2a5e0ba5f33c07e4c5d5ec4771cc0e89e85c831ea08e365c6d784e33d1d1551
+tags:
+  0.3.0: sha256:f2a5e0ba5f33c07e4c5d5ec4771cc0e89e85c831ea08e365c6d784e33d1d1551
+

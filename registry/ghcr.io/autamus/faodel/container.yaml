@@ -1,0 +1,10 @@
+docker: ghcr.io/autamus/faodel
+url: https://github.com/orgs/autamus/packages/container/package/faodel
+maintainer: '@vsoch'
+description: Flexible, Asynchronous, Object Data-Exchange Libraries 
+latest:
+  "1.1906.1": sha256:476bd9e677bff46c15be3e807af44a661f9a023be3072636db058656af603938
+tags:
+  "1.1906.1": sha256:476bd9e677bff46c15be3e807af44a661f9a023be3072636db058656af603938
+aliases:
+  faodel: /opt/view/bin/faodel

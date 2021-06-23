@@ -1,0 +1,12 @@
+docker: ghcr.io/autamus/gasnet
+url: https://github.com/orgs/autamus/packages/container/package/gasnet
+maintainer: '@vsoch'
+description: GASNet is a language-independent, networking middleware layer that provides network-independent, high-performance communication primitives including Remote Memory Access (RMA) and Active Messages (AM).
+latest:
+  "2021.3.0": sha256:c853c9181f20cd92200b1207956e6471b147eb1945c87f58d1f8535c546c6430
+tags:
+  "2021.3.0": sha256:c853c9181f20cd92200b1207956e6471b147eb1945c87f58d1f8535c546c6430
+aliases:
+  gasnet_trace: /opt/view/bin/gasnet_trace
+  gasnet_trace.pl: /opt/view/bin/gasnet_trace.pl
+
