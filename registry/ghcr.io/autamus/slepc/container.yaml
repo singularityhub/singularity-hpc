@@ -1,0 +1,8 @@
+docker: ghcr.io/autamus/slepc
+url: https://github.com/orgs/autamus/packages/container/package/slepc
+maintainer: '@vsoch'
+description: Scalable Library for Eigenvalue Problem Computations.
+latest:
+  "3.15.1": sha256:80351f0d9f487abf208ba81ff4990e654d0a446e2d74fa8105449996092583cf
+tags:
+  "3.15.1": sha256:80351f0d9f487abf208ba81ff4990e654d0a446e2d74fa8105449996092583cf

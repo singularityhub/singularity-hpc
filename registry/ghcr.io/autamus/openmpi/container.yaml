@@ -1,0 +1,21 @@
+docker: ghcr.io/autamus/openmpi
+url: https://github.com/orgs/autamus/packages/container/package/openmpi
+maintainer: '@vsoch'
+description: An open source Message Passing Interface implementation.
+latest:
+  4.1.1: sha256:d1c6f016fbd24edcfcd34c5df0e6c541d0b1738eb3800e30e3342c9effc2127c
+tags:
+  4.1.1: sha256:d1c6f016fbd24edcfcd34c5df0e6c541d0b1738eb3800e30e3342c9effc2127c
+aliases:
+  ompi-clean: /opt/view/bin/ompi-clean
+  ompi-server: /opt/view/bin/ompi-server
+  ompi_info: /opt/view/bin/ompi_info
+  mpiCC: /opt/view/bin/mpiCC
+  mpic++: /opt/view/bin/mpic++
+  mpicc: /opt/view/bin/mpicc
+  mpicxx: /opt/view/bin/mpicxx
+  mpiexec: /opt/view/bin/mpiexec
+  mpif77: /opt/view/bin/mpif77
+  mpif90: /opt/view/bin/mpif90
+  mpifort: /opt/view/bin/mpifort
+  mpirun: /opt/view/bin/mpirun

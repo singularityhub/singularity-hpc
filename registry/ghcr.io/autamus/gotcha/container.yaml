@@ -1,0 +1,8 @@
+docker: ghcr.io/autamus/gotcha
+url: https://github.com/orgs/autamus/packages/container/package/gotcha
+maintainer: '@vsoch'
+description: C software library for shared library function wrapping, enables tools to intercept calls into shared libraries
+latest:
+  1.0.3: sha256:90929e20dbe37547ba59df33af4fc1b003de61a1d0795bff5ae155b5e4f01023
+tags:
+  1.0.3: sha256:90929e20dbe37547ba59df33af4fc1b003de61a1d0795bff5ae155b5e4f01023

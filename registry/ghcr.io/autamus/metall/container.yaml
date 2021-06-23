@@ -1,0 +1,8 @@
+docker: ghcr.io/autamus/metall
+url: https://github.com/orgs/autamus/packages/container/package/metall
+maintainer: '@vsoch'
+description: A Persistent Memory Allocator For Data-Centric Analytics 
+latest:
+  "0.13": sha256:853cf350e61e0264678bdf73c7f619c88091a55490cc404f60cb84189e8ddfb1
+tags:
+  "0.13": sha256:853cf350e61e0264678bdf73c7f619c88091a55490cc404f60cb84189e8ddfb1

@@ -1,0 +1,8 @@
+docker: ghcr.io/autamus/omega-h
+url: https://github.com/orgs/autamus/packages/container/package/omega-h
+maintainer: "@vsoch"
+description: Omega_h is a C++11 library providing data structures and algorithms for adaptive discretizations.
+latest:
+  "9.32.5": sha256:374fa668978e5c62cc07b0c27be650dfa94561a3bda12d1a4cecbd78f3085cf1
+tags:
+  "9.32.5": sha256:374fa668978e5c62cc07b0c27be650dfa94561a3bda12d1a4cecbd78f3085cf1

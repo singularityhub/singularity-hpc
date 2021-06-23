@@ -1,0 +1,15 @@
+docker: ghcr.io/autamus/hpctoolkit
+url: https://github.com/orgs/autamus/packages/container/package/hpctoolkit
+maintainer: '@vsoch'
+description: HPCToolkit is an integrated suite of tools for measurement and analysis of program performance on computers ranging from multicore desktop systems to the nation's largest supercomputers.
+latest:
+  "2021.05.15": sha256:a4b7e882abfb22bbfde12129fbe08dd5f9dd4dac3fbef0985d3a2ecd250144fa
+tags:
+  "2021.05.15": sha256:a4b7e882abfb22bbfde12129fbe08dd5f9dd4dac3fbef0985d3a2ecd250144fa
+aliases:
+  hello: /opt/view/bin/hello
+  hpclink: /opt/view/bin/hpclink
+  hpcprof: /opt/view/bin/hpcprof
+  hpcrun: /opt/view/bin/hpcrun
+  hpcstruct: /opt/view/bin/hpcstruct
+  hpcviewer: /opt/view/bin/hpcviewer

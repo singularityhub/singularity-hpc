@@ -1,0 +1,10 @@
+docker: ghcr.io/autamus/sz
+url: https://github.com/orgs/autamus/packages/container/package/sz
+maintainer: '@vsoch'
+description: Error-bounded Lossy Compressor for HPC Data
+latest:
+  "2.1.11.1": sha256:53b0476041de757139b7767cedd8ac536c33bcea6513597260007384b7dec843
+tags:
+  "2.1.11.1": sha256:53b0476041de757139b7767cedd8ac536c33bcea6513597260007384b7dec843
+aliases:
+  sz: /opt/view/bin/sz

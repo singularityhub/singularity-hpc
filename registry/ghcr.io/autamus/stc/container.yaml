@@ -1,0 +1,11 @@
+docker: ghcr.io/autamus/stc
+url: https://github.com/orgs/autamus/packages/container/package/stc
+maintainer: "@vsoch"
+description: The Swift-Turbine Compiler (STC)
+latest:
+  "0.9.0": sha256:15212000d22f5e28f3c84738097fe42a42e46a23d5bda2f6402fd32bfbf4450c
+tags:
+  "0.9.0": sha256:15212000d22f5e28f3c84738097fe42a42e46a23d5bda2f6402fd32bfbf4450c
+aliases:
+  stc: /opt/view/bin/stc
+  swift-t: /opt/view/bin/swift-t

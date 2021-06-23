@@ -1,0 +1,11 @@
+docker: ghcr.io/autamus/parallel-netcdf 
+url: https://github.com/orgs/autamus/packages/container/package/parallel-netcdf 
+maintainer: '@vsoch'
+description: PnetCDF (Parallel netCDF) is a high-performance parallel I/O library for accessing files in format compatibility with Unidata's NetCDF, specifically the formats of CDF-1, 2, and 5.
+latest:
+  "1.12.2": sha256:1b1d8c8dfb9fcf485a48c32cc59fed90dd17c7f459f82e1d99629bb4863693b6
+tags:
+  "1.12.2": sha256:1b1d8c8dfb9fcf485a48c32cc59fed90dd17c7f459f82e1d99629bb4863693b6
+aliases:
+  pnetcdf-config: /opt/view/bin/pnetcdf-config
+  pnetcdf_version: /opt/view/bin/pnetcdf_version
