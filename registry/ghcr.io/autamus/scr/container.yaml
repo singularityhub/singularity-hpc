@@ -6,7 +6,7 @@ latest:
   "3.0.rc.1": sha256:86b2b8c8b530e17b01714be42e37aaa85061015aefd7683fa3332cd0aa61e958
 tags:
   "3.0.rc.1": sha256:86b2b8c8b530e17b01714be42e37aaa85061015aefd7683fa3332cd0aa61e958s
-alieses:
+aliases:
   scancel: /opt/view/bin/scancel
   scontrol: /opt/view/bin/scontrol
   scp: /opt/view/bin/scp
