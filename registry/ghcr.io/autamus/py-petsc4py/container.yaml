@@ -1,0 +1,8 @@
+docker: ghcr.io/autamus/py-petsc4py 
+url: https://github.com/orgs/autamus/packages/container/package/py-petsc4py
+maintainer: '@vsoch'
+description: This package provides Python bindings for the PETSc package. 
+latest:
+  "3.15.1": sha256:4a6b58e25f765f191c2ddad01ed33f4dee4de953ef7e59ff1f31e4e6d0c23f8a
+tags:
+  "3.15.1": sha256:4a6b58e25f765f191c2ddad01ed33f4dee4de953ef7e59ff1f31e4e6d0c23f8a

@@ -1,0 +1,8 @@
+docker: ghcr.io/autamus/trilinos
+url: https://github.com/orgs/autamus/packages/container/package/trilinos
+maintainer: '@vsoch'
+description: The Trilinos Project is an effort to develop algorithms and enabling technologies within an object-oriented software framework for the solution of large-scale, complex multi-physics engineering and scientific problems. A unique design feature of Trilinos is its focus on packages. 
+latest:
+  13.0.1: sha256:69c55ce5c908da160da0242cbfe2a201f12f13c2781ea9a78c1eea06b783bdb2
+tags:
+  13.0.1: sha256:69c55ce5c908da160da0242cbfe2a201f12f13c2781ea9a78c1eea06b783bdb2

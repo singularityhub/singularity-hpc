@@ -1,0 +1,15 @@
+docker: ghcr.io/autamus/veloc
+url: https://github.com/orgs/autamus/packages/container/package/veloc
+maintainer: '@vsoch'
+description: Very-Low Overhead Checkpointing System. VELOC is a multi-level checkpoint-restart runtime for HPC supercomputing infrastructures 
+latest:
+  "1.4": sha256:05677f36265c1bdf14977688f12b8e4a96261be80cc8ecce38796e2e46e82c96
+tags:
+  "1.4": sha256:05677f36265c1bdf14977688f12b8e4a96261be80cc8ecce38796e2e46e82c96
+aliases:
+  veloc-backend: /opt/view/bin/veloc-backend
+  veloc_check_node: /opt/view/bin/veloc_check_node
+  veloc_env: /opt/view/bin/veloc_env
+  veloc_glob_hosts: /opt/view/bin/veloc_glob_hosts
+  veloc_jsrun: /opt/view/bin/veloc_jsrun
+  veloc_list_down_nodes: /opt/view/bin/veloc_list_down_nodes
