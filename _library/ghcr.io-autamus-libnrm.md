@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/libnrm"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/libnrm/container.yaml"
-updated_at: "2021-06-23 03:27:46.771513"
+updated_at: "2021-06-23 03:35:51.668573"
 container_url: "https://github.com/orgs/autamus/packages/container/package/libnrm"
 
 versions:

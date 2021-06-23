@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/omega-h"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/omega-h/container.yaml"
-updated_at: "2021-06-23 03:27:36.060303"
+updated_at: "2021-06-23 03:35:36.446193"
 container_url: "https://github.com/orgs/autamus/packages/container/package/omega-h"
 
 versions:

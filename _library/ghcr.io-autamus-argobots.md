@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/argobots"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/argobots/container.yaml"
-updated_at: "2021-06-23 03:27:51.986090"
+updated_at: "2021-06-23 03:35:58.547299"
 container_url: "https://github.com/orgs/autamus/packages/container/package/argobots"
 
 versions:
