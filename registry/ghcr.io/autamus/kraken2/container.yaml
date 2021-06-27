@@ -5,11 +5,11 @@ description: Kraken 2 is the newest version of Kraken, a taxonomic classificatio
   system using exact k-mer matches to achieve high accuracy and fast classification
   speeds.
 latest:
-  2.1.2: sha256:a19807c64bc8be61755d5c027f5e3756bc0b1d5538c37b54185b792f9e0136d3
+  2.1.2: sha256:653c415cc84357bf00ecb10a22ad4b4217d1f8ff32653afc6b8b31c549219a8d
 tags:
   2.1.1: sha256:a931e5dd583a483b8806446cd3a5e48f2d816a20690c2d6ad186864720650b4f
-  2.1.2: sha256:a19807c64bc8be61755d5c027f5e3756bc0b1d5538c37b54185b792f9e0136d3
-  latest: sha256:a19807c64bc8be61755d5c027f5e3756bc0b1d5538c37b54185b792f9e0136d3
+  2.1.2: sha256:653c415cc84357bf00ecb10a22ad4b4217d1f8ff32653afc6b8b31c549219a8d
+  latest: sha256:653c415cc84357bf00ecb10a22ad4b4217d1f8ff32653afc6b8b31c549219a8d
 aliases:
   kraken2: /opt/view/bin/kraken2
   kraken2-build: /opt/view/bin/kraken2-build

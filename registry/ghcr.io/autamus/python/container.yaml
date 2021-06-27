@@ -3,10 +3,10 @@ url: https://github.com/orgs/autamus/packages/container/package/python
 maintainer: '@vsoch'
 description: An interpreted, high-level and general-purpose programming language.
 latest:
-  3.9.5: sha256:9a1979eac5c755f601dac4dc185ccaf07dd51153d2a1f00ad9f4510fb34dc36c
+  3.9.5: sha256:66eb30b70c9bc9eb5242dc983fd8558df7090411b976ed6a320127b7734d8d80
 tags:
-  3.9.5: sha256:9a1979eac5c755f601dac4dc185ccaf07dd51153d2a1f00ad9f4510fb34dc36c
-  latest: sha256:9a1979eac5c755f601dac4dc185ccaf07dd51153d2a1f00ad9f4510fb34dc36c
+  3.9.5: sha256:66eb30b70c9bc9eb5242dc983fd8558df7090411b976ed6a320127b7734d8d80
+  latest: sha256:66eb30b70c9bc9eb5242dc983fd8558df7090411b976ed6a320127b7734d8d80
 aliases:
   pydoc3: /opt/view/bin/pydoc3
   pydoc3.8: /opt/view/bin/pydoc3.8

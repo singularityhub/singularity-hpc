@@ -3,8 +3,8 @@ url: https://github.com/orgs/autamus/packages/container/package/sz
 maintainer: '@vsoch'
 description: Error-bounded Lossy Compressor for HPC Data
 latest:
-  "2.1.11.1": sha256:53b0476041de757139b7767cedd8ac536c33bcea6513597260007384b7dec843
+  2.1.11.1: sha256:81ea3efcdb4b1066531e447e888f48070b1a18e887386f689468926129d2dbc3
 tags:
-  "2.1.11.1": sha256:53b0476041de757139b7767cedd8ac536c33bcea6513597260007384b7dec843
+  2.1.11.1: sha256:81ea3efcdb4b1066531e447e888f48070b1a18e887386f689468926129d2dbc3
 aliases:
   sz: /opt/view/bin/sz

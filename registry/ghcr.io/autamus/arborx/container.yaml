@@ -1,8 +1,8 @@
 docker: ghcr.io/autamus/arborx
 url: https://github.com/orgs/autamus/packages/container/package/arborx
 maintainer: '@vsoch'
-description: ArborX is a performance-portable library for geometric search 
+description: ArborX is a performance-portable library for geometric search
 latest:
-  "1.0": sha256:ce3a1d715e5ff687a15fc1249f60484306718f2a6fec41829b7193f0268acfce
+  "1.0": sha256:bff17f727419e23dec3ba3be358c502e0a9fd60c48c1fca9887a4e5d7c0829a0
 tags:
-  "1.0": sha256:ce3a1d715e5ff687a15fc1249f60484306718f2a6fec41829b7193f0268acfce
+  "1.0": sha256:bff17f727419e23dec3ba3be358c502e0a9fd60c48c1fca9887a4e5d7c0829a0

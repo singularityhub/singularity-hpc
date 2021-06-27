@@ -1,11 +1,11 @@
 docker: ghcr.io/autamus/emacs
 url: https://github.com/orgs/autamus/packages/container/package/emacs
-maintainer: "@vsoch"
+maintainer: '@vsoch'
 description: The Emacs programmable text editor. https://www.gnu.org/software/emacs
 latest:
-  "27.2": sha256:a1fa851f9dbd3ba0474fd8f0365f23ba5cedc46095c5f6dedfa5fd433652a84a
+  "27.2": sha256:641b17f61afedfe85af4b36d7bfe521e7fbe1f2462f4ca6fdd11241d50c36b75
 tags:
-  "27.2": sha256:a1fa851f9dbd3ba0474fd8f0365f23ba5cedc46095c5f6dedfa5fd433652a84a
+  "27.2": sha256:641b17f61afedfe85af4b36d7bfe521e7fbe1f2462f4ca6fdd11241d50c36b75
 aliases:
   ebrowse: /opt/view/bin/ebrowse
   emacs: /opt/view/bin/emacs

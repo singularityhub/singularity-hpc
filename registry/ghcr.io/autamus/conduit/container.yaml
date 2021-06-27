@@ -1,11 +1,13 @@
 docker: ghcr.io/autamus/conduit
 url: https://github.com/orgs/autamus/packages/container/package/conduit
 maintainer: '@vsoch'
-description: Conduit is an open source project from Lawrence Livermore National Laboratory that provides an intuitive model for describing hierarchical scientific data in C++, C, Fortran, and Python. 
+description: Conduit is an open source project from Lawrence Livermore National Laboratory
+  that provides an intuitive model for describing hierarchical scientific data in
+  C++, C, Fortran, and Python.
 latest:
-  "0.7.2": sha256:6f8933a27f2f71f52787a5f27fa6f3b84a5f850e4c5cf26a79e4e0a360954c74
+  0.7.2: sha256:2fab0a8591f0fbce04f78731ec38772f7c8041a24d2d06ab66f8fa482356c662
 tags:
-  "0.7.2": sha256:6f8933a27f2f71f52787a5f27fa6f3b84a5f850e4c5cf26a79e4e0a360954c74
+  0.7.2: sha256:2fab0a8591f0fbce04f78731ec38772f7c8041a24d2d06ab66f8fa482356c662
 aliases:
   conduit_blueprint_verify: /opt/view/bin/conduit_blueprint_verify
   conduit_relay_entangle.py: /opt/view/bin/conduit_relay_entangle.py

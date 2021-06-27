@@ -1,11 +1,13 @@
 docker: quay.io/biocontainers/velvet
-latest:
- "1.2.10": "sha256:7fc2606a1431883dcd0acf830abcfeddb975677733d110a085da0f07782f5a27"
-tags:
- "1.2.10": "sha256:7fc2606a1431883dcd0acf830abcfeddb975677733d110a085da0f07782f5a27"
-maintainer: "@audreystott"
-description: "Short read de novo assembler using de Bruijn graphs"
 url: https://quay.io/repository/biocontainers/velvet
+maintainer: '@audreystott'
+description: Short read de novo assembler using de Bruijn graphs
+filter:
+ - "^((?!--).)*$"
+latest:
+  1.2.10: sha256:7fc2606a1431883dcd0acf830abcfeddb975677733d110a085da0f07782f5a27
+tags:
+  1.2.10: sha256:7fc2606a1431883dcd0acf830abcfeddb975677733d110a085da0f07782f5a27
 aliases:
-  velveth: /usr/local/bin/velveth
   velvetg: /usr/local/bin/velvetg
+  velveth: /usr/local/bin/velveth

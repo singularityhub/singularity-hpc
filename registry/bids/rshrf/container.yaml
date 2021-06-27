@@ -3,9 +3,9 @@ url: https://hub.docker.com/r/bids/rshrf
 maintainer: '@vsoch'
 description: Resting state HRF estimation and deconvolution (https://github.com/BIDS-Apps/rsHRF)
 latest:
-  latest: sha256:2199856a91c9fc11e08cfd27097cf204794eb731e1793006fdca9d4354e5e888
+  latest: sha256:6529aec4f32fc028028f60d8746e6119a87a5fea1664de375beaac2bcdc48287
 tags:
-  latest: sha256:2199856a91c9fc11e08cfd27097cf204794eb731e1793006fdca9d4354e5e888
+  latest: sha256:6529aec4f32fc028028f60d8746e6119a87a5fea1664de375beaac2bcdc48287
 filter:
 - v*
 aliases:

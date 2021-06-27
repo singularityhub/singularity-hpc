@@ -3,10 +3,10 @@ url: https://github.com/orgs/autamus/packages/container/package/mummer
 maintainer: '@vsoch'
 description: MUMmer is a system for rapidly aligning entire genomes.
 latest:
-  "3.23": sha256:337b7b1792c82d54e0edd0c5a522e045e576f4a148e59ff20cc1dfaff3c8721f
+  "3.23": sha256:563ff0c566d70e7cf8e2e8687335edbf811e02aef641b9636c88811e240026b5
 tags:
-  "3.23": sha256:337b7b1792c82d54e0edd0c5a522e045e576f4a148e59ff20cc1dfaff3c8721f
-  latest: sha256:337b7b1792c82d54e0edd0c5a522e045e576f4a148e59ff20cc1dfaff3c8721f
+  "3.23": sha256:563ff0c566d70e7cf8e2e8687335edbf811e02aef641b9636c88811e240026b5
+  latest: sha256:563ff0c566d70e7cf8e2e8687335edbf811e02aef641b9636c88811e240026b5
 aliases:
   mummer: /opt/view/bin/mummer
   mummerplot: /opt/view/bin/mummerplot

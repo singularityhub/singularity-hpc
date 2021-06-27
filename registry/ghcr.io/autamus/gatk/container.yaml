@@ -5,9 +5,9 @@ description: GATK (pronounced 'Gee-ay-tee-kay', not 'Gat-kay'), stands for Genom
   It is a collection of command-line tools for analyzing high-throughput sequencing
   data with a primary focus on variant discovery.
 latest:
-  4.2.0.0: sha256:136cf8cc7c90c0f8ec627eb26d35ad9d56b774d199933fb1606c5bfdf817d7dc
+  4.2.0.0: sha256:ce4bf832857d322a8be07d94bd9ae15a35b0cc3b270d66db11208016ffa65dff
 tags:
-  4.2.0.0: sha256:136cf8cc7c90c0f8ec627eb26d35ad9d56b774d199933fb1606c5bfdf817d7dc
-  latest: sha256:136cf8cc7c90c0f8ec627eb26d35ad9d56b774d199933fb1606c5bfdf817d7dc
+  4.2.0.0: sha256:ce4bf832857d322a8be07d94bd9ae15a35b0cc3b270d66db11208016ffa65dff
+  latest: sha256:ce4bf832857d322a8be07d94bd9ae15a35b0cc3b270d66db11208016ffa65dff
 aliases:
   gatk: /opt/view/bin/gatk
