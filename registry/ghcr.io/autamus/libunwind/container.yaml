@@ -1,8 +1,9 @@
 docker: ghcr.io/autamus/libunwind
 url: https://github.com/orgs/autamus/packages/container/package/libunwind
 maintainer: '@vsoch'
-description: A portable and efficient C programming interface (API) to determine the call-chain of a program.
+description: A portable and efficient C programming interface (API) to determine the
+  call-chain of a program.
 latest:
-  "1.5": sha256:b80713e2b96300caaec46a51caf4621ad4fd1bf16ae4771e736d67bf61ae1ae6
+  "1.5": sha256:9df45179beeb32211a63a5d83768321bcf6cca0da6c643ece9d4f509118824ba
 tags:
-  "1.5": sha256:b80713e2b96300caaec46a51caf4621ad4fd1bf16ae4771e736d67bf61ae1ae6
+  "1.5": sha256:9df45179beeb32211a63a5d83768321bcf6cca0da6c643ece9d4f509118824ba

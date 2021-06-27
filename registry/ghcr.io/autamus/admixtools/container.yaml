@@ -4,10 +4,10 @@ maintainer: '@vsoch'
 description: ADMIXTOOLS is a collection of programs which use genetic data to infer
   how populations are related to one another.
 latest:
-  7.0.1: sha256:68deaa1e7766db0f891e7d78be1835c21855ca7dc23744dac34c5b92142818ff
+  7.0.1: sha256:a8bf11737ae2732b8f3b0b15a8507f007fb4fc239e3bab0caf84817b1cee0b1b
 tags:
-  7.0.1: sha256:68deaa1e7766db0f891e7d78be1835c21855ca7dc23744dac34c5b92142818ff
-  latest: sha256:68deaa1e7766db0f891e7d78be1835c21855ca7dc23744dac34c5b92142818ff
+  7.0.1: sha256:a8bf11737ae2732b8f3b0b15a8507f007fb4fc239e3bab0caf84817b1cee0b1b
+  latest: sha256:a8bf11737ae2732b8f3b0b15a8507f007fb4fc239e3bab0caf84817b1cee0b1b
 aliases:
   convertf: /opt/view/bin/convertf
   dowtjack: /opt/view/bin/dowtjack

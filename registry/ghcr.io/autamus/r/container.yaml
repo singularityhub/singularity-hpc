@@ -3,9 +3,9 @@ url: https://github.com/orgs/autamus/packages/container/package/r
 maintainer: '@vsoch'
 description: R is a language and environment for statistical computing and graphics.
 latest:
-  4.0.4: sha256:a7e5df033a29f72739047f19423df5786d0b5284263d95a3d7971a1c3b559bde
+  4.0.4: sha256:047ce431f400d13df423898e62d78fc72e32c58236772eeaaf69ad2511dd528d
 tags:
-  4.0.4: sha256:a7e5df033a29f72739047f19423df5786d0b5284263d95a3d7971a1c3b559bde
-  latest: sha256:a7e5df033a29f72739047f19423df5786d0b5284263d95a3d7971a1c3b559bde
+  4.0.4: sha256:047ce431f400d13df423898e62d78fc72e32c58236772eeaaf69ad2511dd528d
+  latest: sha256:047ce431f400d13df423898e62d78fc72e32c58236772eeaaf69ad2511dd528d
 aliases:
   R: /opt/view/bin/R

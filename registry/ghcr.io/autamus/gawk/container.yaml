@@ -1,10 +1,13 @@
 docker: ghcr.io/autamus/gawk
 url: https://github.com/orgs/autamus/packages/container/package/gawk
 maintainer: '@vsoch'
-description: gawk is the GNU implementation of awk. The awk utility interprets a special-purpose programming language that makes it possible to handle simple data-reformatting jobs with just a few lines of code. https://www.gnu.org/software/gawk/
+description: gawk is the GNU implementation of awk. The awk utility interprets a special-purpose
+  programming language that makes it possible to handle simple data-reformatting jobs
+  with just a few lines of code. https://www.gnu.org/software/gawk/
 latest:
-  5.10.0: sha256:502eebe2f9a93ce7bb06fc6f97f8ce8dd76802a380ade9b4c71f0d3f15ef0a45
+  5.1.0: sha256:2a288eb41cb7bd83508d76ecaabf63f681f8ee2edce9025baa68998c24a77ee1
 tags:
+  5.1.0: sha256:2a288eb41cb7bd83508d76ecaabf63f681f8ee2edce9025baa68998c24a77ee1
   5.10.0: sha256:502eebe2f9a93ce7bb06fc6f97f8ce8dd76802a380ade9b4c71f0d3f15ef0a45
 aliases:
   gawk: /opt/view/bin/gawk

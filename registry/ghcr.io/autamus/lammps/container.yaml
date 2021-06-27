@@ -4,6 +4,6 @@ maintainer: '@vsoch'
 description: LAMMPS is a classical molecular dynamics code with a focus on materials
   modeling.
 latest:
-  latest: sha256:5d84aa7b876ec444703aaef66dcef8a499b3d3e9d738e1a54533376197976193
+  latest: sha256:5385b685c71350e82e0ba6afdc5accb23a4891cf3ee9ce5cbf8d1f68a5f8c135
 tags:
-  latest: sha256:5d84aa7b876ec444703aaef66dcef8a499b3d3e9d738e1a54533376197976193
+  latest: sha256:5385b685c71350e82e0ba6afdc5accb23a4891cf3ee9ce5cbf8d1f68a5f8c135

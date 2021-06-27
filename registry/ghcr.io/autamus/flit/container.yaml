@@ -1,10 +1,12 @@
 docker: ghcr.io/autamus/flit
 url: https://github.com/orgs/autamus/packages/container/package/flit
 maintainer: '@vsoch'
-description: Floating-point Litmus Tests (FLiT) is a C++ test infrastructure for detecting variability in floating-point code caused by variations in compiler code generation, hardware and execution environments. 
+description: Floating-point Litmus Tests (FLiT) is a C++ test infrastructure for detecting
+  variability in floating-point code caused by variations in compiler code generation,
+  hardware and execution environments.
 latest:
-  "2.1.0": sha256:2e709503fbfbbab18d54e5d99c182d58b72110fe45a7b46db4e30224193edb45
+  2.1.0: sha256:45ef46512d35b7117541145d025652ed4992addadc3036b7c0f752318d2fb394
 tags:
-  "2.1.0": sha256:2e709503fbfbbab18d54e5d99c182d58b72110fe45a7b46db4e30224193edb45
+  2.1.0: sha256:45ef46512d35b7117541145d025652ed4992addadc3036b7c0f752318d2fb394
 aliases:
   flit: /opt/view/bin/flit

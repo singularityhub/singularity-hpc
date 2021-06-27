@@ -1,9 +1,9 @@
 docker: ghcr.io/autamus/bolt
 url: https://github.com/orgs/autamus/packages/container/package/bolt
 maintainer: '@vsoch'
-description: BOLT targets a high-performing OpenMP implementation, especially specialized for fine-grain parallelism. 
+description: BOLT targets a high-performing OpenMP implementation, especially specialized
+  for fine-grain parallelism.
 latest:
-  "2.0": sha256:5cb4fc07c3030d30ab679a49b27e6fc570b60df890a646d417dbe610108858a3
+  "2.0": sha256:56879780172efb91347857a9b9548bb78cdd92dc618e4f29c2c27cb7b7023b4a
 tags:
-  "2.0": sha256:5cb4fc07c3030d30ab679a49b27e6fc570b60df890a646d417dbe610108858a3
-
+  "2.0": sha256:56879780172efb91347857a9b9548bb78cdd92dc618e4f29c2c27cb7b7023b4a

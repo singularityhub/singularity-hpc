@@ -4,10 +4,10 @@ maintainer: '@vsoch'
 description: The MEME suite provides online tools for discovering and using protein
   and DNA sequence motifs.
 latest:
-  5.3.0: sha256:ecfeb8c1d05ec6e2dba1b022d6e1fdaea57a90bd7ec51ab849df36378da4be82
+  5.3.0: sha256:b8854b3d4e399c1e948985e670a256f1755b986fad354280e43c1fad5e0d3f17
 tags:
-  5.3.0: sha256:ecfeb8c1d05ec6e2dba1b022d6e1fdaea57a90bd7ec51ab849df36378da4be82
-  latest: sha256:ecfeb8c1d05ec6e2dba1b022d6e1fdaea57a90bd7ec51ab849df36378da4be82
+  5.3.0: sha256:b8854b3d4e399c1e948985e670a256f1755b986fad354280e43c1fad5e0d3f17
+  latest: sha256:b8854b3d4e399c1e948985e670a256f1755b986fad354280e43c1fad5e0d3f17
 aliases:
   meme: /opt/view/bin/meme
   meme-chip: /opt/view/bin/meme-chip

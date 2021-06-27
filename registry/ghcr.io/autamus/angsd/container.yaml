@@ -3,9 +3,9 @@ url: https://github.com/orgs/autamus/packages/container/package/angsd
 maintainer: '@vsoch'
 description: ANGSD is a software for analyzing next generation sequencing data.
 latest:
-  "0.935": sha256:a671bb99cd22772dac8fd522ee65eed0a0d3a8ff1be0773cda2635a4bec38220
+  "0.935": sha256:71bfa2d67fd3ff249a0e2092f081abaa3541c40be93d46b53dd4e9d056c6d01e
 tags:
-  "0.935": sha256:a671bb99cd22772dac8fd522ee65eed0a0d3a8ff1be0773cda2635a4bec38220
-  latest: sha256:a671bb99cd22772dac8fd522ee65eed0a0d3a8ff1be0773cda2635a4bec38220
+  "0.935": sha256:71bfa2d67fd3ff249a0e2092f081abaa3541c40be93d46b53dd4e9d056c6d01e
+  latest: sha256:71bfa2d67fd3ff249a0e2092f081abaa3541c40be93d46b53dd4e9d056c6d01e
 aliases:
   angsd: /opt/view/bin/angsd

@@ -3,9 +3,9 @@ url: https://github.com/orgs/autamus/packages/container/package/tcsh
 maintainer: '@vsoch'
 description: ""
 latest:
-  6.22.02: sha256:54ae588ebf21c80acbfb328b347048d9fda465bc409a3a0c71582f6fa5fab53a
+  6.22.02: sha256:7653727c97a67b3077c4a89a2007816a98db61276a9d76feec8a2eaa48ea42b7
 tags:
-  6.22.02: sha256:54ae588ebf21c80acbfb328b347048d9fda465bc409a3a0c71582f6fa5fab53a
-  latest: sha256:54ae588ebf21c80acbfb328b347048d9fda465bc409a3a0c71582f6fa5fab53a
+  6.22.02: sha256:7653727c97a67b3077c4a89a2007816a98db61276a9d76feec8a2eaa48ea42b7
+  latest: sha256:7653727c97a67b3077c4a89a2007816a98db61276a9d76feec8a2eaa48ea42b7
 aliases:
   tcsh: /opt/view/bin/tcsh
