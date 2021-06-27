@@ -4,10 +4,11 @@ maintainer: '@audreystott'
 description: SPAdes – St. Petersburg genome assembler – is an assembly toolkit containing
   various assembly pipelines.
 latest:
-  3.15.2--h633aebb_0: sha256:bd00d99c8adfbd26b3267517b92492a040c8c3c188b02437fa77c1499630f0d0
+  3.15.2: sha256:250657af71d37fafdff81af644e92bf84485d4d9b6894f58ff84efdc1a6ec9eb
+filter:
+ - "^((?!--).)*$"
 tags:
   3.15.0: sha256:4cc7e41f53d3effb25b59afedc3fbd2d3e08fff449a507ecfa6731ff6d81ff79
   3.15.2: sha256:250657af71d37fafdff81af644e92bf84485d4d9b6894f58ff84efdc1a6ec9eb
-  3.15.2--h633aebb_0: sha256:bd00d99c8adfbd26b3267517b92492a040c8c3c188b02437fa77c1499630f0d0
 aliases:
   spades.py: /usr/local/bin/spades.py
