@@ -3,11 +3,12 @@ url: https://quay.io/repository/biocontainers/samtools
 maintainer: '@audreystott'
 description: Tools for reading/writing/editing/indexing/viewing SAM/BAM/CRAM format.
 latest:
-  1.12--hd5e65b6_0: sha256:2b911396b907769945a5446c8779d7be83f999bb4211733a8259040e67f4065f
+  "1.12": sha256:5fd5f0937adf8a24b5bf7655110e501df78ae51588547c8617f17c3291a723e1
+filter:
+ - "^((?!--).)*$"
 tags:
   "1.10": sha256:84a8d0c0acec87448a47cefa60c4f4a545887239fcd7984a58b48e7a6ac86390
   "1.11": sha256:141120f19f849b79e05ae2fac981383988445c373b8b5db7f3dd221179af382b
   "1.12": sha256:5fd5f0937adf8a24b5bf7655110e501df78ae51588547c8617f17c3291a723e1
-  1.12--hd5e65b6_0: sha256:2b911396b907769945a5446c8779d7be83f999bb4211733a8259040e67f4065f
 aliases:
   samtools: /usr/local/bin/samtools
