@@ -3,7 +3,7 @@ layout: container
 name:  "solr"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/solr/container.yaml"
-updated_at: "2021-06-23 03:36:25.649759"
+updated_at: "2021-06-27 03:46:58.573069"
 container_url: "https://hub.docker.com/_/solr"
 aliases:
  - "post"
@@ -14,6 +14,7 @@ aliases:
 
 versions:
  - "8.8.2-slim"
+ - "8.9.0-slim"
  - "latest"
 description: "Solr is the popular, blazing-fast, open source enterprise search platform built on Apache Lucene™."
 ---

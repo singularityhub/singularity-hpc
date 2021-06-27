@@ -3,7 +3,7 @@ layout: container
 name:  "nvcr.io/nvidia/digits"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/nvcr.io/nvidia/digits/container.yaml"
-updated_at: "2021-06-23 03:36:29.339219"
+updated_at: "2021-06-27 03:47:02.105391"
 container_url: "https://ngc.nvidia.com/catalog/containers/nvidia:digits/tags"
 aliases:
  - "python"
@@ -13,6 +13,7 @@ versions:
  - "21.03-tensorflow-py3"
  - "21.04-tensorflow-py3"
  - "21.05-tensorflow-py3"
+ - "21.06-tensorflow-py3"
 description: "The NVIDIA Deep Learning GPU Training System (DIGITS) puts the power of deep learning into the hands of engineers and data scientists."
 ---
 

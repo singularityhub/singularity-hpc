@@ -3,14 +3,14 @@ layout: container
 name:  "quay.io/biocontainers/star"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/star/container.yaml"
-updated_at: "2021-06-23 03:36:22.356779"
+updated_at: "2021-06-27 03:46:55.056989"
 container_url: "https://quay.io/repository/biocontainers/star"
 aliases:
  - "STAR"
 
 versions:
- - "2.7.9a"
  - "2.7.8a"
+ - "2.7.9a"
 description: "Spliced Transcripts Alignment to a Reference."
 ---
 
@@ -25,7 +25,7 @@ $ shpc install quay.io/biocontainers/star
 Or a specific version:
 
 ```bash
-$ shpc install quay.io/biocontainers/star:2.7.9a
+$ shpc install quay.io/biocontainers/star:2.7.8a
 ```
 
 And then you can tell lmod about your modules folder:
@@ -37,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load quay.io/biocontainers/star/2.7.9a
-$ module help quay.io/biocontainers/star/2.7.9a
+$ module load quay.io/biocontainers/star/2.7.8a
+$ module help quay.io/biocontainers/star/2.7.8a
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

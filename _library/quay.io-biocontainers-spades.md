@@ -3,14 +3,14 @@ layout: container
 name:  "quay.io/biocontainers/spades"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/spades/container.yaml"
-updated_at: "2021-06-23 03:36:22.113723"
+updated_at: "2021-06-27 03:46:54.772063"
 container_url: "https://quay.io/repository/biocontainers/spades"
 aliases:
  - "spades.py"
 
 versions:
- - "3.15.2"
  - "3.15.0"
+ - "3.15.2"
 description: "SPAdes – St. Petersburg genome assembler – is an assembly toolkit containing various assembly pipelines."
 ---
 
@@ -25,7 +25,7 @@ $ shpc install quay.io/biocontainers/spades
 Or a specific version:
 
 ```bash
-$ shpc install quay.io/biocontainers/spades:3.15.2
+$ shpc install quay.io/biocontainers/spades:3.15.0
 ```
 
 And then you can tell lmod about your modules folder:
@@ -37,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load quay.io/biocontainers/spades/3.15.2
-$ module help quay.io/biocontainers/spades/3.15.2
+$ module load quay.io/biocontainers/spades/3.15.0
+$ module help quay.io/biocontainers/spades/3.15.0
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

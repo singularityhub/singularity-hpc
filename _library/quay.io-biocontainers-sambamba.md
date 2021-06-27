@@ -3,15 +3,15 @@ layout: container
 name:  "quay.io/biocontainers/sambamba"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/sambamba/container.yaml"
-updated_at: "2021-06-23 03:36:23.558140"
+updated_at: "2021-06-27 03:46:56.412386"
 container_url: "https://quay.io/repository/biocontainers/sambamba"
 aliases:
  - "sambamba"
 
 versions:
- - "0.8.0"
- - "0.7.1"
  - "0.6.9"
+ - "0.7.1"
+ - "0.8.0"
 description: "Sambamba is a high performance highly parallel robust and fast tool (and library), written in the D programming language, for working with SAM and BAM files."
 ---
 
@@ -26,7 +26,7 @@ $ shpc install quay.io/biocontainers/sambamba
 Or a specific version:
 
 ```bash
-$ shpc install quay.io/biocontainers/sambamba:0.8.0
+$ shpc install quay.io/biocontainers/sambamba:0.6.9
 ```
 
 And then you can tell lmod about your modules folder:
@@ -38,8 +38,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load quay.io/biocontainers/sambamba/0.8.0
-$ module help quay.io/biocontainers/sambamba/0.8.0
+$ module load quay.io/biocontainers/sambamba/0.6.9
+$ module help quay.io/biocontainers/sambamba/0.6.9
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

@@ -3,12 +3,13 @@ layout: container
 name:  "ghcr.io/autamus/gawk"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/gawk/container.yaml"
-updated_at: "2021-06-23 03:36:20.662095"
+updated_at: "2021-06-27 03:46:53.180023"
 container_url: "https://github.com/orgs/autamus/packages/container/package/gawk"
 aliases:
  - "gawk"
 
 versions:
+ - "5.1.0"
  - "5.10.0"
 description: "gawk is the GNU implementation of awk. The awk utility interprets a special-purpose programming language that makes it possible to handle simple data-reformatting jobs with just a few lines of code. https://www.gnu.org/software/gawk/"
 ---
@@ -24,7 +25,7 @@ $ shpc install ghcr.io/autamus/gawk
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/gawk:5.10.0
+$ shpc install ghcr.io/autamus/gawk:5.1.0
 ```
 
 And then you can tell lmod about your modules folder:
@@ -36,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/gawk/5.10.0
-$ module help ghcr.io/autamus/gawk/5.10.0
+$ module load ghcr.io/autamus/gawk/5.1.0
+$ module help ghcr.io/autamus/gawk/5.1.0
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

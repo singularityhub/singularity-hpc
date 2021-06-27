@@ -3,12 +3,12 @@ layout: container
 name:  "quay.io/biocontainers/velvet"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/velvet/container.yaml"
-updated_at: "2021-06-23 03:36:23.331793"
+updated_at: "2021-06-27 03:46:56.148044"
 container_url: "https://quay.io/repository/biocontainers/velvet"
 aliases:
- - "velveth"
-
  - "velvetg"
+
+ - "velveth"
 
 versions:
  - "1.2.10"
@@ -97,21 +97,21 @@ $ singularity inspect -d <container>
 ```
 
 
-#### velveth
-       
-```bash
-$ singularity exec <container> /usr/local/bin/velveth
-$ podman run --it --rm --entrypoint /usr/local/bin/velveth   -v ${PWD} -w ${PWD} <container> -c " $@"
-$ docker run --it --rm --entrypoint /usr/local/bin/velveth   -v ${PWD} -w ${PWD} <container> -c " $@"
-```
-
-
 #### velvetg
        
 ```bash
 $ singularity exec <container> /usr/local/bin/velvetg
 $ podman run --it --rm --entrypoint /usr/local/bin/velvetg   -v ${PWD} -w ${PWD} <container> -c " $@"
 $ docker run --it --rm --entrypoint /usr/local/bin/velvetg   -v ${PWD} -w ${PWD} <container> -c " $@"
+```
+
+
+#### velveth
+       
+```bash
+$ singularity exec <container> /usr/local/bin/velveth
+$ podman run --it --rm --entrypoint /usr/local/bin/velveth   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/local/bin/velveth   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 

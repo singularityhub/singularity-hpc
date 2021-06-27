@@ -3,15 +3,9 @@ layout: container
 name:  "ghcr.io/autamus/openmpi"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/openmpi/container.yaml"
-updated_at: "2021-06-23 03:36:15.085362"
+updated_at: "2021-06-27 03:46:47.372625"
 container_url: "https://github.com/orgs/autamus/packages/container/package/openmpi"
 aliases:
- - "ompi-clean"
-
- - "ompi-server"
-
- - "ompi_info"
-
  - "mpiCC"
 
  - "mpic++"
@@ -29,6 +23,12 @@ aliases:
  - "mpifort"
 
  - "mpirun"
+
+ - "ompi-clean"
+
+ - "ompi-server"
+
+ - "ompi_info"
 
 versions:
  - "4.1.1"
@@ -117,33 +117,6 @@ $ singularity inspect -d <container>
 ```
 
 
-#### ompi-clean
-       
-```bash
-$ singularity exec <container> /opt/view/bin/ompi-clean
-$ podman run --it --rm --entrypoint /opt/view/bin/ompi-clean   -v ${PWD} -w ${PWD} <container> -c " $@"
-$ docker run --it --rm --entrypoint /opt/view/bin/ompi-clean   -v ${PWD} -w ${PWD} <container> -c " $@"
-```
-
-
-#### ompi-server
-       
-```bash
-$ singularity exec <container> /opt/view/bin/ompi-server
-$ podman run --it --rm --entrypoint /opt/view/bin/ompi-server   -v ${PWD} -w ${PWD} <container> -c " $@"
-$ docker run --it --rm --entrypoint /opt/view/bin/ompi-server   -v ${PWD} -w ${PWD} <container> -c " $@"
-```
-
-
-#### ompi_info
-       
-```bash
-$ singularity exec <container> /opt/view/bin/ompi_info
-$ podman run --it --rm --entrypoint /opt/view/bin/ompi_info   -v ${PWD} -w ${PWD} <container> -c " $@"
-$ docker run --it --rm --entrypoint /opt/view/bin/ompi_info   -v ${PWD} -w ${PWD} <container> -c " $@"
-```
-
-
 #### mpiCC
        
 ```bash
@@ -222,6 +195,33 @@ $ docker run --it --rm --entrypoint /opt/view/bin/mpifort   -v ${PWD} -w ${PWD} 
 $ singularity exec <container> /opt/view/bin/mpirun
 $ podman run --it --rm --entrypoint /opt/view/bin/mpirun   -v ${PWD} -w ${PWD} <container> -c " $@"
 $ docker run --it --rm --entrypoint /opt/view/bin/mpirun   -v ${PWD} -w ${PWD} <container> -c " $@"
+```
+
+
+#### ompi-clean
+       
+```bash
+$ singularity exec <container> /opt/view/bin/ompi-clean
+$ podman run --it --rm --entrypoint /opt/view/bin/ompi-clean   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/ompi-clean   -v ${PWD} -w ${PWD} <container> -c " $@"
+```
+
+
+#### ompi-server
+       
+```bash
+$ singularity exec <container> /opt/view/bin/ompi-server
+$ podman run --it --rm --entrypoint /opt/view/bin/ompi-server   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/ompi-server   -v ${PWD} -w ${PWD} <container> -c " $@"
+```
+
+
+#### ompi_info
+       
+```bash
+$ singularity exec <container> /opt/view/bin/ompi_info
+$ podman run --it --rm --entrypoint /opt/view/bin/ompi_info   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/view/bin/ompi_info   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 

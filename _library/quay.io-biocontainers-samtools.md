@@ -3,15 +3,15 @@ layout: container
 name:  "quay.io/biocontainers/samtools"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/samtools/container.yaml"
-updated_at: "2021-06-23 03:36:22.867156"
+updated_at: "2021-06-27 03:46:55.594490"
 container_url: "https://quay.io/repository/biocontainers/samtools"
 aliases:
  - "samtools"
 
 versions:
- - "1.12"
- - "1.11"
  - "1.10"
+ - "1.11"
+ - "1.12"
 description: "Tools for reading/writing/editing/indexing/viewing SAM/BAM/CRAM format."
 ---
 
@@ -26,7 +26,7 @@ $ shpc install quay.io/biocontainers/samtools
 Or a specific version:
 
 ```bash
-$ shpc install quay.io/biocontainers/samtools:1.12
+$ shpc install quay.io/biocontainers/samtools:1.10
 ```
 
 And then you can tell lmod about your modules folder:
@@ -38,8 +38,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load quay.io/biocontainers/samtools/1.12
-$ module help quay.io/biocontainers/samtools/1.12
+$ module load quay.io/biocontainers/samtools/1.10
+$ module help quay.io/biocontainers/samtools/1.10
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
