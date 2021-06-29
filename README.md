@@ -16,9 +16,6 @@ And container technologies:
  - [Podman](https://podman.io)
  - [Docker](https://docker.io)
 
-Coming soon:
-
- - [Shifter](https://github.com/NERSC/shifter)
 
 You can use shpc if you are:
 
@@ -26,7 +23,7 @@ You can use shpc if you are:
 2. a cluster user that wants to maintain your own folder of custom modules
 3. a cluster user that simply wants to pull Singularity images as GitHub packages.
 
-These use cases will be better flushed out and documented as the library is developed.
+A module technology is required in all cases.
 
 📖️ Read the [documentation](https://singularity-hpc.readthedocs.io/en/latest/) 📖️
 ⭐️ Browse the [container module collection](https://singularityhub.github.io/singularity-hpc/) ⭐️

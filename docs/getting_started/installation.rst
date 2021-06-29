@@ -4,8 +4,11 @@
 Installation
 ============
 
-Singularity Registry HPC (shpc) can be installed from pypi, or from source. For either, it's
-recommended that you create a virtual environment, if you have not already
+Singularity Registry HPC (shpc) can be installed from pypi, or from source. 
+In all cases, a module technology is required such as `lmod (install intstructions) <https://lmod.readthedocs.io/en/latest/030_installing.html>`_
+or `environment modules (install instructions) <https://modules.readthedocs.io/en/latest/INSTALL.html>`_.
+Having module software installed means that the ``module`` command should be on your path.
+Once you are ready to install shpc along your module software, it's recommended that you create a virtual environment, if you have not already
 done so.
 
 
