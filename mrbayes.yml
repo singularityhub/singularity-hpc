@@ -1,0 +1,14 @@
+docker: quay.io/biocontainers/mrbayes
+latest:
+    "3.2.6--0":
+        "sha256:a81b94e4659014c25c5840b01f1f5ba5b635d2ce061134e2911f55f974c49b3f"
+tags:
+    "3.2.6--0":
+        "sha256:a81b94e4659014c25c5840b01f1f5ba5b635d2ce061134e2911f55f974c49b3f"
+    "3.2.7--h19cf415_2":
+        "sha256:893140dd1c0019013652f77f379641cadf1c43d7d96b9cef35cf8d1475f25991"
+description: "A program for Bayesian inference and model choice across a wide range of phylogenetic and evolutionary models"
+maintainer: "@sarahbeecroft"
+url: https://quay.io/repository/biocontainers/mrbayes
+aliases:
+    mb: /usr/local/bin/mb

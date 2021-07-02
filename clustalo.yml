@@ -1,0 +1,13 @@
+docker: quay.io/biocontainers/clustalo
+latest:
+    "1.2.4--h1b792b2_4":
+        "sha256:5c2d9d0ab6b459078bec701d44daffbdb31f4e87c8382b0ed07da24d46ee39af"
+tags:
+    "1.2.4--he1b5a44_3":
+        "sha256:6703d1623f640ddf7212d7541eea083e2327988c28b7952efc8f6cbe5bf785d1"
+maintainer: "@sarahbeecroft"
+description: "Multiple sequence alignment program for aligning 3+ sequences together"
+url: https://quay.io/repository/biocontainers/clustalo
+aliases:
+    clustalo: /usr/local/bin/clustalo
+    

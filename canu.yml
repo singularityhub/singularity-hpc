@@ -1,0 +1,12 @@
+docker: quay.io/biocontainers/canu
+latest:
+    "2.1.1--h1b792b2_2":
+        "sha256:b48b52afc355477015ef60bebded3b4ab3d3099bbf5698879de8eb600c9ff1a4"
+tags:
+    "2.1.1--he1b5a44_1":
+        "sha256:a28f4d1b2289d7f42e47efc0d35ad76ab28cc43a40d2b32aa857eda9c428718d"
+maintainer: "@sarahbeecroft"
+description: "Canu is a fork of the celera assembler designed for high-noise single-molecule sequencing"
+url: https://quay.io/repository/biocontainers/canu
+aliases:
+    canu: /usr/local/bin/canu
