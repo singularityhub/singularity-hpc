@@ -4,6 +4,7 @@ maintainer: '@vsoch'
 description: AMReX is a publicly available software framework designed for building
   massively parallel block- structured adaptive mesh refinement (AMR) applications.
 latest:
-  "21.06": sha256:f58cbe4911e8f5c1b8fd12a3b91ab7ca0b04660b4494ba0aa9eaba01bbdc1897
+  "21.07": sha256:3624fa229365179633edb6deffb4df35d25e41b93ee6f156314ee2c5ced1e6e2
 tags:
-  "21.06": sha256:f58cbe4911e8f5c1b8fd12a3b91ab7ca0b04660b4494ba0aa9eaba01bbdc1897
+  "21.06": sha256:b2e48c43f50f3899e53df008e2f2b260858a74e63d42918b970bd53730f07908
+  "21.07": sha256:3624fa229365179633edb6deffb4df35d25e41b93ee6f156314ee2c5ced1e6e2

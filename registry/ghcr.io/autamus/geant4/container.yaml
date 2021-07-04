@@ -4,11 +4,11 @@ maintainer: '@vsoch'
 description: Geant4 is a platform for the simulation of the passage of particles through
   matter using Monte Carlo methods.
 latest:
-  10.7.2: sha256:706694c5130ffab9cbfbb779fce43b856af58e85c263872472c750f3282ffa0c
+  10.7.2: sha256:30334c4760f479d1f382e76a4f9971df0932840255f8cccdc474a0330a26f38b
 tags:
   10.7.1: sha256:3f07426da42d09e5671918c4fa3e41226f66dd414ff825e711b7ba1b02cf26fb
-  10.7.2: sha256:706694c5130ffab9cbfbb779fce43b856af58e85c263872472c750f3282ffa0c
-  latest: sha256:706694c5130ffab9cbfbb779fce43b856af58e85c263872472c750f3282ffa0c
+  10.7.2: sha256:30334c4760f479d1f382e76a4f9971df0932840255f8cccdc474a0330a26f38b
+  latest: sha256:30334c4760f479d1f382e76a4f9971df0932840255f8cccdc474a0330a26f38b
 aliases:
   Cast-config: /opt/view/bin/Cast-config
   CreateDOMDocument: /opt/view/bin/CreateDOMDocument

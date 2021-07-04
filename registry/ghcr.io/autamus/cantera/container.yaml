@@ -4,8 +4,8 @@ maintainer: '@vsoch'
 description: Cantera is an open-source collection of object-oriented software tools
   for problems involving chemical kinetics, thermodynamics, and transport processes.
 latest:
-  2.5.1: sha256:1e38a5974ea47cfc1bb804923e6782b779f1dca0919fc4f42e178031f8a33283
+  2.5.1: sha256:cb3ea7f202d02c64183bccca27b75be542678142ecb6ceb0be8cf3f25544f928
 tags:
   2.4.0: sha256:ad490652d6f83f71cb56b6195f92ec4837671ceafcdb897d66393e564cde9699
-  2.5.1: sha256:1e38a5974ea47cfc1bb804923e6782b779f1dca0919fc4f42e178031f8a33283
-  latest: sha256:1e38a5974ea47cfc1bb804923e6782b779f1dca0919fc4f42e178031f8a33283
+  2.5.1: sha256:cb3ea7f202d02c64183bccca27b75be542678142ecb6ceb0be8cf3f25544f928
+  latest: sha256:cb3ea7f202d02c64183bccca27b75be542678142ecb6ceb0be8cf3f25544f928

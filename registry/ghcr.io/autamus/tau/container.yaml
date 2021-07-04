@@ -4,6 +4,6 @@ maintainer: '@vsoch'
 description: A portable profiling and tracing toolkit for performance analysis of
   parallel programs written in Fortran, C, C++, UPC, Java, Python.
 latest:
-  2.30.1: sha256:b96bc3ca58ed077f3874ef214da8dba186cb4f16d0a4838b40f67322fd2d41ec
+  2.30.1: sha256:eb9aef97115a20fe5452b6b8dd4fcf5e263c52397c3e220555d38a9de1d77462
 tags:
-  2.30.1: sha256:b96bc3ca58ed077f3874ef214da8dba186cb4f16d0a4838b40f67322fd2d41ec
+  2.30.1: sha256:eb9aef97115a20fe5452b6b8dd4fcf5e263c52397c3e220555d38a9de1d77462

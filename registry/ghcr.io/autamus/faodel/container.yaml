@@ -3,8 +3,8 @@ url: https://github.com/orgs/autamus/packages/container/package/faodel
 maintainer: '@vsoch'
 description: Flexible, Asynchronous, Object Data-Exchange Libraries
 latest:
-  1.1906.1: sha256:d600827f250798b210c376050e584a81b573b4fff2abda0171d033286e31cd02
+  1.1906.1: sha256:e7931a206c18d436eaa9806929ccc932593c883d4e1be4c5dc4b60759fa9407d
 tags:
-  1.1906.1: sha256:d600827f250798b210c376050e584a81b573b4fff2abda0171d033286e31cd02
+  1.1906.1: sha256:e7931a206c18d436eaa9806929ccc932593c883d4e1be4c5dc4b60759fa9407d
 aliases:
   faodel: /opt/view/bin/faodel

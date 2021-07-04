@@ -4,7 +4,7 @@ maintainer: '@vsoch'
 description: preCICE (Precise Code Interaction Coupling Environment) is a coupling
   library for partitioned multi-physics simulations.
 latest:
-  2.2.1: sha256:325307536cd7aaa89a3744cdec758cd43b713f2409da6e2dde03444a0b616fae
+  2.2.1: sha256:c90dee93b4688ab8a3719ef298501c186b93b757d2d68d2ec1318d430694bc93
 tags:
   1.2.1: sha256:8b656422fbcb27ec143bc60d74778c93bdd914532317ee1551b6864cb1bad30e
-  2.2.1: sha256:325307536cd7aaa89a3744cdec758cd43b713f2409da6e2dde03444a0b616fae
+  2.2.1: sha256:c90dee93b4688ab8a3719ef298501c186b93b757d2d68d2ec1318d430694bc93

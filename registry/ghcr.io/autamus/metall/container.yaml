@@ -3,6 +3,6 @@ url: https://github.com/orgs/autamus/packages/container/package/metall
 maintainer: '@vsoch'
 description: A Persistent Memory Allocator For Data-Centric Analytics
 latest:
-  "0.13": sha256:4ec194b0b60f03949a7550d094248adf62cbc98dbff759053410fd1e7d937211
+  "0.13": sha256:38b265f335af401fb19f8839cb923e5d7236da7d5c8e88571180ac846ed4674b
 tags:
-  "0.13": sha256:4ec194b0b60f03949a7550d094248adf62cbc98dbff759053410fd1e7d937211
+  "0.13": sha256:38b265f335af401fb19f8839cb923e5d7236da7d5c8e88571180ac846ed4674b

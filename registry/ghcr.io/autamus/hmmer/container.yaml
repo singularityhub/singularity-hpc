@@ -4,11 +4,11 @@ maintainer: '@vsoch'
 description: HMMER is used for searching sequence databases for sequence homologs,
   and for making sequence alignments.
 latest:
-  3.3.2: sha256:f8667b941896cb395bb3ca23010616cace461b651ab6298368b2b58b57c12541
+  3.3.2: sha256:2abcac1e9f0400eed22e31ce6e28df62e9607c979016a4e5090fd64cd4e3fe75
 tags:
   "3.3": sha256:87ac88c3db4f5a80af3701ceb43e29fac4fdab86db71f6763425881f28f51335
-  3.3.2: sha256:f8667b941896cb395bb3ca23010616cace461b651ab6298368b2b58b57c12541
-  latest: sha256:f8667b941896cb395bb3ca23010616cace461b651ab6298368b2b58b57c12541
+  3.3.2: sha256:2abcac1e9f0400eed22e31ce6e28df62e9607c979016a4e5090fd64cd4e3fe75
+  latest: sha256:2abcac1e9f0400eed22e31ce6e28df62e9607c979016a4e5090fd64cd4e3fe75
 aliases:
   hmmalign: /opt/view/bin/hmmalign
   hmmbuild: /opt/view/bin/hmmbuild
