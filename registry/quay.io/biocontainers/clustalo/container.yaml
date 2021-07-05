@@ -10,4 +10,3 @@ description: "Multiple sequence alignment program for aligning 3+ sequences toge
 url: https://quay.io/repository/biocontainers/clustalo
 aliases:
     clustalo: /usr/local/bin/clustalo
-    
