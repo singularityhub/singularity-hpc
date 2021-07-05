@@ -5,7 +5,7 @@ latest:
 tags:
     "3.23--pl526he1b5a44_11":
         "sha256:2a0b6a706b92f2507d033bef6d3e4fe6bca2104f44e870447b414cfa34e67c38"
-description: ""
+description: "MUMmer is a system for rapidly aligning entire genomes in complete or in draft form."
 maintainer: "@sarahbeecroft"
 url: https://quay.io/repository/biocontainers/mummer
 aliases:
