@@ -1,0 +1,12 @@
+docker: quay.io/biocontainers/cutadapt
+latest:
+    "3.4--py37h73a75cf_1":
+        "sha256:12e96e635cf387b7969a2cfefadfe79d893bb3ad33cb03dc500451900111a6dc"
+tags:
+    "3.4--py38h4a8c8d9_1":
+        "sha256:489eda33229f60e7ca8e0397f95c775d53d6f40fa0baed04386e3726d4e9e136"
+maintainer: "@sarahbeecroft"
+description: "Trim adapters from high-throughput sequencing reads"
+url: https://quay.io/repository/biocontainers/cutadapt
+aliases:
+    cutadapt: /usr/local/bin/cutadapt
