@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/gotcha"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/gotcha/container.yaml"
-updated_at: "2021-06-29 14:59:19.419547"
+updated_at: "2021-07-05 07:27:39.094784"
 container_url: "https://github.com/orgs/autamus/packages/container/package/gotcha"
 
 versions:
