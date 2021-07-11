@@ -4,9 +4,9 @@ maintainer: '@vsoch'
 description: User level file system that enables applications to use node-local storage
   as burst buffers for shared files.
 latest:
-  0.9.2: sha256:dc830f785b5e126bb02c1ccd3384dfc798f2b66be560f7b41ce7b44a0b38e356
+  0.9.2: sha256:7dec11a95f51e5ee66ae373ad9f3416113c5e3e1a308d1d481eedd26c59236e2
 tags:
-  0.9.2: sha256:dc830f785b5e126bb02c1ccd3384dfc798f2b66be560f7b41ce7b44a0b38e356
+  0.9.2: sha256:7dec11a95f51e5ee66ae373ad9f3416113c5e3e1a308d1d481eedd26c59236e2
 aliases:
   unifyfs: /opt/view/bin/unifyfs
   unifyfs-config: /opt/view/bin/unifyfs-config

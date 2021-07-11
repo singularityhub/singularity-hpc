@@ -3,9 +3,9 @@ url: https://github.com/orgs/autamus/packages/container/package/node-js
 maintainer: '@vsoch'
 description: A JavaScript runtime built on Chrome's V8 JavaScript engine.
 latest:
-  15.3.0: sha256:3e1a1cdb93df47729402f1b151b3d24a43a2d7af1635d413a71fcfa6154cc0e4
+  15.3.0: sha256:a98dcc1c0fe4116cafcb9131784a25487b9139a36edf3f632f6b61ac5a08a264
 tags:
-  15.3.0: sha256:3e1a1cdb93df47729402f1b151b3d24a43a2d7af1635d413a71fcfa6154cc0e4
-  latest: sha256:3e1a1cdb93df47729402f1b151b3d24a43a2d7af1635d413a71fcfa6154cc0e4
+  15.3.0: sha256:a98dcc1c0fe4116cafcb9131784a25487b9139a36edf3f632f6b61ac5a08a264
+  latest: sha256:a98dcc1c0fe4116cafcb9131784a25487b9139a36edf3f632f6b61ac5a08a264
 aliases:
   node: /opt/view/bin/node

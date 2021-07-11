@@ -4,6 +4,6 @@ maintainer: '@vsoch'
 description: High-efficiency floating-point neural network inference operators for
   mobile, server, and Web
 latest:
-  2021.02.22: sha256:56867b637b358e4fc9ab8d7693597a5489387878c66b5fa43687d5cc94b2024f
+  2021.02.22: sha256:a77c936adf21278607fdb598b3e416c8dd21839c379c0cfeccfd2c89f903622d
 tags:
-  2021.02.22: sha256:56867b637b358e4fc9ab8d7693597a5489387878c66b5fa43687d5cc94b2024f
+  2021.02.22: sha256:a77c936adf21278607fdb598b3e416c8dd21839c379c0cfeccfd2c89f903622d

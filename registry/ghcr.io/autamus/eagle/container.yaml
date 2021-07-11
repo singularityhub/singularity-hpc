@@ -3,10 +3,10 @@ url: https://github.com/orgs/autamus/packages/container/package/eagle
 maintainer: '@vsoch'
 description: Explicit Alternative Genome Likelihood Evaluator
 latest:
-  1.1.2: sha256:7d87ba5fee69d36eb17d9437a5e4f6b578ad8cda395ce44993741e23af8ad901
+  1.1.2: sha256:4054c6315c28d5ac2d09e3721594bde802b2395844ebd816c1ec8760bf38c156
 tags:
-  1.1.2: sha256:7d87ba5fee69d36eb17d9437a5e4f6b578ad8cda395ce44993741e23af8ad901
-  latest: sha256:7d87ba5fee69d36eb17d9437a5e4f6b578ad8cda395ce44993741e23af8ad901
+  1.1.2: sha256:4054c6315c28d5ac2d09e3721594bde802b2395844ebd816c1ec8760bf38c156
+  latest: sha256:4054c6315c28d5ac2d09e3721594bde802b2395844ebd816c1ec8760bf38c156
 aliases:
   eagle: /opt/view/bin/eagle
   eagle-nm: /opt/view/bin/eagle-nm

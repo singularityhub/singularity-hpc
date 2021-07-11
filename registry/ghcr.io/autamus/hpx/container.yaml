@@ -3,9 +3,9 @@ url: https://github.com/orgs/autamus/packages/container/package/hpx
 maintainer: '@vsoch'
 description: C++ runtime system for parallel and distributed applications.
 latest:
-  1.6.0: sha256:5732c2af0af94d3fb57f0e425569482909c8179fa58c1e72689b992100ea666d
+  1.6.0: sha256:5736aa87e084cbf00e0e39326ca267250e16135d7449066b25a654834b258ae7
 tags:
-  1.6.0: sha256:5732c2af0af94d3fb57f0e425569482909c8179fa58c1e72689b992100ea666d
+  1.6.0: sha256:5736aa87e084cbf00e0e39326ca267250e16135d7449066b25a654834b258ae7
 aliases:
   hpxcxx: /opt/view/bin/hpxcxx
   hpxrun.py: /opt/view/bin/hpxrun.py

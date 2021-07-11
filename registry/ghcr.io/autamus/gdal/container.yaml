@@ -5,10 +5,11 @@ description: 'GDAL is a translator library for raster and vector geospatial data
   that is released under an X/MIT style Open Source License by the Open Source Geospatial
   Foundation. '
 latest:
-  3.3.0: sha256:86428e31258c6d1226af0a0d8a6c066edff0c4837d998ecb37dd10cb70ace87c
+  3.3.1: sha256:bd46251aaaf5a345b99df621480c2c3b2c03d201f076afd9820dd54c40ec09a8
 tags:
-  3.3.0: sha256:86428e31258c6d1226af0a0d8a6c066edff0c4837d998ecb37dd10cb70ace87c
-  latest: sha256:86428e31258c6d1226af0a0d8a6c066edff0c4837d998ecb37dd10cb70ace87c
+  3.3.0: sha256:6a82c83a2970ccea4cc28f9bb5c356f36ba26bde14c485437413724bfad28a8a
+  3.3.1: sha256:bd46251aaaf5a345b99df621480c2c3b2c03d201f076afd9820dd54c40ec09a8
+  latest: sha256:bd46251aaaf5a345b99df621480c2c3b2c03d201f076afd9820dd54c40ec09a8
 aliases:
   gdal-config: /opt/view/bin/gdal-config
   gdal_contour: /opt/view/bin/gdal_contour
