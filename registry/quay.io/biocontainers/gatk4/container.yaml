@@ -1,12 +1,12 @@
 docker: quay.io/biocontainers/gatk4
-latest:
-    "4.2.0.0--hdfd78af_1":
-        "sha256:9d65f14f0fc4637d582be624d173e94baddcfa4abe1bdecc609dcc69c62407f0"
-tags:
-    "4.1.9.0--py39_0":
-        "sha256:7b0b112b595861b140cbebdec5a0534bea9c40ef8bea4b3927fcea7ec53f5f57"
-description: "An open source toolkit frequently used by most genomic research and clinical analyses"
-maintainer: "@sarahbeecroft"
 url: https://quay.io/repository/biocontainers/gatk4
+maintainer: '@sarahbeecroft'
+description: An open source toolkit frequently used by most genomic research and clinical
+  analyses
+latest:
+  4.2.0.0--0: sha256:8ef50a133183ff095178d95bd1cb51903aabccd614583507cb5cf52c8aeb2838
+tags:
+  4.1.9.0--py39_0: sha256:7b0b112b595861b140cbebdec5a0534bea9c40ef8bea4b3927fcea7ec53f5f57
+  4.2.0.0--0: sha256:8ef50a133183ff095178d95bd1cb51903aabccd614583507cb5cf52c8aeb2838
 aliases:
-    gatk: /usr/local/bin/gatk
+  gatk: /usr/local/bin/gatk

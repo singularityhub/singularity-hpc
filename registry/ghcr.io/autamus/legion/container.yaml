@@ -4,9 +4,9 @@ maintainer: '@vsoch'
 description: Legion is a data-centric parallel programming system for writing portable
   high performance programs targeted at distributed heterogeneous architectures.
 latest:
-  21.03.0: sha256:b71fe0c910c32e803ca75d7076e8b1eb79f5e0ab41158920e60725227165228f
+  21.03.0: sha256:238292d75c00d62abc5922396c8d080e55a978282fb7316ea73ed29fb4fb3c1c
 tags:
-  21.03.0: sha256:b71fe0c910c32e803ca75d7076e8b1eb79f5e0ab41158920e60725227165228f
+  21.03.0: sha256:238292d75c00d62abc5922396c8d080e55a978282fb7316ea73ed29fb4fb3c1c
 aliases:
   legion_prof.py: /opt/view/bin/legion_prof.py
   legion_serializer.py: /opt/view/bin/legion_serializer.py

@@ -4,14 +4,15 @@ maintainer: '@vsoch'
 description: Node.js is a software platform for scalable server-side and networking
   applications.
 latest:
-  16.3.0-alpine: sha256:3e0f83e34a8a3e03d96e78fac8412b83790896c0abd4b112c7f6d0dcef60bca6
+  16.5.0-alpine: sha256:50b33102c307e04f73817dad87cdae145b14782875495ddd950b5a48e4937c70
 tags:
   15.14.0-alpine: sha256:6edd37368174c15d4cc59395ca2643be8e2a1c9846714bc92c5f5c5a92fb8929
   16.0.0-alpine: sha256:fabc6adac6dba5e150130e10acfc11a81447be93f4bf384076abdb63dbd34033
   16.1.0-alpine: sha256:8704247878fe10eddfcb5c26540112b15e50d21ce8e5c7a7f6caf5cf857de219
   16.2.0-alpine: sha256:e5615005591e2450e782fa82b10bf31e4c3a90b00f4f47f3691bcb4c03c5b1a2
-  16.3.0-alpine: sha256:3e0f83e34a8a3e03d96e78fac8412b83790896c0abd4b112c7f6d0dcef60bca6
-  latest: sha256:e74d46c2d4b711c7fbdc8c26a35fbb40d9a739ef23b6e84b0ec3917ef01b23b4
+  16.3.0-alpine: sha256:2eee2f439d3b3509bbe40faff6584bd31b5745b4c137e93e2d795899a2927762
+  16.5.0-alpine: sha256:50b33102c307e04f73817dad87cdae145b14782875495ddd950b5a48e4937c70
+  latest: sha256:89acb508f15b80b63bbb1f287feebe955c94b6ebb85c89e4167e35258af596f0
 aliases:
   node: /usr/local/bin/node
   nodejs: /usr/local/bin/nodejs

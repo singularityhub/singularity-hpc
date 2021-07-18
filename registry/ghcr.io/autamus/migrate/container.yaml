@@ -5,9 +5,9 @@ description: Migrate estimates effective population sizes and past migration rat
   between n population assuming a migration matrix model with asymmetric migration
   rates and different subpopulation sizes
 latest:
-  3.7.2: sha256:2fbecbf16fa25d6ce3b297a7d9d8dd5718abf717de6034c868e7846e337316a7
+  3.7.2: sha256:698d6ca2e992a1155c4ee5e2ebba18dcc8e67dd6bc6860a26c1c2d57ced42f50
 tags:
-  3.7.2: sha256:2fbecbf16fa25d6ce3b297a7d9d8dd5718abf717de6034c868e7846e337316a7
-  latest: sha256:2fbecbf16fa25d6ce3b297a7d9d8dd5718abf717de6034c868e7846e337316a7
+  3.7.2: sha256:698d6ca2e992a1155c4ee5e2ebba18dcc8e67dd6bc6860a26c1c2d57ced42f50
+  latest: sha256:698d6ca2e992a1155c4ee5e2ebba18dcc8e67dd6bc6860a26c1c2d57ced42f50
 aliases:
   migrate-n: /opt/view/bin/migrate-n
