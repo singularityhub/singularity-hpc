@@ -5,10 +5,11 @@ description: The Persistence of Vision Ray Tracer, most commonly acronymed as PO
   is a cross-platform ray-tracing program that generates images from a text-based
   scene description.
 latest:
-  8.5.6: sha256:29cf7c305f370a59b49f6b26ff6241337f7a3ae227da4d43a3fdc6c619de5055
+  8.5.9: sha256:4ad379f1077be000a7846525fdcda7996682d544e2b3c10328ecf952f6f56704
 tags:
   "8.3": sha256:617368ca58439b0b8e1c94f9e8dc01189a3abfbcdbf75593686ea6eb6d75a122
   8.5.6: sha256:29cf7c305f370a59b49f6b26ff6241337f7a3ae227da4d43a3fdc6c619de5055
-  latest: sha256:29cf7c305f370a59b49f6b26ff6241337f7a3ae227da4d43a3fdc6c619de5055
+  8.5.9: sha256:4ad379f1077be000a7846525fdcda7996682d544e2b3c10328ecf952f6f56704
+  latest: sha256:4ad379f1077be000a7846525fdcda7996682d544e2b3c10328ecf952f6f56704
 aliases:
   module: . /opt/view/lmod/8.3/init/profile && module

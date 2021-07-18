@@ -4,9 +4,9 @@ maintainer: '@vsoch'
 description: The Pipelined, Hybrid-parallel Iterative Solver Toolkit provides implementations
   of and interfaces to block iterative solvers for sparse linear and eigenvalue problems.
 latest:
-  1.9.4: sha256:493ba84cb2fdf51308430446ab53770c72fb8066a6163e0da98ad39e93eab17e
+  1.9.4: sha256:2a2167c10e79f5e2f349abbc9b81ea15af13a1063c5d11197b34c0478c0d322f
 tags:
-  1.9.4: sha256:493ba84cb2fdf51308430446ab53770c72fb8066a6163e0da98ad39e93eab17e
+  1.9.4: sha256:2a2167c10e79f5e2f349abbc9b81ea15af13a1063c5d11197b34c0478c0d322f
 aliases:
   phist_Danasazi_krylov_schur: /opt/view/bin/phist_Danasazi_krylov_schur
   phist_Danasazi_lobpcg: /opt/view/bin/phist_Danasazi_lobpcg

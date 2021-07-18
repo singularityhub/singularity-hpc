@@ -6,6 +6,6 @@ description: The Trilinos Project is an effort to develop algorithms and enablin
   complex multi-physics engineering and scientific problems. A unique design feature
   of Trilinos is its focus on packages.
 latest:
-  13.0.1: sha256:af2d143ea8f13875744aa77131b839d9a53e6b5ca3ea4c829b3248f08a5cadee
+  13.0.1: sha256:73add2ad8d25ee2a13da752d41b44ee4c062d15eee6558d410f09f80dc323151
 tags:
-  13.0.1: sha256:af2d143ea8f13875744aa77131b839d9a53e6b5ca3ea4c829b3248f08a5cadee
+  13.0.1: sha256:73add2ad8d25ee2a13da752d41b44ee4c062d15eee6558d410f09f80dc323151

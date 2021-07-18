@@ -3,10 +3,10 @@ url: https://hub.docker.com/_/r-base
 maintainer: '@vsoch'
 description: R is a system for statistical computation and graphics.
 latest:
-  4.1.0: sha256:cecb69965340f5fdb93c17a718db82ac69c1e05c1c69a7cf43e2f807e26d6601
+  4.1.0: sha256:26dee3b62afb41eb1d2318205dbd0bd8cc41fef286956e32a4e324d387658615
 tags:
-  4.1.0: sha256:cecb69965340f5fdb93c17a718db82ac69c1e05c1c69a7cf43e2f807e26d6601
-  latest: sha256:cecb69965340f5fdb93c17a718db82ac69c1e05c1c69a7cf43e2f807e26d6601
+  4.1.0: sha256:26dee3b62afb41eb1d2318205dbd0bd8cc41fef286956e32a4e324d387658615
+  latest: sha256:26dee3b62afb41eb1d2318205dbd0bd8cc41fef286956e32a4e324d387658615
 aliases:
   R: /usr/bin/R
   Rscript: /usr/bin/Rscript

@@ -3,14 +3,15 @@ url: https://hub.docker.com/r/_/rabbitmq
 maintainer: '@vsoch'
 description: RabbitMQ is an open source multi-protocol messaging broker.
 latest:
-  3.8.18-beta.1-alpine: sha256:341d8787808c860599bf6a87e482ccc9efbd69aa3a246554d924a693ad64d9ff
+  3.9.0-beta.2-alpine: sha256:b1a3a20958ddbbd2ad7c169c8d40c7a2d0d6a23d53380ff2b9aee876e14f8630
 tags:
   3.8.15-rc.2-alpine: sha256:56682567544860464b89625edbd28b524ca12aa5cae4e76ee9e5b887a2db7a06
   3.8.16-alpine: sha256:87f7fde78fb62b1aa145efe7d81c0b450f8c13e608ee322794c872956380f90e
   3.8.17-alpine: sha256:3033061a6e7e48897fb79d6922e282d92c8ced016721aaadee9a67cb25c9b03c
   3.8.17-rc.1-alpine: sha256:a33f53d57c9c35999aa352b67c4e53ce956d147c38d50a809ed19da7783358ac
   3.8.18-beta.1-alpine: sha256:341d8787808c860599bf6a87e482ccc9efbd69aa3a246554d924a693ad64d9ff
-  latest: sha256:02a9baba56dc6065a64c76330f75d5b5722258c67e94371853bf29728713f686
+  3.9.0-beta.2-alpine: sha256:b1a3a20958ddbbd2ad7c169c8d40c7a2d0d6a23d53380ff2b9aee876e14f8630
+  latest: sha256:ca4d12956a60ac8eeebbe1729be45a0f2d740d4f681816f18f119c2837d8bc3a
 aliases:
   rabbitmq-defaults: /opt/rabbitmq/sbin/rabbitmq-defaults
   rabbitmq-diagnostics: /opt/rabbitmq/sbin/rabbitmq-diagnostics

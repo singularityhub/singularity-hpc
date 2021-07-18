@@ -4,6 +4,6 @@ maintainer: '@vsoch'
 description: SuperLU is a general purpose library for the direct solution of large,
   sparse, nonsymmetric systems of linear equations on high performance machines.
 latest:
-  5.2.2: sha256:f818705fee9eae9eb4a432e6dd9dcf8fa9c7ad2fa241d81ed56ca68869bb4df1
+  5.2.2: sha256:c22a598e905d01da5f72d8b05b5f5918acfbe09d1199928e5946ee0c7f2c3d6b
 tags:
-  5.2.2: sha256:f818705fee9eae9eb4a432e6dd9dcf8fa9c7ad2fa241d81ed56ca68869bb4df1
+  5.2.2: sha256:c22a598e905d01da5f72d8b05b5f5918acfbe09d1199928e5946ee0c7f2c3d6b
