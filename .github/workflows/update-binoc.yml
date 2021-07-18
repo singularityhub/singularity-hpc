@@ -2,8 +2,8 @@ name: 'Binoc Auto Scan'
 
 on:
   schedule:
-    # Delayed Binoc execution time to mid day just in case we need to step in.
-    - cron: '0 0 * * 0'
+    # Once a month
+    - cron: '0 0 1 * *'
 
 jobs:
   auto-scan:
