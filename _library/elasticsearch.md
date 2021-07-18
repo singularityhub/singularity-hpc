@@ -3,7 +3,7 @@ layout: container
 name:  "elasticsearch"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/elasticsearch/container.yaml"
-updated_at: "2021-07-05 07:28:09.988627"
+updated_at: "2021-07-18 00:53:41.871366"
 container_url: "https://hub.docker.com/_/elasticsearch"
 aliases:
  - "elasticsearch"
@@ -47,6 +47,7 @@ versions:
  - "7.12.1"
  - "7.13.1"
  - "7.13.2"
+ - "7.13.3"
 description: "Elasticsearch is a powerful open source search and analytics engine that makes data easy to explore."
 ---
 

@@ -3,14 +3,14 @@ layout: container
 name:  "quay.io/biocontainers/clustalo"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/clustalo/container.yaml"
-updated_at: "2021-07-05 07:27:19.853395"
+updated_at: "2021-07-18 00:52:58.020741"
 container_url: "https://quay.io/repository/biocontainers/clustalo"
 aliases:
  - "clustalo"
 
 versions:
+ - "1.2.4--1"
  - "1.2.4--he1b5a44_3"
- - "1.2.4--h1b792b2_4"
 description: "Multiple sequence alignment program for aligning 3+ sequences together"
 ---
 
@@ -25,7 +25,7 @@ $ shpc install quay.io/biocontainers/clustalo
 Or a specific version:
 
 ```bash
-$ shpc install quay.io/biocontainers/clustalo:1.2.4--he1b5a44_3
+$ shpc install quay.io/biocontainers/clustalo:1.2.4--1
 ```
 
 And then you can tell lmod about your modules folder:
@@ -37,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load quay.io/biocontainers/clustalo/1.2.4--he1b5a44_3
-$ module help quay.io/biocontainers/clustalo/1.2.4--he1b5a44_3
+$ module load quay.io/biocontainers/clustalo/1.2.4--1
+$ module help quay.io/biocontainers/clustalo/1.2.4--1
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

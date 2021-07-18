@@ -3,14 +3,14 @@ layout: container
 name:  "quay.io/biocontainers/canu"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/canu/container.yaml"
-updated_at: "2021-07-05 07:27:21.761041"
+updated_at: "2021-07-18 00:52:59.713355"
 container_url: "https://quay.io/repository/biocontainers/canu"
 aliases:
  - "canu"
 
 versions:
+ - "2.1.1--he1b5a44_0"
  - "2.1.1--he1b5a44_1"
- - "2.1.1--h1b792b2_2"
 description: "Canu is a fork of the celera assembler designed for high-noise single-molecule sequencing"
 ---
 
@@ -25,7 +25,7 @@ $ shpc install quay.io/biocontainers/canu
 Or a specific version:
 
 ```bash
-$ shpc install quay.io/biocontainers/canu:2.1.1--he1b5a44_1
+$ shpc install quay.io/biocontainers/canu:2.1.1--he1b5a44_0
 ```
 
 And then you can tell lmod about your modules folder:
@@ -37,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load quay.io/biocontainers/canu/2.1.1--he1b5a44_1
-$ module help quay.io/biocontainers/canu/2.1.1--he1b5a44_1
+$ module load quay.io/biocontainers/canu/2.1.1--he1b5a44_0
+$ module help quay.io/biocontainers/canu/2.1.1--he1b5a44_0
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

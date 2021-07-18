@@ -3,13 +3,14 @@ layout: container
 name:  "ghcr.io/autamus/geos"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/geos/container.yaml"
-updated_at: "2021-07-05 07:27:45.216104"
+updated_at: "2021-07-18 00:53:20.157004"
 container_url: "https://github.com/orgs/autamus/packages/container/package/geos"
 aliases:
  - "geos-config"
 
 versions:
  - "3.8.1"
+ - "3.9.1"
  - "latest"
 description: "GEOS is a C++11 library for performing operations on two-dimensional vector geometries."
 ---

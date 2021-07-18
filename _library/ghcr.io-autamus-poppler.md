@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/poppler"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/poppler/container.yaml"
-updated_at: "2021-07-05 07:27:49.956575"
+updated_at: "2021-07-18 00:53:24.427180"
 container_url: "https://github.com/orgs/autamus/packages/container/package/poppler"
 aliases:
  - "pdfattach"
@@ -32,6 +32,7 @@ aliases:
 
 versions:
  - "0.90.1"
+ - "21.07.0"
  - "latest"
 description: "Poppler is a free software utility library for rendering Portable Document Format (PDF) documents."
 ---

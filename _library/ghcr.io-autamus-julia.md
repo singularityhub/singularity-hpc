@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/julia"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/julia/container.yaml"
-updated_at: "2021-07-05 07:27:30.735161"
+updated_at: "2021-07-18 00:53:07.511401"
 container_url: "https://github.com/orgs/autamus/packages/container/package/julia"
 aliases:
  - "julia"
@@ -11,6 +11,7 @@ aliases:
 versions:
  - "1.6.0"
  - "1.6.1"
+ - "1.6.2"
  - "latest"
 description: "Julia is a high-level, high-performance, dynamic programming language."
 ---

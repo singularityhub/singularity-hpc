@@ -3,14 +3,14 @@ layout: container
 name:  "quay.io/biocontainers/cutadapt"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/cutadapt/container.yaml"
-updated_at: "2021-07-05 07:27:21.969845"
+updated_at: "2021-07-18 00:52:59.903864"
 container_url: "https://quay.io/repository/biocontainers/cutadapt"
 aliases:
  - "cutadapt"
 
 versions:
+ - "3.4--py36h4c5857e_0"
  - "3.4--py38h4a8c8d9_1"
- - "3.4--py37h73a75cf_1"
 description: "Trim adapters from high-throughput sequencing reads"
 ---
 
@@ -25,7 +25,7 @@ $ shpc install quay.io/biocontainers/cutadapt
 Or a specific version:
 
 ```bash
-$ shpc install quay.io/biocontainers/cutadapt:3.4--py38h4a8c8d9_1
+$ shpc install quay.io/biocontainers/cutadapt:3.4--py36h4c5857e_0
 ```
 
 And then you can tell lmod about your modules folder:
@@ -37,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load quay.io/biocontainers/cutadapt/3.4--py38h4a8c8d9_1
-$ module help quay.io/biocontainers/cutadapt/3.4--py38h4a8c8d9_1
+$ module load quay.io/biocontainers/cutadapt/3.4--py36h4c5857e_0
+$ module help quay.io/biocontainers/cutadapt/3.4--py36h4c5857e_0
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

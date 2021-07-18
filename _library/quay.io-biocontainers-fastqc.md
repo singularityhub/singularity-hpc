@@ -3,14 +3,14 @@ layout: container
 name:  "quay.io/biocontainers/fastqc"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/fastqc/container.yaml"
-updated_at: "2021-07-05 07:27:20.511113"
+updated_at: "2021-07-18 00:52:58.586090"
 container_url: "https://quay.io/repository/biocontainers/fastqc"
 aliases:
  - "fastqc"
 
 versions:
  - "0.11.7--hdfd78af_7"
- - "0.11.9--hdfd78af_1"
+ - "0.11.9--0"
 description: "A quality control tool for high throughput sequence data"
 ---
 

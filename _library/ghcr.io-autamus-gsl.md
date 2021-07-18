@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/gsl"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/gsl/container.yaml"
-updated_at: "2021-07-05 07:27:54.859956"
+updated_at: "2021-07-18 00:53:28.888129"
 container_url: "https://github.com/orgs/autamus/packages/container/package/gsl"
 aliases:
  - "gsl-config"
@@ -14,6 +14,7 @@ aliases:
 
 versions:
  - "2.6"
+ - "2.7"
  - "latest"
 description: "The GNU Scientific Library."
 ---

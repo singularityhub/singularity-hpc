@@ -3,7 +3,7 @@ layout: container
 name:  "nvcr.io/hpc/autodock"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/nvcr.io/hpc/autodock/container.yaml"
-updated_at: "2021-07-05 07:27:17.505487"
+updated_at: "2021-07-18 00:52:55.937299"
 container_url: "https://ngc.nvidia.com/catalog/containers/hpc:autodock"
 aliases:
  - "autodock"

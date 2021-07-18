@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/admixtools"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/admixtools/container.yaml"
-updated_at: "2021-07-05 07:27:59.757928"
+updated_at: "2021-07-18 00:53:32.944512"
 container_url: "https://github.com/orgs/autamus/packages/container/package/admixtools"
 aliases:
  - "convertf"
@@ -72,6 +72,7 @@ aliases:
 
 versions:
  - "7.0.1"
+ - "7.0.2"
  - "latest"
 description: "ADMIXTOOLS is a collection of programs which use genetic data to infer how populations are related to one another."
 ---

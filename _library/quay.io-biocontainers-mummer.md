@@ -3,14 +3,14 @@ layout: container
 name:  "quay.io/biocontainers/mummer"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/mummer/container.yaml"
-updated_at: "2021-07-05 07:27:19.213108"
+updated_at: "2021-07-18 00:52:57.453534"
 container_url: "https://quay.io/repository/biocontainers/mummer"
 aliases:
  - "mummer"
 
 versions:
+ - "3.23--pl526_7"
  - "3.23--pl526he1b5a44_11"
- - "3.23--pl5262h1b792b2_12"
 description: "MUMmer is a system for rapidly aligning entire genomes in complete or in draft form."
 ---
 
@@ -25,7 +25,7 @@ $ shpc install quay.io/biocontainers/mummer
 Or a specific version:
 
 ```bash
-$ shpc install quay.io/biocontainers/mummer:3.23--pl526he1b5a44_11
+$ shpc install quay.io/biocontainers/mummer:3.23--pl526_7
 ```
 
 And then you can tell lmod about your modules folder:
@@ -37,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load quay.io/biocontainers/mummer/3.23--pl526he1b5a44_11
-$ module help quay.io/biocontainers/mummer/3.23--pl526he1b5a44_11
+$ module load quay.io/biocontainers/mummer/3.23--pl526_7
+$ module help quay.io/biocontainers/mummer/3.23--pl526_7
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

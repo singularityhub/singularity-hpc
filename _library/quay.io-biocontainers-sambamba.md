@@ -3,7 +3,7 @@ layout: container
 name:  "quay.io/biocontainers/sambamba"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/sambamba/container.yaml"
-updated_at: "2021-07-05 07:27:20.296361"
+updated_at: "2021-07-18 00:52:58.397276"
 container_url: "https://quay.io/repository/biocontainers/sambamba"
 aliases:
  - "sambamba"

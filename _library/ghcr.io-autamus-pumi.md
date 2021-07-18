@@ -3,13 +3,14 @@ layout: container
 name:  "ghcr.io/autamus/pumi"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/pumi/container.yaml"
-updated_at: "2021-07-05 07:27:54.648697"
+updated_at: "2021-07-18 00:53:28.695111"
 container_url: "https://github.com/orgs/autamus/packages/container/package/pumi"
 aliases:
  - "print_pumipic_partition"
 
 versions:
  - "2.2.5"
+ - "2.2.6"
 description: "SCOREC RPI's Parallel Unstructured Mesh Infrastructure (PUMI)."
 ---
 

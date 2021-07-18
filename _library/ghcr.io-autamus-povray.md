@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/povray"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/povray/container.yaml"
-updated_at: "2021-07-05 07:27:44.152676"
+updated_at: "2021-07-18 00:53:19.198496"
 container_url: "https://github.com/orgs/autamus/packages/container/package/povray"
 aliases:
  - "povray"
@@ -11,6 +11,7 @@ aliases:
 versions:
  - "3.7.0.8"
  - "3.7.0.9"
+ - "3.7.0.10"
  - "latest"
 description: "The Persistence of Vision Ray Tracer, most commonly acronymed as POV-Ray, is a cross-platform ray-tracing program that generates images from a text-based scene description."
 ---
