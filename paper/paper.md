@@ -89,7 +89,7 @@ the software automatically generates alias to inspect, run, shell, or inspect
 container metadata. E.g., here is the shell command:
 
 ```bash
-$ biocontainer-samtools-shell
+$ samtools-shell
 ```
 
 Another compelling example is using a notebook provided by Jupyter Stacks [@cook2017opinionated]. 

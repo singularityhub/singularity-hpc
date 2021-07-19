@@ -5,7 +5,6 @@ __license__ = "MPL 2.0"
 import os
 import shpc.utils as utils
 
-# Replacements can currently be made for the database_file and lmod_base
 install_dir = utils.get_installdir()
 reps = {"$install_dir": install_dir, "$root_dir": os.path.dirname(install_dir)}
 
@@ -22,24 +21,3 @@ allowed_envars = ["container_base", "module_base", "registry"]
 
 # The GitHub repository with recipes
 github_url = "https://github.com/singularityhub/singularity-hpc"
-
-# Defaults should correspond to fields in settings.yml
-# Testing checks that we have a 1:1 match
-
-# Currently only lmod is supported. To request an additional system,
-# please open an issue https://github.com/singularityhub/singularity-hpc
-plugins_enabled = ["lmod"]
-
-# Registry folder with subfolders of recipes
-recipes = os.path.join(reps["$root_dir"], "registry")
-
-# Lmod settings
-
-# The install directory for modules. Defaults to the install directory/modules
-lmod_base = os.path.join(reps["$root_dir"], "modules")
-
-# disable keeping a sqlite database with metadata
-database_disable = False
-
-# default database file
-database_file = os.path.join(reps["$root_dir"], "shpc.db")

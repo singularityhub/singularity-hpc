@@ -43,7 +43,7 @@ if you install to a system python, meaning either of these commands:
 
 You will need to put the registry files elsewhere (update the ``registry`` config argument to the path), as they will not be installed
 alongside the package. The same is the case for modules - if you install to system
-python it's recommended to define ``lmod_base`` as something else, unless you
+python it's recommended to define ``module_base`` as something else, unless you
 can write to your install location. Installing locally ensures that you
 can easily store your module files along with the install (the default until you
 change it). Installation of singularity-hpc adds an executable, `shpc` to your path.
@@ -80,13 +80,20 @@ You'll next want to configure and create your registry, discussed next in
  
 
     $ shpc config set registry:/<DIR>
-    $ shpc config set lmod_base:/<DIR> 
+    $ shpc config set module_base:/<DIR> 
     $ shpc config set container_base:/<DIR> 
 
 
+Also importantly, if you are using environment modules (Tcl) and not LMOD, you need
+to tell shpc about this (as it defaults to LMOD):
+
+.. code-block:: console
+
+    $ shpc config set module_sys:tcl
+
 You can also easily (manually) update any settings in the ``shpc/settings.yaml`` file. 
-Again, see the :ref:`getting-started` pages for next steps for setup and configuration,
-and interacting with your modules.
+Take a look at this file for other configuration settings, and see the :ref:`getting-started` 
+pages for next steps for setup and configuration, and interacting with your modules.
 
 .. warning::
 
