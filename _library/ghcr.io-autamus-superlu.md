@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/superlu"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/superlu/container.yaml"
-updated_at: "2021-07-18 00:55:33.482492"
+updated_at: "2021-07-19 23:53:09.766175"
 container_url: "https://github.com/orgs/autamus/packages/container/package/superlu"
 
 versions:

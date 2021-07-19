@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/pdt"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/pdt/container.yaml"
-updated_at: "2021-07-18 00:55:28.582386"
+updated_at: "2021-07-19 23:53:04.238211"
 container_url: "https://github.com/orgs/autamus/packages/container/package/pdt"
 
 versions:
