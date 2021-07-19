@@ -34,7 +34,17 @@ for more information about contributing containers to this registry.
 Really Quick Start
 ==================
 
-Once you have shpc installed, you can easily install, load, and use modules:
+Once you have shpc installed, make sure you tell shpc what your module software is
+(note that you only need to run this command if you aren't using Lmod, which is the
+default).
+
+.. code-block:: console
+
+    $ shpc config set module_sys:tcl
+    $ shpc config set module_sys:lmod  # default
+
+
+You can then easily install, load, and use modules:
 
 .. code-block:: console
 
@@ -44,25 +54,41 @@ Once you have shpc installed, you can easily install, load, and use modules:
 
 
 The above assumes that you've installed the software, and have already
-added the modules folder to be seen by your module software. This step is shown in detail
-in the next section.
+added the modules folder to be seen by your module software. If your module
+software doesn't see the module, remember that you need to have done:
+
+.. code-block:: console
+
+    $ module use ./modules
+
+
+We walk through these steps in more detail in the next section.
 
 
 Quick Start
 ===========
 
 After  :ref:`getting_started-installation`, and let's say shpc is installed 
-at ``~/singularity-hpc`` you can edit your settings in ``settings.yaml`` and
-then install a container:
+at ``~/singularity-hpc`` you can edit your settings in ``settings.yaml``.
+Importantly, make sure your shpc install is configured to use the right module
+software, which is typicall lmod or tcl. Here is how to change from the default 
+"lmod" to "tcl" and then back:
+
+.. code-block:: console
+
+    $ shpc config set module_sys:tcl
+    $ shpc config set module_sys:lmod # this is the default, which we change back to!
+
+
+Once you have the correct module software indicated, try installing a container:
 
 .. code-block:: console
 
     $ shpc install python
     
-Add the modules folder to your lmod (you can run this in a bash profile or
-manually, and note that if you want to use Environment Modules, you need to add
-``--module-sys tcl``).
-
+Make sure that the local ./modules folder can be seen by your module software
+(you can run this in a bash profile or manually, and note that if you want to 
+use Environment Modules, you need to add ``--module-sys tcl``).
 
 .. code-block:: console
 

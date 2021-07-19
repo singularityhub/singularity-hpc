@@ -69,6 +69,14 @@ class SettingsBase:
         """
         if not self.settings_file or not os.path.exists(self.settings_file):
             logger.exit("Settings file not found.")
+
+        # Make sure editor exists first!
+        editor = shpc.utils.which(self.config_editor)
+        if editor["return_code"] != 0:
+            logger.exit(
+                "Editor '%s' not found! Update with shpc config set config_editor:<name>"
+                % self.config_editor
+            )
         shpc.utils.run_command([self.config_editor, self.settings_file], stream=True)
 
     def get_settings_file(self, settings_file=None):

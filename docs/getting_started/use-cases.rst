@@ -11,12 +11,12 @@ If you are a linux administrator, you likely want to clone the repository
 directly (or use a release when they are available). Then you can install modules
 for your users from the local ``registry`` folder, create your own module files
 (and contribute them to the repository if they are useful!) and update the
-``lmod_base`` to be where you install modules.
+``module_base`` to be where you install modules.
 
 .. code-block:: console
 
     # an absolute path
-    $ shpc config lmod_base:/opt/lmod/shpc
+    $ shpc config module_base:/opt/lmod/shpc
 
 
 If you pull or otherwise update the install of shpc, the module files will update
