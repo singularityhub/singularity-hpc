@@ -72,7 +72,7 @@ As soon as a researcher puts their container in an online registry and adds the
 entry, new versions of the container are automatically discovered by shpc,
 and can be installed by the researcher when they choose.
 The user does not need to look in advance for a version if they want the latest provided
-by the registry. Software is easy to search for, and quickly see complete
+by the registry. Software is easy to search for, and with a simple command, the user can quickly see complete
 documentation and commands available:
 
 ```bash
