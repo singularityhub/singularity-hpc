@@ -13,9 +13,9 @@ authors:
    orcid: 0000-0001-6255-1308
    affiliation: 2
 affiliations:
- - name: Lawrence Livermore National Lab
+ - name: Lawrence Livermore National Lab, Livermore, CA, USA
    index: 1
- - name: University of Arizona Research Computing
+ - name: University of Arizona Research Computing, Tuscon, AZ, USA
    index: 2
 date: 17 April 2021
 bibliography: paper.bib
