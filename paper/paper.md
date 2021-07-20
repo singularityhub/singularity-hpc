@@ -23,15 +23,15 @@ bibliography: paper.bib
 
 # Summary
 
-Portability and reproducibility of complex software stacks is essential for researchers to perform their work. High Performance Computing (HPC) environments add another level of complexity, where possibly conflicting dependencies must co-exist. Although container technologies like Singularity [@Kurtzer2017-xj] make it possible to "bring your own environment," without any form of central strategy to manage containers, researchers that seek reproducibility via using containers are tasked with managing their own container collection, often not taking care to ensure that a particular digest or version is used. The reproducibility of the work is at risk, as they cannot easily install and use containers, nor can they share their software with others.
+Portability and reproducibility of complex software stacks is essential for researchers to perform their work. High Performance Computing (HPC) environments add another level of complexity, where possibly conflicting dependencies must co-exist. Although container technologies like Singularity [@Kurtzer2017-xj] make it possible to "bring your own environment," without any form of central strategy to manage containers, researchers who seek reproducibility via using containers are tasked with managing their own container collection, often not taking care to ensure that a particular digest or version is used. The reproducibility of the work is at risk, as they cannot easily install and use containers, nor can they share their software with others.
 
-Singularity Registry HPC (shpc) is the first of its kind to provide an easy means for a researcher to add their research software for sharing and collaboration with other researchers to an existing collection of over 200 popular scientific libraries [@da2017biocontainers; @noauthor_undated-kp, @gorgolewski2017bids; @gamblin2015spack; @autamus]. The software installs containers as environment modules [@McLay2011-wu] that are easy to use and read documentation for, and exposes aliases for commands in the container that the researcher can add to his or her pipeline without thinking about complex interactions with a container. The simple addition of an entry to the registry maintained by shpc comes down to adding a yaml file, and after doing this, another researcher can easily install the same software, down to the digest, to reproduce the original work.
+Singularity Registry HPC (shpc) is the first of its kind to provide an easy means for a researcher to add their research software for sharing and collaboration with other researchers to an existing collection of over 200 popular scientific libraries [@da2017biocontainers; @noauthor_undated-kp, @gorgolewski2017bids; @gamblin2015spack; @autamus]. The software installs containers as environment modules [@McLay2011-wu] that are easy to use and read documentation for, and exposes aliases for commands in the container that the researcher can add to their pipeline without thinking about complex interactions with a container. The simple addition of an entry to the registry maintained by shpc comes down to adding a yaml file, and after doing this, another researcher can easily install the same software, down to the digest, to reproduce the original work.
 
 
 ## Statement of Need
 
-Using environment modules [@McLay2011-wu] on HPC clusters is a common
-trend. Although writing the recipes can be complex, it's a fairly common practice for cluster administrators to provide
+Using environment modules [@McLay2011-wu] on HPC clusters is common.
+Although writing the recipes can be complex, it's a fairly common practice for cluster administrators to provide
 a set of natively installed recipes for their users [@noauthor_undated-bt], or for researchers to develop and deploy their own software via containers. Even well-known package managers like Spack [@noauthor_undated-ae] and EasyBuild [@noauthor_undated-dj] expose software as modules. However, these package manager approaches don't always ensure reproducibility, or ease of development for the researcher. They typically require relying on some subset of system software, the underlying operating system, or even making changes to the system, which is not under the researcher's control. Although using containers in this context has been discussed previously [@noauthor_undated-rj; @noauthor_undated-rc], the majority of these approaches and tools do not make the process of developing and installing container modules easy. The single researcher must either convince a cluster administrator to install dependencies needed for their software, or build a container and manually move and interact with it on the cluster. All of these small challenges come together to make it harder for a researcher to develop and manage their own software, and subsequently to share their approach to reproduce the work. Using Singularity, Podman, or other container technologies installed via Singularity Registry HPC offers a solution to this challenge. The only requirement is the container technology software, and writing a simple configuration file for the registry. By clearly defining commands, and pinning exact versions of scientific software, researchers on high performance computing
 clusters can have more confidence in the reproducibility of their work [@Santana-Perez2015-wo; @Boettiger2014-cz; @Wandell2015-yt].
 
@@ -67,12 +67,12 @@ to the number of aliases that can be exposed for easy usage.
 
 Creating a registry entry for a scientific container comes down to writing 
 a simple `container.yaml` file with basic metadata and description,
-definition any and all important entrypoints, and the digests to pull.
+the definition of any and all important entrypoints, and the digests to pull.
 As soon as a researcher puts their container in an online registry and adds the
 entry, new versions of the container are automatically discovered by shpc,
-and can be installed by the researcher when he or she chooses.
+and can be installed by the researcher when they choose.
 The user does not need to look in advance for a version if they want the latest provided
-by the registry. Software is easy to search for, and quickly see complete
+by the registry. Software is easy to search for, and with a simple command, the user can quickly see complete
 documentation and commands available:
 
 ```bash
@@ -118,7 +118,7 @@ starts the notebook. The registry recipes are collaborative in nature because an
 can open a pull request with a new recipe, or request a container be added by opening
 an issue. Automation also ensures that adding and testing new containers, or working on the
 code base is easy. Once a container is added, no further work is needed to update
-versions for it. By way of a GitHub bot [@noauthor_undated-eh] both the latest version and newly available tags are 
+versions for it. By way of a GitHub bot [@noauthor_undated-eh], both the latest version and newly available tags are 
 updated automatically, following any filters that the recipe creator has provided for which tags should be added. Finally, on merge to the main branch, the documentation and library are also automatically updated.
 
 ## Conclusion
