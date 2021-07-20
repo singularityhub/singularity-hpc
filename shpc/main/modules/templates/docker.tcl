@@ -23,7 +23,7 @@ proc ModulesHelp { } {
     puts stderr " - {|module_name|}-inspect:"
     puts stderr "       {{ command }} inspect <container>"
 {% if aliases %}{% for alias in aliases %}    puts stderr " - {{ alias.name }}:"
-    puts stderr "       {{ command }} run -i{% if tty %}t{% endif %} --rm -u `id -u`:`id -g` --entrypoint {{ alias.entrypoint }} {% if envfile %}--envfile  {{ module_dir }}/{{ envfile }} {% endif %}{% if bindpaths %}-v {{ bindpaths }} {% endif %}{% if alias.options %}{{ alias.options }} {% endif %} -v . -w . <container> {{ alias.args }}"
+    puts stderr "       {{ command }} run -i{% if tty %}t{% endif %} --rm -u `id -u`:`id -g` --entrypoint {{ alias.entrypoint | replace("$", "\$") }} {% if envfile %}--envfile  {{ module_dir }}/{{ envfile }} {% endif %}{% if bindpaths %}-v {{ bindpaths }} {% endif %}{% if alias.options %}{{ alias.options | replace("$", "\$") }} {% endif %} -v . -w . <container> {{ alias.args | replace("$", "\$") }}"
 {% endfor %}{% endif %}
 
     puts stderr "For each of the above, you can export:"
@@ -68,7 +68,7 @@ set-alias {|module_name|}-shell "${shellCmd}"
 
 # exec functions to provide "alias" to module commands
 {% if aliases %}{% for alias in aliases %}
-set-alias {{ alias.name }} "${execCmd} {% if alias.options %} {{ alias.options }} {% endif %} --entrypoint {{ alias.entrypoint }} ${containerPath} {{ alias.args }}"
+set-alias {{ alias.name }} "${execCmd} {% if alias.options %} {{ alias.options | replace("$", "\$") }} {% endif %} --entrypoint {{ alias.entrypoint | replace("$", "\$") }} ${containerPath} {{ alias.args | replace("$", "\$") }}"
 {% endfor %}{% endif %}
 
 # A customizable exec function

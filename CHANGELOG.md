@@ -14,6 +14,7 @@ and **Merged pull requests**. Critical items to know are:
 The versions coincide with releases on pip. Only major versions will be released as tags on Github.
 
 ## [0.0.x](https://github.scom/singularityhub/singularity-hpc/tree/master) (0.0.x)
+ - Fixing bug with using variables in recipe options (0.0.31)
  - Removing un-used defaults and lmod_base (0.0.30)
  - Allow environment variables in settings (0.0.29)
    - User settings file creation and use with shpc config inituser
