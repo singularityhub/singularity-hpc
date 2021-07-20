@@ -29,7 +29,7 @@ proc ModulesHelp { } {
     puts stderr "       singularity inspect -d <container>"
     puts stderr ""    
 {% if aliases %}{% for alias in aliases %}    puts stderr " - {{ alias.name }}:"
-    puts stderr "       singularity exec {% if features.gpu %}{{ features.gpu }} {% endif %}{% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }} {% endif %}{% if alias.options %}{{ alias.options }} {% endif %}<container> {{ alias.command }}"
+    puts stderr "       singularity exec {% if features.gpu %}{{ features.gpu }} {% endif %}{% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }} {% endif %}{% if alias.options %}{{ alias.options | replace("$", "\$") }} {% endif %}<container> {{ alias.command | replace("$", "\$") }}"
 {% endfor %}{% else %}    puts stderr " - {|module_name|}: singularity run {% if features.gpu %}{{ features.gpu }} {% endif %}{% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }}{% endif %}<container>"{% endif %}
     puts stderr ""
     puts stderr "For each of the above, you can export:"
@@ -77,7 +77,7 @@ set-alias {|module_name|}-shell "${shellCmd}"
 
 # exec functions to provide "alias" to module commands
 {% if aliases %}{% for alias in aliases %}
-set-alias {{ alias.name }} "${execCmd} {% if alias.options %} {{ alias.options }} {% endif %} ${containerPath} {{ alias.command }}"
+set-alias {{ alias.name }} "${execCmd} {% if alias.options %} {{ alias.options | replace("$", "\$") }} {% endif %} ${containerPath} {{ alias.command | replace("$", "\$") }}"
 {% endfor %}{% endif %}
 
 # A customizable exec function
