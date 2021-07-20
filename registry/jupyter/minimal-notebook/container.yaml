@@ -9,5 +9,5 @@ tags:
   latest: sha256:a25de495abc6c8b7d2e01b315fb1a97f7f5f0cc55076c3f456c1cb8aa9f00110
 aliases:
 - name: run-notebook
-  command: jupyter notebook --no-browser --port=$(shuf -i 2000-65000 -n 1) --ip 0.0.0.0
-  options: --home ${HOME} --bind ${HOME}/.local:/home/joyvan/.local
+  command: jupyter notebook --no-browser --port=\$(shuf -i 2000-65000 -n 1) --ip 0.0.0.0
+  options: --home \${HOME} --bind \${HOME}/.local:/home/joyvan/.local
