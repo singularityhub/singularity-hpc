@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/git"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/git/container.yaml"
-updated_at: "2021-07-20 19:37:00.387169"
+updated_at: "2021-07-20 19:57:09.467603"
 container_url: "https://github.com/orgs/autamus/packages/container/package/git"
 aliases:
  - "git"

@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/xnnpack"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/xnnpack/container.yaml"
-updated_at: "2021-07-20 19:37:28.441577"
+updated_at: "2021-07-20 19:57:38.116010"
 container_url: "https://github.com/orgs/autamus/packages/container/package/xnnpack"
 
 versions:
