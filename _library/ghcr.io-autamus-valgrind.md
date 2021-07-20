@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/valgrind"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/valgrind/container.yaml"
-updated_at: "2021-07-20 16:01:45.088339"
+updated_at: "2021-07-20 16:16:14.103457"
 container_url: "https://github.com/orgs/autamus/packages/container/package/valgrind"
 aliases:
  - "valgrind"

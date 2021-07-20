@@ -3,7 +3,7 @@ layout: container
 name:  "jupyter/tensorflow-notebook"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/jupyter/tensorflow-notebook/container.yaml"
-updated_at: "2021-07-20 16:02:12.035310"
+updated_at: "2021-07-20 16:16:40.507893"
 container_url: "https://hub.docker.com/r/jupyter/tensorflow-notebook"
 aliases:
  - "run-notebook"
@@ -99,9 +99,9 @@ $ singularity inspect -d <container>
 #### run-notebook
        
 ```bash
-$ singularity exec --home ${HOME} --bind ${HOME}/.local:/home/joyvan/.local <container> jupyter notebook --no-browser --port=$(shuf -i 2000-65000 -n 1) --ip 0.0.0.0
-$ podman run --it --rm --entrypoint   --home ${HOME} --bind ${HOME}/.local:/home/joyvan/.local  -v ${PWD} -w ${PWD} <container> -c " $@"
-$ docker run --it --rm --entrypoint   --home ${HOME} --bind ${HOME}/.local:/home/joyvan/.local  -v ${PWD} -w ${PWD} <container> -c " $@"
+$ singularity exec --home ${HOME} --bind ${HOME}/.local:/home/joyvan/.local --bind $(mktemp -d):/run/user <container> jupyter notebook --no-browser --port=$(shuf -i 2000-65000 -n 1) --ip 0.0.0.0
+$ podman run --it --rm --entrypoint   --home ${HOME} --bind ${HOME}/.local:/home/joyvan/.local --bind $(mktemp -d):/run/user  -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint   --home ${HOME} --bind ${HOME}/.local:/home/joyvan/.local --bind $(mktemp -d):/run/user  -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 

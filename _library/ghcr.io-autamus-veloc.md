@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/veloc"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/veloc/container.yaml"
-updated_at: "2021-07-20 16:02:04.201326"
+updated_at: "2021-07-20 16:16:32.850367"
 container_url: "https://github.com/orgs/autamus/packages/container/package/veloc"
 aliases:
  - "veloc-backend"

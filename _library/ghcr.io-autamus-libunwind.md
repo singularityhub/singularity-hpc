@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/libunwind"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/libunwind/container.yaml"
-updated_at: "2021-07-20 16:01:37.967834"
+updated_at: "2021-07-20 16:16:07.075558"
 container_url: "https://github.com/orgs/autamus/packages/container/package/libunwind"
 
 versions:
