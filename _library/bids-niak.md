@@ -3,7 +3,7 @@ layout: container
 name:  "bids/niak"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/bids/niak/container.yaml"
-updated_at: "2021-07-20 20:55:52.170279"
+updated_at: "2021-07-27 22:27:01.052883"
 container_url: "https://hub.docker.com/r/bids/niak"
 
 versions:

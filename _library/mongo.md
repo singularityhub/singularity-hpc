@@ -3,7 +3,7 @@ layout: container
 name:  "mongo"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/mongo/container.yaml"
-updated_at: "2021-07-20 20:55:57.787559"
+updated_at: "2021-07-27 22:27:05.549631"
 container_url: "https://hub.docker.com/r/_/mongo"
 aliases:
  - "mongo"
