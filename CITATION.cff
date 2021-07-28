@@ -4,6 +4,9 @@ authors:
   - family-names: Sochat
     given-names: Vanessa
     orcid: https://orcid.org/0000-0002-4387-3819
+  - family-names: Scott
+    given-names: Alec
+    orcid: https://orcid.org/0000-0001-6255-1308
 title: "Collaborative Container Modules with Singularity Registry HPC"
 version: 0.0.31
 doi: 10.21105/joss.03311
