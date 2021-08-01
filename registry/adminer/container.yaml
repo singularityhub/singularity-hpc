@@ -3,8 +3,8 @@ url: https://hub.docker.com/_/adminer
 maintainer: '@vsoch'
 description: Database management in a single PHP file.
 latest:
-  4.8.1-fastcgi: sha256:bdef08250db3349593f8b73a70b722679f3df6c5da719d4ddf2d2f25cc9af115
+  4.8.1-fastcgi: sha256:33733e8ab416b945e746424972a67de7da821b6b755f23b7236d8099f3ad18b2
 tags:
   4.8.0-fastcgi: sha256:5368f087fed03f49e9de8731ee3d9998d7e78391720d500309b5bcde2a401058
-  4.8.1-fastcgi: sha256:bdef08250db3349593f8b73a70b722679f3df6c5da719d4ddf2d2f25cc9af115
-  latest: sha256:4b0399051b2411cc55d73e163e363e8000e816dfb5fcfb833de733bb640639b1
+  4.8.1-fastcgi: sha256:33733e8ab416b945e746424972a67de7da821b6b755f23b7236d8099f3ad18b2
+  latest: sha256:dec0baffe11bcfd26fcf826653113e5a5dba9107cbc385036c254d0f56ad3696

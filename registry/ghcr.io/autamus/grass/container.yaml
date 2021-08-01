@@ -5,9 +5,9 @@ description: GRASS GIS (https://grass.osgeo.org/) is a Geographic Information Sy
   used for geospatial data management and analysis, image processing, graphics/map
   production, spatial modeling, and visualization.
 latest:
-  7.8.5: sha256:a541f7fa6cb28e8c377e7a70d7be60cd2c8580007cd4c7b779201fb9f9234620
+  7.8.5: sha256:337caed354c81656b4be43b6df6f0edf92be2aaa4b7e371e009758a363918e31
 tags:
-  7.8.5: sha256:a541f7fa6cb28e8c377e7a70d7be60cd2c8580007cd4c7b779201fb9f9234620
-  latest: sha256:a541f7fa6cb28e8c377e7a70d7be60cd2c8580007cd4c7b779201fb9f9234620
+  7.8.5: sha256:337caed354c81656b4be43b6df6f0edf92be2aaa4b7e371e009758a363918e31
+  latest: sha256:337caed354c81656b4be43b6df6f0edf92be2aaa4b7e371e009758a363918e31
 aliases:
   grass78: /opt/view/bin/grass78

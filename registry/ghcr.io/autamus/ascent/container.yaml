@@ -4,8 +4,8 @@ maintainer: '@vsoch'
 description: An open source many-core capable lightweight in situ visualization and
   analysis infrastructure for multi-physics HPC simulations.
 latest:
-  0.7.1: sha256:3920d93ccfa047ed21f596143a5d0f5acc5a4d11c724bb46a0d410cf80a590a3
+  0.7.1: sha256:0c4d02edbe7de47dd6792afe2fb05bf31c89eb1d8442093578dfd5dbe8bb9aef
 tags:
   0.7.0: sha256:c025f72e442b7a4f5626e0520e09e8a7a5e5f5c630565cbd8d0d178ff2585ee6
-  0.7.1: sha256:3920d93ccfa047ed21f596143a5d0f5acc5a4d11c724bb46a0d410cf80a590a3
-  latest: sha256:3920d93ccfa047ed21f596143a5d0f5acc5a4d11c724bb46a0d410cf80a590a3
+  0.7.1: sha256:0c4d02edbe7de47dd6792afe2fb05bf31c89eb1d8442093578dfd5dbe8bb9aef
+  latest: sha256:0c4d02edbe7de47dd6792afe2fb05bf31c89eb1d8442093578dfd5dbe8bb9aef

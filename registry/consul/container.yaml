@@ -4,11 +4,12 @@ maintainer: '@vsoch'
 description: Consul is a datacenter runtime that provides service discovery, configuration,
   and orchestration.
 latest:
-  1.10.0-beta: sha256:a3a7e4fca544b3d64a36a361e3bfe814eb052df2cd76f5dd48c5005124850338
+  1.10.1: sha256:c83f868a5c3727aa219f8098193f511cb29ad386ec5359d07194b933085f7285
 tags:
   "1.7": sha256:fce4d3cbf7d610394f5c862356f0bddc652c0062c6fb078bc7a67a8831d55d97
   1.7.14: sha256:fce4d3cbf7d610394f5c862356f0bddc652c0062c6fb078bc7a67a8831d55d97
   1.10.0-beta: sha256:a3a7e4fca544b3d64a36a361e3bfe814eb052df2cd76f5dd48c5005124850338
-  latest: sha256:c58e1f8d4f13eb4e2155a2830d55380ab3f66d8588e21bb135a75d803975da91
+  1.10.1: sha256:c83f868a5c3727aa219f8098193f511cb29ad386ec5359d07194b933085f7285
+  latest: sha256:c83f868a5c3727aa219f8098193f511cb29ad386ec5359d07194b933085f7285
 aliases:
   consul: /bin/consul

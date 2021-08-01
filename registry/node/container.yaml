@@ -4,7 +4,7 @@ maintainer: '@vsoch'
 description: Node.js is a software platform for scalable server-side and networking
   applications.
 latest:
-  16.5.0-alpine: sha256:50b33102c307e04f73817dad87cdae145b14782875495ddd950b5a48e4937c70
+  16.6.0-alpine: sha256:a55cd676d1aec59d871855b86984063c8854e67a7f552af66418c5068103a509
 tags:
   15.14.0-alpine: sha256:6edd37368174c15d4cc59395ca2643be8e2a1c9846714bc92c5f5c5a92fb8929
   16.0.0-alpine: sha256:fabc6adac6dba5e150130e10acfc11a81447be93f4bf384076abdb63dbd34033
@@ -12,7 +12,8 @@ tags:
   16.2.0-alpine: sha256:e5615005591e2450e782fa82b10bf31e4c3a90b00f4f47f3691bcb4c03c5b1a2
   16.3.0-alpine: sha256:2eee2f439d3b3509bbe40faff6584bd31b5745b4c137e93e2d795899a2927762
   16.5.0-alpine: sha256:50b33102c307e04f73817dad87cdae145b14782875495ddd950b5a48e4937c70
-  latest: sha256:89acb508f15b80b63bbb1f287feebe955c94b6ebb85c89e4167e35258af596f0
+  16.6.0-alpine: sha256:a55cd676d1aec59d871855b86984063c8854e67a7f552af66418c5068103a509
+  latest: sha256:9430fd769545661774788faeea0abcfe71a7f07f9da10b803552f8c7081edf7b
 aliases:
   node: /usr/local/bin/node
   nodejs: /usr/local/bin/nodejs

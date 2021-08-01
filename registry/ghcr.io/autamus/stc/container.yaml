@@ -3,9 +3,9 @@ url: https://github.com/orgs/autamus/packages/container/package/stc
 maintainer: '@vsoch'
 description: The Swift-Turbine Compiler (STC)
 latest:
-  0.9.0: sha256:ed06c897581274b1c1e8a718340ea3e1eadd125bd0e65b8a371f2bef286a4247
+  0.9.0: sha256:31c783b88efa6514060cd853596243a820ac78e41d77b116c4eb540219c40127
 tags:
-  0.9.0: sha256:ed06c897581274b1c1e8a718340ea3e1eadd125bd0e65b8a371f2bef286a4247
+  0.9.0: sha256:31c783b88efa6514060cd853596243a820ac78e41d77b116c4eb540219c40127
 aliases:
   stc: /opt/view/bin/stc
   swift-t: /opt/view/bin/swift-t

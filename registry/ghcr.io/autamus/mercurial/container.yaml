@@ -3,10 +3,10 @@ url: https://github.com/orgs/autamus/packages/container/package/mercurial
 maintainer: '@vsoch'
 description: Mercurial is a distributed revision control tool for software developers.
 latest:
-  "5.8": sha256:4691b3e20bfd28fbd52af26b56f726b682312e063bbe0685f894185418e3df29
+  "5.8": sha256:cb48ad862bad840b7ceacf0ffb7996bf3843ba41f8dff658c8fe5e518e874e84
 tags:
   5.7.1: sha256:5671150262c821b0b66376c50f74a577a9f04d1668f25f0f4d2b414c4d14d94f
-  "5.8": sha256:4691b3e20bfd28fbd52af26b56f726b682312e063bbe0685f894185418e3df29
-  latest: sha256:4691b3e20bfd28fbd52af26b56f726b682312e063bbe0685f894185418e3df29
+  "5.8": sha256:cb48ad862bad840b7ceacf0ffb7996bf3843ba41f8dff658c8fe5e518e874e84
+  latest: sha256:cb48ad862bad840b7ceacf0ffb7996bf3843ba41f8dff658c8fe5e518e874e84
 aliases:
   hg: /opt/view/bin/hg

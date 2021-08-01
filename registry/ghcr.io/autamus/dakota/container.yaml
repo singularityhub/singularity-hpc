@@ -6,10 +6,10 @@ description: The Dakota project delivers both state-of-the-art research and robu
   parametric analyses enable design exploration, model calibration, risk analysis,
   and quantification of margins and uncertainty with computational models.
 latest:
-  "6.12": sha256:a28d438216c815a38bfaf53a377b365e267e31a877afc8b9065c870e7dbbda7a
+  "6.12": sha256:5f613c29ed000775a1e29d0156e21689577645791a315c7eda2c48d767738da6
 tags:
-  "6.12": sha256:a28d438216c815a38bfaf53a377b365e267e31a877afc8b9065c870e7dbbda7a
-  latest: sha256:a28d438216c815a38bfaf53a377b365e267e31a877afc8b9065c870e7dbbda7a
+  "6.12": sha256:5f613c29ed000775a1e29d0156e21689577645791a315c7eda2c48d767738da6
+  latest: sha256:5f613c29ed000775a1e29d0156e21689577645791a315c7eda2c48d767738da6
 aliases:
   dakota: /opt/view/bin/dakota
   dakota_library_mode: /opt/view/bin/dakota_library_mode

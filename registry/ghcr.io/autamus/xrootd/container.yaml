@@ -5,10 +5,10 @@ description: XRootD software framework is a fully generic suite for fast, low la
   and scalable data access, which can serve natively any kind of data, organized as
   a hierarchical filesystem-like namespace, based on the concept of directory.
 latest:
-  5.1.0: sha256:6b26c93bc168389e41c4e9c76e406bd7f8ec782ab2e5e5f0aafff4cd670ea1e0
+  5.1.0: sha256:72bf0ec21dca553394c8d50412e0e2cb5ab83f0eaa5727a14ec477643bd55d69
 tags:
-  5.1.0: sha256:6b26c93bc168389e41c4e9c76e406bd7f8ec782ab2e5e5f0aafff4cd670ea1e0
-  latest: sha256:6b26c93bc168389e41c4e9c76e406bd7f8ec782ab2e5e5f0aafff4cd670ea1e0
+  5.1.0: sha256:72bf0ec21dca553394c8d50412e0e2cb5ab83f0eaa5727a14ec477643bd55d69
+  latest: sha256:72bf0ec21dca553394c8d50412e0e2cb5ab83f0eaa5727a14ec477643bd55d69
 aliases:
   xrdacctest: /opt/view/bin/xrdacctest
   xrdadler32: /opt/view/bin/xrdadler32

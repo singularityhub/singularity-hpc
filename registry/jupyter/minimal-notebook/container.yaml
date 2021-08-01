@@ -6,8 +6,9 @@ latest:
   "4.0": sha256:6f9d189494fe091700681eb39b429dfe1420ad0717697c2e2293779fcb80cd1e
 tags:
   "4.0": sha256:6f9d189494fe091700681eb39b429dfe1420ad0717697c2e2293779fcb80cd1e
-  latest: sha256:a25de495abc6c8b7d2e01b315fb1a97f7f5f0cc55076c3f456c1cb8aa9f00110
+  latest: sha256:bfa8202397f7556718ee44192fa39897113cc722fcaf9240362829572464dec2
 aliases:
 - name: run-notebook
   command: jupyter notebook --no-browser --port=$(shuf -i 2000-65000 -n 1) --ip 0.0.0.0
-  options: --home ${HOME} --bind ${HOME}/.local:/home/joyvan/.local --bind $(mktemp -d):/run/user
+  options: --home ${HOME} --bind ${HOME}/.local:/home/joyvan/.local --bind $(mktemp
+    -d):/run/user

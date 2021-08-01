@@ -3,9 +3,9 @@ url: https://github.com/orgs/autamus/packages/container/package/pumi
 maintainer: '@vsoch'
 description: SCOREC RPI's Parallel Unstructured Mesh Infrastructure (PUMI).
 latest:
-  2.2.6: sha256:e9e6ab49689c150eb0f08198817227dec7958280e617ff36da35b14757faa24f
+  2.2.6: sha256:f3cd5c2e86cb0868caa683d41fec2c4e09f4e40599017a0c5822e6a0d12a5fd9
 tags:
   2.2.5: sha256:b27b85dee50631bbc40977a23a00830acf0c236bb0966c2d11f9b62a8fbcff6f
-  2.2.6: sha256:e9e6ab49689c150eb0f08198817227dec7958280e617ff36da35b14757faa24f
+  2.2.6: sha256:f3cd5c2e86cb0868caa683d41fec2c4e09f4e40599017a0c5822e6a0d12a5fd9
 aliases:
   print_pumipic_partition: /opt/view/bin/print_pumipic_partition

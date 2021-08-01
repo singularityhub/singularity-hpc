@@ -3,8 +3,8 @@ url: https://github.com/orgs/autamus/packages/container/package/htop
 maintainer: '@vsoch'
 description: htop is an interactive text-mode process viewer for Unix systems. https://github.com/hishamhm/htop
 latest:
-  2.2.0: sha256:1eafd4a54c1a46bfb2797131bf3a52aed6e58d15b7b287f16776fbf704a39f2b
+  2.2.0: sha256:1e7d3621d1a136e8044b6168a9f3caf2b61015d661c945f0a77aab8665bae211
 tags:
-  2.2.0: sha256:1eafd4a54c1a46bfb2797131bf3a52aed6e58d15b7b287f16776fbf704a39f2b
+  2.2.0: sha256:1e7d3621d1a136e8044b6168a9f3caf2b61015d661c945f0a77aab8665bae211
 aliases:
   htop: /opt/view/bin/htop

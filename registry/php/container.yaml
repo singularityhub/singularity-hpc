@@ -12,7 +12,7 @@ tags:
   8.0.6-alpine: sha256:a5afa558fcf8030edbc0f160339eaeefccdf1af53df35d0d26171c470a7ab5b6
   8.0.7-alpine: sha256:edd37734c824c65cdbc1e68c9ac928c590a5c750b6b49c656a302b3b0742d371
   8.1.0alpha1-alpine: sha256:028c42e86276c77e4bf5d05fb9df93142344d83f971f369a80b6f6e30a50e14b
-  latest: sha256:5f80e6756082c62ec7f51ce2b727e08785f10cc74e57a3618dfc5102ca6f5b85
+  latest: sha256:74b3e070691df223ae61980575c4bb946ce15a852e76c6e50fdab11c95825d66
 aliases:
   php: /usr/local/bin/php
   php-cgi: /usr/local/bin/php-cgi

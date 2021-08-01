@@ -4,10 +4,11 @@ maintainer: '@vsoch'
 description: PROJ is a generic coordinate transformation software, that transforms
   coordinates from one coordinate reference system (CRS) to another.
 latest:
-  7.2.1: sha256:38ece517a69a68bd8e92237432621c08a2f2b8d2db3d4951196cbb2efa575b11
+  8.1.0: sha256:bd9376d0bd5358c05f42f9ce2856636040185b40cc15595f5192252524b1a571
 tags:
   7.2.1: sha256:38ece517a69a68bd8e92237432621c08a2f2b8d2db3d4951196cbb2efa575b11
-  latest: sha256:38ece517a69a68bd8e92237432621c08a2f2b8d2db3d4951196cbb2efa575b11
+  8.1.0: sha256:bd9376d0bd5358c05f42f9ce2856636040185b40cc15595f5192252524b1a571
+  latest: sha256:bd9376d0bd5358c05f42f9ce2856636040185b40cc15595f5192252524b1a571
 aliases:
   proj: /opt/view/bin/proj
   projinfo: /opt/view/bin/projinfo
