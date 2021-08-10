@@ -11,4 +11,8 @@ tags:
   "1.11": sha256:141120f19f849b79e05ae2fac981383988445c373b8b5db7f3dd221179af382b
   "1.12": sha256:5fd5f0937adf8a24b5bf7655110e501df78ae51588547c8617f17c3291a723e1
 aliases:
+  bgzip: /usr/local/bin/bgzip
+  htsfile: /usr/local/bin/htsfile
   samtools: /usr/local/bin/samtools
+  tabix: /usr/local/bin/tabix
+
