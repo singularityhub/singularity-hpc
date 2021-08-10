@@ -1,0 +1,11 @@
+docker: quay.io/biocontainers/salmon
+url: https://quay.io/repository/biocontainers/salmon
+maintainer: '@marcodelapierre'
+description: 'Salmon is a wicked-fast program to produce a highly-accurate, transcript-level quantification estimates from RNA-seq data.'
+latest:
+  1.5.2--h84f40af_0: sha256:4ae09a47788f08317bd2f758ac4c8804c9e87d88caf500c449e18ac4794d0332
+tags:
+  1.4.0--h84f40af_1: sha256:bad1f9d2ffeac08bf7087d706634f7724f978c4ba6f9c26eddca5aad004c8e4c
+  1.5.2--h84f40af_0: sha256:4ae09a47788f08317bd2f758ac4c8804c9e87d88caf500c449e18ac4794d0332
+aliases:
+  salmon: /usr/local/bin/salmon

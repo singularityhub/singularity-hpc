@@ -1,0 +1,17 @@
+docker: quay.io/biocontainers/bcftools
+url: https://quay.io/repository/biocontainers/bcftools
+maintainer: '@marcodelapierre'
+description: 'BCFtools is a program for variant calling and manipulating files in the Variant Call Format (VCF) and its binary counterpart BCF.'
+latest:
+  1.13--h3a49de5_0: sha256:4eba5e6d3083a3e5c858bedb98d2148b0b27b3182c2462e82905721065bf4962
+tags:
+  1.12--h45bccc9_1: sha256:46e9e8527167c0394a99a5f0f964c8af771f8349140062a3a2d32b1e348a9bf0
+  1.13--h3a49de5_0: sha256:4eba5e6d3083a3e5c858bedb98d2148b0b27b3182c2462e82905721065bf4962
+aliases:
+  bcftools: /usr/local/bin/bcftools
+  bgzip: /usr/local/bin/bgzip
+  color-chrs.pl: /usr/local/bin/color-chrs.pl
+  guess-ploidy.py: /usr/local/bin/guess-ploidy.py
+  htsfile: /usr/local/bin/htsfile
+  tabix: /usr/local/bin/tabix
+  vcfutils.pl: /usr/local/bin/vcfutils.pl
