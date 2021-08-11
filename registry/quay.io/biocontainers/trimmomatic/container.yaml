@@ -1,12 +1,10 @@
 docker: quay.io/biocontainers/trimmomatic
-latest:
- "v0.39": "sha256:b52e7e3159fda36b7b5c119a9a1e673e6a63e480eff8617b689c031f76998870"
-tags:
- "v0.39": "sha256:b52e7e3159fda36b7b5c119a9a1e673e6a63e480eff8617b689c031f76998870"
-filter:
- - "v*"
+url: https://quay.io/repository/biocontainers/trimmomatic
 maintainer: "@audreystott"
 description: "A flexible read trimming tool for Illumina NGS data."
-url: https://quay.io/repository/biocontainers/trimmomatic
+latest:
+ 0.39--hdfd78af_2: sha256:b52e7e3159fda36b7b5c119a9a1e673e6a63e480eff8617b689c031f76998870
+tags:
+ 0.39--hdfd78af_2: sha256:b52e7e3159fda36b7b5c119a9a1e673e6a63e480eff8617b689c031f76998870
 aliases:
   trimmomatic: /usr/local/bin/trimmomatic

@@ -1,0 +1,10 @@
+docker: quay.io/biocontainers/bwa
+url: https://quay.io/repository/biocontainers/bwa
+maintainer: '@marcodelapierre'
+description: 'BWA is a program for aligning sequencing reads against a large reference genome.'
+latest:
+  0.7.17--h5bf99c6_8: sha256:f8494324de6da332792dc8e4acc2549152375e1966c96163087d6ff6d42ff48c
+tags:
+  0.7.17--h5bf99c6_8: sha256:f8494324de6da332792dc8e4acc2549152375e1966c96163087d6ff6d42ff48c
+aliases:
+  bwa: /usr/local/bin/bwa

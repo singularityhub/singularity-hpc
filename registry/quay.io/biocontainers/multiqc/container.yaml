@@ -1,0 +1,12 @@
+docker: quay.io/biocontainers/multiqc
+url: https://quay.io/repository/biocontainers/multiqc
+maintainer: '@marcodelapierre'
+description: 'Aggregate results from bioinformatics analyses across many samples into a single report.'
+latest:
+  1.11--pyhdfd78af_0: sha256:88df23fac5b9eecda9943d922f81b68e30188eb4dd7cbfe9554e952ff5a3b0ee
+tags:
+  1.9--py_1: sha256:67cc651cb350b1ee2fc0929bd6bcd5189ec8c17f09566a3cd54cde7479e48a09
+  1.10.1--pyhdfd78af_1: sha256:c64ea8fcaf49dfc4b0594bc7349e6d1a662eb4484f5aac3252f4eea86cad164c
+  1.11--pyhdfd78af_0: sha256:88df23fac5b9eecda9943d922f81b68e30188eb4dd7cbfe9554e952ff5a3b0ee
+aliases:
+  multiqc: /usr/local/bin/multiqc

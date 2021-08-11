@@ -1,0 +1,10 @@
+docker: quay.io/biocontainers/bamtools
+url: https://quay.io/repository/biocontainers/bamtools
+maintainer: '@marcodelapierre'
+description: 'C++ API and command-line toolkit for working with BAM data.'
+latest:
+  2.5.1--h9a82719_9: sha256:1df72d906a4db1f47d71516a8f026eecd614271f9c4c8e5e8ccde9210fcde227
+tags:
+  2.5.1--h9a82719_9: sha256:1df72d906a4db1f47d71516a8f026eecd614271f9c4c8e5e8ccde9210fcde227
+aliases:
+  bamtools: /usr/local/bin/bamtools
