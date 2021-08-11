@@ -4,12 +4,10 @@ maintainer: '@audreystott'
 description: Sambamba is a high performance highly parallel robust and fast tool (and
   library), written in the D programming language, for working with SAM and BAM files.
 latest:
-  0.8.0: sha256:ae92faef4c53a632b2120dfffa7b6dcfe5366a0647e61bbbd6188aedc89da4e8
-filter:
- - "^((?!--).)*$"
+  0.8.0--h984e79f_0: sha256:ae92faef4c53a632b2120dfffa7b6dcfe5366a0647e61bbbd6188aedc89da4e8
 tags:
-  0.6.9: sha256:b7852eccc079fff9e1ff6c4fb6e59883624373e2489588174da9f99db83b431b
-  0.7.1: sha256:9ec72d3d0991c4209830e4ff17937986808c64c430780071559e7072e8317ab3
-  0.8.0: sha256:ae92faef4c53a632b2120dfffa7b6dcfe5366a0647e61bbbd6188aedc89da4e8
+  0.6.9--h89e63da_0: sha256:b7852eccc079fff9e1ff6c4fb6e59883624373e2489588174da9f99db83b431b
+  0.7.1--h984e79f_3: sha256:9ec72d3d0991c4209830e4ff17937986808c64c430780071559e7072e8317ab3
+  0.8.0--h984e79f_0: sha256:ae92faef4c53a632b2120dfffa7b6dcfe5366a0647e61bbbd6188aedc89da4e8
 aliases:
   sambamba: /usr/local/bin/sambamba
