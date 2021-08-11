@@ -59,7 +59,7 @@ software doesn't see the module, remember that you need to have done:
 
 .. code-block:: console
 
-    $ module use ./modules
+    $ module use $(pwd)/modules
 
 
 We walk through these steps in more detail in the next section.
@@ -101,7 +101,7 @@ And then load the module!
 
     $ module load python/3.9.2-slim
 
-If the module executable as a conflict with something already loaded, it
+If the module executable has a conflict with something already loaded, it
 will tell you, and it's up to you to unload the conflicting modules before you
 try loading again. If you want to quickly see commands that are supported, use module
 help:
@@ -158,12 +158,12 @@ variable replacement. A summary table of variables is included below, and then f
      - Default
    * - module_sys
      - Set a default module system. Currently lmod and tcl are supported
-     - [lmod, tcl]
+     - lmod
    * - registry
      - A list of full paths to one or more registry folders (with subfolders with container.yaml recipes)
      - [$root_dir/registry]
    * - module_base
-     - The install directory for modules. Defaults to the install directory/modules
+     - The install directory for modules
      - $root_dir/modules
    * - container_base
      - Where to install containers. If not defined, they are installed alongside modules.
@@ -179,12 +179,12 @@ variable replacement. A summary table of variables is included below, and then f
      - null
    * - module_name
      - Format string for module commands exec,shell,run (not aliases) can include ``{{ registry }}``, ``{{ repository }}``, ``{{ tool }}`` and ``{{ version }}``
-     - ``{{ tool }}``
+     - ``'{{ tool }}'``
    * - bindpaths
      - string with comma separated list of paths to binds. If set, expored to SINGULARITY_BINDPATH
      - null
    * - singularity_shell
-     - exported to SINGULARITY_SHELL, defaults to /bin/bash.
+     - exported to SINGULARITY_SHELL
      - /bin/sh
    * - podman_shell
      - The shell used for podman
@@ -346,7 +346,7 @@ A container identifier is parsed as follows:
 .. code-block:: console
 
     # quay.io   /biocontainers/samtools:latest
-    # <registry>/  <repository>/  <tool>/<version>
+    # <registry>/ <repository>/  <tool>:<version>
 
 
 So by default, we use tool because it's likely closest to the command that is wanted.
@@ -375,7 +375,7 @@ commands. Aliases that are custom to the container are not modified.
 
 
 Module Software
-===============
+---------------
 
 The default module software is currently Lmod, and there is also support for environment
 modules that only use tcl (tcl). If you
@@ -400,7 +400,7 @@ The command line argument, if provided, always over-rides the default.
 
 
 Container Technology
-====================
+--------------------
 
 The default container technology to pull and then provide to users is Singularity,
 and we have also recently added Podman and Docker, and will add support for Shifter and Sarus soon.
@@ -473,7 +473,7 @@ And then to get values:
 
 And to add and remove a value to a list:
 
-.. code-block::console
+.. code-block:: console
 
     $ shpc config add registry:/tmp/registry
     $ shpc config remove registry:/tmp/registry
