@@ -3,15 +3,22 @@ layout: container
 name:  "quay.io/biocontainers/samtools"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/samtools/container.yaml"
-updated_at: "2021-07-28 00:01:05.570048"
+updated_at: "2021-08-11 02:41:23.489828"
 container_url: "https://quay.io/repository/biocontainers/samtools"
 aliases:
+ - "bgzip"
+
+ - "htsfile"
+
  - "samtools"
 
+ - "tabix"
+
 versions:
- - "1.10"
- - "1.11"
- - "1.12"
+ - "1.10--h2e538c0_3"
+ - "1.11--h6270b1f_0"
+ - "1.12--h9aed4be_1"
+ - "1.13--h8c37831_0"
 description: "Tools for reading/writing/editing/indexing/viewing SAM/BAM/CRAM format."
 ---
 
@@ -26,7 +33,7 @@ $ shpc install quay.io/biocontainers/samtools
 Or a specific version:
 
 ```bash
-$ shpc install quay.io/biocontainers/samtools:1.10
+$ shpc install quay.io/biocontainers/samtools:1.10--h2e538c0_3
 ```
 
 And then you can tell lmod about your modules folder:
@@ -38,8 +45,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load quay.io/biocontainers/samtools/1.10
-$ module help quay.io/biocontainers/samtools/1.10
+$ module load quay.io/biocontainers/samtools/1.10--h2e538c0_3
+$ module help quay.io/biocontainers/samtools/1.10--h2e538c0_3
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
@@ -97,12 +104,39 @@ $ singularity inspect -d <container>
 ```
 
 
+#### bgzip
+       
+```bash
+$ singularity exec <container> /usr/local/bin/bgzip
+$ podman run --it --rm --entrypoint /usr/local/bin/bgzip   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/local/bin/bgzip   -v ${PWD} -w ${PWD} <container> -c " $@"
+```
+
+
+#### htsfile
+       
+```bash
+$ singularity exec <container> /usr/local/bin/htsfile
+$ podman run --it --rm --entrypoint /usr/local/bin/htsfile   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/local/bin/htsfile   -v ${PWD} -w ${PWD} <container> -c " $@"
+```
+
+
 #### samtools
        
 ```bash
 $ singularity exec <container> /usr/local/bin/samtools
 $ podman run --it --rm --entrypoint /usr/local/bin/samtools   -v ${PWD} -w ${PWD} <container> -c " $@"
 $ docker run --it --rm --entrypoint /usr/local/bin/samtools   -v ${PWD} -w ${PWD} <container> -c " $@"
+```
+
+
+#### tabix
+       
+```bash
+$ singularity exec <container> /usr/local/bin/tabix
+$ podman run --it --rm --entrypoint /usr/local/bin/tabix   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/local/bin/tabix   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 

@@ -3,7 +3,7 @@ layout: container
 name:  "vanessa/salad"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/vanessa/salad/container.yaml"
-updated_at: "2021-07-28 00:01:57.506355"
+updated_at: "2021-08-11 02:41:30.248351"
 container_url: "https://hub.docker.com/r/vanessa/salad"
 aliases:
  - "salad"
