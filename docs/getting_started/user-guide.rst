@@ -502,12 +502,11 @@ first. To show all entries, you can run:
     python
     singularityhub/singularity-deploy
 
-The default will not show versions available. To flatten out this list and include
-versions for each, you can do:
+The default will not show versions available. To flatten out this list and include versions for each, you can do:
 
 .. code-block:: console
 
-    $ shpc show
+    $ shpc show --versions
     tensorflow/tensorflow:2.2.2
     python:3.9.2-slim
     python:3.9.2-alpine
@@ -680,7 +679,7 @@ can do that as follows:
 
 .. code-block:: console
 
-    $ shpc inspect python/3.9.2-slim
+    $ shpc inspect python:3.9.2-slim
     👉️ ENVIRONMENT 👈️
     /.singularity.d/env/10-docker2singularity.sh : #!/bin/sh
     export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
@@ -709,14 +708,14 @@ can do that as follows:
 We currently don't show the runscript, as they can be very large. However, if you want
 to see it:
 
-    $ shpc inspect --runscript python/3.9.2-slim
+    $ shpc inspect --runscript python:3.9.2-slim
 
 
 Or to get the entire metadata entry dumped as json to the terminal:
 
 .. code-block:: console
 
-    $ shpc inspect --json python/3.9.2-slim
+    $ shpc inspect --json python:3.9.2-slim
 
 
 .. _getting_started-commands-test:
@@ -799,7 +798,7 @@ we provide the module path relative to your module directory. E.g.,
 
 .. code-block:: console
 
-    $ shpc uninstall python/3.9.2-alpine
+    $ shpc uninstall python:3.9.2-alpine
 
 
 You can also uninstall an entire family  of modules:
@@ -866,7 +865,7 @@ If you want a quick way to shell into an installed module's container
 
 .. code-block:: console
 
-    shpc shell vanessa/salad/latest
+    shpc shell vanessa/salad:latest
     Singularity> /code/salad fork
 
      My life purpose: I cut butter.  
@@ -956,7 +955,7 @@ is subject to change!)
 
 .. code-block:: console
 
-    $ shpc check tensorflow/tensorflow/2.2.2
+    $ shpc check tensorflow/tensorflow:2.2.2
     ⭐️ tag 2.2.2 is up to date. ⭐️
 
 As a trick, you can loop through registry entries with ``shpc show``. The return
@@ -978,7 +977,7 @@ the container path and the unique resource identifier:
 
 .. code-block:: console
 
-    $ shpc add salad_latest.sif vanessa/salad/latest
+    $ shpc add salad_latest.sif vanessa/salad:latest
 
 If the unique resource identifier corresponds with a registry entry, you
 will not be allowed to create it, as this would create a namespace conflict.
@@ -992,10 +991,10 @@ If you want to quickly get the path to a container binary, you can use get.
 
 .. code-block:: console
 
-    $ shpc get vanessa/salad/latest
+    $ shpc get vanessa/salad:latest
     /home/vanessa/Desktop/Code/singularity-hpc/modules/vanessa/salad/latest/vanessa-salad-latest-sha256:8794086402ff9ff9f16c6facb93213bf0b01f1e61adf26fa394b78587be5e5a8.sif
 
-    $ shpc get tensorflow/tensorflow/2.2.2
+    $ shpc get tensorflow/tensorflow:2.2.2
     /home/vanessa/Desktop/Code/singularity-hpc/modules/tensorflow/tensorflow/2.2.2/tensorflow-tensorflow-2.2.2-sha256:e2cde2bb70055511521d995cba58a28561089dfc443895fd5c66e65bbf33bfc0.sif
 
 If you select a higher level module directory or there is no sif, you'll see:
