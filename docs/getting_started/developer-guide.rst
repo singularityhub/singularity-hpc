@@ -48,16 +48,15 @@ And then you would install the module file and container as follows:
 
     $ shpc install python:3.9.2
 
-But since latest is already 3.9.2, you could leave out the tag.
+But since latest is already 3.9.2, you could leave out the tag:
 
 .. code-block:: console
 
-    $ shpc install python/3.9.2
+    $ shpc install python
 
 
-And the module folder shown previously would be generated. Currently, we assume
-that any new install will re-pull the container (and remove a previous one).
-We will eventually update this to only re-generate if the hash is different.
+The module folder will be generated, with the structure discussed in the USer Guide. 
+Currently, any new install will re-pull the container only if the hash is different, and only re-create the module otherwise.
 
 Contributing Registry Recipes
 -----------------------------
@@ -275,6 +274,12 @@ Fields include:
      - false
    * - description
      - Additional information for the registry entry
+     - false
+   * - env
+     - A list of environment variables to be defined in the container (key value pairs, e.g. var: value)
+     - false
+   * - features
+     - Optional key, value paired set of features to enable for the container. Currently allowed keys: *gpu*. Allowed values: *true*, *false* (default)
      - false
 
 Other supported (but not yet developed) fields could include different unique

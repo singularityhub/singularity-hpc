@@ -48,10 +48,11 @@ can write to your install location. Installing locally ensures that you
 can easily store your module files along with the install (the default until you
 change it). Installation of singularity-hpc adds an executable, `shpc` to your path.
 
-```bash
-$ which shpc
-/opt/conda/bin/shpc
-```
+.. code:: console
+
+    $ which shpc
+    /opt/conda/bin/shpc
+
 
 This executable should be accessible by an administrator, or anyone that you want
 to be able to manage containers. Your user base will be interacting with your
@@ -67,13 +68,13 @@ Once it's installed, you should be able to inspect the client!
     $ shpc --help
 
 
-You'll next want to configure and create your registry, discussed next in
- :ref:`getting-started`. Generally, remember that your modules will be installed in
- the ``modules`` folder, and container recipes are nested in ``registry``. If you don't
- want your container images (sif files) installed alongside your module recipes,
- then you can define ``container_base`` to be somewhere else. You
- can change these easily with ``shpc config``, as they are defined via these
- variables in the config:
+You'll next want to configure and create your registry, discussed next in :ref:`getting-started`.
+Generally, remember that your modules will be installed in
+the ``modules`` folder, and container recipes are nested in ``registry``. If you don't
+want your container images (sif files) installed alongside your module recipes,
+then you can define ``container_base`` to be somewhere else. You
+can change these easily with ``shpc config``, as they are defined via these
+variables in the config:
  
 
 .. code-block:: console
@@ -91,7 +92,12 @@ to tell shpc about this (as it defaults to LMOD):
 
     $ shpc config set module_sys:tcl
 
-You can also easily (manually) update any settings in the ``shpc/settings.yaml`` file. 
+You can also easily (manually) update any settings in the ``shpc/settings.yaml`` file:
+
+.. code-block:: console
+
+    $ shpc config edit
+
 Take a look at this file for other configuration settings, and see the :ref:`getting-started` 
 pages for next steps for setup and configuration, and interacting with your modules.
 

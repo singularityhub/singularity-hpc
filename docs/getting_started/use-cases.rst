@@ -33,7 +33,7 @@ And then install a module to your shpc modules directory:
 .. code-block:: console
 
     $ shpc install tensorflow/tensorflow
-    Module tensorflow/tensorflow/2.2.2 was created.
+    Module tensorflow/tensorflow:2.2.2 was created.
 
 
 Make sure that lmod knows about the folder
@@ -201,7 +201,7 @@ it could be the case that you want to define custom options at the time of use.
 In this case, you can export the following custom environment variables to add them:
 
 **SINGULARITY_OPTS**: will provide additional options to the base Singularity command, such as ``--debug``
-**SINGULARITY_COMMAND_OPTS**: will provide additional options to the command (e.g., exec), such as ``--gpu``.
+**SINGULARITY_COMMAND_OPTS**: will provide additional options to the command (e.g., exec), such as ``--cleanenv``.
 
 
 Custom Images that are Added
@@ -218,7 +218,7 @@ And we add it to our unique namespace in the modules folder:
 
 .. code-block:: console
 
-    $ shpc add salad_latest.sif vanessa/salad/latest
+    $ shpc add salad_latest.sif vanessa/salad:latest
     
     
 We can again load the custom module:
@@ -308,7 +308,7 @@ and in the root we have three recipes:
  - Singularity.salad
  - Singularity.pokemon
 
-And in the ``VERSION` file in the root, we have ``0.0.1`` which corresponds with
+And in the ``VERSION`` file in the root, we have ``0.0.1`` which corresponds with
 the GitHub release. This will pull to a container.  For example:
 
 .. code-block:: console
