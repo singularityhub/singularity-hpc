@@ -169,14 +169,28 @@ Each recipe has an optional section for defining aliases in the modulefile; ther
     aliases:
       python: /usr/local/bin/python
 
-A second form is allowed, using dicts, in those cases where the command requires to specify custom options for the container runtime. For instance, suppose the python interpreter above requires an isolated shell environment (``--cleanenv`` in Singularity):
+This format is container technology agnostic, because the command (``python``) and executable it targets (``/usr/local/bin/python``) would be consistent between
+Podman and Singularity, for example. A second form is allowed, using dicts, in those cases where the command requires to specify custom options for the container runtime. For instance, suppose the python interpreter above requires an isolated shell environment (``--cleanenv`` in Singularity):
 
 .. code-block:: yaml
 
     aliases:
     - name: python
       command: /usr/local/bin/python
-      options: --cleanenv
+      singularity_options: --cleanenv
+
+
+Or perhaps the container required the docker options ``-it`` because it was an interactive, terminal session:
+
+    aliases:
+    - name: python
+      command: /usr/local/bin/python
+      docker_options: -it
+
+
+For each of the above, depending on the prefix of options that you choose, it will write them into the module files for Singularity and Docker, respectively.
+This means that if you design a new registry recipe, you should consider how to run it for both kinds of technology. Also note that ``docker_options`` are
+those that will also be used for Podman.
 
 
 Environment Variables

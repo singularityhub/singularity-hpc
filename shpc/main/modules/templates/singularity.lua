@@ -27,7 +27,7 @@ Commands include:
        singularity inspect -d <container>
 
 {% if aliases %}{% for alias in aliases %} - {{ alias.name }}:
-       singularity exec {% if features.gpu %}{{ features.gpu }} {% endif %}{% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }} {% endif %}{% if alias.options %}{{ alias.options }} {% endif %}<container> {{ alias.command }}
+       singularity exec {% if features.gpu %}{{ features.gpu }} {% endif %}{% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }} {% endif %}{% if alias.singularity_options %}{{ alias.singularity_options }} {% endif %}<container> {{ alias.command }}
 {% endfor %}{% else %} - {|module_name|}: singularity run {% if features.gpu %}{{ features.gpu }} {% endif %}{% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }}{% endif %}<container>{% endif %}
 
 For each of the above, you can export:
@@ -62,7 +62,7 @@ conflict(myModuleName(){% if aliases %}{% for alias in aliases %}{% if alias.nam
 
 -- exec functions to provide "alias" to module commands
 {% if aliases %}{% for alias in aliases %}
-set_shell_function("{{ alias.name }}", execCmd .. {% if alias.options %} "{{ alias.options }} " .. {% endif %} containerPath .. " {{ alias.command }} $@", execCmd .. {% if alias.options %} "{{ alias.options }} " .. {% endif %} containerPath .. " {{ alias.command }}")
+set_shell_function("{{ alias.name }}", execCmd .. {% if alias.singularity_options %} "{{ alias.singularity_options }} " .. {% endif %} containerPath .. " {{ alias.command }} $@", execCmd .. {% if alias.singularity_options %} "{{ alias.singularity_options }} " .. {% endif %} containerPath .. " {{ alias.command }}")
 {% endfor %}{% endif %}
 
 {% if aliases %}

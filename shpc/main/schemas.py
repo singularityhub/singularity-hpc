@@ -48,7 +48,8 @@ aliases_list = {
         "properties": {
             "name": {"type": "string"},
             "command": {"type": "string"},
-            "options": {"type": "string"},
+            "singularity_options": {"type": "string"},
+            "docker_options": {"type": "string"},
         },
     },
 }
