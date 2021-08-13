@@ -159,9 +159,28 @@ The above shows the simplest form of representing an alias, where each is
 a key (python) and value (/usr/local/bin/python) set.
 
 
+Aliases
+-------
+
+Each recipe has an optional section for defining aliases in the modulefile; there are two ways of defining them. In the python sample recipe above the simple form is used, using key value pairs:
+
+.. code-block:: yaml
+
+    aliases:
+      python: /usr/local/bin/python
+
+A second form is allowed, using dicts, in those cases where the command requires to specify custom options for the container runtime. For instance, suppose the python interpreter above requires an isolated shell environment (``--cleanenv`` in Singularity):
+
+.. code-block:: yaml
+
+    aliases:
+    - name: python
+      command: /usr/local/bin/python
+      options: --cleanenv
+
+
 Environment Variables
 ---------------------
-
 
 Finally, each recipe has an optional section for environment variables. For
 example, the container ``vanessa/salad`` shows definition of one environment
