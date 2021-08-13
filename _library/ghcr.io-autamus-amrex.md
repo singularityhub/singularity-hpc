@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/amrex"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/amrex/container.yaml"
-updated_at: "2021-08-12 15:45:27.779500"
+updated_at: "2021-08-13 16:21:15.265742"
 container_url: "https://github.com/orgs/autamus/packages/container/package/amrex"
 
 versions:
