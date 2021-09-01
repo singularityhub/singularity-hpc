@@ -3,12 +3,13 @@ layout: container
 name:  "quay.io/biocontainers/trimmomatic"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/trimmomatic/container.yaml"
-updated_at: "2021-08-13 16:20:54.199662"
+updated_at: "2021-09-01 01:09:43.890599"
 container_url: "https://quay.io/repository/biocontainers/trimmomatic"
 aliases:
  - "trimmomatic"
 
 versions:
+ - "0.39--0"
  - "0.39--hdfd78af_2"
 description: "A flexible read trimming tool for Illumina NGS data."
 ---
@@ -24,7 +25,7 @@ $ shpc install quay.io/biocontainers/trimmomatic
 Or a specific version:
 
 ```bash
-$ shpc install quay.io/biocontainers/trimmomatic:0.39--hdfd78af_2
+$ shpc install quay.io/biocontainers/trimmomatic:0.39--0
 ```
 
 And then you can tell lmod about your modules folder:
@@ -36,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load quay.io/biocontainers/trimmomatic/0.39--hdfd78af_2
-$ module help quay.io/biocontainers/trimmomatic/0.39--hdfd78af_2
+$ module load quay.io/biocontainers/trimmomatic/0.39--0
+$ module help quay.io/biocontainers/trimmomatic/0.39--0
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

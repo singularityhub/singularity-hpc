@@ -3,13 +3,14 @@ layout: container
 name:  "ghcr.io/autamus/r"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/r/container.yaml"
-updated_at: "2021-08-13 16:21:21.178335"
+updated_at: "2021-09-01 01:10:04.960962"
 container_url: "https://github.com/orgs/autamus/packages/container/package/r"
 aliases:
  - "R"
 
 versions:
  - "4.0.4"
+ - "4.1.0"
  - "latest"
 description: "R is a language and environment for statistical computing and graphics."
 ---

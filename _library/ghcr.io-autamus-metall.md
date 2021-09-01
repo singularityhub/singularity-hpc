@@ -3,12 +3,13 @@ layout: container
 name:  "ghcr.io/autamus/metall"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/metall/container.yaml"
-updated_at: "2021-08-13 16:21:34.939349"
+updated_at: "2021-09-01 01:10:15.849820"
 container_url: "https://github.com/orgs/autamus/packages/container/package/metall"
 
 versions:
  - "0.13"
  - "0.15"
+ - "0.16"
 description: "A Persistent Memory Allocator For Data-Centric Analytics"
 ---
 

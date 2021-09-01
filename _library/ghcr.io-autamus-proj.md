@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/proj"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/proj/container.yaml"
-updated_at: "2021-08-13 16:21:46.236663"
+updated_at: "2021-09-01 01:10:24.772244"
 container_url: "https://github.com/orgs/autamus/packages/container/package/proj"
 aliases:
  - "proj"
@@ -14,6 +14,7 @@ aliases:
 
 versions:
  - "7.2.1"
+ - "8.1.0"
  - "latest"
 description: "PROJ is a generic coordinate transformation software, that transforms coordinates from one coordinate reference system (CRS) to another."
 ---

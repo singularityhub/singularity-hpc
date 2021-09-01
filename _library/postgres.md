@@ -3,7 +3,7 @@ layout: container
 name:  "postgres"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/postgres/container.yaml"
-updated_at: "2021-08-13 16:21:49.088041"
+updated_at: "2021-09-01 01:10:27.032677"
 container_url: "https://hub.docker.com/r/_/postgres"
 aliases:
  - "clusterdb"
@@ -77,6 +77,7 @@ aliases:
 versions:
  - "13.2-alpine"
  - "13.3-alpine"
+ - "13.4"
  - "latest"
 description: "PostgreSQL, often simply 'Postgres', is an object-relational database management system (ORDBMS) with an emphasis on extensibility and standards-compliance."
 ---

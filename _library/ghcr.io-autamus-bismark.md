@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/bismark"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/bismark/container.yaml"
-updated_at: "2021-08-13 16:21:34.698971"
+updated_at: "2021-09-01 01:10:15.650522"
 container_url: "https://github.com/orgs/autamus/packages/container/package/bismark"
 aliases:
  - "bismark"
@@ -20,6 +20,7 @@ aliases:
 
 versions:
  - "0.23.0"
+ - "0.23.1"
  - "latest"
 description: "Bismark is a program to map bisulfite treated sequencing reads to a genome of interest and perform methylation calls in a single step."
 ---

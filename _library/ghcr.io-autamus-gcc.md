@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/gcc"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/gcc/container.yaml"
-updated_at: "2021-08-13 16:21:44.943401"
+updated_at: "2021-09-01 01:10:23.747710"
 container_url: "https://github.com/orgs/autamus/packages/container/package/gcc"
 aliases:
  - "c++"
@@ -33,6 +33,7 @@ aliases:
 versions:
  - "10.3.0"
  - "11.1.0"
+ - "11.2.0"
  - "latest"
 description: "The GNU Compiler Collection"
 ---

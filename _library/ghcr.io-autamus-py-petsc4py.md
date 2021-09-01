@@ -3,11 +3,12 @@ layout: container
 name:  "ghcr.io/autamus/py-petsc4py"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/py-petsc4py/container.yaml"
-updated_at: "2021-08-13 16:21:35.688122"
+updated_at: "2021-09-01 01:10:16.454302"
 container_url: "https://github.com/orgs/autamus/packages/container/package/py-petsc4py"
 
 versions:
  - "3.15.1"
+ - "3.15.3"
 description: "This package provides Python bindings for the PETSc package."
 ---
 

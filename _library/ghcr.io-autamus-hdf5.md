@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/hdf5"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/hdf5/container.yaml"
-updated_at: "2021-08-13 16:21:26.270747"
+updated_at: "2021-09-01 01:10:08.996322"
 container_url: "https://github.com/orgs/autamus/packages/container/package/hdf5"
 aliases:
  - "h5clear"
@@ -44,6 +44,7 @@ aliases:
 
 versions:
  - "1.12.0"
+ - "1.13"
  - "latest"
 description: "HDF5 is a unique technology suite that makes possible the management of extremely large and complex data collections."
 ---

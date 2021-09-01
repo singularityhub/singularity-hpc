@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/bedops"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/bedops/container.yaml"
-updated_at: "2021-08-13 16:21:28.087288"
+updated_at: "2021-09-01 01:10:10.436203"
 container_url: "https://github.com/orgs/autamus/packages/container/package/bedops"
 aliases:
  - "bam2bed"
@@ -90,6 +90,7 @@ aliases:
 
 versions:
  - "2.4.39"
+ - "2.4.40"
  - "latest"
 description: "BEDOPS is an open-source command-line toolkit that performs highly efficient and scalable Boolean and other set operations, statistical calculations, archiving, conversion and other management of genomic data of arbitrary scale."
 ---

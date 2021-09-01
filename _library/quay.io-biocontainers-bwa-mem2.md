@@ -3,13 +3,14 @@ layout: container
 name:  "quay.io/biocontainers/bwa-mem2"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/bwa-mem2/container.yaml"
-updated_at: "2021-08-13 16:20:57.740306"
+updated_at: "2021-09-01 01:09:46.667685"
 container_url: "https://quay.io/repository/biocontainers/bwa-mem2"
 aliases:
  - "bwa-mem2"
 
 versions:
  - "2.2.1--h9a82719_1"
+ - "2.2.1--he513fc3_0"
 description: "Bwa-mem2 is the next version of the bwa-mem algorithm in BWA."
 ---
 

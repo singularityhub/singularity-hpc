@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/opencv"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/opencv/container.yaml"
-updated_at: "2021-08-13 16:21:03.260029"
+updated_at: "2021-09-01 01:09:50.897904"
 container_url: "https://github.com/orgs/autamus/packages/container/package/opencv"
 aliases:
  - "opencv_version"
@@ -12,6 +12,7 @@ aliases:
 
 versions:
  - "4.5.2"
+ - "4.5.3"
  - "latest"
 description: "OpenCV is a library of programming functions mainly aimed at real-time computer vision. Originally developed by Intel, it was later supported by Willow Garage then Itseez."
 ---

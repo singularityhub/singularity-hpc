@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/beast2"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/beast2/container.yaml"
-updated_at: "2021-08-13 16:21:03.509287"
+updated_at: "2021-09-01 01:09:51.098348"
 container_url: "https://github.com/orgs/autamus/packages/container/package/beast2"
 aliases:
  - "beast"
@@ -19,6 +19,7 @@ aliases:
 versions:
  - "2.6.3"
  - "2.6.4"
+ - "2.6.6"
  - "latest"
 description: "BEAST 2 is a cross-platform program for Bayesian phylogenetic analysis of molecular sequences."
 ---

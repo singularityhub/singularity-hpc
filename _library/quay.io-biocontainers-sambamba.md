@@ -3,7 +3,7 @@ layout: container
 name:  "quay.io/biocontainers/sambamba"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/sambamba/container.yaml"
-updated_at: "2021-08-13 16:20:57.988764"
+updated_at: "2021-09-01 01:09:46.866934"
 container_url: "https://quay.io/repository/biocontainers/sambamba"
 aliases:
  - "sambamba"
@@ -12,6 +12,7 @@ versions:
  - "0.6.9--h89e63da_0"
  - "0.7.1--h984e79f_3"
  - "0.8.0--h984e79f_0"
+ - "0.8.1--h41abebc_0"
 description: "Sambamba is a high performance highly parallel robust and fast tool (and library), written in the D programming language, for working with SAM and BAM files."
 ---
 

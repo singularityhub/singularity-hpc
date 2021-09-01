@@ -3,11 +3,12 @@ layout: container
 name:  "ghcr.io/autamus/boost"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/boost/container.yaml"
-updated_at: "2021-08-13 16:21:36.955816"
+updated_at: "2021-09-01 01:10:17.467469"
 container_url: "https://github.com/orgs/autamus/packages/container/package/boost"
 
 versions:
  - "1.75.0"
+ - "1.77.0"
  - "latest"
 description: "The Boost project provides free peer-reviewed portable C++ source libraries."
 ---

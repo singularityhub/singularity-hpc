@@ -3,7 +3,7 @@ layout: container
 name:  "nginx"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/nginx/container.yaml"
-updated_at: "2021-08-13 16:21:49.359276"
+updated_at: "2021-09-01 01:10:27.237871"
 container_url: "https://hub.docker.com/r/_/nginx"
 aliases:
  - "nginx"
@@ -13,6 +13,7 @@ aliases:
 versions:
  - "1.20.0-alpine-perl"
  - "1.21.0-alpine-perl"
+ - "1.21.1"
  - "1.21.1-alpine-perl"
  - "latest"
  - "stable-alpine-perl"

@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/rsync"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/rsync/container.yaml"
-updated_at: "2021-08-13 16:21:41.321682"
+updated_at: "2021-09-01 01:10:20.898664"
 container_url: "https://github.com/orgs/autamus/packages/container/package/rsync"
 aliases:
  - "rsync"
@@ -12,6 +12,7 @@ aliases:
 
 versions:
  - "3.2.2"
+ - "3.2.3"
 description: "An open source utility that provides fast incremental file transfer. https://rsync.samba.org/"
 ---
 

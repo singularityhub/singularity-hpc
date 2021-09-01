@@ -3,7 +3,7 @@ layout: container
 name:  "quay.io/biocontainers/velvet"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/velvet/container.yaml"
-updated_at: "2021-08-13 16:20:57.487900"
+updated_at: "2021-09-01 01:09:46.471292"
 container_url: "https://quay.io/repository/biocontainers/velvet"
 aliases:
  - "velvetg"
@@ -12,6 +12,7 @@ aliases:
 
 versions:
  - "1.2.10--h5bf99c6_4"
+ - "1.2.10--h470a237_2"
 description: "Short read de novo assembler using de Bruijn graphs"
 ---
 

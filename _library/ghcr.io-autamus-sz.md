@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/sz"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/sz/container.yaml"
-updated_at: "2021-08-13 16:21:27.310832"
+updated_at: "2021-09-01 01:10:09.799925"
 container_url: "https://github.com/orgs/autamus/packages/container/package/sz"
 aliases:
  - "sz"
@@ -11,6 +11,7 @@ aliases:
 versions:
  - "2.1.11.1"
  - "2.1.11.2"
+ - "2.1.12"
 description: "Error-bounded Lossy Compressor for HPC Data"
 ---
 

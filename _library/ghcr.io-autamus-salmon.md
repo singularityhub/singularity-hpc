@@ -3,13 +3,14 @@ layout: container
 name:  "ghcr.io/autamus/salmon"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/salmon/container.yaml"
-updated_at: "2021-08-13 16:21:19.630909"
+updated_at: "2021-09-01 01:10:03.752209"
 container_url: "https://github.com/orgs/autamus/packages/container/package/salmon"
 aliases:
  - "salmon"
 
 versions:
  - "1.4.0"
+ - "1.5.2"
  - "latest"
 description: "Salmon is a wicked-fast program to produce a highly-accurate, transcript-level quantification estimates from RNA-seq data."
 ---

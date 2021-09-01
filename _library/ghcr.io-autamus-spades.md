@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/spades"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/spades/container.yaml"
-updated_at: "2021-08-13 16:21:05.620434"
+updated_at: "2021-09-01 01:09:52.714365"
 container_url: "https://github.com/orgs/autamus/packages/container/package/spades"
 aliases:
  - "spades-bwa"
@@ -38,6 +38,7 @@ aliases:
 
 versions:
  - "3.15.2"
+ - "3.15.3"
  - "latest"
 description: "St. Petersburg genome assembler – an assembly toolkit containing various assembly pipelines."
 ---

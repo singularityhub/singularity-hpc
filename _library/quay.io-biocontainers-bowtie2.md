@@ -3,7 +3,7 @@ layout: container
 name:  "quay.io/biocontainers/bowtie2"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/bowtie2/container.yaml"
-updated_at: "2021-08-13 16:20:55.979594"
+updated_at: "2021-09-01 01:09:45.279818"
 container_url: "https://quay.io/repository/biocontainers/bowtie2"
 aliases:
  - "bowtie2"
@@ -26,6 +26,7 @@ aliases:
 
 versions:
  - "2.3.5.1--py37he513fc3_0"
+ - "2.4.4--py36hd4290be_0"
  - "2.4.4--py39hbb4e92a_0"
 description: "Bowtie 2 is an ultrafast and memory-efficient tool for aligning sequencing reads to long reference sequences."
 ---
