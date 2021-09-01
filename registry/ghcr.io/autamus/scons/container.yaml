@@ -3,10 +3,10 @@ url: https://github.com/orgs/autamus/packages/container/package/scons
 maintainer: '@vsoch'
 description: SCons is an Open Source software construction tool.
 latest:
-  3.1.2: sha256:b9fa6fefd5be03a121d4ac4729abc6ac54a0961efe3d5aa9090acc1c77e9344a
+  3.1.2: sha256:a143203d509c95fb4dc4af5082a040b49bbb9f36518f53816fdbd24554e52fbd
 tags:
-  3.1.2: sha256:b9fa6fefd5be03a121d4ac4729abc6ac54a0961efe3d5aa9090acc1c77e9344a
-  latest: sha256:b9fa6fefd5be03a121d4ac4729abc6ac54a0961efe3d5aa9090acc1c77e9344a
+  3.1.2: sha256:a143203d509c95fb4dc4af5082a040b49bbb9f36518f53816fdbd24554e52fbd
+  latest: sha256:a143203d509c95fb4dc4af5082a040b49bbb9f36518f53816fdbd24554e52fbd
 aliases:
   scons: /opt/view/bin/scons
   scons-3.1.2: /opt/view/bin/scons-3.1.2

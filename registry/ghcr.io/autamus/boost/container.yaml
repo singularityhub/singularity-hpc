@@ -3,7 +3,8 @@ url: https://github.com/orgs/autamus/packages/container/package/boost
 maintainer: '@vsoch'
 description: The Boost project provides free peer-reviewed portable C++ source libraries.
 latest:
-  1.75.0: sha256:aa847b8734ef0ca8b2a350bd22e97dd24fc882f81d824bfc713f6c6fa40d0899
+  1.77.0: sha256:3263f21617f99abfbdb8cbc942d842620370a129676a239a58f819b067dbcb9e
 tags:
-  1.75.0: sha256:aa847b8734ef0ca8b2a350bd22e97dd24fc882f81d824bfc713f6c6fa40d0899
-  latest: sha256:aa847b8734ef0ca8b2a350bd22e97dd24fc882f81d824bfc713f6c6fa40d0899
+  1.75.0: sha256:a6d7914225fde46cdab70d01619de67a0162a9a3c7a2361563aff66dbd05c1e2
+  1.77.0: sha256:3263f21617f99abfbdb8cbc942d842620370a129676a239a58f819b067dbcb9e
+  latest: sha256:3263f21617f99abfbdb8cbc942d842620370a129676a239a58f819b067dbcb9e

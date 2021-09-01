@@ -1,10 +1,11 @@
 docker: quay.io/biocontainers/bwa-mem2
 url: https://quay.io/repository/biocontainers/bwa-mem2
 maintainer: '@marcodelapierre'
-description: 'Bwa-mem2 is the next version of the bwa-mem algorithm in BWA.'
+description: Bwa-mem2 is the next version of the bwa-mem algorithm in BWA.
 latest:
-  2.2.1--h9a82719_1: sha256:df29c78f3e199b8f1639f6fc53c47c039e23fb33d107ce53c6645e6bcc3a6415
+  2.2.1--he513fc3_0: sha256:8489086047b16f49a01a077065c88258c28027c49c35281f77df353bcc370970
 tags:
   2.2.1--h9a82719_1: sha256:df29c78f3e199b8f1639f6fc53c47c039e23fb33d107ce53c6645e6bcc3a6415
+  2.2.1--he513fc3_0: sha256:8489086047b16f49a01a077065c88258c28027c49c35281f77df353bcc370970
 aliases:
   bwa-mem2: /usr/local/bin/bwa-mem2

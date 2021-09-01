@@ -4,7 +4,7 @@ maintainer: '@vsoch'
 description: Apache Accumulo is a sorted, distributed key/value store that provides
   robust, scalable data storage and retrieval.
 latest:
-  2.0.1: sha256:aeef479dc7232f57278befecf024aa7a33aa88971792b7ed15152d826a486f0e
+  2.0.1: sha256:b57b9121121504f94ba8b0781d5c3c31128081511eb5be6c0354c801bfa533eb
 tags:
-  2.0.1: sha256:aeef479dc7232f57278befecf024aa7a33aa88971792b7ed15152d826a486f0e
-  latest: sha256:aeef479dc7232f57278befecf024aa7a33aa88971792b7ed15152d826a486f0e
+  2.0.1: sha256:b57b9121121504f94ba8b0781d5c3c31128081511eb5be6c0354c801bfa533eb
+  latest: sha256:b57b9121121504f94ba8b0781d5c3c31128081511eb5be6c0354c801bfa533eb

@@ -4,7 +4,7 @@ maintainer: '@vsoch'
 description: The X PixMap image format is an extension of the monochrome X BitMap
   format specified in the X protocol, and is commonly used in traditional X applications.
 latest:
-  3.5.12: sha256:08e7a995daaaae6783ebde42ffa6ff5585feaf53b3e4a7faed49157319220b39
+  3.5.12: sha256:d481d7bf42a715d82bdf199025b2670696e0c2cf23535e2b7a6b3606ba934649
 tags:
-  3.5.12: sha256:08e7a995daaaae6783ebde42ffa6ff5585feaf53b3e4a7faed49157319220b39
-  latest: sha256:08e7a995daaaae6783ebde42ffa6ff5585feaf53b3e4a7faed49157319220b39
+  3.5.12: sha256:d481d7bf42a715d82bdf199025b2670696e0c2cf23535e2b7a6b3606ba934649
+  latest: sha256:d481d7bf42a715d82bdf199025b2670696e0c2cf23535e2b7a6b3606ba934649

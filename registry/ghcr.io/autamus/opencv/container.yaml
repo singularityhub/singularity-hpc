@@ -5,10 +5,11 @@ description: OpenCV is a library of programming functions mainly aimed at real-t
   computer vision. Originally developed by Intel, it was later supported by Willow
   Garage then Itseez.
 latest:
-  4.5.2: sha256:6cf5bdae8a1e22fb97c8f39e0cc142ef90c0670f07cfd27d33df19d23df0ce0d
+  4.5.3: sha256:7a488172e4f1dd0f867ed66c2713d47bb6d8ea2c3952cdd0abadcf2cd67c3293
 tags:
-  4.5.2: sha256:6cf5bdae8a1e22fb97c8f39e0cc142ef90c0670f07cfd27d33df19d23df0ce0d
-  latest: sha256:6cf5bdae8a1e22fb97c8f39e0cc142ef90c0670f07cfd27d33df19d23df0ce0d
+  4.5.2: sha256:6eb5ae5c6a58a2115cbfa61eceba29f4ff33259e375fac6bf5b8d814034b87c8
+  4.5.3: sha256:7a488172e4f1dd0f867ed66c2713d47bb6d8ea2c3952cdd0abadcf2cd67c3293
+  latest: sha256:7a488172e4f1dd0f867ed66c2713d47bb6d8ea2c3952cdd0abadcf2cd67c3293
 aliases:
   opencv_version: /opt/view/bin/opencv_version
   setup_vars_opencv4.sh: /opt/view/bin/setup_vars_opencv4.sh

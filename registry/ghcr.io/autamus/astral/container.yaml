@@ -4,9 +4,9 @@ maintainer: '@vsoch'
 description: ASTRAL is a tool for estimating an unrooted species tree given a set
   of unrooted gene trees.
 latest:
-  5.7.1: sha256:e03ad784171ebc1bdd52f1e0664a938adf08eb00df9962a9c8e766e69e008e8f
+  5.7.1: sha256:aba4e558261ef30a7e383d45368e932c2d1e7368b8fc670dd19e9859612b9b70
 tags:
-  5.7.1: sha256:e03ad784171ebc1bdd52f1e0664a938adf08eb00df9962a9c8e766e69e008e8f
-  latest: sha256:e03ad784171ebc1bdd52f1e0664a938adf08eb00df9962a9c8e766e69e008e8f
+  5.7.1: sha256:aba4e558261ef30a7e383d45368e932c2d1e7368b8fc670dd19e9859612b9b70
+  latest: sha256:aba4e558261ef30a7e383d45368e932c2d1e7368b8fc670dd19e9859612b9b70
 aliases:
   astral: /opt/view/bin/astral

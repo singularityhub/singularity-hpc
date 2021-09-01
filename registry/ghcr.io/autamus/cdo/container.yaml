@@ -4,9 +4,9 @@ maintainer: '@vsoch'
 description: CDO is a collection of command line Operators to manipulate and analyse
   Climate and NWP model Data.
 latest:
-  1.9.10: sha256:be3b796fcbb1afc5272f3d6547f5b3c8fca44522e3115756865ff5a9b61b3068
+  1.9.10: sha256:08a2ed0fe790d75f6639b43f0a05668c2c8ea94340670cca3a60f6066d28e6be
 tags:
-  1.9.10: sha256:be3b796fcbb1afc5272f3d6547f5b3c8fca44522e3115756865ff5a9b61b3068
-  latest: sha256:be3b796fcbb1afc5272f3d6547f5b3c8fca44522e3115756865ff5a9b61b3068
+  1.9.10: sha256:08a2ed0fe790d75f6639b43f0a05668c2c8ea94340670cca3a60f6066d28e6be
+  latest: sha256:08a2ed0fe790d75f6639b43f0a05668c2c8ea94340670cca3a60f6066d28e6be
 aliases:
   cdo: /opt/view/bin/cdo

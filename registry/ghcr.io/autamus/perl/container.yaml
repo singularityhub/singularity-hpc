@@ -3,11 +3,11 @@ url: https://github.com/orgs/autamus/packages/container/package/perl
 maintainer: '@vsoch'
 description: The Perl programming language.
 latest:
-  5.35.0: sha256:7ef6b7b6743a4006a34e5aa97591329f842f5bcea5d2e8bce3e10fe9fab55d38
+  5.35.0: sha256:cce7631b0d4d6c08271085652a294cb7aa47ee07ed1462186cd6cee984c13563
 tags:
   5.33.3: sha256:ddbe04d704c8883aed0959dbd88bd8410cf5e1a6775a2f46264af306723b6459
-  5.35.0: sha256:7ef6b7b6743a4006a34e5aa97591329f842f5bcea5d2e8bce3e10fe9fab55d38
-  latest: sha256:7ef6b7b6743a4006a34e5aa97591329f842f5bcea5d2e8bce3e10fe9fab55d38
+  5.35.0: sha256:cce7631b0d4d6c08271085652a294cb7aa47ee07ed1462186cd6cee984c13563
+  latest: sha256:cce7631b0d4d6c08271085652a294cb7aa47ee07ed1462186cd6cee984c13563
 aliases:
   perl: /opt/view/bin/perl
   perlbug: /opt/view/bin/perlbug

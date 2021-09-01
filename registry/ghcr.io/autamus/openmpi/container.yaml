@@ -3,9 +3,9 @@ url: https://github.com/orgs/autamus/packages/container/package/openmpi
 maintainer: '@vsoch'
 description: An open source Message Passing Interface implementation.
 latest:
-  4.1.1: sha256:9082bc40284663243f6f3e228176fa265b234cb61581d8481706dfd8d1cd5533
+  4.1.1: sha256:e784b544ee3383dac9621a9d33a0ad61d046dd65de351e703664f8b91a645653
 tags:
-  4.1.1: sha256:9082bc40284663243f6f3e228176fa265b234cb61581d8481706dfd8d1cd5533
+  4.1.1: sha256:e784b544ee3383dac9621a9d33a0ad61d046dd65de351e703664f8b91a645653
 aliases:
   mpiCC: /opt/view/bin/mpiCC
   mpic++: /opt/view/bin/mpic++

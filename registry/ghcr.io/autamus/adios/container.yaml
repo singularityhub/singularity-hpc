@@ -5,9 +5,9 @@ description: The Adaptable IO System (ADIOS) provides a simple, flexible way for
   to describe the data in their code that may need to be written, read, or processed
   outside of the running simulation.
 latest:
-  1.13.1: sha256:6a74e0c7448e3003a274bea052c720f750fa6a2ccef8d4dde3aa4803838e54fe
+  1.13.1: sha256:4752970183bbea55d9e7d1079c6c56f36054fce5ceb724329ce7a76587540934
 tags:
-  1.13.1: sha256:6a74e0c7448e3003a274bea052c720f750fa6a2ccef8d4dde3aa4803838e54fe
+  1.13.1: sha256:4752970183bbea55d9e7d1079c6c56f36054fce5ceb724329ce7a76587540934
 aliases:
   adios_config: /opt/view/bin/adios_config
   adios_lint: /opt/view/bin/adios_lint

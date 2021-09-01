@@ -3,9 +3,9 @@ url: https://github.com/orgs/autamus/packages/container/package/ninja
 maintainer: '@vsoch'
 description: Ninja is a small build system with a focus on speed.
 latest:
-  1.10.2: sha256:8a286650245b20fb096afd885bca7476d1db4fee1ad325aa88ebf43cf1cf32f5
+  1.10.2: sha256:dbaa6214e39deee200ff1e93df15883db00768950308acda929646a26a65d16f
 tags:
-  1.10.2: sha256:8a286650245b20fb096afd885bca7476d1db4fee1ad325aa88ebf43cf1cf32f5
+  1.10.2: sha256:dbaa6214e39deee200ff1e93df15883db00768950308acda929646a26a65d16f
 aliases:
   ninja: /opt/view/bin/ninja
   ninja-build: /opt/view/bin/ninja-build

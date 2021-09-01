@@ -4,7 +4,7 @@ maintainer: '@vsoch'
 description: CFITSIO is a library of C and Fortran subroutines for reading and writing
   data files in FITS (Flexible Image Transport System) data format.
 latest:
-  "3.49": sha256:f3d2af53a82fbbda321300fb9615716fc237cb25463c72b8b6329b5968fdefc4
+  "3.49": sha256:bf88110e16a3bb061093be7ebb22f05d1a64c94723d36846b9fed059b92cab48
 tags:
-  "3.49": sha256:f3d2af53a82fbbda321300fb9615716fc237cb25463c72b8b6329b5968fdefc4
-  latest: sha256:f3d2af53a82fbbda321300fb9615716fc237cb25463c72b8b6329b5968fdefc4
+  "3.49": sha256:bf88110e16a3bb061093be7ebb22f05d1a64c94723d36846b9fed059b92cab48
+  latest: sha256:bf88110e16a3bb061093be7ebb22f05d1a64c94723d36846b9fed059b92cab48
