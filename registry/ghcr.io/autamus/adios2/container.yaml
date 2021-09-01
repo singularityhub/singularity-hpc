@@ -4,9 +4,9 @@ maintainer: '@vsoch'
 description: The Adaptable Input Output System version 2, developed in the Exascale
   Computing Program
 latest:
-  2.7.1: sha256:c393427f9ef163c748007b1952acac676ecb47695134da695d56ac09f9f85fec
+  2.7.1: sha256:b84823c776daf10c30713b50fa3fb28db0ec46d7d985b6b6213afeeec3a96f4e
 tags:
-  2.7.1: sha256:c393427f9ef163c748007b1952acac676ecb47695134da695d56ac09f9f85fec
+  2.7.1: sha256:b84823c776daf10c30713b50fa3fb28db0ec46d7d985b6b6213afeeec3a96f4e
 aliases:
   adios2-config: /opt/view/bin/adios2-config
   adios2_deactivate_bp: /opt/view/bin/adios2_deactivate_bp

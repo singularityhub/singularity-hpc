@@ -4,10 +4,10 @@ maintainer: '@vsoch'
 description: Bowtie 2 is an ultrafast and memory-efficient tool for aligning sequencing
   reads to long reference sequences.
 latest:
-  2.4.2: sha256:09680a60589c6a0bff6334a042343d14649af2618ec1a6372ed92b5a396fd0e9
+  2.4.2: sha256:ff0b63c50d547dd36bcdbb2a6f61ea8595617294524e971580bf3b64806d5006
 tags:
-  2.4.2: sha256:09680a60589c6a0bff6334a042343d14649af2618ec1a6372ed92b5a396fd0e9
-  latest: sha256:09680a60589c6a0bff6334a042343d14649af2618ec1a6372ed92b5a396fd0e9
+  2.4.2: sha256:ff0b63c50d547dd36bcdbb2a6f61ea8595617294524e971580bf3b64806d5006
+  latest: sha256:ff0b63c50d547dd36bcdbb2a6f61ea8595617294524e971580bf3b64806d5006
 aliases:
   bowtie2: /opt/view/bin/bowtie2
   bowtie2-align-l: /opt/view/bin/bowtie2-align-l

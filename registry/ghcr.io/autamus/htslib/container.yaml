@@ -3,10 +3,10 @@ url: https://github.com/orgs/autamus/packages/container/package/htslib
 maintainer: '@vsoch'
 description: A C library for reading/writing high-throughput sequencing data.
 latest:
-  "1.13": sha256:774505e7a81e9572ad6a66a0641e5a4af3f641d267c576581f900707382e45c9
+  "1.13": sha256:7c80940e685f219495de4adf9b05bfb60b003f5155b0175952a058aee292fd8c
 tags:
   "1.12": sha256:876a1896491e22b32420c909304df879150f99624c8edf27596de3bc4411c055
-  "1.13": sha256:774505e7a81e9572ad6a66a0641e5a4af3f641d267c576581f900707382e45c9
-  latest: sha256:774505e7a81e9572ad6a66a0641e5a4af3f641d267c576581f900707382e45c9
+  "1.13": sha256:7c80940e685f219495de4adf9b05bfb60b003f5155b0175952a058aee292fd8c
+  latest: sha256:7c80940e685f219495de4adf9b05bfb60b003f5155b0175952a058aee292fd8c
 aliases:
   htsfile: /opt/view/bin/htsfile

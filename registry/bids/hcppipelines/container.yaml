@@ -4,9 +4,10 @@ maintainer: '@vsoch'
 description: BIDS-ified HPC Piplines to process MRI data for the Human Connectome
   Project (https://github.com/BIDS-Apps/HCPPipelines)
 latest:
-  v4.1.3-1: sha256:aea536f1dde005bc0e30451a42709d436146e373c2088b10614b5d3a1614b52b
+  v4.3.0-2: sha256:2834881a48f6849b306f59ac604b46016b06c402ed0ed5e0d03ef98964097154
 tags:
-  latest: sha256:76c6863be7cf245b82eb03c46c798c9cafb2ffadd07206096058a4dd2ff23a6c
+  latest: sha256:2834881a48f6849b306f59ac604b46016b06c402ed0ed5e0d03ef98964097154
   v4.1.3-1: sha256:aea536f1dde005bc0e30451a42709d436146e373c2088b10614b5d3a1614b52b
+  v4.3.0-2: sha256:2834881a48f6849b306f59ac604b46016b06c402ed0ed5e0d03ef98964097154
 filter:
 - v*

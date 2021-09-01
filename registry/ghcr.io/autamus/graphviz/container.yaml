@@ -3,12 +3,13 @@ url: https://github.com/orgs/autamus/packages/container/package/graphviz
 maintainer: '@vsoch'
 description: Graphviz is open source graph visualization software.
 latest:
-  2.47.3: sha256:c7156c353904ff244535472315d0e14b3b15f5fd9f4ee646d42be677f73308f1
+  2.49.0: sha256:d0df4d70daa5b6ceb6e2ee6f4120d7e8a3392f2f378c4bb456dab95beb6e9b87
 tags:
   2.47.1: sha256:a9ec69fd28145200959c397ea8712bdab28184cc36859a5588391c6fa35940b9
   2.47.2: sha256:bd4f3510eff91a0eef3919258de9e475ba8a0e89b943b6d77e97f108eb142795
   2.47.3: sha256:c7156c353904ff244535472315d0e14b3b15f5fd9f4ee646d42be677f73308f1
-  latest: sha256:c7156c353904ff244535472315d0e14b3b15f5fd9f4ee646d42be677f73308f1
+  2.49.0: sha256:d0df4d70daa5b6ceb6e2ee6f4120d7e8a3392f2f378c4bb456dab95beb6e9b87
+  latest: sha256:d0df4d70daa5b6ceb6e2ee6f4120d7e8a3392f2f378c4bb456dab95beb6e9b87
 aliases:
   gc: /opt/view/bin/gc
   gml2gv: /opt/view/bin/gml2gv

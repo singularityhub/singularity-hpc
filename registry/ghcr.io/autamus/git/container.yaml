@@ -6,9 +6,9 @@ description: Git is software for tracking changes in any set of files, usually u
   software development. Its goals include speed, data integrity, and support for distributed,
   non-linear workflows.
 latest:
-  latest: sha256:d85e725d0cc2ecedff101509aa28ad0709d980d631141e8955c114a2a4d8e4a6
+  latest: sha256:4b3800dc2b1434c6057edac814fe790a51eea1f66ee5c925af11fa452a81a6f8
 tags:
-  latest: sha256:d85e725d0cc2ecedff101509aa28ad0709d980d631141e8955c114a2a4d8e4a6
+  latest: sha256:4b3800dc2b1434c6057edac814fe790a51eea1f66ee5c925af11fa452a81a6f8
 aliases:
   git: /opt/view/bin/git
   git-cvsserver: /opt/view/bin/git-cvsserver

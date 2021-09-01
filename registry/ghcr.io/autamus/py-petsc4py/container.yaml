@@ -3,6 +3,7 @@ url: https://github.com/orgs/autamus/packages/container/package/py-petsc4py
 maintainer: '@vsoch'
 description: This package provides Python bindings for the PETSc package.
 latest:
-  3.15.1: sha256:eb9a93ec9b97db483cf0e5a994f8c01c4ecc80c3d2e52fb6122c2416c272e243
+  3.15.3: sha256:4070c966e1d5108f375a8f97590adce63ad45c3addca2a4f26773e57c3500a2f
 tags:
   3.15.1: sha256:eb9a93ec9b97db483cf0e5a994f8c01c4ecc80c3d2e52fb6122c2416c272e243
+  3.15.3: sha256:4070c966e1d5108f375a8f97590adce63ad45c3addca2a4f26773e57c3500a2f

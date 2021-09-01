@@ -3,7 +3,7 @@ url: https://github.com/orgs/autamus/packages/container/package/cabana
 maintainer: '@vsoch'
 description: The Exascale Co-Design Center for Particle Applications Toolkit
 latest:
-  0.4.0: sha256:6e5bd184ba2ce848f81e5260943a34edfc3948ac8d85ba422bb157594d35e3a9
+  0.4.0: sha256:880b486fa6857026a47946c14663976ee1ade079bfb776d5c38f53e2a8335ee1
 tags:
   0.3.0: sha256:0869596ab9201f4c5ef1cf91ab99083243a989f21d90547e4b2bfee0df45fab6
-  0.4.0: sha256:6e5bd184ba2ce848f81e5260943a34edfc3948ac8d85ba422bb157594d35e3a9
+  0.4.0: sha256:880b486fa6857026a47946c14663976ee1ade079bfb776d5c38f53e2a8335ee1

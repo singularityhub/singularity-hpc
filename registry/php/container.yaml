@@ -4,15 +4,16 @@ maintainer: '@vsoch'
 description: While designed for web development, the PHP scripting language also provides
   general-purpose use.
 latest:
-  8.1.0alpha1-alpine: sha256:028c42e86276c77e4bf5d05fb9df93142344d83f971f369a80b6f6e30a50e14b
+  8.1.0alpha1: sha256:a63a64bc485982b0543af4ff2fe6e42cd82d65afc39eb4e073f5d361636513fb
 tags:
   7.3.27-zts-alpine3.12: sha256:33c32435b162a6aa427a506f4d3fd3616ab1897a0211c5787649e9e07b967223
   8.0.3-alpine: sha256:f32cd843417d9271d1500ed3867922175604a243d8033ad1572d617ad7954171
   8.0.5-alpine: sha256:b728c7e60d1bdb28bfba1bbd4ac3328fbde3a70a959a55c318ccae3fc4d170cf
   8.0.6-alpine: sha256:a5afa558fcf8030edbc0f160339eaeefccdf1af53df35d0d26171c470a7ab5b6
   8.0.7-alpine: sha256:edd37734c824c65cdbc1e68c9ac928c590a5c750b6b49c656a302b3b0742d371
+  8.1.0alpha1: sha256:a63a64bc485982b0543af4ff2fe6e42cd82d65afc39eb4e073f5d361636513fb
   8.1.0alpha1-alpine: sha256:028c42e86276c77e4bf5d05fb9df93142344d83f971f369a80b6f6e30a50e14b
-  latest: sha256:5f80e6756082c62ec7f51ce2b727e08785f10cc74e57a3618dfc5102ca6f5b85
+  latest: sha256:2fbb63d28efbff5e3f4e0f80a2156c201450d87f0535adc036e287f5cf35d076
 aliases:
   php: /usr/local/bin/php
   php-cgi: /usr/local/bin/php-cgi
