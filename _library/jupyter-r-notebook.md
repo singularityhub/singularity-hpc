@@ -3,7 +3,7 @@ layout: container
 name:  "jupyter/r-notebook"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/jupyter/r-notebook/container.yaml"
-updated_at: "2021-09-01 01:09:40.333452"
+updated_at: "2021-09-03 06:10:57.301020"
 container_url: "https://hub.docker.com/r/jupyter/r-notebook"
 aliases:
  - "run-notebook"
@@ -99,9 +99,9 @@ $ singularity inspect -d <container>
 #### run-notebook
        
 ```bash
-$ singularity exec --home ${HOME} --bind ${HOME}/.local:/home/joyvan/.local --bind $(mktemp -d):/run/user <container> jupyter notebook --no-browser --port=$(shuf -i 2000-65000 -n 1) --ip 0.0.0.0
-$ podman run --it --rm --entrypoint   --home ${HOME} --bind ${HOME}/.local:/home/joyvan/.local --bind $(mktemp -d):/run/user  -v ${PWD} -w ${PWD} <container> -c " $@"
-$ docker run --it --rm --entrypoint   --home ${HOME} --bind ${HOME}/.local:/home/joyvan/.local --bind $(mktemp -d):/run/user  -v ${PWD} -w ${PWD} <container> -c " $@"
+$ singularity exec <container> jupyter notebook --no-browser --port=$(shuf -i 2000-65000 -n 1) --ip 0.0.0.0
+$ podman run --it --rm --entrypoint    -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint    -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
