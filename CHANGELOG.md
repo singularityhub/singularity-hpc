@@ -14,7 +14,7 @@ and **Merged pull requests**. Critical items to know are:
 The versions coincide with releases on pip. Only major versions will be released as tags on Github.
 
 ## [0.0.x](https://github.scom/singularityhub/singularity-hpc/tree/master) (0.0.x)
- - Adding singularity and docker specific options (0.0.32)
+ - Adding singularity and podman/docker specific options (0.0.32)
    - Adding more documentation on aliases
    - Bugfix to output error message if path does not exist for inspect
  - Fixing bug with using variables in recipe options (0.0.31)

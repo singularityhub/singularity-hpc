@@ -49,7 +49,7 @@ aliases_list = {
             "name": {"type": "string"},
             "command": {"type": "string"},
             "singularity_options": {"type": "string"},
-            "docker_options": {"type": "string"},
+            "podman_options": {"type": "string"},
         },
     },
 }

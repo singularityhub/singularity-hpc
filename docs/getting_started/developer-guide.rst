@@ -180,17 +180,19 @@ Podman and Singularity, for example. A second form is allowed, using dicts, in t
       singularity_options: --cleanenv
 
 
-Or perhaps the container required the docker options ``-it`` because it was an interactive, terminal session:
+Or perhaps the container required the podman options ``-it`` because it was an interactive, terminal session:
+
+.. code-block:: yaml
 
     aliases:
     - name: python
       command: /usr/local/bin/python
-      docker_options: -it
+      podman_options: -it
 
 
-For each of the above, depending on the prefix of options that you choose, it will write them into the module files for Singularity and Docker, respectively.
-This means that if you design a new registry recipe, you should consider how to run it for both kinds of technology. Also note that ``docker_options`` are
-those that will also be used for Podman.
+For each of the above, depending on the prefix of options that you choose, it will write them into the module files for Singularity and Podman, respectively.
+This means that if you design a new registry recipe, you should consider how to run it for both kinds of technology. Also note that ``podman_options`` are
+those that will also be used for Docker.
 
 
 Environment Variables
