@@ -119,7 +119,10 @@ class ContainerTechnology:
         """
         Get a list of installed tags.
         """
-        return os.listdir(os.path.join(self.settings.module_base, module_name))
+        module_dir = os.path.join(self.settings.module_base, module_name)
+        if not os.path.exists(module_dir):
+            logger.exit("%s does not exist." % module_dir)
+        return os.listdir(module_dir)
 
     def get_environment_file(self, module_name):
         """
