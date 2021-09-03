@@ -182,6 +182,8 @@ Podman and Singularity, for example. A second form is allowed, using dicts, in t
 
 Or perhaps the container required the docker options ``-it`` because it was an interactive, terminal session:
 
+.. code-block:: yaml
+
     aliases:
     - name: python
       command: /usr/local/bin/python
