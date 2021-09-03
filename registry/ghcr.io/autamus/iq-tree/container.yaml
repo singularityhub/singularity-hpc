@@ -5,9 +5,9 @@ description: IQ-TREE (http://www.iqtree.org, last accessed February 6, 2020) is 
   user-friendly and widely used software package for phylogenetic inference using
   maximum likelihood.
 latest:
-  2.0.6: sha256:aa9d431dca7f950cde8142e1e669c8e8c210e6284ff3cf8004c695bcb984c2e3
+  2.0.6: sha256:3b3fa503ae69d5fbddbd6adb92462ad5bc09bdf814140001bd04baacc4feae9e
 tags:
-  2.0.6: sha256:aa9d431dca7f950cde8142e1e669c8e8c210e6284ff3cf8004c695bcb984c2e3
-  latest: sha256:aa9d431dca7f950cde8142e1e669c8e8c210e6284ff3cf8004c695bcb984c2e3
+  2.0.6: sha256:3b3fa503ae69d5fbddbd6adb92462ad5bc09bdf814140001bd04baacc4feae9e
+  latest: sha256:3b3fa503ae69d5fbddbd6adb92462ad5bc09bdf814140001bd04baacc4feae9e
 aliases:
   iq-tree2: /opt/view/bin/iq-tree2

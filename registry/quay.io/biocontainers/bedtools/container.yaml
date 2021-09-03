@@ -1,10 +1,11 @@
 docker: quay.io/biocontainers/bedtools
 url: https://quay.io/repository/biocontainers/bedtools
 maintainer: '@marcodelapierre'
-description: 'Bedtools is the swiss army knife for genome arithmetic.'
+description: Bedtools is the swiss army knife for genome arithmetic.
 latest:
-  2.30.0--h7d7f7ad_1: sha256:a2e163619a608525ff784ee296c6925bb75fdc243573fe07edad8c91ee1ad83d
+  2.30.0--hc088bd4_0: sha256:b0018bd0a10853e19ee92f6d46d8d12f1c41e516845105e1f02c91b4d7b961b1
 tags:
   2.30.0--h7d7f7ad_1: sha256:a2e163619a608525ff784ee296c6925bb75fdc243573fe07edad8c91ee1ad83d
+  2.30.0--hc088bd4_0: sha256:b0018bd0a10853e19ee92f6d46d8d12f1c41e516845105e1f02c91b4d7b961b1
 aliases:
   bedtools: /usr/local/bin/bedtools

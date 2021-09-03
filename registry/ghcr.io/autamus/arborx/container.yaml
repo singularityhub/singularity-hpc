@@ -3,6 +3,6 @@ url: https://github.com/orgs/autamus/packages/container/package/arborx
 maintainer: '@vsoch'
 description: ArborX is a performance-portable library for geometric search
 latest:
-  "1.0": sha256:f880ea89f48cbfcc272cc7dfcb3fc4cc641a5b5067de77373a95dddfeebbb3ed
+  "1.0": sha256:f947fd242be6e3ec3ad0dbe7f478f32776c2a22ce4d4aeb2bf4085aee5958567
 tags:
-  "1.0": sha256:f880ea89f48cbfcc272cc7dfcb3fc4cc641a5b5067de77373a95dddfeebbb3ed
+  "1.0": sha256:f947fd242be6e3ec3ad0dbe7f478f32776c2a22ce4d4aeb2bf4085aee5958567

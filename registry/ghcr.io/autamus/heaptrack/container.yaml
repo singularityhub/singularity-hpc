@@ -4,10 +4,10 @@ maintainer: '@vsoch'
 description: Heaptrack traces all memory allocations and annotates these events with
   stack traces.
 latest:
-  1.2.0: sha256:16a3a29596a52252e7f4192a357fa911ae2e84380e3cc2f42fc2f00981af39fa
+  1.2.0: sha256:863d9d026cc25bb43e111d3300e1495957d870b21132948d29f43afded9efeee
 tags:
-  1.2.0: sha256:16a3a29596a52252e7f4192a357fa911ae2e84380e3cc2f42fc2f00981af39fa
-  latest: sha256:16a3a29596a52252e7f4192a357fa911ae2e84380e3cc2f42fc2f00981af39fa
+  1.2.0: sha256:863d9d026cc25bb43e111d3300e1495957d870b21132948d29f43afded9efeee
+  latest: sha256:863d9d026cc25bb43e111d3300e1495957d870b21132948d29f43afded9efeee
 aliases:
   heaptrack: /opt/view/bin/heaptrack
   heaptrack_print: /opt/view/bin/heaptrack_print

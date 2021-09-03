@@ -4,7 +4,7 @@ maintainer: '@vsoch'
 description: A suite of fast, multithreaded bioinformatics tools designed for analysis
   of DNA and RNA sequence data.
 latest:
-  "38.63": sha256:1ca6d41b57170c8ef19218830bb1c99400719a3825b7a69a3d6406568deab7f0
+  "38.63": sha256:f476ea9b2cf7d222ecfddc28418b25c6a425b8a4e2c4c0fe19e5940013dc51f9
 tags:
-  "38.63": sha256:1ca6d41b57170c8ef19218830bb1c99400719a3825b7a69a3d6406568deab7f0
-  latest: sha256:1ca6d41b57170c8ef19218830bb1c99400719a3825b7a69a3d6406568deab7f0
+  "38.63": sha256:f476ea9b2cf7d222ecfddc28418b25c6a425b8a4e2c4c0fe19e5940013dc51f9
+  latest: sha256:f476ea9b2cf7d222ecfddc28418b25c6a425b8a4e2c4c0fe19e5940013dc51f9

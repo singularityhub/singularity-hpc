@@ -4,10 +4,10 @@ maintainer: '@vsoch'
 description: GEOS is a C++11 library for performing operations on two-dimensional
   vector geometries.
 latest:
-  3.9.1: sha256:66be47e36dd42476a902763e73fcdd92b11f032b6c493c0937ca96208f8efe69
+  3.9.1: sha256:ba9949860e82329aaebe49e6f06cba0c4d134c489ca6c3e27239add66e772016
 tags:
   3.8.1: sha256:731b5a546569eabad6aa69e43a01b507184379a04f5071d55d96a213bf22a121
-  3.9.1: sha256:66be47e36dd42476a902763e73fcdd92b11f032b6c493c0937ca96208f8efe69
-  latest: sha256:66be47e36dd42476a902763e73fcdd92b11f032b6c493c0937ca96208f8efe69
+  3.9.1: sha256:ba9949860e82329aaebe49e6f06cba0c4d134c489ca6c3e27239add66e772016
+  latest: sha256:ba9949860e82329aaebe49e6f06cba0c4d134c489ca6c3e27239add66e772016
 aliases:
   geos-config: /opt/view/bin/geos-config

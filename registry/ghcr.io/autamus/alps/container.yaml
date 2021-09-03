@@ -3,9 +3,9 @@ url: https://github.com/orgs/autamus/packages/container/package/alps
 maintainer: '@vsoch'
 description: Algorithms and Libraries for Physics Simulations.
 latest:
-  2.3.0: sha256:38389e73db8a5b59a36804b8a5df4f67ff681c6784546cabccfdd54fe30b590f
+  2.3.0: sha256:e0fbef41f6f4c348ba602f1dafa5099b03b8bf981fcd59e26c65daa36b687e82
 tags:
-  2.3.0: sha256:38389e73db8a5b59a36804b8a5df4f67ff681c6784546cabccfdd54fe30b590f
-  latest: sha256:38389e73db8a5b59a36804b8a5df4f67ff681c6784546cabccfdd54fe30b590f
+  2.3.0: sha256:e0fbef41f6f4c348ba602f1dafa5099b03b8bf981fcd59e26c65daa36b687e82
+  latest: sha256:e0fbef41f6f4c348ba602f1dafa5099b03b8bf981fcd59e26c65daa36b687e82
 aliases:
   alpspython: /opt/view/bin/alpspython

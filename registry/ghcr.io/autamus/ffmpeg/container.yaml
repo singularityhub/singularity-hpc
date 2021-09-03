@@ -5,10 +5,10 @@ description: FFmpeg is a free and open-source software project consisting of a l
   suite of libraries and programs for handling video, audio, and other multimedia
   files and streams.
 latest:
-  "4.5": sha256:580a40ca18db9cdc338f2f98be3fcad7b44215dfbc7a0fdfc8fea47f4e752709
+  "4.5": sha256:a2ddf332156e7accde477e3a70db1f2673e7bb1b2771a8265151a3ecfd28bb27
 tags:
-  "4.5": sha256:580a40ca18db9cdc338f2f98be3fcad7b44215dfbc7a0fdfc8fea47f4e752709
-  latest: sha256:580a40ca18db9cdc338f2f98be3fcad7b44215dfbc7a0fdfc8fea47f4e752709
+  "4.5": sha256:a2ddf332156e7accde477e3a70db1f2673e7bb1b2771a8265151a3ecfd28bb27
+  latest: sha256:a2ddf332156e7accde477e3a70db1f2673e7bb1b2771a8265151a3ecfd28bb27
 aliases:
   ffmpeg: /opt/view/bin/ffmpeg
   ffprobe: /opt/view/bin/ffprobe

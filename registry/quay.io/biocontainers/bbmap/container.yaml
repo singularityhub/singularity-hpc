@@ -1,13 +1,15 @@
 docker: quay.io/biocontainers/bbmap
 url: https://quay.io/repository/biocontainers/bbmap
 maintainer: '@marcodelapierre'
-description: 'BBMap is a short read aligner, as well as various other bioinformatic tools.'
+description: BBMap is a short read aligner, as well as various other bioinformatic
+  tools.
 latest:
-  38.91--he522d1c_1: sha256:5679f2c146844662be023769146fa787ea101f3dd833ade36aaa0bb533c9939a
+  38.92--he522d1c_0: sha256:103f3a1ec4144933c583da1f8f9bfc7447468e0150c9591d4cc1aff8f98830b9
 tags:
   38.89--h1296035_0: sha256:acc26b0e54b1323c2db287fabb8bffecda94e766b6759dfdddc7472687b52f33
   38.90--he522d1c_3: sha256:e85733071f68bc84959aa97155f9d13b87fdfd17f41703fe861c057a56dec2b0
   38.91--he522d1c_1: sha256:5679f2c146844662be023769146fa787ea101f3dd833ade36aaa0bb533c9939a
+  38.92--he522d1c_0: sha256:103f3a1ec4144933c583da1f8f9bfc7447468e0150c9591d4cc1aff8f98830b9
 aliases:
   a_sample_mt.sh: /usr/local/bin/a_sample_mt.sh
   addadapters.sh: /usr/local/bin/addadapters.sh
@@ -207,4 +209,3 @@ aliases:
   unzip.sh: /usr/local/bin/unzip.sh
   vcf2gff.sh: /usr/local/bin/vcf2gff.sh
   webcheck.sh: /usr/local/bin/webcheck.sh
-

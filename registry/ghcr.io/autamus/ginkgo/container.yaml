@@ -4,6 +4,6 @@ maintainer: '@vsoch'
 description: High-performance linear algebra library for manycore systems, with a
   focus on sparse solution of linear systems.
 latest:
-  1.3.0: sha256:129e303264654e902202b47122a17cec77bcfe79cce5ebf1e932a916f14ce863
+  1.3.0: sha256:5d60cb8cedc1d907ba7b7d7b032e7da954c2ff07124472e703d6f9f70544eeee
 tags:
-  1.3.0: sha256:129e303264654e902202b47122a17cec77bcfe79cce5ebf1e932a916f14ce863
+  1.3.0: sha256:5d60cb8cedc1d907ba7b7d7b032e7da954c2ff07124472e703d6f9f70544eeee

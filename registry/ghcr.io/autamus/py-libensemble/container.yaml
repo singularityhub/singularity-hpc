@@ -3,6 +3,6 @@ url: https://github.com/orgs/autamus/packages/container/package/py-libensemble
 maintainer: '@vsoch'
 description: Library for managing ensemble-like collections of computations.
 latest:
-  0.7.2: sha256:675d86276ca3512160282865e1021a51c00ae0312e025ef0ebf758393521378f
+  0.7.2: sha256:8148fe8d80afce6dfd6aeee097f152993e4453d352599514a7991ec9e846185c
 tags:
-  0.7.2: sha256:675d86276ca3512160282865e1021a51c00ae0312e025ef0ebf758393521378f
+  0.7.2: sha256:8148fe8d80afce6dfd6aeee097f152993e4453d352599514a7991ec9e846185c

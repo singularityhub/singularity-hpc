@@ -4,11 +4,11 @@ maintainer: '@vsoch'
 description: MAFFT is a multiple sequence alignment program for unix-like operating
   systems.
 latest:
-  "7.481": sha256:ae1c8957fd976a0707ef0c8c44e7ba3724c0cf13c4cf1fd0c108eaa08f1e0566
+  "7.481": sha256:e64110abb7c67b2b7b5e4d12aa044aa8baaed67fcde40310ebdadf0e25b62468
 tags:
   "7.475": sha256:68187dfeeef282e59e5b0e09d9467523d655c3913bda90b5d21a183beec41720
-  "7.481": sha256:ae1c8957fd976a0707ef0c8c44e7ba3724c0cf13c4cf1fd0c108eaa08f1e0566
-  latest: sha256:ae1c8957fd976a0707ef0c8c44e7ba3724c0cf13c4cf1fd0c108eaa08f1e0566
+  "7.481": sha256:e64110abb7c67b2b7b5e4d12aa044aa8baaed67fcde40310ebdadf0e25b62468
+  latest: sha256:e64110abb7c67b2b7b5e4d12aa044aa8baaed67fcde40310ebdadf0e25b62468
 aliases:
   mafft: /opt/view/bin/mafft
   mafft-distance: /opt/view/bin/mafft-distance

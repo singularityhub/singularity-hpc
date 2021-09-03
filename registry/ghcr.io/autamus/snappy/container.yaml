@@ -4,7 +4,7 @@ maintainer: '@vsoch'
 description: Snappy (previously known as Zippy) is a fast data compression and decompression
   library written in C++ by Google based on ideas from LZ77 and open-sourced in 2011.
 latest:
-  1.1.8: sha256:bfcfa2db15b043142cf7dcdf291c1f4c14365fd1a22587d3efec071043e695de
+  1.1.8: sha256:421fb45fcf9ec0aef41e1b4fb4c324f1cb66be51734a33e14c368275c653f947
 tags:
-  1.1.8: sha256:bfcfa2db15b043142cf7dcdf291c1f4c14365fd1a22587d3efec071043e695de
-  latest: sha256:bfcfa2db15b043142cf7dcdf291c1f4c14365fd1a22587d3efec071043e695de
+  1.1.8: sha256:421fb45fcf9ec0aef41e1b4fb4c324f1cb66be51734a33e14c368275c653f947
+  latest: sha256:421fb45fcf9ec0aef41e1b4fb4c324f1cb66be51734a33e14c368275c653f947

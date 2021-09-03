@@ -4,10 +4,11 @@ maintainer: '@vsoch'
 description: HDF5 is a unique technology suite that makes possible the management
   of extremely large and complex data collections.
 latest:
-  1.12.0: sha256:cf708cd850f573a009d3f111f5e7576ba18ccbc7e4c7292ed4d8b233c4f4a99b
+  "1.13": sha256:39f64bd4883dfe7e72f656ed3a5ef45400890f31f2220d2c453f682ddd5a4b7c
 tags:
   1.12.0: sha256:cf708cd850f573a009d3f111f5e7576ba18ccbc7e4c7292ed4d8b233c4f4a99b
-  latest: sha256:cf708cd850f573a009d3f111f5e7576ba18ccbc7e4c7292ed4d8b233c4f4a99b
+  "1.13": sha256:39f64bd4883dfe7e72f656ed3a5ef45400890f31f2220d2c453f682ddd5a4b7c
+  latest: sha256:39f64bd4883dfe7e72f656ed3a5ef45400890f31f2220d2c453f682ddd5a4b7c
 aliases:
   h5clear: /opt/view/bin/h5clear
   h5copy: /opt/view/bin/h5copy
