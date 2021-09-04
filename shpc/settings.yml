@@ -58,3 +58,4 @@ environment_file: 99-shpc.sh
 # container features like gpu will modify generated recipes
 container_features:
   gpu:      # one of null, amd, or nvidia
+  x11:      # one of null, true, false, or a path

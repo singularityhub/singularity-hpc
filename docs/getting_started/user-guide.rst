@@ -251,7 +251,11 @@ option will be added. Currently, the following features are supported:
      - If the container technology supports it, add flags to indicate using gpu.
      - null
      - nvidia, amd, null
-     
+   * - x11
+     - Bind mount ~/.Xauthority or a custom path
+     - null
+     - true (uses default path ~/.Xauthority), false/null (do not enable) or a custom path to an x11 file
+
 
 Modules Folder
 --------------

@@ -25,7 +25,10 @@ class SingularityContainer(ContainerTechnology):
     templatefile = "singularity"
 
     # Singularity container features
-    features = {"gpu": {"nvidia": "--nv", "amd": "--rocm"}}
+    features = {
+        "gpu": {"nvidia": "--nv", "amd": "--rocm"},
+        "x11": {True: "~/.Xauthority", str: "[use-self]"},
+    }
 
     def __init__(self):
         try:
