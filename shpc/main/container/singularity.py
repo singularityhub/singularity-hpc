@@ -28,6 +28,7 @@ class SingularityContainer(ContainerTechnology):
     features = {
         "gpu": {"nvidia": "--nv", "amd": "--rocm"},
         "x11": {True: "~/.Xauthority", str: "[use-self]"},
+        "home": {str: "[use-self]"},
     }
 
     def __init__(self):

@@ -22,7 +22,7 @@ class DockerContainer(ContainerTechnology):
     # The module technology adds extensions here
     templatefile = "docker"
     command = "docker"
-    features = {}
+    features = {"home": {str: "[use-self]"}}
 
     def __init__(self):
         if shpc.utils.which(self.command)["return_code"] != 0:
