@@ -256,9 +256,9 @@ option will be added. Currently, the following features are supported:
      - null
      - true (uses default path ~/.Xauthority), false/null (do not enable) or a custom path to an x11 file
    * - home
-     - Specify a custom home. Should be true/false in container config, and a string path in settings
+     - Specify and bind mount a custom home path
      - null
-     - In settings, should be null or a path for the home. In the container config, can be true or false (default if not present)
+     - custom path for the home, or false/null
 
 
 Modules Folder
