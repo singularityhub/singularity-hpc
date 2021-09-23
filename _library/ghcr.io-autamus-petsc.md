@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/petsc"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/petsc/container.yaml"
-updated_at: "2021-09-03 06:10:36.303023"
+updated_at: "2021-09-23 01:38:15.822810"
 container_url: "https://github.com/orgs/autamus/packages/container/package/petsc"
 
 versions:

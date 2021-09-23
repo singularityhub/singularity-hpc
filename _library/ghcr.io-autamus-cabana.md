@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/cabana"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/cabana/container.yaml"
-updated_at: "2021-09-03 06:10:14.954231"
+updated_at: "2021-09-23 01:38:30.401118"
 container_url: "https://github.com/orgs/autamus/packages/container/package/cabana"
 
 versions:
