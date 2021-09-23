@@ -159,11 +159,19 @@ class ContainerTechnology:
             # If the container technology has the feature and is defined in settings
             if key in self.features and key in settings_features:
 
-                # And if the settings feature is known to the container technology
+                # Case 1: the feature is known to the container technology
                 if settings_features[key] in self.features[key]:
 
-                    # Add the feature to be given to the container!
                     features[key] = self.features[key][settings_features[key]]
+
+                # Case 2: the exact value isn't known, but the feature accepts a string
+                elif type(settings_features[key]) in self.features[key]:
+
+                    # Add the feature to be given to the container!
+                    value = self.features[key][type(settings_features[key])]
+                    if value == "[use-self]":
+                        value = settings_features[key]
+                    features[key] = value
 
         return features
 

@@ -13,3 +13,5 @@ aliases:
   treeannotator: /usr/local/bin/treeannotator
 env:
   DISPLAY: ""
+features:
+  home: true

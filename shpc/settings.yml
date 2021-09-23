@@ -58,3 +58,7 @@ environment_file: 99-shpc.sh
 # container features like gpu will modify generated recipes
 container_features:
   gpu:      # one of null, amd, or nvidia
+  x11:      # one of null, true, false, or a path
+            # defaults to ~/.Xauthority if set to true and the container has x11: true
+  home:     # one of null, or a single path or src:dest path. 
+            # home: true in a container.yaml will use this path, if defines

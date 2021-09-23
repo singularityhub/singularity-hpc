@@ -314,9 +314,46 @@ Fields include:
      - A list of environment variables to be defined in the container (key value pairs, e.g. var: value)
      - false
    * - features
-     - Optional key, value paired set of features to enable for the container. Currently allowed keys: *gpu*. Allowed values: *true*, *false* (default)
-     - false
+     - Optional key, value paired set of features to enable for the container. Currently allowed keys: *gpu* *home* and *x11*.
+     - varies
 
+
+A complete table of features is shown here. The
+
+Fields include:
+
+.. list-table:: Title
+   :widths: 20 20 20 10 10 10
+   :header-rows: 1
+
+   * - Name
+     - Description
+     - Container.yaml Values
+     - Settings.yaml Values
+     - Default
+     - Supported
+   * - gpu
+     - Add flags to the container to enable GPU support (typically amd or nvidia)
+     - true or false
+     - null, amd, or nvidia
+     - null
+     - Singularity
+   * - x11
+     - Indicate to bind an Xauthority file to allow x11
+     - true or false
+     - null, true (uses default ~/.Xauthority) or bind path
+     - null
+     - Singularity
+   * - home
+     - Indicate a custom home to bind
+     - true or false
+     - null, or path to a custom home
+     - null
+     - Singularity, Docker
+
+
+For bind paths (e.g., home and x11) you can do a single path to indicate the same
+source and destination (e.g., /my/path) or a double for customization of that (e,g., /src:/dest).
 Other supported (but not yet developed) fields could include different unique
 resource identifiers to pull/obtain other kinds of containers. For this
 current version, since we are assuming HPC and Singularity, we will typically
