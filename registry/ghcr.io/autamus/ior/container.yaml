@@ -4,9 +4,9 @@ maintainer: '@vsoch'
 description: 'IOR is a parallel IO benchmark that can be used to test the performance
   of parallel storage systems using various interfaces and access patterns. '
 latest:
-  3.3.0: sha256:b2f80da4354d72e6abe40e547b17c82557286f903b75d80cea8784cb0e804f07
+  3.3.0: sha256:dfe12b1ace408b9b45aeb69f613afdcf06f901184ee9207b1d203a4cf27512a1
 tags:
-  3.3.0: sha256:b2f80da4354d72e6abe40e547b17c82557286f903b75d80cea8784cb0e804f07
-  latest: sha256:b2f80da4354d72e6abe40e547b17c82557286f903b75d80cea8784cb0e804f07
+  3.3.0: sha256:dfe12b1ace408b9b45aeb69f613afdcf06f901184ee9207b1d203a4cf27512a1
+  latest: sha256:dfe12b1ace408b9b45aeb69f613afdcf06f901184ee9207b1d203a4cf27512a1
 aliases:
   ior: /opt/view/bin/ior

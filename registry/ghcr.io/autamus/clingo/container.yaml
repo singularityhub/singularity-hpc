@@ -3,11 +3,11 @@ url: https://github.com/orgs/autamus/packages/container/package/clingo
 maintainer: '@vsoch'
 description: An ASP system to ground and solve logic programs.
 latest:
-  5.5.0: sha256:734582037e1fd7fd5deb5309265a8fc9e918a946bf56f3f7b1cb01fcf400091d
+  5.5.0: sha256:f3bdf0dcd9d47a5a92e9af8d6590463505eba27d600b09a210be590a60f41395
 tags:
   5.4.1: sha256:c98a480f85a68063dfb9c4cb6eedfbe0cf84a1af737b73ef2d94213fffd91ff5
-  5.5.0: sha256:734582037e1fd7fd5deb5309265a8fc9e918a946bf56f3f7b1cb01fcf400091d
-  latest: sha256:734582037e1fd7fd5deb5309265a8fc9e918a946bf56f3f7b1cb01fcf400091d
+  5.5.0: sha256:f3bdf0dcd9d47a5a92e9af8d6590463505eba27d600b09a210be590a60f41395
+  latest: sha256:f3bdf0dcd9d47a5a92e9af8d6590463505eba27d600b09a210be590a60f41395
 aliases:
   clingo: /opt/view/bin/clingo
   gringo: /opt/view/bin/gringo

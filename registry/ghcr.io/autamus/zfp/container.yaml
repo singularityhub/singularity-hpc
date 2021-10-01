@@ -4,6 +4,6 @@ maintainer: '@vsoch'
 description: zfp is a compressed number format for multidimensional floating-point
   and integer arrays.
 latest:
-  0.5.5: sha256:f633770013f86149edef00bd1c73f90364e7ed65ac67db1de2ba82235ded6a36
+  0.5.5: sha256:d25e90f01b3e5ba9a3826daa8bcd6ff6546c1727be5eaa128d167e33bb041ebb
 tags:
-  0.5.5: sha256:f633770013f86149edef00bd1c73f90364e7ed65ac67db1de2ba82235ded6a36
+  0.5.5: sha256:d25e90f01b3e5ba9a3826daa8bcd6ff6546c1727be5eaa128d167e33bb041ebb

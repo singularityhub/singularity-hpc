@@ -4,7 +4,8 @@ maintainer: '@vsoch'
 description: Omega_h is a C++11 library providing data structures and algorithms for
   adaptive discretizations.
 latest:
-  9.33.3: sha256:badd22d17ca9060051b7d44652cad72516c796edc7450d8560c35318c7bd014d
+  9.34.1: sha256:862f748bdfb4edc50b84ef972c2296f76dbfe39ad118b1a9344d5e1b5e97e107
 tags:
-  9.32.5: sha256:374fa668978e5c62cc07b0c27be650dfa94561a3bda12d1a4cecbd78f3085cf1
+  9.32.5: sha256:34ff23ca78005b63181955a9d1e8eec9e7b95238a06e68b5b86892f1d62ac711
   9.33.3: sha256:badd22d17ca9060051b7d44652cad72516c796edc7450d8560c35318c7bd014d
+  9.34.1: sha256:862f748bdfb4edc50b84ef972c2296f76dbfe39ad118b1a9344d5e1b5e97e107

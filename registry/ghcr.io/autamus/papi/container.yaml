@@ -3,10 +3,10 @@ url: https://github.com/orgs/autamus/packages/container/package/papi
 maintainer: '@vsoch'
 description: Performance Application Programming Interface.
 latest:
-  6.0.0.1: sha256:b6d851a2c97a5b37a4aace228c42b456001488e19b9b4b46f0d34493c6cf39e2
+  6.0.0.1: sha256:a168c0797c3ad1c45832cd43b43c4ec7354daa2b1b42284d715997c21c87b0d8
 tags:
-  6.0.0.1: sha256:b6d851a2c97a5b37a4aace228c42b456001488e19b9b4b46f0d34493c6cf39e2
-  latest: sha256:b6d851a2c97a5b37a4aace228c42b456001488e19b9b4b46f0d34493c6cf39e2
+  6.0.0.1: sha256:a168c0797c3ad1c45832cd43b43c4ec7354daa2b1b42284d715997c21c87b0d8
+  latest: sha256:a168c0797c3ad1c45832cd43b43c4ec7354daa2b1b42284d715997c21c87b0d8
 aliases:
   papi_avail: /opt/view/bin/papi_avail
   papi_clockres: /opt/view/bin/papi_clockres

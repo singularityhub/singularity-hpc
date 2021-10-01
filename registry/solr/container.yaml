@@ -4,12 +4,12 @@ maintainer: '@vsoch'
 description: Solr is the popular, blazing-fast, open source enterprise search platform
   built on Apache Lucene™.
 latest:
-  8.9.0: sha256:0bc856b8612937888e7204b9adf5b919e44a49e6f893369d1608c698616392bf
+  8.9.0: sha256:d0b18a5b2d7abb4326ba9ae35ef5e54909c9ed793c8dceae29aa66339dd9d1c9
 tags:
-  8.8.2-slim: sha256:52990c8f44d646a80b2b7af5133c40ca81a731cd3728df980be585f55e22e628
-  8.9.0: sha256:0bc856b8612937888e7204b9adf5b919e44a49e6f893369d1608c698616392bf
-  8.9.0-slim: sha256:dc3d0b70710a130202a7c2708183752f53a99ab10a45c4386f1a83916ce40102
-  latest: sha256:0bc856b8612937888e7204b9adf5b919e44a49e6f893369d1608c698616392bf
+  8.8.2-slim: sha256:93ab530e455bb50b666137b67aeda8cc02a9701b93084c65475a2d2f112da043
+  8.9.0: sha256:d0b18a5b2d7abb4326ba9ae35ef5e54909c9ed793c8dceae29aa66339dd9d1c9
+  8.9.0-slim: sha256:2dc62b455827f57ae09f49cc4e582db19d9c44b97922eae77902d26287e02626
+  latest: sha256:d0b18a5b2d7abb4326ba9ae35ef5e54909c9ed793c8dceae29aa66339dd9d1c9
 aliases:
   post: /opt/solr/bin/post
   postlogs: /opt/solr/bin/postlogs

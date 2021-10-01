@@ -6,9 +6,9 @@ description: JasPer is a collection of software (i.e., a library and application
 latest:
   2.0.33: sha256:a675864cf6035dbf891e3af7f2b3c70e4c8e3e03c6cf5570dbe3ea259b68886d
 tags:
-  2.0.32: sha256:36c0a8ab923df1cbbc2abfadc4f87d99da3dd4aaf8fb24af39f968ccee3f646f
+  2.0.32: sha256:d3d3016844807958d9ed77494bdf6a44f16bc306a7d51fd755e17d266752b5d2
   2.0.33: sha256:a675864cf6035dbf891e3af7f2b3c70e4c8e3e03c6cf5570dbe3ea259b68886d
-  latest: sha256:f8c787daa71370a20cb970937f37f0e98382224a6efaa0c9f84f2d2147811679
+  latest: sha256:d3d3016844807958d9ed77494bdf6a44f16bc306a7d51fd755e17d266752b5d2
 aliases:
   jasper: /opt/view/bin/jasper
   jpegtran: /opt/view/bin/jpegtran

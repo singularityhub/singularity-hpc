@@ -4,12 +4,13 @@ maintainer: '@vsoch'
 description: PostgreSQL, often simply 'Postgres', is an object-relational database
   management system (ORDBMS) with an emphasis on extensibility and standards-compliance.
 latest:
-  "13.4": sha256:9c8ff3f8c0c9a69e38bb2bf339b34477aa81c69e0df1796bc28f647be504df54
+  "14.0": sha256:3e8c0b6272328bf3681de0d845ebabaf4108686c4cc5b0463822c86c2c354873
 tags:
   13.2-alpine: sha256:c4c7a1585974706b5f72b8ab595e47399b23b2e03d93bbf75c1b0904be1803dc
   13.3-alpine: sha256:e98a69a836391fe94d889a6ccfbb21257b93f47b2794da114a82ef23e342342f
-  "13.4": sha256:9c8ff3f8c0c9a69e38bb2bf339b34477aa81c69e0df1796bc28f647be504df54
-  latest: sha256:9c8ff3f8c0c9a69e38bb2bf339b34477aa81c69e0df1796bc28f647be504df54
+  "13.4": sha256:a5cc0c6b602c2f41e3943b22fc1a687f80d468fedb635ef744f5673abb908486
+  "14.0": sha256:3e8c0b6272328bf3681de0d845ebabaf4108686c4cc5b0463822c86c2c354873
+  latest: sha256:100e0840e5f357229b76f90a89019741f4425f2f821d6c18ced5b60959b155e5
 aliases:
   clusterdb: /usr/lib/postgresql/13/bin/clusterdb
   createdb: /usr/lib/postgresql/13/bin/createdb

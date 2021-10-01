@@ -7,6 +7,6 @@ latest:
   4.3.0: sha256:18a2dc9a51ea966c2b2c5b0a1251eab9eeed35d071d98d390bf3598b740e0fbe
 tags:
   4.3.0: sha256:18a2dc9a51ea966c2b2c5b0a1251eab9eeed35d071d98d390bf3598b740e0fbe
-  latest: sha256:18a2dc9a51ea966c2b2c5b0a1251eab9eeed35d071d98d390bf3598b740e0fbe
+  latest: sha256:22defb3796b23d81457d4ecd10f5d9260a332262319e88311e79b9550f0b5a56
 aliases:
   jags: /opt/view/bin/jags

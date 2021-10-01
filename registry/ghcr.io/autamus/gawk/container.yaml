@@ -5,9 +5,9 @@ description: gawk is the GNU implementation of awk. The awk utility interprets a
   programming language that makes it possible to handle simple data-reformatting jobs
   with just a few lines of code. https://www.gnu.org/software/gawk/
 latest:
-  5.1.0: sha256:c0434c787e29282d824770c5f55bc4dc5af4dc83b6076d635de20d2786eeb8b9
+  5.1.0: sha256:0fc3cafb7192edaa7a24091d4d86c0e996267ceac3aa7274f0d9efde734812e5
 tags:
-  5.1.0: sha256:c0434c787e29282d824770c5f55bc4dc5af4dc83b6076d635de20d2786eeb8b9
+  5.1.0: sha256:0fc3cafb7192edaa7a24091d4d86c0e996267ceac3aa7274f0d9efde734812e5
   5.10.0: sha256:502eebe2f9a93ce7bb06fc6f97f8ce8dd76802a380ade9b4c71f0d3f15ef0a45
 aliases:
   gawk: /opt/view/bin/gawk

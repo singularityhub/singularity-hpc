@@ -5,14 +5,15 @@ description: Protocol Buffers is a method of serializing structured data. It is 
   in developing programs to communicate with each other over a network or for storing
   data.
 latest:
-  3.17.3: sha256:cfb099fa5e1f47ea027befa49e04125ef515c97c225ed6f65c0f7d01376729bd
+  3.18.0: sha256:1b120c69ca765fbb451d63f9c494eaec9a2e5781da278cc8aa53b38cc52370f5
 tags:
   3.15.8: sha256:f257c20871d7dd135053e650c14a39c4203a1623ac5b9178e70b1ac2052f923f
   3.16.0: sha256:fc8106e5c6ffa0400f41af5be4f3977c09cf9b511e5863563b61d56c458b8836
   3.17.0: sha256:6811579bc7127ce010e005c2bb3e57af3e1c7c5ea2190faf1e8fda3f89d3f17c
   3.17.2: sha256:3cd03dad858afdc7cd91a297c52a66e5eb4ff59f3e7107b693bc3d172e53e228
-  3.17.3: sha256:cfb099fa5e1f47ea027befa49e04125ef515c97c225ed6f65c0f7d01376729bd
-  latest: sha256:cfb099fa5e1f47ea027befa49e04125ef515c97c225ed6f65c0f7d01376729bd
+  3.17.3: sha256:435965c13c09ca0a55f411f093a5131001ff6005f793eb9f94ffca87daf71409
+  3.18.0: sha256:1b120c69ca765fbb451d63f9c494eaec9a2e5781da278cc8aa53b38cc52370f5
+  latest: sha256:1b120c69ca765fbb451d63f9c494eaec9a2e5781da278cc8aa53b38cc52370f5
 aliases:
   protoc: /opt/view/bin/protoc
   protoc-3.15.8.0: /opt/view/bin/protoc-3.15.8.0

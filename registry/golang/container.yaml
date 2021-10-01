@@ -3,13 +3,14 @@ url: https://hub.docker.com/r/_/golang
 maintainer: '@vsoch'
 description: Go (a.k.a., Golang) is a programming language first developed at Google.
 latest:
-  1.17.0: sha256:60ab4da0dfb710530f7f81b14362b110154fd26c1d22ff0292b9eb30c54f2299
+  1.17.1: sha256:c9fbf6d2c4730573ba487805e859bc80239af1985641c7b031bff046b51f60db
 tags:
   1.16.4-alpine: sha256:0dc62c5cc2d97657c17ff3bc0224214e10226e245c94317e352ee8a2c54368b4
   1.16.5-alpine: sha256:45f32e963bb3cc408cfcd01a8e76b2872fb238f602ec5481cd75393da29369c0
   1.17-rc-alpine: sha256:787111a3069abdb2c4d8c0b27dff2a29cef8b147f8e7a431f5a464ea84ebfa41
-  1.17.0: sha256:60ab4da0dfb710530f7f81b14362b110154fd26c1d22ff0292b9eb30c54f2299
-  latest: sha256:60ab4da0dfb710530f7f81b14362b110154fd26c1d22ff0292b9eb30c54f2299
+  1.17.0: sha256:7dbfeb9d51c049e8bfe36cf1a4217c7b1ba304bf0eb72d57d0c04f405589f122
+  1.17.1: sha256:c9fbf6d2c4730573ba487805e859bc80239af1985641c7b031bff046b51f60db
+  latest: sha256:c9fbf6d2c4730573ba487805e859bc80239af1985641c7b031bff046b51f60db
 aliases:
   go: /usr/local/go/bin/go
   gofmt: /usr/local/go/bin/gofmt

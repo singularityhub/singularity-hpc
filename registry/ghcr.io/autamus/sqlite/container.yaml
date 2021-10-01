@@ -3,10 +3,11 @@ url: https://github.com/orgs/autamus/packages/container/package/sqlite
 maintainer: '@vsoch'
 description: 'SQLite is a relational database management system contained in a C library. '
 latest:
-  3.35.5: sha256:f84c2ecfbfc410f83d786bee14fc8cfa2f7fa9890231f640f398868026c0b619
+  3.36.0: sha256:a9be1deb0aa98aad2a14b7d1b8882f8ffa3483d9f333e85d0582f4d6d8a8b1ab
 tags:
   3.35.4: sha256:6fff31edcc2e88880c57b4ccf77bccfa3d89d626f289aa652103a906b8780880
-  3.35.5: sha256:f84c2ecfbfc410f83d786bee14fc8cfa2f7fa9890231f640f398868026c0b619
-  latest: sha256:f84c2ecfbfc410f83d786bee14fc8cfa2f7fa9890231f640f398868026c0b619
+  3.35.5: sha256:5df8dfaf8a8273fa86bcbc6a172956285ba42b73e6893c0cd9f7c1989c522e14
+  3.36.0: sha256:a9be1deb0aa98aad2a14b7d1b8882f8ffa3483d9f333e85d0582f4d6d8a8b1ab
+  latest: sha256:a9be1deb0aa98aad2a14b7d1b8882f8ffa3483d9f333e85d0582f4d6d8a8b1ab
 aliases:
   sqlite3: /opt/view/bin/sqlite3

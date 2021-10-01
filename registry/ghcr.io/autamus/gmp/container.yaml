@@ -4,9 +4,9 @@ maintainer: '@vsoch'
 description: GMP is a free library for arbitrary precision arithmetic, operating on
   signed integers, rational numbers, and floating-point numbers.
 latest:
-  6.2.1: sha256:fd179b52185a20db570a161547ec90774a7f8c99dead5b6480494b4ac52ea4ac
+  6.2.1: sha256:42da531035d2a74b3b4aff93c6c458e3ec5cfde4f6dcf36259a727c40d57b47a
 tags:
-  6.2.1: sha256:fd179b52185a20db570a161547ec90774a7f8c99dead5b6480494b4ac52ea4ac
-  latest: sha256:fd179b52185a20db570a161547ec90774a7f8c99dead5b6480494b4ac52ea4ac
+  6.2.1: sha256:42da531035d2a74b3b4aff93c6c458e3ec5cfde4f6dcf36259a727c40d57b47a
+  latest: sha256:42da531035d2a74b3b4aff93c6c458e3ec5cfde4f6dcf36259a727c40d57b47a
 aliases:
   curl: /opt/view/bin/curl

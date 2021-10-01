@@ -3,9 +3,9 @@ url: https://github.com/orgs/autamus/packages/container/package/turbine
 maintainer: '@vsoch'
 description: Turbine is the Swift/T runtime
 latest:
-  1.3.0: sha256:b6ecedda224f7c1ce7b5a528818cfba531af27d17a17a04ec2d8f827990b16f4
+  1.3.0: sha256:03251d7775ee56416644f1e05e22f633e2a79c9ad8f109d0e933819e407541a5
 tags:
-  1.3.0: sha256:b6ecedda224f7c1ce7b5a528818cfba531af27d17a17a04ec2d8f827990b16f4
+  1.3.0: sha256:03251d7775ee56416644f1e05e22f633e2a79c9ad8f109d0e933819e407541a5
 aliases:
   turbine: /opt/view/bin/turbine
   turbine-pilot: /opt/view/bin/turbine-pilot

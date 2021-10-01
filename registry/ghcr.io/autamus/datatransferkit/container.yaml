@@ -4,6 +4,6 @@ maintainer: '@vsoch'
 description: DataTransferKit is an open-source software library of parallel solution
   transfer services for multiphysics simulations
 latest:
-  3.1.rc.2: sha256:0fae98f9a2d3ff0c1c74af73172abc80408906cbd5bf47053a44b0a32a2e8694
+  3.1.rc.2: sha256:8d4bbe7e94ad24f4ae2e9d1875f894dc608ce372a56461e8689802c6078cd4e0
 tags:
-  3.1.rc.2: sha256:0fae98f9a2d3ff0c1c74af73172abc80408906cbd5bf47053a44b0a32a2e8694
+  3.1.rc.2: sha256:8d4bbe7e94ad24f4ae2e9d1875f894dc608ce372a56461e8689802c6078cd4e0

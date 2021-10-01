@@ -3,9 +3,9 @@ url: https://github.com/orgs/autamus/packages/container/package/rempi
 maintainer: '@vsoch'
 description: ReMPI is a record-and-replay tool for MPI applications.
 latest:
-  "1.1.0": sha256:13f3ae61146c389b0fef9e6e1f331a8f229cc15c886a215c9437249301903400
+  1.1.0: sha256:5364a6a7f6c5f9946acf70a87488ebf6badfba9f4a8f4600030c54051b6b1e6e
 tags:
-  "1.1.0": sha256:13f3ae61146c389b0fef9e6e1f331a8f229cc15c886a215c9437249301903400
+  1.1.0: sha256:5364a6a7f6c5f9946acf70a87488ebf6badfba9f4a8f4600030c54051b6b1e6e
 aliases:
   rempi: /opt/view/bin/rempi
   rempi_record: /opt/view/bin/rempi_record

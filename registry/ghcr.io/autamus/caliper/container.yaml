@@ -3,9 +3,9 @@ url: https://github.com/orgs/autamus/packages/container/package/caliper
 maintainer: '@vsoch'
 description: Caliper is a program instrumentation and performance measurement framework.
 latest:
-  2.6.0: sha256:0ed579961ff19f82a9553d30ee827576c7e905a83c40ab17bd0f75ed8cac89bd
+  2.6.0: sha256:6c8d9c111ba30e4e69a08da7aed0b4674f26a93867cadf1e1a57b0ff48ede6d0
 tags:
-  2.6.0: sha256:0ed579961ff19f82a9553d30ee827576c7e905a83c40ab17bd0f75ed8cac89bd
+  2.6.0: sha256:6c8d9c111ba30e4e69a08da7aed0b4674f26a93867cadf1e1a57b0ff48ede6d0
 aliases:
   cali-query: /opt/view/bin/cali-query
   cali-stat: /opt/view/bin/cali-stat

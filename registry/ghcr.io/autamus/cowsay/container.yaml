@@ -3,9 +3,9 @@ url: https://github.com/orgs/autamus/packages/container/package/cowsay
 maintainer: '@vsoch'
 description: What does the cow say?
 latest:
-  "3.04": sha256:8d08796ee17d0c5c81931d4329494d65ac922bb80c4fc1aa186c2e4bd5e91354
+  "3.04": sha256:078912baed44b7468d2e54f9d74e762d0db6c495aec3ae89cad4c92dac81336f
 tags:
-  "3.04": sha256:8d08796ee17d0c5c81931d4329494d65ac922bb80c4fc1aa186c2e4bd5e91354
-  latest: sha256:8d08796ee17d0c5c81931d4329494d65ac922bb80c4fc1aa186c2e4bd5e91354
+  "3.04": sha256:078912baed44b7468d2e54f9d74e762d0db6c495aec3ae89cad4c92dac81336f
+  latest: sha256:078912baed44b7468d2e54f9d74e762d0db6c495aec3ae89cad4c92dac81336f
 aliases:
   cowsay: /opt/view/bin/cowsay

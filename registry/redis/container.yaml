@@ -4,12 +4,12 @@ maintainer: '@vsoch'
 description: Redis is an open-source, networked, in-memory, key-value data store with
   optional durability.
 latest:
-  6.2.5: sha256:66ce9bc742609650afc3de7009658473ed601db4e926a5b16d239303383bacad
+  6.2.5: sha256:a3cee5859456c894a20e7f59ba866ecd81c91e733c14a755ea6530ec17c511cd
 tags:
   6.2.3-alpine: sha256:f8f0e809a4281714c33edf86f6da6cc2d4058c8549e44d8c83303c28b3123072
   6.2.4-alpine: sha256:0039796b887fd30e460353f14e46ba1004152aa97f5f59094cc21eac445fc89b
-  6.2.5: sha256:66ce9bc742609650afc3de7009658473ed601db4e926a5b16d239303383bacad
-  latest: sha256:66ce9bc742609650afc3de7009658473ed601db4e926a5b16d239303383bacad
+  6.2.5: sha256:a3cee5859456c894a20e7f59ba866ecd81c91e733c14a755ea6530ec17c511cd
+  latest: sha256:a3cee5859456c894a20e7f59ba866ecd81c91e733c14a755ea6530ec17c511cd
 aliases:
   redis-benchmark: /usr/local/bin/redis-benchmark
   redis-check-aof: /usr/local/bin/redis-check-aof
