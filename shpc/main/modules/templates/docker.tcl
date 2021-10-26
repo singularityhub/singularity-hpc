@@ -59,7 +59,7 @@ conflict {{ name }}
 set shellCmd "{{ command }} \${PODMAN_OPTS} run \${PODMAN_COMMAND_OPTS} -u `id -u`:`id -g` --rm -i{% if tty %}t{% endif %} --entrypoint {{ shell }} {% if envfile %}--env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %} -v $workdir -w $workdir ${containerPath}" 
 
 # execCmd needs entrypoint to be the executor
-set execCmd "{{ command }} \${PODMAN_OPTS} run -i{% if tty %}t{% endif %} \${PODMAN_COMMAND_OPTS} -u `id -u`:`id -g` --rm {% if envfile %} --env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }}{% endif %} -v $workdir -w $workdir"
+set execCmd "{{ command }} \${PODMAN_OPTS} run -i{% if tty %}t{% endif %} \${PODMAN_COMMAND_OPTS} -u `id -u`:`id -g` --rm {% if envfile %} --env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }}{% endif %}{% if features.home %}-v {{ features.home }} {% endif %} -v $workdir -w $workdir"
 set runCmd "{{ command }} \${PODMAN_OPTS} run -i{% if tty %}t{% endif %} \${PODMAN_COMMAND_OPTS} -u `id -u`:`id -g` --rm {% if envfile %}--env-file  {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %} -v $workdir -w $workdir ${containerPath}"
 set inspectCmd "{{ command }} \${PODMAN_OPTS} inspect ${containerPath}" 
 
