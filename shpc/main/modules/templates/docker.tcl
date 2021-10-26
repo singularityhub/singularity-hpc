@@ -67,9 +67,24 @@ set inspectCmd "{{ command }} \${PODMAN_OPTS} inspect ${containerPath}"
 set-alias {|module_name|}-shell "${shellCmd}"
 
 # exec functions to provide "alias" to module commands
-{% if aliases %}{% for alias in aliases %}
-set-alias {{ alias.name }} "${execCmd} {% if alias.docker_options %} {{ alias.docker_options | replace("$", "\$") }} {% endif %} --entrypoint {{ alias.entrypoint | replace("$", "\$") }} ${containerPath} {{ alias.args | replace("$", "\$") }}"
-{% endfor %}{% endif %}
+{% if aliases %}
+if { [ module-info shell bash ] } {
+  if { [ module-info mode load ] } {
+{% for alias in aliases %}
+    puts stdout "function {{ alias.name }}() { ${execCmd} {% if alias.docker_options %} {{ alias.docker_options | replace("$", "\$") }} {% endif %} --entrypoint {{ alias.entrypoint | replace("$", "\$") }} ${containerPath} {{ alias.args | replace("$", "\$") }}; }; export -f {{ alias.name }};"
+{% endfor %}
+  }
+  if { [ module-info mode remove ] } {
+{% for alias in aliases %}
+    puts stdout "unset -f {{ alias.name }};"
+{% endfor %}
+  }
+} else {
+{% for alias in aliases %}
+  set-alias {{ alias.name }} "${execCmd} {% if alias.docker_options %} {{ alias.docker_options | replace("$", "\$") }} {% endif %} --entrypoint {{ alias.entrypoint | replace("$", "\$") }} ${containerPath} {{ alias.args | replace("$", "\$") }}"
+{% endfor %}
+}
+{% endif %}
 
 # A customizable exec function
 set-alias {|module_name|}-exec "${execCmd} --entrypoint \"\" ${containerPath}"
