@@ -59,7 +59,7 @@ conflict {{ name }}
 set shellCmd "{{ command }} \${PODMAN_OPTS} run \${PODMAN_COMMAND_OPTS} -u `id -u`:`id -g` --rm -i{% if tty %}t{% endif %} --entrypoint {{ shell }} {% if envfile %}--env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %} -v $workdir -w $workdir ${containerPath}" 
 
 # execCmd needs entrypoint to be the executor
-set execCmd "{{ command }} \${PODMAN_OPTS} run -i{% if tty %}t{% endif %} \${PODMAN_COMMAND_OPTS} -u `id -u`:`id -g` --rm {% if envfile %} --env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }}{% endif %} -v $workdir -w $workdir"
+set execCmd "{{ command }} \${PODMAN_OPTS} run -i{% if tty %}t{% endif %} \${PODMAN_COMMAND_OPTS} -u `id -u`:`id -g` --rm {% if envfile %} --env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }}{% endif %}{% if features.home %}-v {{ features.home }} {% endif %} -v $workdir -w $workdir"
 set runCmd "{{ command }} \${PODMAN_OPTS} run -i{% if tty %}t{% endif %} \${PODMAN_COMMAND_OPTS} -u `id -u`:`id -g` --rm {% if envfile %}--env-file  {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %} -v $workdir -w $workdir ${containerPath}"
 set inspectCmd "{{ command }} \${PODMAN_OPTS} inspect ${containerPath}" 
 
@@ -67,9 +67,21 @@ set inspectCmd "{{ command }} \${PODMAN_OPTS} inspect ${containerPath}"
 set-alias {|module_name|}-shell "${shellCmd}"
 
 # exec functions to provide "alias" to module commands
-{% if aliases %}{% for alias in aliases %}
-set-alias {{ alias.name }} "${execCmd} {% if alias.docker_options %} {{ alias.docker_options | replace("$", "\$") }} {% endif %} --entrypoint {{ alias.entrypoint | replace("$", "\$") }} ${containerPath} {{ alias.args | replace("$", "\$") }}"
-{% endfor %}{% endif %}
+{% if aliases %}
+if { [ module-info shell bash ] } {
+  if { [ module-info mode load ] } {
+{% for alias in aliases %}    puts stdout "function {{ alias.name }}() { ${execCmd} {% if alias.docker_options %} {{ alias.docker_options | replace("$", "\$") }} {% endif %} --entrypoint {{ alias.entrypoint | replace("$", "\$") }} ${containerPath} {{ alias.args | replace("$", "\$") }}; }; export -f {{ alias.name }};"
+{% endfor %}
+  }
+  if { [ module-info mode remove ] } {
+{% for alias in aliases %}    puts stdout "unset -f {{ alias.name }};"
+{% endfor %}
+  }
+} else {
+{% for alias in aliases %}  set-alias {{ alias.name }} "${execCmd} {% if alias.docker_options %} {{ alias.docker_options | replace("$", "\$") }} {% endif %} --entrypoint {{ alias.entrypoint | replace("$", "\$") }} ${containerPath} {{ alias.args | replace("$", "\$") }}"
+{% endfor %}
+}
+{% endif %}
 
 # A customizable exec function
 set-alias {|module_name|}-exec "${execCmd} --entrypoint \"\" ${containerPath}"
