@@ -4,11 +4,12 @@ maintainer: '@vsoch'
 description: CouchDB is a database that uses JSON for documents, an HTTP API, & JavaScript/declarative
   indexing.
 latest:
-  3.1.1: sha256:2116065ff651d516bac7c3521229d142982487c55792944e02be93fc44d94bbc
+  3.2.0: sha256:6d9aea691cf15e0b185f8b0c245e3693cb1f367a502a24a5fb2d9a97ed45a076
 tags:
-  "2": sha256:094d7d3c88e561eaf0cd77ffaf7823030f2c0a4a1ea41c892b99be9e3d74f2ed
-  3.1.1: sha256:2116065ff651d516bac7c3521229d142982487c55792944e02be93fc44d94bbc
-  latest: sha256:2116065ff651d516bac7c3521229d142982487c55792944e02be93fc44d94bbc
+  "2": sha256:5c11c1b07e3f34b477c6b2a6c9beab86847234d146243a3176d78d2dbcf96a73
+  3.1.1: sha256:b422509b1648306dee1038f41756a982aefa17f986fa8ba18f6cd80e433dafdf
+  3.2.0: sha256:6d9aea691cf15e0b185f8b0c245e3693cb1f367a502a24a5fb2d9a97ed45a076
+  latest: sha256:6d9aea691cf15e0b185f8b0c245e3693cb1f367a502a24a5fb2d9a97ed45a076
 aliases:
   couchdb: /opt/couchdb/bin/couchdb
   couchdb.cmd: /opt/couchdb/bin/couchdb.cmd

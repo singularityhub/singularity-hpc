@@ -5,15 +5,15 @@ description: MariaDB Server is one of the most popular database servers in the w
   It’s made by the original developers of MySQL and guaranteed to stay open source.
   Notable users include Wikipedia, DBS Bank and ServiceNow.
 latest:
-  10.6.4: sha256:4bbee12b1adf299211f844ebbe89563675c46965470dcfa40f5278d63c56d030
+  10.6.4: sha256:c014ba1efc5dbd711d0520c7762d57807f35549de3414eb31e942a420c8a2ed2
 tags:
   10.5.9-focal: sha256:36288c675a192bd0a8a99cd6ba0780e31df85f0bfd0cbb204837cd108be3d236
   10.6.0-focal: sha256:6b687eb768f01add603c1474003c62e13d130bfd7030ac5334c9ae6a73d09e0c
   10.6.1-focal: sha256:b2ba2c4dcaf9a946241f7e368637d351a74010b58f7c5e50002b9735c95c6326
   10.6.2-focal: sha256:a4ed26af22613745fc379e9e187290626d5b9297454cb6838709cf44a11b8ea5
   10.6.3-focal: sha256:3b6f9fa1d406e168998d62501b2ee4f27d53138bebfcdac03540758996c5ff1d
-  10.6.4: sha256:4bbee12b1adf299211f844ebbe89563675c46965470dcfa40f5278d63c56d030
-  latest: sha256:4bbee12b1adf299211f844ebbe89563675c46965470dcfa40f5278d63c56d030
+  10.6.4: sha256:c014ba1efc5dbd711d0520c7762d57807f35549de3414eb31e942a420c8a2ed2
+  latest: sha256:c014ba1efc5dbd711d0520c7762d57807f35549de3414eb31e942a420c8a2ed2
 aliases:
   mariabackup: /usr/bin/mariabackup
   mariadb: /usr/bin/mariadb

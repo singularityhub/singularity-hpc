@@ -3,11 +3,12 @@ url: https://github.com/orgs/autamus/packages/container/package/rclone
 maintainer: '@vsoch'
 description: Rclone is a command line program to manage files on cloud storage.
 latest:
-  1.56.0: sha256:1f9ba4b2378da58e3e7897112e8cd5f82564e47cd533c563785b0690795a5160
+  1.56.2: sha256:8fca8f455745ee5ff83b0bf31ec695766b02919b0babda81f97d96ba6bfe0113
 tags:
   1.55.0: sha256:8a8c07e1759f8ad45b34828b5adc6b43b811569f84093970d0366afd9f7b4b5f
   1.55.1: sha256:e1020f643a5e613fb301f2b33c219e6f7430ff5bcaacf523655ad6d8e2e439c0
-  1.56.0: sha256:1f9ba4b2378da58e3e7897112e8cd5f82564e47cd533c563785b0690795a5160
-  latest: sha256:1f9ba4b2378da58e3e7897112e8cd5f82564e47cd533c563785b0690795a5160
+  1.56.0: sha256:d95c8c617bef5259d583d9f994a93296bce22e67dc8fa193d3f30a33dc35326c
+  1.56.2: sha256:8fca8f455745ee5ff83b0bf31ec695766b02919b0babda81f97d96ba6bfe0113
+  latest: sha256:8fca8f455745ee5ff83b0bf31ec695766b02919b0babda81f97d96ba6bfe0113
 aliases:
   rclone: /opt/view/bin/rclone

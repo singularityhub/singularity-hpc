@@ -5,9 +5,9 @@ description: UPC++ is a C++ library that supports Partitioned Global Address Spa
   (PGAS) programming, and is designed to interoperate smoothly and efficiently with
   MPI, OpenMP, CUDA and AMTs.
 latest:
-  2021.3.0: sha256:8ecb61abd3f1470b314a544995b76de55bd6dd43cc0105378f947cff6b92936e
+  2021.3.0: sha256:519d17b0961a58c6a62fc96ea2785da0f5083f57c068f10f48d06e8e4d57f09c
 tags:
-  2021.3.0: sha256:8ecb61abd3f1470b314a544995b76de55bd6dd43cc0105378f947cff6b92936e
+  2021.3.0: sha256:519d17b0961a58c6a62fc96ea2785da0f5083f57c068f10f48d06e8e4d57f09c
 aliases:
   upcxx: /opt/view/bin/upcxx
   upcxx-meta: /opt/view/bin/upcxx-meta

@@ -4,7 +4,7 @@ maintainer: '@vsoch'
 description: igraph is a library collection for creating and manipulating graphs and
   analyzing networks. It is written in C and also exists as Python and R packages.
 latest:
-  0.7.1: sha256:b848e8279f3d0a4be9566e5744ab852bb58aaabde227afcc8f4150b94d893e04
+  0.7.1: sha256:255760a40270f2418b6f00ca59f443f0699e8e5daae2d5b6635383388e752a6f
 tags:
-  0.7.1: sha256:b848e8279f3d0a4be9566e5744ab852bb58aaabde227afcc8f4150b94d893e04
-  latest: sha256:b848e8279f3d0a4be9566e5744ab852bb58aaabde227afcc8f4150b94d893e04
+  0.7.1: sha256:255760a40270f2418b6f00ca59f443f0699e8e5daae2d5b6635383388e752a6f
+  latest: sha256:255760a40270f2418b6f00ca59f443f0699e8e5daae2d5b6635383388e752a6f

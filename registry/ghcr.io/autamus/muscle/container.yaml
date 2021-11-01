@@ -3,9 +3,9 @@ url: https://github.com/orgs/autamus/packages/container/package/muscle
 maintainer: '@vsoch'
 description: Multiple Sequence Alignment.
 latest:
-  3.8.1551: sha256:58aa2cd405f9a546fe310fa8e5d72a4abdc9e4e9147534639e38a6fc82dffe63
+  3.8.1551: sha256:e32be1ca164d1d4b638f070cb4c1d1fb808a273ece6fd4880ec43efafd302b67
 tags:
-  3.8.1551: sha256:58aa2cd405f9a546fe310fa8e5d72a4abdc9e4e9147534639e38a6fc82dffe63
-  latest: sha256:58aa2cd405f9a546fe310fa8e5d72a4abdc9e4e9147534639e38a6fc82dffe63
+  3.8.1551: sha256:e32be1ca164d1d4b638f070cb4c1d1fb808a273ece6fd4880ec43efafd302b67
+  latest: sha256:e32be1ca164d1d4b638f070cb4c1d1fb808a273ece6fd4880ec43efafd302b67
 aliases:
   muscle: /opt/view/bin/muscle

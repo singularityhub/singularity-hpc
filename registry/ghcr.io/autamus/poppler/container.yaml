@@ -4,12 +4,13 @@ maintainer: '@vsoch'
 description: Poppler is a free software utility library for rendering Portable Document
   Format (PDF) documents.
 latest:
-  21.08.0: sha256:d6b967aca449063448f0bd6fc5f0f31c429fd6ac797dd9fdf0937254216ece18
+  21.10.0: sha256:101e32d9a68750b714b2b7e3a7327ad6fe76bde955a798bffb67117c80485860
 tags:
   0.90.1: sha256:972979693c1d915c879f9c2a6d23f566d3727f5a3a909355915a003b1abd3504
-  21.07.0: sha256:8b602dac0157c47cca18484952f75e32845b567d9889e516756cf024dec1fc58
+  21.07.0: sha256:a119cd1f5da78fcda917793990b4ce1915891df317cf6bb261013278a1c239b7
   21.08.0: sha256:d6b967aca449063448f0bd6fc5f0f31c429fd6ac797dd9fdf0937254216ece18
-  latest: sha256:d6b967aca449063448f0bd6fc5f0f31c429fd6ac797dd9fdf0937254216ece18
+  21.10.0: sha256:101e32d9a68750b714b2b7e3a7327ad6fe76bde955a798bffb67117c80485860
+  latest: sha256:101e32d9a68750b714b2b7e3a7327ad6fe76bde955a798bffb67117c80485860
 aliases:
   pdfattach: /opt/view/bin/pdfattach
   pdfdetach: /opt/view/bin/pdfdetach

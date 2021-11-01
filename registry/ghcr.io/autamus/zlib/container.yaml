@@ -5,7 +5,7 @@ description: zlib is a software library used for data compression. zlib was writ
   by Jean-loup Gailly and Mark Adler and is an abstraction of the DEFLATE compression
   algorithm used in their gzip file compression program.
 latest:
-  1.2.11: sha256:3f170ecc761532996fe03b0b6fac4d9509f95c03e2b078e353265914ac607592
+  1.2.11: sha256:cfd90a8fe52d19c93eb0c79567023502260d0f3ea2b2e247cae616f95d5486d5
 tags:
-  1.2.11: sha256:3f170ecc761532996fe03b0b6fac4d9509f95c03e2b078e353265914ac607592
-  latest: sha256:3f170ecc761532996fe03b0b6fac4d9509f95c03e2b078e353265914ac607592
+  1.2.11: sha256:cfd90a8fe52d19c93eb0c79567023502260d0f3ea2b2e247cae616f95d5486d5
+  latest: sha256:cfd90a8fe52d19c93eb0c79567023502260d0f3ea2b2e247cae616f95d5486d5

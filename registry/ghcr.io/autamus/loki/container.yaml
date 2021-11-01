@@ -1,9 +1,9 @@
 docker: ghcr.io/autamus/loki
 url: https://github.com/orgs/autamus/packages/container/package/loki
 maintainer: '@vsoch'
-description: Loki is a C++ library of designs, containing flexible implementations of common design patterns and idioms. 
+description: Loki is a C++ library of designs, containing flexible implementations
+  of common design patterns and idioms.
 latest:
-  0.1.7: sha256:c7a5933fd9cf766224598f82ba869baff89b0672e7f64b2d82dfa8e0bbe35f20
+  0.1.7: sha256:c86058f05ca30ef4c4bf08e81a69a75467b0feb04636b583a563e070a3fd465e
 tags:
-  0.1.7: sha256:c7a5933fd9cf766224598f82ba869baff89b0672e7f64b2d82dfa8e0bbe35f20
-
+  0.1.7: sha256:c86058f05ca30ef4c4bf08e81a69a75467b0feb04636b583a563e070a3fd465e

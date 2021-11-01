@@ -4,11 +4,11 @@ maintainer: '@vsoch'
 description: Bismark is a program to map bisulfite treated sequencing reads to a genome
   of interest and perform methylation calls in a single step.
 latest:
-  0.23.1: sha256:7b49a9ade6b58d0d137f9d378cc733e1e8629a1aec81251d1c49272b705e18a6
+  0.23.1: sha256:8cd3f894ac39dfa44b8c431a93e6e4c45d282b4a96fdea3d0e3f80d651778656
 tags:
-  0.23.0: sha256:7bcf0e06ffefa7c4668f06359351aced6fed389618ac42d0bcb8a96a0bcfdaaa
-  0.23.1: sha256:7b49a9ade6b58d0d137f9d378cc733e1e8629a1aec81251d1c49272b705e18a6
-  latest: sha256:7b49a9ade6b58d0d137f9d378cc733e1e8629a1aec81251d1c49272b705e18a6
+  0.23.0: sha256:297e5839757a5ae3d7f383fd8716c8dad44ce8653f63a85df238a12f85875bee
+  0.23.1: sha256:8cd3f894ac39dfa44b8c431a93e6e4c45d282b4a96fdea3d0e3f80d651778656
+  latest: sha256:8cd3f894ac39dfa44b8c431a93e6e4c45d282b4a96fdea3d0e3f80d651778656
 aliases:
   bismark: /opt/view/bin/bismark
   bismark_genome_preparation: /opt/view/bin/bismark_genome_preparation

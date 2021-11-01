@@ -3,9 +3,9 @@ url: https://github.com/orgs/autamus/packages/container/package/openjdk
 maintainer: '@vsoch'
 description: Open Java Development Kit
 latest:
-  latest: sha256:6f3b52ee2e7b19db1c7004ecaf1e818c51fdc1db1f054b5aeefaeaca9dc24ccc
+  latest: sha256:bcf5064f556f44ca666bfbd0a886fd6f91e3e9ca9340859dea808e4d6cd14ab0
 tags:
-  latest: sha256:6f3b52ee2e7b19db1c7004ecaf1e818c51fdc1db1f054b5aeefaeaca9dc24ccc
+  latest: sha256:bcf5064f556f44ca666bfbd0a886fd6f91e3e9ca9340859dea808e4d6cd14ab0
 aliases:
   jaotc: /opt/view/bin/jaotc
   jar: /opt/view/bin/jar

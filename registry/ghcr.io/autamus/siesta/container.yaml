@@ -4,9 +4,9 @@ maintainer: '@vsoch'
 description: SIESTA performs electronic structure calculations and ab initio molecular
   dynamics simulations of molecules and solids.
 latest:
-  4.0.2: sha256:f27e66f72037b69ab9a063015fce13c0afebc5a7bc75638c1dedbc504029a268
+  4.0.2: sha256:abab7286e84010408829b2c98afb2a927107905164a619f1f06db6b870457463
 tags:
-  4.0.2: sha256:f27e66f72037b69ab9a063015fce13c0afebc5a7bc75638c1dedbc504029a268
-  latest: sha256:f27e66f72037b69ab9a063015fce13c0afebc5a7bc75638c1dedbc504029a268
+  4.0.2: sha256:abab7286e84010408829b2c98afb2a927107905164a619f1f06db6b870457463
+  latest: sha256:abab7286e84010408829b2c98afb2a927107905164a619f1f06db6b870457463
 aliases:
   siesta: /opt/view/bin/siesta

@@ -9,7 +9,7 @@ latest:
   3.1.1: sha256:6bdb14a44baec1353554f01f09d4388f6beb2533e11aa52f71f12caef8f40ce9
 tags:
   3.1.1: sha256:6bdb14a44baec1353554f01f09d4388f6beb2533e11aa52f71f12caef8f40ce9
-  latest: sha256:6bdb14a44baec1353554f01f09d4388f6beb2533e11aa52f71f12caef8f40ce9
+  latest: sha256:fd5c6d5c268365261eab7e737e58bc2b0fbcdbcd9f43c35a10d1cd9de9ae88e8
 aliases:
   obabel: /opt/view/bin/obabel
   obconformer: /opt/view/bin/obconformer

@@ -4,6 +4,6 @@ maintainer: '@vsoch'
 description: A portable and efficient C programming interface (API) to determine the
   call-chain of a program.
 latest:
-  "1.5": sha256:eeaed7a25bfab189aa8bfa5c5ef8924c05fb220d3a34474ac4b1e7387822768e
+  "1.5": sha256:aff63eeabf23a19a27aa54037a4d98def73b8b0ccb7fea7557b57d4918be17cb
 tags:
-  "1.5": sha256:eeaed7a25bfab189aa8bfa5c5ef8924c05fb220d3a34474ac4b1e7387822768e
+  "1.5": sha256:aff63eeabf23a19a27aa54037a4d98def73b8b0ccb7fea7557b57d4918be17cb
