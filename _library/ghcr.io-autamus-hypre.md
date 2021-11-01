@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/hypre"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/hypre/container.yaml"
-updated_at: "2021-10-27 03:01:16.161089"
+updated_at: "2021-11-01 02:11:50.210957"
 container_url: "https://github.com/orgs/autamus/packages/container/package/hypre"
 
 versions:
@@ -11,6 +11,7 @@ versions:
  - "2.21.0"
  - "2.22.0"
  - "2.22.1"
+ - "2.23.0"
  - "latest"
 description: "A library of high performance preconditioners and solvers featuring multigrid methods for the solution of large, sparse linear systems of equations on massively parallel computers."
 ---

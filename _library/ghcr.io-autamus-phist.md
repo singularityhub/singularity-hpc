@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/phist"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/phist/container.yaml"
-updated_at: "2021-10-27 03:01:23.875190"
+updated_at: "2021-11-01 02:11:59.218616"
 container_url: "https://github.com/orgs/autamus/packages/container/package/phist"
 aliases:
  - "phist_Danasazi_krylov_schur"
@@ -28,6 +28,7 @@ aliases:
 
 versions:
  - "1.9.4"
+ - "1.9.6"
 description: "The Pipelined, Hybrid-parallel Iterative Solver Toolkit provides implementations of and interfaces to block iterative solvers for sparse linear and eigenvalue problems."
 ---
 

@@ -3,13 +3,14 @@ layout: container
 name:  "ghcr.io/autamus/faodel"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/faodel/container.yaml"
-updated_at: "2021-10-27 03:01:18.381234"
+updated_at: "2021-11-01 02:11:52.825837"
 container_url: "https://github.com/orgs/autamus/packages/container/package/faodel"
 aliases:
  - "faodel"
 
 versions:
  - "1.1906.1"
+ - "1.2108.1"
 description: "Flexible, Asynchronous, Object Data-Exchange Libraries"
 ---
 

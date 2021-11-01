@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/gasnet"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/gasnet/container.yaml"
-updated_at: "2021-10-27 03:01:22.607359"
+updated_at: "2021-11-01 02:11:57.761076"
 container_url: "https://github.com/orgs/autamus/packages/container/package/gasnet"
 aliases:
  - "gasnet_trace"
@@ -12,6 +12,7 @@ aliases:
 
 versions:
  - "2021.3.0"
+ - "2021.9.0"
 description: "GASNet is a language-independent, networking middleware layer that provides network-independent, high-performance communication primitives including Remote Memory Access (RMA) and Active Messages (AM)."
 ---
 

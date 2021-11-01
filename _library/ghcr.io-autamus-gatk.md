@@ -3,13 +3,14 @@ layout: container
 name:  "ghcr.io/autamus/gatk"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/gatk/container.yaml"
-updated_at: "2021-10-27 03:01:48.050685"
+updated_at: "2021-11-01 02:12:27.146570"
 container_url: "https://github.com/orgs/autamus/packages/container/package/gatk"
 aliases:
  - "gatk"
 
 versions:
  - "4.2.0.0"
+ - "4.2.2.0"
  - "latest"
 description: "GATK (pronounced 'Gee-ay-tee-kay', not 'Gat-kay'), stands for GenomeAnalysisToolkit. It is a collection of command-line tools for analyzing high-throughput sequencing data with a primary focus on variant discovery."
 ---

@@ -3,7 +3,7 @@ layout: container
 name:  "node"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/node/container.yaml"
-updated_at: "2021-10-27 03:02:26.202183"
+updated_at: "2021-11-01 02:13:11.898265"
 container_url: "https://hub.docker.com/r/_/node"
 aliases:
  - "node"
@@ -26,6 +26,7 @@ versions:
  - "16.3.0-alpine"
  - "16.5.0-alpine"
  - "16.8.0"
+ - "17.0.1"
  - "latest"
 description: "Node.js is a software platform for scalable server-side and networking applications."
 ---

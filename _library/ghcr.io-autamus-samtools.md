@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/samtools"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/samtools/container.yaml"
-updated_at: "2021-10-27 03:01:37.636811"
+updated_at: "2021-11-01 02:12:14.945818"
 container_url: "https://github.com/orgs/autamus/packages/container/package/samtools"
 aliases:
  - "blast2sam.pl"
@@ -37,6 +37,7 @@ aliases:
 versions:
  - "1.12"
  - "1.13"
+ - "1.14"
  - "latest"
 description: "Samtools is a suite of programs for interacting with high-throughput sequencing data."
 ---

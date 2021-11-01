@@ -3,7 +3,7 @@ layout: container
 name:  "quay.io/biocontainers/bbmap"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/bbmap/container.yaml"
-updated_at: "2021-10-27 03:02:12.864505"
+updated_at: "2021-11-01 02:12:56.151710"
 container_url: "https://quay.io/repository/biocontainers/bbmap"
 aliases:
  - "a_sample_mt.sh"
@@ -407,6 +407,7 @@ versions:
  - "38.90--he522d1c_3"
  - "38.91--he522d1c_1"
  - "38.92--he522d1c_0"
+ - "38.93--he522d1c_0"
 description: "BBMap is a short read aligner, as well as various other bioinformatic tools."
 ---
 

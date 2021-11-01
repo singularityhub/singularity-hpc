@@ -3,11 +3,12 @@ layout: container
 name:  "ghcr.io/autamus/cfitsio"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/cfitsio/container.yaml"
-updated_at: "2021-10-27 03:01:46.575369"
+updated_at: "2021-11-01 02:12:25.389657"
 container_url: "https://github.com/orgs/autamus/packages/container/package/cfitsio"
 
 versions:
  - "3.49"
+ - "4.0.0"
  - "latest"
 description: "CFITSIO is a library of C and Fortran subroutines for reading and writing data files in FITS (Flexible Image Transport System) data format."
 ---

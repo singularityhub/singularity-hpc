@@ -3,11 +3,12 @@ layout: container
 name:  "ghcr.io/autamus/tau"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/tau/container.yaml"
-updated_at: "2021-10-27 03:01:58.979833"
+updated_at: "2021-11-01 02:12:39.925251"
 container_url: "https://github.com/orgs/autamus/packages/container/package/tau"
 
 versions:
  - "2.30.1"
+ - "2.30.2"
 description: "A portable profiling and tracing toolkit for performance analysis of parallel programs written in Fortran, C, C++, UPC, Java, Python."
 ---
 

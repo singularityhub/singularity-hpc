@@ -3,7 +3,7 @@ layout: container
 name:  "mongo"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/mongo/container.yaml"
-updated_at: "2021-10-27 03:02:20.898501"
+updated_at: "2021-11-01 02:13:05.668555"
 container_url: "https://hub.docker.com/r/_/mongo"
 aliases:
  - "mongo"
@@ -32,6 +32,7 @@ versions:
  - "5.0.0-focal"
  - "5.0.0-rc1-focal"
  - "5.0.2"
+ - "5.0.3"
  - "latest"
 description: "MongoDB is a free and open-source cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with schemata."
 ---

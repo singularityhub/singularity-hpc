@@ -3,7 +3,7 @@ layout: container
 name:  "couchdb"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/couchdb/container.yaml"
-updated_at: "2021-10-27 03:01:12.241904"
+updated_at: "2021-11-01 02:11:45.532828"
 container_url: "https://hub.docker.com/_/couchdb"
 aliases:
  - "couchdb"
@@ -17,6 +17,7 @@ aliases:
 versions:
  - "2"
  - "3.1.1"
+ - "3.2.0"
  - "latest"
 description: "CouchDB is a database that uses JSON for documents, an HTTP API, & JavaScript/declarative indexing."
 ---

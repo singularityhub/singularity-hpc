@@ -3,7 +3,7 @@ layout: container
 name:  "quay.io/biocontainers/samtools"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/samtools/container.yaml"
-updated_at: "2021-10-27 03:02:12.060119"
+updated_at: "2021-11-01 02:12:55.222174"
 container_url: "https://quay.io/repository/biocontainers/samtools"
 aliases:
  - "bgzip"
@@ -19,6 +19,7 @@ versions:
  - "1.11--h6270b1f_0"
  - "1.12--h9aed4be_1"
  - "1.13--h8c37831_0"
+ - "1.14--hb421002_0"
 description: "Tools for reading/writing/editing/indexing/viewing SAM/BAM/CRAM format."
 ---
 

@@ -3,12 +3,13 @@ layout: container
 name:  "ghcr.io/autamus/omega-h"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/omega-h/container.yaml"
-updated_at: "2021-10-27 03:01:49.512383"
+updated_at: "2021-11-01 02:12:28.843939"
 container_url: "https://github.com/orgs/autamus/packages/container/package/omega-h"
 
 versions:
  - "9.32.5"
  - "9.33.3"
+ - "9.34.6"
 description: "Omega_h is a C++11 library providing data structures and algorithms for adaptive discretizations."
 ---
 

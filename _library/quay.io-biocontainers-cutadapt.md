@@ -3,7 +3,7 @@ layout: container
 name:  "quay.io/biocontainers/cutadapt"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/cutadapt/container.yaml"
-updated_at: "2021-10-27 03:02:12.304598"
+updated_at: "2021-11-01 02:12:55.506125"
 container_url: "https://quay.io/repository/biocontainers/cutadapt"
 aliases:
  - "cutadapt"
@@ -11,6 +11,7 @@ aliases:
 versions:
  - "3.4--py36h4c5857e_0"
  - "3.4--py38h4a8c8d9_1"
+ - "3.5--py39h38f01e4_0"
 description: "Trim adapters from high-throughput sequencing reads"
 ---
 

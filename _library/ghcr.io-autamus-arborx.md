@@ -3,11 +3,12 @@ layout: container
 name:  "ghcr.io/autamus/arborx"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/arborx/container.yaml"
-updated_at: "2021-10-27 03:01:49.269026"
+updated_at: "2021-11-01 02:12:28.563263"
 container_url: "https://github.com/orgs/autamus/packages/container/package/arborx"
 
 versions:
  - "1.0"
+ - "1.1"
 description: "ArborX is a performance-portable library for geometric search"
 ---
 

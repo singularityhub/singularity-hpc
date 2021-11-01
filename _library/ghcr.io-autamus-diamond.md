@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/diamond"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/diamond/container.yaml"
-updated_at: "2021-10-27 03:01:26.848838"
+updated_at: "2021-11-01 02:12:02.730356"
 container_url: "https://github.com/orgs/autamus/packages/container/package/diamond"
 aliases:
  - "diamond"
@@ -11,6 +11,7 @@ aliases:
 versions:
  - "2.0.9"
  - "2.0.11"
+ - "2.0.13"
  - "latest"
 description: "A sequence aligner for protein and translated DNA searches, designed for high performance analysis of big sequence data."
 ---

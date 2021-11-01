@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/sqlite"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/sqlite/container.yaml"
-updated_at: "2021-10-27 03:01:18.623847"
+updated_at: "2021-11-01 02:11:53.122984"
 container_url: "https://github.com/orgs/autamus/packages/container/package/sqlite"
 aliases:
  - "sqlite3"
@@ -11,6 +11,7 @@ aliases:
 versions:
  - "3.35.4"
  - "3.35.5"
+ - "3.36.0"
  - "latest"
 description: "SQLite is a relational database management system contained in a C library. "
 ---

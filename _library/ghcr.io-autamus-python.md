@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/python"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/python/container.yaml"
-updated_at: "2021-10-27 03:01:42.128556"
+updated_at: "2021-11-01 02:12:20.177825"
 container_url: "https://github.com/orgs/autamus/packages/container/package/python"
 aliases:
  - "pydoc3"
@@ -27,6 +27,7 @@ aliases:
 versions:
  - "3.9.5"
  - "3.9.6"
+ - "3.9.7"
  - "latest"
 description: "An interpreted, high-level and general-purpose programming language."
 ---

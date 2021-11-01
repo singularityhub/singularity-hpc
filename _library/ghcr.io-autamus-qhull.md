@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/qhull"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/qhull/container.yaml"
-updated_at: "2021-10-27 03:01:25.345537"
+updated_at: "2021-11-01 02:12:00.975952"
 container_url: "https://github.com/orgs/autamus/packages/container/package/qhull"
 aliases:
  - "qconvex"
@@ -20,6 +20,7 @@ aliases:
 
 versions:
  - "2020.1"
+ - "2020.2"
  - "latest"
 description: "Snappy (previously known as Zippy) is a fast data compression and decompression library written in C++ by Google based on ideas from LZ77 and open-sourced in 2011."
 ---
