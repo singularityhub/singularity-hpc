@@ -4,6 +4,6 @@ maintainer: '@vsoch'
 description: BOLT targets a high-performing OpenMP implementation, especially specialized
   for fine-grain parallelism.
 latest:
-  "2.0": sha256:56879780172efb91347857a9b9548bb78cdd92dc618e4f29c2c27cb7b7023b4a
+  "2.0": sha256:15d91f6dd462b08092acc004459cc9b98975469d1223e04d05a79f1023fbf2d1
 tags:
-  "2.0": sha256:56879780172efb91347857a9b9548bb78cdd92dc618e4f29c2c27cb7b7023b4a
+  "2.0": sha256:15d91f6dd462b08092acc004459cc9b98975469d1223e04d05a79f1023fbf2d1

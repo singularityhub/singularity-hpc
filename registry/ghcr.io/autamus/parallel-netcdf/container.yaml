@@ -5,9 +5,9 @@ description: PnetCDF (Parallel netCDF) is a high-performance parallel I/O librar
   for accessing files in format compatibility with Unidata's NetCDF, specifically
   the formats of CDF-1, 2, and 5.
 latest:
-  1.12.2: sha256:3257ef510b4daa4244a7c119e2102e108315939c428e31995d28592d181e5759
+  1.12.2: sha256:4bb33f028452988fdebd920ebc18cc79f14acd82db8952941a046f40eb41eefa
 tags:
-  1.12.2: sha256:3257ef510b4daa4244a7c119e2102e108315939c428e31995d28592d181e5759
+  1.12.2: sha256:4bb33f028452988fdebd920ebc18cc79f14acd82db8952941a046f40eb41eefa
 aliases:
   pnetcdf-config: /opt/view/bin/pnetcdf-config
   pnetcdf_version: /opt/view/bin/pnetcdf_version

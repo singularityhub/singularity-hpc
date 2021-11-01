@@ -4,9 +4,9 @@ maintainer: '@vsoch'
 description: SCR caches checkpoint data in storage on the compute nodes of a Linux
   cluster to provide a fast, scalable checkpoint/restart capability for MPI codes.
 latest:
-  3.0.rc.1: sha256:c995e29be3bbbe5353498b4de46eb94b434d4bb724c88dfaf8c03e70f9a5282e
+  3.0.rc.1: sha256:864198a7d35665f0bb176ac3f9e5f1a20f221b203732011be30760e0322b9742
 tags:
-  3.0.rc.1: sha256:c995e29be3bbbe5353498b4de46eb94b434d4bb724c88dfaf8c03e70f9a5282e
+  3.0.rc.1: sha256:864198a7d35665f0bb176ac3f9e5f1a20f221b203732011be30760e0322b9742
 aliases:
   scancel: /opt/view/bin/scancel
   scontrol: /opt/view/bin/scontrol

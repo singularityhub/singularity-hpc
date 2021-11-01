@@ -4,11 +4,12 @@ maintainer: '@vsoch'
 description: Samtools is a suite of programs for interacting with high-throughput
   sequencing data.
 latest:
-  "1.13": sha256:cc53277ec57a578b645164e37b2c81e59934a866e66076bc7700526508c082ff
+  "1.14": sha256:0276defecfa2f8d43133f027846ba7f7d74b12661cdef735981192b83a251bad
 tags:
-  "1.12": sha256:e912c2d7cfb1bd9555cb2258f6eaa08f8f1202a7438fd11f526bcf3a1d36c53d
-  "1.13": sha256:cc53277ec57a578b645164e37b2c81e59934a866e66076bc7700526508c082ff
-  latest: sha256:cc53277ec57a578b645164e37b2c81e59934a866e66076bc7700526508c082ff
+  "1.12": sha256:607f8c72d534b7b3a637078d4557fae0262b567047840acd18ecc977b8a0d975
+  "1.13": sha256:258d04d1c692f0e92852fa003c05b21d81894b49f6ee719b3b8e9b54996037a3
+  "1.14": sha256:0276defecfa2f8d43133f027846ba7f7d74b12661cdef735981192b83a251bad
+  latest: sha256:0276defecfa2f8d43133f027846ba7f7d74b12661cdef735981192b83a251bad
 aliases:
   blast2sam.pl: /opt/view/bin/blast2sam.pl
   bowtie2sam.pl: /opt/view/bin/bowtie2sam.pl

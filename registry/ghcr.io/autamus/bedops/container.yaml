@@ -5,11 +5,11 @@ description: BEDOPS is an open-source command-line toolkit that performs highly 
   and scalable Boolean and other set operations, statistical calculations, archiving,
   conversion and other management of genomic data of arbitrary scale.
 latest:
-  2.4.40: sha256:ef3083d5d8559268ca19dbbc459dfe6db79c7269dd44777f2672c6e514a3a5a3
+  2.4.40: sha256:544b2d3ad694a91be3ba76642e250d8cd434dc6a6beac3666a955b403dc48ea7
 tags:
   2.4.39: sha256:dfeab119cd7ea1b59a42146a76c66334f1a0cb9aed4cd2932a1e10f1ae7fdb8d
-  2.4.40: sha256:ef3083d5d8559268ca19dbbc459dfe6db79c7269dd44777f2672c6e514a3a5a3
-  latest: sha256:ef3083d5d8559268ca19dbbc459dfe6db79c7269dd44777f2672c6e514a3a5a3
+  2.4.40: sha256:544b2d3ad694a91be3ba76642e250d8cd434dc6a6beac3666a955b403dc48ea7
+  latest: sha256:544b2d3ad694a91be3ba76642e250d8cd434dc6a6beac3666a955b403dc48ea7
 aliases:
   bam2bed: /opt/view/bin/bam2bed
   bam2bed_gnuParallel: /opt/view/bin/bam2bed_gnuParallel
