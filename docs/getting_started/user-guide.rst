@@ -327,8 +327,11 @@ you can add or remove entries via the config variable ``registry``
 .. code-block:: console
 
     # change to your own registry of container yaml configs
-    $ shpc config set registry:/opt/lmod/registry
+    $ shpc config add registry:/opt/lmod/registry
 
+
+# Note that "add" is used for lists of things (e.g., the registry config variable is a list)
+and "set" is used to set a key value pair.
 
 
 Module Names
