@@ -306,7 +306,7 @@ class ModuleBase(BaseClient):
         shpc.utils.mkdirp([module_dir, container_dir])
 
         # Add a .version file to indicate the level of versioning (not for tcl)
-        if self.module_extension != "tcl":
+        if self.module_extension != "tcl" and self.settings.default_version == True:
             version_dir = os.path.join(self.settings.module_base, uri)
             version_file = os.path.join(version_dir, ".version")
             if not os.path.exists(version_file):
