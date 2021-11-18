@@ -1,0 +1,11 @@
+docker: quay.io/biocontainers/fastp
+url: https://quay.io/repository/biocontainers/fastp
+maintainer: '@marcodelapierre'
+description: 'An ultra-fast all-in-one FASTQ preprocessor.'
+latest:
+  0.23.1--h79da9fb_0: sha256:12c900b998c994272699d6d0dd451fb329a0ee8be032ff0186a3ad8c315122fe
+tags:
+  0.23.1--h79da9fb_0: sha256:12c900b998c994272699d6d0dd451fb329a0ee8be032ff0186a3ad8c315122fe
+  0.22.0--h2e03b76_0: sha256:e94097ae4ca17394b35d59a20d9a9f6d8972992bd47d1783f00c26e86ca82c2b
+aliases:
+  fastp: /usr/local/bin/fastp

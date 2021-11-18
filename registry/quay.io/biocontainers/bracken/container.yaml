@@ -1,0 +1,15 @@
+docker: quay.io/biocontainers/bracken
+url: https://quay.io/repository/biocontainers/bracken
+maintainer: '@marcodelapierre'
+description: 'A highly accurate statistical method that computes the abundance of species in DNA sequences from a metagenomics sample.'
+latest:
+  2.6.1--py39h7cff6ad_2: sha256:7150ebf3b4efbbf3584fcdb1e4bb66bab7a030b1e8676e221757915d2278f66f
+tags:
+  2.6.1--py39h7cff6ad_2: sha256:7150ebf3b4efbbf3584fcdb1e4bb66bab7a030b1e8676e221757915d2278f66f
+aliases:
+  bracken: /usr/local/bin/bracken
+  bracken-build: /usr/local/bin/bracken-build
+  kmer2read_distr: /usr/local/bin/kmer2read_distr
+  combine_bracken_outputs.py: /usr/local/bin/combine_bracken_outputs.py
+  est_abundance.py: /usr/local/bin/est_abundance.py
+  generate_kmer_distribution.py: /usr/local/bin/generate_kmer_distribution.py
