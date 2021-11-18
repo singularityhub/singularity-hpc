@@ -3,7 +3,7 @@ layout: container
 name:  "biocontainers/picard"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/biocontainers/picard/container.yaml"
-updated_at: "2021-11-18 08:14:55.013397"
+updated_at: "2021-11-18 17:36:33.506535"
 container_url: "https://hub.docker.com/r/biocontainers/picard"
 aliases:
  - "picard"
