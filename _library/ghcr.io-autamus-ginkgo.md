@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/ginkgo"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/ginkgo/container.yaml"
-updated_at: "2021-11-01 02:12:41.714497"
+updated_at: "2021-11-18 08:15:33.772090"
 container_url: "https://github.com/orgs/autamus/packages/container/package/ginkgo"
 
 versions:

@@ -1,33 +1,35 @@
 ---
 layout: container
-name:  "ghcr.io/autamus/diamond"
+name:  "quay.io/biocontainers/kraken2"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/diamond/container.yaml"
-updated_at: "2021-11-18 08:15:31.561963"
-container_url: "https://github.com/orgs/autamus/packages/container/package/diamond"
+github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/kraken2/container.yaml"
+updated_at: "2021-11-18 08:15:50.977139"
+container_url: "https://quay.io/repository/biocontainers/kraken2"
 aliases:
- - "diamond"
+ - "kraken2"
+
+ - "kraken2-build"
+
+ - "kraken2-inspect"
 
 versions:
- - "2.0.9"
- - "2.0.11"
- - "2.0.13"
- - "latest"
-description: "A sequence aligner for protein and translated DNA searches, designed for high performance analysis of big sequence data."
+ - "2.1.2--pl5262h7d875b9_0"
+ - "2.1.1--pl5262h7d875b9_1"
+description: "A taxonomic classification system using exact k-mer matches to achieve high accuracy and fast classification speeds."
 ---
 
-This module is a singularity container wrapper for ghcr.io/autamus/diamond.
-A sequence aligner for protein and translated DNA searches, designed for high performance analysis of big sequence data.
+This module is a singularity container wrapper for quay.io/biocontainers/kraken2.
+A taxonomic classification system using exact k-mer matches to achieve high accuracy and fast classification speeds.
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash
-$ shpc install ghcr.io/autamus/diamond
+$ shpc install quay.io/biocontainers/kraken2
 ```
 
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/diamond:2.0.9
+$ shpc install quay.io/biocontainers/kraken2:2.1.2--pl5262h7d875b9_0
 ```
 
 And then you can tell lmod about your modules folder:
@@ -39,8 +41,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/diamond/2.0.9
-$ module help ghcr.io/autamus/diamond/2.0.9
+$ module load quay.io/biocontainers/kraken2/2.1.2--pl5262h7d875b9_0
+$ module help quay.io/biocontainers/kraken2/2.1.2--pl5262h7d875b9_0
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
@@ -98,12 +100,30 @@ $ singularity inspect -d <container>
 ```
 
 
-#### diamond
+#### kraken2
        
 ```bash
-$ singularity exec <container> /opt/view/bin/diamond
-$ podman run --it --rm --entrypoint /opt/view/bin/diamond   -v ${PWD} -w ${PWD} <container> -c " $@"
-$ docker run --it --rm --entrypoint /opt/view/bin/diamond   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ singularity exec <container> /usr/local/bin/kraken2
+$ podman run --it --rm --entrypoint /usr/local/bin/kraken2   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/local/bin/kraken2   -v ${PWD} -w ${PWD} <container> -c " $@"
+```
+
+
+#### kraken2-build
+       
+```bash
+$ singularity exec <container> /usr/local/bin/kraken2-build
+$ podman run --it --rm --entrypoint /usr/local/bin/kraken2-build   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/local/bin/kraken2-build   -v ${PWD} -w ${PWD} <container> -c " $@"
+```
+
+
+#### kraken2-inspect
+       
+```bash
+$ singularity exec <container> /usr/local/bin/kraken2-inspect
+$ podman run --it --rm --entrypoint /usr/local/bin/kraken2-inspect   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/local/bin/kraken2-inspect   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 

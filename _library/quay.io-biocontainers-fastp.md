@@ -1,33 +1,31 @@
 ---
 layout: container
-name:  "ghcr.io/autamus/diamond"
+name:  "quay.io/biocontainers/fastp"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/diamond/container.yaml"
-updated_at: "2021-11-18 08:15:31.561963"
-container_url: "https://github.com/orgs/autamus/packages/container/package/diamond"
+github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/fastp/container.yaml"
+updated_at: "2021-11-18 08:15:55.286461"
+container_url: "https://quay.io/repository/biocontainers/fastp"
 aliases:
- - "diamond"
+ - "fastp"
 
 versions:
- - "2.0.9"
- - "2.0.11"
- - "2.0.13"
- - "latest"
-description: "A sequence aligner for protein and translated DNA searches, designed for high performance analysis of big sequence data."
+ - "0.23.1--h79da9fb_0"
+ - "0.22.0--h2e03b76_0"
+description: "An ultra-fast all-in-one FASTQ preprocessor."
 ---
 
-This module is a singularity container wrapper for ghcr.io/autamus/diamond.
-A sequence aligner for protein and translated DNA searches, designed for high performance analysis of big sequence data.
+This module is a singularity container wrapper for quay.io/biocontainers/fastp.
+An ultra-fast all-in-one FASTQ preprocessor.
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash
-$ shpc install ghcr.io/autamus/diamond
+$ shpc install quay.io/biocontainers/fastp
 ```
 
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/diamond:2.0.9
+$ shpc install quay.io/biocontainers/fastp:0.23.1--h79da9fb_0
 ```
 
 And then you can tell lmod about your modules folder:
@@ -39,8 +37,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/diamond/2.0.9
-$ module help ghcr.io/autamus/diamond/2.0.9
+$ module load quay.io/biocontainers/fastp/0.23.1--h79da9fb_0
+$ module help quay.io/biocontainers/fastp/0.23.1--h79da9fb_0
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
@@ -98,12 +96,12 @@ $ singularity inspect -d <container>
 ```
 
 
-#### diamond
+#### fastp
        
 ```bash
-$ singularity exec <container> /opt/view/bin/diamond
-$ podman run --it --rm --entrypoint /opt/view/bin/diamond   -v ${PWD} -w ${PWD} <container> -c " $@"
-$ docker run --it --rm --entrypoint /opt/view/bin/diamond   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ singularity exec <container> /usr/local/bin/fastp
+$ podman run --it --rm --entrypoint /usr/local/bin/fastp   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/local/bin/fastp   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 

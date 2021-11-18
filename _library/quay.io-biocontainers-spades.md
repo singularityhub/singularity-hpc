@@ -3,7 +3,7 @@ layout: container
 name:  "quay.io/biocontainers/spades"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/spades/container.yaml"
-updated_at: "2021-11-01 02:12:53.493460"
+updated_at: "2021-11-18 08:15:53.033682"
 container_url: "https://quay.io/repository/biocontainers/spades"
 aliases:
  - "spades.py"
