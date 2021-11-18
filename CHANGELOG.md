@@ -14,6 +14,7 @@ and **Merged pull requests**. Critical items to know are:
 The versions coincide with releases on pip. Only major versions will be released as tags on Github.
 
 ## [0.0.x](https://github.scom/singularityhub/singularity-hpc/tree/master) (0.0.x)
+ - `.version` file should be written in top level of module folders [#450](https://github.com/singularityhub/singularity-hpc/issues/450) (0.0.35)
  - Tcl modules use shell functions for bash, to export to child shells (0.0.34)
    - fixed missing singularity -B flag for custom home feature
    - fixed singularity.tcl to always replace $ with \$ for custom home feature

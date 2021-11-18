@@ -174,6 +174,9 @@ variable replacement. A summary table of variables is included below, and then f
    * - updated_at
      - a timestamp to keep track of when you last saved
      - never
+   * - default_version
+     - A boolean to indicate generating a .version file (LMOD or lua modules only)
+     - true
    * - singularity_module
      - if defined, add to module script to load this Singularity module first
      - null
@@ -327,8 +330,11 @@ you can add or remove entries via the config variable ``registry``
 .. code-block:: console
 
     # change to your own registry of container yaml configs
-    $ shpc config set registry:/opt/lmod/registry
+    $ shpc config add registry:/opt/lmod/registry
 
+
+# Note that "add" is used for lists of things (e.g., the registry config variable is a list)
+and "set" is used to set a key value pair.
 
 
 Module Names

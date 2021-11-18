@@ -122,6 +122,7 @@ settingsProperties = {
     "module_name": {"type": "string"},
     "config_editor": {"type": "string"},
     "environment_file": {"type": "string"},
+    "default_version": {"type": "boolean"},
     "enable_tty": {"type": "boolean"},
     "container_tech": {"type": "string", "enum": ["singularity", "podman", "docker"]},
     "singularity_shell": {"type": "string", "enum": shells},
