@@ -3,7 +3,7 @@ layout: container
 name:  "quay.io/biocontainers/mummer"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/mummer/container.yaml"
-updated_at: "2021-11-18 17:37:46.282718"
+updated_at: "2021-11-20 06:11:32.571643"
 container_url: "https://quay.io/repository/biocontainers/mummer"
 aliases:
  - "mummer"

@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/stc"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/stc/container.yaml"
-updated_at: "2021-11-18 17:37:14.739684"
+updated_at: "2021-11-20 06:11:05.156412"
 container_url: "https://github.com/orgs/autamus/packages/container/package/stc"
 aliases:
  - "stc"

@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/hpx"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/hpx/container.yaml"
-updated_at: "2021-11-18 17:37:08.100314"
+updated_at: "2021-11-20 06:10:59.548590"
 container_url: "https://github.com/orgs/autamus/packages/container/package/hpx"
 aliases:
  - "hpxcxx"
