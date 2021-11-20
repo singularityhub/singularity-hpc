@@ -9,3 +9,5 @@ tags:
   0.11.9--0: sha256:319b8d4eca0fc0367d192941f221f7fcd29a6b96996c63cbf8931dbb66e53348
 aliases:
   fastqc: /usr/local/bin/fastqc
+features:
+  x11: true
