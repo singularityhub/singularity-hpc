@@ -3,7 +3,7 @@ layout: container
 name:  "quay.io/biocontainers/fastp"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/fastp/container.yaml"
-updated_at: "2021-11-20 06:11:37.089507"
+updated_at: "2021-11-25 17:05:31.866434"
 container_url: "https://quay.io/repository/biocontainers/fastp"
 aliases:
  - "fastp"

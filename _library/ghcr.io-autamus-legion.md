@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/legion"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/legion/container.yaml"
-updated_at: "2021-11-20 06:11:03.066342"
+updated_at: "2021-11-25 17:04:53.501781"
 container_url: "https://github.com/orgs/autamus/packages/container/package/legion"
 aliases:
  - "legion_prof.py"

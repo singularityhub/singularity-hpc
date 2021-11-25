@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/ninja"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/ninja/container.yaml"
-updated_at: "2021-11-20 06:10:48.664558"
+updated_at: "2021-11-25 17:04:36.685425"
 container_url: "https://github.com/orgs/autamus/packages/container/package/ninja"
 aliases:
  - "ninja"

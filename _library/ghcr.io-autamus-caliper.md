@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/caliper"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/caliper/container.yaml"
-updated_at: "2021-11-20 06:11:22.072628"
+updated_at: "2021-11-25 17:05:14.730405"
 container_url: "https://github.com/orgs/autamus/packages/container/package/caliper"
 aliases:
  - "cali-query"

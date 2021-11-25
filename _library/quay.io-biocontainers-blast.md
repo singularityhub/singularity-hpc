@@ -3,7 +3,7 @@ layout: container
 name:  "quay.io/biocontainers/blast"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/blast/container.yaml"
-updated_at: "2021-11-20 06:11:31.176368"
+updated_at: "2021-11-25 17:05:24.954984"
 container_url: "https://quay.io/repository/biocontainers/blast"
 aliases:
  - "blast_formatter"
