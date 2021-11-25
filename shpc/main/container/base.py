@@ -43,9 +43,6 @@ class ContainerTechnology:
     A base class for a container technology
     """
 
-    # The module technology adds extensions here
-    modulefile = "module"
-
     # By default, no extra features
     features = {}
 

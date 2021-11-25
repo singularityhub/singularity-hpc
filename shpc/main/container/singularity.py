@@ -71,7 +71,7 @@ class SingularityContainer(ContainerTechnology):
             logger.exit("Found more than one sif in module folder.")
         return sif[0]
 
-    def add(self, sif, module_name, modulefile, template, **kwargs):
+    def add(self, sif, module_name, module_path, template, **kwargs):
         """
         Manually add a registry container.
         """
@@ -91,9 +91,9 @@ class SingularityContainer(ContainerTechnology):
                     )
 
         # The user can have a different container directory defined
+        module_dir = os.path.dirname(module_path)
         container_dir = self.container_dir(module_name)
-        module_path = os.path.join(container_dir, modulefile)
-        shpc.utils.mkdirp([container_dir])
+        shpc.utils.mkdirp([container_dir, module_dir])
 
         # Name the container appropriately
         name = module_name.replace("/", "-")
@@ -142,9 +142,11 @@ class SingularityContainer(ContainerTechnology):
         features = self.get_features(
             config_features, self.settings.container_features, features
         )
+        # The parent directory of the container might have other containers
+        container_dir = os.path.dirname(container_path)
 
         # Remove any previous containers
-        for older in glob("%s%s*.sif" % (module_path, os.sep)):
+        for older in glob("%s%s*.sif" % (container_dir, os.sep)):
             if older == container_path:
                 continue
             os.remove(older)

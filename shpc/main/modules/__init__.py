@@ -72,10 +72,6 @@ class ModuleBase(BaseClient):
         return self.settings.container_base
 
     @property
-    def modulefile(self):
-        return "%s.%s" % (self.container.modulefile, self.module_extension)
-
-    @property
     def templatefile(self):
         return "%s.%s" % (self.container.templatefile, self.module_extension)
 
@@ -146,7 +142,8 @@ class ModuleBase(BaseClient):
         """
         module_name = self.add_namespace(module_name)
         template = self._load_template(self.templatefile)
-        self.container.add(sif, module_name, self.modulefile, template, **kwargs)
+        modulefile = os.path.join(self.settings.module_base, "%s.%s" %(module_name.replace(':', os.sep), self.module_extension))
+        self.container.add(sif, module_name, modulefile, template, **kwargs)
 
     def get(self, module_name, env_file=False):
         """
@@ -162,7 +159,6 @@ class ModuleBase(BaseClient):
         """
         self._list_modules(
             self.settings.module_base,
-            self.modulefile,
             pattern,
             names_only,
             out,
@@ -219,11 +215,11 @@ class ModuleBase(BaseClient):
         return self.container.inspect(image)
 
     def _list_modules(
-        self, base, filename, pattern=None, names_only=False, out=None, short=False
+        self, base, pattern=None, names_only=False, out=None, short=False
     ):
         """A shared function to list modules or registry entries."""
         out = out or sys.stdout
-        modules = self._get_module_lookup(base, filename, pattern)
+        modules = self._get_module_lookup(base, pattern)
 
         # If we don't have modules, exit early
         if not modules:
@@ -239,12 +235,13 @@ class ModuleBase(BaseClient):
                 for version in versions:
                     out.write("%s:%s\n" % (module_name.rjust(30), version))
 
-    def _get_module_lookup(self, base, filename, pattern=None):
+    def _get_module_lookup(self, base, pattern=None):
         """A shared function to get a lookup of installed modules or registry entries"""
         modules = {}
         for fullpath in utils.recursive_find(base, pattern):
-            if fullpath.endswith(filename):
-                module_name, version = os.path.dirname(fullpath).rsplit(os.sep, 1)
+            if fullpath.endswith(self.module_extension):
+                module_name = fullpath.rsplit(os.sep, 1)[0]
+                version = os.path.splitext(os.path.basename(fullpath))[0] 
                 module_name = module_name.replace(base, "").strip(os.sep)
                 if module_name not in modules:
                     modules[module_name] = set()
@@ -323,7 +320,8 @@ class ModuleBase(BaseClient):
 
         # Get the template based on the module and container type
         template = self._load_template(self.templatefile)
-        module_path = os.path.join(module_dir, self.modulefile)
+
+        module_path = "%s.%s" %(module_dir, self.module_extension)
 
         # If the module has a version, overrides version
         version = tag.name
