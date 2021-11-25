@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/ascent"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/ascent/container.yaml"
-updated_at: "2021-11-25 17:04:57.858049"
+updated_at: "2021-11-25 18:40:29.494896"
 container_url: "https://github.com/orgs/autamus/packages/container/package/ascent"
 
 versions:
