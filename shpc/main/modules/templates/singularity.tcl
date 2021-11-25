@@ -78,7 +78,7 @@ set-alias {|module_name|}-shell "${shellCmd}"
 {% if aliases %}
 if { [ module-info shell bash ] } {
   if { [ module-info mode load ] } {
-{% for alias in aliases %}    puts stdout "function {{ alias.name }}() { ${execCmd} {% if alias.singularity_options %} {{ alias.singularity_options | replace("$", "\$") }} {% endif %} ${containerPath} {{ alias.command | replace("$", "\$") }}; }; export -f {{ alias.name }};"
+{% for alias in aliases %}    puts stdout "function {{ alias.name }}() { ${execCmd} {% if alias.singularity_options %} {{ alias.singularity_options | replace("$", "\$") }} {% endif %} ${containerPath} {{ alias.command | replace("$", "\$") }} \$@; }; export -f {{ alias.name }};"
 {% endfor %}
   }
   if { [ module-info mode remove ] } {
