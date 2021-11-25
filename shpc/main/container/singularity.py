@@ -75,6 +75,8 @@ class SingularityContainer(ContainerTechnology):
         """
         Manually add a registry container.
         """
+        module_dir = os.path.dirname(modulefile)
+
         # Ensure the container exists
         sif = os.path.abspath(sif)
         if not os.path.exists(sif):
@@ -92,8 +94,7 @@ class SingularityContainer(ContainerTechnology):
 
         # The user can have a different container directory defined
         container_dir = self.container_dir(module_name)
-        module_path = os.path.join(container_dir, modulefile)
-        shpc.utils.mkdirp([container_dir])
+        shpc.utils.mkdirp([container_dir, module_dir])
 
         # Name the container appropriately
         name = module_name.replace("/", "-")
@@ -105,14 +106,14 @@ class SingularityContainer(ContainerTechnology):
         parsed_name = ContainerName(module_name)
 
         self.install(
-            module_path,
+            modulefile,
             dest,
             module_name,
             template,
             parsed_name=parsed_name,
             features=kwargs.get("features"),
         )
-        self.add_environment(container_dir, {}, self.settings.environment_file)
+        self.add_environment(module_dir, {}, self.settings.environment_file)
         logger.info("Module %s was created." % (module_name))
 
     def install(
@@ -144,7 +145,8 @@ class SingularityContainer(ContainerTechnology):
         )
 
         # Remove any previous containers
-        for older in glob("%s%s*.sif" % (module_path, os.sep)):
+        container_dir = os.path.dirname(container_path)
+        for older in glob("%s%s*.sif" % (container_dir, os.sep)):
             if older == container_path:
                 continue
             os.remove(older)
