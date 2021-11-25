@@ -60,9 +60,10 @@ build_singularity: &install_singularity
 install_podman: &install_podman
   name: Install Podman
   command: |-
-    . /etc/os-release
-    sudo apt-get -qq -y install podman
- 
+    apt update
+    sudo apt upgrade
+    sudo apt install podman
+    
 install_dependencies: &install_dependencies
   name: install dependencies
   command: |-
