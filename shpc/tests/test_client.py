@@ -44,8 +44,8 @@ def init_client(tmpdir, module_sys, container_tech):
     [
         ("lmod", "module.lua", "singularity"),
         ("lmod", "module.lua", "podman"),
-        ("tcl", "module.tcl", "singularity"),
-        ("tcl", "module.tcl", "podman"),
+        ("tcl", "module", "singularity"),
+        ("tcl", "module", "podman"),
     ],
 )
 def test_install_get(tmp_path, module_sys, module_file, container_tech):
@@ -69,7 +69,7 @@ def test_install_get(tmp_path, module_sys, module_file, container_tech):
 
 
 @pytest.mark.parametrize(
-    "module_sys,module_file", [("lmod", "module.lua"), ("tcl", "module.tcl")]
+    "module_sys,module_file", [("lmod", "module.lua"), ("tcl", "module")]
 )
 def test_features(tmp_path, module_sys, module_file):
     """
