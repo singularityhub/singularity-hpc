@@ -53,7 +53,7 @@ set containerPath {{ container_sif }}
 {% if description %}set notes       "{{ description }}"{% endif %}
 {% if url %}set homepage    "{{ url }}"{% endif %}
 set helpcommand "This module is a singularity container wrapper for {{ name }} v{{ version }}. {% if description %}{{ description }}{% endif %}"
-{% if labels %}{% for key, value in labels.items() %}set {{ key }} {{ value }}
+{% if labels %}{% for key, value in labels.items() %}set {{ key }} "{{ value }}"
 {% endfor %}{% endif %}
 
 # conflict with modules with the same alias name
