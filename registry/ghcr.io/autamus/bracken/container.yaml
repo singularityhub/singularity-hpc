@@ -5,7 +5,7 @@ description: Bracken (Bayesian Reestimation of Abundance with KrakEN) is a highl
   accurate statistical method that computes the abundance of species in DNA sequences
   from a metagenomics sample.
 latest:
-  1.0.0: sha256:b34b97a5c9cd9b067d624201be62945b21b99f11f1f6356b76f6609b5cd4082b
+  1.0.0: sha256:2c1c8dd254e93b348fda7ac0ff118e6b5cf895d9880c9fd202f8b149dacdc903
 tags:
-  1.0.0: sha256:b34b97a5c9cd9b067d624201be62945b21b99f11f1f6356b76f6609b5cd4082b
-  latest: sha256:b34b97a5c9cd9b067d624201be62945b21b99f11f1f6356b76f6609b5cd4082b
+  1.0.0: sha256:2c1c8dd254e93b348fda7ac0ff118e6b5cf895d9880c9fd202f8b149dacdc903
+  latest: sha256:2c1c8dd254e93b348fda7ac0ff118e6b5cf895d9880c9fd202f8b149dacdc903

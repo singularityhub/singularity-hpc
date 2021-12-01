@@ -10,7 +10,7 @@ tags:
   1.52.1: sha256:340e767aa1f43b61f2ffbce26072e4846b2068c73b4808eb85f8cf9f4630d24a
   1.53.0: sha256:ee8420808012967a81d5a205dee5372134e2b0ee63a1729d8b8550d91e823ba1
   1.54.0: sha256:df047336872fe0ffae5ee3f683e166cd816d7a6a437ddc63de6d19a5c9e713c9
-  latest: sha256:85092a76f7c22ad23c8345243df384b658eceec7bf5d52587fd9158abca7cbd3
+  latest: sha256:601f395a12c001d7f22ac80cc84298f43a058ad17913f53ad945bab095edb2dc
 aliases:
   cargo: /opt/view/bin/cargo
   cargo-clippy: /opt/view/bin/cargo-clippy

@@ -5,10 +5,10 @@ description: HPCToolkit is an integrated suite of tools for measurement and anal
   of program performance on computers ranging from multicore desktop systems to the
   nation's largest supercomputers.
 latest:
-  2021.10.15: sha256:93aeabd1af1226baa9d27ac0d8bd8c772c852d0ca335bbeb8286905bf27d8201
+  2021.10.15: sha256:15314749924c506fb5e555f3daf256f4c90c33af2b034193f808ec84cc6d429a
 tags:
   2021.05.15: sha256:c32cc6b317c9dbe3a216c8fe754c650ef9fd7dab74bc35d1739b21115b7aa446
-  2021.10.15: sha256:93aeabd1af1226baa9d27ac0d8bd8c772c852d0ca335bbeb8286905bf27d8201
+  2021.10.15: sha256:15314749924c506fb5e555f3daf256f4c90c33af2b034193f808ec84cc6d429a
 aliases:
   hello: /opt/view/bin/hello
   hpclink: /opt/view/bin/hpclink

@@ -5,9 +5,9 @@ description: kallisto is a program for quantifying abundances of transcripts fro
   bulk and single-cell RNA-Seq data, or more generally of target sequences using high-throughput
   sequencing reads.
 latest:
-  0.46.2: sha256:158cf95ce3f14ff892e970e9b888ad1bfe037b75a4466189018248d6ca38c033
+  0.46.2: sha256:efa5cc8c0bc274bb2ed308667ece581faad45a1e044a1f11692a1c556cd505db
 tags:
-  0.46.2: sha256:158cf95ce3f14ff892e970e9b888ad1bfe037b75a4466189018248d6ca38c033
-  latest: sha256:158cf95ce3f14ff892e970e9b888ad1bfe037b75a4466189018248d6ca38c033
+  0.46.2: sha256:efa5cc8c0bc274bb2ed308667ece581faad45a1e044a1f11692a1c556cd505db
+  latest: sha256:efa5cc8c0bc274bb2ed308667ece581faad45a1e044a1f11692a1c556cd505db
 aliases:
   kallisto: /opt/view/bin/kallisto

@@ -3,6 +3,6 @@ url: https://github.com/orgs/autamus/packages/container/package/mercury
 maintainer: '@vsoch'
 description: Mercury is a C library for implementing RPC, optimized for HPC
 latest:
-  2.0.1: sha256:b1a5a46b003e4b6454e701e100fb6f7b0f2cc647d1e7d2b017547d4b2fb033ef
+  2.0.1: sha256:03193fa2478d1cc5d0196145f6673727ab1456c386133b9fe0e164dce973e9f1
 tags:
-  2.0.1: sha256:b1a5a46b003e4b6454e701e100fb6f7b0f2cc647d1e7d2b017547d4b2fb033ef
+  2.0.1: sha256:03193fa2478d1cc5d0196145f6673727ab1456c386133b9fe0e164dce973e9f1

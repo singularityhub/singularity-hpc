@@ -5,8 +5,8 @@ description: Floating-point Litmus Tests (FLiT) is a C++ test infrastructure for
   variability in floating-point code caused by variations in compiler code generation,
   hardware and execution environments.
 latest:
-  2.1.0: sha256:669176ae36cd38dd21b2f4e29ad2a4edc01bf323e920c2f083768f61e29e1ef7
+  2.1.0: sha256:6c1f474f841c347925636cfbe72317d096ce8e2dc16d4f51005a392c12be8e4d
 tags:
-  2.1.0: sha256:669176ae36cd38dd21b2f4e29ad2a4edc01bf323e920c2f083768f61e29e1ef7
+  2.1.0: sha256:6c1f474f841c347925636cfbe72317d096ce8e2dc16d4f51005a392c12be8e4d
 aliases:
   flit: /opt/view/bin/flit

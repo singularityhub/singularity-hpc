@@ -3,9 +3,9 @@ url: https://github.com/orgs/autamus/packages/container/package/emacs
 maintainer: '@vsoch'
 description: The Emacs programmable text editor. https://www.gnu.org/software/emacs
 latest:
-  "27.2": sha256:23257456dab47e3c2dca9820993655580cac15aa683c868faa017c36e4f3f3d2
+  "27.2": sha256:88e0a53f1913dcc89bd90bf1d5c931e04eae0c4e43b3be52b39b5254e23b9635
 tags:
-  "27.2": sha256:23257456dab47e3c2dca9820993655580cac15aa683c868faa017c36e4f3f3d2
+  "27.2": sha256:88e0a53f1913dcc89bd90bf1d5c931e04eae0c4e43b3be52b39b5254e23b9635
 aliases:
   ebrowse: /opt/view/bin/ebrowse
   emacs: /opt/view/bin/emacs
