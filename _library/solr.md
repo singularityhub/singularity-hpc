@@ -3,7 +3,7 @@ layout: container
 name:  "solr"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/solr/container.yaml"
-updated_at: "2021-12-01 01:35:50.315101"
+updated_at: "2021-12-01 18:36:44.052025"
 container_url: "https://hub.docker.com/_/solr"
 aliases:
  - "post"

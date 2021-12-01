@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/slepc"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/slepc/container.yaml"
-updated_at: "2021-12-01 01:35:43.601300"
+updated_at: "2021-12-01 18:37:14.262939"
 container_url: "https://github.com/orgs/autamus/packages/container/package/slepc"
 
 versions:

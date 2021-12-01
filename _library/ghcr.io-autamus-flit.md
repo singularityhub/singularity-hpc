@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/flit"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/flit/container.yaml"
-updated_at: "2021-12-01 01:35:34.707998"
+updated_at: "2021-12-01 18:37:13.596924"
 container_url: "https://github.com/orgs/autamus/packages/container/package/flit"
 aliases:
  - "flit"

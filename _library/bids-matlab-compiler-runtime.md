@@ -3,7 +3,7 @@ layout: container
 name:  "bids/matlab-compiler-runtime"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/bids/matlab-compiler-runtime/container.yaml"
-updated_at: "2021-12-01 01:35:47.717984"
+updated_at: "2021-12-01 18:36:48.051001"
 container_url: "https://hub.docker.com/r/bids/matlab-compiler-runtime"
 
 versions:

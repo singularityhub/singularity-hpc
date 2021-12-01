@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/scr"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/scr/container.yaml"
-updated_at: "2021-12-01 01:35:04.067172"
+updated_at: "2021-12-01 18:37:37.091218"
 container_url: "https://github.com/orgs/autamus/packages/container/package/scr"
 aliases:
  - "scancel"
