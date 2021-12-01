@@ -6,10 +6,10 @@ description: Open Babel is a chemical toolbox designed to speak the many languag
   convert, analyze, or store data from molecular modeling, chemistry, solid-state
   materials, biochemistry, or related areas.
 latest:
-  3.1.1: sha256:6bdb14a44baec1353554f01f09d4388f6beb2533e11aa52f71f12caef8f40ce9
+  3.1.1: sha256:3553855400bb725b6b21ca6d0c72378d776538ca92cc5411b2e01122519eb326
 tags:
-  3.1.1: sha256:6bdb14a44baec1353554f01f09d4388f6beb2533e11aa52f71f12caef8f40ce9
-  latest: sha256:fd5c6d5c268365261eab7e737e58bc2b0fbcdbcd9f43c35a10d1cd9de9ae88e8
+  3.1.1: sha256:3553855400bb725b6b21ca6d0c72378d776538ca92cc5411b2e01122519eb326
+  latest: sha256:3553855400bb725b6b21ca6d0c72378d776538ca92cc5411b2e01122519eb326
 aliases:
   obabel: /opt/view/bin/obabel
   obconformer: /opt/view/bin/obconformer

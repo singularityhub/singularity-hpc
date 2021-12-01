@@ -4,12 +4,13 @@ maintainer: '@vsoch'
 description: Ruby is a dynamic, reflective, object-oriented, general-purpose, open-source
   programming language.
 latest:
-  3.0.2: sha256:179ae4287b6bb0b9f03d09cd1f10c2aba7e34c60183c838b2ea00bcdd85c43d7
+  3.1.0-preview1: sha256:0c53b9896cfa9eddd62b2277c4d9dce5fc4cb6d9fc5fabe1f70050a1d500336a
 tags:
   3.0.1-alpine: sha256:c7d2b6967cbf1d84477232ec8ad165585bed1f2cf8870eca86b3f90b1369313f
-  3.0.2: sha256:179ae4287b6bb0b9f03d09cd1f10c2aba7e34c60183c838b2ea00bcdd85c43d7
-  3.0.2-alpine: sha256:cb8ed35a9c6765f2a53bbc7feaa1969e48cd856276013de35724ba9372b800d0
-  latest: sha256:179ae4287b6bb0b9f03d09cd1f10c2aba7e34c60183c838b2ea00bcdd85c43d7
+  3.0.2: sha256:15dd21ae353c5f4faebed038d9d131c47b9fd84c14be8c3cfbc750204b63f009
+  3.0.2-alpine: sha256:b5e479ebc175726b5b77168b78b0322fec55e730c96f38ce8ca5b565aceca3a6
+  3.1.0-preview1: sha256:0c53b9896cfa9eddd62b2277c4d9dce5fc4cb6d9fc5fabe1f70050a1d500336a
+  latest: sha256:468fe35b77b44a2064d077a1744e977d0e882678ce8e3b3665b5caa9984237d9
 aliases:
   bundle: /usr/local/bin/bundle
   bundler: /usr/local/bin/bundler
