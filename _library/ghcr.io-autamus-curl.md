@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/curl"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/curl/container.yaml"
-updated_at: "2021-11-25 18:40:02.528590"
+updated_at: "2021-12-01 01:34:52.675554"
 container_url: "https://github.com/orgs/autamus/packages/container/package/curl"
 aliases:
  - "c_rehash"
@@ -16,6 +16,7 @@ versions:
  - "7.76.1"
  - "7.78.0"
  - "7.79.0"
+ - "7.80.0"
  - "latest"
 description: "cURL is a computer software project providing a library and command-line tool for transferring data using various network protocols. The name stands for 'Client URL', which was first released in 1997."
 ---

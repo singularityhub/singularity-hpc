@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/clingo"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/clingo/container.yaml"
-updated_at: "2021-11-25 18:40:42.890580"
+updated_at: "2021-12-01 01:35:38.605285"
 container_url: "https://github.com/orgs/autamus/packages/container/package/clingo"
 aliases:
  - "clingo"
@@ -13,6 +13,7 @@ aliases:
 versions:
  - "5.4.1"
  - "5.5.0"
+ - "5.5.1"
  - "latest"
 description: "An ASP system to ground and solve logic programs."
 ---

@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/amrex"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/amrex/container.yaml"
-updated_at: "2021-11-25 18:40:21.036163"
+updated_at: "2021-12-01 01:35:13.737359"
 container_url: "https://github.com/orgs/autamus/packages/container/package/amrex"
 
 versions:
@@ -11,6 +11,7 @@ versions:
  - "21.07"
  - "21.08"
  - "21.10"
+ - "21.11"
 description: "AMReX is a publicly available software framework designed for building massively parallel block- structured adaptive mesh refinement (AMR) applications."
 ---
 

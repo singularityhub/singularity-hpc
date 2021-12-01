@@ -3,13 +3,14 @@ layout: container
 name:  "ghcr.io/autamus/petsc"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/petsc/container.yaml"
-updated_at: "2021-11-25 18:40:47.470518"
+updated_at: "2021-12-01 01:35:44.193650"
 container_url: "https://github.com/orgs/autamus/packages/container/package/petsc"
 
 versions:
  - "3.15.1"
  - "3.15.3"
  - "3.16.0"
+ - "3.16.1"
 description: "PETSc is a suite of data structures and routines for the scalable (parallel) solution of scientific applications modeled by partial differential equations."
 ---
 

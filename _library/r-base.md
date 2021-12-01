@@ -3,7 +3,7 @@ layout: container
 name:  "r-base"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/r-base/container.yaml"
-updated_at: "2021-11-25 18:40:53.450850"
+updated_at: "2021-12-01 01:35:51.534989"
 container_url: "https://hub.docker.com/_/r-base"
 aliases:
  - "R"
@@ -13,6 +13,7 @@ aliases:
 versions:
  - "4.1.0"
  - "4.1.1"
+ - "4.1.2"
  - "latest"
 description: "R is a system for statistical computation and graphics."
 ---

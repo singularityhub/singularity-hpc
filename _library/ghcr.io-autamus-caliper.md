@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/caliper"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/caliper/container.yaml"
-updated_at: "2021-11-25 18:40:44.798392"
+updated_at: "2021-12-01 01:35:40.946891"
 container_url: "https://github.com/orgs/autamus/packages/container/package/caliper"
 aliases:
  - "cali-query"
@@ -12,6 +12,7 @@ aliases:
 
 versions:
  - "2.6.0"
+ - "2.7.0"
 description: "Caliper is a program instrumentation and performance measurement framework."
 ---
 

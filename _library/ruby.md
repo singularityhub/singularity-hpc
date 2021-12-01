@@ -3,7 +3,7 @@ layout: container
 name:  "ruby"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ruby/container.yaml"
-updated_at: "2021-11-25 18:39:49.569174"
+updated_at: "2021-12-01 01:34:37.782777"
 container_url: "https://hub.docker.com/_/ruby"
 aliases:
  - "bundle"
@@ -34,6 +34,7 @@ versions:
  - "3.0.1-alpine"
  - "3.0.2"
  - "3.0.2-alpine"
+ - "3.1.0-preview1"
  - "latest"
 description: "Ruby is a dynamic, reflective, object-oriented, general-purpose, open-source programming language."
 ---

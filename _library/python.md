@@ -3,7 +3,7 @@ layout: container
 name:  "python"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/python/container.yaml"
-updated_at: "2021-11-25 18:39:49.080213"
+updated_at: "2021-12-01 01:34:37.228812"
 container_url: "https://hub.docker.com/_/python"
 aliases:
  - "python"
@@ -15,6 +15,7 @@ versions:
  - "3.9.5-alpine"
  - "3.9.6-alpine"
  - "3.9.7"
+ - "3.9.9"
  - "3.10.0a7-alpine"
 description: "An interpreted, high-level and general-purpose programming language."
 ---

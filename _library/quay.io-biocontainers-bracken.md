@@ -3,14 +3,12 @@ layout: container
 name:  "quay.io/biocontainers/bracken"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/bracken/container.yaml"
-updated_at: "2021-11-25 18:40:59.658202"
+updated_at: "2021-12-01 01:35:59.488228"
 container_url: "https://quay.io/repository/biocontainers/bracken"
 aliases:
  - "bracken"
 
  - "bracken-build"
-
- - "kmer2read_distr"
 
  - "combine_bracken_outputs.py"
 
@@ -18,7 +16,10 @@ aliases:
 
  - "generate_kmer_distribution.py"
 
+ - "kmer2read_distr"
+
 versions:
+ - "2.6.1--py27h2bce143_0"
  - "2.6.1--py39h7cff6ad_2"
 description: "A highly accurate statistical method that computes the abundance of species in DNA sequences from a metagenomics sample."
 ---
@@ -34,7 +35,7 @@ $ shpc install quay.io/biocontainers/bracken
 Or a specific version:
 
 ```bash
-$ shpc install quay.io/biocontainers/bracken:2.6.1--py39h7cff6ad_2
+$ shpc install quay.io/biocontainers/bracken:2.6.1--py27h2bce143_0
 ```
 
 And then you can tell lmod about your modules folder:
@@ -46,8 +47,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load quay.io/biocontainers/bracken/2.6.1--py39h7cff6ad_2
-$ module help quay.io/biocontainers/bracken/2.6.1--py39h7cff6ad_2
+$ module load quay.io/biocontainers/bracken/2.6.1--py27h2bce143_0
+$ module help quay.io/biocontainers/bracken/2.6.1--py27h2bce143_0
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
@@ -123,15 +124,6 @@ $ docker run --it --rm --entrypoint /usr/local/bin/bracken-build   -v ${PWD} -w 
 ```
 
 
-#### kmer2read_distr
-       
-```bash
-$ singularity exec <container> /usr/local/bin/kmer2read_distr
-$ podman run --it --rm --entrypoint /usr/local/bin/kmer2read_distr   -v ${PWD} -w ${PWD} <container> -c " $@"
-$ docker run --it --rm --entrypoint /usr/local/bin/kmer2read_distr   -v ${PWD} -w ${PWD} <container> -c " $@"
-```
-
-
 #### combine_bracken_outputs.py
        
 ```bash
@@ -156,6 +148,15 @@ $ docker run --it --rm --entrypoint /usr/local/bin/est_abundance.py   -v ${PWD} 
 $ singularity exec <container> /usr/local/bin/generate_kmer_distribution.py
 $ podman run --it --rm --entrypoint /usr/local/bin/generate_kmer_distribution.py   -v ${PWD} -w ${PWD} <container> -c " $@"
 $ docker run --it --rm --entrypoint /usr/local/bin/generate_kmer_distribution.py   -v ${PWD} -w ${PWD} <container> -c " $@"
+```
+
+
+#### kmer2read_distr
+       
+```bash
+$ singularity exec <container> /usr/local/bin/kmer2read_distr
+$ podman run --it --rm --entrypoint /usr/local/bin/kmer2read_distr   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/local/bin/kmer2read_distr   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 

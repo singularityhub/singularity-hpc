@@ -3,7 +3,7 @@ layout: container
 name:  "gradle"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/gradle/container.yaml"
-updated_at: "2021-11-25 18:39:58.705580"
+updated_at: "2021-12-01 01:34:48.282806"
 container_url: "https://hub.docker.com/_/gradle"
 aliases:
  - "gradle"
@@ -15,6 +15,7 @@ versions:
  - "7.1.0-hotspot"
  - "7.1.1-hotspot"
  - "7.2.0"
+ - "7.3.0"
  - "latest"
 description: "Gradle is a build tool with a focus on build automation and support for multi-language development."
 ---
