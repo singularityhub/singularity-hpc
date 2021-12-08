@@ -3,7 +3,7 @@ layout: container
 name:  "quay.io/biocontainers/diamond"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/diamond/container.yaml"
-updated_at: "2021-12-01 18:36:59.298464"
+updated_at: "2021-12-08 18:21:24.795821"
 container_url: "https://quay.io/repository/biocontainers/diamond"
 aliases:
  - "diamond"
