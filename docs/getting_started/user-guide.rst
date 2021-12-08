@@ -583,6 +583,12 @@ If you don't have any module software on your system, you can now test interacti
 with the module via the :ref:`getting_started-development` instructions.
 
 
+Install Private Images
+----------------------
+
+What about private containers on Docker Hub? If you have a private image, you can
+simply use `Singularity remote login <https://github.com/sylabs/singularity-userdocs/blob/master/singularity_and_docker.rst#singularity-cli-remote-command>`_ before attempting the install and everything should work.
+
 Namespace
 ---------
 
