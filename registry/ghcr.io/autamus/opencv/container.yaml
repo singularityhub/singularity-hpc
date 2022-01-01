@@ -7,9 +7,9 @@ description: OpenCV is a library of programming functions mainly aimed at real-t
 latest:
   4.5.3: sha256:5f21e07ad4a6bb1b9e1832c2498fcf308f71a8fab152b6e01eed63ae3f080389
 tags:
-  4.5.2: sha256:389a8946d19433e7519577da130b618cf6802bb41f5f95eb750a89df2f8cf349
+  4.5.2: sha256:6dd126262a9fe1c840a524297473a73cb0345d072d4bb42f4a543c3ff521fe67
   4.5.3: sha256:5f21e07ad4a6bb1b9e1832c2498fcf308f71a8fab152b6e01eed63ae3f080389
-  latest: sha256:389a8946d19433e7519577da130b618cf6802bb41f5f95eb750a89df2f8cf349
+  latest: sha256:6dd126262a9fe1c840a524297473a73cb0345d072d4bb42f4a543c3ff521fe67
 aliases:
   opencv_version: /opt/view/bin/opencv_version
   setup_vars_opencv4.sh: /opt/view/bin/setup_vars_opencv4.sh

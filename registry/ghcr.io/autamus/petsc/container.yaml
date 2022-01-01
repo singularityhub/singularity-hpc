@@ -4,9 +4,10 @@ maintainer: '@vsoch'
 description: PETSc is a suite of data structures and routines for the scalable (parallel)
   solution of scientific applications modeled by partial differential equations.
 latest:
-  3.16.1: sha256:1af847f6c0d660cef371d7307a8db2730c8e67896c0d4d560d8a8ef1123e0cca
+  3.16.2: sha256:33af1cfcaa5f4df8afc797fe190e2d2c242cb855999e7c2f8184e3c59091da3f
 tags:
   3.15.1: sha256:3593285d718d4d953cd1ebb331c74590c7888530c4573eb2d3629bdc81800a2a
   3.15.3: sha256:e96aca1906a647d74f3819ee9a93adaeb0625a76cc1705a1f2e9092b395c25dc
   3.16.0: sha256:9bc11f80ca9bc61d191cfbd06a9fa929dc8e10d498d90a1d98226aea4ef54842
   3.16.1: sha256:1af847f6c0d660cef371d7307a8db2730c8e67896c0d4d560d8a8ef1123e0cca
+  3.16.2: sha256:33af1cfcaa5f4df8afc797fe190e2d2c242cb855999e7c2f8184e3c59091da3f
