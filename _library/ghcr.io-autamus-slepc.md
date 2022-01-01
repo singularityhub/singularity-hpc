@@ -3,12 +3,13 @@ layout: container
 name:  "ghcr.io/autamus/slepc"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/slepc/container.yaml"
-updated_at: "2021-12-08 18:21:41.498521"
+updated_at: "2022-01-01 01:05:33.884379"
 container_url: "https://github.com/orgs/autamus/packages/container/package/slepc"
 
 versions:
  - "3.15.1"
  - "3.16.0"
+ - "3.16.1"
 description: "Scalable Library for Eigenvalue Problem Computations."
 ---
 

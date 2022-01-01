@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/heaptrack"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/heaptrack/container.yaml"
-updated_at: "2021-12-08 18:22:00.409081"
+updated_at: "2022-01-01 01:05:24.413632"
 container_url: "https://github.com/orgs/autamus/packages/container/package/heaptrack"
 aliases:
  - "heaptrack"
@@ -12,6 +12,7 @@ aliases:
 
 versions:
  - "1.2.0"
+ - "1.3.0"
  - "latest"
 description: "Heaptrack traces all memory allocations and annotates these events with stack traces."
 ---

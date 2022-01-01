@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/ruby"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/ruby/container.yaml"
-updated_at: "2021-12-08 18:21:53.986229"
+updated_at: "2022-01-01 01:05:32.972682"
 container_url: "https://github.com/orgs/autamus/packages/container/package/ruby"
 aliases:
  - "bundle"
@@ -31,6 +31,7 @@ aliases:
 versions:
  - "3.0.0"
  - "3.0.2"
+ - "3.1.0"
  - "latest"
 description: "An interpreted, high-level, general-purpose programming language."
 ---

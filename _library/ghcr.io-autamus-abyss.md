@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/abyss"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/abyss/container.yaml"
-updated_at: "2021-12-08 18:22:00.172344"
+updated_at: "2022-01-01 01:05:26.555295"
 container_url: "https://github.com/orgs/autamus/packages/container/package/abyss"
 aliases:
  - "abyss-align"
@@ -87,6 +87,7 @@ versions:
  - "2.3.1"
  - "2.3.2"
  - "2.3.3"
+ - "2.3.4"
  - "latest"
 description: "ABySS is a de novo, parallel, paired-end sequence assembler that is designed for short reads."
 ---

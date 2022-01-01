@@ -3,7 +3,7 @@ layout: container
 name:  "tensorflow/tensorflow"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/tensorflow/tensorflow/container.yaml"
-updated_at: "2021-12-08 18:21:09.124661"
+updated_at: "2022-01-01 01:06:17.811521"
 container_url: "https://hub.docker.com/r/tensorflow/tensorflow"
 aliases:
  - "python"
@@ -16,6 +16,7 @@ versions:
  - "2.6.0rc0-gpu-jupyter"
  - "2.7.0"
  - "2.7.0rc0"
+ - "2.8.0rc0"
 description: "An end-to-end open source platform for machine learning."
 ---
 

@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/py-libensemble"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/py-libensemble/container.yaml"
-updated_at: "2021-12-08 18:21:57.927858"
+updated_at: "2022-01-01 01:05:28.365047"
 container_url: "https://github.com/orgs/autamus/packages/container/package/py-libensemble"
 
 versions:

@@ -3,14 +3,15 @@ layout: container
 name:  "quay.io/biocontainers/fastp"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/fastp/container.yaml"
-updated_at: "2021-12-08 18:21:21.971266"
+updated_at: "2022-01-01 01:06:28.328449"
 container_url: "https://quay.io/repository/biocontainers/fastp"
 aliases:
  - "fastp"
 
 versions:
- - "0.23.1--h79da9fb_0"
  - "0.22.0--h2e03b76_0"
+ - "0.23.1--h79da9fb_0"
+ - "0.23.2--h79da9fb_0"
 description: "An ultra-fast all-in-one FASTQ preprocessor."
 ---
 
@@ -25,7 +26,7 @@ $ shpc install quay.io/biocontainers/fastp
 Or a specific version:
 
 ```bash
-$ shpc install quay.io/biocontainers/fastp:0.23.1--h79da9fb_0
+$ shpc install quay.io/biocontainers/fastp:0.22.0--h2e03b76_0
 ```
 
 And then you can tell lmod about your modules folder:
@@ -37,8 +38,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load quay.io/biocontainers/fastp/0.23.1--h79da9fb_0
-$ module help quay.io/biocontainers/fastp/0.23.1--h79da9fb_0
+$ module load quay.io/biocontainers/fastp/0.22.0--h2e03b76_0
+$ module help quay.io/biocontainers/fastp/0.22.0--h2e03b76_0
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
