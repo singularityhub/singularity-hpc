@@ -3,7 +3,8 @@ url: https://github.com/orgs/autamus/packages/container/package/slepc
 maintainer: '@vsoch'
 description: Scalable Library for Eigenvalue Problem Computations.
 latest:
-  3.16.0: sha256:43057b8923b8b15f7f365ae41b1859efd1e9718eee569fd6417f387a5a5a2a89
+  3.16.1: sha256:0e95a241a51a3c21d2de06e5d980bf75d77aeb6a07f41bed24fd2502ce444359
 tags:
   3.15.1: sha256:811d519414a4336d65ff4373cc9e0177deecd493702c7b32e5f08b3e91846047
   3.16.0: sha256:43057b8923b8b15f7f365ae41b1859efd1e9718eee569fd6417f387a5a5a2a89
+  3.16.1: sha256:0e95a241a51a3c21d2de06e5d980bf75d77aeb6a07f41bed24fd2502ce444359
