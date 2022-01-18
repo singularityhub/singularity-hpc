@@ -114,7 +114,12 @@ class SettingsBase:
         """
         Get a settings value, doing appropriate substitution and expansion.
         """
-        value = self._settings.get(key, default)
+        # This is a reference to a dictionary (object) setting
+        if ":" in key:
+            key, subkey = key.split(":")
+            value = self._settings[key][subkey]
+        else:
+            value = self._settings[key]
         value = self._substitutions(value)
         # If we allow environment substitution, do it
         if key in defaults.allowed_envars and value:
