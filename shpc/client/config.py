@@ -41,7 +41,8 @@ def main(args, parser, extra, subparser):
                     % param
                 )
                 continue
-            key, value = param.split(":", 1)
+            value, key = param[::-1].split(":", 1)
+            key, value = key[::-1], value[::-1]
             if command == "set":
                 cli.settings.set(key, value)
                 logger.info("Updated %s to be %s" % (key, value))
