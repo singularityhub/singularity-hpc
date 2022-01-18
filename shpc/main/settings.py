@@ -119,7 +119,7 @@ class SettingsBase:
             key, subkey = key.split(":")
             value = self._settings[key][subkey]
         else:
-            value = self._settings[key]
+            value = self._settings.get(key, default)
         value = self._substitutions(value)
         # If we allow environment substitution, do it
         if key in defaults.allowed_envars and value:
