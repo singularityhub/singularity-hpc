@@ -124,11 +124,13 @@ settingsProperties = {
     "environment_file": {"type": "string"},
     "default_version": {"type": "boolean"},
     "enable_tty": {"type": "boolean"},
+    "wrapper_scripts": {"type": "boolean"},
     "container_tech": {"type": "string", "enum": ["singularity", "podman", "docker"]},
     "singularity_shell": {"type": "string", "enum": shells},
     "podman_shell": {"type": "string", "enum": shells},
     "docker_shell": {"type": "string", "enum": shells},
     "test_shell": {"type": "string", "enum": shells},
+    "wrapper_shell": {"type": "string", "enum": shells},
     "module_sys": {"type": "string", "enum": ["lmod", "tcl", None]},
     "container_features": container_features,
 }
