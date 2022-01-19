@@ -19,7 +19,7 @@ registry: [$root_dir/registry]
 
 # Lmod or Environment Modules settings 
 # The install directory for modules. Defaults to the install directory/modules
-module_base: $root_dir/../modules
+module_base: $root_dir/modules
 
 # Format string for module commands exec,run,shell (not aliases) (can also include:
 # {{registry}} , {{ repository }}, {{tool}}, {{version}}
@@ -27,13 +27,13 @@ module_base: $root_dir/../modules
 module_name: '{{ tool }}'
 
 # Create a .version file for LMOD in the module folder
-default_version: false
+default_version: true
 
 # store containers separately from module files
-container_base: $root_dir/../containers
+container_base:
 
 # if defined, add to lmod script to load this Singularity module first
-singularity_module: singularity
+singularity_module:
 podman_module:
 
 # string with comma separated list of paths to binds. If set, expored to SINGULARITY_BINDPATH
@@ -66,9 +66,8 @@ environment_file: 99-shpc.sh
 
 # container features like gpu will modify generated recipes
 container_features:
-  gpu: amd    # one of null, amd, or nvidia
-  x11: true # one of null, true, false, or a path
+  gpu:      # one of null, amd, or nvidia
+  x11:      # one of null, true, false, or a path
             # defaults to ~/.Xauthority if set to true and the container has x11: true
-  home: $HOME/.shpc_home # one of null, or a single path or src:dest path. 
+  home:     # one of null, or a single path or src:dest path. 
             # home: true in a container.yaml will use this path, if defines
-updated_at: '2022-01-18T16:13:38Z'
