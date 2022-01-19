@@ -38,7 +38,7 @@ For each of the above, you can export:
 
 {% if singularity_module %}load("{{ singularity_module }}"){% endif %}
 
--- we probably don't need this
+-- we probably do not need this
 local MODULEPATH="{{ module_dir }}"
 
 -- singularity environment variables to bind the paths and set shell
@@ -60,6 +60,13 @@ set_shell_function("{|module_name|}-shell", shellCmd,  shellCmd)
 -- conflict with modules with the same name
 conflict(myModuleName(){% if aliases %}{% for alias in aliases %}{% if alias.name != name %},"{{ alias.name }}"{% endif %}{% endfor %}{% endif %})
 
+{% if wrapper_scripts %}
+-- add path with "alias" wrapper scripts to PATH
+{% if aliases %}
+prepend_path("PATH", "{{ wrapper_dir }}")
+{% endif %}
+
+{% else %}
 -- exec functions to provide "alias" to module commands
 {% if aliases %}{% for alias in aliases %}
 set_shell_function("{{ alias.name }}", execCmd .. {% if alias.singularity_options %} "{{ alias.singularity_options }} " .. {% endif %} containerPath .. " {{ alias.command }} $@", execCmd .. {% if alias.singularity_options %} "{{ alias.singularity_options }} " .. {% endif %} containerPath .. " {{ alias.command }}")
@@ -70,6 +77,8 @@ if (myShellName() == "bash") then
 {% for alias in aliases %}execute{cmd="export -f {{ alias.name }}", modeA={"load"}}
 {% endfor %}
 end{% endif %}
+
+{% endif %}
 
 -- A customizable exec function
 set_shell_function("{|module_name|}-exec", execCmd .. containerPath .. " $@",  execCmd .. containerPath)

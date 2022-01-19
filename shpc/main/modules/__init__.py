@@ -147,7 +147,8 @@ class ModuleBase(BaseClient):
         module_name = self.add_namespace(module_name)
         template = self._load_template(self.templatefile)
         modulefile = os.path.join(self.settings.module_base, module_name.replace(":", os.sep), self.modulefile)
-        self.container.add(sif, module_name, modulefile, template, **kwargs)
+        wrapper_template = self._load_template('.'.join([self.container.templatefile,'.sh']))
+        self.container.add(sif, module_name, modulefile, template, wrapper_template, **kwargs)
 
     def get(self, module_name, env_file=False):
         """
@@ -325,6 +326,7 @@ class ModuleBase(BaseClient):
         # Get the template based on the module and container type
         template = self._load_template(self.templatefile)
         module_path = os.path.join(module_dir, self.modulefile)
+        wrapper_template = self._load_template('.'.join([self.container.templatefile,'sh']))
 
         # If the module has a version, overrides version
         version = tag.name
@@ -344,6 +346,7 @@ class ModuleBase(BaseClient):
             version=version,
             config_features=config.features,
             features=kwargs.get("features"),
+            wrapper_template=wrapper_template,
         )
 
         # If the container tech does not need storage, clean up

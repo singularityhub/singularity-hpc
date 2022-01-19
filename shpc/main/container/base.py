@@ -57,7 +57,7 @@ class ContainerTechnology:
 
             self.settings = SettingsBase()
 
-    def add(self, sif, module_name, modulefile, template, **kwargs):
+    def add(self, sif, module_name, modulefile, template, wrapper_template, **kwargs):
         """
         Manually add a registry container.
         """

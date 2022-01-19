@@ -71,7 +71,7 @@ class SingularityContainer(ContainerTechnology):
             logger.exit("Found more than one sif in module folder.")
         return sif[0]
 
-    def add(self, sif, module_name, modulefile, template, **kwargs):
+    def add(self, sif, module_name, modulefile, template, wrapper_template, **kwargs):
         """
         Manually add a registry container.
         """
@@ -112,6 +112,7 @@ class SingularityContainer(ContainerTechnology):
             template,
             parsed_name=parsed_name,
             features=kwargs.get("features"),
+            wrapper_template=wrapper_template,
         )
         self.add_environment(module_dir, {}, self.settings.environment_file)
         logger.info("Module %s was created." % (module_name))
@@ -130,6 +131,7 @@ class SingularityContainer(ContainerTechnology):
         config_features=None,
         features=None,
         version=None,
+        wrapper_template=None,
     ):
         """Install a general container path to a module
 
@@ -166,6 +168,23 @@ class SingularityContainer(ContainerTechnology):
             labels = {}
             logger.warning("Singularity is not installed, skipping metadata.")
 
+        # Option to create wrapper scripts for commands
+        wrapper_dir = os.path.join(container_dir, "bin")
+        if self.settings.wrapper_scripts and aliases:
+            shpc.utils.mkdirp([wrapper_dir])
+            for alias in aliases:
+                wrapper_path = os.path.join(wrapper_dir, alias['name'])
+                out = wrapper_template.render(
+                    alias=alias,
+                    bindpaths=self.settings.bindpaths,
+                    container_sif=container_path,
+                    features=features,
+                    module_dir=os.path.dirname(module_path),
+                    envfile=self.settings.environment_file,
+                    wrapper_shell=self.settings.wrapper_shell,
+                )
+                shpc.utils.write_file(wrapper_path, out)
+
         # Make sure to render all values!
         out = template.render(
             singularity_module=self.settings.singularity_module,
@@ -186,6 +205,8 @@ class SingularityContainer(ContainerTechnology):
             registry=parsed_name.registry,
             repository=parsed_name.repository,
             envfile=self.settings.environment_file,
+            wrapper_scripts=self.settings.wrapper_scripts,
+            wrapper_dir=wrapper_dir,
         )
         shpc.utils.write_file(module_path, out)
 
