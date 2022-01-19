@@ -1,8 +1,8 @@
 __author__ = "Vanessa Sochat"
-__copyright__ = "Copyright 2021, Vanessa Sochat"
+__copyright__ = "Copyright 2021-2022, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
-__version__ = "0.0.37"
+__version__ = "0.0.38"
 AUTHOR = "Vanessa Sochat"
 NAME = "singularity-hpc"
 PACKAGE_URL = "https://github.com/singularityhub/singularity-hpc"

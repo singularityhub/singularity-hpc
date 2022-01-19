@@ -1,45 +1,11 @@
 __author__ = "Vanessa Sochat"
-__copyright__ = "Copyright 2021, Vanessa Sochat"
+__copyright__ = "Copyright 2021-2022, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
 
 from shpc.logger import logger
 from subprocess import Popen, PIPE, STDOUT
 import os
-
-
-def get_singularity_version(singularity_version=None):
-    """get_singularity_version will determine the singularity version for a
-    build first, an environmental variable is looked at, followed by
-    using the system version.
-
-    Parameters
-    ==========
-    singularity_version: if not defined, look for in environment. If still
-    not find, try finding via executing --version to Singularity. Only return
-    None if not set in environment or installed.
-    """
-
-    if singularity_version is None:
-        singularity_version = os.environ.get("SINGULARITY_VERSION")
-
-    if singularity_version is None:
-        try:
-            cmd = ["singularity", "--version"]
-            output = run_command(cmd)
-
-            if isinstance(output["message"], bytes):
-                output["message"] = output["message"].decode("utf-8")
-            singularity_version = output["message"].strip("\n")
-            logger.info("Singularity %s being used." % singularity_version)
-
-        except:
-            singularity_version = None
-            logger.warning(
-                "Singularity version not found, so it's likely not installed."
-            )
-
-    return singularity_version
 
 
 def which(software=None, strip_newline=True):
