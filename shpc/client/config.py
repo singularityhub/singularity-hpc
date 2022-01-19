@@ -1,5 +1,5 @@
 __author__ = "Vanessa Sochat"
-__copyright__ = "Copyright 2021, Vanessa Sochat"
+__copyright__ = "Copyright 2021-2022, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
 import shpc.defaults as defaults
@@ -41,6 +41,7 @@ def main(args, parser, extra, subparser):
                     % param
                 )
                 continue
+
             key, value = param.split(":", 1)
             if command == "set":
                 cli.settings.set(key, value)
