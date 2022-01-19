@@ -37,6 +37,8 @@ def test_set_get(tmp_path):
     settings.set("container_features", "gpu:amd")
     assert settings.container_base == "/tmp/containers"
     assert settings.container_features["gpu"] == "amd"
+    assert settings.get("container_features:gpu") == "amd"
+    assert settings.get("container_features")["gpu"] == "amd"
 
 
 def test_add_remove(tmp_path):
