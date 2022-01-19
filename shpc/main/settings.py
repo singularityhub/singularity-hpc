@@ -183,7 +183,7 @@ class SettingsBase:
             logger.exit("You cannot use 'set' for a list. Use add/remove instead.")
 
         # This is a reference to a dictionary (object) setting
-        if ":" in value:
+        if isinstance(value, str) and ":" in value:
             subkey, value = value.split(":")
             self._settings[key][subkey] = value
         else:
