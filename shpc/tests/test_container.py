@@ -36,7 +36,7 @@ def test_pull_oras(tmp_path):
 
     # Test default Singularity pull
     image = os.path.join(str(tmp_path), "container.sif")
-    result = cli.pull("oras://singularityhub/github-ci:latest", image)
+    result = cli.pull("oras://ghcr.io/singularityhub/github-ci:latest", image)
     assert os.path.exists(result)
 
 
