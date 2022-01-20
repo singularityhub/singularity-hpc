@@ -50,8 +50,8 @@ build_singularity: &install_singularity
   working_directory: ~/go/singularity
   command: |-
       cd ~/go
-      wget https://github.com/hpcng/singularity/releases/download/v3.7.1/singularity-3.7.1.tar.gz && \
-      tar -xzvf singularity-3.7.1.tar.gz && \
+      wget https://github.com/hpcng/singularity/releases/download/v3.8.3/singularity-3.8.3.tar.gz && \
+      tar -xzvf singularity-3.8.3.tar.gz && \
       cd singularity
       ./mconfig -p /usr/local && \
       make -C builddir && \
