@@ -1,0 +1,3 @@
+#!{{ wrapper_shell }}
+
+singularity ${SINGULARITY_OPTS} exec ${SINGULARITY_COMMAND_OPTS} {% if features.gpu %}{{ features.gpu }} {% endif %}{% if features.home %}-B {{ features.home }} --home {{ features.home }} {% endif %}{% if features.x11 %}-B {{ features.x11 }} {% endif %}{% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }}{% endif %} {% if alias.singularity_options %} {{ alias.singularity_options }} {% endif %} {{ container_sif }} {{ alias.command }} {% if '/sh' in wrapper_shell or '/bash' in wrapper_shell %}$@{% elif '/csh' in wrapper_shell %}$*{% endif %}
