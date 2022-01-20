@@ -183,7 +183,7 @@ class SingularityContainer(ContainerTechnology):
                     envfile=self.settings.environment_file,
                     wrapper_shell=self.settings.wrapper_shell,
                 )
-                shpc.utils.write_file(wrapper_path, out)
+                shpc.utils.write_file(wrapper_path, out, exec=True)
 
         # Make sure to render all values!
         out = template.render(
