@@ -31,9 +31,9 @@ update_go: &update_go
   name: Update Go to 1.14.9
   working_directory: /tmp
   command: |-
-      wget https://dl.google.com/go/go1.14.9.linux-amd64.tar.gz
+      wget https://dl.google.com/go/go1.16.5.linux-amd64.tar.gz
       sudo rm -rf $GOROOT
-      sudo tar -C /usr/local -xzf go1.14.9.linux-amd64.tar.gz
+      sudo tar -C /usr/local -xzf go1.16.5.linux-amd64.tar.gz
       sudo ln -s $GOROOT/bin/go /usr/local/bin/go
 
 fetch_deb_deps: &fetch_deb_deps
