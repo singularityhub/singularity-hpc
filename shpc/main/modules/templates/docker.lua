@@ -38,7 +38,7 @@ For each of the above, you can export:
 setenv ("PODMAN_OPTS", "")
 setenv ("PODMAN_COMMAND_OPTS", "")
 
--- we probably don't need this
+-- we probably do not need this
 local MODULEPATH="{{ module_dir }}"
 
 -- interactive shell to any container, plus exec for aliases
@@ -56,6 +56,11 @@ set_shell_function("{|module_name|}-shell", shellCmd,  shellCmd)
 -- conflict with modules with the same name
 conflict(myModuleName(){% if aliases %}{% for alias in aliases %}{% if alias.name != name %},"{{ alias.name }}"{% endif %}{% endfor %}{% endif %})
 
+{% if wrapper_scripts %}
+-- add path with "alias" wrapper scripts to PATH
+{% if aliases %}prepend_path("PATH", "{{ wrapper_dir }}"){% endif %}
+
+{% else %}
 -- exec functions to provide "alias" to module commands
 {% if aliases %}{% for alias in aliases %}
 set_shell_function("{{ alias.name }}", execCmd .. {% if alias.docker_options %} "{{ alias.docker_options }} " .. {% endif %} " --entrypoint {{ alias.entrypoint }} " .. containerPath .. " {{ alias.args }} $@", execCmd .. {% if alias.docker_options %} "{{ alias.docker_options }} " .. {% endif %} " --entrypoint {{ alias.entrypoint }} " .. containerPath .. " {{ alias.args }}")
@@ -66,6 +71,8 @@ if (myShellName() == "bash") then
 {% for alias in aliases %}execute{cmd="export -f {{ alias.name }}", modeA={"load"}}
 {% endfor %}
 end{% endif %}
+
+{% endif %}
 
 -- A customizable exec function
 set_shell_function("{|module_name|}-exec", execCmd .. " --entrypoint \"\" " .. containerPath .. " $@",  execCmd .. " --entrypoint \"\" " .. containerPath)

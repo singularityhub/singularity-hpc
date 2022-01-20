@@ -66,6 +66,11 @@ set inspectCmd "{{ command }} \${PODMAN_OPTS} inspect ${containerPath}"
 # set_shell_function takes bashStr and cshStr
 set-alias {|module_name|}-shell "${shellCmd}"
 
+{% if wrapper_scripts %}
+# add path with "alias" wrapper scripts to PATH
+{% if aliases %}prepend-path PATH "{{ wrapper_dir }}"{% endif %}
+
+{% else %}
 # exec functions to provide "alias" to module commands
 {% if aliases %}
 if { [ module-info shell bash ] } {
@@ -81,6 +86,8 @@ if { [ module-info shell bash ] } {
 {% for alias in aliases %}  set-alias {{ alias.name }} "${execCmd} {% if alias.docker_options %} {{ alias.docker_options | replace("$", "\$") }} {% endif %} --entrypoint {{ alias.entrypoint | replace("$", "\$") }} ${containerPath} {{ alias.args | replace("$", "\$") }}"
 {% endfor %}
 }
+{% endif %}
+
 {% endif %}
 
 # A customizable exec function
