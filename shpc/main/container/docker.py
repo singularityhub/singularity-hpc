@@ -189,6 +189,7 @@ class DockerContainer(ContainerTechnology):
         version=None,
         config_features=None,
         features=None,
+        wrapper_template=None,
     ):
         """Install a general container path to a module
 
@@ -214,6 +215,26 @@ class DockerContainer(ContainerTechnology):
         # If there's a tag in the name, don't use it
         name = name.split(":", 1)[0]
 
+        # Option to create wrapper scripts for commands
+        module_dir = os.path.dirname(module_path)
+        wrapper_dir = os.path.join(module_dir, "bin")
+        if self.settings.wrapper_scripts and aliases:
+            shpc.utils.mkdirp([wrapper_dir])
+            for alias in aliases:
+                wrapper_path = os.path.join(wrapper_dir, alias['name'])
+                out = wrapper_template.render(
+                    alias=alias,
+                    bindpaths=self.settings.bindpaths,
+                    image=container_path,
+                    module_dir=module_dir,
+                    features=features,
+                    envfile=self.settings.environment_file,
+                    command=self.command,
+                    tty=self.settings.enable_tty,
+                    wrapper_shell=self.settings.wrapper_shell,
+                )
+                shpc.utils.write_file(wrapper_path, out, exec=True)
+
         # Make sure to render all values!
         out = template.render(
             podman_module=self.settings.podman_module,
@@ -223,7 +244,7 @@ class DockerContainer(ContainerTechnology):
             else self.settings.docker_shell,
             image=container_path,
             description=description,
-            module_dir=os.path.dirname(module_path),
+            module_dir=module_dir,
             aliases=aliases,
             url=url,
             features=features,
@@ -238,5 +259,7 @@ class DockerContainer(ContainerTechnology):
             envfile=self.settings.environment_file,
             command=self.command,
             tty=self.settings.enable_tty,
+            wrapper_scripts=self.settings.wrapper_scripts,
+            wrapper_dir=wrapper_dir,
         )
         shpc.utils.write_file(module_path, out)
