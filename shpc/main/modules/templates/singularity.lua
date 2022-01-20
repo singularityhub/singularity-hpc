@@ -62,9 +62,7 @@ conflict(myModuleName(){% if aliases %}{% for alias in aliases %}{% if alias.nam
 
 {% if wrapper_scripts %}
 -- add path with "alias" wrapper scripts to PATH
-{% if aliases %}
-prepend_path("PATH", "{{ wrapper_dir }}")
-{% endif %}
+{% if aliases %}prepend_path("PATH", "{{ wrapper_dir }}"){% endif %}
 
 {% else %}
 -- exec functions to provide "alias" to module commands

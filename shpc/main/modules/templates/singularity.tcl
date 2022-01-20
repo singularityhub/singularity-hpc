@@ -74,6 +74,11 @@ set inspectCmd "singularity \${SINGULARITY_OPTS} inspect \${SINGULARITY_COMMAND_
 # set_shell_function takes bashStr and cshStr
 set-alias {|module_name|}-shell "${shellCmd}"
 
+{% if wrapper_scripts %}
+# add path with "alias" wrapper scripts to PATH
+{% if aliases %}prepend-path PATH "{{ wrapper_dir }}"{% endif %}
+
+{% else %}
 # exec functions to provide "alias" to module commands
 {% if aliases %}
 if { [ module-info shell bash ] } {
@@ -89,6 +94,8 @@ if { [ module-info shell bash ] } {
 {% for alias in aliases %}  set-alias {{ alias.name }} "${execCmd} {% if alias.singularity_options %} {{ alias.singularity_options | replace("$", "\$") }} {% endif %} ${containerPath} {{ alias.command | replace("$", "\$") }}"
 {% endfor %}
 }
+{% endif %}
+
 {% endif %}
 
 # A customizable exec function
