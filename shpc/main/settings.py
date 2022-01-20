@@ -1,5 +1,5 @@
 __author__ = "Vanessa Sochat"
-__copyright__ = "Copyright 2021, Vanessa Sochat"
+__copyright__ = "Copyright 2021-2022, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
 
@@ -183,8 +183,8 @@ class SettingsBase:
             logger.exit("You cannot use 'set' for a list. Use add/remove instead.")
 
         # This is a reference to a dictionary (object) setting
-        if ":" in key:
-            key, subkey = key.split(":")
+        if isinstance(value, str) and ":" in value:
+            subkey, value = value.split(":")
             self._settings[key][subkey] = value
         else:
             self._settings[key] = value

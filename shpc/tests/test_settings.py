@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-# Copyright (C) 2021 Vanessa Sochat.
+# Copyright (C) 2021-2022 Vanessa Sochat.
 
 # This Source Code Form is subject to the terms of the
 # Mozilla Public License, v. 2.0. If a copy of the MPL was not distributed
@@ -34,7 +34,11 @@ def test_set_get(tmp_path):
     settings = Settings(settings_file)
     assert not settings.container_base
     settings.set("container_base", "/tmp/containers")
+    settings.set("container_features", "gpu:amd")
     assert settings.container_base == "/tmp/containers"
+    assert settings.container_features["gpu"] == "amd"
+    assert settings.get("container_features:gpu") == "amd"
+    assert settings.get("container_features")["gpu"] == "amd"
 
 
 def test_add_remove(tmp_path):
