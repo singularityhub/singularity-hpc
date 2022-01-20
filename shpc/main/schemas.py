@@ -69,6 +69,7 @@ latest = {
 containerConfigProperties = {
     "latest": aliases,
     "docker": {"type": "string"},
+    "oras": {"type": "string"},
     "gh": {"type": "string"},
     "url": {"type": "string"},
     "test": {"type": "string"},

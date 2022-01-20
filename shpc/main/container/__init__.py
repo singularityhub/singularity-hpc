@@ -90,10 +90,8 @@ class ContainerConfig:
         """
         Flatten the docker uri into a filesystem appropriate name
         """
-        if self.docker:
-            return self.docker.replace("/", "-")
-        elif self.gh:
-            return self.gh.replace("/", "-")
+        name = self.docker or self.oras or self.gh
+        return name.replace("/", "-")
 
     @property
     def name(self):
@@ -102,10 +100,8 @@ class ContainerConfig:
         """
         from .base import ContainerName
 
-        if self.docker:
-            return ContainerName(self.docker)
-        elif self.gh:
-            return ContainerName(self.gh)
+        name = self.docker or self.oras or self.gh
+        return ContainerName(name)
 
     @property
     def latest(self):
@@ -143,6 +139,19 @@ class ContainerConfig:
 
     def get(self, key, default=None):
         return self._config.get(key, default)
+
+    def get_pull_type(self):
+        if self.oras:
+            return "oras"
+        if self.gh:
+            return "gh"
+        return "docker"
+
+    def get_uri(self):
+        """
+        Return the unique resource identifier
+        """
+        return getattr(self, "docker") or getattr(self, "oras") or getattr(self, "gh")
 
     def __getattr__(self, key):
         """
