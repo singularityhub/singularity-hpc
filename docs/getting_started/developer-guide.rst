@@ -239,6 +239,33 @@ to see your environment variables:
     vsoch
 
 
+Oras
+----
+
+As of version 0.0.39 Singularity Registry HPC has support for oras, meaning
+we can use the Singularity client to pull an oras endpoint. Instead of using
+``docker:`` in the recipe, the container.yaml might look like this:
+
+.. code-block:: yaml
+
+    oras: ghcr.io/singularityhub/github-ci
+    url: https://github.com/singularityhub/github-ci/pkgs/container/github-ci
+    maintainer: '@vsoch'
+    description: An example SIF on GitHub packages to pull with oras
+    latest:
+      latest: sha256:227a917e9ce3a6e1a3727522361865ca92f3147fd202fa1b2e6a7a8220d510b7
+    tags:
+      latest: sha256:227a917e9ce3a6e1a3727522361865ca92f3147fd202fa1b2e6a7a8220d510b7
+
+
+And then given the ``container.yaml`` file located in ``registry/ghcr.io/singularityhub/github-ci/`` 
+you would install with shpc and the Singularity container backend as follows:
+
+.. code-block:: console
+
+    $ shpc install ghcr.io/singularityhub/github-ci
+
+
 Singularity Deploy
 ------------------
 
