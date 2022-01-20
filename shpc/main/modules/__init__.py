@@ -147,7 +147,7 @@ class ModuleBase(BaseClient):
         module_name = self.add_namespace(module_name)
         template = self._load_template(self.templatefile)
         modulefile = os.path.join(self.settings.module_base, module_name.replace(":", os.sep), self.modulefile)
-        wrapper_template = self._load_template('.'.join([self.container.templatefile,'.sh']))
+        wrapper_template = self._load_template('.'.join([self.container.templatefile,'sh']))
         self.container.add(sif, module_name, modulefile, template, wrapper_template, **kwargs)
 
     def get(self, module_name, env_file=False):
