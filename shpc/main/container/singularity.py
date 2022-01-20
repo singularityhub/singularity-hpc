@@ -169,7 +169,8 @@ class SingularityContainer(ContainerTechnology):
             logger.warning("Singularity is not installed, skipping metadata.")
 
         # Option to create wrapper scripts for commands
-        wrapper_dir = os.path.join(container_dir, "bin")
+        module_dir = os.path.dirname(module_path)
+        wrapper_dir = os.path.join(module_dir, "bin")
         if self.settings.wrapper_scripts and aliases:
             shpc.utils.mkdirp([wrapper_dir])
             for alias in aliases:
@@ -179,7 +180,7 @@ class SingularityContainer(ContainerTechnology):
                     bindpaths=self.settings.bindpaths,
                     container_sif=container_path,
                     features=features,
-                    module_dir=os.path.dirname(module_path),
+                    module_dir=module_dir,
                     envfile=self.settings.environment_file,
                     wrapper_shell=self.settings.wrapper_shell,
                 )
@@ -196,7 +197,7 @@ class SingularityContainer(ContainerTechnology):
             url=url,
             features=features,
             version=version,
-            module_dir=os.path.dirname(module_path),
+            module_dir=module_dir,
             labels=labels,
             deffile=deffile,
             creation_date=datetime.now(),
