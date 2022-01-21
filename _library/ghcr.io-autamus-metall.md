@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/metall"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/metall/container.yaml"
-updated_at: "2022-01-19 11:05:58.916268"
+updated_at: "2022-01-21 02:25:48.633637"
 container_url: "https://github.com/orgs/autamus/packages/container/package/metall"
 
 versions:

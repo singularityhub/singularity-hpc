@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/cantera"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/cantera/container.yaml"
-updated_at: "2022-01-19 11:06:19.235743"
+updated_at: "2022-01-21 02:25:10.450408"
 container_url: "https://github.com/orgs/autamus/packages/container/package/cantera"
 
 versions:

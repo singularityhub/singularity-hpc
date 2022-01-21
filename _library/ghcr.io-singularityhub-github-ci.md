@@ -1,35 +1,28 @@
 ---
 layout: container
-name:  "ghcr.io/autamus/addrwatch"
+name:  "ghcr.io/singularityhub/github-ci"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/addrwatch/container.yaml"
-updated_at: "2022-01-21 02:25:51.811150"
-container_url: "https://github.com/orgs/autamus/packages/container/package/addrwatch"
-aliases:
- - "addrwatch"
-
- - "addrwatch_stdout"
-
- - "addrwatch_syslog"
+github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/singularityhub/github-ci/container.yaml"
+updated_at: "2022-01-21 02:25:57.577190"
+container_url: "https://github.com/singularityhub/github-ci/pkgs/container/github-ci"
 
 versions:
- - "1.0.2"
  - "latest"
-description: "addrwatch is a similar software to arpwatch. It main purpose is to monitor network and log ethernet/ip pairings."
+description: "An example SIF on GitHub packages to pull with oras"
 ---
 
-This module is a singularity container wrapper for ghcr.io/autamus/addrwatch.
-addrwatch is a similar software to arpwatch. It main purpose is to monitor network and log ethernet/ip pairings.
+This module is a singularity container wrapper for ghcr.io/singularityhub/github-ci.
+An example SIF on GitHub packages to pull with oras
 After [installing shpc](#install) you will want to install this container module:
 
 ```bash
-$ shpc install ghcr.io/autamus/addrwatch
+$ shpc install ghcr.io/singularityhub/github-ci
 ```
 
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/addrwatch:1.0.2
+$ shpc install ghcr.io/singularityhub/github-ci:latest
 ```
 
 And then you can tell lmod about your modules folder:
@@ -41,8 +34,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/addrwatch/1.0.2
-$ module help ghcr.io/autamus/addrwatch/1.0.2
+$ module load ghcr.io/singularityhub/github-ci/latest
+$ module help ghcr.io/singularityhub/github-ci/latest
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
@@ -100,32 +93,14 @@ $ singularity inspect -d <container>
 ```
 
 
-#### addrwatch
-       
+
+#### 
+
 ```bash
-$ singularity exec <container> /opt/view/bin/addrwatch
-$ podman run --it --rm --entrypoint /opt/view/bin/addrwatch   -v ${PWD} -w ${PWD} <container> -c " $@"
-$ docker run --it --rm --entrypoint /opt/view/bin/addrwatch   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ singularity run <container>
+$ podman run --rm  -v ${PWD} -w ${PWD} <container>
+$ docker run --rm  -v ${PWD} -w ${PWD} <container>
 ```
-
-
-#### addrwatch_stdout
-       
-```bash
-$ singularity exec <container> /opt/view/bin/addrwatch_stdout
-$ podman run --it --rm --entrypoint /opt/view/bin/addrwatch_stdout   -v ${PWD} -w ${PWD} <container> -c " $@"
-$ docker run --it --rm --entrypoint /opt/view/bin/addrwatch_stdout   -v ${PWD} -w ${PWD} <container> -c " $@"
-```
-
-
-#### addrwatch_syslog
-       
-```bash
-$ singularity exec <container> /opt/view/bin/addrwatch_syslog
-$ podman run --it --rm --entrypoint /opt/view/bin/addrwatch_syslog   -v ${PWD} -w ${PWD} <container> -c " $@"
-$ docker run --it --rm --entrypoint /opt/view/bin/addrwatch_syslog   -v ${PWD} -w ${PWD} <container> -c " $@"
-```
-
 
 
 In the above, the `<container>` directive will reference an actual container provided

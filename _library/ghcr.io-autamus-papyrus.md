@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/papyrus"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/papyrus/container.yaml"
-updated_at: "2022-01-19 11:06:28.739748"
+updated_at: "2022-01-21 02:25:33.884885"
 container_url: "https://github.com/orgs/autamus/packages/container/package/papyrus"
 
 versions:
