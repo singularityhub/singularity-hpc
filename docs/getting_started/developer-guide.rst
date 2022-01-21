@@ -266,6 +266,10 @@ you would install with shpc and the Singularity container backend as follows:
     $ shpc install ghcr.io/singularityhub/github-ci
 
 
+**Important**: You should retrieve the image sha from the container registry and 
+not from the container on your computer, as the two will often be different depending
+on metadata added.
+
 Singularity Deploy
 ------------------
 
