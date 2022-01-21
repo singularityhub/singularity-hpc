@@ -5,7 +5,7 @@ __license__ = "MPL 2.0"
 
 ## ContainerConfig Schema
 
-schema_url = "https://json-schema.org/draft-07/schema/#"
+schema_url = "http://json-schema.org/draft-07/schema"
 
 # This is also for latest, and a list of tags
 
@@ -69,6 +69,7 @@ latest = {
 containerConfigProperties = {
     "latest": aliases,
     "docker": {"type": "string"},
+    "oras": {"type": "string"},
     "gh": {"type": "string"},
     "url": {"type": "string"},
     "test": {"type": "string"},

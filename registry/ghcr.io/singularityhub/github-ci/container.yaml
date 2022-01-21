@@ -1,0 +1,8 @@
+oras: ghcr.io/singularityhub/github-ci
+url: https://github.com/singularityhub/github-ci/pkgs/container/github-ci
+maintainer: '@vsoch'
+description: An example SIF on GitHub packages to pull with oras
+latest:
+  latest: sha256:227a917e9ce3a6e1a3727522361865ca92f3147fd202fa1b2e6a7a8220d510b7
+tags:
+  latest: sha256:227a917e9ce3a6e1a3727522361865ca92f3147fd202fa1b2e6a7a8220d510b7

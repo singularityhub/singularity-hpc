@@ -31,6 +31,15 @@ def test_pull_gh(tmp_path):
     assert os.path.exists(result)
 
 
+def test_pull_oras(tmp_path):
+    cli = container.SingularityContainer()
+
+    # Test default Singularity pull
+    image = os.path.join(str(tmp_path), "container.sif")
+    result = cli.pull("oras://ghcr.io/singularityhub/github-ci:latest", image)
+    assert os.path.exists(result)
+
+
 def test_podman(tmp_path):
     """Test a singularity container command"""
     cli = container.PodmanContainer()

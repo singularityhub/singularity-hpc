@@ -56,7 +56,7 @@ class DockerContainer(ContainerTechnology):
         """
         Pull a container to the library.
         """
-        pull_type = "docker" if getattr(config, "docker") else "gh"
+        pull_type = config.get_pull_type()
         if pull_type != "docker":
             logger.exit("%s only supports Docker (oci registry) pulls." % self.command)
 
