@@ -1,0 +1,8 @@
+docker: tipsarin/star2.7.2a
+url: https://github.com/vclabsysbio/AI-MD_RNASeq_ChIPseq/blob/0f2ddcddc38f5d0eaa5b1712d467482b2d0a1ba5/STAR/
+maintainer: 'KoHaku55'
+description: Spliced Transcripts Alignment to a Reference.
+latest:
+  star2.7.2a: sha256:1f333e245e359eb7e9d73e798423a346be50cb620c1a8e4784366fae2e021a67
+aliases:
+  STAR: /usr/local/bin/STAR
