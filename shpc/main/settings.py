@@ -107,11 +107,11 @@ class SettingsBase:
         yaml.preserve_quotes = True
 
         # Always load default settings first
-        with open(defaults.default_setting_file, "r") as fd:
+        with open(defaults.default_settings_file, "r") as fd:
             self._settings = yaml.load(fd.read())
 
         # Update with user or custom settings if not equal to default
-        if self.settings_file != defaults.default_setting_file:
+        if self.settings_file != defaults.default_settings_file:
             with open(self.settings_file, "r") as fd:
                 self._settings.update(yaml.load(fd.read()))
 
