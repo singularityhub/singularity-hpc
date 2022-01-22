@@ -85,11 +85,12 @@ class SettingsBase:
         Get the preferred user settings file, set user settings if exists.
         """
         # Only consider user settings if the file exists!
+        user_settings = None
         if os.path.exists(defaults.user_settings_file):
-            self.user_settings = defaults.user_settings_file
+            user_settings = defaults.user_settings_file
 
         # First preference to command line, then user settings, then default
-        return settings_file or self.user_settings or defaults.default_settings_file
+        return settings_file or user_settings or defaults.default_settings_file
 
     def load(self, settings_file=None):
         """
