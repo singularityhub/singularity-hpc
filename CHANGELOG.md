@@ -14,6 +14,7 @@ and **Merged pull requests**. Critical items to know are:
 The versions coincide with releases on pip. Only major versions will be released as tags on Github.
 
 ## [0.0.x](https://github.scom/singularityhub/singularity-hpc/tree/master) (0.0.x)
+ - Central config should be read first (and updated with user config) (0.0.4)
  - Add support for oras pull for singularity (0.0.39)
  - Bug with setting a nested value (0.0.38)
  - Adding quotes around tcl descriptions (0.0.37)
