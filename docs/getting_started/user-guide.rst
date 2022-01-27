@@ -135,7 +135,10 @@ take preference over this one as follows:
     $ shpc config userinit
 
 
-The defaults in either file are likely suitable for most. For any configuration value 
+When you create a user settings file (or provide a custom settings file one off to
+the client) the shpc default settings will be read first, and then updated by your file.
+We do this so that if the default file updates and your user settings is missing a variable,
+we still use the default. The defaults in either file are likely suitable for most. For any configuration value 
 that you might set, the following variables are available to you:
 
  - ``$install_dir``: the shpc folder
