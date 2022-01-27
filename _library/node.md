@@ -3,7 +3,7 @@ layout: container
 name:  "node"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/node/container.yaml"
-updated_at: "2022-01-21 02:24:39.686099"
+updated_at: "2022-01-27 16:18:12.097610"
 container_url: "https://hub.docker.com/r/_/node"
 aliases:
  - "node"

@@ -3,7 +3,7 @@ layout: container
 name:  "quay.io/biocontainers/trinity"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/trinity/container.yaml"
-updated_at: "2022-01-21 02:24:51.733107"
+updated_at: "2022-01-27 16:18:25.172874"
 container_url: "https://quay.io/repository/biocontainers/trinity"
 aliases:
  - "Trinity"
