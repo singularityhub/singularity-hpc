@@ -50,11 +50,11 @@ docker_shell: /bin/sh
 # shell for test.sh file
 test_shell: /bin/bash
 
-# for container aliases, use wrapper shellscripts instead of shell aliases, defaults to false
-wrapper_scripts: false
-
 # shell for wrapper shellscripts
 wrapper_shell: /bin/bash
+
+# for container aliases, use wrapper shellscripts instead of shell aliases, defaults to false
+wrapper_scripts: false
 
 # the module namespace you want to install from. E.g., if you have ghcr.io/autamus/clingo
 # and you set the namespace to ghcr.io/autamus, you can just do: shpc install clingo.
