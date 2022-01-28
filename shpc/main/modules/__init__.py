@@ -295,8 +295,8 @@ class ModuleBase(BaseClient):
                 % (name, "\n".join(config.tags.keys()))
             )
 
-        # We currently support gh or docker
-        uri = getattr(config, "docker") or getattr(config, "gh")
+        # We currently support gh, docker, or oras
+        uri = config.get_uri()
 
         # This is a tag object with name and digest
         tag = config.tag

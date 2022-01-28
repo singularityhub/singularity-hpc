@@ -31,9 +31,9 @@ update_go: &update_go
   name: Update Go to 1.14.9
   working_directory: /tmp
   command: |-
-      wget https://dl.google.com/go/go1.14.9.linux-amd64.tar.gz
+      wget https://dl.google.com/go/go1.16.5.linux-amd64.tar.gz
       sudo rm -rf $GOROOT
-      sudo tar -C /usr/local -xzf go1.14.9.linux-amd64.tar.gz
+      sudo tar -C /usr/local -xzf go1.16.5.linux-amd64.tar.gz
       sudo ln -s $GOROOT/bin/go /usr/local/bin/go
 
 fetch_deb_deps: &fetch_deb_deps
@@ -50,9 +50,9 @@ build_singularity: &install_singularity
   working_directory: ~/go/singularity
   command: |-
       cd ~/go
-      wget https://github.com/hpcng/singularity/releases/download/v3.7.1/singularity-3.7.1.tar.gz && \
-      tar -xzvf singularity-3.7.1.tar.gz && \
-      cd singularity
+      wget https://github.com/sylabs/singularity/releases/download/v3.9.4/singularity-ce-3.9.4.tar.gz && \
+      tar -xzvf singularity-ce-3.9.4.tar.gz && \
+      cd singularity-ce-3.9.4 && \
       ./mconfig -p /usr/local && \
       make -C builddir && \
       sudo make -C builddir install

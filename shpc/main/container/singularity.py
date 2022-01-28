@@ -215,7 +215,7 @@ class SingularityContainer(ContainerTechnology):
         """
         Given a module directory, container config, and tag, pull the container
         """
-        pull_type = "docker" if getattr(config, "docker") else "gh"
+        pull_type = config.get_pull_type()
 
         # Preserve name and version of container if it's ever moved
         container_path = os.path.join(
@@ -223,8 +223,12 @@ class SingularityContainer(ContainerTechnology):
         )
 
         # We pull by the digest
-        if pull_type == "docker":
-            container_uri = "docker://%s@%s" % (config.docker, tag.digest)
+        if pull_type in ["docker", "oras"]:
+            container_uri = "%s://%s@%s" % (
+                pull_type,
+                config.docker or config.oras,
+                tag.digest,
+            )
         elif pull_type == "gh":
             container_uri = "gh://%s/%s:%s" % (config.gh, tag.digest, tag.name)
 
@@ -305,7 +309,7 @@ class SingularityContainer(ContainerTechnology):
         """
         Pull a container to a destination
         """
-        if re.search("^(docker|shub|https)", uri):
+        if re.search("^(docker|shub|https|oras)", uri):
             return self._pull_regular(uri, dest)
         elif uri.startswith("gh://"):
             return self._pull_github(uri, dest)

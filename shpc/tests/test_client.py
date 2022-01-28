@@ -91,7 +91,7 @@ def test_features(tmp_path, module_sys, module_file):
     client.uninstall("python:3.9.2-alpine", force=True)
 
     # Now update settings
-    client.settings.set("container_features:gpu", "nvidia")
+    client.settings.set("container_features", "gpu:nvidia")
 
     # Install known tag, add extra feature of gpu
     client.install("python:3.9.2-alpine", features=["gpu"])
