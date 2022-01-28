@@ -5,7 +5,7 @@ __license__ = "MPL 2.0"
 import hashlib
 import errno
 import os
-import subprocess
+import stat
 import re
 import shutil
 import tempfile
@@ -122,7 +122,8 @@ def write_file(filename, content, mode="w", exec=False):
     with open(filename, mode) as filey:
         filey.writelines(content)
     if exec:
-        subprocess.call(["chmod", "+x", filename ])
+        st = os.stat(filename)
+        os.chmod(filename, st.st_mode | stat.S_IEXEC)
     return filename
 
 
