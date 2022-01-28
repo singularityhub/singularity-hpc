@@ -66,14 +66,9 @@ set inspectCmd "{{ command }} \${PODMAN_OPTS} inspect ${containerPath}"
 # set_shell_function takes bashStr and cshStr
 set-alias {|module_name|}-shell "${shellCmd}"
 
-{% if wrapper_scripts %}
-# add path with "alias" wrapper scripts to PATH
-{% if aliases %}prepend-path PATH "{{ wrapper_dir }}"{% endif %}
-
-{% else %}
-# exec functions to provide "alias" to module commands
-{% if aliases %}
-if { [ module-info shell bash ] } {
+# "aliases" to module commands
+{% if wrapper_scripts %}{% if aliases %}prepend-path PATH "{{ wrapper_dir }}"{% endif %}
+{% else %}{% if aliases %}if { [ module-info shell bash ] } {
   if { [ module-info mode load ] } {
 {% for alias in aliases %}    puts stdout "function {{ alias.name }}() { ${execCmd} {% if alias.docker_options %} {{ alias.docker_options | replace("$", "\$") }} {% endif %} --entrypoint {{ alias.entrypoint | replace("$", "\$") }} ${containerPath} {{ alias.args | replace("$", "\$") }} \$@; }; export -f {{ alias.name }};"
 {% endfor %}
@@ -85,10 +80,7 @@ if { [ module-info shell bash ] } {
 } else {
 {% for alias in aliases %}  set-alias {{ alias.name }} "${execCmd} {% if alias.docker_options %} {{ alias.docker_options | replace("$", "\$") }} {% endif %} --entrypoint {{ alias.entrypoint | replace("$", "\$") }} ${containerPath} {{ alias.args | replace("$", "\$") }}"
 {% endfor %}
-}
-{% endif %}
-
-{% endif %}
+}{% endif %}{% endif %}
 
 # A customizable exec function
 set-alias {|module_name|}-exec "${execCmd} --entrypoint \"\" ${containerPath}"

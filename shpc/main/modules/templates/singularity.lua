@@ -60,23 +60,16 @@ set_shell_function("{|module_name|}-shell", shellCmd,  shellCmd)
 -- conflict with modules with the same name
 conflict(myModuleName(){% if aliases %}{% for alias in aliases %}{% if alias.name != name %},"{{ alias.name }}"{% endif %}{% endfor %}{% endif %})
 
-{% if wrapper_scripts %}
--- add path with "alias" wrapper scripts to PATH
-{% if aliases %}prepend_path("PATH", "{{ wrapper_dir }}"){% endif %}
-
-{% else %}
--- exec functions to provide "alias" to module commands
-{% if aliases %}{% for alias in aliases %}
-set_shell_function("{{ alias.name }}", execCmd .. {% if alias.singularity_options %} "{{ alias.singularity_options }} " .. {% endif %} containerPath .. " {{ alias.command }} $@", execCmd .. {% if alias.singularity_options %} "{{ alias.singularity_options }} " .. {% endif %} containerPath .. " {{ alias.command }}")
+-- "aliases" to module commands
+{% if wrapper_scripts %}{% if aliases %}prepend_path("PATH", "{{ wrapper_dir }}"){% endif %}
+{% else %}{% if aliases %}{% for alias in aliases %}set_shell_function("{{ alias.name }}", execCmd .. {% if alias.singularity_options %} "{{ alias.singularity_options }} " .. {% endif %} containerPath .. " {{ alias.command }} $@", execCmd .. {% if alias.singularity_options %} "{{ alias.singularity_options }} " .. {% endif %} containerPath .. " {{ alias.command }}")
 {% endfor %}{% endif %}
 
 {% if aliases %}
 if (myShellName() == "bash") then
 {% for alias in aliases %}execute{cmd="export -f {{ alias.name }}", modeA={"load"}}
 {% endfor %}
-end{% endif %}
-
-{% endif %}
+end{% endif %}{% endif %}
 
 -- A customizable exec function
 set_shell_function("{|module_name|}-exec", execCmd .. containerPath .. " $@",  execCmd .. containerPath)
