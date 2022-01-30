@@ -1,6 +1,7 @@
 name: 'Binoc Auto Scan'
 
 on:
+  pull_request: []
   schedule:
     # Once a month
     - cron: '0 0 1 * *'
@@ -15,7 +16,7 @@ jobs:
           fetch-depth: '0'
 
       - name: Run Binoc Scan
-        uses: autamus/binoc@v0.2.6
+        uses: autamus/binoc@add/shpc-oras
         with:
           git_token: ${{ secrets.BINOC_GIT_TOKEN }}
           git_username: ${{ secrets.BINOC_GIT_USERNAME }}
