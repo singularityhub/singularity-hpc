@@ -4,7 +4,7 @@ maintainer: '@vsoch'
 description: A lightweight runtime system that supports integrated computation and
   data movement with massive concurrency.
 latest:
-  "1.1": sha256:7bf6757bc5a5fe676aa7159da86f5d0f124e75446c22561f03ffc5b23b33282e
+  "1.1": sha256:d37cf3c5c618da4d22aaa81209bb34374ce7a1d17385a8175a3be6013032c7a5
 tags:
-  "1.1": sha256:7bf6757bc5a5fe676aa7159da86f5d0f124e75446c22561f03ffc5b23b33282e
-  latest: sha256:7bf6757bc5a5fe676aa7159da86f5d0f124e75446c22561f03ffc5b23b33282e
+  "1.1": sha256:d37cf3c5c618da4d22aaa81209bb34374ce7a1d17385a8175a3be6013032c7a5
+  latest: sha256:d37cf3c5c618da4d22aaa81209bb34374ce7a1d17385a8175a3be6013032c7a5
