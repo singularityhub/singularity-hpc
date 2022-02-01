@@ -3,13 +3,14 @@ layout: container
 name:  "ghcr.io/autamus/gawk"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/gawk/container.yaml"
-updated_at: "2022-01-27 16:19:13.359077"
+updated_at: "2022-02-01 01:29:08.705443"
 container_url: "https://github.com/orgs/autamus/packages/container/package/gawk"
 aliases:
  - "gawk"
 
 versions:
  - "5.1.0"
+ - "5.1.1"
  - "5.10.0"
 description: "gawk is the GNU implementation of awk. The awk utility interprets a special-purpose programming language that makes it possible to handle simple data-reformatting jobs with just a few lines of code. https://www.gnu.org/software/gawk/"
 ---

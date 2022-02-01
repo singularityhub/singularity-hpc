@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/openmpi"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/openmpi/container.yaml"
-updated_at: "2022-01-27 16:18:49.378264"
+updated_at: "2022-02-01 01:28:43.615341"
 container_url: "https://github.com/orgs/autamus/packages/container/package/openmpi"
 aliases:
  - "mpiCC"
@@ -32,6 +32,7 @@ aliases:
 
 versions:
  - "4.1.1"
+ - "4.1.2"
 description: "An open source Message Passing Interface implementation."
 ---
 

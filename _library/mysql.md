@@ -3,7 +3,7 @@ layout: container
 name:  "mysql"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/mysql/container.yaml"
-updated_at: "2022-01-27 16:18:39.309191"
+updated_at: "2022-02-01 01:28:33.053936"
 container_url: "https://hub.docker.com/r/_/mysql"
 aliases:
  - "mysql"
@@ -44,6 +44,7 @@ versions:
  - "8.0.25"
  - "8.0.26"
  - "8.0.27"
+ - "8.0.28"
  - "latest"
 description: "MySQL is the world's most popular open source database."
 ---

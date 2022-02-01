@@ -3,11 +3,12 @@ layout: container
 name:  "ghcr.io/autamus/mercury"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/mercury/container.yaml"
-updated_at: "2022-01-27 16:19:33.775458"
+updated_at: "2022-02-01 01:29:30.913092"
 container_url: "https://github.com/orgs/autamus/packages/container/package/mercury"
 
 versions:
  - "2.0.1"
+ - "2.1.0"
 description: "Mercury is a C library for implementing RPC, optimized for HPC"
 ---
 

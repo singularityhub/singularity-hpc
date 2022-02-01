@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/clhep"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/clhep/container.yaml"
-updated_at: "2022-01-27 16:19:29.073518"
+updated_at: "2022-02-01 01:29:25.774076"
 container_url: "https://github.com/orgs/autamus/packages/container/package/clhep"
 aliases:
  - "Cast-config"
@@ -34,6 +34,7 @@ aliases:
 
 versions:
  - "2.4.4.0"
+ - "2.4.5.1"
  - "latest"
 description: "CLHEP is a C++ library that provides utility classes for general numerical programming, vector arithmetic, geometry, pseudorandom number generation, and linear algebra, specifically targeted for high energy physics simulation and analysis software."
 ---

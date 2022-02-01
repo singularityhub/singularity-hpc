@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/gdal"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/gdal/container.yaml"
-updated_at: "2022-01-27 16:18:47.747471"
+updated_at: "2022-02-01 01:28:41.874741"
 container_url: "https://github.com/orgs/autamus/packages/container/package/gdal"
 aliases:
  - "gdal-config"
@@ -51,6 +51,7 @@ versions:
  - "3.3.1"
  - "3.3.3"
  - "3.4.0"
+ - "3.4.1"
  - "latest"
 description: "GDAL is a translator library for raster and vector geospatial data formats that is released under an X/MIT style Open Source License by the Open Source Geospatial Foundation. "
 ---

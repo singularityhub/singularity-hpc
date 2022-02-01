@@ -3,7 +3,7 @@ layout: container
 name:  "vault"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/vault/container.yaml"
-updated_at: "2022-01-27 16:18:13.758827"
+updated_at: "2022-02-01 01:28:05.582019"
 container_url: "https://hub.docker.com/_/vault"
 aliases:
  - "vault"
@@ -17,6 +17,7 @@ versions:
  - "1.8.4"
  - "1.9.0"
  - "1.9.2"
+ - "1.9.3"
  - "latest"
 description: "Vault is a tool for securely accessing secrets via a unified interface and tight access control."
 ---

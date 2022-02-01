@@ -3,7 +3,7 @@ layout: container
 name:  "nginx"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/nginx/container.yaml"
-updated_at: "2022-01-27 16:18:38.501170"
+updated_at: "2022-02-01 01:28:32.138571"
 container_url: "https://hub.docker.com/r/_/nginx"
 aliases:
  - "nginx"
@@ -18,6 +18,7 @@ versions:
  - "1.21.3"
  - "1.21.4"
  - "1.21.5"
+ - "1.21.6"
  - "latest"
  - "stable-alpine-perl"
 description: "Nginx (pronounced 'engine-x') is an open source reverse proxy server for HTTP, HTTPS, SMTP, POP3, and IMAP protocols, as well as a load balancer, HTTP cache, and a web server (origin server)."

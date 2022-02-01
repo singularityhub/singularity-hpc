@@ -3,11 +3,12 @@ layout: container
 name:  "ghcr.io/autamus/mpc"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/mpc/container.yaml"
-updated_at: "2022-01-27 16:18:56.471475"
+updated_at: "2022-02-01 01:28:51.122107"
 container_url: "https://github.com/orgs/autamus/packages/container/package/mpc"
 
 versions:
  - "1.1.0"
+ - "1.2.1"
  - "latest"
 description: "mithi/mpc: A software pipeline using the Model Predictive Control method to drive a car around a virtual track."
 ---

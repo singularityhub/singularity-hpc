@@ -3,7 +3,7 @@ layout: container
 name:  "quay.io/biocontainers/star"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/star/container.yaml"
-updated_at: "2022-01-27 16:18:22.605778"
+updated_at: "2022-02-01 01:28:15.039738"
 container_url: "https://quay.io/repository/biocontainers/star"
 aliases:
  - "STAR"
@@ -11,6 +11,7 @@ aliases:
 versions:
  - "2.7.8a--h9ee0642_1"
  - "2.7.9a--h9ee0642_0"
+ - "2.7.10a--h9ee0642_0"
 description: "Spliced Transcripts Alignment to a Reference."
 ---
 
