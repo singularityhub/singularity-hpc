@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/conduit"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/conduit/container.yaml"
-updated_at: "2022-02-01 01:28:56.076768"
+updated_at: "2022-02-03 22:45:03.333559"
 container_url: "https://github.com/orgs/autamus/packages/container/package/conduit"
 aliases:
  - "conduit_blueprint_verify"
