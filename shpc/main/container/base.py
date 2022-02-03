@@ -70,7 +70,7 @@ class ContainerTechnology:
         slashes in the URI only after that.
         """
         # If there is a config port, we need to add to end of URI
-        port = ":" + config.port if config.port else ""
+        port = ":" + str(config.port) if config.port else ""
         if not port:
             return uri
         host, rest = uri.split("/", 1)
