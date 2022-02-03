@@ -204,7 +204,7 @@ class SingularityContainer(ContainerTechnology):
         if pull_type in ["docker", "oras"]:
             container_uri = "%s://%s@%s" % (
                 pull_type,
-                config.docker or config.oras,
+                self.add_port(config, config.docker or config.oras),
                 tag.digest,
             )
         elif pull_type == "gh":

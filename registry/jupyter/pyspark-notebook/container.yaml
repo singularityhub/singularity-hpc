@@ -6,7 +6,7 @@ latest:
   "4.0": sha256:2aa9a0183bcfe80cd9e2a6c0a52d797bd5b67d1e2db9437c7345c2404b5a86c1
 tags:
   "4.0": sha256:2aa9a0183bcfe80cd9e2a6c0a52d797bd5b67d1e2db9437c7345c2404b5a86c1
-  latest: sha256:8c45b68c6c19329a9091fd3e7e1afc7594fa0b240fb74c2230433a9c2466e968
+  latest: sha256:cc0b2ad428aef8ed8a4557888b2fb2b50ab125ba6eb1fcb58642d270edd9d60b
 aliases:
 - name: run-notebook
   command: jupyter notebook --no-browser --port=$(shuf -i 2000-65000 -n 1) --ip 0.0.0.0

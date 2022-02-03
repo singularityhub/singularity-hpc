@@ -73,6 +73,7 @@ containerConfigProperties = {
     "gh": {"type": "string"},
     "url": {"type": "string"},
     "test": {"type": "string"},
+    "port": {"type": ["string", "number"]},
     "maintainer": {"type": "string"},
     "description": {"type": "string"},
     "tags": aliases,

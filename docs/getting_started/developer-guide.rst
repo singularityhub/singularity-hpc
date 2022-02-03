@@ -295,6 +295,30 @@ extensions of your Singularity recipes in the root, and the "versions"
 (as shown above) for details.
 
 
+Port
+----
+
+If your registry has a port, since we only need that metadata for pull, you should
+provide it separately in the container.yaml. As an example:
+
+.. code-block:: yaml
+
+    oras: gitlabxyz.nrc-cnrc.gc.ca/nrcfieldsa/singularity-test/lolnrc
+    port: 4000
+    url: https://gitlabxyz.nrc-cnrc.gc.ca/nrcfieldsa/singularity-test/
+    maintainer: '@nrcfieldsa'
+    description: Cowsay NRC from GitLab
+    latest:
+      latest: sha256:91b243d9397763ba3a7a5e12625507589544b4fc90db71db34072680d6926e17
+    tags:
+      latest: sha256:91b243d9397763ba3a7a5e12625507589544b4fc90db71db34072680d6926e17
+    aliases:
+      lolnrc: /singularity
+
+The above recipe will pull the unique resource identifier ``oras://gitlabxyz.nrc-cnrc.gc.ca:4000/nrcfieldsa/singularity-test/lolnrc``
+but install to the same name without the port. It will work regardless of the registry pull type (e.g., oras or docker).
+
+
 Choosing Containers to Contribute
 ---------------------------------
 

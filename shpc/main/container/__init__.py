@@ -149,13 +149,9 @@ class ContainerConfig:
 
     def get_uri(self):
         """
-        Return the unique resource identifier, remove any ports
+        Return the unique resource identifier
         """
-        uri = getattr(self, "docker") or getattr(self, "oras") or getattr(self, "gh")
-        # Remove any ports or hard coded tags
-        if uri and ":" in uri:
-            uri = uri.split(":")[0]
-        return uri
+        return getattr(self, "docker") or getattr(self, "oras") or getattr(self, "gh")
 
     def __getattr__(self, key):
         """

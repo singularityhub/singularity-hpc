@@ -60,9 +60,13 @@ class DockerContainer(ContainerTechnology):
         if pull_type != "docker":
             logger.exit("%s only supports Docker (oci registry) pulls." % self.command)
 
+        uri = self.add_registry(config.docker)
         tag_uri = "%s:%s" % (self.add_registry(config.docker), tag.name)
-        tag_digest = "%s@%s" % (self.add_registry(config.docker), tag.digest)
-        self.pull(tag_digest)
+        tag_digest = "%s@%s" % (uri, tag.digest)
+        pull_digest = "%s@%s" % (self.add_port(config, uri), tag.digest)
+
+        # We only need port given a pull
+        self.pull(pull_digest)
         # Podman doesn't keep a record of digest->tag, so we tag after
         return self.tag(tag_digest, tag_uri)
 

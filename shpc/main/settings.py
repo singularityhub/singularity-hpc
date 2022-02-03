@@ -35,6 +35,7 @@ class SettingsBase:
         # Set an updated time, in case it's written back to file
         self._settings = {"updated_at": datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ")}
         self.settings_file = None
+        self.user_settings = None
 
     def __str__(self):
         return "[shpc-settings]"
@@ -81,7 +82,7 @@ class SettingsBase:
 
     def get_settings_file(self, settings_file=None):
         """
-        Get the preferred used settings file.
+        Get the preferred user settings file, set user settings if exists.
         """
         # Only consider user settings if the file exists!
         user_settings = None
@@ -106,9 +107,14 @@ class SettingsBase:
         yaml = YAML()
         yaml.preserve_quotes = True
 
-        # Store the original settings for update as we go
-        with open(self.settings_file, "r") as fd:
+        # Always load default settings first
+        with open(defaults.default_settings_file, "r") as fd:
             self._settings = yaml.load(fd.read())
+
+        # Update with user or custom settings if not equal to default
+        if self.settings_file != defaults.default_settings_file:
+            with open(self.settings_file, "r") as fd:
+                self._settings.update(yaml.load(fd.read()))
 
     def get(self, key, default=None):
         """

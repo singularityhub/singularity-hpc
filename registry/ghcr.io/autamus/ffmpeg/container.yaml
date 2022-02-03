@@ -8,7 +8,7 @@ latest:
   "4.5": sha256:83d07b4621380cda4c8487e029e5a57d07f408f346ed2ea46ae997783a511cc9
 tags:
   "4.5": sha256:83d07b4621380cda4c8487e029e5a57d07f408f346ed2ea46ae997783a511cc9
-  latest: sha256:956e0381d05a6d3d29ee3069ecf3db38dc0108b092db1e2cc498a0eed5cc04bc
+  latest: sha256:a2462466608984cefb48a6ca48358c84d5cb5be4a5f25a5ee864ca7ac79518b6
 aliases:
   ffmpeg: /opt/view/bin/ffmpeg
   ffprobe: /opt/view/bin/ffprobe

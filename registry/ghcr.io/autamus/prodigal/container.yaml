@@ -3,9 +3,9 @@ url: https://github.com/orgs/autamus/packages/container/package/prodigal
 maintainer: '@vsoch'
 description: Prodigal Gene Prediction Software
 latest:
-  2.6.3: sha256:896649193b0718f7b1306b85f97c21f074ad8b09eda4f70969167b335f07b010
+  2.6.3: sha256:a281c63f2bb0b4f44e24b45a260bf96e2bc84485239d762989e3dc4db6562ebf
 tags:
-  2.6.3: sha256:896649193b0718f7b1306b85f97c21f074ad8b09eda4f70969167b335f07b010
-  latest: sha256:896649193b0718f7b1306b85f97c21f074ad8b09eda4f70969167b335f07b010
+  2.6.3: sha256:a281c63f2bb0b4f44e24b45a260bf96e2bc84485239d762989e3dc4db6562ebf
+  latest: sha256:a281c63f2bb0b4f44e24b45a260bf96e2bc84485239d762989e3dc4db6562ebf
 aliases:
   prodigal: /opt/view/prodigal

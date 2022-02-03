@@ -4,11 +4,11 @@ maintainer: '@vsoch'
 description: Libtiff is a library for reading and writing Tagged Image File Format
   (abbreviated TIFF) files.
 latest:
-  4.3.0: sha256:e8cce7d34ff872ffb826953282166929aba9becf5924da53844f9ad00d2c063c
+  4.3.0: sha256:527ba61323335a3be0a4dc5752ecfe6a8c20c425890e7c3b844a2be691d7c7e4
 tags:
   4.1.0: sha256:9b7046a7f1aeda65bbdd29587e89dc56c0831ee82e377591030ee340de2245fb
-  4.3.0: sha256:e8cce7d34ff872ffb826953282166929aba9becf5924da53844f9ad00d2c063c
-  latest: sha256:e8cce7d34ff872ffb826953282166929aba9becf5924da53844f9ad00d2c063c
+  4.3.0: sha256:527ba61323335a3be0a4dc5752ecfe6a8c20c425890e7c3b844a2be691d7c7e4
+  latest: sha256:527ba61323335a3be0a4dc5752ecfe6a8c20c425890e7c3b844a2be691d7c7e4
 aliases:
   fax2tiff: /opt/view/bin/fax2tiff
   ppm2tiff: /opt/view/bin/ppm2tiff

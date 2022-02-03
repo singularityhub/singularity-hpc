@@ -5,10 +5,11 @@ description: CLHEP is a C++ library that provides utility classes for general nu
   programming, vector arithmetic, geometry, pseudorandom number generation, and linear
   algebra, specifically targeted for high energy physics simulation and analysis software.
 latest:
-  2.4.4.0: sha256:b881d89a14929d265f8848ea9785bb8fea149c40e3aa1d471642b5268d3c02db
+  2.4.5.1: sha256:5e73148f9fa144fc6333db76b27e176f73b2a99fc973d162ea589220c1fa543a
 tags:
   2.4.4.0: sha256:b881d89a14929d265f8848ea9785bb8fea149c40e3aa1d471642b5268d3c02db
-  latest: sha256:b881d89a14929d265f8848ea9785bb8fea149c40e3aa1d471642b5268d3c02db
+  2.4.5.1: sha256:5e73148f9fa144fc6333db76b27e176f73b2a99fc973d162ea589220c1fa543a
+  latest: sha256:5e73148f9fa144fc6333db76b27e176f73b2a99fc973d162ea589220c1fa543a
 aliases:
   Cast-config: /opt/view/bin/Cast-config
   Evaluator-config: /opt/view/bin/Evaluator-config

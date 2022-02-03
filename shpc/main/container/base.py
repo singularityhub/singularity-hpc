@@ -63,6 +63,19 @@ class ContainerTechnology:
         """
         logger.warning("Add is not supported for %s" % self)
 
+    def add_port(self, config, uri):
+        """
+        Given a URI from docker, oras, or similar, add a port to the first
+        part of the URL. This assumes a pattern like hostname:port with
+        slashes in the URI only after that.
+        """
+        # If there is a config port, we need to add to end of URI
+        port = ":" + config.port if config.port else ""
+        if not port:
+            return uri
+        host, rest = uri.split("/", 1)
+        return host + ":" + port + "/" + rest
+
     def add_environment(self, module_dir, envars, environment_file):
         """
         Given one or more environment variables in a dictionary, write to file.
