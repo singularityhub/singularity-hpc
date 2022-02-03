@@ -74,7 +74,7 @@ class ContainerTechnology:
         if not port:
             return uri
         host, rest = uri.split("/", 1)
-        return host + ":" + port + "/" + rest
+        return host + port + "/" + rest
 
     def add_environment(self, module_dir, envars, environment_file):
         """
