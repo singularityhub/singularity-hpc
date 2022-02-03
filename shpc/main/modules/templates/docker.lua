@@ -35,8 +35,8 @@ For each of the above, you can export:
 ]]) 
 
 {% if podman_module %}load("{{ podman_module }}"){% endif %}
-setenv ("PODMAN_OPTS", "")
-setenv ("PODMAN_COMMAND_OPTS", "")
+if not PODMAN_OPTS then setenv ("PODMAN_OPTS", "") end
+if not PODMAN_COMMAND_OPTS then setenv ("PODMAN_COMMAND_OPTS", "") end
 
 -- we probably don't need this
 local MODULEPATH="{{ module_dir }}"
