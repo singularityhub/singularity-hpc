@@ -196,12 +196,12 @@ Adding Options
 --------------
 
 By default, some of the commands will come with singularity options. For example,
-a container intended for gpu is always going to give you the ``--nv`` flag. However,
+a container intended for gpu should have the ``--nv`` flag. However,
 it could be the case that you want to define custom options at the time of use.
 In this case, you can export the following custom environment variables to add them:
 
 **SINGULARITY_OPTS**: will provide additional options to the base Singularity command, such as ``--debug``
-**SINGULARITY_COMMAND_OPTS**: will provide additional options to the command (e.g., exec), such as ``--cleanenv``.
+**SINGULARITY_COMMAND_OPTS**: will provide additional options to the command (e.g., exec), such as ``--cleanenv`` or ``--nv``.
 
 
 Custom Images that are Added
