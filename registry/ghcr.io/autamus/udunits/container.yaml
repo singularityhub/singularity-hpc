@@ -5,9 +5,9 @@ description: The UDUNITS package supports units of physical quantities. Its C li
   provides for arithmetic manipulation of units and for conversion of numeric values
   between compatible units.
 latest:
-  2.2.28: sha256:4f6b764f4a4455b87daec6714b7e5140a5f5dbf8ca4073e50d4e0e88789aba69
+  2.2.28: sha256:e5823ea5ade70c94218cf5b95efb359d43901a8ee8d58c1dacd7779946009e60
 tags:
-  2.2.28: sha256:4f6b764f4a4455b87daec6714b7e5140a5f5dbf8ca4073e50d4e0e88789aba69
-  latest: sha256:4f6b764f4a4455b87daec6714b7e5140a5f5dbf8ca4073e50d4e0e88789aba69
+  2.2.28: sha256:e5823ea5ade70c94218cf5b95efb359d43901a8ee8d58c1dacd7779946009e60
+  latest: sha256:e5823ea5ade70c94218cf5b95efb359d43901a8ee8d58c1dacd7779946009e60
 aliases:
   udunits2: /opt/view/bin/udunits2

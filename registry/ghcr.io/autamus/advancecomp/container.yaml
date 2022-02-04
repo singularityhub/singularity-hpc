@@ -4,10 +4,10 @@ maintainer: '@vsoch'
 description: AdvanceCOMP is a set of cross-platform command line data (re-)compression
   tools.
 latest:
-  "2.1": sha256:f9e29c212ed164ff60ab59d05d375197f0196c1d66d082019a23b9d9b8a12d2f
+  "2.1": sha256:32875f9de021b7a514407d5da40b7df6f3d1375be295b9bacbb6cbccadc3b827
 tags:
-  "2.1": sha256:f9e29c212ed164ff60ab59d05d375197f0196c1d66d082019a23b9d9b8a12d2f
-  latest: sha256:f9e29c212ed164ff60ab59d05d375197f0196c1d66d082019a23b9d9b8a12d2f
+  "2.1": sha256:32875f9de021b7a514407d5da40b7df6f3d1375be295b9bacbb6cbccadc3b827
+  latest: sha256:32875f9de021b7a514407d5da40b7df6f3d1375be295b9bacbb6cbccadc3b827
 aliases:
   advdef: /opt/view/bin/advdef
   advmng: /opt/view/bin/advmng

@@ -4,7 +4,7 @@ maintainer: '@vsoch'
 description: Vault is a tool for securely accessing secrets via a unified interface
   and tight access control.
 latest:
-  1.9.2: sha256:cc7bca14ebe2e6f32401bf5e59c1b95081c387b75fb0c06c18c085670338a59b
+  1.9.3: sha256:cafdf67809db6efbbf3ea8662df002f0b5ba2d6cdddac64df1acb4d86c18b2c1
 tags:
   1.4.7: sha256:3929780d624754b7127293649a2c4af1fbc0e22742ea5414b647db3f5de71960
   1.7.1: sha256:10f564c947706e021e60c84bd22b1e91559db133d6d3a57e930d32cd7e0cbf77
@@ -14,6 +14,7 @@ tags:
   1.8.4: sha256:a75b8996586ddaf57866c3e89fc1fadcecbb8c2b85dc6fb70e3613674d771161
   1.9.0: sha256:b16dc6ba7319005d281b34013da19012eb1713b16400d45b62e15c8f06e70d44
   1.9.2: sha256:cc7bca14ebe2e6f32401bf5e59c1b95081c387b75fb0c06c18c085670338a59b
-  latest: sha256:cc7bca14ebe2e6f32401bf5e59c1b95081c387b75fb0c06c18c085670338a59b
+  1.9.3: sha256:cafdf67809db6efbbf3ea8662df002f0b5ba2d6cdddac64df1acb4d86c18b2c1
+  latest: sha256:cafdf67809db6efbbf3ea8662df002f0b5ba2d6cdddac64df1acb4d86c18b2c1
 aliases:
   vault: /bin/vault
