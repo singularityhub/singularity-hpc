@@ -18,11 +18,11 @@ proc ModulesHelp { } {
     puts stderr "Commands include:"
     puts stderr ""
     puts stderr " - {|module_name|}-run:"
-    puts stderr "       singularity run {% if features.gpu %}{{ features.gpu }} {% endif %}{% if features.home %}-B {{ features.home | replace("$", "\$") }} --home {{ features.home | replace("$", "\$") }} {% endif %}{% if features.x11 %}-B {{ features.x11 | replace("$", "\$") }} {% endif %}{% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }} {% endif %}<container> $@"
+    puts stderr "       singularity run {% if features.gpu %}{{ features.gpu }} {% endif %}{% if features.home %}-B {{ features.home | replace("$", "\$") }} --home {{ features.home | replace("$", "\$") }} {% endif %}{% if features.x11 %}-B {{ features.x11 | replace("$", "\$") }} {% endif %}{% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }} {% endif %}<container>"
     puts stderr " - {|module_name|}-shell:"
     puts stderr "       singularity shell -s {{ singularity_shell }} {% if features.gpu %}{{ features.gpu }} {% endif %}{% if features.home %}-B {{ features.home | replace("$", "\$") }} --home {{ features.home | replace("$", "\$") }} {% endif %}{% if features.x11 %}-B {{ features.x11 | replace("$", "\$") }} {% endif %}{% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }} {% endif %}<container>"
     puts stderr " - {|module_name|}-exec:"
-    puts stderr "       singularity exec {% if features.gpu %}{{ features.gpu }} {% endif %}{% if features.home %}-B {{ features.home | replace("$", "\$") }} --home {{ features.home | replace("$", "\$") }} {% endif %}{% if features.x11 %}-B {{ features.x11 | replace("$", "\$") }} {% endif %}{% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }} {% endif %}<container> $@"
+    puts stderr "       singularity exec {% if features.gpu %}{{ features.gpu }} {% endif %}{% if features.home %}-B {{ features.home | replace("$", "\$") }} --home {{ features.home | replace("$", "\$") }} {% endif %}{% if features.x11 %}-B {{ features.x11 | replace("$", "\$") }} {% endif %}{% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }} {% endif %}<container>"
     puts stderr " - {|module_name|}-inspect-runscript:"
     puts stderr "       singularity inspect -r <container>"
     puts stderr " - {|module_name|}-inspect-deffile:"
@@ -92,10 +92,10 @@ if { [ module-info shell bash ] } {
 {% endif %}
 
 # A customizable exec function
-set-alias {|module_name|}-exec "${execCmd} ${containerPath} \"\$@\""
+set-alias {|module_name|}-exec "${execCmd} ${containerPath}"
 
 # Always provide a container run
-set-alias {|module_name|}-run "${runCmd} \"\$@\""
+set-alias {|module_name|}-run "${runCmd}"
 
 # Inspect runscript or deffile easily!
 set-alias {|module_name|}-inspect-runscript "${inspectCmd} -r ${containerPath}"
