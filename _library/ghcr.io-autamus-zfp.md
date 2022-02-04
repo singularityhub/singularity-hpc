@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/zfp"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/zfp/container.yaml"
-updated_at: "2022-02-03 22:44:58.060176"
+updated_at: "2022-02-04 02:09:01.861806"
 container_url: "https://github.com/orgs/autamus/packages/container/package/zfp"
 
 versions:
