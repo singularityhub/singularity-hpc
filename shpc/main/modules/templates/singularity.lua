@@ -38,7 +38,7 @@ For each of the above, you can export:
 
 {% if singularity_module %}load("{{ singularity_module }}"){% endif %}
 
--- we probably don't need this
+-- we probably do not need this
 local MODULEPATH="{{ module_dir }}"
 
 -- singularity environment variables to bind the paths and set shell
@@ -58,7 +58,7 @@ local inspectCmd = "singularity ${SINGULARITY_OPTS} inspect ${SINGULARITY_COMMAN
 set_shell_function("{|module_name|}-shell", shellCmd,  shellCmd)
 
 -- conflict with modules with the same name
-conflict(myModuleName(){% if aliases %}{% for alias in aliases %}{% if alias.name != name %},"{{ alias.name }}"{% endif %}{% endfor %}{% endif %})
+conflict("{{ tool }}"{% if aliases %}{% for alias in aliases %}{% if alias.name != tool %},"{{ alias.name }}"{% endif %}{% endfor %}{% endif %})
 
 -- exec functions to provide "alias" to module commands
 {% if aliases %}{% for alias in aliases %}
