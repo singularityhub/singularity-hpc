@@ -58,7 +58,7 @@ local inspectCmd = "singularity ${SINGULARITY_OPTS} inspect ${SINGULARITY_COMMAN
 set_shell_function("{|module_name|}-shell", shellCmd,  shellCmd)
 
 -- conflict with modules with the same name
-conflict("{{ tool }}"{% if aliases %}{% for alias in aliases %}{% if alias.name != tool %},"{{ alias.name }}"{% endif %}{% endfor %}{% endif %})
+conflict({% if name != tool %}"{{ name }}",{% endif %}"{{ tool }}"{% if aliases %}{% for alias in aliases %}{% if alias.name != tool %},"{{ alias.name }}"{% endif %}{% endfor %}{% endif %})
 
 -- exec functions to provide "alias" to module commands
 {% if aliases %}{% for alias in aliases %}
