@@ -3,7 +3,7 @@ layout: container
 name:  "tomcat"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/tomcat/container.yaml"
-updated_at: "2022-02-04 02:08:34.580957"
+updated_at: "2022-02-04 09:27:49.521850"
 container_url: "https://hub.docker.com/_/tomcat"
 
 versions:

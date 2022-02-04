@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/datatransferkit"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/datatransferkit/container.yaml"
-updated_at: "2022-02-04 02:09:24.626756"
+updated_at: "2022-02-04 09:28:45.007146"
 container_url: "https://github.com/orgs/autamus/packages/container/package/datatransferkit"
 
 versions:
