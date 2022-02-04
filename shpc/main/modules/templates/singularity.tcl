@@ -39,9 +39,13 @@ proc ModulesHelp { } {
 
 }
 
-# Environment
-setenv SINGULARITY_OPTS ""
-setenv SINGULARITY_COMMAND_OPTS ""
+# Environment - only set if not already defined
+if { ![info exists ::env(SINGULARITY_OPTS)] } {
+    setenv SINGULARITY_OPTS ""
+} 
+if { ![info exists ::env(SINGULARITY_COMMAND_OPTS)] } {
+    setenv SINGULARITY_COMMAND_OPTS ""
+} 
 
 # Variables
 

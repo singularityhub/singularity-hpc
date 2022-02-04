@@ -44,8 +44,10 @@ local MODULEPATH="{{ module_dir }}"
 -- singularity environment variables to bind the paths and set shell
 {% if bindpaths %}setenv("SINGULARITY_BINDPATH", "{{ bindpaths }}"){% endif %}
 setenv("SINGULARITY_SHELL", "{{ singularity_shell }}")
-setenv ("SINGULARITY_OPTS", "")
-setenv ("SINGULARITY_COMMAND_OPTS", "")
+
+-- Environment: only set options and command options if not already set
+if not os.getenv("SINGULARITY_OPTS") then setenv ("SINGULARITY_OPTS", "") end
+if not os.getenv("SINGULARITY_COMMAND_OPTS") then setenv ("SINGULARITY_COMMAND_OPTS", "") end
 
 -- interactive shell to any container, plus exec for aliases
 local containerPath = '{{ container_sif }}'
