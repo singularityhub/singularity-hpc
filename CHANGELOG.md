@@ -14,6 +14,7 @@ and **Merged pull requests**. Critical items to know are:
 The versions coincide with releases on pip. Only major versions will be released as tags on Github.
 
 ## [0.0.x](https://github.scom/singularityhub/singularity-hpc/tree/master) (0.0.x)
+ - remove redundancy of manual bindpaths and SINGULARITY_BINDPATH (0.0.42)
  - Do not unset container environment vars if they are already set (0.0.41)
  - Central config should be read first (and updated with user config) (0.0.4)
  - Add support for oras pull for singularity (0.0.39)
