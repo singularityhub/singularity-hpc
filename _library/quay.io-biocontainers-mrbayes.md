@@ -3,7 +3,7 @@ layout: container
 name:  "quay.io/biocontainers/mrbayes"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/mrbayes/container.yaml"
-updated_at: "2022-02-04 13:17:08.729055"
+updated_at: "2022-02-06 01:57:54.734382"
 container_url: "https://quay.io/repository/biocontainers/mrbayes"
 aliases:
  - "mb"
