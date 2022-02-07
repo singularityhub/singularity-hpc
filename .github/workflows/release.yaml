@@ -19,11 +19,13 @@ jobs:
         export PATH="/usr/share/miniconda/bin:$PATH"
         source activate shpc
         pip install -e .
-        pip install setuptools wheel
+        pip install setuptools wheel twine
     - name: Build and publish
       env:
         TWINE_USERNAME: ${{ secrets.PYPI_USER }} 
         TWINE_PASSWORD: ${{ secrets.PYPI_PASS }}
       run: |
+        export PATH="/usr/share/miniconda/bin:$PATH"
+        source activate shpc
         python setup.py sdist bdist_wheel
         twine upload dist/*
