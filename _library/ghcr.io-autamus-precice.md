@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/precice"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/precice/container.yaml"
-updated_at: "2022-02-06 01:58:29.245386"
+updated_at: "2022-02-07 11:13:27.192338"
 container_url: "https://github.com/orgs/autamus/packages/container/package/precice"
 
 versions:
