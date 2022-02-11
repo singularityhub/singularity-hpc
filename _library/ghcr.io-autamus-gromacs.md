@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/gromacs"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/gromacs/container.yaml"
-updated_at: "2022-02-07 11:14:49.848954"
+updated_at: "2022-02-11 16:46:34.154885"
 container_url: "https://github.com/orgs/autamus/packages/container/package/gromacs"
 
 versions:
