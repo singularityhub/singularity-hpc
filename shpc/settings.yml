@@ -30,7 +30,8 @@ module_name: '{{ tool }}'
 default_version: true
 
 # store containers separately from module files
-container_base:
+# It's recommended to do this for faster loading
+container_base: $root_dir/containers
 
 # if defined, add to lmod script to load this Singularity module first
 singularity_module:

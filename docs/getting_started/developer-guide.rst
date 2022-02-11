@@ -112,7 +112,7 @@ this:
             └── container.yaml
 
 
-And this is what gets installed to the modules folder, where each is kept in
+And this is what gets installed to the modules and containers directories, where each is kept in
 a separate directory based on version.
 
 .. code-block:: console
@@ -121,10 +121,14 @@ a separate directory based on version.
     modules/
     └── python
         └── 3.9.2
-            ├── module.lua
+            └── module.lua
+
+    $ tree containers/
+    containers/
+    └── python
+        └── 3.9.2
             └── python-3.9.2.sif
 
-    2 directories, 2 files
 
 So different versions could exist alongside one another.
 
@@ -468,7 +472,7 @@ or ask for help directly!
 
     Container:
 
-     - /home/vanessa/Desktop/Code/singularity-hpc/modules/python/3.9.2-slim/python-3.9.2-slim-sha256:85ed629e6ff79d0bf796339ea188c863048e9aedbf7f946171266671ee5c04ef.sif
+     - /home/vanessa/Desktop/Code/singularity-hpc/containers/python/3.9.2-slim/python-3.9.2-slim-sha256:85ed629e6ff79d0bf796339ea188c863048e9aedbf7f946171266671ee5c04ef.sif
 
     Commands include:
 
@@ -500,5 +504,4 @@ commands to shell, run, exec, and inspect. The custom commands (e.g., Python) ar
 Make sure to write to files outside of the container so you don't muck with permissions.
 Since we are using module use, this means that you can create module files as a user
 or an admin - it all comes down to who has permission to write to the modules
-folder, and of course use it. Note that I have not tested this on an HPC system
-but plan to shortly.
+and containers folder, and of course use it.
