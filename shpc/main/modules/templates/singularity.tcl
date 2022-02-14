@@ -27,10 +27,10 @@ proc ModulesHelp { } {
     puts stderr "       singularity inspect -r <container>"
     puts stderr " - {|module_name|}-inspect-deffile:"
     puts stderr "       singularity inspect -d <container>"
-    puts stderr ""    
+    puts stderr ""
 {% if aliases %}{% for alias in aliases %}    puts stderr " - {{ alias.name }}:"
     puts stderr "       singularity exec {% if features.gpu %}{{ features.gpu }} {% endif %}{% if features.home %}-B {{ features.home | replace("$", "\$") }} --home {{ features.home | replace("$", "\$") }} {% endif %}{% if features.x11 %}-B {{ features.x11 | replace("$", "\$") }} {% endif %}{% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }} {% endif %}{% if alias.singularity_options %}{{ alias.singularity_options | replace("$", "\$") }} {% endif %}<container> {{ alias.command | replace("$", "\$") }} \"$@\""
-{% endfor %}{% else %}    puts stderr " - {|module_name|}: singularity run {% if features.gpu %}{{ features.gpu }} {% endif %}{% if features.home %}-B {{ features.home | replace("$", "\$") }} --home {{ features.home | replace("$", "\$") }} {% endif %}{% if features.x11 %}-B {{ features.x11 | replace("$", "\$") }} {% endif %}{% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }}{% endif %}<container>"{% endif %}
+{% endfor %}{% endif %}
     puts stderr ""
     puts stderr "For each of the above, you can export:"
     puts stderr ""

@@ -22,11 +22,13 @@ proc ModulesHelp { } {
     puts stderr "       {{ command }} run -i{% if tty %}t{% endif %} -u `id -u`:`id -g` --rm --entrypoint \"\" {% if envfile %} --env-file  {{ module_dir }}/{{ envfile }} {% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %} -v . -w . <container> \"$@\""
     puts stderr " - {|module_name|}-inspect:"
     puts stderr "       {{ command }} inspect <container>"
+    puts stderr ""
 {% if aliases %}{% for alias in aliases %}    puts stderr " - {{ alias.name }}:"
     puts stderr "       {{ command }} run -i{% if tty %}t{% endif %} --rm -u `id -u`:`id -g` --entrypoint {{ alias.entrypoint | replace("$", "\$") }} {% if envfile %}--envfile  {{ module_dir }}/{{ envfile }} {% endif %}{% if bindpaths %}-v {{ bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %}{% if alias.docker_options %}{{ alias.docker_options | replace("$", "\$") }} {% endif %} -v . -w . <container> {{ alias.command | replace("$", "\$") }} \"$@\""
 {% endfor %}{% endif %}
-
+    puts stderr ""
     puts stderr "For each of the above, you can export:"
+    puts stderr ""
     puts stderr "        - PODMAN_OPTS: to define custom options for {{ command }}"
     puts stderr "        - PODMAN_COMMAND_OPTS: to define custom options for the command"
 

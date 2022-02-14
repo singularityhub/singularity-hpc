@@ -28,7 +28,7 @@ Commands include:
 
 {% if aliases %}{% for alias in aliases %} - {{ alias.name }}:
        singularity exec {% if features.gpu %}{{ features.gpu }} {% endif %}{% if features.home %}-B {{ features.home }} --home {{ features.home }} {% endif %}{% if features.x11 %}-B {{ features.x11 }} {% endif %}{% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }} {% endif %}{% if alias.singularity_options %}{{ alias.singularity_options }} {% endif %}<container> {{ alias.command }} "$@"
-{% endfor %}{% else %} - {|module_name|}: singularity run {% if features.gpu %}{{ features.gpu }} {% endif %}{% if features.home %}-B {{ features.home }} --home {{ features.home }} {% endif %}{% if features.x11 %}-B {{ features.x11 }} {% endif %}{% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }}{% endif %}<container>{% endif %}
+{% endfor %}{% endif %}
 
 For each of the above, you can export:
 
