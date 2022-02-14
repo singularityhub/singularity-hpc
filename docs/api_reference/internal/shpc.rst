@@ -40,13 +40,28 @@ shpc.main.container module
     :show-inheritance:
 
 
-shpc.main.lmod
---------------
+shpc.main.modules
+-----------------
 
-.. automodule:: shpc.main.lmod
+.. automodule:: shpc.main.modules
     :members:
     :undoc-members:
     :show-inheritance:
 
 
+shpc.main.modules.lmod
+----------------------
+
+.. automodule:: shpc.main.modules.lmod
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+shpc.main.modules.tcl
+---------------------
+
+.. automodule:: shpc.main.modules.tcl
+    :members:
+    :undoc-members:
+    :show-inheritance:
 
