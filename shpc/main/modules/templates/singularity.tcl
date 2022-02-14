@@ -92,10 +92,18 @@ if { [ module-info shell bash ] } {
 {% endif %}
 
 # A customizable exec function
-set-alias {|module_name|}-exec "${execCmd} ${containerPath}"
+if { [ module-info shell bash ] } {
+  set-alias {|module_name|}-exec "${execCmd} ${containerPath} \"\$@\""
+} else {
+  set-alias {|module_name|}-exec "${execCmd} ${containerPath}"
+}
 
 # Always provide a container run
-set-alias {|module_name|}-run "${runCmd}"
+if { [ module-info shell bash ] } {
+  set-alias {|module_name|}-run "${runCmd} \"\$@\""
+} else {
+  set-alias {|module_name|}-run "${runCmd}"
+}
 
 # Inspect runscript or deffile easily!
 set-alias {|module_name|}-inspect-runscript "${inspectCmd} -r ${containerPath}"
