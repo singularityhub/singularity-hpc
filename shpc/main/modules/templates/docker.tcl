@@ -24,7 +24,7 @@ proc ModulesHelp { } {
     puts stderr "       {{ command }} inspect <container>"
     puts stderr ""
 {% if aliases %}{% for alias in aliases %}    puts stderr " - {{ alias.name }}:"
-    puts stderr "       {{ command }} run -i{% if tty %}t{% endif %} --rm -u `id -u`:`id -g` --entrypoint {{ alias.entrypoint | replace("$", "\$") }} {% if envfile %}--envfile  {{ module_dir }}/{{ envfile }} {% endif %}{% if bindpaths %}-v {{ bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %}{% if alias.docker_options %}{{ alias.docker_options | replace("$", "\$") }} {% endif %} -v . -w . <container> {{ alias.command | replace("$", "\$") }} \"$@\""
+    puts stderr "       {{ command }} run -i{% if tty %}t{% endif %} --rm -u `id -u`:`id -g` --entrypoint {{ alias.entrypoint | replace("$", "\$") }} {% if envfile %}--envfile  {{ module_dir }}/{{ envfile }} {% endif %}{% if bindpaths %}-v {{ bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %}{% if alias.docker_options %}{{ alias.docker_options | replace("$", "\$") }} {% endif %} -v . -w . <container> {{ alias.args | replace("$", "\$") }} \"$@\""
 {% endfor %}{% endif %}
     puts stderr ""
     puts stderr "For each of the above, you can export:"
@@ -76,7 +76,7 @@ set-alias {|module_name|}-shell "${shellCmd}"
 {% if aliases %}
 if { [ module-info shell bash ] } {
   if { [ module-info mode load ] } {
-{% for alias in aliases %}    puts stdout "function {{ alias.name }}() { ${execCmd} {% if alias.docker_options %} {{ alias.docker_options | replace("$", "\$") }} {% endif %} --entrypoint {{ alias.entrypoint | replace("$", "\$") }} ${containerPath} {{ alias.command | replace("$", "\$") }} \"\$@\"; }; export -f {{ alias.name }};"
+{% for alias in aliases %}    puts stdout "function {{ alias.name }}() { ${execCmd} {% if alias.docker_options %} {{ alias.docker_options | replace("$", "\$") }} {% endif %} --entrypoint {{ alias.entrypoint | replace("$", "\$") }} ${containerPath} {{ alias.args | replace("$", "\$") }} \"\$@\"; }; export -f {{ alias.name }};"
 {% endfor %}
   }
   if { [ module-info mode remove ] } {
@@ -84,7 +84,7 @@ if { [ module-info shell bash ] } {
 {% endfor %}
   }
 } else {
-{% for alias in aliases %}  set-alias {{ alias.name }} "${execCmd} {% if alias.docker_options %} {{ alias.docker_options | replace("$", "\$") }} {% endif %} --entrypoint {{ alias.entrypoint | replace("$", "\$") }} ${containerPath} {{ alias.command | replace("$", "\$") }}"
+{% for alias in aliases %}  set-alias {{ alias.name }} "${execCmd} {% if alias.docker_options %} {{ alias.docker_options | replace("$", "\$") }} {% endif %} --entrypoint {{ alias.entrypoint | replace("$", "\$") }} ${containerPath} {{ alias.args | replace("$", "\$") }}"
 {% endfor %}
 }
 {% endif %}
