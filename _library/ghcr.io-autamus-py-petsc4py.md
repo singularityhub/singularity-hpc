@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/py-petsc4py"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/py-petsc4py/container.yaml"
-updated_at: "2022-02-11 16:45:47.326793"
+updated_at: "2022-02-14 06:57:41.164756"
 container_url: "https://github.com/orgs/autamus/packages/container/package/py-petsc4py"
 
 versions:
