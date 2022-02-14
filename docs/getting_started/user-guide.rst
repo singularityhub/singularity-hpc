@@ -147,7 +147,7 @@ that you might set, the following variables are available to you:
 
 Additionally, the variables ``module_base``, ``container_base``, and ``registry``
 can be set with environment variables that will be expanded at runtime. You cannot
-use the protected set of substitution variables (``$install_dir`` and ``$install_root``)
+use the protected set of substitution variables (``$install_dir`` and ``$root_dir``)
 as environment variables, as they will be subbed in by shpc before environment
 variable replacement. A summary table of variables is included below, and then further discussed in detail.
 
@@ -169,8 +169,8 @@ variable replacement. A summary table of variables is included below, and then f
      - The install directory for modules
      - $root_dir/modules
    * - container_base
-     - Where to install containers. If not defined, they are installed alongside modules.
-     - null
+     - Where to install containers. If not defined, they are installed in "containers" in the install root
+     - $root_dir/containers
    * - container_tech
      - The container technology to use (singularity or podman)
      - singularity
@@ -287,29 +287,32 @@ your install:
     $ shpc config set module_base:\$root_dir/modules
 
 
-This directory will be the base where lua files are added, and container are stored.
-For example, if you were to add a container with unique resource identifier `python/3.8`
-you would see:
+This directory will be the base where lua files are added, and containers are stored
+in a directory alongside it. For example, if you were to add a container with unique 
+resource identifier `python/3.8` you would see:
 
 .. code-block:: console
 
     $install_dir/modules/
     └── python
         └── 3.9.2
-            ├── module.lua
+            └── module.lua
+
+    $install_dir/containers/
+    └── python
+        └── 3.9.2
             └── python-3.9.2.sif
 
-Although your module path might have multiple locations, Singularity Registry HPC 
-assumes this one location to install container modules to in order to ensure
+Singularity Registry HPC uses this simple directory structure to ensure
 a unique namespace. 
 
 
 Container Images Folder
 -----------------------
 
-If you don't want your container images (sif files) to live alongside your
-module files, then you should define the ``container_base`` to be something
-non-null (a path that exists). For example:
+If you don't want your container images (sif files) to live in the root of shpc
+in a directory called "containers," then you should define the ``container_base`` to be something
+different. For example:
 
 .. code-block:: console
 
@@ -318,7 +321,9 @@ non-null (a path that exists). For example:
 
 
 The same hierarchy will be preserved as to not put all containers in the same
-directory.
+directory. It's strongly recommended to keep modules separate from containers
+for faster loading (applies to container technologies like Singularity that
+pull binary files directly).
 
 
 Registry
@@ -567,10 +572,13 @@ and then a message to indicate that the module was created.
     modules/
     └── python
         └── 3.9.2
-            ├── module.lua
-            └── python-3.9.2.sif
+            └── module.lua
 
-    2 directories, 2 files
+    $ tree containers/
+    containers/
+    └── python
+        └── 3.9.2
+            └── python-3.9.2.sif
     
 
 You can also install a specific tag (as shown in list).
@@ -1015,10 +1023,10 @@ If you want to quickly get the path to a container binary, you can use get.
 .. code-block:: console
 
     $ shpc get vanessa/salad:latest
-    /home/vanessa/Desktop/Code/singularity-hpc/modules/vanessa/salad/latest/vanessa-salad-latest-sha256:8794086402ff9ff9f16c6facb93213bf0b01f1e61adf26fa394b78587be5e5a8.sif
+    /home/vanessa/Desktop/Code/singularity-hpc/containers/vanessa/salad/latest/vanessa-salad-latest-sha256:8794086402ff9ff9f16c6facb93213bf0b01f1e61adf26fa394b78587be5e5a8.sif
 
     $ shpc get tensorflow/tensorflow:2.2.2
-    /home/vanessa/Desktop/Code/singularity-hpc/modules/tensorflow/tensorflow/2.2.2/tensorflow-tensorflow-2.2.2-sha256:e2cde2bb70055511521d995cba58a28561089dfc443895fd5c66e65bbf33bfc0.sif
+    /home/vanessa/Desktop/Code/singularity-hpc/containers/tensorflow/tensorflow/2.2.2/tensorflow-tensorflow-2.2.2-sha256:e2cde2bb70055511521d995cba58a28561089dfc443895fd5c66e65bbf33bfc0.sif
 
 If you select a higher level module directory or there is no sif, you'll see:
 

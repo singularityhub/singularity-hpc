@@ -1,12 +1,17 @@
  /* Logo
  ==================================================== */
  .wy-side-nav-search {
-    background-color: #f0001e;
+    background-color: #d2394a;
    }
+
+.wy-side-nav-search input[type="text"] {
+  border-color: #d2394a !important;
+}
 
 .wy-side-nav-search > div.version {
     margin-left: 140px !important;
-    background-color: #f0001e82;
+    background-color: #d2394a;
+    color: darkred;
 }
    .wy-side-nav-search a:before {
        display: block;

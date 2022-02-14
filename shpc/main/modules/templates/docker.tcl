@@ -34,9 +34,13 @@ proc ModulesHelp { } {
 
 }
 
-# Environment
-setenv PODMAN_OPTS ""
-setenv PODMAN_COMMAND_OPTS ""
+# Environment - only set if not already defined
+if { ![info exists ::env(PODMAN_OPTS)] } {
+    setenv PODMAN_OPTS ""
+} 
+if { ![info exists ::env(PODMAN_COMMAND_OPTS)] } {
+    setenv PODMAN_COMMAND_OPTS ""
+} 
 
 # Variables
 
