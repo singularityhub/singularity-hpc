@@ -16,7 +16,7 @@ Container:
 Commands include:
 
  - {|module_name|}-run:
-       singularity run {% if features.gpu %}{{ features.gpu }} {% endif %}{% if features.home %}-B {{ features.home }} --home {{ features.home }} {% endif %}{% if features.x11 %}-B {{ features.x11 }} {% endif %}{% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }} {% endif %}<container>
+       singularity run {% if features.gpu %}{{ features.gpu }} {% endif %}{% if features.home %}-B {{ features.home }} --home {{ features.home }} {% endif %}{% if features.x11 %}-B {{ features.x11 }} {% endif %}{% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }} {% endif %}<container> "$@"
  - {|module_name|}-shell:
        singularity shell -s {{ singularity_shell }} {% if features.gpu %}{{ features.gpu }} {% endif %}{% if features.home %}-B {{ features.home }} --home {{ features.home }} {% endif %}{% if features.x11 %}-B {{ features.x11 }} {% endif %}{% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }} {% endif %}<container>
  - {|module_name|}-exec:
@@ -27,8 +27,8 @@ Commands include:
        singularity inspect -d <container>
 
 {% if aliases %}{% for alias in aliases %} - {{ alias.name }}:
-       singularity exec {% if features.gpu %}{{ features.gpu }} {% endif %}{% if features.home %}-B {{ features.home }} --home {{ features.home }} {% endif %}{% if features.x11 %}-B {{ features.x11 }} {% endif %}{% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }} {% endif %}{% if alias.singularity_options %}{{ alias.singularity_options }} {% endif %}<container> {{ alias.command }}
-{% endfor %}{% else %} - {|module_name|}: singularity run {% if features.gpu %}{{ features.gpu }} {% endif %}{% if features.home %}-B {{ features.home }} --home {{ features.home }} {% endif %}{% if features.x11 %}-B {{ features.x11 }} {% endif %}{% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }}{% endif %}<container>{% endif %}
+       singularity exec {% if features.gpu %}{{ features.gpu }} {% endif %}{% if features.home %}-B {{ features.home }} --home {{ features.home }} {% endif %}{% if features.x11 %}-B {{ features.x11 }} {% endif %}{% if envfile %}-B {{ module_dir }}/{{ envfile }}:/.singularity.d/env/{{ envfile }}{% endif %} {% if bindpaths %}-B {{ bindpaths }} {% endif %}{% if alias.singularity_options %}{{ alias.singularity_options }} {% endif %}<container> {{ alias.command }} "$@"
+{% endfor %}{% endif %}
 
 For each of the above, you can export:
 
@@ -59,11 +59,11 @@ local inspectCmd = "singularity ${SINGULARITY_OPTS} inspect ${SINGULARITY_COMMAN
 set_shell_function("{|module_name|}-shell", shellCmd,  shellCmd)
 
 -- conflict with modules with the same name
-conflict(myModuleName(){% if aliases %}{% for alias in aliases %}{% if alias.name != name %},"{{ alias.name }}"{% endif %}{% endfor %}{% endif %})
+conflict("{{ tool }}"{% if name != tool %},"{{ name }}"{% endif %}{% if aliases %}{% for alias in aliases %}{% if alias.name != tool %},"{{ alias.name }}"{% endif %}{% endfor %}{% endif %})
 
 -- "aliases" to module commands
 {% if wrapper_scripts %}{% if aliases %}prepend_path("PATH", "{{ wrapper_dir }}"){% endif %}
-{% else %}{% if aliases %}{% for alias in aliases %}set_shell_function("{{ alias.name }}", execCmd .. {% if alias.singularity_options %} "{{ alias.singularity_options }} " .. {% endif %} containerPath .. " {{ alias.command }} $@", execCmd .. {% if alias.singularity_options %} "{{ alias.singularity_options }} " .. {% endif %} containerPath .. " {{ alias.command }}")
+{% else %}{% if aliases %}{% for alias in aliases %}set_shell_function("{{ alias.name }}", execCmd .. {% if alias.singularity_options %} "{{ alias.singularity_options }} " .. {% endif %} containerPath .. " {{ alias.command }} \"$@\"", execCmd .. {% if alias.singularity_options %} "{{ alias.singularity_options }} " .. {% endif %} containerPath .. " {{ alias.command }}")
 {% endfor %}{% endif %}
 
 {% if aliases %}
@@ -73,10 +73,10 @@ if (myShellName() == "bash") then
 end{% endif %}{% endif %}
 
 -- A customizable exec function
-set_shell_function("{|module_name|}-exec", execCmd .. containerPath .. " $@",  execCmd .. containerPath)
+set_shell_function("{|module_name|}-exec", execCmd .. containerPath .. " \"$@\"",  execCmd .. containerPath)
 
 -- Always provide a container run
-set_shell_function("{|module_name|}-run", runCmd .. " $@",  runCmd)
+set_shell_function("{|module_name|}-run", runCmd .. " \"$@\"",  runCmd)
 
 -- Inspect runscript or deffile easily!
 set_shell_function("{|module_name|}-inspect-runscript", inspectCmd .. " -r  " .. containerPath,  inspectCmd .. containerPath)
