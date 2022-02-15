@@ -15,18 +15,20 @@ proc ModulesHelp { } {
     puts stderr " - {{ image }}"
     puts stderr "Commands include:"
     puts stderr " - {|module_name|}-run:"
-    puts stderr "       {{ command }} run -i{% if tty %}t{% endif %} -u `id -u`:`id -g` --rm {% if envfile %}--env-file  {{ module_dir }}/{{ envfile }} {% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %} -v . -w . <container>"
+    puts stderr "       {{ command }} run -i{% if tty %}t{% endif %} -u `id -u`:`id -g` --rm {% if envfile %}--env-file  {{ module_dir }}/{{ envfile }} {% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %} -v . -w . <container> \"\$@\""
     puts stderr " - {|module_name|}-shell:"
     puts stderr "       {{ command }} run -i{% if tty %}t{% endif %} -u `id -u`:`id -g` --rm --entrypoint {{ shell }} {% if envfile %} --env-file {{ module_dir }}/{{ envfile }} {% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %} -v . -w . <container>"
     puts stderr " - {|module_name|}-exec:"
-    puts stderr "       {{ command }} run -i{% if tty %}t{% endif %} -u `id -u`:`id -g` --rm --entrypoint \"\" {% if envfile %} --env-file  {{ module_dir }}/{{ envfile }} {% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %} -v . -w . <container> $*"
+    puts stderr "       {{ command }} run -i{% if tty %}t{% endif %} -u `id -u`:`id -g` --rm --entrypoint \"\" {% if envfile %} --env-file  {{ module_dir }}/{{ envfile }} {% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %} -v . -w . <container> \"\$@\""
     puts stderr " - {|module_name|}-inspect:"
     puts stderr "       {{ command }} inspect <container>"
+    puts stderr ""
 {% if aliases %}{% for alias in aliases %}    puts stderr " - {{ alias.name }}:"
-    puts stderr "       {{ command }} run -i{% if tty %}t{% endif %} --rm -u `id -u`:`id -g` --entrypoint {{ alias.entrypoint | replace("$", "\$") }} {% if envfile %}--envfile  {{ module_dir }}/{{ envfile }} {% endif %}{% if bindpaths %}-v {{ bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %}{% if alias.docker_options %}{{ alias.docker_options | replace("$", "\$") }} {% endif %} -v . -w . <container> {{ alias.args | replace("$", "\$") }}"
+    puts stderr "       {{ command }} run -i{% if tty %}t{% endif %} --rm -u `id -u`:`id -g` --entrypoint {{ alias.entrypoint | replace("$", "\$") }} {% if envfile %}--envfile  {{ module_dir }}/{{ envfile }} {% endif %}{% if bindpaths %}-v {{ bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %}{% if alias.docker_options %}{{ alias.docker_options | replace("$", "\$") }} {% endif %} -v . -w . <container> {{ alias.args | replace("$", "\$") }} \"\$@\""
 {% endfor %}{% endif %}
-
+    puts stderr ""
     puts stderr "For each of the above, you can export:"
+    puts stderr ""
     puts stderr "        - PODMAN_OPTS: to define custom options for {{ command }}"
     puts stderr "        - PODMAN_COMMAND_OPTS: to define custom options for the command"
 
@@ -75,7 +77,7 @@ set-alias {|module_name|}-shell "${shellCmd}"
 {% if aliases %}
 if { [ module-info shell bash ] } {
   if { [ module-info mode load ] } {
-{% for alias in aliases %}    puts stdout "function {{ alias.name }}() { ${execCmd} {% if alias.docker_options %} {{ alias.docker_options | replace("$", "\$") }} {% endif %} --entrypoint {{ alias.entrypoint | replace("$", "\$") }} ${containerPath} {{ alias.args | replace("$", "\$") }} \$@; }; export -f {{ alias.name }};"
+{% for alias in aliases %}    puts stdout "function {{ alias.name }}() { ${execCmd} {% if alias.docker_options %} {{ alias.docker_options | replace("$", "\$") }} {% endif %} --entrypoint {{ alias.entrypoint | replace("$", "\$") }} ${containerPath} {{ alias.args | replace("$", "\$") }} \"\$@\"; }; export -f {{ alias.name }};"
 {% endfor %}
   }
   if { [ module-info mode remove ] } {
@@ -89,10 +91,18 @@ if { [ module-info shell bash ] } {
 {% endif %}
 
 # A customizable exec function
-set-alias {|module_name|}-exec "${execCmd} --entrypoint \"\" ${containerPath}"
+if { [ module-info shell bash ] } {
+  set-alias {|module_name|}-exec "${execCmd} --entrypoint \"\" ${containerPath} \"\$@\""
+} else {
+  set-alias {|module_name|}-exec "${execCmd} --entrypoint \"\" ${containerPath}"
+}
 
 # Always provide a container run
-set-alias {|module_name|}-run "${runCmd}"
+if { [ module-info shell bash ] } {
+  set-alias {|module_name|}-run "${runCmd} \"\$@\""
+} else {
+  set-alias {|module_name|}-run "${runCmd}"
+}
 
 # Inspect runscript or deffile easily!
 set-alias {|module_name|}-inspect "${inspectCmd} ${containerPath}"

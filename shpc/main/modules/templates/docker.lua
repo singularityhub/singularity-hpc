@@ -25,7 +25,7 @@ Commands include:
        {{ command }} inspect <container>
 
 {% if aliases %}{% for alias in aliases %} - {{ alias.name }}:
-       {{ command }} run -i{% if tty %}t{% endif %} -u `id -u`:`id -g` --rm --entrypoint {{ alias.entrypoint }} {% if envfile %}--env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %}{% if alias.docker_options %}{{ alias.docker_options }} {% endif %} -v ${PWD} -w ${PWD} <container> "{{ alias.args }}"
+       {{ command }} run -i{% if tty %}t{% endif %} -u `id -u`:`id -g` --rm --entrypoint {{ alias.entrypoint }} {% if envfile %}--env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %}{% if alias.docker_options %}{{ alias.docker_options }} {% endif %} -v ${PWD} -w ${PWD} <container> "{{ alias.args }}" "$@"
 {% endfor %}{% endif %}
 
 For each of the above, you can export:
@@ -60,7 +60,7 @@ conflict("{{ tool }}"{% if name != tool %},"{{ name }}"{% endif %}{% if aliases 
 
 -- exec functions to provide "alias" to module commands
 {% if aliases %}{% for alias in aliases %}
-set_shell_function("{{ alias.name }}", execCmd .. {% if alias.docker_options %} "{{ alias.docker_options }} " .. {% endif %} " --entrypoint {{ alias.entrypoint }} " .. containerPath .. " {{ alias.args }} $@", execCmd .. {% if alias.docker_options %} "{{ alias.docker_options }} " .. {% endif %} " --entrypoint {{ alias.entrypoint }} " .. containerPath .. " {{ alias.args }}")
+set_shell_function("{{ alias.name }}", execCmd .. {% if alias.docker_options %} "{{ alias.docker_options }} " .. {% endif %} " --entrypoint {{ alias.entrypoint }} " .. containerPath .. " {{ alias.args }} \"$@\"", execCmd .. {% if alias.docker_options %} "{{ alias.docker_options }} " .. {% endif %} " --entrypoint {{ alias.entrypoint }} " .. containerPath .. " {{ alias.args }}")
 {% endfor %}{% endif %}
 
 {% if aliases %}
@@ -70,10 +70,10 @@ if (myShellName() == "bash") then
 end{% endif %}
 
 -- A customizable exec function
-set_shell_function("{|module_name|}-exec", execCmd .. " --entrypoint \"\" " .. containerPath .. " $@",  execCmd .. " --entrypoint \"\" " .. containerPath)
+set_shell_function("{|module_name|}-exec", execCmd .. " --entrypoint \"\" " .. containerPath .. " \"$@\"",  execCmd .. " --entrypoint \"\" " .. containerPath)
 
 -- Always provide a container run
-set_shell_function("{|module_name|}-run", runCmd .. " $@",  runCmd)
+set_shell_function("{|module_name|}-run", runCmd .. " \"$@\"",  runCmd)
 
 -- Inspect runscript or deffile easily!
 set_shell_function("{|module_name|}-inspect", inspectCmd,  inspectCmd)
