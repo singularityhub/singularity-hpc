@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/phist"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/phist/container.yaml"
-updated_at: "2022-02-15 00:19:16.458722"
+updated_at: "2022-02-15 00:19:51.395404"
 container_url: "https://github.com/orgs/autamus/packages/container/package/phist"
 aliases:
  - "phist_Danasazi_krylov_schur"
