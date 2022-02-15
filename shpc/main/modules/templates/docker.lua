@@ -40,7 +40,7 @@ For each of the above, you can export:
 if not os.getenv("PODMAN_OPTS") then setenv ("PODMAN_OPTS", "") end
 if not os.getenv("PODMAN_COMMAND_OPTS") then setenv ("PODMAN_COMMAND_OPTS", "") end
 
--- we probably don't need this
+-- we probably do not need this
 local MODULEPATH="{{ module_dir }}"
 
 -- interactive shell to any container, plus exec for aliases
@@ -56,7 +56,7 @@ local inspectCmd = "{{ command }} ${PODMAN_OPTS} inspect ${PODMAN_COMMAND_OPTS} 
 set_shell_function("{|module_name|}-shell", shellCmd,  shellCmd)
 
 -- conflict with modules with the same name
-conflict(myModuleName(){% if aliases %}{% for alias in aliases %}{% if alias.name != name %},"{{ alias.name }}"{% endif %}{% endfor %}{% endif %})
+conflict("{{ tool }}"{% if name != tool %},"{{ name }}"{% endif %}{% if aliases %}{% for alias in aliases %}{% if alias.name != tool %},"{{ alias.name }}"{% endif %}{% endfor %}{% endif %})
 
 -- exec functions to provide "alias" to module commands
 {% if aliases %}{% for alias in aliases %}

@@ -55,8 +55,9 @@ set helpcommand "This module is a {{ docker }} container wrapper for {{ name }} 
 {% endfor %}{% endif %}
 
 # conflict with modules with the same alias name
-conflict {{ name }}
-{% if aliases %}{% for alias in aliases %}{% if alias.name != name %}conflict {{ alias.name }}{% endif %}
+conflict {{ tool }}
+{% if name != tool %}conflict {{ name }}{% endif %}
+{% if aliases %}{% for alias in aliases %}{% if alias.name != tool %}conflict {{ alias.name }}{% endif %}
 {% endfor %}{% endif %}
 
 # interactive shell to any container, plus exec for aliases
