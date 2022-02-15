@@ -217,7 +217,7 @@ class DockerContainer(ContainerTechnology):
 
         # Option to create wrapper scripts for commands
         module_dir = os.path.dirname(module_path)
-        wrapper_dir = os.path.join(module_dir, "bin")
+        wrapper_dir = os.path.join(module_dir, self.wrapper_subdir)
         if self.settings.wrapper_scripts and aliases:
             shpc.utils.mkdirp([wrapper_dir])
             for alias in aliases:

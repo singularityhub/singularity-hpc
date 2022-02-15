@@ -46,6 +46,9 @@ class ContainerTechnology:
     # The module technology adds extensions here
     modulefile = "module"
 
+    # Wrapper scripts are stored in this subdirectory of the module directory
+    wrapper_subdir = "bin"
+
     # By default, no extra features
     features = {}
 
