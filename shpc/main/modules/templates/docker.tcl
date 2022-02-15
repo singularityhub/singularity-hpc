@@ -74,7 +74,7 @@ set inspectCmd "{{ command }} \${PODMAN_OPTS} inspect ${containerPath}"
 set-alias {|module_name|}-shell "${shellCmd}"
 
 # "aliases" to module commands
-{% if wrapper_scripts %}{% if aliases %}prepend-path PATH "{{ wrapper_dir }}"{% endif %}
+{% if wrapper_scripts %}{% if aliases %}prepend-path PATH "[file dirname ${ModulesCurrentModulefile}]/{{ wrapper_subdir }}"{% endif %}
 {% else %}{% if aliases %}if { [ module-info shell bash ] } {
   if { [ module-info mode load ] } {
 {% for alias in aliases %}    puts stdout "function {{ alias.name }}() { ${execCmd} {% if alias.docker_options %} {{ alias.docker_options | replace("$", "\$") }} {% endif %} --entrypoint {{ alias.entrypoint | replace("$", "\$") }} ${containerPath} {{ alias.args | replace("$", "\$") }} \"\$@\"; }; export -f {{ alias.name }};"

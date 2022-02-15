@@ -260,6 +260,6 @@ class DockerContainer(ContainerTechnology):
             command=self.command,
             tty=self.settings.enable_tty,
             wrapper_scripts=self.settings.wrapper_scripts,
-            wrapper_dir=wrapper_dir,
+            wrapper_subdir=self.wrapper_subdir,
         )
         shpc.utils.write_file(module_path, out)

@@ -207,7 +207,7 @@ class SingularityContainer(ContainerTechnology):
             repository=parsed_name.repository,
             envfile=self.settings.environment_file,
             wrapper_scripts=self.settings.wrapper_scripts,
-            wrapper_dir=wrapper_dir,
+            wrapper_subdir=self.wrapper_subdir,
         )
         shpc.utils.write_file(module_path, out)
 
