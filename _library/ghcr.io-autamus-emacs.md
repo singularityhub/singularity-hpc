@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/emacs"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/emacs/container.yaml"
-updated_at: "2022-02-15 00:17:16.938903"
+updated_at: "2022-02-15 00:19:09.299336"
 container_url: "https://github.com/orgs/autamus/packages/container/package/emacs"
 aliases:
  - "ebrowse"

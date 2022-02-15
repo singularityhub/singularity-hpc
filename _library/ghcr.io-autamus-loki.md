@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/loki"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/loki/container.yaml"
-updated_at: "2022-02-15 00:17:22.592335"
+updated_at: "2022-02-15 00:19:14.988785"
 container_url: "https://github.com/orgs/autamus/packages/container/package/loki"
 
 versions:

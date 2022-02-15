@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/libxpm"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/libxpm/container.yaml"
-updated_at: "2022-02-15 00:16:57.454071"
+updated_at: "2022-02-15 00:18:49.531025"
 container_url: "https://github.com/orgs/autamus/packages/container/package/libxpm"
 
 versions:

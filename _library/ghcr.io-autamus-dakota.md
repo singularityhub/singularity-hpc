@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/dakota"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/dakota/container.yaml"
-updated_at: "2022-02-15 00:17:35.141571"
+updated_at: "2022-02-15 00:19:28.239119"
 container_url: "https://github.com/orgs/autamus/packages/container/package/dakota"
 aliases:
  - "dakota"
