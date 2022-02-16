@@ -235,7 +235,7 @@ class DockerContainer(ContainerTechnology):
         shell = (
             self.settings.podman_shell
             if self.command == "podman"
-            else self.settings.docker_shell,
+            else self.settings.docker_shell
         )
 
         # Make sure to render all values!
