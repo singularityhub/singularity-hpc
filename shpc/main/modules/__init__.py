@@ -185,10 +185,8 @@ class ModuleBase(BaseClient):
 
         # Currently one doc is rendered for all containers
         result = template.render(
-            singularity_module=self.settings.singularity_module,
-            # Show same shell for all container technologies
-            shell=self.settings.singularity_shell,
-            bindpaths=self.settings.bindpaths,           
+            parsed_name=config.name,
+            settings=self.settings,
             description=config.description,
             aliases=aliases,
             versions=config.tags.keys(),

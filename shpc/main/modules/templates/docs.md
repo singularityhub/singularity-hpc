@@ -17,6 +17,7 @@ This module is a singularity container wrapper for {{ name }}.
 {% if description %}{{ description }}{% endif %}
 After [installing shpc](#install) you will want to install this container module:
 
+
 ```bash
 $ shpc install {{ name }}
 ```
@@ -52,25 +53,25 @@ Examples for both Singularity, Podman, and Docker (container technologies suppor
 #### {|module_name|}-run:
 
 ```bash
-$ singularity run {% if bindpaths %}-B {{ bindpaths }} {% endif %}<container>
-$ podman run --rm {% if bindpaths %}-v {{ bindpaths }} {% endif %} -v ${PWD} -w ${PWD} <container>
-$ docker run --rm {% if bindpaths %}-v {{ bindpaths }} {% endif %} -v ${PWD} -w ${PWD} <container>
+$ singularity run {% if settings.bindpaths %}-B {{ settings.bindpaths }} {% endif %}<container>
+$ podman run --rm {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %} -v ${PWD} -w ${PWD} <container>
+$ docker run --rm {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %} -v ${PWD} -w ${PWD} <container>
 ```
 
-#### {|module_name|}-shell:
+#### {|module_name|}-settings.singularity_shell:
 
 ```bash
-$ singularity shell -s {{ shell }} {% if bindpaths %}-B {{ bindpaths }} {% endif %}<container>
-$ podman run --it --rm --entrypoint {{ shell }} {% if bindpaths %}-v {{ bindpaths }} {% endif %} -v ${PWD} -w ${PWD} <container>
-$ docker run --it --rm --entrypoint {{ shell }} {% if bindpaths %}-v {{ bindpaths }} {% endif %} -v ${PWD} -w ${PWD} <container>
+$ singularity settings.singularity_shell -s {{ settings.singularity_shell }} {% if settings.bindpaths %}-B {{ settings.bindpaths }} {% endif %}<container>
+$ podman run --it --rm --entrypoint {{ settings.singularity_shell }} {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %} -v ${PWD} -w ${PWD} <container>
+$ docker run --it --rm --entrypoint {{ settings.singularity_shell }} {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %} -v ${PWD} -w ${PWD} <container>
 ```
 
 #### {|module_name|}-exec:
 
 ```bash
-$ singularity exec -s {{ shell }} {% if bindpaths %}-B {{ bindpaths }} {% endif %}<container> "$@"
-$ podman run --it --rm --entrypoint "" {% if bindpaths %}-v {{ bindpaths }} {% endif %} -v ${PWD} -w ${PWD} <container> "$@"
-$ docker run --it --rm --entrypoint "" {% if bindpaths %}-v {{ bindpaths }} {% endif %} -v ${PWD} -w ${PWD} <container> "$@"
+$ singularity exec -s {{ settings.singularity_shell }} {% if settings.bindpaths %}-B {{ settings.bindpaths }} {% endif %}<container> "$@"
+$ podman run --it --rm --entrypoint "" {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %} -v ${PWD} -w ${PWD} <container> "$@"
+$ docker run --it --rm --entrypoint "" {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %} -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
 #### {|module_name|}-inspect:
@@ -98,9 +99,9 @@ $ singularity inspect -d <container>
 #### {{ alias.name }}
        
 ```bash
-$ singularity exec {% if bindpaths %}-B {{ bindpaths }} {% endif %}{% if alias.options %}{{ alias.options }} {% endif %}<container> {{ alias.command }}
-$ podman run --it --rm --entrypoint {{ alias.entrypoint }} {% if bindpaths %}-v {{ bindpaths }} {% endif %} {% if alias.options %}{{ alias.options }} {% endif %} -v ${PWD} -w ${PWD} <container> -c "{{ alias.args }} $@"
-$ docker run --it --rm --entrypoint {{ alias.entrypoint }} {% if bindpaths %}-v {{ bindpaths }} {% endif %} {% if alias.options %}{{ alias.options }} {% endif %} -v ${PWD} -w ${PWD} <container> -c "{{ alias.args }} $@"
+$ singularity exec {% if settings.bindpaths %}-B {{ settings.bindpaths }} {% endif %}{% if alias.options %}{{ alias.options }} {% endif %}<container> {{ alias.command }}
+$ podman run --it --rm --entrypoint {{ alias.entrypoint }} {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %} {% if alias.options %}{{ alias.options }} {% endif %} -v ${PWD} -w ${PWD} <container> -c "{{ alias.args }} $@"
+$ docker run --it --rm --entrypoint {{ alias.entrypoint }} {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %} {% if alias.options %}{{ alias.options }} {% endif %} -v ${PWD} -w ${PWD} <container> -c "{{ alias.args }} $@"
 ```
 
 {% endfor %}{% else %}
@@ -108,16 +109,16 @@ $ docker run --it --rm --entrypoint {{ alias.entrypoint }} {% if bindpaths %}-v 
 #### {|module_name|}
 
 ```bash
-$ singularity run {% if bindpaths %}-B {{ bindpaths }}{% endif %}<container>
-$ podman run --rm {% if bindpaths %}-v {{ bindpaths }}{% endif %} -v ${PWD} -w ${PWD} <container>
-$ docker run --rm {% if bindpaths %}-v {{ bindpaths }}{% endif %} -v ${PWD} -w ${PWD} <container>
+$ singularity run {% if settings.bindpaths %}-B {{ settings.bindpaths }}{% endif %}<container>
+$ podman run --rm {% if settings.bindpaths %}-v {{ settings.bindpaths }}{% endif %} -v ${PWD} -w ${PWD} <container>
+$ docker run --rm {% if settings.bindpaths %}-v {{ settings.bindpaths }}{% endif %} -v ${PWD} -w ${PWD} <container>
 ```
 {% endif %}
 
 In the above, the `<container>` directive will reference an actual container provided
 by the module, for the version you have chosen to load. An environment file in the
 module folder will also be bound. Note that although a container
-might provide custom commands, every container exposes unique exec, shell, run, and
+might provide custom commands, every container exposes unique exec, settings.singularity_shell, run, and
 inspect aliases. For anycommands above, you can export:
 
  - SINGULARITY_OPTS: to define custom options for singularity (e.g., --debug)
