@@ -41,7 +41,7 @@ class ModuleBase(BaseClient):
         """
         For all known identifiers, substitute user specified format strings.
         """
-        subs = {"{|module_name|}": self.settings.module_name or "{{ tool }}"}
+        subs = {"{|module_name|}": self.settings.module_name or "{{ parsed_name.tool }}"}
         for key, replacewith in subs.items():
             template = template.replace(key, replacewith)
         return template
@@ -188,7 +188,7 @@ class ModuleBase(BaseClient):
             singularity_module=self.settings.singularity_module,
             # Show same shell for all container technologies
             shell=self.settings.singularity_shell,
-            bindpaths=self.settings.bindpaths,
+            bindpaths=self.settings.bindpaths,           
             description=config.description,
             aliases=aliases,
             versions=config.tags.keys(),

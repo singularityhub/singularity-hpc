@@ -22,9 +22,10 @@ registry: [$root_dir/registry]
 module_base: $root_dir/modules
 
 # Format string for module commands exec,run,shell (not aliases) (can also include:
-# {{registry}} , {{ repository }}, {{tool}}, {{version}}
+# {{parsed_name.registry}} , {{ parsed_name.repository }},
+# {{parsed_name.tool}}, {{parsed_name.version}}
 # This is where you might add a prefix to your module names, if desired.
-module_name: '{{ tool }}'
+module_name: '{{ parsed_name.tool }}'
 
 # Create a .version file for LMOD in the module folder
 default_version: true
