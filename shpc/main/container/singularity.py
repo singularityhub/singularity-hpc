@@ -170,21 +170,14 @@ class SingularityContainer(ContainerTechnology):
 
         # Option to create wrapper scripts for commands
         module_dir = os.path.dirname(module_path)
-        wrapper_dir = os.path.join(module_dir, self.wrapper_subdir)
         if self.settings.wrapper_scripts and aliases:
-            shpc.utils.mkdirp([wrapper_dir])
-            for alias in aliases:
-                wrapper_path = os.path.join(wrapper_dir, alias['name'])
-                out = wrapper_template.render(
-                    alias=alias,
-                    bindpaths=self.settings.bindpaths,
-                    container_sif=container_path,
-                    features=features,
-                    module_dir=module_dir,
-                    envfile=self.settings.environment_file,
-                    wrapper_shell=self.settings.wrapper_shell,
-                )
-                shpc.utils.write_file(wrapper_path, out, exec=True)
+            self._generate_wrapper_scripts(
+                wrapper_template, 
+                aliases, 
+                module_dir, 
+                features, 
+                container_sif=container_path, 
+            )
 
         # Make sure to render all values!
         out = template.render(
