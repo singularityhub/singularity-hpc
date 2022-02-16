@@ -59,7 +59,7 @@ wrapper_shell: /bin/bash
 # If you want a custom wrapper script for a one-off container, define it there with the script
 # stored alongside the container.yaml.
 wrapper_scripts:
-  enabled: true
+  enabled: false
 
   # use for docker aliases (set to null to disable)
   docker: docker.sh
