@@ -46,9 +46,6 @@ class ContainerTechnology:
     # The module technology adds extensions here
     modulefile = "module"
 
-    # Wrapper scripts are stored in this subdirectory of the module directory
-    wrapper_subdir = "bin"
-
     # By default, no extra features
     features = {}
 
@@ -60,7 +57,7 @@ class ContainerTechnology:
 
             self.settings = SettingsBase()
 
-    def add(self, sif, module_name, modulefile, template, wrapper_template, **kwargs):
+    def add(self, sif, module_name, modulefile, template, **kwargs):
         """
         Manually add a registry container.
         """
@@ -177,29 +174,6 @@ class ContainerTechnology:
                     features[key] = value
 
         return features
-
-    def _generate_wrapper_scripts(self, wrapper_template, aliases, module_dir, features, command=None, container_sif=None, image=None, tty=None):
-        """
-        Generate wrapper scripts for commands (when wrapper_scripts setting enabled)
-        """
-        wrapper_dir = os.path.join(module_dir, self.wrapper_subdir)
-        shpc.utils.mkdirp([wrapper_dir])
-        for alias in aliases:
-            wrapper_path = os.path.join(wrapper_dir, alias['name'])
-            out = wrapper_template.render(
-                alias=alias,
-                bindpaths=self.settings.bindpaths,
-                command=command,
-                container_sif=container_sif,
-                envfile=self.settings.environment_file,
-                features=features,
-                image=image,
-                module_dir=module_dir,
-                tty=tty,
-                wrapper_shell=self.settings.wrapper_shell,
-            )
-            shpc.utils.write_file(wrapper_path, out, exec=True)
-        return
 
     def __str__(self):
         return str(self.__class__.__name__)

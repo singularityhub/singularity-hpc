@@ -63,7 +63,9 @@ class Tag:
 
 
 class ContainerConfig:
-    """A ContainerConfig wraps a container.yaml file, intended for install."""
+    """
+    A ContainerConfig wraps a container.yaml file, intended for install.
+    """
 
     def __init__(self, package_file):
         """Load a package file for a container."""

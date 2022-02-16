@@ -16,16 +16,16 @@ Container:
 Commands include:
 
  - {|module_name|}-run:
-       {{ command }} run -i{% if tty %}t{% endif %} -u `id -u`:`id -g` --rm {% if envfile %}--env-file {{ module_dir }}/{{ envfile }} {% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %}-v ${PWD} -w ${PWD} <container> "$@"
+       {{ command }} run -i{% if settings.enable_tty %}t{% endif %} -u `id -u`:`id -g` --rm {% if settings.environment_file %}--env-file {{ module_dir }}/{{ settings.environment_file }} {% endif %} {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %}-v ${PWD} -w ${PWD} <container> "$@"
  - {|module_name|}-shell:
-       {{ command }} run -i{% if tty %}t{% endif %} -u `id -u`:`id -g` --rm {% if envfile %}--env-file {{ module_dir }}/{{ envfile }} {% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %}--entrypoint {{ shell }} -v ${PWD} -w ${PWD}<container>
+       {{ command }} run -i{% if settings.enable_tty %}t{% endif %} -u `id -u`:`id -g` --rm {% if settings.environment_file %}--env-file {{ module_dir }}/{{ settings.environment_file }} {% endif %} {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %}--entrypoint {{ shell }} -v ${PWD} -w ${PWD}<container>
  - {|module_name|}-exec:
-       {{ command }} run -i{% if tty %}t{% endif %} -u `id -u`:`id -g` --rm --entrypoint "" {% if envfile %}--env-file {{ module_dir }}/{{ envfile }} {% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %} -v ${PWD} -w ${PWD} <container> "$@"
+       {{ command }} run -i{% if settings.enable_tty %}t{% endif %} -u `id -u`:`id -g` --rm --entrypoint "" {% if settings.environment_file %}--env-file {{ module_dir }}/{{ settings.environment_file }} {% endif %} {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %} -v ${PWD} -w ${PWD} <container> "$@"
  - {|module_name|}-inspect:
        {{ command }} inspect <container>
 
 {% if aliases %}{% for alias in aliases %} - {{ alias.name }}:
-       {{ command }} run -i{% if tty %}t{% endif %} -u `id -u`:`id -g` --rm --entrypoint {{ alias.entrypoint }} {% if envfile %}--env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %}{% if alias.docker_options %}{{ alias.docker_options }} {% endif %} -v ${PWD} -w ${PWD} <container> "{{ alias.args }}" "$@"
+       {{ command }} run -i{% if settings.enable_tty %}t{% endif %} -u `id -u`:`id -g` --rm --entrypoint {{ alias.entrypoint }} {% if settings.environment_file %}--env-file {{ module_dir }}/{{ settings.environment_file }}{% endif %} {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %}{% if alias.docker_options %}{{ alias.docker_options }} {% endif %} -v ${PWD} -w ${PWD} <container> "{{ alias.args }}" "$@"
 {% endfor %}{% endif %}
 
 For each of the above, you can export:
@@ -34,7 +34,7 @@ For each of the above, you can export:
  - PODMAN_COMMAND_OPTS: to define custom options for the command
 ]]) 
 
-{% if podman_module %}load("{{ podman_module }}"){% endif %}
+{% if settings.podman_module %}load("{{ settings.podman_module }}"){% endif %}
 
 -- Environment: only set options and command options if not already set
 if not os.getenv("PODMAN_OPTS") then setenv ("PODMAN_OPTS", "") end
@@ -46,28 +46,30 @@ local MODULEPATH="{{ module_dir }}"
 -- interactive shell to any container, plus exec for aliases
 local containerPath = '{{ image }}'
 
-local shellCmd = "{{ command }} ${PODMAN_OPTS} run -i{% if tty %}t{% endif %} ${PODMAN_COMMAND_OPTS} -u `id -u`:`id -g` --rm --entrypoint {{ shell }} {% if envfile %}--env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %} -v ${PWD} -w ${PWD} " .. containerPath
+local shellCmd = "{{ command }} ${PODMAN_OPTS} run -i{% if settings.enable_tty %}t{% endif %} ${PODMAN_COMMAND_OPTS} -u `id -u`:`id -g` --rm --entrypoint {{ shell }} {% if settings.environment_file %}--env-file {{ module_dir }}/{{ settings.environment_file }}{% endif %} {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %} -v ${PWD} -w ${PWD} " .. containerPath
 -- execCmd needs entrypoint to be the executor
-local execCmd = "{{ command }} ${PODMAN_OPTS} run ${PODMAN_COMMAND_OPTS} -i{% if tty %}t{% endif %} -u `id -u`:`id -g` --rm {% if envfile %}--env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %} -v ${PWD} -w ${PWD} "
-local runCmd = "{{ command }} ${PODMAN_OPTS} run ${PODMAN_COMMAND_OPTS} -i{% if tty %}t{% endif %} -u `id -u`:`id -g` --rm {% if envfile %}--env-file {{ module_dir }}/{{ envfile }}{% endif %} {% if bindpaths %}-v {{ bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %} -v ${PWD} -w ${PWD} " .. containerPath
+local execCmd = "{{ command }} ${PODMAN_OPTS} run ${PODMAN_COMMAND_OPTS} -i{% if settings.enable_tty %}t{% endif %} -u `id -u`:`id -g` --rm {% if settings.environment_file %}--env-file {{ module_dir }}/{{ settings.environment_file }}{% endif %} {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %} -v ${PWD} -w ${PWD} "
+local runCmd = "{{ command }} ${PODMAN_OPTS} run ${PODMAN_COMMAND_OPTS} -i{% if settings.enable_tty %}t{% endif %} -u `id -u`:`id -g` --rm {% if settings.environment_file %}--env-file {{ module_dir }}/{{ settings.environment_file }}{% endif %} {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %} -v ${PWD} -w ${PWD} " .. containerPath
 local inspectCmd = "{{ command }} ${PODMAN_OPTS} inspect ${PODMAN_COMMAND_OPTS} " .. containerPath 
 
 -- set_shell_function takes bashStr and cshStr
 set_shell_function("{|module_name|}-shell", shellCmd,  shellCmd)
 
 -- conflict with modules with the same name
-conflict("{{ tool }}"{% if name != tool %},"{{ name }}"{% endif %}{% if aliases %}{% for alias in aliases %}{% if alias.name != tool %},"{{ alias.name }}"{% endif %}{% endfor %}{% endif %})
+conflict("{{ parsed_name.tool }}"{% if name != parsed_name.tool %},"{{ name }}"{% endif %}{% if aliases %}{% for alias in aliases %}{% if alias.name != parsed_name.tool %},"{{ alias.name }}"{% endif %}{% endfor %}{% endif %})
 
--- "aliases" to module commands
-{% if wrapper_scripts %}{% if aliases %}prepend_path("PATH", pathJoin(myFileName():match("(.*[/])") or ".", "{{ wrapper_subdir }}")){% endif %}
-{% else %}{% if aliases %}{% for alias in aliases %}set_shell_function("{{ alias.name }}", execCmd .. {% if alias.docker_options %} "{{ alias.docker_options }} " .. {% endif %} " --entrypoint {{ alias.entrypoint }} " .. containerPath .. " {{ alias.args }} \"$@\"", execCmd .. {% if alias.docker_options %} "{{ alias.docker_options }} " .. {% endif %} " --entrypoint {{ alias.entrypoint }} " .. containerPath .. " {{ alias.args }}")
+-- if we have any wrapper scripts, add the bin directory
+{% if wrapper_scripts %}prepend_path("PATH", pathJoin(myFileName():match("(.*[/])") or ".", "{{ settings.wrapper_subdir }}")){% endif %}
+
+-- "aliases" to module commands - generate only if not a wrapper script already generated
+{% if aliases %}{% for alias in aliases %}{% if alias.name not in wrapper_scripts %}set_shell_function("{{ alias.name }}", execCmd .. {% if alias.docker_options %} "{{ alias.docker_options }} " .. {% endif %} " --entrypoint {{ alias.entrypoint }} " .. containerPath .. " {{ alias.args }} \"$@\"", execCmd .. {% if alias.docker_options %} "{{ alias.docker_options }} " .. {% endif %} " --entrypoint {{ alias.entrypoint }} " .. containerPath .. " {{ alias.args }}"){% endif %}
 {% endfor %}{% endif %}
 
 {% if aliases %}
 if (myShellName() == "bash") then
-{% for alias in aliases %}execute{cmd="export -f {{ alias.name }}", modeA={"load"}}
+{% for alias in aliases %}{% if alias.name not in wrapper_scripts %}execute{cmd="export -f {{ alias.name }}", modeA={"load"}}{% endif %}
 {% endfor %}
-end{% endif %}{% endif %}
+end{% endif %}
 
 -- A customizable exec function
 set_shell_function("{|module_name|}-exec", execCmd .. " --entrypoint \"\" " .. containerPath .. " \"$@\"",  execCmd .. " --entrypoint \"\" " .. containerPath)

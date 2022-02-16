@@ -10,7 +10,7 @@ schema_url = "http://json-schema.org/draft-07/schema"
 # This is also for latest, and a list of tags
 
 # The simplest form of aliases is key/value pairs
-aliases = {
+keyvals = {
     "type": "object",
     "patternProperties": {
         "\\w[\\w-]*": {"type": "string"},
@@ -67,7 +67,7 @@ latest = {
 }
 
 containerConfigProperties = {
-    "latest": aliases,
+    "latest": keyvals,
     "docker": {"type": "string"},
     "oras": {"type": "string"},
     "gh": {"type": "string"},
@@ -75,16 +75,18 @@ containerConfigProperties = {
     "test": {"type": "string"},
     "maintainer": {"type": "string"},
     "description": {"type": "string"},
-    "tags": aliases,
+    "docker_scripts": keyvals,
+    "singularity_scripts": keyvals,
+    "tags": keyvals,
     "filter": {
         "type": "array",
         "items": {"type": "string"},
     },
-    "env": aliases,
+    "env": keyvals,
     "features": features,
     "aliases": {
         "oneOf": [
-            aliases,
+            keyvals,
             aliases_list,
         ]
     },
@@ -103,6 +105,17 @@ containerConfig = {
     ],
     "properties": containerConfigProperties,
     "additionalProperties": False,
+}
+
+# Wrapper scripts for global (aliases) and container.yaml
+wrapper_scripts = {
+    "type": "object",
+    "properties": {
+        "enabled": {"type": "boolean"},
+        "docker": {"type": "string"},
+        "podman": {"type": "string"},
+        "singularity": {"type": "string"},
+    },
 }
 
 
@@ -125,7 +138,8 @@ settingsProperties = {
     "environment_file": {"type": "string"},
     "default_version": {"type": "boolean"},
     "enable_tty": {"type": "boolean"},
-    "wrapper_scripts": {"type": "boolean"},
+    "wrapper_scripts": wrapper_scripts,
+    "wrapper_subdir": {"type": "string"},
     "container_tech": {"type": "string", "enum": ["singularity", "podman", "docker"]},
     "singularity_shell": {"type": "string", "enum": shells},
     "podman_shell": {"type": "string", "enum": shells},

@@ -79,10 +79,6 @@ class ModuleBase(BaseClient):
     def templatefile(self):
         return "%s.%s" % (self.container.templatefile, self.module_extension)
 
-    @property
-    def wrappertemplatefile(self):
-        return "%s.%s" % (self.container.templatefile, "sh")
-
     def uninstall(self, name, force=False):
         """
         Given a unique resource identifier, uninstall a module
@@ -151,8 +147,7 @@ class ModuleBase(BaseClient):
         module_name = self.add_namespace(module_name)
         template = self._load_template(self.templatefile)
         modulefile = os.path.join(self.settings.module_base, module_name.replace(":", os.sep), self.modulefile)
-        wrapper_template = self._load_template(self.wrappertemplatefile)
-        self.container.add(sif, module_name, modulefile, template, wrapper_template, **kwargs)
+        self.container.add(sif, module_name, modulefile, template, **kwargs)
 
     def get(self, module_name, env_file=False):
         """
@@ -330,7 +325,6 @@ class ModuleBase(BaseClient):
         # Get the template based on the module and container type
         template = self._load_template(self.templatefile)
         module_path = os.path.join(module_dir, self.modulefile)
-        wrapper_template = self._load_template(self.wrappertemplatefile)
 
         # If the module has a version, overrides version
         version = tag.name
@@ -344,13 +338,13 @@ class ModuleBase(BaseClient):
             name,
             template,
             aliases=config.get_aliases(),
+            config=config,
             parsed_name=config.name,
             url=config.url,
             description=config.description,
             version=version,
             config_features=config.features,
             features=kwargs.get("features"),
-            wrapper_template=wrapper_template,
         )
 
         # If the container tech does not need storage, clean up

@@ -446,6 +446,65 @@ If you would like support for a different container technology that has not been
 mentioned, please also `open an issue <https://github.com/singularityhub/singularity-hpc>`_ and
 provide description and links to what you have in mind.
 
+Wrapper Scripts
+---------------
+
+Singularity HPC allows for global definition of wrapper scripts, meaning that instead of writing a module alias to run a container for some given alias,
+we generate a wrapper script of the same name instead. Since the settings.yml is global, all wrapper scripts defined here are specific to replacing aliases.
+Container-specific scripts you'll want to include in the container.yaml, described in the developer docs. Let's take a look at the settings:
+
+# Wrapper scripts to use for aliases (replaces them)
+# Put a fullpath here for a custom script, otherwise we look in shpc/main/wrappers
+# If you want a custom wrapper script for a one-off container, define it there with the script
+# stored alongside the container.yaml.
+
+
+.. code-block:: yaml
+
+    wrapper_scripts:
+
+      # Enable wrapper scripts, period. If enabled, generate scripts for aliases instead of commands
+      # if enabled, we also allow container-specific wrapper scripts.
+      enabled: false
+
+      # use for docker aliases
+      docker: docker.sh
+
+      # use for podman aliases
+      podman: docker.sh
+
+      # use for singularity aliases
+      singularity: singularity.sh 
+
+Since different container technologies might expose different environment variables (e.g., ``SINGULARITY_OPTS`` vs ``PODMAN_OPTS``)
+they are organized above based on the container technology. If you want to customize the wrapper script, simply replace the relative paths
+above (e.g., ``singularity.sh`` with an absolute path to a file that will be used instead. For global alias scripts such as these, 
+Singularity HPC will look for:
+
+1. An absolute path first, if found is used first.
+2. Then a script name in the shpc/main/wrappers directory
+
+For container specific scripts, you can add sections to a ``container.yaml`` to specify the script (and container type)
+and the scripts must be provided alongside the container.yaml to install.
+
+.. code-block:: yaml
+
+    docker_scripts:
+      fork: docker_fork.sh
+    singularity_scripts:
+      fork: singularity_fork.sh
+
+The above says "given generation of a docker or podman container, write a script named "fork" that uses "docker_fork.sh" as a template"
+and the same for Singularity. And then I (the developer) would provide the custom scripts alongside container.yaml:
+
+.. code-block:: console
+
+    registry/vanessa/salad/
+    ├── container.yaml
+    ├── docker_fork.sh
+    └── singularity_fork.sh
+
+
 .. _getting_started-commands:
 
 
