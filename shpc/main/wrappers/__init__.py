@@ -45,7 +45,7 @@ def generate(image, container, config, **kwargs):
     for command, listing in scripts.items():
 
         # Don't look if no custom container.yaml scripts OR wrong container tech
-        if not listing or container.command != command:
+        if not listing or container.templatefile != command:
             continue
         for alias, template_name in listing.items():
             wrapper = get_wrapper_script(template_name)(

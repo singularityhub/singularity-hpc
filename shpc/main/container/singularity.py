@@ -172,7 +172,7 @@ class SingularityContainer(ContainerTechnology):
         module_dir = os.path.dirname(module_path)
 
         # Wrapper scripts can be global (for aliases) or container specific
-        wrapper_scripts = None
+        wrapper_scripts = []
         if self.settings.wrapper_scripts["enabled"] is True:
             wrapper_scripts = shpc.main.wrappers.generate(
                 aliases=aliases,

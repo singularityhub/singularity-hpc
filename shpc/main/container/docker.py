@@ -218,7 +218,7 @@ class DockerContainer(ContainerTechnology):
 
         # Option to create wrapper scripts for commands
         module_dir = os.path.dirname(module_path)
-        wrapper_scripts = None
+        wrapper_scripts = []
 
         # Wrapper scripts can be global (for aliases) or container specific
         if self.settings.wrapper_scripts["enabled"] is True:
