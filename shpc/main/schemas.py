@@ -112,9 +112,9 @@ wrapper_scripts = {
     "type": "object",
     "properties": {
         "enabled": {"type": "boolean"},
-        "docker": {"type": "string"},
-        "podman": {"type": "string"},
-        "singularity": {"type": "string"},
+        "docker": {"type": ["string", "null"]},
+        "podman": {"type": ["string", "null"]},
+        "singularity": {"type": ["string", "null"]},
     },
 }
 

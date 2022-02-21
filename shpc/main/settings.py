@@ -151,6 +151,7 @@ class SettingsBase:
         current = self._settings.get(key)
         if current and not isinstance(current, list):
             logger.exit("You cannot only add to a list variable.")
+        value = self.parse_null(value)
 
         if value not in current:
             # Add to the beginning of the list
@@ -188,6 +189,14 @@ class SettingsBase:
             value = False
         return value
 
+    def parse_null(self, value):
+        """
+        Given a null or none from the command line, ensure parsed as None type
+        """
+        if isinstance(value, str) and value.lower() in ["none", "null"]:
+            return None
+        return value
+
     def set(self, key, value):
         """
         Set a setting based on key and value. If the key has :, it's nested
@@ -203,8 +212,10 @@ class SettingsBase:
         if isinstance(value, str) and ":" in value:
             subkey, value = value.split(":")
             value = self.parse_boolean(value)
+            value = self.parse_null(value)
             self._settings[key][subkey] = value
         else:
+            value = self.parse_null(value)
             self._settings[key] = value
 
         # Validate and catch error message cleanly
@@ -233,6 +244,8 @@ class SettingsBase:
         elif isinstance(value, dict):
             return value
 
+        if value.lower() in ["null", "None"]:
+            return None
         for rep, repvalue in defaults.reps.items():
             if isinstance(value, list):
                 value = [x.replace(rep, repvalue) for x in value]
