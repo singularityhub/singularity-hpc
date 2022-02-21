@@ -244,8 +244,6 @@ class SettingsBase:
         elif isinstance(value, dict):
             return value
 
-        if value.lower() in ["null", "None"]:
-            return None
         for rep, repvalue in defaults.reps.items():
             if isinstance(value, list):
                 value = [x.replace(rep, repvalue) for x in value]
