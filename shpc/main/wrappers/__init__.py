@@ -58,5 +58,4 @@ def generate(image, container, config, **kwargs):
             )
             generated += wrapper.generate(alias)
 
-    print(generated)
     return list(set(generated))

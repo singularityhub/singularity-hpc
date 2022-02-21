@@ -51,6 +51,13 @@ class WrapperScript:
         """
         return os.path.dirname(self.config.package_file)
 
+    @property
+    def module_dir(self):
+        """
+        Get the module directory (should error if not provided in kwargs)
+        """
+        return self.kwargs["module_dir"]
+
     def load_template(self):
         """
         Load the wrapper template.
@@ -89,9 +96,7 @@ class WrapperScript:
         self.load_template()
 
         # Write scripts into container directory
-        wrapper_dir = os.path.join(
-            self.container_dest_dir, self.settings.wrapper_subdir
-        )
+        wrapper_dir = os.path.join(self.module_dir, self.settings.wrapper_subdir)
         shpc.utils.mkdirp([wrapper_dir])
 
         generated = []
@@ -128,9 +133,7 @@ class WrapperScript:
         self.load_template()
 
         # Write scripts into container directory
-        wrapper_dir = os.path.join(
-            self.container_dest_dir, self.settings.wrapper_subdir
-        )
+        wrapper_dir = os.path.join(self.module_dir, self.settings.wrapper_subdir)
         shpc.utils.mkdirp([wrapper_dir])
         wrapper_path = os.path.join(wrapper_dir, alias)
         return [self._generate(wrapper_path, alias)]

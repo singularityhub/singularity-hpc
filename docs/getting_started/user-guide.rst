@@ -453,11 +453,6 @@ Singularity HPC allows for global definition of wrapper scripts, meaning that in
 we generate a wrapper script of the same name instead. Since the settings.yml is global, all wrapper scripts defined here are specific to replacing aliases.
 Container-specific scripts you'll want to include in the container.yaml, described in the developer docs. Let's take a look at the settings:
 
-# Wrapper scripts to use for aliases (replaces them)
-# Put a fullpath here for a custom script, otherwise we look in shpc/main/wrappers
-# If you want a custom wrapper script for a one-off container, define it there with the script
-# stored alongside the container.yaml.
-
 
 .. code-block:: yaml
 
@@ -476,6 +471,7 @@ Container-specific scripts you'll want to include in the container.yaml, describ
       # use for singularity aliases
       singularity: singularity.sh 
 
+
 Since different container technologies might expose different environment variables (e.g., ``SINGULARITY_OPTS`` vs ``PODMAN_OPTS``)
 they are organized above based on the container technology. If you want to customize the wrapper script, simply replace the relative paths
 above (e.g., ``singularity.sh`` with an absolute path to a file that will be used instead. For global alias scripts such as these, 
@@ -483,6 +479,19 @@ Singularity HPC will look for:
 
 1. An absolute path first, if found is used first.
 2. Then a script name in the shpc/main/wrappers directory
+
+Here is an example of using wrapper scripts for the "python" container, which doesn't have container specific wrappers. What you see
+is the one entrypoint, "python" being placed in a bin that the module will see instead of defining the alias.
+
+
+.. code-block:: console
+
+    modules/python/
+    └── 3.9.10
+        ├── 99-shpc.sh
+        ├── bin
+        │   └── python
+        └── module.lua
 
 For container specific scripts, you can add sections to a ``container.yaml`` to specify the script (and container type)
 and the scripts must be provided alongside the container.yaml to install.
@@ -504,6 +513,27 @@ and the same for Singularity. And then I (the developer) would provide the custo
     ├── docker_fork.sh
     └── singularity_fork.sh
 
+And here is what those scripts look like installed. Since we are installing for just one container technology, we are seeing the alias wrapper for salad as "salad" and the container-specific wrapper for fork as "fork."
+
+
+.. code-block:: console
+
+    modules/vanessa/salad/
+    └── latest
+        ├── 99-shpc.sh
+        ├── bin
+        │   ├── fork
+        │   └── salad
+        └── module.lua
+
+
+We currently don't have a global argument to enable alias wrappers but not container wrappers. If you see a need for this please let us know.
+
+Where are wrapper scripts stored?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Since we don't allow overlap
+of the name of an alias wrapper script (e.g., ``bin/python``) as a wrapper to a python entrypoint) from a custom container wrapper script (e.g., a wrapper script with name "python" under a container.yaml) we can keep them both in the modules directory. If you see a need to put them elsewhere please let us kno. 
 
 .. _getting_started-commands:
 
