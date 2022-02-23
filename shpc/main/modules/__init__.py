@@ -192,7 +192,6 @@ class ModuleBase(BaseClient):
             versions=config.tags.keys(),
             github_url=github_url,
             container_url=config.url,
-            prefix=self.settings.module_exc_prefix,
             creation_date=datetime.now(),
             name=module_name,
             flatname=module_name.replace(os.sep, "-"),

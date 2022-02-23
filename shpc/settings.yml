@@ -71,9 +71,6 @@ wrapper_scripts:
   # use for singularity aliases (set to null to disable)
   singularity: singularity.sh 
 
-# Wrapper scripts are stored in this subdirectory of the module directory
-wrapper_subdir: bin
-
 # the module namespace you want to install from. E.g., if you have ghcr.io/autamus/clingo
 # and you set the namespace to ghcr.io/autamus, you can just do: shpc install clingo.
 namespace:

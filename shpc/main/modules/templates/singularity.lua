@@ -62,7 +62,7 @@ set_shell_function("{|module_name|}-shell", shellCmd,  shellCmd)
 conflict("{{ parsed_name.tool }}"{% if name != parsed_name.tool %},"{{ name }}"{% endif %}{% if aliases %}{% for alias in aliases %}{% if alias.name != parsed_name.tool %},"{{ alias.name }}"{% endif %}{% endfor %}{% endif %})
 
 -- if we have any wrapper scripts, add bin to path
-{% if wrapper_scripts %}prepend_path("PATH",pathJoin(myFileName():match("(.*[/])") or ".", "{{ settings.wrapper_subdir }}")){% endif %}
+{% if wrapper_scripts %}prepend_path("PATH",pathJoin(myFileName():match("(.*[/])") or ".", "bin")){% endif %}
 
 -- "aliases" to module commands
 {% if aliases %}{% for alias in aliases %}{% if alias.name not in wrapper_scripts %}set_shell_function("{{ alias.name }}", execCmd .. {% if alias.singularity_options %} "{{ alias.singularity_options }} " .. {% endif %} containerPath .. " {{ alias.command }} \"$@\"", execCmd .. {% if alias.singularity_options %} "{{ alias.singularity_options }} " .. {% endif %} containerPath .. " {{ alias.command }}"){% endif %}
