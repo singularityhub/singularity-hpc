@@ -496,7 +496,7 @@ Singularity HPC will look for:
 2. Then a script name in the shpc/main/wrappers directory
 
 Here is an example of using wrapper scripts for the "python" container, which doesn't have container specific wrappers. What you see
-is the one entrypoint, "python", being placed in a "bin" subdirectory that the module will see instead of defining the alias.
+is the one entrypoint, `python`, being placed in a "bin" subdirectory that the module will see instead of defining the alias.
 
 
 .. code-block:: console
