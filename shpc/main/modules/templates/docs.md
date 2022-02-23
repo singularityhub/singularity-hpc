@@ -58,7 +58,7 @@ $ podman run --rm {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endi
 $ docker run --rm {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %} -v ${PWD} -w ${PWD} <container>
 ```
 
-#### {|module_name|}-settings.singularity_shell:
+#### {|module_name|}-shell:
 
 ```bash
 $ singularity settings.singularity_shell -s {{ settings.singularity_shell }} {% if settings.bindpaths %}-B {{ settings.bindpaths }} {% endif %}<container>

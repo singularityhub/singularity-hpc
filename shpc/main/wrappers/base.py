@@ -96,7 +96,7 @@ class WrapperScript:
         self.load_template()
 
         # Write scripts into container directory
-        wrapper_dir = os.path.join(self.module_dir, self.settings.wrapper_subdir)
+        wrapper_dir = os.path.join(self.module_dir, "bin")
         shpc.utils.mkdirp([wrapper_dir])
 
         generated = []
@@ -133,7 +133,7 @@ class WrapperScript:
         self.load_template()
 
         # Write scripts into container directory
-        wrapper_dir = os.path.join(self.module_dir, self.settings.wrapper_subdir)
+        wrapper_dir = os.path.join(self.module_dir, "bin")
         shpc.utils.mkdirp([wrapper_dir])
         wrapper_path = os.path.join(wrapper_dir, alias)
         return [self._generate(wrapper_path, alias)]
