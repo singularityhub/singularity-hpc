@@ -139,7 +139,6 @@ settingsProperties = {
     "default_version": {"type": "boolean"},
     "enable_tty": {"type": "boolean"},
     "wrapper_scripts": wrapper_scripts,
-    "wrapper_subdir": {"type": "string"},
     "container_tech": {"type": "string", "enum": ["singularity", "podman", "docker"]},
     "singularity_shell": {"type": "string", "enum": shells},
     "podman_shell": {"type": "string", "enum": shells},

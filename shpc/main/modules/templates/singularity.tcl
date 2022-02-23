@@ -80,7 +80,7 @@ set-alias {|module_name|}-shell "${shellCmd}"
 
 
 # if we have any wrapper scripts, add bin to path
-{% if wrapper_scripts %}prepend-path PATH "[file dirname ${ModulesCurrentModulefile}]/{{ settings.wrapper_subdir }}"{% endif %}
+{% if wrapper_scripts %}prepend-path PATH "[file dirname ${ModulesCurrentModulefile}]/bin"{% endif %}
 
 # "aliases" to module commands
 {% if aliases %}if { [ module-info shell bash ] } {
