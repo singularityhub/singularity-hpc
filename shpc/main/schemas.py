@@ -114,6 +114,7 @@ wrapper_scripts = {
         "enabled": {"type": "boolean"},
         "docker": {"type": ["string", "null"]},
         "podman": {"type": ["string", "null"]},
+        "templates": {"type": ["string", "null"]},
         "singularity": {"type": ["string", "null"]},
     },
 }

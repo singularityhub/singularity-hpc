@@ -3,11 +3,12 @@ __copyright__ = "Copyright 2022, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
 from shpc.logger import logger
-from jinja2 import Template
+from jinja2 import Template, Environment, FileSystemLoader
 import shpc.utils
 import os
 
 here = os.path.dirname(os.path.abspath(__file__))
+templates = os.path.join(here, "templates")
 
 
 class WrapperScript:
@@ -76,7 +77,7 @@ class WrapperScript:
 
         # Finally, it has to be in the template directory
         if not template_file:
-            template_file = os.path.join(here, self.wrapper_template)
+            template_file = os.path.join(templates, self.wrapper_template)
 
         if not os.path.exists(template_file):
             logger.exit(
@@ -84,10 +85,24 @@ class WrapperScript:
                 % self.wrapper_template
             )
 
-        with open(template_file, "r") as temp:
-            template = Template(temp.read())
         self.template_file = template_file
-        self.template = template
+
+        # Default to search here in template file path, then in templates
+        template_paths = [os.path.dirname(template_file), templates]
+
+        # Do we have a custom template path directory?
+        if "templates" in self.settings.wrapper_scripts:
+            path = self.settings.wrapper_scripts["templates"]
+            if not os.path.exists(path):
+                logger.exit(
+                    "%s designated as a templates directory, but it does not exist."
+                    % path
+                )
+            template_paths = [path] + template_paths
+
+        loader = FileSystemLoader(template_paths)
+        env = Environment(loader=loader)
+        self.template = env.get_template(os.path.basename(template_file))
 
     def generate_aliases(self):
         """

@@ -248,15 +248,14 @@ scripts for singularity and docker in settings.yml and left enable to true, we w
 How to write an alias wrapper script
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-First, decide if you want a global script (to replace or wrap aliases) OR a custom container script. For an alias derived script, you should:
+First, decide if you want a global script (to replace or wrap aliases) OR a custom container script. For an alias derived (global) script, you should:
 
 1. Write the new script file into shpc/main/wrappers.
 2. Add an entry to shpc/main/wrappers/scripts referencing the script.
 
-For global scripts, the user can select to use it in their settings.yaml.
+For these global scripts, the user can select to use it in their settings.yaml.
 We will eventually write a command to list global wrappers available, so if you add a new one future users will know
 about it. For alias wrapper scripts, the following variables are passed for rendering:
-
 
 .. list-table:: Title
    :widths: 15 15 40 30
@@ -343,6 +342,70 @@ The following variables are passed for rendering.
      - dictionary
      - A dictionary of parsed features
      - ``{{ features.gpu }}``
+
+
+Templating for both wrapper script types
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Note that you are free to use "snippets" and "bases" either as an inclusion or "extends" meaning you can
+easily re-use code. For example, if we have the following registered directories under ``shpc/main/wrappers/templates`` 
+for definition of bases and templates:
+
+.. code-block:: console
+
+    main/wrappers/templates/
+    
+    # These are intended for use with "extends"
+    ├── bases
+    │   ├── __init__.py
+    │   └── shell-script-base.sh
+    
+    # These are top level template files, as specified in the settings.yml
+    ├── docker.sh
+    ├── singularity.sh
+
+    # A mostly empty directory ready for any snippets!
+    └── snippets
+
+For example, a "bases" template to define a shell and some special command that might look like this:
+
+.. code-block:: console
+
+    #!{{ settings.wrapper_shell }}
+
+    script=`realpath $0`
+    wrapper_bin=`dirname $script`
+    {% if '/csh' in settings.wrapper_shell %}set moduleDir=`dirname $wrapper_bin`{% else %}export moduleDir=$(dirname $wrapper_bin){% endif %}
+
+    {% block content %}{% endblock %}
+
+
+And then to use it for any container- or global- wrapper we would do the following in the wrapper script:
+
+.. code-block:: console
+
+    {% extends "bases/my-base-shell.sh" %}
+
+    # some custom wrapper before stuff here
+
+    {% block content %}{% endblock %}
+
+    # some custom wrapper after stuff here
+
+
+For snippets, which are intended to be more chunks of code you can throw in one spot
+on the fly, you can do this:
+
+
+.. code-block:: console
+
+    {% include "snippets/export-envars.sh" %}
+    # some custom wrapper after stuff here
+
+
+Finally, if you want to add your own custom templates directory for which you
+can refer to templates relatively, define ``wrapper_scripts`` -> ``templates`` as a full path
+in your settings.
 
 
 Environment Variables
