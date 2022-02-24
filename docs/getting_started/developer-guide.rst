@@ -203,7 +203,7 @@ Wrapper Script
 
 Singularity HPC allows exposure of two kinds of wrapper scripts:
 
-1. A global level wrapper intended to replace aliases. E.g., if an alias "samtools" is typically a direct container call, enabling a wrapper will generate an executable script "samtools" in a bin associated with the container, added to the path, to call instead. This is desired for workflow tools that want to run scripts. This global script is defined in settings.yml and described in the user guide.
+1. A global level wrapper intended to replace aliases. E.g., if an alias "samtools" is typically a direct container call, enabling a wrapper will generate an executable script "samtools" in a "bin" directory associated with the container, added to the path, to call instead. This is desired when MPI ("mpirun")  or scheduler (e.g. "srun" with Slurm) utilities are needed to run the scripts. This global script is defined in settings.yml and described in the user guide.
 2. A container level wrapper that is specific to a container, described here.
 
 For container specific scripts, you can add sections to a ``container.yaml`` to specify the script (and container type)
@@ -233,13 +233,14 @@ the custom container script "fork":
 
 .. code-block:: console
 
-    $ tree containers/vanessa/salad/
-    containers/vanessa/salad/
+    $ tree modules/vanessa/salad/
+    modules/vanessa/salad/
     └── latest
-       ├── bin
-       │   ├── fork
-       │   └── salad
-       └── vanessa-salad-latest-sha256:e8302da47e3200915c1d3a9406d9446f04da7244e4995b7135afd2b79d4f63db.sif
+        ├── 99-shpc.sh
+        ├── bin
+        │   ├── fork
+        │   └── salad
+        └── module.lua
 
 If we disable all wrapper scripts, the bin directory would not exist. If we set the default wrapper
 scripts for singularity and docker in settings.yml and left enable to true, we would only see "fork."

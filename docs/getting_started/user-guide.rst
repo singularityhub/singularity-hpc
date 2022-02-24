@@ -201,6 +201,21 @@ variable replacement. A summary table of variables is included below, and then f
    * - test_shell
      - The shell used for the test.sh file
      - /bin/bash
+   * - wrapper_shell
+     - The shell used for wrapper scripts
+     - /bin/bash
+   * - wrapper_scripts:enabled
+     - enable or disable generation of wrapper scripts, instead of module aliases
+     - false
+   * - wrapper_scripts:docker
+     - The name of the generic wrapper script template for docker
+     - docker.sh
+   * - wrapper_scripts:podman
+     - The name of the generic wrapper script template for podman
+     - docker.sh
+   * - wrapper_scripts:singularity
+     - The name of the generic wrapper script template for singularity
+     - singularity.sh
    * - namespace
      - Set a default module namespace that you want to install from.
      - null
@@ -451,7 +466,7 @@ Wrapper Scripts
 
 Singularity HPC allows for global definition of wrapper scripts, meaning that instead of writing a module alias to run a container for some given alias,
 we generate a wrapper script of the same name instead. Since the settings.yml is global, all wrapper scripts defined here are specific to replacing aliases.
-Container-specific scripts you'll want to include in the container.yaml, described in the developer docs. Let's take a look at the settings:
+Container-specific scripts you'll want to include in the container.yaml are described in the developer docs. Let's take a look at the settings:
 
 
 .. code-block:: yaml
@@ -474,14 +489,14 @@ Container-specific scripts you'll want to include in the container.yaml, describ
 
 Since different container technologies might expose different environment variables (e.g., ``SINGULARITY_OPTS`` vs ``PODMAN_OPTS``)
 they are organized above based on the container technology. If you want to customize the wrapper script, simply replace the relative paths
-above (e.g., ``singularity.sh`` with an absolute path to a file that will be used instead. For global alias scripts such as these, 
+above (e.g., ``singularity.sh``) with an absolute path to a file that will be used instead. For global alias scripts such as these, 
 Singularity HPC will look for:
 
 1. An absolute path first, if found is used first.
 2. Then a script name in the shpc/main/wrappers directory
 
 Here is an example of using wrapper scripts for the "python" container, which doesn't have container specific wrappers. What you see
-is the one entrypoint, "python" being placed in a bin that the module will see instead of defining the alias.
+is the one entrypoint, `python`, being placed in a "bin" subdirectory that the module will see instead of defining the alias.
 
 
 .. code-block:: console
@@ -533,7 +548,7 @@ Where are wrapper scripts stored?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Since we don't allow overlap
-of the name of an alias wrapper script (e.g., ``bin/python``) as a wrapper to a python entrypoint) from a custom container wrapper script (e.g., a wrapper script with name "python" under a container.yaml) we can keep them both in the modules directory. If you see a need to put them elsewhere please let us kno. 
+of the name of an alias wrapper script (e.g., ``bin/python`` as a wrapper to a python entrypoint) from a custom container wrapper script (e.g., a wrapper script with name "python" under a container.yaml) we can keep them both in the modules directory. If you see a need to put them elsewhere please let us know. 
 
 .. _getting_started-commands:
 

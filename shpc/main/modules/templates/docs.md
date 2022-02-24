@@ -47,7 +47,7 @@ You can use tab for auto-completion of module names or commands that are provide
 
 ### Commands
 
-When you install this module, you'll be able to load it to make the following commands accessible.
+When you install this module, you will be able to load it to make the following commands accessible.
 Examples for both Singularity, Podman, and Docker (container technologies supported) are included.
 
 #### {|module_name|}-run:
@@ -61,15 +61,15 @@ $ docker run --rm {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endi
 #### {|module_name|}-shell:
 
 ```bash
-$ singularity settings.singularity_shell -s {{ settings.singularity_shell }} {% if settings.bindpaths %}-B {{ settings.bindpaths }} {% endif %}<container>
-$ podman run --it --rm --entrypoint {{ settings.singularity_shell }} {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %} -v ${PWD} -w ${PWD} <container>
-$ docker run --it --rm --entrypoint {{ settings.singularity_shell }} {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %} -v ${PWD} -w ${PWD} <container>
+$ singularity shell -s {{ settings.singularity_shell }} {% if settings.bindpaths %}-B {{ settings.bindpaths }} {% endif %}<container>
+$ podman run --it --rm --entrypoint {{ settings.podman_shell }} {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %} -v ${PWD} -w ${PWD} <container>
+$ docker run --it --rm --entrypoint {{ settings.docker_shell }} {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %} -v ${PWD} -w ${PWD} <container>
 ```
 
 #### {|module_name|}-exec:
 
 ```bash
-$ singularity exec -s {{ settings.singularity_shell }} {% if settings.bindpaths %}-B {{ settings.bindpaths }} {% endif %}<container> "$@"
+$ singularity exec {% if settings.bindpaths %}-B {{ settings.bindpaths }} {% endif %}<container> "$@"
 $ podman run --it --rm --entrypoint "" {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %} -v ${PWD} -w ${PWD} <container> "$@"
 $ docker run --it --rm --entrypoint "" {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %} -v ${PWD} -w ${PWD} <container> "$@"
 ```
@@ -118,7 +118,7 @@ $ docker run --rm {% if settings.bindpaths %}-v {{ settings.bindpaths }}{% endif
 In the above, the `<container>` directive will reference an actual container provided
 by the module, for the version you have chosen to load. An environment file in the
 module folder will also be bound. Note that although a container
-might provide custom commands, every container exposes unique exec, settings.singularity_shell, run, and
+might provide custom commands, every container exposes unique exec, shell, run, and
 inspect aliases. For anycommands above, you can export:
 
  - SINGULARITY_OPTS: to define custom options for singularity (e.g., --debug)
