@@ -3,7 +3,7 @@ layout: container
 name:  "consul"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/consul/container.yaml"
-updated_at: "2022-02-15 00:20:08.175791"
+updated_at: "2022-03-01 01:39:23.401868"
 container_url: "https://hub.docker.com/_/consul"
 aliases:
  - "consul"
@@ -17,6 +17,7 @@ versions:
  - "1.11.0-beta"
  - "1.11.1"
  - "1.11.2"
+ - "1.11.3"
  - "latest"
 description: "Consul is a datacenter runtime that provides service discovery, configuration, and orchestration."
 ---

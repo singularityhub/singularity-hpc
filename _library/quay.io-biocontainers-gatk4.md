@@ -3,7 +3,7 @@ layout: container
 name:  "quay.io/biocontainers/gatk4"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/gatk4/container.yaml"
-updated_at: "2022-02-15 00:18:51.808745"
+updated_at: "2022-03-01 01:38:30.226286"
 container_url: "https://quay.io/repository/biocontainers/gatk4"
 aliases:
  - "gatk"
@@ -15,6 +15,7 @@ versions:
  - "4.2.3.0--hdfd78af_0"
  - "4.2.4.0--hdfd78af_0"
  - "4.2.4.1--hdfd78af_0"
+ - "4.2.5.0--hdfd78af_0"
 description: "An open source toolkit frequently used by most genomic research and clinical analyses"
 ---
 

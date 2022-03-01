@@ -3,7 +3,7 @@ layout: container
 name:  "quay.io/biocontainers/bcftools"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/bcftools/container.yaml"
-updated_at: "2022-02-15 00:18:56.112685"
+updated_at: "2022-03-01 01:38:33.282468"
 container_url: "https://quay.io/repository/biocontainers/bcftools"
 aliases:
  - "bcftools"
@@ -24,6 +24,7 @@ versions:
  - "1.12--h45bccc9_1"
  - "1.13--h3a49de5_0"
  - "1.14--h88f3f91_0"
+ - "1.15--haf5b3da_0"
 description: "BCFtools is a program for variant calling and manipulating files in the Variant Call Format (VCF) and its binary counterpart BCF."
 ---
 

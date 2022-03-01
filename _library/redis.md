@@ -3,7 +3,7 @@ layout: container
 name:  "redis"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/redis/container.yaml"
-updated_at: "2022-02-15 00:20:16.678159"
+updated_at: "2022-03-01 01:39:29.163177"
 container_url: "https://hub.docker.com/r/_/redis"
 aliases:
  - "redis-benchmark"
@@ -23,6 +23,7 @@ versions:
  - "6.2.4-alpine"
  - "6.2.5"
  - "6.2.6"
+ - "7.0-rc"
  - "latest"
 description: "Redis is an open-source, networked, in-memory, key-value data store with optional durability."
 ---

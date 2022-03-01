@@ -3,7 +3,7 @@ layout: container
 name:  "quay.io/biocontainers/multiqc"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/multiqc/container.yaml"
-updated_at: "2022-02-15 00:18:56.971353"
+updated_at: "2022-03-01 01:38:33.876311"
 container_url: "https://quay.io/repository/biocontainers/multiqc"
 aliases:
  - "multiqc"
@@ -12,6 +12,7 @@ versions:
  - "1.9--py_1"
  - "1.10.1--pyhdfd78af_1"
  - "1.11--pyhdfd78af_0"
+ - "1.12--pyhdfd78af_0"
 description: "Aggregate results from bioinformatics analyses across many samples into a single report."
 ---
 

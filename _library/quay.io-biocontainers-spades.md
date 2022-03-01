@@ -3,7 +3,7 @@ layout: container
 name:  "quay.io/biocontainers/spades"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/spades/container.yaml"
-updated_at: "2022-02-15 00:18:56.399458"
+updated_at: "2022-03-01 01:38:33.476832"
 container_url: "https://quay.io/repository/biocontainers/spades"
 aliases:
  - "spades.py"
@@ -12,6 +12,7 @@ versions:
  - "3.15.0--h633aebb_0"
  - "3.15.2--h95f258a_1"
  - "3.15.3--h95f258a_0"
+ - "3.15.4--h95f258a_0"
 description: "SPAdes – St. Petersburg genome assembler – is an assembly toolkit containing various assembly pipelines."
 ---
 

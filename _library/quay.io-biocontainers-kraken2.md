@@ -3,7 +3,7 @@ layout: container
 name:  "quay.io/biocontainers/kraken2"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/kraken2/container.yaml"
-updated_at: "2022-02-15 00:18:55.255759"
+updated_at: "2022-03-01 01:38:32.704578"
 container_url: "https://quay.io/repository/biocontainers/kraken2"
 aliases:
  - "kraken2"
