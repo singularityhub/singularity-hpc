@@ -3,15 +3,16 @@ layout: container
 name:  "quay.io/biocontainers/mrbayes"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/mrbayes/container.yaml"
-updated_at: "2022-03-01 01:38:35.880166"
+updated_at: "2022-03-02 06:16:10.203244"
 container_url: "https://quay.io/repository/biocontainers/mrbayes"
 aliases:
  - "mb"
 
 versions:
  - "3.2.6--0"
- - "3.2.7--h19cf415_2"
  - "3.2.7a--hcee41ef_0"
+ - "3.2.7--h19cf415_2"
+ - "3.2.7--h5465cc4_4"
 description: "A program for Bayesian inference and model choice across a wide range of phylogenetic and evolutionary models"
 ---
 

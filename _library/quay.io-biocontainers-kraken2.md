@@ -3,7 +3,7 @@ layout: container
 name:  "quay.io/biocontainers/kraken2"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/kraken2/container.yaml"
-updated_at: "2022-03-01 01:38:32.704578"
+updated_at: "2022-03-02 06:16:06.710930"
 container_url: "https://quay.io/repository/biocontainers/kraken2"
 aliases:
  - "kraken2"
@@ -13,8 +13,9 @@ aliases:
  - "kraken2-inspect"
 
 versions:
- - "2.1.2--pl5262h7d875b9_0"
  - "2.1.1--pl5262h7d875b9_1"
+ - "2.1.2--pl5262h7d875b9_0"
+ - "2.1.2--pl5321h9f5acd7_2"
 description: "A taxonomic classification system using exact k-mer matches to achieve high accuracy and fast classification speeds."
 ---
 
@@ -29,7 +30,7 @@ $ shpc install quay.io/biocontainers/kraken2
 Or a specific version:
 
 ```bash
-$ shpc install quay.io/biocontainers/kraken2:2.1.2--pl5262h7d875b9_0
+$ shpc install quay.io/biocontainers/kraken2:2.1.1--pl5262h7d875b9_1
 ```
 
 And then you can tell lmod about your modules folder:
@@ -41,8 +42,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load quay.io/biocontainers/kraken2/2.1.2--pl5262h7d875b9_0
-$ module help quay.io/biocontainers/kraken2/2.1.2--pl5262h7d875b9_0
+$ module load quay.io/biocontainers/kraken2/2.1.1--pl5262h7d875b9_1
+$ module help quay.io/biocontainers/kraken2/2.1.1--pl5262h7d875b9_1
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

@@ -3,14 +3,15 @@ layout: container
 name:  "quay.io/biocontainers/bamtools"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/bamtools/container.yaml"
-updated_at: "2022-03-01 01:38:32.895740"
+updated_at: "2022-03-02 06:16:06.930315"
 container_url: "https://quay.io/repository/biocontainers/bamtools"
 aliases:
  - "bamtools"
 
 versions:
- - "2.5.1--h9a82719_9"
  - "2.5.1--he860b03_4"
+ - "2.5.1--h9a82719_9"
+ - "2.5.1--hd03093a_10"
 description: "C++ API and command-line toolkit for working with BAM data."
 ---
 
@@ -25,7 +26,7 @@ $ shpc install quay.io/biocontainers/bamtools
 Or a specific version:
 
 ```bash
-$ shpc install quay.io/biocontainers/bamtools:2.5.1--h9a82719_9
+$ shpc install quay.io/biocontainers/bamtools:2.5.1--he860b03_4
 ```
 
 And then you can tell lmod about your modules folder:
@@ -37,8 +38,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load quay.io/biocontainers/bamtools/2.5.1--h9a82719_9
-$ module help quay.io/biocontainers/bamtools/2.5.1--h9a82719_9
+$ module load quay.io/biocontainers/bamtools/2.5.1--he860b03_4
+$ module help quay.io/biocontainers/bamtools/2.5.1--he860b03_4
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

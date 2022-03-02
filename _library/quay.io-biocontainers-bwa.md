@@ -3,14 +3,15 @@ layout: container
 name:  "quay.io/biocontainers/bwa"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/bwa/container.yaml"
-updated_at: "2022-03-01 01:38:31.040154"
+updated_at: "2022-03-02 06:16:04.901399"
 container_url: "https://quay.io/repository/biocontainers/bwa"
 aliases:
  - "bwa"
 
 versions:
- - "0.7.17--h5bf99c6_8"
  - "0.7.17--h84994c4_4"
+ - "0.7.17--h5bf99c6_8"
+ - "0.7.17--h7132678_9"
 description: "BWA is a program for aligning sequencing reads against a large reference genome."
 ---
 
@@ -25,7 +26,7 @@ $ shpc install quay.io/biocontainers/bwa
 Or a specific version:
 
 ```bash
-$ shpc install quay.io/biocontainers/bwa:0.7.17--h5bf99c6_8
+$ shpc install quay.io/biocontainers/bwa:0.7.17--h84994c4_4
 ```
 
 And then you can tell lmod about your modules folder:
@@ -37,8 +38,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load quay.io/biocontainers/bwa/0.7.17--h5bf99c6_8
-$ module help quay.io/biocontainers/bwa/0.7.17--h5bf99c6_8
+$ module load quay.io/biocontainers/bwa/0.7.17--h84994c4_4
+$ module help quay.io/biocontainers/bwa/0.7.17--h84994c4_4
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

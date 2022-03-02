@@ -3,7 +3,7 @@ layout: container
 name:  "quay.io/biocontainers/mummer"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/mummer/container.yaml"
-updated_at: "2022-03-01 01:38:33.667217"
+updated_at: "2022-03-02 06:16:07.805549"
 container_url: "https://quay.io/repository/biocontainers/mummer"
 aliases:
  - "mummer"
@@ -11,6 +11,7 @@ aliases:
 versions:
  - "3.23--pl526_7"
  - "3.23--pl526he1b5a44_11"
+ - "3.23--pl5321h1b792b2_13"
 description: "MUMmer is a system for rapidly aligning entire genomes in complete or in draft form."
 ---
 

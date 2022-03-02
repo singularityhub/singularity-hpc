@@ -3,7 +3,7 @@ layout: container
 name:  "quay.io/biocontainers/clustalo"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/clustalo/container.yaml"
-updated_at: "2022-03-01 01:38:36.071235"
+updated_at: "2022-03-02 06:16:10.399629"
 container_url: "https://quay.io/repository/biocontainers/clustalo"
 aliases:
  - "clustalo"
@@ -11,6 +11,7 @@ aliases:
 versions:
  - "1.2.4--1"
  - "1.2.4--he1b5a44_3"
+ - "1.2.4--h87f3376_5"
 description: "Multiple sequence alignment program for aligning 3+ sequences together"
 ---
 

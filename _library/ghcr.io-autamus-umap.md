@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/umap"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/umap/container.yaml"
-updated_at: "2022-03-01 01:39:06.750088"
+updated_at: "2022-03-02 06:16:44.238291"
 container_url: "https://github.com/orgs/autamus/packages/container/package/umap"
 
 versions:

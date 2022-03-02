@@ -3,7 +3,7 @@ layout: container
 name:  "quay.io/biocontainers/bracken"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/bracken/container.yaml"
-updated_at: "2022-03-01 01:38:34.069950"
+updated_at: "2022-03-02 06:16:08.219730"
 container_url: "https://quay.io/repository/biocontainers/bracken"
 aliases:
  - "bracken"
@@ -19,8 +19,8 @@ aliases:
  - "kmer2read_distr"
 
 versions:
- - "2.6.1--py27h2bce143_0"
  - "2.6.1--py39h7cff6ad_2"
+ - "2.6.1--py39hc16433a_3"
 description: "A highly accurate statistical method that computes the abundance of species in DNA sequences from a metagenomics sample."
 ---
 
@@ -35,7 +35,7 @@ $ shpc install quay.io/biocontainers/bracken
 Or a specific version:
 
 ```bash
-$ shpc install quay.io/biocontainers/bracken:2.6.1--py27h2bce143_0
+$ shpc install quay.io/biocontainers/bracken:2.6.1--py39h7cff6ad_2
 ```
 
 And then you can tell lmod about your modules folder:
@@ -47,8 +47,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load quay.io/biocontainers/bracken/2.6.1--py27h2bce143_0
-$ module help quay.io/biocontainers/bracken/2.6.1--py27h2bce143_0
+$ module load quay.io/biocontainers/bracken/2.6.1--py39h7cff6ad_2
+$ module help quay.io/biocontainers/bracken/2.6.1--py39h7cff6ad_2
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.

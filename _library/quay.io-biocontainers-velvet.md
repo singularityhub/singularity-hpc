@@ -3,7 +3,7 @@ layout: container
 name:  "quay.io/biocontainers/velvet"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/velvet/container.yaml"
-updated_at: "2022-03-01 01:38:31.436271"
+updated_at: "2022-03-02 06:16:05.341279"
 container_url: "https://quay.io/repository/biocontainers/velvet"
 aliases:
  - "velvetg"
@@ -11,8 +11,9 @@ aliases:
  - "velveth"
 
 versions:
- - "1.2.10--h5bf99c6_4"
  - "1.2.10--h470a237_2"
+ - "1.2.10--h5bf99c6_4"
+ - "1.2.10--h7132678_5"
 description: "Short read de novo assembler using de Bruijn graphs"
 ---
 
@@ -27,7 +28,7 @@ $ shpc install quay.io/biocontainers/velvet
 Or a specific version:
 
 ```bash
-$ shpc install quay.io/biocontainers/velvet:1.2.10--h5bf99c6_4
+$ shpc install quay.io/biocontainers/velvet:1.2.10--h470a237_2
 ```
 
 And then you can tell lmod about your modules folder:
@@ -39,8 +40,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load quay.io/biocontainers/velvet/1.2.10--h5bf99c6_4
-$ module help quay.io/biocontainers/velvet/1.2.10--h5bf99c6_4
+$ module load quay.io/biocontainers/velvet/1.2.10--h470a237_2
+$ module help quay.io/biocontainers/velvet/1.2.10--h470a237_2
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
