@@ -192,7 +192,6 @@ class SingularityContainer(ContainerTechnology):
             url=url,
             features=features,
             version=version,
-            module_dir=module_dir,
             labels=labels,
             deffile=deffile,
             creation_date=datetime.now(),

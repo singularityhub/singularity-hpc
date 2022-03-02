@@ -244,7 +244,6 @@ class DockerContainer(ContainerTechnology):
             shell=shell,
             image=container_path,
             description=description,
-            module_dir=module_dir,
             aliases=aliases,
             url=url,
             features=features,
