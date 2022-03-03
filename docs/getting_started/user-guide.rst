@@ -390,7 +390,7 @@ This is much more efficient compared to the install that uses the full paths:
 .. code-block:: console
 
     $ module use ./modules
-    $ ghcr.io/autamus/clingo/5.5.1/module
+    $ module load ghcr.io/autamus/clingo/5.5.1/module
 
 Since we install based on the container name *and* version tag, this even gives you
 the ability to install versions from different container bases in the same root.
