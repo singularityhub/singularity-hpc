@@ -89,6 +89,12 @@ def get_parser():
         "install_recipe",
         help="recipe to install\nshpc install python\nshpc install python:3.9.5-alpine",
     )
+    install.add_argument(
+        "--symlink",
+        help="install to symlink home too.",
+        default=False,
+        action="store_true",
+    )
 
     # List installed modules
     listing = subparsers.add_parser("list", description="list installed modules.")

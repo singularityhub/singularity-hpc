@@ -16,4 +16,4 @@ def main(args, parser, extra, subparser):
         module=args.module,
         container_tech=args.container_tech,
     )
-    cli.install(args.install_recipe)
+    cli.install(args.install_recipe, symlink=args.symlink)

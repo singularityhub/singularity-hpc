@@ -170,6 +170,54 @@ class ModuleBase(BaseClient):
             short=short,
         )
 
+    # Symbolik links
+
+    def get_symlink_path(self, module_dir):
+        """
+        Should only be called given a self.settings.symlink_home is set
+        """
+        return os.path.join(self.settings.symlink_home, *module_dir.split(os.sep)[-2:])
+
+    def create_symlink(self, module_dir):
+        """
+        Create the symlink if desired by the user!
+        """        
+        symlink_path = self.get_symlink_path(module_dir)
+        if os.path.exists(symlink_path):
+            os.unlink(symlink_path)
+        logger.info("Creating link %s -> %s" %(module_dir, symlink_path))
+        symlink_dir = os.path.dirname(symlink_path)
+
+        # If the parent directory doesn't exist, make it
+        if not os.path.exists(symlink_dir):
+            utils.mkdirp([symlink_dir])
+
+        # Create the symbolic link!
+        os.symlink(module_dir, symlink_path)
+
+        # If we don't have a version file in root, create it
+        version_file = os.path.join(os.path.dirname(symlink_path), ".version")
+        if not os.path.exists(version_file):
+            Path(version_file).touch()
+
+    def check_symlink(self, module_dir, symlink=False):
+        """
+        Given an install command, if --symblink is provided make sure we have
+        a symlink_home defined in settings and the directory exists.
+        """
+        if not symlink:
+            return
+        if symlink and not self.settings.symlink_home:
+            logger.exit('To request symlink you must set symlink_home in settings.yml: shpc config set symlink_home:/path/desired')
+
+        elif symlink and not os.path.exists(self.settings.symlink_home):
+            logger.exit('%s does not exist, create before trying to use it!' % self.settings.symlink_home)
+       
+        # Get the symlink path - does it exist?
+        symlink_path = self.get_symlink_path(module_dir)
+        if os.path.exists(symlink_path) and not utils.confirm_action('%s already exists, are you sure you want to overwrite?' % symlink_path):
+            sys.exit(0)        
+         
     def docgen(self, module_name, out=None):
         """
         Render documentation for a module.
@@ -273,7 +321,7 @@ class ModuleBase(BaseClient):
         config = self._load_container(module_name.rsplit(":", 1)[0])
         return self.container.check(module_name, config)
 
-    def install(self, name, tag=None, **kwargs):
+    def install(self, name, tag=None, symlink=False, **kwargs):
         """
         Given a unique resource identifier, install a recipe.
 
@@ -301,6 +349,9 @@ class ModuleBase(BaseClient):
         module_dir = os.path.join(self.settings.module_base, uri, tag.name)
         subfolder = os.path.join(uri, tag.name)
         container_dir = self.container.container_dir(subfolder)
+
+        # Cut out early if symlink desired but no home
+        self.check_symlink(module_dir, symlink)
         shpc.utils.mkdirp([module_dir, container_dir])
 
         # Add a .version file to indicate the level of versioning (not for tcl)
@@ -358,4 +409,8 @@ class ModuleBase(BaseClient):
         if ":" not in name:
             name = "%s:%s" %(name, tag.name)
         logger.info("Module %s was created." % name)
+
+        if symlink:
+            self.create_symlink(module_dir)
+
         return container_path

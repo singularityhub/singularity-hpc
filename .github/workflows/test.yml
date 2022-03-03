@@ -100,8 +100,12 @@ jobs:
           cat test_output
           grep --quiet 'Python 3.9.5' test_output
           rm test_output
-          shpc uninstall --force python:3.9.5-alpine 
+          shpc uninstall --force python:3.9.5-alpine
 
+          # Try creating symlink install
+          mkdir -p tmp-modules
+          shpc config set symlink_home:tmp-modules
+          shpc install python:3.9.5-alpine --symlink
         
       - name: Run python module tests (tcsh)
         shell: tcsh -e {0}

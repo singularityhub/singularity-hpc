@@ -34,6 +34,10 @@ default_version: true
 # It's recommended to do this for faster loading
 container_base: $root_dir/containers
 
+# If defined, create a simplified "symlink install" that shortens module names
+# to be just the container, e.g., ghcr.io/autamus/samtools -> module load samtools
+symlink_home: $root_dir/tmp-modules
+
 # if defined, add to lmod script to load this Singularity module first
 singularity_module:
 podman_module:

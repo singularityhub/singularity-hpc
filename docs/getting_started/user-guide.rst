@@ -174,6 +174,9 @@ variable replacement. A summary table of variables is included below, and then f
    * - container_tech
      - The container technology to use (singularity or podman)
      - singularity
+   * - symlink_home
+     - If set, where you want to install a simplified module tree to using ``--symlink``
+     - unset
    * - updated_at
      - a timestamp to keep track of when you last saved
      - never
@@ -358,6 +361,57 @@ you can add or remove entries via the config variable ``registry``
 
 # Note that "add" is used for lists of things (e.g., the registry config variable is a list)
 and "set" is used to set a key value pair.
+
+Symlink Home
+------------
+
+By default, your modules are installed to your ``module_base`` described above with a complete
+namespace, meaning the container registry from where they arise. We do this so that the namespace
+is consistent and there are no conflicts. However, if you want a simplified tree to install from,
+meaning the module full names are _just_ the final container name, you can set the ``symlink_home``
+in your settings to a different root. For example, let's say we want to install a set of modules,
+after seting our symlink home to ``tmp-modules``. We could do:
+
+.. code-block:: console
+
+    $ shpc install ghcr.io/autamus/clingo --symlink
+    $ shpc install ghcr.io/autamus/samtools --symlink
+
+Then, for example, if you want to load the modules, you'll see the shorter names are
+available!
+
+.. code-block:: console
+
+    $ module use ./tmp-modules
+    $ module load clingo/5.5.1/module
+
+This is much more efficient compared to the install that uses the full paths:
+
+.. code-block:: console
+
+    $ module use ./modules
+    $ ghcr.io/autamus/clingo/5.5.1/module
+
+Since we install based on the container name *and* version tag, this even gives you
+the ability to install versions from different container bases in the same root.
+If there is a conflict, you will be given the option to exit (and abort) or continue.
+Finally, if you need an easy way to run through the containers you've already installed
+to create the links:
+
+
+.. code-block:: console
+
+    for module in $(shpc list); do
+        shpc install $module --symlink
+    done
+
+And that will reinstall the modules you have installed, but in their symlink location.
+
+
+.. warning::
+
+    Be cautious about creating symlinks in containers or other contexts where a bind
+    could eliminate the symlink or make the path non-existent.
 
 
 Module Names
