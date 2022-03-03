@@ -23,6 +23,7 @@ class SingularityContainer(ContainerTechnology):
 
     # The module technology adds extensions here
     templatefile = "singularity"
+    command = "singularity"
 
     # Singularity container features
     features = {
@@ -130,6 +131,7 @@ class SingularityContainer(ContainerTechnology):
         config_features=None,
         features=None,
         version=None,
+        config=None,
     ):
         """Install a general container path to a module
 
@@ -166,26 +168,36 @@ class SingularityContainer(ContainerTechnology):
             labels = {}
             logger.warning("Singularity is not installed, skipping metadata.")
 
+        # Option to create wrapper scripts for commands
+        module_dir = os.path.dirname(module_path)
+
+        # Wrapper scripts can be global (for aliases) or container specific
+        wrapper_scripts = []
+        if self.settings.wrapper_scripts["enabled"] is True:
+            wrapper_scripts = shpc.main.wrappers.generate(
+                aliases=aliases,
+                module_dir=module_dir,
+                features=features,
+                container=self,
+                image=container_path,
+                config=config,
+            )
+
         # Make sure to render all values!
         out = template.render(
-            singularity_module=self.settings.singularity_module,
-            singularity_shell=self.settings.singularity_shell,
-            bindpaths=self.settings.bindpaths,
+            settings=self.settings,
             container_sif=container_path,
             description=description,
             aliases=aliases,
             url=url,
             features=features,
             version=version,
-            module_dir=os.path.dirname(module_path),
             labels=labels,
             deffile=deffile,
             creation_date=datetime.now(),
             name=name,
-            tool=parsed_name.tool,
-            registry=parsed_name.registry,
-            repository=parsed_name.repository,
-            envfile=self.settings.environment_file,
+            parsed_name=parsed_name,
+            wrapper_scripts=wrapper_scripts,
         )
         shpc.utils.write_file(module_path, out)
 
@@ -339,7 +351,7 @@ class SingularityContainer(ContainerTechnology):
         """
         Given a test file, run it and respond accordingly.
         """
-        command = ["singularity", "exec", image, "/bin/bash", test_script]
+        command = [self.command, "exec", image, "/bin/bash", test_script]
         result = shpc.utils.run_command(command)
 
         # We can't run on incompatible hosts

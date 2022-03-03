@@ -198,6 +198,215 @@ For each of the above, depending on the prefix of options that you choose, it wi
 This means that if you design a new registry recipe, you should consider how to run it for both kinds of technology. Also note that ``docker_options`` are
 those that will also be used for Podman.
 
+Wrapper Script
+--------------
+
+Singularity HPC allows exposure of two kinds of wrapper scripts:
+
+1. A global level wrapper intended to replace aliases. E.g., if an alias "samtools" is typically a direct container call, enabling a wrapper will generate an executable script "samtools" in a "bin" directory associated with the container, added to the path, to call instead. This is desired when MPI ("mpirun")  or scheduler (e.g. "srun" with Slurm) utilities are needed to run the scripts. This global script is defined in settings.yml and described in the user guide.
+2. A container level wrapper that is specific to a container, described here.
+
+For container specific scripts, you can add sections to a ``container.yaml`` to specify the script (and container type)
+and the scripts must be provided alongside the container.yaml to install.
+
+.. code-block:: yaml
+
+    docker_scripts:
+      fork: docker_fork.sh
+    singularity_scripts:
+      fork: singularity_fork.sh
+
+The above says "given generation of a docker or podman container, write a script named "fork" that uses "docker_fork.sh" as a template"
+and the same for Singularity. And then I (the developer) would provide the custom scripts alongside container.yaml:
+
+.. code-block:: console
+
+    registry/vanessa/salad/
+    ├── container.yaml
+    ├── docker_fork.sh
+    └── singularity_fork.sh
+
+You can look at ``registry/vanessa/salad`` for an example that includes Singularity
+and Docker wrapper scripts. For example, when generating for a singularity container with
+the global wrapped scripts enabled, we get one wrapper script for the alias "salad" and one for
+the custom container script "fork":
+
+.. code-block:: console
+
+    $ tree modules/vanessa/salad/
+    modules/vanessa/salad/
+    └── latest
+        ├── 99-shpc.sh
+        ├── bin
+        │   ├── fork
+        │   └── salad
+        └── module.lua
+
+If we disable all wrapper scripts, the bin directory would not exist. If we set the default wrapper
+scripts for singularity and docker in settings.yml and left enable to true, we would only see "fork."
+
+How to write an alias wrapper script
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+First, decide if you want a global script (to replace or wrap aliases) OR a custom container script. For an alias derived (global) script, you should:
+
+1. Write the new script file into shpc/main/wrappers.
+2. Add an entry to shpc/main/wrappers/scripts referencing the script.
+
+For these global scripts, the user can select to use it in their settings.yaml.
+We will eventually write a command to list global wrappers available, so if you add a new one future users will know
+about it. For alias wrapper scripts, the following variables are passed for rendering:
+
+.. list-table:: Title
+   :widths: 15 15 40 30
+   :header-rows: 1
+
+   * - Name
+     - Type
+     - Description
+     - Example
+   * - alias
+     - dictionary
+     - The entire alias in question, including subfields name, command, singularity_options or docker_options, and args
+     - ``{{ alias.name }}`` 
+   * - settings
+     - dictionary
+     - Everything referenced in the user settings
+     - ``{{ settings.wrapper_shell }}``
+   * - container
+     - dictionary
+     - The container technology
+     - ``{{ container.command }}`` renders to docker, singularity, or podman
+   * - config
+     - dictionary
+     - The entire container config (container.yaml) structured the same
+     - ``{{ config.docker }}``
+   * - image
+     - string
+     - The name of the container binary (SIF) or unique resource identifier
+     - ``{{ image }}``
+   * - module_dir
+     - string
+     - The name of the module directory
+     - ``{{ module_dir }}``
+   * - features
+     - dictionary
+     - A dictionary of parsed features
+     - ``{{ features.gpu }}``
+
+     
+
+How to write an container wrapper script
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you want to write a custom container.yaml script:
+
+1. Add either (or both) of singularity_scripts/docker_scripts in the container.yaml, including an alias command and an associated script.
+2. Write the script with the associated name into that folder.
+
+The following variables are passed for rendering.
+
+.. list-table:: Title
+   :widths: 15 15 40 30
+   :header-rows: 1
+
+   * - Name
+     - Type
+     - Description
+     - Example
+   * - alias
+     - string
+     - The alias name defined under singularity_scripts or docker_scripts
+     - ``{{ alias }}`` 
+   * - settings
+     - dictionary
+     - Everything referenced in the user settings
+     - ``{{ settings.wrapper_shell }}``
+   * - container
+     - dictionary
+     - The container technology
+     - ``{{ container.command }}`` renders to docker, singularity, or podman
+   * - config
+     - dictionary
+     - The entire container config (container.yaml) structured the same
+     - ``{{ config.docker }}``
+   * - image
+     - string
+     - The name of the container binary (SIF) or unique resource identifier
+     - ``{{ image }}``
+   * - module_dir
+     - string
+     - The name of the module directory
+     - ``{{ module_dir }}``
+   * - features
+     - dictionary
+     - A dictionary of parsed features
+     - ``{{ features.gpu }}``
+
+
+Templating for both wrapper script types
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Note that you are free to use "snippets" and "bases" either as an inclusion or "extends" meaning you can
+easily re-use code. For example, if we have the following registered directories under ``shpc/main/wrappers/templates`` 
+for definition of bases and templates:
+
+.. code-block:: console
+
+    main/wrappers/templates/
+    
+    # These are intended for use with "extends"
+    ├── bases
+    │   ├── __init__.py
+    │   └── shell-script-base.sh
+    
+    # These are top level template files, as specified in the settings.yml
+    ├── docker.sh
+    ├── singularity.sh
+
+    # A mostly empty directory ready for any snippets!
+    └── snippets
+
+For example, a "bases" template to define a shell and some special command that might look like this:
+
+.. code-block:: console
+
+    #!{{ settings.wrapper_shell }}
+
+    script=`realpath $0`
+    wrapper_bin=`dirname $script`
+    {% if '/csh' in settings.wrapper_shell %}set moduleDir=`dirname $wrapper_bin`{% else %}export moduleDir=$(dirname $wrapper_bin){% endif %}
+
+    {% block content %}{% endblock %}
+
+
+And then to use it for any container- or global- wrapper we would do the following in the wrapper script:
+
+.. code-block:: console
+
+    {% extends "bases/my-base-shell.sh" %}
+
+    # some custom wrapper before stuff here
+
+    {% block content %}{% endblock %}
+
+    # some custom wrapper after stuff here
+
+
+For snippets, which are intended to be more chunks of code you can throw in one spot
+on the fly, you can do this:
+
+
+.. code-block:: console
+
+    {% include "snippets/export-envars.sh" %}
+    # some custom wrapper after stuff here
+
+
+Finally, if you want to add your own custom templates directory for which you
+can refer to templates relatively, define ``wrapper_scripts`` -> ``templates`` as a full path
+in your settings.
+
 
 Environment Variables
 ---------------------
@@ -337,7 +546,7 @@ Fields include:
      - A list of patterns to use for adding new tags. If not defined, all are added 
      - false
    * - aliases
-     - Named entrypoints for container (dict)
+     - Named entrypoints for container (dict) as described above
      - false
    * - url
      - Documentation or other url for the container uri
@@ -351,7 +560,12 @@ Fields include:
    * - features
      - Optional key, value paired set of features to enable for the container. Currently allowed keys: *gpu* *home* and *x11*.
      - varies
-
+   * - singularity_scripts
+     - key value pairs of wrapper names (e.g., executable called by user) and local container script for Singularity
+     - false
+   * - docker_scripts
+     - key value pairs of wrapper names (e.g., executable called by user) and local container script for Docker or Singularity
+     - false
 
 A complete table of features is shown here. The
 

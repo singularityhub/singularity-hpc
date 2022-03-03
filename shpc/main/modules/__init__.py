@@ -41,7 +41,7 @@ class ModuleBase(BaseClient):
         """
         For all known identifiers, substitute user specified format strings.
         """
-        subs = {"{|module_name|}": self.settings.module_name or "{{ tool }}"}
+        subs = {"{|module_name|}": self.settings.module_name or "{{ parsed_name.tool }}"}
         for key, replacewith in subs.items():
             template = template.replace(key, replacewith)
         return template
@@ -185,16 +185,13 @@ class ModuleBase(BaseClient):
 
         # Currently one doc is rendered for all containers
         result = template.render(
-            singularity_module=self.settings.singularity_module,
-            # Show same shell for all container technologies
-            shell=self.settings.singularity_shell,
-            bindpaths=self.settings.bindpaths,
+            parsed_name=config.name,
+            settings=self.settings,
             description=config.description,
             aliases=aliases,
             versions=config.tags.keys(),
             github_url=github_url,
             container_url=config.url,
-            prefix=self.settings.module_exc_prefix,
             creation_date=datetime.now(),
             name=module_name,
             flatname=module_name.replace(os.sep, "-"),
@@ -338,6 +335,7 @@ class ModuleBase(BaseClient):
             name,
             template,
             aliases=config.get_aliases(),
+            config=config,
             parsed_name=config.name,
             url=config.url,
             description=config.description,

@@ -6,6 +6,7 @@ __license__ = "MPL 2.0"
 from shpc.logger import logger
 from .base import ContainerTechnology
 import shpc.main.templates
+import shpc.main.wrappers
 import shpc.utils
 
 from datetime import datetime
@@ -189,6 +190,7 @@ class DockerContainer(ContainerTechnology):
         version=None,
         config_features=None,
         features=None,
+        config=None,
     ):
         """Install a general container path to a module
 
@@ -214,29 +216,43 @@ class DockerContainer(ContainerTechnology):
         # If there's a tag in the name, don't use it
         name = name.split(":", 1)[0]
 
+        # Option to create wrapper scripts for commands
+        module_dir = os.path.dirname(module_path)
+        wrapper_scripts = []
+
+        # Wrapper scripts can be global (for aliases) or container specific
+        if self.settings.wrapper_scripts["enabled"] is True:
+            wrapper_scripts = shpc.main.wrappers.generate(
+                aliases=aliases,
+                module_dir=module_dir,
+                features=features,
+                container=self,
+                image=container_path,
+                config=config,
+            )
+
+        # What shell to use?
+        shell = (
+            self.settings.podman_shell
+            if self.command == "podman"
+            else self.settings.docker_shell
+        )
+
         # Make sure to render all values!
         out = template.render(
-            podman_module=self.settings.podman_module,
-            bindpaths=self.settings.bindpaths,
-            shell=self.settings.podman_shell
-            if self.command == "podman"
-            else self.settings.docker_shell,
+            settings=self.settings,
+            shell=shell,
             image=container_path,
             description=description,
-            module_dir=os.path.dirname(module_path),
             aliases=aliases,
             url=url,
             features=features,
             version=version,
             labels=labels,
-            prefix=self.settings.module_exc_prefix,
             creation_date=datetime.now(),
             name=name,
-            tool=parsed_name.tool,
-            registry=parsed_name.registry,
-            repository=parsed_name.repository,
-            envfile=self.settings.environment_file,
+            parsed_name=parsed_name,
             command=self.command,
-            tty=self.settings.enable_tty,
+            wrapper_scripts=wrapper_scripts,
         )
         shpc.utils.write_file(module_path, out)

@@ -22,9 +22,10 @@ registry: [$root_dir/registry]
 module_base: $root_dir/modules
 
 # Format string for module commands exec,run,shell (not aliases) (can also include:
-# {{registry}} , {{ repository }}, {{tool}}, {{version}}
+# {{parsed_name.registry}} , {{ parsed_name.repository }},
+# {{parsed_name.tool}}, {{parsed_name.version}}
 # This is where you might add a prefix to your module names, if desired.
-module_name: '{{ tool }}'
+module_name: '{{ parsed_name.tool }}'
 
 # Create a .version file for LMOD in the module folder
 default_version: true
@@ -50,6 +51,28 @@ docker_shell: /bin/sh
 
 # shell for test.sh file
 test_shell: /bin/bash
+
+# shell for wrapper shell scripts
+wrapper_shell: /bin/bash
+
+# Wrapper scripts to use for aliases (replaces them)
+# Put a fullpath here for a custom script, otherwise we look in shpc/main/wrappers
+# If you want a custom wrapper script for a one-off container, define it there with the script
+# stored alongside the container.yaml.
+wrapper_scripts:
+  enabled: false
+
+  # use for docker aliases (set to null to disable)
+  docker: docker.sh
+
+  # use for podman aliases (set to null to disable)
+  podman: docker.sh
+
+  # use for singularity aliases (set to null to disable)
+  singularity: singularity.sh 
+
+  # Add an extra custom template directory (searched first)
+  templates: null
 
 # the module namespace you want to install from. E.g., if you have ghcr.io/autamus/clingo
 # and you set the namespace to ghcr.io/autamus, you can just do: shpc install clingo.

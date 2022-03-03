@@ -145,10 +145,13 @@ class SettingsBase:
         """
         Add a value to a list parameter
         """
+        value = self.parse_boolean(value)
+
         # We can only add to lists
         current = self._settings.get(key)
         if current and not isinstance(current, list):
             logger.exit("You cannot only add to a list variable.")
+        value = self.parse_null(value)
 
         if value not in current:
             # Add to the beginning of the list
@@ -176,12 +179,29 @@ class SettingsBase:
             "Warning: Check with shpc config edit - ordering of list can change."
         )
 
+    def parse_boolean(self, value):
+        """
+        If the value is True/False, ensure we return a boolean
+        """
+        if isinstance(value, str) and value.lower() == "true":
+            value = True
+        elif isinstance(value, str) and value.lower() == "false":
+            value = False
+        return value
+
+    def parse_null(self, value):
+        """
+        Given a null or none from the command line, ensure parsed as None type
+        """
+        if isinstance(value, str) and value.lower() in ["none", "null"]:
+            return None
+        return value
+
     def set(self, key, value):
         """
         Set a setting based on key and value. If the key has :, it's nested
         """
-        value = True if value == "true" else value
-        value = False if value == "false" else value
+        value = self.parse_boolean(value)
 
         # List values not allowed for set
         current = self._settings.get(key)
@@ -191,8 +211,11 @@ class SettingsBase:
         # This is a reference to a dictionary (object) setting
         if isinstance(value, str) and ":" in value:
             subkey, value = value.split(":")
+            value = self.parse_boolean(value)
+            value = self.parse_null(value)
             self._settings[key][subkey] = value
         else:
+            value = self.parse_null(value)
             self._settings[key] = value
 
         # Validate and catch error message cleanly
