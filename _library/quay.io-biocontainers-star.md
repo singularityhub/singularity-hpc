@@ -3,7 +3,7 @@ layout: container
 name:  "quay.io/biocontainers/star"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/star/container.yaml"
-updated_at: "2022-03-02 06:16:05.778804"
+updated_at: "2022-03-03 01:37:43.791763"
 container_url: "https://quay.io/repository/biocontainers/star"
 aliases:
  - "STAR"
@@ -18,6 +18,7 @@ description: "Spliced Transcripts Alignment to a Reference."
 This module is a singularity container wrapper for quay.io/biocontainers/star.
 Spliced Transcripts Alignment to a Reference.
 After [installing shpc](#install) you will want to install this container module:
+
 
 ```bash
 $ shpc install quay.io/biocontainers/star
@@ -48,10 +49,10 @@ You can use tab for auto-completion of module names or commands that are provide
 
 ### Commands
 
-When you install this module, you'll be able to load it to make the following commands accessible.
+When you install this module, you will be able to load it to make the following commands accessible.
 Examples for both Singularity, Podman, and Docker (container technologies supported) are included.
 
-#### -run:
+#### star-run:
 
 ```bash
 $ singularity run <container>
@@ -59,7 +60,7 @@ $ podman run --rm  -v ${PWD} -w ${PWD} <container>
 $ docker run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### -shell:
+#### star-shell:
 
 ```bash
 $ singularity shell -s /bin/sh <container>
@@ -67,15 +68,15 @@ $ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 $ docker run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### -exec:
+#### star-exec:
 
 ```bash
-$ singularity exec -s /bin/sh <container> "$@"
+$ singularity exec <container> "$@"
 $ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 $ docker run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
-#### -inspect:
+#### star-inspect:
 
 Podman and Docker only have one inspect type.
 
@@ -84,13 +85,13 @@ $ podman inspect <container>
 $ docker inspect <container>
 ```
 
-#### -inspect-runscript:
+#### star-inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### -inspect-deffile:
+#### star-inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>

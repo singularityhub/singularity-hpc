@@ -3,7 +3,7 @@ layout: container
 name:  "r-base"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/r-base/container.yaml"
-updated_at: "2022-03-02 06:16:03.150223"
+updated_at: "2022-03-03 01:37:40.743248"
 container_url: "https://hub.docker.com/_/r-base"
 aliases:
  - "R"
@@ -21,6 +21,7 @@ description: "R is a system for statistical computation and graphics."
 This module is a singularity container wrapper for r-base.
 R is a system for statistical computation and graphics.
 After [installing shpc](#install) you will want to install this container module:
+
 
 ```bash
 $ shpc install r-base
@@ -51,10 +52,10 @@ You can use tab for auto-completion of module names or commands that are provide
 
 ### Commands
 
-When you install this module, you'll be able to load it to make the following commands accessible.
+When you install this module, you will be able to load it to make the following commands accessible.
 Examples for both Singularity, Podman, and Docker (container technologies supported) are included.
 
-#### -run:
+#### r-base-run:
 
 ```bash
 $ singularity run <container>
@@ -62,7 +63,7 @@ $ podman run --rm  -v ${PWD} -w ${PWD} <container>
 $ docker run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### -shell:
+#### r-base-shell:
 
 ```bash
 $ singularity shell -s /bin/sh <container>
@@ -70,15 +71,15 @@ $ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 $ docker run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### -exec:
+#### r-base-exec:
 
 ```bash
-$ singularity exec -s /bin/sh <container> "$@"
+$ singularity exec <container> "$@"
 $ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 $ docker run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
-#### -inspect:
+#### r-base-inspect:
 
 Podman and Docker only have one inspect type.
 
@@ -87,13 +88,13 @@ $ podman inspect <container>
 $ docker inspect <container>
 ```
 
-#### -inspect-runscript:
+#### r-base-inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### -inspect-deffile:
+#### r-base-inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>

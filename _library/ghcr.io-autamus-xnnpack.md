@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/xnnpack"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/xnnpack/container.yaml"
-updated_at: "2022-03-02 06:16:51.042533"
+updated_at: "2022-03-03 01:38:37.764469"
 container_url: "https://github.com/orgs/autamus/packages/container/package/xnnpack"
 
 versions:
@@ -14,6 +14,7 @@ description: "High-efficiency floating-point neural network inference operators 
 This module is a singularity container wrapper for ghcr.io/autamus/xnnpack.
 High-efficiency floating-point neural network inference operators for mobile, server, and Web
 After [installing shpc](#install) you will want to install this container module:
+
 
 ```bash
 $ shpc install ghcr.io/autamus/xnnpack
@@ -44,10 +45,10 @@ You can use tab for auto-completion of module names or commands that are provide
 
 ### Commands
 
-When you install this module, you'll be able to load it to make the following commands accessible.
+When you install this module, you will be able to load it to make the following commands accessible.
 Examples for both Singularity, Podman, and Docker (container technologies supported) are included.
 
-#### -run:
+#### xnnpack-run:
 
 ```bash
 $ singularity run <container>
@@ -55,7 +56,7 @@ $ podman run --rm  -v ${PWD} -w ${PWD} <container>
 $ docker run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### -shell:
+#### xnnpack-shell:
 
 ```bash
 $ singularity shell -s /bin/sh <container>
@@ -63,15 +64,15 @@ $ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 $ docker run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### -exec:
+#### xnnpack-exec:
 
 ```bash
-$ singularity exec -s /bin/sh <container> "$@"
+$ singularity exec <container> "$@"
 $ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 $ docker run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
-#### -inspect:
+#### xnnpack-inspect:
 
 Podman and Docker only have one inspect type.
 
@@ -80,13 +81,13 @@ $ podman inspect <container>
 $ docker inspect <container>
 ```
 
-#### -inspect-runscript:
+#### xnnpack-inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### -inspect-deffile:
+#### xnnpack-inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>
@@ -94,7 +95,7 @@ $ singularity inspect -d <container>
 
 
 
-#### 
+#### xnnpack
 
 ```bash
 $ singularity run <container>

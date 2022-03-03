@@ -3,7 +3,7 @@ layout: container
 name:  "bids/matlab-compiler-runtime"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/bids/matlab-compiler-runtime/container.yaml"
-updated_at: "2022-03-02 06:16:11.943742"
+updated_at: "2022-03-03 01:37:51.053737"
 container_url: "https://hub.docker.com/r/bids/matlab-compiler-runtime"
 
 versions:
@@ -14,6 +14,7 @@ description: "Base image with Matlab compiler runtime (https://github.com/BIDS-A
 This module is a singularity container wrapper for bids/matlab-compiler-runtime.
 Base image with Matlab compiler runtime (https://github.com/BIDS-Apps/matlab-compiler-runtime)
 After [installing shpc](#install) you will want to install this container module:
+
 
 ```bash
 $ shpc install bids/matlab-compiler-runtime
@@ -44,10 +45,10 @@ You can use tab for auto-completion of module names or commands that are provide
 
 ### Commands
 
-When you install this module, you'll be able to load it to make the following commands accessible.
+When you install this module, you will be able to load it to make the following commands accessible.
 Examples for both Singularity, Podman, and Docker (container technologies supported) are included.
 
-#### -run:
+#### matlab-compiler-runtime-run:
 
 ```bash
 $ singularity run <container>
@@ -55,7 +56,7 @@ $ podman run --rm  -v ${PWD} -w ${PWD} <container>
 $ docker run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### -shell:
+#### matlab-compiler-runtime-shell:
 
 ```bash
 $ singularity shell -s /bin/sh <container>
@@ -63,15 +64,15 @@ $ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 $ docker run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### -exec:
+#### matlab-compiler-runtime-exec:
 
 ```bash
-$ singularity exec -s /bin/sh <container> "$@"
+$ singularity exec <container> "$@"
 $ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 $ docker run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
-#### -inspect:
+#### matlab-compiler-runtime-inspect:
 
 Podman and Docker only have one inspect type.
 
@@ -80,13 +81,13 @@ $ podman inspect <container>
 $ docker inspect <container>
 ```
 
-#### -inspect-runscript:
+#### matlab-compiler-runtime-inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### -inspect-deffile:
+#### matlab-compiler-runtime-inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>
@@ -94,7 +95,7 @@ $ singularity inspect -d <container>
 
 
 
-#### 
+#### matlab-compiler-runtime
 
 ```bash
 $ singularity run <container>

@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/hmmer"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/hmmer/container.yaml"
-updated_at: "2022-03-02 06:16:52.143111"
+updated_at: "2022-03-03 01:38:39.092329"
 container_url: "https://github.com/orgs/autamus/packages/container/package/hmmer"
 aliases:
  - "hmmalign"
@@ -43,6 +43,7 @@ This module is a singularity container wrapper for ghcr.io/autamus/hmmer.
 HMMER is used for searching sequence databases for sequence homologs, and for making sequence alignments.
 After [installing shpc](#install) you will want to install this container module:
 
+
 ```bash
 $ shpc install ghcr.io/autamus/hmmer
 ```
@@ -72,10 +73,10 @@ You can use tab for auto-completion of module names or commands that are provide
 
 ### Commands
 
-When you install this module, you'll be able to load it to make the following commands accessible.
+When you install this module, you will be able to load it to make the following commands accessible.
 Examples for both Singularity, Podman, and Docker (container technologies supported) are included.
 
-#### -run:
+#### hmmer-run:
 
 ```bash
 $ singularity run <container>
@@ -83,7 +84,7 @@ $ podman run --rm  -v ${PWD} -w ${PWD} <container>
 $ docker run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### -shell:
+#### hmmer-shell:
 
 ```bash
 $ singularity shell -s /bin/sh <container>
@@ -91,15 +92,15 @@ $ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 $ docker run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### -exec:
+#### hmmer-exec:
 
 ```bash
-$ singularity exec -s /bin/sh <container> "$@"
+$ singularity exec <container> "$@"
 $ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 $ docker run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
-#### -inspect:
+#### hmmer-inspect:
 
 Podman and Docker only have one inspect type.
 
@@ -108,13 +109,13 @@ $ podman inspect <container>
 $ docker inspect <container>
 ```
 
-#### -inspect-runscript:
+#### hmmer-inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### -inspect-deffile:
+#### hmmer-inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>

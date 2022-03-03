@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/ruby"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/ruby/container.yaml"
-updated_at: "2022-03-02 06:16:26.574918"
+updated_at: "2022-03-03 01:38:08.281537"
 container_url: "https://github.com/orgs/autamus/packages/container/package/ruby"
 aliases:
  - "bundle"
@@ -40,6 +40,7 @@ This module is a singularity container wrapper for ghcr.io/autamus/ruby.
 An interpreted, high-level, general-purpose programming language.
 After [installing shpc](#install) you will want to install this container module:
 
+
 ```bash
 $ shpc install ghcr.io/autamus/ruby
 ```
@@ -69,10 +70,10 @@ You can use tab for auto-completion of module names or commands that are provide
 
 ### Commands
 
-When you install this module, you'll be able to load it to make the following commands accessible.
+When you install this module, you will be able to load it to make the following commands accessible.
 Examples for both Singularity, Podman, and Docker (container technologies supported) are included.
 
-#### -run:
+#### ruby-run:
 
 ```bash
 $ singularity run <container>
@@ -80,7 +81,7 @@ $ podman run --rm  -v ${PWD} -w ${PWD} <container>
 $ docker run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### -shell:
+#### ruby-shell:
 
 ```bash
 $ singularity shell -s /bin/sh <container>
@@ -88,15 +89,15 @@ $ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 $ docker run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### -exec:
+#### ruby-exec:
 
 ```bash
-$ singularity exec -s /bin/sh <container> "$@"
+$ singularity exec <container> "$@"
 $ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 $ docker run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
-#### -inspect:
+#### ruby-inspect:
 
 Podman and Docker only have one inspect type.
 
@@ -105,13 +106,13 @@ $ podman inspect <container>
 $ docker inspect <container>
 ```
 
-#### -inspect-runscript:
+#### ruby-inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### -inspect-deffile:
+#### ruby-inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>

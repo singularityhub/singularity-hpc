@@ -3,7 +3,7 @@ layout: container
 name:  "quay.io/biocontainers/gatk4"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/gatk4/container.yaml"
-updated_at: "2022-03-02 06:16:04.004166"
+updated_at: "2022-03-03 01:37:41.759500"
 container_url: "https://quay.io/repository/biocontainers/gatk4"
 aliases:
  - "gatk"
@@ -22,6 +22,7 @@ description: "An open source toolkit frequently used by most genomic research an
 This module is a singularity container wrapper for quay.io/biocontainers/gatk4.
 An open source toolkit frequently used by most genomic research and clinical analyses
 After [installing shpc](#install) you will want to install this container module:
+
 
 ```bash
 $ shpc install quay.io/biocontainers/gatk4
@@ -52,10 +53,10 @@ You can use tab for auto-completion of module names or commands that are provide
 
 ### Commands
 
-When you install this module, you'll be able to load it to make the following commands accessible.
+When you install this module, you will be able to load it to make the following commands accessible.
 Examples for both Singularity, Podman, and Docker (container technologies supported) are included.
 
-#### -run:
+#### gatk4-run:
 
 ```bash
 $ singularity run <container>
@@ -63,7 +64,7 @@ $ podman run --rm  -v ${PWD} -w ${PWD} <container>
 $ docker run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### -shell:
+#### gatk4-shell:
 
 ```bash
 $ singularity shell -s /bin/sh <container>
@@ -71,15 +72,15 @@ $ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 $ docker run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### -exec:
+#### gatk4-exec:
 
 ```bash
-$ singularity exec -s /bin/sh <container> "$@"
+$ singularity exec <container> "$@"
 $ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 $ docker run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
-#### -inspect:
+#### gatk4-inspect:
 
 Podman and Docker only have one inspect type.
 
@@ -88,13 +89,13 @@ $ podman inspect <container>
 $ docker inspect <container>
 ```
 
-#### -inspect-runscript:
+#### gatk4-inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### -inspect-deffile:
+#### gatk4-inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>

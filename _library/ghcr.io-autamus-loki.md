@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/loki"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/loki/container.yaml"
-updated_at: "2022-03-02 06:16:48.175005"
+updated_at: "2022-03-03 01:38:34.312450"
 container_url: "https://github.com/orgs/autamus/packages/container/package/loki"
 
 versions:
@@ -14,6 +14,7 @@ description: "Loki is a C++ library of designs, containing flexible implementati
 This module is a singularity container wrapper for ghcr.io/autamus/loki.
 Loki is a C++ library of designs, containing flexible implementations of common design patterns and idioms.
 After [installing shpc](#install) you will want to install this container module:
+
 
 ```bash
 $ shpc install ghcr.io/autamus/loki
@@ -44,10 +45,10 @@ You can use tab for auto-completion of module names or commands that are provide
 
 ### Commands
 
-When you install this module, you'll be able to load it to make the following commands accessible.
+When you install this module, you will be able to load it to make the following commands accessible.
 Examples for both Singularity, Podman, and Docker (container technologies supported) are included.
 
-#### -run:
+#### loki-run:
 
 ```bash
 $ singularity run <container>
@@ -55,7 +56,7 @@ $ podman run --rm  -v ${PWD} -w ${PWD} <container>
 $ docker run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### -shell:
+#### loki-shell:
 
 ```bash
 $ singularity shell -s /bin/sh <container>
@@ -63,15 +64,15 @@ $ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 $ docker run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### -exec:
+#### loki-exec:
 
 ```bash
-$ singularity exec -s /bin/sh <container> "$@"
+$ singularity exec <container> "$@"
 $ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 $ docker run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
-#### -inspect:
+#### loki-inspect:
 
 Podman and Docker only have one inspect type.
 
@@ -80,13 +81,13 @@ $ podman inspect <container>
 $ docker inspect <container>
 ```
 
-#### -inspect-runscript:
+#### loki-inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### -inspect-deffile:
+#### loki-inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>
@@ -94,7 +95,7 @@ $ singularity inspect -d <container>
 
 
 
-#### 
+#### loki
 
 ```bash
 $ singularity run <container>

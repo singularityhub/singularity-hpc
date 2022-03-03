@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/ascent"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/ascent/container.yaml"
-updated_at: "2022-03-02 06:16:40.724383"
+updated_at: "2022-03-03 01:38:25.329709"
 container_url: "https://github.com/orgs/autamus/packages/container/package/ascent"
 
 versions:
@@ -16,6 +16,7 @@ description: "An open source many-core capable lightweight in situ visualization
 This module is a singularity container wrapper for ghcr.io/autamus/ascent.
 An open source many-core capable lightweight in situ visualization and analysis infrastructure for multi-physics HPC simulations.
 After [installing shpc](#install) you will want to install this container module:
+
 
 ```bash
 $ shpc install ghcr.io/autamus/ascent
@@ -46,10 +47,10 @@ You can use tab for auto-completion of module names or commands that are provide
 
 ### Commands
 
-When you install this module, you'll be able to load it to make the following commands accessible.
+When you install this module, you will be able to load it to make the following commands accessible.
 Examples for both Singularity, Podman, and Docker (container technologies supported) are included.
 
-#### -run:
+#### ascent-run:
 
 ```bash
 $ singularity run <container>
@@ -57,7 +58,7 @@ $ podman run --rm  -v ${PWD} -w ${PWD} <container>
 $ docker run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### -shell:
+#### ascent-shell:
 
 ```bash
 $ singularity shell -s /bin/sh <container>
@@ -65,15 +66,15 @@ $ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 $ docker run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### -exec:
+#### ascent-exec:
 
 ```bash
-$ singularity exec -s /bin/sh <container> "$@"
+$ singularity exec <container> "$@"
 $ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 $ docker run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
-#### -inspect:
+#### ascent-inspect:
 
 Podman and Docker only have one inspect type.
 
@@ -82,13 +83,13 @@ $ podman inspect <container>
 $ docker inspect <container>
 ```
 
-#### -inspect-runscript:
+#### ascent-inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### -inspect-deffile:
+#### ascent-inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>
@@ -96,7 +97,7 @@ $ singularity inspect -d <container>
 
 
 
-#### 
+#### ascent
 
 ```bash
 $ singularity run <container>

@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/trilinos"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/trilinos/container.yaml"
-updated_at: "2022-03-02 06:16:45.328622"
+updated_at: "2022-03-03 01:38:30.835309"
 container_url: "https://github.com/orgs/autamus/packages/container/package/trilinos"
 
 versions:
@@ -15,6 +15,7 @@ description: "The Trilinos Project is an effort to develop algorithms and enabli
 This module is a singularity container wrapper for ghcr.io/autamus/trilinos.
 The Trilinos Project is an effort to develop algorithms and enabling technologies within an object-oriented software framework for the solution of large-scale, complex multi-physics engineering and scientific problems. A unique design feature of Trilinos is its focus on packages.
 After [installing shpc](#install) you will want to install this container module:
+
 
 ```bash
 $ shpc install ghcr.io/autamus/trilinos
@@ -45,10 +46,10 @@ You can use tab for auto-completion of module names or commands that are provide
 
 ### Commands
 
-When you install this module, you'll be able to load it to make the following commands accessible.
+When you install this module, you will be able to load it to make the following commands accessible.
 Examples for both Singularity, Podman, and Docker (container technologies supported) are included.
 
-#### -run:
+#### trilinos-run:
 
 ```bash
 $ singularity run <container>
@@ -56,7 +57,7 @@ $ podman run --rm  -v ${PWD} -w ${PWD} <container>
 $ docker run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### -shell:
+#### trilinos-shell:
 
 ```bash
 $ singularity shell -s /bin/sh <container>
@@ -64,15 +65,15 @@ $ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 $ docker run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### -exec:
+#### trilinos-exec:
 
 ```bash
-$ singularity exec -s /bin/sh <container> "$@"
+$ singularity exec <container> "$@"
 $ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 $ docker run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
-#### -inspect:
+#### trilinos-inspect:
 
 Podman and Docker only have one inspect type.
 
@@ -81,13 +82,13 @@ $ podman inspect <container>
 $ docker inspect <container>
 ```
 
-#### -inspect-runscript:
+#### trilinos-inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### -inspect-deffile:
+#### trilinos-inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>
@@ -95,7 +96,7 @@ $ singularity inspect -d <container>
 
 
 
-#### 
+#### trilinos
 
 ```bash
 $ singularity run <container>

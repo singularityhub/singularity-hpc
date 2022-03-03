@@ -3,7 +3,7 @@ layout: container
 name:  "bids/hcppipelines"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/bids/hcppipelines/container.yaml"
-updated_at: "2022-03-02 06:16:13.048099"
+updated_at: "2022-03-03 01:37:52.352381"
 container_url: "https://hub.docker.com/r/bids/hcppipelines"
 
 versions:
@@ -17,6 +17,7 @@ description: "BIDS-ified HPC Piplines to process MRI data for the Human Connecto
 This module is a singularity container wrapper for bids/hcppipelines.
 BIDS-ified HPC Piplines to process MRI data for the Human Connectome Project (https://github.com/BIDS-Apps/HCPPipelines)
 After [installing shpc](#install) you will want to install this container module:
+
 
 ```bash
 $ shpc install bids/hcppipelines
@@ -47,10 +48,10 @@ You can use tab for auto-completion of module names or commands that are provide
 
 ### Commands
 
-When you install this module, you'll be able to load it to make the following commands accessible.
+When you install this module, you will be able to load it to make the following commands accessible.
 Examples for both Singularity, Podman, and Docker (container technologies supported) are included.
 
-#### -run:
+#### hcppipelines-run:
 
 ```bash
 $ singularity run <container>
@@ -58,7 +59,7 @@ $ podman run --rm  -v ${PWD} -w ${PWD} <container>
 $ docker run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### -shell:
+#### hcppipelines-shell:
 
 ```bash
 $ singularity shell -s /bin/sh <container>
@@ -66,15 +67,15 @@ $ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 $ docker run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### -exec:
+#### hcppipelines-exec:
 
 ```bash
-$ singularity exec -s /bin/sh <container> "$@"
+$ singularity exec <container> "$@"
 $ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 $ docker run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
-#### -inspect:
+#### hcppipelines-inspect:
 
 Podman and Docker only have one inspect type.
 
@@ -83,13 +84,13 @@ $ podman inspect <container>
 $ docker inspect <container>
 ```
 
-#### -inspect-runscript:
+#### hcppipelines-inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### -inspect-deffile:
+#### hcppipelines-inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>
@@ -97,7 +98,7 @@ $ singularity inspect -d <container>
 
 
 
-#### 
+#### hcppipelines
 
 ```bash
 $ singularity run <container>

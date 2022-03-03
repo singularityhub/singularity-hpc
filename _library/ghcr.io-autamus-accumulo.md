@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/accumulo"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/accumulo/container.yaml"
-updated_at: "2022-03-02 06:16:53.441450"
+updated_at: "2022-03-03 01:38:40.672600"
 container_url: "https://github.com/orgs/autamus/packages/container/package/accumulo"
 
 versions:
@@ -15,6 +15,7 @@ description: "Apache Accumulo is a sorted, distributed key/value store that prov
 This module is a singularity container wrapper for ghcr.io/autamus/accumulo.
 Apache Accumulo is a sorted, distributed key/value store that provides robust, scalable data storage and retrieval.
 After [installing shpc](#install) you will want to install this container module:
+
 
 ```bash
 $ shpc install ghcr.io/autamus/accumulo
@@ -45,10 +46,10 @@ You can use tab for auto-completion of module names or commands that are provide
 
 ### Commands
 
-When you install this module, you'll be able to load it to make the following commands accessible.
+When you install this module, you will be able to load it to make the following commands accessible.
 Examples for both Singularity, Podman, and Docker (container technologies supported) are included.
 
-#### -run:
+#### accumulo-run:
 
 ```bash
 $ singularity run <container>
@@ -56,7 +57,7 @@ $ podman run --rm  -v ${PWD} -w ${PWD} <container>
 $ docker run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### -shell:
+#### accumulo-shell:
 
 ```bash
 $ singularity shell -s /bin/sh <container>
@@ -64,15 +65,15 @@ $ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 $ docker run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### -exec:
+#### accumulo-exec:
 
 ```bash
-$ singularity exec -s /bin/sh <container> "$@"
+$ singularity exec <container> "$@"
 $ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 $ docker run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
-#### -inspect:
+#### accumulo-inspect:
 
 Podman and Docker only have one inspect type.
 
@@ -81,13 +82,13 @@ $ podman inspect <container>
 $ docker inspect <container>
 ```
 
-#### -inspect-runscript:
+#### accumulo-inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### -inspect-deffile:
+#### accumulo-inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>
@@ -95,7 +96,7 @@ $ singularity inspect -d <container>
 
 
 
-#### 
+#### accumulo
 
 ```bash
 $ singularity run <container>

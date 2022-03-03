@@ -3,7 +3,7 @@ layout: container
 name:  "php"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/php/container.yaml"
-updated_at: "2022-03-02 06:16:19.473615"
+updated_at: "2022-03-03 01:37:59.874870"
 container_url: "https://hub.docker.com/_/php"
 aliases:
  - "php"
@@ -37,6 +37,7 @@ This module is a singularity container wrapper for php.
 While designed for web development, the PHP scripting language also provides general-purpose use.
 After [installing shpc](#install) you will want to install this container module:
 
+
 ```bash
 $ shpc install php
 ```
@@ -66,10 +67,10 @@ You can use tab for auto-completion of module names or commands that are provide
 
 ### Commands
 
-When you install this module, you'll be able to load it to make the following commands accessible.
+When you install this module, you will be able to load it to make the following commands accessible.
 Examples for both Singularity, Podman, and Docker (container technologies supported) are included.
 
-#### -run:
+#### php-run:
 
 ```bash
 $ singularity run <container>
@@ -77,7 +78,7 @@ $ podman run --rm  -v ${PWD} -w ${PWD} <container>
 $ docker run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### -shell:
+#### php-shell:
 
 ```bash
 $ singularity shell -s /bin/sh <container>
@@ -85,15 +86,15 @@ $ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 $ docker run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### -exec:
+#### php-exec:
 
 ```bash
-$ singularity exec -s /bin/sh <container> "$@"
+$ singularity exec <container> "$@"
 $ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 $ docker run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
-#### -inspect:
+#### php-inspect:
 
 Podman and Docker only have one inspect type.
 
@@ -102,13 +103,13 @@ $ podman inspect <container>
 $ docker inspect <container>
 ```
 
-#### -inspect-runscript:
+#### php-inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### -inspect-deffile:
+#### php-inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>

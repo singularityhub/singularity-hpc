@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/mpfr"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/mpfr/container.yaml"
-updated_at: "2022-03-02 06:16:23.952439"
+updated_at: "2022-03-03 01:38:05.125931"
 container_url: "https://github.com/orgs/autamus/packages/container/package/mpfr"
 
 versions:
@@ -15,6 +15,7 @@ description: "The MPFR library is a C library for multiple-precision floating-po
 This module is a singularity container wrapper for ghcr.io/autamus/mpfr.
 The MPFR library is a C library for multiple-precision floating-point computations with correct rounding.
 After [installing shpc](#install) you will want to install this container module:
+
 
 ```bash
 $ shpc install ghcr.io/autamus/mpfr
@@ -45,10 +46,10 @@ You can use tab for auto-completion of module names or commands that are provide
 
 ### Commands
 
-When you install this module, you'll be able to load it to make the following commands accessible.
+When you install this module, you will be able to load it to make the following commands accessible.
 Examples for both Singularity, Podman, and Docker (container technologies supported) are included.
 
-#### -run:
+#### mpfr-run:
 
 ```bash
 $ singularity run <container>
@@ -56,7 +57,7 @@ $ podman run --rm  -v ${PWD} -w ${PWD} <container>
 $ docker run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### -shell:
+#### mpfr-shell:
 
 ```bash
 $ singularity shell -s /bin/sh <container>
@@ -64,15 +65,15 @@ $ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 $ docker run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### -exec:
+#### mpfr-exec:
 
 ```bash
-$ singularity exec -s /bin/sh <container> "$@"
+$ singularity exec <container> "$@"
 $ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 $ docker run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
-#### -inspect:
+#### mpfr-inspect:
 
 Podman and Docker only have one inspect type.
 
@@ -81,13 +82,13 @@ $ podman inspect <container>
 $ docker inspect <container>
 ```
 
-#### -inspect-runscript:
+#### mpfr-inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### -inspect-deffile:
+#### mpfr-inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>
@@ -95,7 +96,7 @@ $ singularity inspect -d <container>
 
 
 
-#### 
+#### mpfr
 
 ```bash
 $ singularity run <container>

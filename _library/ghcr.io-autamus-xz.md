@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/xz"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/xz/container.yaml"
-updated_at: "2022-03-02 06:16:33.435457"
+updated_at: "2022-03-03 01:38:16.534657"
 container_url: "https://github.com/orgs/autamus/packages/container/package/xz"
 aliases:
  - "xz"
@@ -36,6 +36,7 @@ This module is a singularity container wrapper for ghcr.io/autamus/xz.
 XZ Utils is free general-purpose data compression software with a high compression ratio.
 After [installing shpc](#install) you will want to install this container module:
 
+
 ```bash
 $ shpc install ghcr.io/autamus/xz
 ```
@@ -65,10 +66,10 @@ You can use tab for auto-completion of module names or commands that are provide
 
 ### Commands
 
-When you install this module, you'll be able to load it to make the following commands accessible.
+When you install this module, you will be able to load it to make the following commands accessible.
 Examples for both Singularity, Podman, and Docker (container technologies supported) are included.
 
-#### -run:
+#### xz-run:
 
 ```bash
 $ singularity run <container>
@@ -76,7 +77,7 @@ $ podman run --rm  -v ${PWD} -w ${PWD} <container>
 $ docker run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### -shell:
+#### xz-shell:
 
 ```bash
 $ singularity shell -s /bin/sh <container>
@@ -84,15 +85,15 @@ $ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 $ docker run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### -exec:
+#### xz-exec:
 
 ```bash
-$ singularity exec -s /bin/sh <container> "$@"
+$ singularity exec <container> "$@"
 $ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 $ docker run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
-#### -inspect:
+#### xz-inspect:
 
 Podman and Docker only have one inspect type.
 
@@ -101,13 +102,13 @@ $ podman inspect <container>
 $ docker inspect <container>
 ```
 
-#### -inspect-runscript:
+#### xz-inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### -inspect-deffile:
+#### xz-inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>

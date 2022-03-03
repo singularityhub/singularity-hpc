@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/snappy"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/snappy/container.yaml"
-updated_at: "2022-03-02 06:16:52.575534"
+updated_at: "2022-03-03 01:38:39.619962"
 container_url: "https://github.com/orgs/autamus/packages/container/package/snappy"
 
 versions:
@@ -15,6 +15,7 @@ description: "Snappy (previously known as Zippy) is a fast data compression and 
 This module is a singularity container wrapper for ghcr.io/autamus/snappy.
 Snappy (previously known as Zippy) is a fast data compression and decompression library written in C++ by Google based on ideas from LZ77 and open-sourced in 2011.
 After [installing shpc](#install) you will want to install this container module:
+
 
 ```bash
 $ shpc install ghcr.io/autamus/snappy
@@ -45,10 +46,10 @@ You can use tab for auto-completion of module names or commands that are provide
 
 ### Commands
 
-When you install this module, you'll be able to load it to make the following commands accessible.
+When you install this module, you will be able to load it to make the following commands accessible.
 Examples for both Singularity, Podman, and Docker (container technologies supported) are included.
 
-#### -run:
+#### snappy-run:
 
 ```bash
 $ singularity run <container>
@@ -56,7 +57,7 @@ $ podman run --rm  -v ${PWD} -w ${PWD} <container>
 $ docker run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### -shell:
+#### snappy-shell:
 
 ```bash
 $ singularity shell -s /bin/sh <container>
@@ -64,15 +65,15 @@ $ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 $ docker run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### -exec:
+#### snappy-exec:
 
 ```bash
-$ singularity exec -s /bin/sh <container> "$@"
+$ singularity exec <container> "$@"
 $ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 $ docker run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
-#### -inspect:
+#### snappy-inspect:
 
 Podman and Docker only have one inspect type.
 
@@ -81,13 +82,13 @@ $ podman inspect <container>
 $ docker inspect <container>
 ```
 
-#### -inspect-runscript:
+#### snappy-inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### -inspect-deffile:
+#### snappy-inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>
@@ -95,7 +96,7 @@ $ singularity inspect -d <container>
 
 
 
-#### 
+#### snappy
 
 ```bash
 $ singularity run <container>

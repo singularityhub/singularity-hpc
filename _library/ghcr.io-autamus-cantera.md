@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/cantera"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/cantera/container.yaml"
-updated_at: "2022-03-02 06:16:52.790745"
+updated_at: "2022-03-03 01:38:39.882761"
 container_url: "https://github.com/orgs/autamus/packages/container/package/cantera"
 
 versions:
@@ -16,6 +16,7 @@ description: "Cantera is an open-source collection of object-oriented software t
 This module is a singularity container wrapper for ghcr.io/autamus/cantera.
 Cantera is an open-source collection of object-oriented software tools for problems involving chemical kinetics, thermodynamics, and transport processes.
 After [installing shpc](#install) you will want to install this container module:
+
 
 ```bash
 $ shpc install ghcr.io/autamus/cantera
@@ -46,10 +47,10 @@ You can use tab for auto-completion of module names or commands that are provide
 
 ### Commands
 
-When you install this module, you'll be able to load it to make the following commands accessible.
+When you install this module, you will be able to load it to make the following commands accessible.
 Examples for both Singularity, Podman, and Docker (container technologies supported) are included.
 
-#### -run:
+#### cantera-run:
 
 ```bash
 $ singularity run <container>
@@ -57,7 +58,7 @@ $ podman run --rm  -v ${PWD} -w ${PWD} <container>
 $ docker run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### -shell:
+#### cantera-shell:
 
 ```bash
 $ singularity shell -s /bin/sh <container>
@@ -65,15 +66,15 @@ $ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 $ docker run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### -exec:
+#### cantera-exec:
 
 ```bash
-$ singularity exec -s /bin/sh <container> "$@"
+$ singularity exec <container> "$@"
 $ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 $ docker run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
-#### -inspect:
+#### cantera-inspect:
 
 Podman and Docker only have one inspect type.
 
@@ -82,13 +83,13 @@ $ podman inspect <container>
 $ docker inspect <container>
 ```
 
-#### -inspect-runscript:
+#### cantera-inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### -inspect-deffile:
+#### cantera-inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>
@@ -96,7 +97,7 @@ $ singularity inspect -d <container>
 
 
 
-#### 
+#### cantera
 
 ```bash
 $ singularity run <container>
