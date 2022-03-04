@@ -202,9 +202,10 @@ class ModuleBase(BaseClient):
         os.symlink(module_dir, symlink_path)
 
         # If we don't have a version file in root, create it
-        version_file = os.path.join(os.path.dirname(symlink_path), ".version")
-        if not os.path.exists(version_file):
-            Path(version_file).touch()
+        if self.module_extension != "tcl" and self.settings.default_version == True:
+            version_file = os.path.join(os.path.dirname(symlink_path), ".version")
+            if not os.path.exists(version_file):
+                Path(version_file).touch()
 
     def check_symlink(self, module_dir, symlink=False):
         """
