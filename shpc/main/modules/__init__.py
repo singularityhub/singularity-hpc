@@ -64,16 +64,6 @@ class ModuleBase(BaseClient):
             shutil.rmtree(module_dir)
             module_dir = os.path.dirname(module_dir)
 
-    def _cleanup_symlink(self, module_dir):
-        """
-        Remove symlink directories if they exist
-        """
-        symlinked_module = self.get_symlink_path(module_dir)
-        if not symlinked_module:
-            return
-        if os.path.exists(symlinked_module) and os.path.islink(symlinked_module): 
-            os.unlink(symlinked_module)
-
     @property
     def container_base(self):
         """
@@ -236,6 +226,27 @@ class ModuleBase(BaseClient):
         symlink_path = self.get_symlink_path(module_dir)
         if os.path.exists(symlink_path) and not utils.confirm_action('%s already exists, are you sure you want to overwrite?' % symlink_path):
             sys.exit(0)        
+
+
+    def _cleanup_symlink(self, module_dir):
+        """
+        Remove symlink directories if they exist
+        """
+        symlinked_module = self.get_symlink_path(module_dir)
+        if not symlinked_module:
+            return
+        if os.path.exists(symlinked_module) and os.path.islink(symlinked_module): 
+            os.unlink(symlinked_module)
+
+        # Clean up directories that become empty
+        parent_dir = os.path.dirname(symlinked_module)
+        if not os.path.exists(parent_dir):
+            return
+
+        # If the parent of the symlink only has zero files OR one file .version, cleanup
+        files = os.listdir(parent_dir)
+        if len(files) == 0 or (len(files) == 1 and files[0] == ".version"):
+            shutil.rmtree(parent_dir)
          
     def docgen(self, module_name, out=None):
         """
