@@ -38,7 +38,7 @@ def main(args, parser, extra, subparser):
 
         # Update each param
         for param in args.params:
-            cli.settings.update_param(param)
+            cli.settings.update_param(command, param)
 
         # Save settings
         cli.settings.save()
