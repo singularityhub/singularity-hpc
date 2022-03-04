@@ -104,8 +104,8 @@ jobs:
 
           # Try creating symlink install
           mkdir -p tmp-modules
-          shpc config set symlink_home:tmp-modules
-          shpc install python:3.9.5-alpine --symlink
+          shpc config set symlink_base:tmp-modules
+          shpc install python:3.9.5-alpine --symlink-tree
         
       - name: Run python module tests (tcsh)
         shell: tcsh -e {0}

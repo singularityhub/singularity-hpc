@@ -56,7 +56,7 @@ Or set a configuration value on the fly for any command:
 
 .. code-block:: console
 
-    $ shpc install -c set:symlink_home:/tmp/modules biocontainers/samtools
+    $ shpc install -c set:symlink_base:/tmp/modules biocontainers/samtools
 
 The above assumes that you've installed the software, and have already
 added the modules folder to be seen by your module software. If your module
@@ -179,11 +179,11 @@ variable replacement. A summary table of variables is included below, and then f
    * - container_tech
      - The container technology to use (singularity or podman)
      - singularity
-   * - symlink_home
-     - If set, where you want to install a simplified module tree to using ``--symlink``
+   * - symlink_base
+     - If set, where you want to install a simplified module tree to using ``--symlink-tree``
      - unset
    * - symlink_tree
-     - If set to true, ALWAYS generate a symlink tree given that a symlink home is defined regardless of ``--symlink`` flag
+     - If set to true, ALWAYS generate a symlink tree given that a symlink base is defined regardless of ``--symlink-tree`` flag
      - false
    * - updated_at
      - a timestamp to keep track of when you last saved
@@ -249,7 +249,7 @@ or manually editing the file, but you can also set config values "one off" as fo
 
 .. code-block:: console
 
-    $ shpc install -c set:symlink_home:/tmp/modules ghcr.io/autamus/clingo
+    $ shpc install -c set:symlink_base:/tmp/modules ghcr.io/autamus/clingo
 
 
 These settings will be discussed in more detail in the following sections.
@@ -378,20 +378,20 @@ you can add or remove entries via the config variable ``registry``
 # Note that "add" is used for lists of things (e.g., the registry config variable is a list)
 and "set" is used to set a key value pair.
 
-Symlink Home
+Symlink Base
 ------------
 
 By default, your modules are installed to your ``module_base`` described above with a complete
 namespace, meaning the container registry from where they arise. We do this so that the namespace
 is consistent and there are no conflicts. However, if you want a simplified tree to install from,
-meaning the module full names are _just_ the final container name, you can set the ``symlink_home``
+meaning the module full names are _just_ the final container name, you can set the ``symlink_base``
 in your settings to a different root. For example, let's say we want to install a set of modules,
-after seting our symlink home to ``tmp-modules``. We could do:
+after seting our symlink base to ``tmp-modules``. We could do:
 
 .. code-block:: console
 
-    $ shpc install ghcr.io/autamus/clingo --symlink
-    $ shpc install ghcr.io/autamus/samtools --symlink
+    $ shpc install ghcr.io/autamus/clingo --symlink-tree
+    $ shpc install ghcr.io/autamus/samtools --symlink-tree
 
 Then, for example, if you want to load the modules, you'll see the shorter names are
 available!
@@ -418,10 +418,10 @@ to create the links:
 .. code-block:: console
 
     for module in $(shpc list); do
-        shpc install $module --symlink
+        shpc install $module --symlink-tree
     done
 
-And that will reinstall the modules you have installed, but in their symlink location.
+And that will reinstall the modules you have installed, but in their symlink tree location.
 
 
 .. warning::

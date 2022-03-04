@@ -188,11 +188,11 @@ class ModuleBase(BaseClient):
 
     def get_symlink_path(self, module_dir):
         """
-        Should only be called given a self.settings.symlink_home is set
+        Should only be called given a self.settings.symlink_base is set
         """
-        if not self.settings.symlink_home:
+        if not self.settings.symlink_base:
             return
-        return os.path.join(self.settings.symlink_home, *module_dir.split(os.sep)[-2:])
+        return os.path.join(self.settings.symlink_base, *module_dir.split(os.sep)[-2:])
 
     def create_symlink(self, module_dir):
         """
@@ -219,18 +219,18 @@ class ModuleBase(BaseClient):
     def check_symlink(self, module_dir, symlink=False):
         """
         Given an install command, if --symblink is provided make sure we have
-        a symlink_home defined in settings and the directory exists.
+        a symlink_base defined in settings and the directory exists.
         """
         # Global override to arg
         symlink = self.settings.symlink_tree is True or symlink
 
         if not symlink:
             return
-        if symlink and not self.settings.symlink_home:
-            logger.exit('To request symlink you must set symlink_home in settings.yml: shpc config set symlink_home:/path/desired')
+        if symlink and not self.settings.symlink_base:
+            logger.exit('To request symlink you must set symlink_base in settings.yml: shpc config set symlink_base:/path/desired')
 
-        elif symlink and not os.path.exists(self.settings.symlink_home):
-            logger.exit('%s does not exist, create before trying to use it!' % self.settings.symlink_home)
+        elif symlink and not os.path.exists(self.settings.symlink_base):
+            logger.exit('%s does not exist, create before trying to use it!' % self.settings.symlink_base)
        
         # Get the symlink path - does it exist?
         symlink_path = self.get_symlink_path(module_dir)

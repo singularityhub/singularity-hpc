@@ -101,8 +101,8 @@ shpc -c rm:registry:/tmp/registry""",
         help="recipe to install\nshpc install python\nshpc install python:3.9.5-alpine",
     )
     install.add_argument(
-        "--symlink",
-        help="install to symlink home too.",
+        "--symlink-tree",
+        help="install to symlink tree too.",
         default=False,
         action="store_true",
     )

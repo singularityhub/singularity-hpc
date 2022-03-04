@@ -36,7 +36,7 @@ container_base: $root_dir/containers
 
 # If defined, create a simplified "symlink install" that shortens module names
 # to be just the container, e.g., ghcr.io/autamus/samtools -> module load samtools
-symlink_home: null
+symlink_base: null
 
 # Always generate a symlink, even without the command line argument
 symlink_tree: false
