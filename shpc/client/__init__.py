@@ -102,6 +102,7 @@ shpc -c rm:registry:/tmp/registry""",
     )
     install.add_argument(
         "--symlink-tree",
+        dest="symlink",
         help="install to symlink tree too.",
         default=False,
         action="store_true",
