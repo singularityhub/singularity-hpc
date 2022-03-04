@@ -53,6 +53,8 @@ class ModuleBase(BaseClient):
         # Exit early if the module directory for some reason was removed
         if not os.path.exists(module_dir):
             return
+
+        # Cleanup symlink, then module directory
         shutil.rmtree(module_dir)
 
         # If directories above it are empty, remove
@@ -61,6 +63,16 @@ class ModuleBase(BaseClient):
                 break
             shutil.rmtree(module_dir)
             module_dir = os.path.dirname(module_dir)
+
+    def _cleanup_symlink(self, module_dir):
+        """
+        Remove symlink directories if they exist
+        """
+        symlinked_module = self.get_symlink_path(module_dir)
+        if not symlinked_module:
+            return
+        if os.path.exists(symlinked_module) and os.path.islink(symlinked_module): 
+            os.unlink(symlinked_module)
 
     @property
     def container_base(self):
@@ -102,15 +114,17 @@ class ModuleBase(BaseClient):
 
     def _uninstall(self, module_dir, name, force=False):
         """
-        Sub function, so we can pass more than one folder from uninstall
+        Uninstall a module directory by name, including possible symlinks.
         """
         if os.path.exists(module_dir) and not force:
             msg = "%s, and all content below it? " % name
             if utils.confirm_uninstall(msg, force):
+                self._cleanup_symlink(module_dir)
                 self._cleanup(module_dir)
                 logger.info("%s and all subdirectories been removed." % name)
 
         elif os.path.exists(module_dir) and force:
+            self._cleanup_symlink(module_dir)
             shutil.rmtree(module_dir)
             logger.info("%s and all subdirectories have been removed." % name)
         else:
@@ -176,6 +190,8 @@ class ModuleBase(BaseClient):
         """
         Should only be called given a self.settings.symlink_home is set
         """
+        if not self.settings.symlink_home:
+            return
         return os.path.join(self.settings.symlink_home, *module_dir.split(os.sep)[-2:])
 
     def create_symlink(self, module_dir):
@@ -205,6 +221,9 @@ class ModuleBase(BaseClient):
         Given an install command, if --symblink is provided make sure we have
         a symlink_home defined in settings and the directory exists.
         """
+        # Global override to arg
+        symlink = self.settings.symlink_tree is True or symlink
+
         if not symlink:
             return
         if symlink and not self.settings.symlink_home:

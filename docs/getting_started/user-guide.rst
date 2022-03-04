@@ -52,6 +52,11 @@ You can then easily install, load, and use modules:
     $ module load biocontainers/samtools
     $ samtools
 
+Or set a configuration value on the fly for any command:
+
+.. code-block:: console
+
+    $ shpc install -c set:symlink_home:/tmp/modules biocontainers/samtools
 
 The above assumes that you've installed the software, and have already
 added the modules folder to be seen by your module software. If your module
@@ -177,6 +182,9 @@ variable replacement. A summary table of variables is included below, and then f
    * - symlink_home
      - If set, where you want to install a simplified module tree to using ``--symlink``
      - unset
+   * - symlink_tree
+     - If set to true, ALWAYS generate a symlink tree given that a symlink home is defined regardless of ``--symlink`` flag
+     - false
    * - updated_at
      - a timestamp to keep track of when you last saved
      - never
@@ -234,6 +242,14 @@ variable replacement. A summary table of variables is included below, and then f
    * - features
      - A key, value paired set of features to add to the container (see table below)
      - All features default to null
+
+
+Note that any configuration value can be set permanently by using ``shpc config``
+or manually editing the file, but you can also set config values "one off" as follows:
+
+.. code-block:: console
+
+    $ shpc install -c set:symlink_home:/tmp/modules ghcr.io/autamus/clingo
 
 
 These settings will be discussed in more detail in the following sections.

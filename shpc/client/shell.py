@@ -34,12 +34,16 @@ def main(args, parser, extra, subparser):
 def create_client(args):
     from shpc.main import get_client
 
-    return get_client(
+    cli = get_client(
         quiet=args.quiet,
         settings_file=args.settings_file,
         module=args.module,
         container_tech=args.container_tech,
     )
+
+    # Update config settings on the fly
+    cli.settings.update_params(args.config_params)
+    return cli
 
 
 def ipython(args):

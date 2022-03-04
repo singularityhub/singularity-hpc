@@ -14,6 +14,8 @@ def main(args, parser, extra, subparser):
         container_tech=args.container_tech,
     )
 
+    # Update config settings on the fly
+    cli.settings.update_params(args.config_params)
     result = cli.get(args.module_name, args.env_file)
     if result:
         print(result)

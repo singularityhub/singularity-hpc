@@ -19,6 +19,7 @@ except:
 from datetime import datetime
 import jsonschema
 import os
+import re
 
 
 def OrderedList(*l):
@@ -271,6 +272,49 @@ class SettingsBase:
     def __iter__(self):
         for key, value in self.__dict__.items():
             yield key, value
+
+    def update_params(self, params):
+        """
+        Update a configuration on the fly (no save) only for set/add/remove.
+        Unlike the traditional set/get/add functions, this function expects
+        each entry in the params list to start with the action, e.g.:
+
+        set:name:value
+        add:name:value
+        rm:name:value
+        """
+        # Cut out early if params not provided
+        if not params:
+            return
+
+        for param in params:
+            if not re.search("^(add|set|rm)", param, re.IGNORECASE) or ":" not in param:
+                logger.warning(
+                    "Parameter update request must start with (add|set|rm):, skipping %s"
+                )
+            command, param = param.split(":", 1)
+            self.update_param(command.lower(), param)
+
+    def update_param(self, command, param):
+        """
+        Given a parameter, update the configuration on the fly if it's in set/add/remove
+        """
+        if ":" not in param:
+            logger.warning(
+                "Param %s is missing a :, should be key:value pair. Skipping." % param
+            )
+            return
+
+        key, value = param.split(":", 1)
+        if command == "set":
+            self.set(key, value)
+            logger.info("Updated %s to be %s" % (key, value))
+        elif command == "add":
+            self.add(key, value)
+            logger.info("Added %s to %s" % (key, value))
+        elif command == "remove":
+            self.remove(key, value)
+            logger.info("Removed %s from %s" % (key, value))
 
 
 class Settings(SettingsBase):

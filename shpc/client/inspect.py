@@ -15,6 +15,9 @@ def main(args, parser, extra, subparser):
         settings_file=args.settings_file,
         container_tech=args.container_tech,
     )
+
+    # Update config settings on the fly
+    cli.settings.update_params(args.config_params)
     metadata = cli.inspect(args.module_name)
 
     # Case 1: dump entire thing as json

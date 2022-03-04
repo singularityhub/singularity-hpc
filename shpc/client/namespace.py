@@ -13,6 +13,9 @@ def main(args, parser, extra, subparser):
 
     cli = get_client(quiet=args.quiet, settings_file=args.settings_file)
 
+    # Update config settings on the fly
+    cli.settings.update_params(args.config_params)
+
     # Case 1: we need to unset a namespace
     if not args.namespace:
         sys.exit("Please choose: shpc use <namespace> or shpc unset.")

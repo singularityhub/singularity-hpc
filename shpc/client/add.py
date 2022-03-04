@@ -13,4 +13,7 @@ def main(args, parser, extra, subparser):
         module=args.module,
         container_tech=args.container_tech,
     )
+
+    # Update config settings on the fly
+    cli.settings.update_params(args.config_params)
     cli.add(args.sif_path[0], args.module_id[0])
