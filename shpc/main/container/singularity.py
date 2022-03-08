@@ -297,7 +297,7 @@ class SingularityContainer(ContainerTechnology):
 
     def pull(self, uri, dest):
         """
-        g Pull a container to a destination
+        Pull a container to a destination
         """
         if re.search("^(docker|shub|https|oras)", uri):
             return self._pull_regular(uri, dest)
