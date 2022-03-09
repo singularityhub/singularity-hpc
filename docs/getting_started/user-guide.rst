@@ -181,7 +181,7 @@ variable replacement. A summary table of variables is included below, and then f
      - singularity
    * - symlink_base
      - If set, where you want to install a simplified module tree to using ``--symlink-tree``
-     - unset
+     - $root_dir/symlinks
    * - symlink_tree
      - If set to true, ALWAYS generate a symlink tree given that a symlink base is defined regardless of ``--symlink-tree`` flag
      - false
@@ -385,8 +385,9 @@ By default, your modules are installed to your ``module_base`` described above w
 namespace, meaning the container registry from where they arise. We do this so that the namespace
 is consistent and there are no conflicts. However, if you want a simplified tree to install from,
 meaning the module full names are _just_ the final container name, you can set the ``symlink_base``
-in your settings to a different root. For example, let's say we want to install a set of modules,
-after seting our symlink base to ``tmp-modules``. We could do:
+in your settings to a different root. For example, let's say we want to install a set of modules.
+We can use the default ``symlink_base`` of ``$root_dir/symlinks`` or set our own ``symlink_base``
+in the settings.yaml. We could do:
 
 .. code-block:: console
 
@@ -398,7 +399,7 @@ available!
 
 .. code-block:: console
 
-    $ module use ./tmp-modules
+    $ module use ./symlinks
     $ module load clingo/5.5.1/module
 
 This is much more efficient compared to the install that uses the full paths:

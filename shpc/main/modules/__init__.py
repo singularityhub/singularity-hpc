@@ -214,14 +214,12 @@ class ModuleBase(BaseClient):
         """
         # Global override to arg
         symlink = self.settings.symlink_tree is True or symlink
-
         if not symlink:
             return
-        if symlink and not self.settings.symlink_base:
-            logger.exit('To request symlink you must set symlink_base in settings.yml: shpc config set symlink_base:/path/desired')
 
-        elif symlink and not os.path.exists(self.settings.symlink_base):
-            logger.exit('%s does not exist, create before trying to use it!' % self.settings.symlink_base)
+        # Create the symlink base for the user if it does not exist
+        if symlink and not os.path.exists(self.settings.symlink_base):
+            utils.mkdirp([self.settings.symlink_base])
        
         # Get the symlink path - does it exist?
         symlink_path = self.get_symlink_path(module_dir)
@@ -381,7 +379,7 @@ class ModuleBase(BaseClient):
         subfolder = os.path.join(uri, tag.name)
         container_dir = self.container.container_dir(subfolder)
 
-        # Cut out early if symlink desired but no home
+        # Cut out early if symlink desired or already exists
         self.check_symlink(module_dir, symlink)
         shpc.utils.mkdirp([module_dir, container_dir])
 
