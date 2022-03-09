@@ -5,12 +5,11 @@ description: The Perl programming language.
 latest:
   5.35.0: sha256:66602a525597110eb12d5b3a944180d9a8e7af1f02d60dba3237503f6b532959
 tags:
-  5.33.3: sha256:ddbe04d704c8883aed0959dbd88bd8410cf5e1a6775a2f46264af306723b6459
   5.35.0: sha256:66602a525597110eb12d5b3a944180d9a8e7af1f02d60dba3237503f6b532959
   latest: sha256:66602a525597110eb12d5b3a944180d9a8e7af1f02d60dba3237503f6b532959
 aliases:
-  perl: /opt/view/bin/perl
-  perlbug: /opt/view/bin/perlbug
-  perldoc: /opt/view/bin/perldoc
-  perlivp: /opt/view/bin/perlivp
-  perlthanks: /opt/view/bin/perlthanks
+  perl: /opt/view/bin/perl5.35.0
+  perlbug: /opt/view/bin/perlbug5.35.0
+  perldoc: /opt/view/bin/perldoc5.35.0
+  perlivp: /opt/view/bin/perlivp5.35.0
+  perlthanks: /opt/view/bin/perlthanks5.35.0
