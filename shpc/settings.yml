@@ -69,14 +69,14 @@ wrapper_scripts:
   podman: docker.sh
 
   # use for singularity aliases (set to null to disable)
-  singularity: singularity.sh 
+  singularity: singularity.sh
 
   # Add an extra custom template directory (searched first)
   templates: null
 
 # the module namespace you want to install from. E.g., if you have ghcr.io/autamus/clingo
 # and you set the namespace to ghcr.io/autamus, you can just do: shpc install clingo.
-namespace:
+namespace: null
 
 # THe name of the environment file to bind to the container.
 # This determines order of load

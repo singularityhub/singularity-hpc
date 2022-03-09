@@ -195,6 +195,10 @@ class SettingsBase:
         """
         if isinstance(value, str) and value.lower() in ["none", "null"]:
             return None
+
+        # Ensure we strip strings
+        if isinstance(value, str):
+            value = value.strip()
         return value
 
     def set(self, key, value):
