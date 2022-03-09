@@ -207,14 +207,11 @@ class ModuleBase(BaseClient):
             if not os.path.exists(version_file):
                 Path(version_file).touch()
 
-    def check_symlink(self, module_dir, symlink=False):
+    def check_symlink(self, module_dir):
         """
         Given an install command, if --symlink-tree is provided make
         sure we don't already have this symlink in.
         """
-        if not symlink:
-            return
-
         # Get the symlink path - does it exist?
         symlink_path = self.get_symlink_path(module_dir)
         if os.path.exists(symlink_path) and not utils.confirm_action('%s already exists, are you sure you want to overwrite?' % symlink_path):
@@ -376,8 +373,9 @@ class ModuleBase(BaseClient):
         # Global override to arg
         symlink = self.settings.symlink_tree is True or symlink
 
-        # Cut out early if symlink desired and already exists
-        self.check_symlink(module_dir, symlink)
+        if symlink:
+            # Cut out early if symlink desired and already exists
+            self.check_symlink(module_dir)
         shpc.utils.mkdirp([module_dir, container_dir])
 
         # Add a .version file to indicate the level of versioning (not for tcl)
