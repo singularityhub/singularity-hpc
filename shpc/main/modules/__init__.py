@@ -212,8 +212,6 @@ class ModuleBase(BaseClient):
         Given an install command, if --symblink is provided make sure we have
         a symlink_base defined in settings and the directory exists.
         """
-        # Global override to arg
-        symlink = self.settings.symlink_tree is True or symlink
 
         if not symlink:
             return
@@ -381,6 +379,8 @@ class ModuleBase(BaseClient):
         subfolder = os.path.join(uri, tag.name)
         container_dir = self.container.container_dir(subfolder)
 
+        # Global override to arg
+        symlink = self.settings.symlink_tree is True or symlink
         # Cut out early if symlink desired but no home
         self.check_symlink(module_dir, symlink)
         shpc.utils.mkdirp([module_dir, container_dir])
