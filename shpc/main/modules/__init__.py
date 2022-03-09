@@ -187,15 +187,20 @@ class ModuleBase(BaseClient):
         symlink_path = self.get_symlink_path(module_dir)
         if os.path.exists(symlink_path):
             os.unlink(symlink_path)
-        logger.info("Creating link %s -> %s" %(module_dir, symlink_path))
         symlink_dir = os.path.dirname(symlink_path)
 
         # If the parent directory doesn't exist, make it
         if not os.path.exists(symlink_dir):
             utils.mkdirp([symlink_dir])
 
+        if self.module_extension == "lua":
+            symlink_target = module_dir
+        else:
+            symlink_target = os.path.join(module_dir, self.modulefile)
+        logger.info("Creating link %s -> %s" % (symlink_target, symlink_path))
+
         # Create the symbolic link!
-        os.symlink(module_dir, symlink_path)
+        os.symlink(symlink_target, symlink_path)
 
         # Create .version
         self.write_version_file(os.path.dirname(symlink_path))
