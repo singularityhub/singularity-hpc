@@ -36,7 +36,7 @@ container_base: $root_dir/containers
 
 # If defined, create a simplified "symlink install" that shortens module names
 # to be just the container, e.g., ghcr.io/autamus/samtools -> module load samtools
-symlink_base: null
+symlink_base: $root_dir/symlinks
 
 # Always generate a symlink, even without the command line argument
 symlink_tree: false
@@ -76,7 +76,7 @@ wrapper_scripts:
   podman: docker.sh
 
   # use for singularity aliases (set to null to disable)
-  singularity: singularity.sh 
+  singularity: singularity.sh
 
   # Add an extra custom template directory (searched first)
   templates: null
