@@ -310,7 +310,12 @@ class SingularityContainer(ContainerTechnology):
         """
         pull_folder = os.path.dirname(dest)
         name = os.path.basename(dest)
-        return self.client.pull(uri, name=name, pull_folder=pull_folder)
+        image, lines = self.client.pull(
+            uri, name=name, pull_folder=pull_folder, stream=True
+        )
+        for line in lines:
+            print(line, end="")
+        return image
 
     def inspect(self, image):
         """

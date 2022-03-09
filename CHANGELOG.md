@@ -14,9 +14,10 @@ and **Merged pull requests**. Critical items to know are:
 The versions coincide with releases on pip. Only major versions will be released as tags on Github.
 
 ## [0.0.x](https://github.com/singularityhub/singularity-hpc/tree/main) (0.0.x)
- - support for installing to symlink tree (0.0.46)
+ - support for installing to symlink tree (0.0.47)
   - also including cleanup of symlink tree on uninstall
   - ability to set custom config variable on the fly with -c
+ - fixing but with stream command repeating output (0.0.46)
  - Adding support for wrapper scripts for global and container.yaml (0.0.45)
  - Lua and tcl module file bug fixes for shell functions and aliases (0.0.44)
   - restoring -B for Singularity bindpaths over using envar

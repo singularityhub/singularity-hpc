@@ -91,7 +91,7 @@ class WrapperScript:
         template_paths = [os.path.dirname(template_file), templates]
 
         # Do we have a custom template path directory?
-        if "templates" in self.settings.wrapper_scripts:
+        if self.settings.wrapper_scripts.get("templates"):
             path = self.settings.wrapper_scripts["templates"]
             if not os.path.exists(path):
                 logger.exit(
