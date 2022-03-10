@@ -210,7 +210,7 @@ class ModuleBase(BaseClient):
     def check_symlink(self, module_dir):
         """
         Given an install command, if --symlink-tree is provided make
-        sure we don't already have this symlink in.
+        sure we don't already have this symlink in the tree.
         """
         # Get the symlink path - does it exist?
         symlink_path = self.get_symlink_path(module_dir)
