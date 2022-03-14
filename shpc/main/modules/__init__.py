@@ -114,7 +114,7 @@ class ModuleBase(BaseClient):
             shutil.rmtree(module_dir)
             logger.info("%s and all subdirectories have been removed." % name)
         else:
-            logger.info("%s does not exist." % name)
+            logger.warning("%s does not exist." % name)
 
     def _test_setup(self, tmpdir):
         """
