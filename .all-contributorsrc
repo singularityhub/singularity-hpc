@@ -20,6 +20,94 @@
             "avatar_url": [
                 "https://avatars.githubusercontent.com/u/814322?v=4"
             ]
+        },
+        {
+            "login": "danielskatz",
+            "name": "Daniel S. Katz",
+            "contributions": [
+                "code"
+            ],
+            "profile": "https://github.com/danielskatz",
+            "avatar_url": [
+                "https://avatars.githubusercontent.com/u/2913845?v=4"
+            ]
+        },
+        {
+            "login": "audreystott",
+            "name": "Audrey Stott",
+            "contributions": [
+                "code"
+            ],
+            "profile": "https://github.com/audreystott",
+            "avatar_url": [
+                "https://avatars.githubusercontent.com/u/43943628?v=4"
+            ]
+        },
+        {
+            "login": "alecbcs",
+            "name": "Alec Scott",
+            "contributions": [
+                "code"
+            ],
+            "profile": "alecbcs.com",
+            "avatar_url": [
+                "https://avatars.githubusercontent.com/u/19558067?v=4"
+            ]
+        },
+        {
+            "login": "manbat",
+            "name": "manbat",
+            "contributions": [
+                "code"
+            ],
+            "profile": "https://github.com/manbat",
+            "avatar_url": [
+                "https://avatars.githubusercontent.com/u/41646490?v=4"
+            ]
+        },
+        {
+            "login": "marcodelapierre",
+            "name": "Marco De La Pierre",
+            "contributions": [
+                "code"
+            ],
+            "profile": "https://github.com/marcodelapierre",
+            "avatar_url": [
+                "https://avatars.githubusercontent.com/u/16972180?v=4"
+            ]
+        },
+        {
+            "login": "surak",
+            "name": "Alexandre Strube",
+            "contributions": [
+                "code"
+            ],
+            "profile": "http://surak.wordpress.com",
+            "avatar_url": [
+                "https://avatars.githubusercontent.com/u/878399?v=4"
+            ]
+        },
+        {
+            "login": "xdelaruelle",
+            "name": "Xavier Delaruelle",
+            "contributions": [
+                "code"
+            ],
+            "profile": "https://github.com/xdelaruelle",
+            "avatar_url": [
+                "https://avatars.githubusercontent.com/u/4928853?v=4"
+            ]
+        },
+        {
+            "login": "SarahBeecroft",
+            "name": "SarahBeecroft",
+            "contributions": [
+                "code"
+            ],
+            "profile": "https://github.com/SarahBeecroft",
+            "avatar_url": [
+                "https://avatars.githubusercontent.com/u/16343767?v=4"
+            ]
         }
     ],
     "contributorsPerLine": 7
