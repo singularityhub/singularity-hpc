@@ -22,18 +22,7 @@ jobs:
           log_level: DEBUG
           force: true
           threshold: 1
-
-      # Run twice to get github metadata after the fact
-      - name: Tributors Update      
-        uses: con/tributors@0.0.20
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:        
-          parsers: unset
-          update_lookup: github
-          log_level: DEBUG
-          force: true
-          threshold: 1
+          run_twice: true
 
       - name: Checkout New Branch
         env:
