@@ -123,7 +123,9 @@ def write_file(filename, content, mode="w", exec=False):
         filey.writelines(content)
     if exec:
         st = os.stat(filename)
-        os.chmod(filename, st.st_mode | stat.S_IEXEC)
+
+        # Execute / search permissions for the user and others
+        os.chmod(filename, st.st_mode | stat.S_IEXEC | stat.S_IXGRP | stat.S_IXOTH)
     return filename
 
 

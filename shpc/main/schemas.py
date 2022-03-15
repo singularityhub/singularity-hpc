@@ -12,9 +12,7 @@ schema_url = "http://json-schema.org/draft-07/schema"
 # The simplest form of aliases is key/value pairs
 keyvals = {
     "type": "object",
-    "patternProperties": {
-        "\\w[\\w-]*": {"type": "string"},
-    },
+    "patternProperties": {"\\w[\\w-]*": {"type": "string"},},
 }
 
 
@@ -43,10 +41,7 @@ aliases_list = {
     "type": "array",
     "items": {
         "type": "object",
-        "required": [
-            "name",
-            "command",
-        ],
+        "required": ["name", "command",],
         "properties": {
             "name": {"type": "string"},
             "command": {"type": "string"},
@@ -61,9 +56,7 @@ latest = {
     "type": "object",
     "minProperties": 1,
     "maxProperties": 1,
-    "patternProperties": {
-        "\\w[\\w-]*": {"type": "string"},
-    },
+    "patternProperties": {"\\w[\\w-]*": {"type": "string"},},
 }
 
 containerConfigProperties = {
@@ -78,18 +71,10 @@ containerConfigProperties = {
     "docker_scripts": keyvals,
     "singularity_scripts": keyvals,
     "tags": keyvals,
-    "filter": {
-        "type": "array",
-        "items": {"type": "string"},
-    },
+    "filter": {"type": "array", "items": {"type": "string"},},
     "env": keyvals,
     "features": features,
-    "aliases": {
-        "oneOf": [
-            keyvals,
-            aliases_list,
-        ]
-    },
+    "aliases": {"oneOf": [keyvals, aliases_list,]},
 }
 
 
@@ -97,12 +82,7 @@ containerConfig = {
     "$schema": schema_url,
     "title": "ContainerConfig Schema",
     "type": "object",
-    "required": [
-        "latest",
-        "tags",
-        "maintainer",
-        "description",
-    ],
+    "required": ["latest", "tags", "maintainer", "description",],
     "properties": containerConfigProperties,
     "additionalProperties": False,
 }
