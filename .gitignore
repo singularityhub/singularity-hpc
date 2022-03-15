@@ -16,4 +16,5 @@ __pycache__
 *.sif
 *.img
 .eggs
+symlinks
 modules

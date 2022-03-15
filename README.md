@@ -31,6 +31,21 @@ A module technology is required in all cases.
 📖️ Read the [documentation](https://singularity-hpc.readthedocs.io/en/latest/) 📖️
 ⭐️ Browse the [container module collection](https://singularityhub.github.io/singularity-hpc/) ⭐️
  
+## 😁️ Contributors 😁️
+
+We use the [all-contributors](https://github.com/all-contributors/all-contributors) 
+tool to generate a contributors graphic below.
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+ 
 ## 🎨️ Previous Art 🎨️
 
 There are other tools that you might be interested in!
