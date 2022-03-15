@@ -35,7 +35,9 @@ def get_parser():
     )
 
     parser.add_argument(
-        "--settings-file", dest="settings_file", help="custom path to settings file.",
+        "--settings-file",
+        dest="settings_file",
+        help="custom path to settings file.",
     )
 
     parser.add_argument(
@@ -48,7 +50,10 @@ def get_parser():
 
     description = "actions for Singularity Registry HPC"
     subparsers = parser.add_subparsers(
-        help="shpc actions", title="actions", description=description, dest="command",
+        help="shpc actions",
+        title="actions",
+        description=description,
+        dest="command",
     )
 
     # print version and exit
@@ -312,7 +317,8 @@ def run_shpc():
         sys.exit(0)
 
     setup_logger(
-        quiet=args.quiet, debug=args.debug,
+        quiet=args.quiet,
+        debug=args.debug,
     )
 
     # retrieve subparser (with help) from parser
