@@ -1,0 +1,26 @@
+{
+    "projectName": "singularity-hpc",
+    "projectOwner": "singularityhub",
+    "repoType": "github",
+    "repoHost": "https://github.com",
+    "files": [
+        "README.md"
+    ],
+    "imageSize": 100,
+    "commit": true,
+    "commitConvention": "none",
+    "contributors": [
+        {
+            "login": "vsoch",
+            "name": "Vanessasaurus",
+            "contributions": [
+                "code"
+            ],
+            "profile": "https://vsoch.github.io",
+            "avatar_url": [
+                "https://avatars.githubusercontent.com/u/814322?v=4"
+            ]
+        }
+    ],
+    "contributorsPerLine": 7
+}
