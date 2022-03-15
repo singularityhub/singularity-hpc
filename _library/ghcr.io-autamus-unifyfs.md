@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/unifyfs"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/unifyfs/container.yaml"
-updated_at: "2022-03-15 13:29:48.208389"
+updated_at: "2022-03-15 23:21:29.364051"
 container_url: "https://github.com/orgs/autamus/packages/container/package/unifyfs"
 aliases:
  - "unifyfs"

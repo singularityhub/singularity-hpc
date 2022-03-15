@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/adios"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/adios/container.yaml"
-updated_at: "2022-03-15 13:30:22.322463"
+updated_at: "2022-03-15 23:22:09.040766"
 container_url: "https://github.com/orgs/autamus/packages/container/package/adios"
 aliases:
  - "adios_config"

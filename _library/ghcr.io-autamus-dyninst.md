@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/dyninst"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/dyninst/container.yaml"
-updated_at: "2022-03-15 13:29:50.732785"
+updated_at: "2022-03-15 23:21:32.348714"
 container_url: "https://github.com/orgs/autamus/packages/container/package/dyninst"
 
 versions:
