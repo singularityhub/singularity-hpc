@@ -12,27 +12,27 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
-      - name: Tributors Update
-      
-        # Important! Update to release https://github.com/con/tributors
+      - name: Tributors Update      
         uses: con/tributors@0.0.20
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:        
-
-          # Single text list (space separated) of parsers, leave unset to auto-detect
           parsers: unset
-
-          # Update lookup with GitHub metadata
           update_lookup: github
-
-          # INFO, DEBUG, ERROR, WARNING, etc.
           log_level: DEBUG
-
-          # If files already exist and an init is done, force overwrite
           force: true
+          threshold: 1
 
-          # the minimum number of contributions required to add a user
+      # Run twice to get github metadata after the fact
+      - name: Tributors Update      
+        uses: con/tributors@0.0.20
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:        
+          parsers: unset
+          update_lookup: github
+          log_level: DEBUG
+          force: true
           threshold: 1
 
       - name: Checkout New Branch
