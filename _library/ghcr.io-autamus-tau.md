@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/tau"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/tau/container.yaml"
-updated_at: "2022-03-09 16:29:09.861779"
+updated_at: "2022-03-15 13:30:10.630965"
 container_url: "https://github.com/orgs/autamus/packages/container/package/tau"
 
 versions:

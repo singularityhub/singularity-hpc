@@ -3,7 +3,7 @@ layout: container
 name:  "ruby"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ruby/container.yaml"
-updated_at: "2022-03-09 16:29:50.577424"
+updated_at: "2022-03-15 13:29:36.161024"
 container_url: "https://hub.docker.com/_/ruby"
 aliases:
  - "bundle"

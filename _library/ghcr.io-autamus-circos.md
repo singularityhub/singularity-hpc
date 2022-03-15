@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/circos"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/circos/container.yaml"
-updated_at: "2022-03-09 16:29:21.317481"
+updated_at: "2022-03-15 13:29:49.132182"
 container_url: "https://github.com/orgs/autamus/packages/container/package/circos"
 aliases:
  - "circos"

@@ -3,7 +3,7 @@ layout: container
 name:  "quay.io/biocontainers/bowtie2"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/bowtie2/container.yaml"
-updated_at: "2022-03-09 16:29:41.683869"
+updated_at: "2022-03-15 13:29:31.049199"
 container_url: "https://quay.io/repository/biocontainers/bowtie2"
 aliases:
  - "bowtie2"
