@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/snappy"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/snappy/container.yaml"
-updated_at: "2022-03-16 19:33:56.122135"
+updated_at: "2022-03-16 20:17:11.489437"
 container_url: "https://github.com/orgs/autamus/packages/container/package/snappy"
 
 versions:
