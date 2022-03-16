@@ -104,17 +104,15 @@ class ModuleBase(BaseClient):
         """
         Sub function, so we can pass more than one folder from uninstall
         """
-        if os.path.exists(module_dir) and not force:
-            msg = "%s, and all content below it? " % name
-            if utils.confirm_uninstall(msg, force):
-                self._cleanup(module_dir)
-                logger.info("%s and all subdirectories been removed." % name)
-
-        elif os.path.exists(module_dir) and force:
-            shutil.rmtree(module_dir)
+        if os.path.exists(module_dir):
+            if not force:
+                msg = "%s, and all content below it? " % name
+                if not utils.confirm_uninstall(msg, force):
+                    return
+            self._cleanup(module_dir)
             logger.info("%s and all subdirectories have been removed." % name)
         else:
-            logger.info("%s does not exist." % name)
+            logger.warning("%s does not exist." % name)
 
     def _test_setup(self, tmpdir):
         """
