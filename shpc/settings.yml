@@ -27,7 +27,7 @@ module_base: $root_dir/modules
 # This is where you might add a prefix to your module names, if desired.
 module_name: '{{ parsed_name.tool }}'
 
-# Create a .version file for LMOD in the module folder
+# When multiple versions are available and none requested, allow module picking one iself
 default_version: true
 
 # store containers separately from module files

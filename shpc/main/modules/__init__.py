@@ -11,7 +11,6 @@ from jinja2 import Template
 
 from datetime import datetime
 import os
-from pathlib import Path
 import shutil
 import subprocess
 import sys
@@ -273,6 +272,23 @@ class ModuleBase(BaseClient):
         config = self._load_container(module_name.rsplit(":", 1)[0])
         return self.container.check(module_name, config)
 
+    def write_version_file(self, version_dir):
+        """
+        Create the .version file, if there is a template for it.
+
+        Note that we don't actually change the content of the template:
+        it is copied as is.
+        """
+        version_template = 'default_version.' + self.module_extension
+        if not self.settings.default_version:
+            version_template = 'no_' + version_template
+        template_file = os.path.join(here, "templates", version_template)
+        if os.path.exists(template_file):
+            version_file = os.path.join(version_dir, ".version")
+            if not os.path.exists(version_file):
+                version_content = shpc.utils.read_file(template_file)
+                shpc.utils.write_file(version_file, version_content)
+
     def install(self, name, tag=None, **kwargs):
         """
         Given a unique resource identifier, install a recipe.
@@ -304,11 +320,8 @@ class ModuleBase(BaseClient):
         shpc.utils.mkdirp([module_dir, container_dir])
 
         # Add a .version file to indicate the level of versioning (not for tcl)
-        if self.module_extension != "tcl" and self.settings.default_version == True:
-            version_dir = os.path.join(self.settings.module_base, uri)
-            version_file = os.path.join(version_dir, ".version")
-            if not os.path.exists(version_file):
-                Path(version_file).touch()
+        version_dir = os.path.join(self.settings.module_base, uri)
+        self.write_version_file(version_dir)
 
         # For Singularity this is a path, podman is a uri. If None is returned
         # there was an error and we cleanup
