@@ -108,6 +108,17 @@
             "avatar_url": [
                 "https://avatars.githubusercontent.com/u/16343767?v=4"
             ]
+        },
+        {
+            "login": "muffato",
+            "name": "Matthieu Muffato",
+            "contributions": [
+                "code"
+            ],
+            "profile": "https://muffato.github.io",
+            "avatar_url": [
+                "https://avatars.githubusercontent.com/u/623458?v=4"
+            ]
         }
     ],
     "contributorsPerLine": 7

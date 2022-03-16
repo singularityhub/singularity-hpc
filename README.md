@@ -52,6 +52,7 @@ tool to generate a contributors graphic below.
   <tr>
     <td align="center"><a href="https://github.com/xdelaruelle"><img src="https://avatars.githubusercontent.com/u/4928853?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Xavier Delaruelle</b></sub></a><br /><a href="https://github.com/singularityhub/singularity-hpc/commits?author=xdelaruelle" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/SarahBeecroft"><img src="https://avatars.githubusercontent.com/u/16343767?v=4?s=100" width="100px;" alt=""/><br /><sub><b>SarahBeecroft</b></sub></a><br /><a href="https://github.com/singularityhub/singularity-hpc/commits?author=SarahBeecroft" title="Code">💻</a></td>
+    <td align="center"><a href="https://muffato.github.io"><img src="https://avatars.githubusercontent.com/u/623458?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Matthieu Muffato</b></sub></a><br /><a href="https://github.com/singularityhub/singularity-hpc/commits?author=muffato" title="Code">💻</a></td>
   </tr>
 </table>
 
