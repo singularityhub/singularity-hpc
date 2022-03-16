@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/arborx"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/arborx/container.yaml"
-updated_at: "2022-03-15 23:31:00.514341"
+updated_at: "2022-03-16 19:33:51.160754"
 container_url: "https://github.com/orgs/autamus/packages/container/package/arborx"
 
 versions:

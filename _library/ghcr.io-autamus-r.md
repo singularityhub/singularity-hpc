@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/r"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/r/container.yaml"
-updated_at: "2022-03-15 23:31:14.555135"
+updated_at: "2022-03-16 19:34:04.901708"
 container_url: "https://github.com/orgs/autamus/packages/container/package/r"
 aliases:
  - "R"
