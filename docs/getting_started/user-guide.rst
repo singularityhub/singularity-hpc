@@ -1093,12 +1093,21 @@ is subject to change!)
     $ shpc check tensorflow/tensorflow:2.2.2
     ⭐️ tag 2.2.2 is up to date. ⭐️
 
-As a trick, you can loop through registry entries with ``shpc show``. The return
-value will be 0 is there are no updates, and 1 otherwise. This is a trick
-we use to check for new recipes to test.
+As a trick, you can loop through registry entries with ``shpc list``. The return
+value will be 0 is there are no updates, and 1 otherwise. This is how
+we check for new recipes to test.
 
 .. code-block:: console
 
+    $ for name in $(shpc list); do
+        shpc check $name
+     done
+    ⭐️ tag 3.1.1 is up to date. ⭐️
+    ⭐️ tag 3.9.10 is up to date. ⭐️
+    ⭐️ tag latest is up to date. ⭐️
+    ⭐️ tag 1.14 is up to date. ⭐️
+    ⭐️ tag 5.5.1 is up to date. ⭐️
+    ⭐️ tag 1.54.0 is up to date. ⭐️
 
 
 Add
