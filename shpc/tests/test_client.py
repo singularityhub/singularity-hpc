@@ -162,11 +162,24 @@ def test_check(tmp_path, module_sys, container_tech):
 
 @pytest.mark.parametrize("module_sys", [("lmod"), ("tcl")])
 def test_add(tmp_path, module_sys):
-    """Test adding a custom container"""
+    """
+    Test adding a custom container
+    """
     client = init_client(str(tmp_path), module_sys, "singularity")
 
     # Create a copy of the latest image to add
     container = os.path.join(str(tmp_path), "salad_latest.sif")
     shutil.copyfile(os.path.join(here, "testdata", "salad_latest.sif"), container)
-    client.add(container, "dinosaur/salad/latest")
+    client.add(container, "dinosaur/salad:latest")
+
+    # Ensure this creates a container.yaml in the registry
+    container_yaml = os.path.join(
+        client.settings.registry[0], "dinosaur", "salad", "container.yaml"
+    )
+    assert os.path.exists(container_yaml)
+
+    # Add does not install!
+    with pytest.raises(SystemExit):
+        client.get("dinosaur/salad:latest")
+    client.install("dinosaur/salad:latest")
     assert client.get("dinosaur/salad:latest")

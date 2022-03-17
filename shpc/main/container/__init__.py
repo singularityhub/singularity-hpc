@@ -45,6 +45,9 @@ class Tags:
         if digest:
             return Tag(key, digest)
 
+    def set(self, key, value):
+        self._tags[key] = value
+
 
 class Tag:
     """
@@ -67,10 +70,11 @@ class ContainerConfig:
     A ContainerConfig wraps a container.yaml file, intended for install.
     """
 
-    def __init__(self, package_file):
+    def __init__(self, package_file, validate=True):
         """Load a package file for a container."""
         self.load(package_file)
-        self.validate()
+        if validate:
+            self.validate()
 
     def __str__(self):
         return "[container:%s]" % self.name
@@ -92,7 +96,7 @@ class ContainerConfig:
         """
         Flatten the docker uri into a filesystem appropriate name
         """
-        name = self.docker or self.oras or self.gh
+        name = self.docker or self.oras or self.gh or self.path
         return name.replace("/", "-")
 
     @property
@@ -102,6 +106,8 @@ class ContainerConfig:
         """
         from .base import ContainerName
 
+        if hasattr(self, "path") and self.path is not None:
+            return ContainerName("/".join(self.package_dir.split("/")[-2:]))
         name = self.docker or self.oras or self.gh
         return ContainerName(name)
 
@@ -111,6 +117,17 @@ class ContainerConfig:
         Return the latest tag
         """
         return self.tags.latest
+
+    def set(self, key, value):
+        """
+        Update loaded config with keys and values
+        """
+        if key not in self._config:
+            logger.warning("%s is not already defined for this container config!" % key)
+        self._config[key] = value
+
+    def add_tag(self, key, value):
+        self._config["tags"][key] = value
 
     def set_tag(self, tag):
         """
@@ -135,25 +152,54 @@ class ContainerConfig:
         Given a loaded container recipe, get the registry url.
         """
         # Not in json schema, but currently required
-        if "docker" not in self._config and "gh" not in self._config:
-            logger.exit("A docker or gh field is currently required in the config.")
-        return self._config.get("docker") or self._config.get("gh")
+        if (
+            "docker" not in self._config
+            and "gh" not in self._config
+            and "path" not in self._config
+        ):
+            logger.exit(
+                "A docker, gh, or path field is currently required in the config."
+            )
+        return (
+            self._config.get("docker")
+            or self._config.get("gh")
+            or self._config.get("path")
+        )
 
     def get(self, key, default=None):
         return self._config.get(key, default)
+
+    @property
+    def package_dir(self):
+        """
+        Get the directory of the container.yaml, for finding local containers.
+        """
+        if self.package_file:
+            return os.path.dirname(self.package_file)
 
     def get_pull_type(self):
         if self.oras:
             return "oras"
         if self.gh:
             return "gh"
-        return "docker"
+        if self.docker:
+            return "docker"
+        if self.path:
+            return self.path
+        logger.exit(
+            "Cannot identify pull type: one of oras, docker, gh, or path is required."
+        )
 
     def get_uri(self):
         """
         Return the unique resource identifier
         """
-        return getattr(self, "docker") or getattr(self, "oras") or getattr(self, "gh")
+        return (
+            getattr(self, "docker")
+            or getattr(self, "oras")
+            or getattr(self, "gh")
+            or getattr(self, "path")
+        )
 
     def __getattr__(self, key):
         """
@@ -203,9 +249,18 @@ class ContainerConfig:
             seen.add(key)
         return aliases
 
-    def load(self, package_file):
-        """Load the settings file into the settings object"""
+    def save(self, package_file):
+        """
+        Save the container.yaml to file. This is usually for shpc add.
+        """
+        yaml = YAML()
+        with open(package_file, "w") as fd:
+            yaml.dump(self._config, fd)
 
+    def load(self, package_file):
+        """
+        Load the settings file into the settings object
+        """
         # Exit quickly if the package does not exist
         if not os.path.exists(package_file):
             logger.exit("%s does not exist." % package_file)

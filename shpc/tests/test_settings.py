@@ -7,7 +7,6 @@
 # with this file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 import pytest
-import shutil
 import os
 
 from shpc.main.settings import Settings

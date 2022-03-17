@@ -53,6 +53,7 @@ echo
 echo "#### Testing add "
 runTest 0 $output shpc --settings-file $settings add --help
 runTest 0 $output shpc --settings-file $settings add "$container" salad/latest
+runTest 0 $output shpc --settings-file $settings install salad/latest
 
 echo
 echo "#### Testing install "

@@ -57,18 +57,10 @@ aliases_list = {
 }
 
 
-latest = {
-    "type": "object",
-    "minProperties": 1,
-    "maxProperties": 1,
-    "patternProperties": {
-        "\\w[\\w-]*": {"type": "string"},
-    },
-}
-
 containerConfigProperties = {
     "latest": keyvals,
     "docker": {"type": "string"},
+    "path": {"type": "string"},
     "oras": {"type": "string"},
     "gh": {"type": "string"},
     "url": {"type": "string"},

@@ -7,6 +7,7 @@ from shpc.logger import logger
 import shpc.utils as utils
 import shpc.defaults as defaults
 import shpc.main.templates
+import shpc.main.container as container
 from jinja2 import Template
 
 from datetime import datetime
@@ -19,18 +20,26 @@ import inspect
 
 here = os.path.abspath(os.path.dirname(__file__))
 
+
 class ModuleBase(BaseClient):
     def __init__(self, **kwargs):
         super(ModuleBase, self).__init__(**kwargs)
         self.here = os.path.dirname(inspect.getfile(self.__class__))
 
-    def _load_template(self, template_name):
+    def _get_template(self, template_name):
         """
-        Load the default module template.
+        Get a template from templates
         """
         template_file = os.path.join(here, "templates", template_name)
         if not os.path.exists(template_file):
             template_file = os.path.abspath(template_name)
+        return template_file
+
+    def _load_template(self, template_name):
+        """
+        Load the default module template.
+        """
+        template_file = self._get_template(template_name)
 
         # Make all substitutions here
         with open(template_file, "r") as temp:
@@ -41,7 +50,9 @@ class ModuleBase(BaseClient):
         """
         For all known identifiers, substitute user specified format strings.
         """
-        subs = {"{|module_name|}": self.settings.module_name or "{{ parsed_name.tool }}"}
+        subs = {
+            "{|module_name|}": self.settings.module_name or "{{ parsed_name.tool }}"
+        }
         for key, replacewith in subs.items():
             template = template.replace(key, replacewith)
         return template
@@ -138,14 +149,26 @@ class ModuleBase(BaseClient):
         utils.write_file(test_file, out)
         return subprocess.call(["/bin/bash", test_file])
 
-    def add(self, sif, module_name, **kwargs):
+    def add(self, image, module_name, **kwargs):
         """
-        Add a container directly as a module, copying the file.
+        Add a container to the registry to enable install.
         """
         module_name = self.add_namespace(module_name)
-        template = self._load_template(self.templatefile)
-        modulefile = os.path.join(self.settings.module_base, module_name.replace(":", os.sep), self.modulefile)
-        self.container.add(sif, module_name, modulefile, template, **kwargs)
+
+        # Assume adding to default registry
+        dest = os.path.join(
+            self.settings.registry[0], module_name.split(":")[0], "container.yaml"
+        )
+
+        # if the container.yaml already exists, use it
+        template = self._get_template("container.yaml")
+        if os.path.exists(dest):
+            logger.warning("%s already exists and will be updated!" % module_name)
+            template = dest
+
+        # Load config (but don't validate yet!)
+        config = container.ContainerConfig(template, validate=False)
+        self.container.add(module_name, image, config, container_yaml=dest, **kwargs)
 
     def get(self, module_name, env_file=False):
         """
@@ -289,8 +312,12 @@ class ModuleBase(BaseClient):
                 % (name, "\n".join(config.tags.keys()))
             )
 
-        # We currently support gh, docker, or oras
+        # We currently support gh, docker, path, or oras
         uri = config.get_uri()
+
+        # If we have a path, the URI comes from the name
+        if ".sif" in uri:
+            uri = name.split(":", 1)[0]
 
         # This is a tag object with name and digest
         tag = config.tag
@@ -301,6 +328,24 @@ class ModuleBase(BaseClient):
         container_dir = self.container.container_dir(subfolder)
         shpc.utils.mkdirp([module_dir, container_dir])
 
+        # If we have a sif URI provided by path, the container needs to exist
+        container_path = None
+        if config.path:
+            container_path = os.path.join(config.package_dir, config.path)
+            if not os.path.exists(container_path):
+                logger.exit(
+                    "Expected container defined by path %s not found in %s."
+                    % (config.path, config.package_dir)
+                )
+            container_dest = os.path.join(container_dir, config.path)
+
+            # Note that here we are *duplicating* the container, assuming we
+            # cannot use a link, and the registry won't be deleted but the
+            # module container might!
+            if not os.path.exists(container_dest):
+                shutil.copyfile(container_path, container_dest)
+            container_path = container_dest
+
         # Add a .version file to indicate the level of versioning (not for tcl)
         if self.module_extension != "tcl" and self.settings.default_version == True:
             version_dir = os.path.join(self.settings.module_base, uri)
@@ -310,9 +355,10 @@ class ModuleBase(BaseClient):
 
         # For Singularity this is a path, podman is a uri. If None is returned
         # there was an error and we cleanup
-        container_path = self.container.registry_pull(
-            module_dir, container_dir, config, tag
-        )
+        if not container_path:
+            container_path = self.container.registry_pull(
+                module_dir, container_dir, config, tag
+            )
         if not container_path:
             self._cleanup(container_dir)
             logger.exit("There was an issue pulling %s" % container_path)
@@ -324,7 +370,7 @@ class ModuleBase(BaseClient):
         # If the module has a version, overrides version
         version = tag.name
         if ":" in name:
-            name, version = name.split(':', 1)
+            name, version = name.split(":", 1)
 
         # Install the container
         self.container.install(
@@ -354,6 +400,6 @@ class ModuleBase(BaseClient):
         )
 
         if ":" not in name:
-            name = "%s:%s" %(name, tag.name)
+            name = "%s:%s" % (name, tag.name)
         logger.info("Module %s was created." % name)
         return container_path

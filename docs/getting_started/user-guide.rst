@@ -1116,17 +1116,61 @@ Add
 It might be the case that you have a container locally, and you want to
 make it available as a module (without pulling it from a registry). Although
 this is discouraged because it means you will need to manually maintain
-versions, shpc does support the "add" command to do this. You can simply provide
-the container path and the unique resource identifier:
+versions, shpc does support the "add" command to do this. The steps for adding a
+container are:
+
+1. Running ``shpc add`` to create a container.yaml in the registry namespace
+2. Customizing the container.yaml to your liking
+3. Running ``shpc install`` to formally install your new container.
+
+As an example, let's start with the container ``salad_latest.sif``. We have it
+on our local machine and cannot pull it from a registry. First, let's run ``shpc add``
+and tell shpc that we want it under the ``dinosaur/salad`` namespace.
 
 .. code-block:: console
 
-    $ shpc add salad_latest.sif vanessa/salad:latest
+    $ shpc add salad_latest.sif dinosaur/salad:latest
+    Registry entry dinosaur/salad:latest was added! Before shpc install, edit:
+    /home/vanessa/Desktop/Code/shpc/registry/dinosaur/salad/container.yaml
 
-If the unique resource identifier corresponds with a registry entry, you
-will not be allowed to create it, as this would create a namespace conflict.
-Since we don't have a configuration file to define custom aliases, the container
-will just be exposed as it's command to run it.
+At this point, you should open up the container.yaml generated and edit to your liking.
+This usually means updating the description, maintainer, aliases, and possibly providing a url
+to find more information or support. Also notice we've provided the tag to be latest. If you update this registry
+entry in the future with a new version, you'll want to provide a new tag. If you provide
+an existing tag, you'll be asked to confirm before continuing. When you are happy, 
+it's time to install it, just as you would a regular container!
+
+.. code-block:: console
+
+    $ shpc install dinosaur/salad:latest
+
+
+And this will generate the expected module and container in your respective directory bases:
+
+
+.. code-block:: console
+
+    $ tree modules/dinosaur/salad/
+    modules/dinosaur/salad/
+    └── latest
+        ├── 99-shpc.sh
+        └── module.lua
+
+    1 directory, 2 files
+
+    $ tree containers/dinosaur/salad/
+    containers/dinosaur/salad/
+    └── latest
+        └── sha256:77c7326e74d0e8b46d4e50d99e848fc950ed047babd60203e17449f5df8f39d4.sif
+
+    1 directory, 1 file
+
+And that's it! Note that ``add`` previously would add the container directly to the module
+directory, and as of version 0.0.49 it's been updated to generate the container.yaml first.
+Also note that ``add`` is only supported for Singularity, as Docker and Podman containers are 
+typically provided via registries. If you are looking for support for add for another
+container technology, please `open a new issue <https://github.com/singularityhub/singularity-hpc/issues>`_.
+
 
 Get
 ---
