@@ -1,0 +1,71 @@
+name: allcontributors-auto-detect
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  Update:
+    name: Generate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Tributors Update      
+        uses: con/tributors@run-twice
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:        
+          parsers: unset
+          update_lookup: github
+          log_level: DEBUG
+          force: true
+          threshold: 1
+          run_twice: true
+
+      - name: Checkout New Branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH_AGAINST: "main"
+        run: |
+          printf "GitHub Actor: ${GITHUB_ACTOR}\n"
+          export BRANCH_FROM="contributors/update-$(date '+%Y-%m-%d')"
+          git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+
+          BRANCH_EXISTS=$(git ls-remote --heads origin ${BRANCH_FROM})
+          if [[ -z ${BRANCH_EXISTS} ]]; then
+              printf "Branch does not exist in remote.\n"
+          else
+              printf "Branch already exists in remote.\n"
+              exit 1
+          fi
+          git branch
+          git checkout -b "${BRANCH_FROM}" || git checkout "${BRANCH_FROM}"
+          git branch
+
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@users.noreply.github.com"
+          git status
+
+          if git diff-index --quiet HEAD --; then
+             export OPEN_PULL_REQUEST=0
+             printf "No changes\n"
+          else
+             export OPEN_PULL_REQUEST=1
+             printf "Changes\n"
+             git commit -a -m "Automated deployment to update contributors $(date '+%Y-%m-%d')"
+             git push origin "${BRANCH_FROM}"
+          fi
+
+          echo "OPEN_PULL_REQUEST=${OPEN_PULL_REQUEST}" >> $GITHUB_ENV
+          echo "PULL_REQUEST_FROM_BRANCH=${BRANCH_FROM}" >> $GITHUB_ENV
+          echo "PULL_REQUEST_TITLE=[tributors] ${BRANCH_FROM}" >> $GITHUB_ENV
+          echo "PULL_REQUEST_BODY=Tributors update automated pull request." >> $GITHUB_ENV
+
+      - name: Open Pull Request
+        uses: vsoch/pull-request-action@1.0.12
+        if: ${{ env.OPEN_PULL_REQUEST == '1' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PULL_REQUEST_BRANCH: "main"
