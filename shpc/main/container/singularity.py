@@ -92,7 +92,8 @@ class SingularityContainer(ContainerTechnology):
         digest = utils.get_file_hash(image)
 
         # Cut out early if the tag isn't latest, and we already have it
-        if tag != "latest" and tag in config.tags:
+        # DO NOT call config.tags here, it will add an empty latest
+        if tag != "latest" and tag in config._config["tags"]:
             if not utils.confirm_action(
                 "Tag %s already is defined, are you sure you want to overwrite it? "
                 % tag

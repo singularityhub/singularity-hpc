@@ -6,13 +6,6 @@ url: https://singularity-hpc.readthedocs.io
 # change this to your GitHub alias (or another contact or name)
 maintainer: 'Dinosaur'
 
-# A description to describe your container
-description: A custom container to do X.
-latest:
-  latest: null
-tags:
-  latest: null
-
 # Any custom features?
 # features:
 #  gpu: true
@@ -24,3 +17,9 @@ tags:
 # custom environment variables
 # env:
 #  breakfast: pancakes
+
+# A description to describe your container
+description: A custom container to do X.
+latest:
+  latest: null
+tags: {}

@@ -108,6 +108,10 @@ class ContainerConfig:
 
         if hasattr(self, "path") and self.path is not None:
             return ContainerName("/".join(self.package_dir.split("/")[-2:]))
+
+        # A path is not set yet
+        if not self.docker and not self.oras and not self.gh:
+            return "undefined"
         name = self.docker or self.oras or self.gh
         return ContainerName(name)
 
