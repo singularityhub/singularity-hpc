@@ -105,7 +105,7 @@ class SingularityContainer(ContainerTechnology):
                 module_name, tag, image, config, container_yaml, **kwargs
             )
         else:
-            config = self._local_image(
+            config = self._add_local_image(
                 module_name, tag, image, config, container_yaml, **kwargs
             )
 
@@ -154,7 +154,7 @@ class SingularityContainer(ContainerTechnology):
         TODO need to test if different URI will work
         """
         # Container name should not have tag
-        container_name = image.replace("docker://", "")
+        container_name = image.replace("docker://", "").split(":", 1)[0]
         tags = update.get_container_tag(container_name, tag)
 
         # Update the config path and latest

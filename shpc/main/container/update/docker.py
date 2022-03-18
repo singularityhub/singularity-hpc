@@ -41,6 +41,9 @@ class DockerImage:
 
     def digest(self, tag):
         url = "%s/digest/%s:%s" % (self.apiroot, self.container_name, tag)
+        response = self.get_request(url).text
+        if "could not parse reference" in response:
+            logger.exit("Issue getting digest: %s" % response)
         return self.get_request(url).text
 
     def config(self):
