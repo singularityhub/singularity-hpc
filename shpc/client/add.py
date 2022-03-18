@@ -13,4 +13,5 @@ def main(args, parser, extra, subparser):
         module=args.module,
         container_tech=args.container_tech,
     )
-    cli.add(args.sif_path[0], args.module_id[0])
+    # If we don't have a module name, we derive from container URI
+    cli.add(args.container_uri, args.module_id)

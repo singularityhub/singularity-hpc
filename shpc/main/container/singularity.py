@@ -6,6 +6,7 @@ __license__ = "MPL 2.0"
 from shpc.logger import logger
 import shpc.utils as utils
 import shpc.main.wrappers
+import shpc.main.container.update as update
 from .base import ContainerTechnology
 
 from datetime import datetime
@@ -83,13 +84,7 @@ class SingularityContainer(ContainerTechnology):
         if ":" not in module_name:
             tag = "latest"
         else:
-            name, tag = module_name.split(":", 1)
-
-        # Ensure the sif exists
-        if not os.path.exists(image):
-            logger.exit(f"{image} does not exist.")
-
-        digest = utils.get_file_hash(image)
+            module_name, tag = module_name.split(":", 1)
 
         # Cut out early if the tag isn't latest, and we already have it
         # DO NOT call config.tags here, it will add an empty latest
@@ -99,6 +94,38 @@ class SingularityContainer(ContainerTechnology):
                 % tag
             ):
                 return
+
+        # Destination for container in registry
+        dest_dir = os.path.dirname(container_yaml)
+        utils.mkdir_p(dest_dir)
+
+        # Add a docker (or local image) and return the config
+        if image.startswith("docker://"):
+            config = self._add_docker_image(
+                module_name, tag, image, config, container_yaml, **kwargs
+            )
+        else:
+            config = self._local_image(
+                module_name, tag, image, config, container_yaml, **kwargs
+            )
+
+        # Final save of config, and tell the user we're done!
+        config.save(container_yaml)
+        logger.info(
+            "Registry entry %s was added! Before shpc install, edit:" % module_name
+        )
+        print(container_yaml)
+
+    def _add_local_image(self, name, tag, image, config, container_yaml, **kwargs):
+        """
+        A subtype of "add" that adds a local image, e.g.,:
+
+        shpc add <container.sif> <uri>
+        """
+        if not os.path.exists(image):
+            logger.exit(f"{image} does not exist.")
+
+        digest = utils.get_file_hash(image)
 
         # Destination for container in registry
         dest_dir = os.path.dirname(container_yaml)
@@ -114,15 +141,27 @@ class SingularityContainer(ContainerTechnology):
         config.add_tag(tag, container_digest)
 
         # Only copy if it's not there yet (enforces naming by hash)
-        utils.mkdir_p(dest_dir)
         if not os.path.exists(dest_container):
             shutil.copyfile(image, dest_container)
+        return config
 
-        config.save(container_yaml)
-        logger.info(
-            "Registry entry %s was added! Before shpc install, edit:" % module_name
-        )
-        print(container_yaml)
+    def _add_docker_image(self, name, tag, image, config, container_yaml, **kwargs):
+        """
+        A subtype of "add" that adds a docker URI, e.g.,:
+
+        shpc add docker://vanessa/salad
+        shpc add docker://vanessa/salad dinosaur/salad
+        TODO need to test if different URI will work
+        """
+        # Container name should not have tag
+        container_name = image.replace("docker://", "")
+        tags = update.get_container_tag(container_name, tag)
+
+        # Update the config path and latest
+        config.set("docker", container_name)
+        config.set("latest", tags)
+        config.add_tag(tag, tags[tag])
+        return config
 
     def install(
         self,

@@ -1114,14 +1114,21 @@ Add
 ---
 
 It might be the case that you have a container locally, and you want to
-make it available as a module (without pulling it from a registry). Although
-this is discouraged because it means you will need to manually maintain
-versions, shpc does support the "add" command to do this. The steps for adding a
-container are:
+make it available as a module (without pulling it from a registry). You might also
+have a container on Docker Hub that you want to contribute to the registry! 
+shpc does support the "add" command to perform both of these functions. 
+The steps for adding a container are:
 
 1. Running ``shpc add`` to create a container.yaml in the registry namespace
 2. Customizing the container.yaml to your liking
 3. Running ``shpc install`` to formally install your new container.
+
+In the case of a docker image that is public (that you can share) you are encouraged
+to contribute your recipe directly to shpc for others to use, and once in the repository
+tags will also get updated automatically. 
+
+Add a Local Container
+^^^^^^^^^^^^^^^^^^^^^
 
 As an example, let's start with the container ``salad_latest.sif``. We have it
 on our local machine and cannot pull it from a registry. First, let's run ``shpc add``
@@ -1164,6 +1171,31 @@ And this will generate the expected module and container in your respective dire
         └── sha256:77c7326e74d0e8b46d4e50d99e848fc950ed047babd60203e17449f5df8f39d4.sif
 
     1 directory, 1 file
+
+
+Add a Registry Container
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Let's say we want to generate a container.yaml recipe for a container on Docker Hub.
+Let's say we want to add `vanessa/pokemon <https://hub.docker.com/r/vanessa/pokemon>`_.
+First, let's run ``shpc add``. Note that we provide the ``docker://`` unique resource
+identifier to tell shpc it's from a Docker (OCI) registry.
+
+.. code-block:: console
+
+    $ shpc add docker://vanessa/pokemon
+    Registry entry vanessa/pokemon:latest was added! Before shpc install, edit:
+    /home/vanessa/Desktop/Code/shpc/registry/vanessa/pokemon/container.yaml
+
+
+You can also define a different namespace, although this could be confusing (and not recommended).
+
+.. code-block:: console
+
+    $ shpc add docker://vanessa/pokemon vanessa/another-pokemon
+    Registry entry vanessa/another-pokemon was added! Before shpc install, edit:
+    /home/vanessa/Desktop/Code/shpc/registry/vanessa/another-pokemon/container.yaml
+
 
 And that's it! Note that ``add`` previously would add the container directly to the module
 directory, and as of version 0.0.49 it's been updated to generate the container.yaml first.
