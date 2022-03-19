@@ -178,7 +178,15 @@ class ModuleBase(BaseClient):
         """
         if not self.settings.symlink_base:
             return
-        return os.path.join(self.settings.symlink_base, *module_dir.split(os.sep)[-2:])
+
+        symlink_base_name = os.path.join(self.settings.symlink_base, *module_dir.split(os.sep)[-2:])
+
+        # With Lmod and default_version==True, the symlinks points to module.lua itself,
+        # and its name needs to end with `.lua` too
+        if self.module_extension == "lua" and self.settings.default_version == True:
+            return symlink_base_name + ".lua"
+        else:
+            return symlink_base_name
 
     def create_symlink(self, module_dir):
         """
@@ -193,7 +201,8 @@ class ModuleBase(BaseClient):
         if not os.path.exists(symlink_dir):
             utils.mkdirp([symlink_dir])
 
-        if self.module_extension == "lua":
+        # With Lmod, default_version==False can't be made to work with symlinks at the module.lua level
+        if self.module_extension == "lua" and self.settings.default_version == False:
             symlink_target = module_dir
         else:
             symlink_target = os.path.join(module_dir, self.modulefile)

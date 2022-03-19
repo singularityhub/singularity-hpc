@@ -40,8 +40,8 @@ For each of the above, you can export:
 if not os.getenv("PODMAN_OPTS") then setenv ("PODMAN_OPTS", "") end
 if not os.getenv("PODMAN_COMMAND_OPTS") then setenv ("PODMAN_COMMAND_OPTS", "") end
 
--- directory containing this modulefile (dynamically defined)
-local moduleDir = myFileName():match("(.*[/])") or "."
+-- directory containing this modulefile, once symlinks resolved (dynamically defined)
+local moduleDir = subprocess("realpath " .. myFileName()):match("(.*[/])") or "."
 
 -- interactive shell to any container, plus exec for aliases
 local containerPath = '{{ image }}'
