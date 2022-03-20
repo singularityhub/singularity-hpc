@@ -12,3 +12,6 @@ class Client(ModuleBase):
         """
         super(Client, self).__init__(**kwargs)
         self.module_extension = "lua"
+
+        # lmod needs this file when default version is set
+        self.default_version_file = "default_version.lua"

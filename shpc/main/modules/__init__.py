@@ -19,7 +19,11 @@ import inspect
 here = os.path.abspath(os.path.dirname(__file__))
 
 class ModuleBase(BaseClient):
-    def __init__(self, **kwargs):
+    def __init__(self, **kwargs):        
+
+        # Files for module software to generate depending on user setting     
+        self.default_version_file = None
+        self.no_default_version_file = None
         super(ModuleBase, self).__init__(**kwargs)
         self.here = os.path.dirname(inspect.getfile(self.__class__))
 
@@ -35,6 +39,31 @@ class ModuleBase(BaseClient):
         with open(template_file, "r") as temp:
             template = Template(self.substitute(temp.read()))
         return template
+
+    def write_version_file(self, uri, tag):
+        """
+        Create the .version file, if there is a template for it.
+        """
+        version_dir = os.path.join(self.settings.module_base, uri)
+        version_file = os.path.join(version_dir, ".version")
+
+        # This is the first install if we have one directory (just created)
+        first_install = True if len(os.listdir(version_dir)) == 1 else False
+
+        # Case 1: we want a default version and have a file
+        template = None
+        if self.settings.default_version and self.default_version_file:
+            template = self._load_template(self.default_version_file)
+        
+        #self.settings.default_version_automatic
+        # Case 2: we don't want default versions and have a module file
+        elif not self.settings.default_version and self.no_default_version_file:
+            template = self._load_template(self.no_default_version_file)
+
+        # Render the template on first install, or automatic update enabled
+        if template and first_install or (not first_install and self.settings.default_version_automatic is True):
+            out = template.render(version=tag.name)
+            utils.write_file(version_file, out)
 
     def substitute(self, template):
         """
@@ -272,23 +301,6 @@ class ModuleBase(BaseClient):
         config = self._load_container(module_name.rsplit(":", 1)[0])
         return self.container.check(module_name, config)
 
-    def write_version_file(self, version_dir):
-        """
-        Create the .version file, if there is a template for it.
-
-        Note that we don't actually change the content of the template:
-        it is copied as is.
-        """
-        version_template = 'default_version.' + self.module_extension
-        if not self.settings.default_version:
-            version_template = 'no_' + version_template
-        template_file = os.path.join(here, "templates", version_template)
-        if os.path.exists(template_file):
-            version_file = os.path.join(version_dir, ".version")
-            if not os.path.exists(version_file):
-                version_content = shpc.utils.read_file(template_file)
-                shpc.utils.write_file(version_file, version_content)
-
     def install(self, name, tag=None, **kwargs):
         """
         Given a unique resource identifier, install a recipe.
@@ -320,8 +332,7 @@ class ModuleBase(BaseClient):
         shpc.utils.mkdirp([module_dir, container_dir])
 
         # Add a .version file to indicate the level of versioning (not for tcl)
-        version_dir = os.path.join(self.settings.module_base, uri)
-        self.write_version_file(version_dir)
+        self.write_version_file(uri, tag)
 
         # For Singularity this is a path, podman is a uri. If None is returned
         # there was an error and we cleanup

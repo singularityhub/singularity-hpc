@@ -99,9 +99,89 @@ def test_features(tmp_path, module_sys, module_file):
     assert "--nv" in content
 
 
+@pytest.mark.parametrize(
+    "automatic,default_version",
+    [(True, False), (True, True), (False, True), (False, False)],
+)
+def test_tcl_default_version(tmp_path, automatic, default_version):
+    """
+    Test tcl default versions.
+    tcl should only produce a .version file if default versions are off
+    """
+    client = init_client(str(tmp_path), "tcl", "singularity")
+
+    # Customize config settings
+    client.settings.set("default_version", default_version)
+    client.settings.set("default_version_automatic", automatic)
+
+    # Install known tag
+    client.install("python:3.9.2-alpine")
+
+    # Get paths
+    module_dir = os.path.join(client.settings.module_base, "python")
+    version_file = os.path.join(module_dir, ".version")
+
+    # tcl should exist when default_version is False
+    if not default_version:
+        assert os.path.exists(version_file)
+        content = shpc.utils.read_file(version_file)
+
+        # The first install should always have it
+        assert "3.9.2-alpine" in content
+
+        # The second install should either update or keep first depending on automatic
+        client.install("python:3.9.5-alpine")
+        content = shpc.utils.read_file(version_file)
+        if automatic:
+            assert "3.9.5-alpine" in content
+        else:
+            assert "3.9.2-alpine" in content
+
+    # If default version specified, the file should not exist
+    else:
+        assert not os.path.exists(version_file)
+
+
+@pytest.mark.parametrize(
+    "automatic,default_version",
+    [(True, False), (True, True), (False, True), (False, False)],
+)
+def test_lmod_default_version(tmp_path, automatic, default_version):
+    """
+    Test lmod (lua) default versions.
+    This should only produce an empty .version file if default versions are enabled
+    """
+    client = init_client(str(tmp_path), "lmod", "singularity")
+
+    # Customize config settings
+    client.settings.set("default_version", default_version)
+    client.settings.set("default_version_automatic", automatic)
+
+    # Install known tag
+    client.install("python:3.9.2-alpine")
+
+    # Get paths
+    module_dir = os.path.join(client.settings.module_base, "python")
+    version_file = os.path.join(module_dir, ".version")
+
+    # lmod should exist when default_version is True
+    if default_version:
+        assert os.path.exists(version_file)
+        content = shpc.utils.read_file(version_file)
+
+        # Content is always empty
+        assert content == ""
+
+    # If default version is not specified, the file should not exist
+    else:
+        assert not os.path.exists(version_file)
+
+
 @pytest.mark.parametrize("module_sys", [("lmod"), ("tcl")])
 def test_docgen(tmp_path, module_sys):
-    """Test docgen"""
+    """
+    Test docgen
+    """
     client = init_client(str(tmp_path), module_sys, "singularity")
     client.install("python:3.9.2-slim")
     out = io.StringIO()
@@ -133,7 +213,9 @@ def test_inspect(tmp_path, module_sys, container_tech):
 
 @pytest.mark.parametrize("module_sys", [("lmod"), ("tcl")])
 def test_namespace_and_show(tmp_path, module_sys):
-    """Test namespace and show"""
+    """
+    Test namespace and show
+    """
     client = init_client(str(tmp_path), module_sys, "singularity")
     client.show("vanessa/salad:latest")
 
@@ -154,7 +236,9 @@ def test_namespace_and_show(tmp_path, module_sys):
     ],
 )
 def test_check(tmp_path, module_sys, container_tech):
-    """Test check"""
+    """
+    Test check
+    """
     client = init_client(str(tmp_path), module_sys, container_tech)
     client.install("vanessa/salad:latest")
     client.check("vanessa/salad:latest")
@@ -162,7 +246,9 @@ def test_check(tmp_path, module_sys, container_tech):
 
 @pytest.mark.parametrize("module_sys", [("lmod"), ("tcl")])
 def test_add(tmp_path, module_sys):
-    """Test adding a custom container"""
+    """
+    Test adding a custom container
+    """
     client = init_client(str(tmp_path), module_sys, "singularity")
 
     # Create a copy of the latest image to add

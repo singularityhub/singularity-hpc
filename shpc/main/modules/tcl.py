@@ -12,3 +12,6 @@ class Client(ModuleBase):
         """
         super(Client, self).__init__(**kwargs)
         self.module_extension = "tcl"
+        
+        # tcl needs this file when no default version set
+        self.no_default_version_file = "default_version.tcl"

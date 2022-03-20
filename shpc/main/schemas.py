@@ -138,6 +138,7 @@ settingsProperties = {
     "config_editor": {"type": "string"},
     "environment_file": {"type": "string"},
     "default_version": {"type": "boolean"},
+    "default_version_automatic": {"type": "boolean"},
     "enable_tty": {"type": "boolean"},
     "wrapper_scripts": wrapper_scripts,
     "container_tech": {"type": "string", "enum": ["singularity", "podman", "docker"]},

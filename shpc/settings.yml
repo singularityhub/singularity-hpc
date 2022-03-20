@@ -27,8 +27,12 @@ module_base: $root_dir/modules
 # This is where you might add a prefix to your module names, if desired.
 module_name: '{{ parsed_name.tool }}'
 
-# When multiple versions are available and none requested, allow module picking one iself
+# When multiple versions are available and none requested, allow module picking one itself
 default_version: true
+
+# For tcl, set the default version to be the last installed
+# Disable this to set and manage your own default version
+default_version_automatic: true
 
 # store containers separately from module files
 # It's recommended to do this for faster loading
