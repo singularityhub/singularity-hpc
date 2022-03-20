@@ -4,7 +4,6 @@ shpc.db
 singularity_hpc.egg-info/
 env
 .env
-env
 build
 docs/_build
 release
@@ -15,6 +14,6 @@ __pycache__
 *.simg
 *.sif
 *.img
-.eggs
-modules
-symlinks
+/.eggs
+/symlinks
+/modules
