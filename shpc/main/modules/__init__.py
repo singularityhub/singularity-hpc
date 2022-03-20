@@ -18,6 +18,7 @@ import inspect
 
 here = os.path.abspath(os.path.dirname(__file__))
 
+
 class ModuleBase(BaseClient):
     def __init__(self, **kwargs):
         super(ModuleBase, self).__init__(**kwargs)
@@ -40,7 +41,9 @@ class ModuleBase(BaseClient):
         """
         For all known identifiers, substitute user specified format strings.
         """
-        subs = {"{|module_name|}": self.settings.module_name or "{{ parsed_name.tool }}"}
+        subs = {
+            "{|module_name|}": self.settings.module_name or "{{ parsed_name.tool }}"
+        }
         for key, replacewith in subs.items():
             template = template.replace(key, replacewith)
         return template
@@ -146,7 +149,9 @@ class ModuleBase(BaseClient):
         """
         module_name = self.add_namespace(module_name)
         template = self._load_template(self.templatefile)
-        modulefile = os.path.join(self.settings.module_base, module_name.replace(":", os.sep), self.modulefile)
+        modulefile = os.path.join(
+            self.settings.module_base, module_name.replace(":", os.sep), self.modulefile
+        )
         self.container.add(sif, module_name, modulefile, template, **kwargs)
 
     def get(self, module_name, env_file=False):
@@ -191,7 +196,7 @@ class ModuleBase(BaseClient):
     def create_symlink(self, module_dir):
         """
         Create the symlink if desired by the user!
-        """        
+        """
         symlink_path = self.get_symlink_path(module_dir)
         if os.path.exists(symlink_path):
             os.unlink(symlink_path)
@@ -221,9 +226,10 @@ class ModuleBase(BaseClient):
         """
         # Get the symlink path - does it exist?
         symlink_path = self.get_symlink_path(module_dir)
-        if os.path.exists(symlink_path) and not utils.confirm_action('%s already exists, are you sure you want to overwrite?' % symlink_path):
-            sys.exit(0)        
-
+        if os.path.exists(symlink_path) and not utils.confirm_action(
+            "%s already exists, are you sure you want to overwrite?" % symlink_path
+        ):
+            sys.exit(0)
 
     def _cleanup_symlink(self, module_dir):
         """
@@ -232,7 +238,7 @@ class ModuleBase(BaseClient):
         symlinked_module = self.get_symlink_path(module_dir)
         if not symlinked_module:
             return
-        if os.path.exists(symlinked_module) and os.path.islink(symlinked_module): 
+        if os.path.exists(symlinked_module) and os.path.islink(symlinked_module):
             os.unlink(symlinked_module)
 
         # Clean up directories that become empty
@@ -244,7 +250,7 @@ class ModuleBase(BaseClient):
         files = os.listdir(parent_dir)
         if len(files) == 0 or (len(files) == 1 and files[0] == ".version"):
             shutil.rmtree(parent_dir)
-         
+
     def docgen(self, module_name, out=None):
         """
         Render documentation for a module.
@@ -422,7 +428,7 @@ class ModuleBase(BaseClient):
         # If the module has a version, overrides version
         version = tag.name
         if ":" in name:
-            name, version = name.split(':', 1)
+            name, version = name.split(":", 1)
 
         # Install the container
         self.container.install(
@@ -452,7 +458,7 @@ class ModuleBase(BaseClient):
         )
 
         if ":" not in name:
-            name = "%s:%s" %(name, tag.name)
+            name = "%s:%s" % (name, tag.name)
         logger.info("Module %s was created." % name)
 
         if symlink:
