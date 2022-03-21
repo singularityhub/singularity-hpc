@@ -4,7 +4,6 @@ __license__ = "MPL 2.0"
 
 from shpc.main.modules import ModuleBase
 import shpc.utils as utils
-import os
 
 class Client(ModuleBase):
     def __init__(self, **kwargs):
