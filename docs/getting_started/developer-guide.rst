@@ -629,7 +629,7 @@ use is the following:
  - For each of latest and tags, add new version information
 
 
-.. _getting_started-develpoment-version-files:
+.. _getting_started-development-version-files:
 
 Version Files
 =============
