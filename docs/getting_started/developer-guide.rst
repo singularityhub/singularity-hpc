@@ -257,7 +257,7 @@ For these global scripts, the user can select to use it in their settings.yaml.
 We will eventually write a command to list global wrappers available, so if you add a new one future users will know
 about it. For alias wrapper scripts, the following variables are passed for rendering:
 
-.. list-table:: Title
+.. list-table:: Wrapper Script Variables
    :widths: 15 15 40 30
    :header-rows: 1
 
@@ -306,7 +306,7 @@ If you want to write a custom container.yaml script:
 
 The following variables are passed for rendering.
 
-.. list-table:: Title
+.. list-table:: Container YAML Alias Variables
    :widths: 15 15 40 30
    :header-rows: 1
 
@@ -523,7 +523,7 @@ Registry Yaml Fields
 
 Fields include:
 
-.. list-table:: Title
+.. list-table:: Registry YAML Fields
    :widths: 25 65 10
    :header-rows: 1
 
@@ -571,7 +571,7 @@ A complete table of features is shown here. The
 
 Fields include:
 
-.. list-table:: Title
+.. list-table:: Features
    :widths: 20 20 20 10 10 10
    :header-rows: 1
 
@@ -628,6 +628,36 @@ use is the following:
  - If latest is defined and a version string can be parsed, update latest
  - For each of latest and tags, add new version information
 
+
+.. _getting_started-develpoment-version-files:
+
+Version Files
+=============
+
+The way that we define default versions for each of lmod and tcl is complicated enough that it is worth
+generating a table to show you! If you see a way to improve upon our current implementation, please let us know.
+Note that for the below, "automatic" refers to the setting ``default_version_automatic``, saying you want
+shpc to automatically update any default version files, and "default_version"
+refers to the ``default_version`` version setting, saying you want shpc to create and update a default version file.
+
+.. list-table:: Version File Logic
+   :widths: 20 20 20 20
+   :header-rows: 1
+
+   * - default_version
+     - false
+     - true but not automatic
+     - true and automatic
+   * - Lmod
+     - No .version file
+     - empty .version file, or .version file with a dummy non-matching string
+     - non-empty .version file, with a version number that exists
+   * - TCL
+     - .version file with a dummy non-matching string
+     - No .version file
+     - non-empty .version file, with a version number that exists
+
+In the case of a "dummy non-matching string" you could set something like ``please_specify_a_version_number``.
 
 .. _getting_started-development:
 
