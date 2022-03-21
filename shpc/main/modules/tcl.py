@@ -22,7 +22,7 @@ class Client(ModuleBase):
         version_dir = os.path.join(self.settings.module_base, uri)
         version_file = os.path.join(version_dir, ".version")
 
-        # Case 1: no default version - generate a dummy empty file
+        # Case 1: no default version - generate a file with a non-existent version number
         if not self.settings.default_version:
             template = self._load_template("default_version")
             utils.write_file(version_file, template.render())
