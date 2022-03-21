@@ -121,8 +121,20 @@ def test_tcl_default_version(tmp_path, automatic, default_version):
     module_dir = os.path.join(client.settings.module_base, "python")
     version_file = os.path.join(module_dir, ".version")
 
-    # tcl should exist when default_version is False
+    # tcl dummy file should exist when default_version is False
     if not default_version:
+        assert os.path.exists(version_file)
+        content = shpc.utils.read_file(version_file)
+
+        # The first install should always have it
+        assert "please_specify_a_version_number" in content
+
+    # If default version specified, the file should exist
+    elif default_version and not automatic:
+        assert not os.path.exists(version_file)
+
+    # default version and automatic updates file
+    else:
         assert os.path.exists(version_file)
         content = shpc.utils.read_file(version_file)
 
@@ -136,10 +148,6 @@ def test_tcl_default_version(tmp_path, automatic, default_version):
             assert "3.9.5-alpine" in content
         else:
             assert "3.9.2-alpine" in content
-
-    # If default version specified, the file should not exist
-    else:
-        assert not os.path.exists(version_file)
 
 
 @pytest.mark.parametrize(
@@ -169,8 +177,11 @@ def test_lmod_default_version(tmp_path, automatic, default_version):
         assert os.path.exists(version_file)
         content = shpc.utils.read_file(version_file)
 
-        # Content is always empty
-        assert content == ""
+        # Version is specified with automatic, otherwise empty
+        if not automatic:
+            assert content == ""
+        else:
+            assert "3.9.2-alpine" in content
 
     # If default version is not specified, the file should not exist
     else:

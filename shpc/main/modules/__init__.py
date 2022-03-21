@@ -22,8 +22,6 @@ class ModuleBase(BaseClient):
     def __init__(self, **kwargs):        
 
         # Files for module software to generate depending on user setting     
-        self.default_version_file = None
-        self.no_default_version_file = None
         super(ModuleBase, self).__init__(**kwargs)
         self.here = os.path.dirname(inspect.getfile(self.__class__))
 
@@ -39,31 +37,6 @@ class ModuleBase(BaseClient):
         with open(template_file, "r") as temp:
             template = Template(self.substitute(temp.read()))
         return template
-
-    def write_version_file(self, uri, tag):
-        """
-        Create the .version file, if there is a template for it.
-        """
-        version_dir = os.path.join(self.settings.module_base, uri)
-        version_file = os.path.join(version_dir, ".version")
-
-        # This is the first install if we have one directory (just created)
-        first_install = True if len(os.listdir(version_dir)) == 1 else False
-
-        # Case 1: we want a default version and have a file
-        template = None
-        if self.settings.default_version and self.default_version_file:
-            template = self._load_template(self.default_version_file)
-        
-        #self.settings.default_version_automatic
-        # Case 2: we don't want default versions and have a module file
-        elif not self.settings.default_version and self.no_default_version_file:
-            template = self._load_template(self.no_default_version_file)
-
-        # Render the template on first install, or automatic update enabled
-        if template and first_install or (not first_install and self.settings.default_version_automatic is True):
-            out = template.render(version=tag.name)
-            utils.write_file(version_file, out)
 
     def substitute(self, template):
         """
