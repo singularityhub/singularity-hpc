@@ -137,8 +137,15 @@ settingsProperties = {
     "module_name": {"type": "string"},
     "config_editor": {"type": "string"},
     "environment_file": {"type": "string"},
-    "default_version": {"type": "boolean"},
-    "default_version_automatic": {"type": "boolean"},
+    "default_version": {
+        "oneOf": [
+            {"type": ["null", "boolean"]},
+            {
+                "type": "string",
+                "enum": ["sys_module", "last_installed", "first_installed"],
+            },
+        ]
+    },
     "enable_tty": {"type": "boolean"},
     "wrapper_scripts": wrapper_scripts,
     "container_tech": {"type": "string", "enum": ["singularity", "podman", "docker"]},

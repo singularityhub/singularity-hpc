@@ -356,3 +356,50 @@ class ModuleBase(BaseClient):
             name = "%s:%s" %(name, tag.name)
         logger.info("Module %s was created." % name)
         return container_path
+
+    # Module software can choose how to handle each of these cases
+    def _no_default_version(self, version_file, tag):
+        return
+    def _sys_module_default_version(self, version_file, tag):
+        return
+
+    def _default_version_last_installed(self, version_file, tag):
+        """
+        Always update the version file to reference the version last installed
+        """
+        template = self._load_template("default_version")
+        utils.write_file(version_file, template.render(version=tag.name))
+
+    def _default_version_first_installed(self, version_file, tag):
+        """
+        Only update if version is first installed.
+        """
+        version_dir = os.path.dirname(version_file)
+        first_installed = True if len(os.listdir(version_dir)) == 1 else False 
+
+        if not first_installed:
+            return 
+        template = self._load_template("default_version")
+        utils.write_file(version_file, template.render(version=tag.name))
+
+    def write_version_file(self, uri, tag):
+        """
+        Create the .version file, if there is a template for it.
+        """
+        version_dir = os.path.join(self.settings.module_base, uri)
+        version_file = os.path.join(version_dir, ".version")
+
+        # No default versions
+        if self.settings.default_version in [False, None]:
+            self._no_default_version(version_file, tag)
+        
+        # allow the module software to control versions
+        elif self.settings.default_version in [True, "sys_module"]:
+            self._sys_module_default_version(version_file, tag)
+
+        # First or last installed
+        elif self.settings.default_version == "last_installed":
+            self._default_version_last_installed(version_file, tag)
+
+        elif self.settings.default_version == "first_installed":
+            self._default_version_first_installed(version_file, tag)

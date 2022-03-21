@@ -100,19 +100,22 @@ def test_features(tmp_path, module_sys, module_file):
 
 
 @pytest.mark.parametrize(
-    "automatic,default_version",
-    [(True, False), (True, True), (False, True), (False, False)],
+    "default_version",
+    [True, False, "sys_module", None, "first_installed", "last_installed"],
 )
-def test_tcl_default_version(tmp_path, automatic, default_version):
+def test_tcl_default_version(tmp_path, default_version):
     """
     Test tcl default versions.
-    tcl should only produce a .version file if default versions are off
+
+    True or sys_module: no .version file
+    False or None: .version file with faux number
+    first_installed: we maintain first installed version number
+    last_installed: version is updated to last installed
     """
     client = init_client(str(tmp_path), "tcl", "singularity")
 
     # Customize config settings
     client.settings.set("default_version", default_version)
-    client.settings.set("default_version_automatic", automatic)
 
     # Install known tag
     client.install("python:3.9.2-alpine")
@@ -121,49 +124,48 @@ def test_tcl_default_version(tmp_path, automatic, default_version):
     module_dir = os.path.join(client.settings.module_base, "python")
     version_file = os.path.join(module_dir, ".version")
 
-    # tcl dummy file should exist when default_version is False
-    if not default_version:
-        assert os.path.exists(version_file)
-        content = shpc.utils.read_file(version_file)
-
-        # The first install should always have it
-        assert "please_specify_a_version_number" in content
-
-    # If default version specified, the file should exist
-    elif default_version and not automatic:
+    if default_version in ["sys_module", True]:
         assert not os.path.exists(version_file)
 
-    # default version and automatic updates file
-    else:
+    elif default_version in [False, None]:
         assert os.path.exists(version_file)
         content = shpc.utils.read_file(version_file)
+        assert "please_specify_a_version_number" in content
 
-        # The first install should always have it
+    elif default_version == "first_installed":
+        assert os.path.exists(version_file)
+        content = shpc.utils.read_file(version_file)
         assert "3.9.2-alpine" in content
-
-        # The second install should either update or keep first depending on automatic
         client.install("python:3.9.5-alpine")
         content = shpc.utils.read_file(version_file)
-        if automatic:
-            assert "3.9.5-alpine" in content
-        else:
-            assert "3.9.2-alpine" in content
+        assert "3.9.2-alpine" in content
+
+    elif default_version == "last_installed":
+        assert os.path.exists(version_file)
+        content = shpc.utils.read_file(version_file)
+        assert "3.9.2-alpine" in content
+        client.install("python:3.9.5-alpine")
+        content = shpc.utils.read_file(version_file)
+        assert "3.9.5-alpine" in content
 
 
 @pytest.mark.parametrize(
-    "automatic,default_version",
-    [(True, False), (True, True), (False, True), (False, False)],
+    "default_version",
+    [True, False, "sys_module", None, "first_installed", "last_installed"],
 )
-def test_lmod_default_version(tmp_path, automatic, default_version):
+def test_lmod_default_version(tmp_path, default_version):
     """
     Test lmod (lua) default versions.
-    This should only produce an empty .version file if default versions are enabled
+
+    True or sys_module: file with non-existent version number
+    False or None: no .version file
+    first_installed: we maintain first installed version number
+    last_installed: version is updated to last installed
     """
     client = init_client(str(tmp_path), "lmod", "singularity")
 
     # Customize config settings
     client.settings.set("default_version", default_version)
-    client.settings.set("default_version_automatic", automatic)
 
     # Install known tag
     client.install("python:3.9.2-alpine")
@@ -172,20 +174,29 @@ def test_lmod_default_version(tmp_path, automatic, default_version):
     module_dir = os.path.join(client.settings.module_base, "python")
     version_file = os.path.join(module_dir, ".version")
 
-    # lmod should exist when default_version is True
-    if default_version:
+    if default_version in ["sys_module", True]:
         assert os.path.exists(version_file)
         content = shpc.utils.read_file(version_file)
+        assert "please_specify_a_version_number" in content
 
-        # Version is specified with automatic, otherwise empty
-        if not automatic:
-            assert content == ""
-        else:
-            assert "3.9.2-alpine" in content
-
-    # If default version is not specified, the file should not exist
-    else:
+    elif default_version in [False, None]:
         assert not os.path.exists(version_file)
+
+    elif default_version == "first_installed":
+        assert os.path.exists(version_file)
+        content = shpc.utils.read_file(version_file)
+        assert "3.9.2-alpine" in content
+        client.install("python:3.9.5-alpine")
+        content = shpc.utils.read_file(version_file)
+        assert "3.9.2-alpine" in content
+
+    elif default_version == "last_installed":
+        assert os.path.exists(version_file)
+        content = shpc.utils.read_file(version_file)
+        assert "3.9.2-alpine" in content
+        client.install("python:3.9.5-alpine")
+        content = shpc.utils.read_file(version_file)
+        assert "3.9.5-alpine" in content
 
 
 @pytest.mark.parametrize("module_sys", [("lmod"), ("tcl")])

@@ -14,22 +14,12 @@ class Client(ModuleBase):
         super(Client, self).__init__(**kwargs)
         self.module_extension = "lua"
 
-    def write_version_file(self, uri, tag):
+    def _sys_module_default_version(self, version_file, tag):
         """
-        Create the .version file, if there is a template for it.
+        default version (default version in sys_module or True).
+        We generate a file with a non-existent version number.
         """
-        version_dir = os.path.join(self.settings.module_base, uri)
-        version_file = os.path.join(version_dir, ".version")
+        template = self._load_template("default_version")
+        utils.write_file(version_file, template.render())
 
-        # Case 1: no default version
-        if not self.settings.default_version:
-            return
-
-        # Case 2: default version with automatic version updates
-        if self.settings.default_version and self.settings.default_version_automatic is True:
-            template = self._load_template("default_version")
-            utils.write_file(version_file, template.render(version=tag.name))
-
-        # Case 3: default version but not automatic updates, Write an empty file
-        elif self.settings.default_version and self.settings.default_version_automatic is False:            
-            utils.write_file(version_file, "")
+     # LMOD False or null, don't generate a .version file

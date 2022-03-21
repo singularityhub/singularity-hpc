@@ -14,21 +14,13 @@ class Client(ModuleBase):
         """
         super(Client, self).__init__(**kwargs)
         self.module_extension = "tcl"
-                
-    def write_version_file(self, uri, tag):
-        """
-        Create the .version file, if there is a template for it.
-        """
-        version_dir = os.path.join(self.settings.module_base, uri)
-        version_file = os.path.join(version_dir, ".version")
 
-        # Case 1: no default version - generate a file with a non-existent version number
-        if not self.settings.default_version:
-            template = self._load_template("default_version")
-            utils.write_file(version_file, template.render())
-        
-        # Case 2: default version but not automatic update (no version file, skip)
-        # Case 3: default version and automatic update
-        elif self.settings.default_version and self.settings.default_version_automatic is True:
-            template = self._load_template("default_version")
-            utils.write_file(version_file, template.render(version=tag.name))
+    def _no_default_version(self, version_file, tag):
+        """
+        No default version (default version in False or None).
+        We generate a file with a non-existent version number.
+        """
+        template = self._load_template("default_version")
+        utils.write_file(version_file, template.render())
+
+     # TCL sys_module or True default version, don't generate a .version file

@@ -629,36 +629,6 @@ use is the following:
  - For each of latest and tags, add new version information
 
 
-.. _getting_started-development-version-files:
-
-Version Files
-=============
-
-The way that we define default versions for each of lmod and tcl is complicated enough that it is worth
-generating a table to show you! If you see a way to improve upon our current implementation, please let us know.
-Note that for the below, "automatic" refers to the setting ``default_version_automatic``, saying you want
-shpc to automatically update any default version files, and "default_version"
-refers to the ``default_version`` version setting, saying you want shpc to create and update a default version file.
-
-.. list-table:: Version File Logic
-   :widths: 20 20 20 20
-   :header-rows: 1
-
-   * - default_version
-     - false
-     - true but not automatic
-     - true and automatic
-   * - Lmod
-     - No .version file
-     - empty .version file, or .version file with a dummy non-matching string
-     - non-empty .version file, with a version number that exists
-   * - TCL
-     - .version file with a dummy non-matching string
-     - No .version file
-     - non-empty .version file, with a version number that exists
-
-In the case of a "dummy non-matching string" you could set something like ``please_specify_a_version_number``.
-
 .. _getting_started-development:
 
 Development or Testing
