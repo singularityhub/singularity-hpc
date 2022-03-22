@@ -3,23 +3,22 @@ layout: container
 name:  "tensorflow/tensorflow"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/tensorflow/tensorflow/container.yaml"
-updated_at: "2022-03-22 12:57:25.691538"
+updated_at: "2022-03-22 13:19:13.785340"
 container_url: "https://hub.docker.com/r/tensorflow/tensorflow"
 aliases:
  - "python"
 
 versions:
- - "2.2.2"
  - "2.5.0-custom-op-gpu-ubuntu16"
  - "2.5.0rc0-gpu-jupyter"
  - "2.6.0"
  - "2.6.0rc0-gpu-jupyter"
  - "2.7.0"
  - "2.7.0rc0"
- - "2.7.1-gpu"
  - "2.8.0"
  - "2.8.0rc0"
  - "latest-gpu"
+ - "2.7.1-gpu"
 description: "An end-to-end open source platform for machine learning."
 ---
 
@@ -35,7 +34,7 @@ $ shpc install tensorflow/tensorflow
 Or a specific version:
 
 ```bash
-$ shpc install tensorflow/tensorflow:2.2.2
+$ shpc install tensorflow/tensorflow:2.5.0-custom-op-gpu-ubuntu16
 ```
 
 And then you can tell lmod about your modules folder:
@@ -47,8 +46,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load tensorflow/tensorflow/2.2.2
-$ module help tensorflow/tensorflow/2.2.2
+$ module load tensorflow/tensorflow/2.5.0-custom-op-gpu-ubuntu16
+$ module help tensorflow/tensorflow/2.5.0-custom-op-gpu-ubuntu16
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
