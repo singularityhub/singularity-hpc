@@ -19,7 +19,7 @@ import inspect
 here = os.path.abspath(os.path.dirname(__file__))
 
 class ModuleBase(BaseClient):
-    def __init__(self, **kwargs):        
+    def __init__(self, **kwargs):
 
         # Files for module software to generate depending on user setting     
         super(ModuleBase, self).__init__(**kwargs)
