@@ -366,8 +366,8 @@ Default Version
 The default version setting is there to support you telling shpc how you want module versions to be selected.
 There are four options:
 
- - ``sys_module``: allow the module software to choose (true also supported for backwards compatibility)
- - ``null`` do not set any kind of default version, it will be manually controlled by the installer (false also supported for backwards compatibility)
+ - ``null`` do not set any kind of default version, it will be manually controlled by the installer (``false`` also supported for backwards compatibility)
+ - ``sys_module``: allow the module software to choose (``true`` also supported for backwards compatibility)
  - ``last_installed``: always set default version to the last version installed
  - ``first_installed``: only set default version for the first installed
 
