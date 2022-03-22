@@ -3,7 +3,7 @@ layout: container
 name:  "nvcr.io/hpc/gromacs"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/nvcr.io/hpc/gromacs/container.yaml"
-updated_at: "2022-03-17 00:59:00.416756"
+updated_at: "2022-03-22 12:58:35.553573"
 container_url: "https://ngc.nvidia.com/catalog/containers/hpc:gromacs/tags"
 aliases:
  - "python"

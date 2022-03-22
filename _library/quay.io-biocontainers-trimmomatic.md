@@ -3,7 +3,7 @@ layout: container
 name:  "quay.io/biocontainers/trimmomatic"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/trimmomatic/container.yaml"
-updated_at: "2022-03-17 00:58:04.952292"
+updated_at: "2022-03-22 12:57:33.400560"
 container_url: "https://quay.io/repository/biocontainers/trimmomatic"
 aliases:
  - "trimmomatic"

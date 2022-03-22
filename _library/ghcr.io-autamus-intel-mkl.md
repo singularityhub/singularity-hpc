@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/intel-mkl"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/intel-mkl/container.yaml"
-updated_at: "2022-03-17 00:58:40.811447"
+updated_at: "2022-03-22 12:58:13.840425"
 container_url: "https://github.com/orgs/autamus/packages/container/package/intel-mkl"
 
 versions:

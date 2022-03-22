@@ -3,7 +3,7 @@ layout: container
 name:  "quay.io/biocontainers/velvet"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/velvet/container.yaml"
-updated_at: "2022-03-17 00:58:00.920227"
+updated_at: "2022-03-22 12:57:28.873910"
 container_url: "https://quay.io/repository/biocontainers/velvet"
 aliases:
  - "velvetg"
