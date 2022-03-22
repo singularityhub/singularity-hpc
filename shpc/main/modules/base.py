@@ -153,13 +153,13 @@ class ModuleBase(BaseClient):
         """
         Add a container to the registry to enable install.
         """
-        # If we don't have a module name, we require docker uri
-        if not module_name and not image.startswith("docker"):
-            logger.exit(
-                "You must provide a module name unless you are adding a docker:// image."
-            )
-        if not module_name:
+        # Docker module name is always the same namespace as the image
+        if image.startswith("docker"):
             module_name = image.replace("docker://", "")
+
+        # If we still dont' have a module name and not docker, no go
+        if not module_name:
+            logger.exit("A module name is required to add an image.")
         module_name = self.add_namespace(module_name)
 
         # Assume adding to default registry
