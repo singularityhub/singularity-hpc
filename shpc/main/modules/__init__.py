@@ -360,6 +360,7 @@ class ModuleBase(BaseClient):
     # Module software can choose how to handle each of these cases
     def _no_default_version(self, version_file, tag):
         return
+ 
     def _sys_module_default_version(self, version_file, tag):
         return
 
