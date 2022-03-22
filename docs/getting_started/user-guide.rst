@@ -132,7 +132,7 @@ take preference over this one as follows:
 
 .. code-block:: console
 
-    $ shpc config userinit
+    $ shpc config inituser
 
 
 When you create a user settings file (or provide a custom settings file one off to
