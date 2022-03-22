@@ -3,7 +3,7 @@ layout: container
 name:  "quay.io/biocontainers/bracken"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/bracken/container.yaml"
-updated_at: "2022-03-22 13:19:22.035158"
+updated_at: "2022-03-22 13:21:03.110638"
 container_url: "https://quay.io/repository/biocontainers/bracken"
 aliases:
  - "bracken"

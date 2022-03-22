@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/upcxx"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/upcxx/container.yaml"
-updated_at: "2022-03-22 13:20:30.818317"
+updated_at: "2022-03-22 13:22:08.105736"
 container_url: "https://github.com/orgs/autamus/packages/container/package/upcxx"
 aliases:
  - "upcxx"

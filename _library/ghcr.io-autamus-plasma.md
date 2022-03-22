@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/plasma"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/plasma/container.yaml"
-updated_at: "2022-03-22 13:20:04.126286"
+updated_at: "2022-03-22 13:21:44.463839"
 container_url: "https://github.com/orgs/autamus/packages/container/package/plasma"
 aliases:
  - "plasmatest"
