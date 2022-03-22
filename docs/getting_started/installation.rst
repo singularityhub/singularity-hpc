@@ -80,7 +80,7 @@ variables in the config:
 .. code-block:: console
  
 
-    $ shpc config set registry:/<DIR>
+    $ shpc config add registry:/<DIR>
     $ shpc config set module_base:/<DIR> 
     $ shpc config set container_base:/<DIR> 
 
