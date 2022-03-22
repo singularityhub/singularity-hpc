@@ -50,9 +50,15 @@ runTest 0 $output shpc --settings-file $settings show
 runTest 0 $output shpc --settings-file $settings show python
 
 echo
-echo "#### Testing add "
+echo "#### Testing add local "
 runTest 0 $output shpc --settings-file $settings add --help
 runTest 0 $output shpc --settings-file $settings add "$container" salad/latest
+runTest 0 $output shpc --settings-file $settings install salad/latest
+
+echo
+echo "#### Testing add docker "
+runTest 0 $output shpc --settings-file $settings add docker://vanessa/pokemon
+runTest 0 $output shpc --settings-file $settings install vanessa/pokemon
 
 echo
 echo "#### Testing install "
