@@ -178,7 +178,7 @@ variable replacement. A summary table of variables is included below, and then f
      - a timestamp to keep track of when you last saved
      - never
    * - default_version
-     - Should a default version will be used?
+     - Should a default version be used?
      - sys_module
    * - singularity_module
      - if defined, add to module script to load this Singularity module first
