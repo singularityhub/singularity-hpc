@@ -8,6 +8,7 @@ import shpc.utils as utils
 import shpc.defaults as defaults
 import shpc.main.templates
 from jinja2 import Template
+from operator import itemgetter
 
 from datetime import datetime
 import os
@@ -112,10 +113,17 @@ class ModuleBase(BaseClient):
                 logger.info("%s and all subdirectories been removed." % name)
 
         elif os.path.exists(module_dir) and force:
-            shutil.rmtree(module_dir)
+            self._cleanup(module_dir)
             logger.info("%s and all subdirectories have been removed." % name)
         else:
             logger.info("%s does not exist." % name)
+
+        # parent of versioned directory has module .version
+        module_dir = os.path.dirname(module_dir)
+
+        # update the default version file, if other versions still present
+        if os.path.exists(module_dir):
+            self.update_version_file(module_dir)
 
     def _test_setup(self, tmpdir):
         """
@@ -305,7 +313,7 @@ class ModuleBase(BaseClient):
         shpc.utils.mkdirp([module_dir, container_dir])
 
         # Add a .version file to indicate the level of versioning (not for tcl)
-        self.write_version_file(uri, tag)
+        self.write_version_file(uri, tag.name)
 
         # For Singularity this is a path, podman is a uri. If None is returned
         # there was an error and we cleanup
@@ -368,21 +376,22 @@ class ModuleBase(BaseClient):
         Always update the version file to reference the version last installed
         """
         template = self._load_template("default_version")
-        utils.write_file(version_file, template.render(version=tag.name))
+        utils.write_file(version_file, template.render(version=tag))
 
-    def _default_version_first_installed(self, version_file, tag):
+    def _default_version_first_installed(self, version_file, tag, default_choice=False):
         """
         Only update if version is first installed.
+        Allow the default choice to be tweaked in case we want to force it.
         """
         version_dir = os.path.dirname(version_file)
-        first_installed = True if len(os.listdir(version_dir)) == 1 else False 
+        first_installed = True if len(os.listdir(version_dir)) == 1 else default_choice 
 
         if not first_installed:
             return 
         template = self._load_template("default_version")
-        utils.write_file(version_file, template.render(version=tag.name))
+        utils.write_file(version_file, template.render(version=tag))
 
-    def write_version_file(self, uri, tag):
+    def write_version_file(self, uri, tag, default_choice=False):
         """
         Create the .version file, if there is a template for it.
         """
@@ -402,4 +411,35 @@ class ModuleBase(BaseClient):
             self._default_version_last_installed(version_file, tag)
 
         elif self.settings.default_version == "first_installed":
-            self._default_version_first_installed(version_file, tag)
+            self._default_version_first_installed(version_file, tag, default_choice)
+
+    def update_version_file(self, version_dir):
+        """
+        Given a module directory, update the version file.
+        """
+        # The module directory has the version (which is deleted)
+        version_file = os.path.join(version_dir, ".version")
+        
+        # If a version file doesn't exist, nothing to update
+        if not os.path.exists(version_file):
+            return
+
+        found = [x for x in os.listdir(version_dir) if x != ".version"]
+        uri = os.path.basename(version_dir) 
+
+        # Only one result, present we just installed it
+        if len(found) == 1: 
+            return self.write_version_file(uri, found[0]) 
+            
+        # Use filesystem dates to derive a tag for the last installed
+        dates = [[utils.creation_date(os.path.join(version_dir, x)), x] for x in found]
+        
+        # Sort based on wanting last installed (later time) or first (earliest)
+        reverse = False if self.settings.default_version == "first_installed" else True
+
+        # reverse True, latest -> earliest (return latest) otherwise return earliest
+        dates = sorted(dates, key=itemgetter(0), reverse=reverse)
+        tag = dates[0][1]
+        
+        # default_choice says to force saying it's the first even if not
+        return self.write_version_file(uri, tag, default_choice=True)

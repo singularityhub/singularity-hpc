@@ -5,13 +5,24 @@ __license__ = "MPL 2.0"
 import hashlib
 import errno
 import os
-import stat
 import re
 import shutil
+import stat
 import tempfile
 
 import json
 from shpc.logger import logger
+
+
+def creation_date(filename):
+    """
+    Get the creation date, and fallback to modified date.
+    """
+    stat = os.stat(filename)
+    try:
+        return stat.st_birthtime
+    except AttributeError:
+        return stat.st_mtime
 
 
 def mkdirp(dirnames):
