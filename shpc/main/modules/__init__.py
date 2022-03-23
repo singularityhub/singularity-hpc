@@ -20,7 +20,7 @@ import inspect
 here = os.path.abspath(os.path.dirname(__file__))
 
 class ModuleBase(BaseClient):
-    def __init__(self, **kwargs):        
+    def __init__(self, **kwargs):
 
         # Files for module software to generate depending on user setting     
         super(ModuleBase, self).__init__(**kwargs)
@@ -368,6 +368,7 @@ class ModuleBase(BaseClient):
     # Module software can choose how to handle each of these cases
     def _no_default_version(self, version_file, tag):
         return
+ 
     def _sys_module_default_version(self, version_file, tag):
         return
 
