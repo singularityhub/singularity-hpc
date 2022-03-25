@@ -14,16 +14,17 @@ import json
 from shpc.logger import logger
 
 
-def can_be_deleted(path):
+def can_be_deleted(path, ignore_files=None):
     """
     A path can be deleted if it contains no entries, *or*
-    if the only entry is '.version'
+    if the only files are in ignore_files
     """
+    ignore_files = ignore_files or []
     if os.path.exists(path):
         entries = os.listdir(path)
         if not entries:
             return True
-        if entries == [".version"]:
+        if set(ignore_files).issuperset(entries):
             return True
     return False
 

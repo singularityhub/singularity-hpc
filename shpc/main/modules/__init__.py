@@ -58,7 +58,7 @@ class ModuleBase(BaseClient):
 
         # If directories above it are empty, remove
         while module_dir != self.settings.module_base:
-            if not utils.can_be_deleted(module_dir):
+            if not utils.can_be_deleted(module_dir, [".version"]):
                 break
             shutil.rmtree(module_dir)
             module_dir = os.path.dirname(module_dir)
