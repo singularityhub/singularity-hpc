@@ -426,6 +426,12 @@ class ModuleBase(BaseClient):
             return
 
         found = [x for x in os.listdir(version_dir) if x != ".version"]
+
+        # No versions left, remove the whole directory
+        if len(found) == 0:
+            self._cleanup(version_dir)
+            return
+
         uri = os.path.basename(version_dir)
 
         # Only one result, present we just installed it
