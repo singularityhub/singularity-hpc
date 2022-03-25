@@ -368,7 +368,7 @@ class ModuleBase(BaseClient):
     def _no_default_version(self, version_file, tag):
         return
 
-    def _sys_module_default_version(self, version_file, tag):
+    def _module_sys_default_version(self, version_file, tag):
         return
 
     def _set_default_version(self, version_file, tag):
@@ -391,7 +391,7 @@ class ModuleBase(BaseClient):
 
         # allow the module software to control versions
         elif self.settings.default_version in [True, "module_sys"]:
-            self._sys_module_default_version(version_file, latest_tag_installed)
+            self._module_sys_default_version(version_file, latest_tag_installed)
 
         # First or last installed
         else:

@@ -13,7 +13,7 @@ class Client(ModuleBase):
         super(Client, self).__init__(**kwargs)
         self.module_extension = "lua"
 
-    def _sys_module_default_version(self, version_file, tag):
+    def _module_sys_default_version(self, version_file, tag):
         """
         default version (default version in module_sys or True).
         We generate a file with a non-existent version number.
