@@ -14,6 +14,20 @@ import json
 from shpc.logger import logger
 
 
+def can_be_deleted(path):
+    """
+    A path can be deleted if it contains no entries, *or*
+    if the only entry is '.version'
+    """
+    if os.path.exists(path):
+        entries = os.listdir(path)
+        if not entries:
+            return True
+        if entries == [".version"]:
+            return True
+    return False
+
+
 def creation_date(filename):
     """
     Get the creation date, and fallback to modified date.

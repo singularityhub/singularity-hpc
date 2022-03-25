@@ -58,7 +58,7 @@ class ModuleBase(BaseClient):
 
         # If directories above it are empty, remove
         while module_dir != self.settings.module_base:
-            if not os.path.exists(module_dir) or os.listdir(module_dir):
+            if not utils.can_be_deleted(module_dir):
                 break
             shutil.rmtree(module_dir)
             module_dir = os.path.dirname(module_dir)
@@ -408,11 +408,6 @@ class ModuleBase(BaseClient):
         """
         # Count how many versions we actually have
         found = [x for x in os.listdir(version_dir) if x != ".version"]
-
-        # No versions left, remove the whole directory
-        if len(found) == 0:
-            self._cleanup(version_dir)
-            return
 
         # With the following settings, .version doesn't contain an actual version
         # so there is nothing to update
