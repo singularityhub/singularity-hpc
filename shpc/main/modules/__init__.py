@@ -311,7 +311,7 @@ class ModuleBase(BaseClient):
         container_dir = self.container.container_dir(subfolder)
         shpc.utils.mkdirp([module_dir, container_dir])
 
-        # Add a .version file to indicate the level of versioning (not for tcl)
+        # Add a .version file to indicate the level of versioning
         self.write_version_file(uri, tag.name)
 
         # For Singularity this is a path, podman is a uri. If None is returned
