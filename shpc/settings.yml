@@ -28,11 +28,11 @@ module_base: $root_dir/modules
 module_name: '{{ parsed_name.tool }}'
 
 # When multiple versions are available and none requested, allow module picking one itself
-# sys_module: allow the module software to decide
+# module_sys: allow the module software to decide
 # null: do nothing, versions will be specified manually
 # last_installed: use the last installed as the default
 # first_installed: use the first installed
-default_version: sys_module
+default_version: module_sys
 
 # store containers separately from module files
 # It's recommended to do this for faster loading

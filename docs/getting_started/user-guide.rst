@@ -179,7 +179,7 @@ variable replacement. A summary table of variables is included below, and then f
      - never
    * - default_version
      - Should a default version be used?
-     - sys_module
+     - module_sys
    * - singularity_module
      - if defined, add to module script to load this Singularity module first
      - null
@@ -367,7 +367,7 @@ The default version setting is there to support you telling shpc how you want mo
 There are four options:
 
  - ``null`` do not set any kind of default version, it will be manually controlled by the installer (``false`` also supported for backwards compatibility)
- - ``sys_module``: allow the module software to choose (``true`` also supported for backwards compatibility)
+ - ``module_sys``: allow the module software to choose (``true`` also supported for backwards compatibility)
  - ``last_installed``: always set default version to the last version installed
  - ``first_installed``: only set default version for the first installed
 

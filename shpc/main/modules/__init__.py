@@ -390,7 +390,7 @@ class ModuleBase(BaseClient):
             self._no_default_version(version_file)
 
         # allow the module software to control versions
-        elif self.settings.default_version in [True, "sys_module"]:
+        elif self.settings.default_version in [True, "module_sys"]:
             self._sys_module_default_version(version_file)
 
         # First or last installed

@@ -142,7 +142,7 @@ settingsProperties = {
             {"type": ["null", "boolean"]},
             {
                 "type": "string",
-                "enum": ["sys_module", "last_installed", "first_installed"],
+                "enum": ["module_sys", "last_installed", "first_installed"],
             },
         ]
     },

@@ -101,13 +101,13 @@ def test_features(tmp_path, module_sys, module_file):
 
 @pytest.mark.parametrize(
     "default_version",
-    [True, False, "sys_module", None, "first_installed", "last_installed"],
+    [True, False, "module_sys", None, "first_installed", "last_installed"],
 )
 def test_tcl_default_version(tmp_path, default_version):
     """
     Test tcl default versions.
 
-    True or sys_module: no .version file
+    True or module_sys: no .version file
     False or None: .version file with faux number
     first_installed: we maintain first installed version number
     last_installed: version is updated to last installed
@@ -124,7 +124,7 @@ def test_tcl_default_version(tmp_path, default_version):
     module_dir = os.path.join(client.settings.module_base, "python")
     version_file = os.path.join(module_dir, ".version")
 
-    if default_version in ["sys_module", True]:
+    if default_version in ["module_sys", True]:
         assert not os.path.exists(version_file)
 
     elif default_version in [False, None]:
@@ -151,13 +151,13 @@ def test_tcl_default_version(tmp_path, default_version):
 
 @pytest.mark.parametrize(
     "default_version",
-    [True, False, "sys_module", None, "first_installed", "last_installed"],
+    [True, False, "module_sys", None, "first_installed", "last_installed"],
 )
 def test_lmod_default_version(tmp_path, default_version):
     """
     Test lmod (lua) default versions.
 
-    True or sys_module: file with non-existent version number
+    True or module_sys: file with non-existent version number
     False or None: no .version file
     first_installed: we maintain first installed version number
     last_installed: version is updated to last installed
@@ -174,7 +174,7 @@ def test_lmod_default_version(tmp_path, default_version):
     module_dir = os.path.join(client.settings.module_base, "python")
     version_file = os.path.join(module_dir, ".version")
 
-    if default_version in ["sys_module", True]:
+    if default_version in ["module_sys", True]:
         assert os.path.exists(version_file)
         content = shpc.utils.read_file(version_file)
         assert "please_specify_a_version_number" in content

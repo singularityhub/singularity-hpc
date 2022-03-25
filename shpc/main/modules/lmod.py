@@ -15,7 +15,7 @@ class Client(ModuleBase):
 
     def _sys_module_default_version(self, version_file):
         """
-        default version (default version in sys_module or True).
+        default version (default version in module_sys or True).
         We generate a file with a non-existent version number.
         """
         template = self._load_template("default_version")
