@@ -372,27 +372,14 @@ class ModuleBase(BaseClient):
     def _sys_module_default_version(self, version_file, tag):
         return
 
-    def _default_version_last_installed(self, version_file, tag):
+    def _set_default_version(self, version_file, tag):
         """
-        Always update the version file to reference the version last installed
+        Set the default version to the given tag
         """
         template = self._load_template("default_version")
         utils.write_file(version_file, template.render(version=tag))
 
-    def _default_version_first_installed(self, version_file, tag, default_choice=False):
-        """
-        Only update if version is first installed.
-        Allow the default choice to be tweaked in case we want to force it.
-        """
-        version_dir = os.path.dirname(version_file)
-        first_installed = True if len(os.listdir(version_dir)) == 1 else default_choice
-
-        if not first_installed:
-            return
-        template = self._load_template("default_version")
-        utils.write_file(version_file, template.render(version=tag))
-
-    def write_version_file(self, uri, tag, default_choice=False):
+    def write_version_file(self, uri, tag):
         """
         Create the .version file, if there is a template for it.
         """
@@ -409,22 +396,18 @@ class ModuleBase(BaseClient):
 
         # First or last installed
         elif self.settings.default_version == "last_installed":
-            self._default_version_last_installed(version_file, tag)
+            self._set_default_version(version_file, tag)
 
         elif self.settings.default_version == "first_installed":
-            self._default_version_first_installed(version_file, tag, default_choice)
+            first_installed = True if len(os.listdir(version_dir)) == 1 else False
+            if first_installed:
+                self._set_default_version(version_file, tag)
 
     def update_version_file(self, version_dir):
         """
         Given a module directory, update the version file.
         """
-        # The module directory has the version (which is deleted)
-        version_file = os.path.join(version_dir, ".version")
-
-        # If a version file doesn't exist, nothing to update
-        if not os.path.exists(version_file):
-            return
-
+        # Count how many versions we actually have
         found = [x for x in os.listdir(version_dir) if x != ".version"]
 
         # No versions left, remove the whole directory
@@ -432,20 +415,19 @@ class ModuleBase(BaseClient):
             self._cleanup(version_dir)
             return
 
-        uri = os.path.basename(version_dir)
+        # With the following settings, .version doesn't contain an actual version
+        # so there is nothing to update
+        if self.settings.default_version in [False, None, True, "sys_module"]:
+            return
 
-        # Only one result, present we just installed it
+        # Here, there is at least one version installed, and default_version
+        # is either first_installed or last_installed
         if len(found) == 1:
-            return self.write_version_file(uri, found[0])
+            tag = found[0]
+        else:
+            selector = min if self.settings.default_version == "first_installed" else max
+            tag = selector(found, key=lambda x: utils.creation_date(os.path.join(version_dir, x)))
 
-        # Use filesystem dates to derive a tag for the last installed
-        dates = [[utils.creation_date(os.path.join(version_dir, x)), x] for x in found]
-
-        # Sort based on wanting last installed (later time) or first (earliest)
-        reverse = False if self.settings.default_version == "first_installed" else True
-        # reverse True, latest -> earliest (return latest) otherwise return earliest
-        dates = sorted(dates, key=itemgetter(0), reverse=reverse)
-        tag = dates[0][1]
-
-        # default_choice says to force saying it's the first even if not
-        return self.write_version_file(uri, tag, default_choice=True)
+        # Write the .version file
+        version_file = os.path.join(version_dir, ".version")
+        self._set_default_version(version_file, tag)
