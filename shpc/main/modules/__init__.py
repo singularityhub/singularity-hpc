@@ -22,7 +22,7 @@ here = os.path.abspath(os.path.dirname(__file__))
 class ModuleBase(BaseClient):
     def __init__(self, **kwargs):
 
-        # Files for module software to generate depending on user setting     
+        # Files for module software to generate depending on user setting
         super(ModuleBase, self).__init__(**kwargs)
         self.here = os.path.dirname(inspect.getfile(self.__class__))
 
@@ -368,7 +368,7 @@ class ModuleBase(BaseClient):
     # Module software can choose how to handle each of these cases
     def _no_default_version(self, version_file, tag):
         return
- 
+
     def _sys_module_default_version(self, version_file, tag):
         return
 
@@ -385,10 +385,10 @@ class ModuleBase(BaseClient):
         Allow the default choice to be tweaked in case we want to force it.
         """
         version_dir = os.path.dirname(version_file)
-        first_installed = True if len(os.listdir(version_dir)) == 1 else default_choice 
+        first_installed = True if len(os.listdir(version_dir)) == 1 else default_choice
 
         if not first_installed:
-            return 
+            return
         template = self._load_template("default_version")
         utils.write_file(version_file, template.render(version=tag))
 
@@ -402,7 +402,7 @@ class ModuleBase(BaseClient):
         # No default versions
         if self.settings.default_version in [False, None]:
             self._no_default_version(version_file, tag)
-        
+
         # allow the module software to control versions
         elif self.settings.default_version in [True, "sys_module"]:
             self._sys_module_default_version(version_file, tag)
@@ -420,27 +420,26 @@ class ModuleBase(BaseClient):
         """
         # The module directory has the version (which is deleted)
         version_file = os.path.join(version_dir, ".version")
-        
+
         # If a version file doesn't exist, nothing to update
         if not os.path.exists(version_file):
             return
 
         found = [x for x in os.listdir(version_dir) if x != ".version"]
-        uri = os.path.basename(version_dir) 
+        uri = os.path.basename(version_dir)
 
         # Only one result, present we just installed it
-        if len(found) == 1: 
-            return self.write_version_file(uri, found[0]) 
-            
+        if len(found) == 1:
+            return self.write_version_file(uri, found[0])
+
         # Use filesystem dates to derive a tag for the last installed
         dates = [[utils.creation_date(os.path.join(version_dir, x)), x] for x in found]
-        
+
         # Sort based on wanting last installed (later time) or first (earliest)
         reverse = False if self.settings.default_version == "first_installed" else True
-
         # reverse True, latest -> earliest (return latest) otherwise return earliest
         dates = sorted(dates, key=itemgetter(0), reverse=reverse)
         tag = dates[0][1]
-        
+
         # default_choice says to force saying it's the first even if not
         return self.write_version_file(uri, tag, default_choice=True)
