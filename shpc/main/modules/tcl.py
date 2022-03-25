@@ -14,7 +14,7 @@ class Client(ModuleBase):
         super(Client, self).__init__(**kwargs)
         self.module_extension = "tcl"
 
-    def _no_default_version(self, version_file):
+    def _no_default_version(self, version_file, tag):
         """
         No default version (default version in False or None).
         We generate a file with a non-existent version number.

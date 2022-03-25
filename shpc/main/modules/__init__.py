@@ -312,7 +312,7 @@ class ModuleBase(BaseClient):
         shpc.utils.mkdirp([module_dir, container_dir])
 
         # Add a .version file to indicate the level of versioning
-        self.write_version_file(uri)
+        self.write_version_file(uri, tag.name)
 
         # For Singularity this is a path, podman is a uri. If None is returned
         # there was an error and we cleanup
@@ -365,10 +365,10 @@ class ModuleBase(BaseClient):
         return container_path
 
     # Module software can choose how to handle each of these cases
-    def _no_default_version(self, version_file):
+    def _no_default_version(self, version_file, tag):
         return
 
-    def _sys_module_default_version(self, version_file):
+    def _sys_module_default_version(self, version_file, tag):
         return
 
     def _set_default_version(self, version_file, tag):
@@ -378,7 +378,7 @@ class ModuleBase(BaseClient):
         template = self._load_template("default_version")
         utils.write_file(version_file, template.render(version=tag))
 
-    def write_version_file(self, uri):
+    def write_version_file(self, uri, latest_tag_installed=None):
         """
         Create the .version file, if there is a template for it.
         """
@@ -387,11 +387,11 @@ class ModuleBase(BaseClient):
 
         # No default versions
         if self.settings.default_version in [False, None]:
-            self._no_default_version(version_file)
+            self._no_default_version(version_file, latest_tag_installed)
 
         # allow the module software to control versions
         elif self.settings.default_version in [True, "module_sys"]:
-            self._sys_module_default_version(version_file)
+            self._sys_module_default_version(version_file, latest_tag_installed)
 
         # First or last installed
         else:
