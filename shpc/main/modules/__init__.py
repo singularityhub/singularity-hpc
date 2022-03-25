@@ -8,7 +8,6 @@ import shpc.utils as utils
 import shpc.defaults as defaults
 import shpc.main.templates
 from jinja2 import Template
-from operator import itemgetter
 
 from datetime import datetime
 import os
