@@ -122,7 +122,7 @@ class ModuleBase(BaseClient):
 
         # update the default version file, if other versions still present
         if os.path.exists(module_dir):
-            self.update_version_file(module_dir)
+            self.write_version_file(module_dir)
 
     def _test_setup(self, tmpdir):
         """
@@ -312,7 +312,7 @@ class ModuleBase(BaseClient):
         shpc.utils.mkdirp([module_dir, container_dir])
 
         # Add a .version file to indicate the level of versioning
-        self.write_version_file(uri, tag.name)
+        self.write_version_file(uri)
 
         # For Singularity this is a path, podman is a uri. If None is returned
         # there was an error and we cleanup
@@ -365,10 +365,10 @@ class ModuleBase(BaseClient):
         return container_path
 
     # Module software can choose how to handle each of these cases
-    def _no_default_version(self, version_file, tag):
+    def _no_default_version(self, version_file):
         return
 
-    def _sys_module_default_version(self, version_file, tag):
+    def _sys_module_default_version(self, version_file):
         return
 
     def _set_default_version(self, version_file, tag):
@@ -378,7 +378,7 @@ class ModuleBase(BaseClient):
         template = self._load_template("default_version")
         utils.write_file(version_file, template.render(version=tag))
 
-    def write_version_file(self, uri, tag):
+    def write_version_file(self, uri):
         """
         Create the .version file, if there is a template for it.
         """
@@ -387,41 +387,21 @@ class ModuleBase(BaseClient):
 
         # No default versions
         if self.settings.default_version in [False, None]:
-            self._no_default_version(version_file, tag)
+            self._no_default_version(version_file)
 
         # allow the module software to control versions
         elif self.settings.default_version in [True, "sys_module"]:
-            self._sys_module_default_version(version_file, tag)
+            self._sys_module_default_version(version_file)
 
         # First or last installed
-        elif self.settings.default_version == "last_installed":
-            self._set_default_version(version_file, tag)
-
-        elif self.settings.default_version == "first_installed":
-            first_installed = True if len(os.listdir(version_dir)) == 1 else False
-            if first_installed:
-                self._set_default_version(version_file, tag)
-
-    def update_version_file(self, version_dir):
-        """
-        Given a module directory, update the version file.
-        """
-        # Count how many versions we actually have
-        found = [x for x in os.listdir(version_dir) if x != ".version"]
-
-        # With the following settings, .version doesn't contain an actual version
-        # so there is nothing to update
-        if self.settings.default_version in [False, None, True, "sys_module"]:
-            return
-
-        # Here, there is at least one version installed, and default_version
-        # is either first_installed or last_installed
-        if len(found) == 1:
-            tag = found[0]
         else:
-            selector = min if self.settings.default_version == "first_installed" else max
-            tag = selector(found, key=lambda x: utils.creation_date(os.path.join(version_dir, x)))
+            # The versions we actually have
+            found = [x for x in os.listdir(version_dir) if x != ".version"]
+            if len(found) == 1:
+                tag = found[0]
+            else:
+                selector = min if self.settings.default_version == "first_installed" else max
+                tag = selector(found, key=lambda x: utils.creation_date(os.path.join(version_dir, x)))
 
-        # Write the .version file
-        version_file = os.path.join(version_dir, ".version")
-        self._set_default_version(version_file, tag)
+            # Write the .version file
+            self._set_default_version(version_file, tag)
