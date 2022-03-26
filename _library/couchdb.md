@@ -3,7 +3,7 @@ layout: container
 name:  "couchdb"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/couchdb/container.yaml"
-updated_at: "2022-03-22 13:22:18.516176"
+updated_at: "2022-03-26 02:40:58.449477"
 container_url: "https://hub.docker.com/_/couchdb"
 aliases:
  - "couchdb"

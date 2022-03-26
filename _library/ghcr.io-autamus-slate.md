@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/slate"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/slate/container.yaml"
-updated_at: "2022-03-22 13:21:31.653819"
+updated_at: "2022-03-26 02:40:10.753302"
 container_url: "https://github.com/orgs/autamus/packages/container/package/slate"
 
 versions:

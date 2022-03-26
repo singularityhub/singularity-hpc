@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/gasnet"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/gasnet/container.yaml"
-updated_at: "2022-03-22 13:21:31.027356"
+updated_at: "2022-03-26 02:40:10.107950"
 container_url: "https://github.com/orgs/autamus/packages/container/package/gasnet"
 aliases:
  - "gasnet_trace"

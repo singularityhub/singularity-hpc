@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/unixodbc"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/unixodbc/container.yaml"
-updated_at: "2022-03-22 13:21:27.649232"
+updated_at: "2022-03-26 02:40:06.621744"
 container_url: "https://github.com/orgs/autamus/packages/container/package/unixodbc"
 aliases:
  - "odbc_config"
