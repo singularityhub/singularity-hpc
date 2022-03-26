@@ -219,17 +219,20 @@ class ModuleBase(BaseClient):
         # Create .version
         self.write_version_file(os.path.dirname(symlink_path))
 
-    def check_symlink(self, module_dir):
+    def check_symlink(self, module_dir, force):
         """
         Given an install command, if --symlink-tree is provided make
         sure we don't already have this symlink in the tree.
         """
         # Get the symlink path - does it exist?
         symlink_path = self.get_symlink_path(module_dir)
-        if os.path.exists(symlink_path) and not utils.confirm_action(
-            "%s already exists, are you sure you want to overwrite?" % symlink_path
-        ):
-            sys.exit(0)
+        if os.path.exists(symlink_path):
+            if force:
+                logger.info("Overwriting %s, as requested")
+            elif not utils.confirm_action(
+                "%s already exists, are you sure you want to overwrite?" % symlink_path
+            ):
+                sys.exit(0)
 
     def _cleanup_symlink(self, module_dir):
         """
@@ -371,7 +374,7 @@ class ModuleBase(BaseClient):
                 version_content = shpc.utils.read_file(template_file)
                 shpc.utils.write_file(version_file, version_content)
 
-    def install(self, name, tag=None, symlink=False, **kwargs):
+    def install(self, name, tag=None, symlink=False, force=False, **kwargs):
         """
         Given a unique resource identifier, install a recipe.
 
@@ -405,7 +408,7 @@ class ModuleBase(BaseClient):
 
         if symlink:
             # Cut out early if symlink desired and already exists
-            self.check_symlink(module_dir)
+            self.check_symlink(module_dir, force)
         shpc.utils.mkdirp([module_dir, container_dir])
 
         # Add a .version file to indicate the level of versioning (not for tcl)

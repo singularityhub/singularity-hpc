@@ -107,6 +107,14 @@ shpc -c rm:registry:/tmp/registry""",
         default=False,
         action="store_true",
     )
+    install.add_argument(
+        "--force",
+        "-f",
+        dest="force",
+        help="replace existing symlinks",
+        default=False,
+        action="store_true",
+    )
 
     # List installed modules
     listing = subparsers.add_parser("list", description="list installed modules.")
