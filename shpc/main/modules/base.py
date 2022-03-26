@@ -58,22 +58,6 @@ class ModuleBase(BaseClient):
             template = template.replace(key, replacewith)
         return template
 
-    def _cleanup(self, module_dir):
-        """
-        Given a module directory, delete up to module base
-        """
-        # Exit early if the module directory for some reason was removed
-        if not os.path.exists(module_dir):
-            return
-        shutil.rmtree(module_dir)
-
-        # If directories above it are empty, remove
-        while module_dir != self.settings.module_base:
-            if not utils.can_be_deleted(module_dir, [".version"]):
-                break
-            shutil.rmtree(module_dir)
-            module_dir = os.path.dirname(module_dir)
-
     @property
     def container_base(self):
         """
@@ -112,10 +96,16 @@ class ModuleBase(BaseClient):
                 return
 
         if container_dir != module_dir:
-            self._uninstall(container_dir, "$container_base/%s" % name)
-            self._uninstall(module_dir, "$module_base/%s" % name)
+            self._uninstall(
+                container_dir, self.container_base, "$container_base/%s" % name
+            )
+            self._uninstall(
+                module_dir, self.settings.module_base, "$module_base/%s" % name
+            )
         else:
-            self._uninstall(module_dir, "$module_base/%s" % name)
+            self._uninstall(
+                module_dir, self.settings.module_base, "$module_base/%s" % name
+            )
 
         # parent of versioned directory has module .version
         module_dir = os.path.dirname(module_dir)
@@ -124,12 +114,12 @@ class ModuleBase(BaseClient):
         if os.path.exists(module_dir):
             self.write_version_file(module_dir)
 
-    def _uninstall(self, module_dir, name):
+    def _uninstall(self, path, base_path, name):
         """
         Sub function, so we can pass more than one folder from uninstall
         """
-        if os.path.exists(module_dir):
-            self._cleanup(module_dir)
+        if os.path.exists(path):
+            utils.rmdir_to_base(path, base_path)
             logger.info("%s and all subdirectories have been removed." % name)
         else:
             logger.warning("%s does not exist." % name)
@@ -372,7 +362,7 @@ class ModuleBase(BaseClient):
                 module_dir, container_dir, config, tag
             )
         if not container_path:
-            self._cleanup(container_dir)
+            utils.rmdir_to_base(container_dir, self.container_base)
             logger.exit("There was an issue pulling %s" % container_path)
 
         # Get the template based on the module and container type
@@ -402,7 +392,7 @@ class ModuleBase(BaseClient):
 
         # If the container tech does not need storage, clean up
         if not os.listdir(container_dir):
-            self._cleanup(container_dir)
+            utils.rmdir_to_base(container_dir, self.container_base)
 
         # Write the environment file to be bound to the container
         self.container.add_environment(
