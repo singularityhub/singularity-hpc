@@ -446,13 +446,16 @@ class ModuleBase(BaseClient):
             return self._module_sys_default_version(version_file, latest_tag_installed)
 
         # First or last installed
-        # The versions we actually have
-        found = [x for x in os.listdir(version_dir) if x != ".version"]
-        if len(found) == 1:
-            tag = found[0]
+        if latest_tag_installed and (self.settings.default_version == "last_installed"):
+            tag = latest_tag_installed
         else:
-            selector = min if self.settings.default_version == "first_installed" else max
-            tag = selector(found, key=lambda x: utils.creation_date(os.path.join(version_dir, x)))
+            # The versions we actually have
+            found = [x for x in os.listdir(version_dir) if x != ".version"]
+            if len(found) == 1:
+                tag = found[0]
+            else:
+                selector = min if self.settings.default_version == "first_installed" else max
+                tag = selector(found, key=lambda x: utils.creation_date(os.path.join(version_dir, x)))
 
         # Write the .version file
         return self._set_default_version(version_file, tag)
