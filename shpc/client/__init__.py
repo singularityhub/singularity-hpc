@@ -129,9 +129,11 @@ def get_parser():
 
     # Add a container direcly
     add = subparsers.add_parser("add", description="add an image to modules manually")
-    add.add_argument("sif_path", help="full path to container image file", nargs=1)
+    add.add_argument("container_uri", help="full path to container image file")
     add.add_argument(
-        "module_id", help='desired identifier for module (e.g. "name/version")', nargs=1
+        "module_id",
+        help='desired identifier for module (e.g. "name/version"). Not required for docker)',
+        nargs="?",
     )
 
     check = subparsers.add_parser(
@@ -368,11 +370,11 @@ def run_shpc():
 
     # Pass on to the correct parser
     return_code = 0
-    try:
-        main(args=args, parser=parser, extra=extra, subparser=helper)
-        sys.exit(return_code)
-    except UnboundLocalError:
-        return_code = 1
+    #    try:
+    main(args=args, parser=parser, extra=extra, subparser=helper)
+    sys.exit(return_code)
+    #    except UnboundLocalError:
+    #        return_code = 1
 
     help(return_code)
 
