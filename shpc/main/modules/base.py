@@ -454,8 +454,14 @@ class ModuleBase(BaseClient):
             if len(found) == 1:
                 tag = found[0]
             else:
-                selector = min if self.settings.default_version == "first_installed" else max
-                tag = selector(found, key=lambda x: utils.creation_date(os.path.join(version_dir, x)))
+                if self.settings.default_version == "first_installed":
+                    selector = min
+                else:
+                    selector = max
+                tag = selector(
+                    found,
+                    key=lambda x: utils.creation_date(os.path.join(version_dir, x)),
+                )
 
         # Write the .version file
         return self._set_default_version(version_file, tag)

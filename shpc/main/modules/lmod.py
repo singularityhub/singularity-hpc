@@ -22,4 +22,4 @@ class Client(ModuleBase):
         template = self._load_template("default_version")
         utils.write_file(version_file, template.render())
 
-     # LMOD False or null, don't generate a .version file
+    # LMOD False or null, don't generate a .version file

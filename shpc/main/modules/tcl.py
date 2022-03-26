@@ -22,4 +22,4 @@ class Client(ModuleBase):
         template = self._load_template("default_version")
         utils.write_file(version_file, template.render())
 
-     # TCL module_sys or True default version, don't generate a .version file
+    # TCL module_sys or True default version, don't generate a .version file
