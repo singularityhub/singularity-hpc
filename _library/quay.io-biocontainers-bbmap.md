@@ -3,7 +3,7 @@ layout: container
 name:  "quay.io/biocontainers/bbmap"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/bbmap/container.yaml"
-updated_at: "2022-03-27 18:18:09.162153"
+updated_at: "2022-03-27 19:43:24.274379"
 container_url: "https://quay.io/repository/biocontainers/bbmap"
 aliases:
  - "a_sample_mt.sh"

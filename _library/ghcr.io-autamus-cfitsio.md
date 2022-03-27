@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/cfitsio"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/cfitsio/container.yaml"
-updated_at: "2022-03-27 18:18:44.407569"
+updated_at: "2022-03-27 19:43:52.116782"
 container_url: "https://github.com/orgs/autamus/packages/container/package/cfitsio"
 
 versions:
