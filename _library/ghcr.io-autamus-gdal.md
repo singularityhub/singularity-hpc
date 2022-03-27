@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/gdal"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/gdal/container.yaml"
-updated_at: "2022-03-27 18:04:34.659187"
+updated_at: "2022-03-27 18:19:18.824736"
 container_url: "https://github.com/orgs/autamus/packages/container/package/gdal"
 aliases:
  - "gdal-config"

@@ -3,7 +3,7 @@ layout: container
 name:  "quay.io/biocontainers/clustalo"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/clustalo/container.yaml"
-updated_at: "2022-03-27 18:03:41.772174"
+updated_at: "2022-03-27 18:18:15.002392"
 container_url: "https://quay.io/repository/biocontainers/clustalo"
 aliases:
  - "clustalo"

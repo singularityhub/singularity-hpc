@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/htop"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/htop/container.yaml"
-updated_at: "2022-03-27 18:04:28.441662"
+updated_at: "2022-03-27 18:19:11.344469"
 container_url: "https://github.com/orgs/autamus/packages/container/package/htop"
 aliases:
  - "htop"
