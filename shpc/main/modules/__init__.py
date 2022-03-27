@@ -230,7 +230,7 @@ class ModuleBase(BaseClient):
             if force:
                 logger.info("Overwriting %s, as requested" % module_dir)
             elif not utils.confirm_action(
-                "%s already exists, are you sure you want to overwrite?" % symlink_path
+                "%s already exists, are you sure you want to overwrite" % symlink_path
             ):
                 sys.exit(0)
 
