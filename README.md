@@ -4,7 +4,6 @@
 [![DOI](https://zenodo.org/badge/354130612.svg)](https://zenodo.org/badge/latestdoi/354130612)
 [![DOI](https://joss.theoj.org/papers/10.21105/joss.03311/status.svg)](https://doi.org/10.21105/joss.03311)
 
-
 ![https://raw.githubusercontent.com/singularityhub/singularity-hpc/main/docs/assets/img/shpc.png](https://raw.githubusercontent.com/singularityhub/singularity-hpc/main/docs/assets/img/shpc.png)
 
 Singularity HPC is optimized for managing containers in an HPC environment. Currently, this includes
