@@ -370,8 +370,6 @@ def run_shpc():
         from .docgen import main
     elif args.command == "get":
         from .get import main
-    elif args.command == "delete":
-        from .delete import main
     elif args.command == "install":
         from .install import main
     elif args.command == "inspect":
