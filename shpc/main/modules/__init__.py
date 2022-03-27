@@ -374,7 +374,7 @@ class ModuleBase(BaseClient):
                 version_content = shpc.utils.read_file(template_file)
                 shpc.utils.write_file(version_file, version_content)
 
-    def install(self, name, tag=None, symlink=False, force=False, **kwargs):
+    def install(self, name, tag=None, symlink=None, force=False, **kwargs):
         """
         Given a unique resource identifier, install a recipe.
 
@@ -403,8 +403,9 @@ class ModuleBase(BaseClient):
         subfolder = os.path.join(uri, tag.name)
         container_dir = self.container.container_dir(subfolder)
 
-        # Global override to arg
-        symlink = self.settings.symlink_tree is True or symlink
+        # Default to global setting
+        if symlink is None:
+            symlink = self.settings.symlink_tree
 
         if symlink:
             # Cut out early if symlink desired and already exists

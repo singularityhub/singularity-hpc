@@ -103,9 +103,15 @@ shpc -c rm:registry:/tmp/registry""",
     install.add_argument(
         "--symlink-tree",
         dest="symlink",
-        help="install to symlink tree too.",
-        default=False,
+        help="install to symlink tree too (overrides settings.yml).",
+        default=None,
         action="store_true",
+    )
+    install.add_argument(
+        "--no-symlink-tree",
+        dest="symlink",
+        help="skip installing to symlink tree (in case set in settings.yml).",
+        action="store_false",
     )
     install.add_argument(
         "--force",
