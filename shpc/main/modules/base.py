@@ -12,7 +12,6 @@ from jinja2 import Template
 
 from datetime import datetime
 import os
-from pathlib import Path
 import shutil
 import subprocess
 import sys
@@ -23,6 +22,8 @@ here = os.path.abspath(os.path.dirname(__file__))
 
 class ModuleBase(BaseClient):
     def __init__(self, **kwargs):
+
+        # Files for module software to generate depending on user setting
         super(ModuleBase, self).__init__(**kwargs)
         self.here = os.path.dirname(inspect.getfile(self.__class__))
 
@@ -68,7 +69,7 @@ class ModuleBase(BaseClient):
 
         # If directories above it are empty, remove
         while module_dir != self.settings.module_base:
-            if not os.path.exists(module_dir) or os.listdir(module_dir):
+            if not utils.can_be_deleted(module_dir, [".version"]):
                 break
             shutil.rmtree(module_dir)
             module_dir = os.path.dirname(module_dir)
@@ -124,6 +125,13 @@ class ModuleBase(BaseClient):
             logger.info("%s and all subdirectories have been removed." % name)
         else:
             logger.warning("%s does not exist." % name)
+
+        # parent of versioned directory has module .version
+        module_dir = os.path.dirname(module_dir)
+
+        # update the default version file, if other versions still present
+        if os.path.exists(module_dir):
+            self.write_version_file(module_dir)
 
     def _test_setup(self, tmpdir):
         """
@@ -353,12 +361,8 @@ class ModuleBase(BaseClient):
                 shutil.copyfile(container_path, container_dest)
             container_path = container_dest
 
-        # Add a .version file to indicate the level of versioning (not for tcl)
-        if self.module_extension != "tcl" and self.settings.default_version == True:
-            version_dir = os.path.join(self.settings.module_base, uri)
-            version_file = os.path.join(version_dir, ".version")
-            if not os.path.exists(version_file):
-                Path(version_file).touch()
+        # Add a .version file to indicate the level of versioning
+        self.write_version_file(uri, tag.name)
 
         # For Singularity this is a path, podman is a uri. If None is returned
         # there was an error and we cleanup
@@ -410,3 +414,53 @@ class ModuleBase(BaseClient):
             name = "%s:%s" % (name, tag.name)
         logger.info("Module %s was created." % name)
         return container_path
+
+    # Module software can choose how to handle each of these cases
+    def _no_default_version(self, version_file, tag):
+        return
+
+    def _module_sys_default_version(self, version_file, tag):
+        return
+
+    def _set_default_version(self, version_file, tag):
+        """
+        Set the default version to the given tag
+        """
+        template = self._load_template("default_version")
+        utils.write_file(version_file, template.render(version=tag))
+
+    def write_version_file(self, uri, latest_tag_installed=None):
+        """
+        Create the .version file, if there is a template for it.
+        """
+        version_dir = os.path.join(self.settings.module_base, uri)
+        version_file = os.path.join(version_dir, ".version")
+
+        # No default versions
+        if self.settings.default_version in [False, None]:
+            return self._no_default_version(version_file, latest_tag_installed)
+
+        # allow the module software to control versions
+        if self.settings.default_version in [True, "module_sys"]:
+            return self._module_sys_default_version(version_file, latest_tag_installed)
+
+        # First or last installed
+        if latest_tag_installed and (self.settings.default_version == "last_installed"):
+            tag = latest_tag_installed
+        else:
+            # The versions we actually have
+            found = [x for x in os.listdir(version_dir) if x != ".version"]
+            if len(found) == 1:
+                tag = found[0]
+            else:
+                if self.settings.default_version == "first_installed":
+                    selector = min
+                else:
+                    selector = max
+                tag = selector(
+                    found,
+                    key=lambda x: utils.creation_date(os.path.join(version_dir, x)),
+                )
+
+        # Write the .version file
+        return self._set_default_version(version_file, tag)

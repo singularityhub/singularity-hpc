@@ -257,7 +257,7 @@ For these global scripts, the user can select to use it in their settings.yaml.
 We will eventually write a command to list global wrappers available, so if you add a new one future users will know
 about it. For alias wrapper scripts, the following variables are passed for rendering:
 
-.. list-table:: Title
+.. list-table:: Wrapper Script Variables
    :widths: 15 15 40 30
    :header-rows: 1
 
@@ -306,7 +306,7 @@ If you want to write a custom container.yaml script:
 
 The following variables are passed for rendering.
 
-.. list-table:: Title
+.. list-table:: Container YAML Alias Variables
    :widths: 15 15 40 30
    :header-rows: 1
 
@@ -523,7 +523,7 @@ Registry Yaml Fields
 
 Fields include:
 
-.. list-table:: Title
+.. list-table:: Registry YAML Fields
    :widths: 25 65 10
    :header-rows: 1
 
@@ -571,7 +571,7 @@ A complete table of features is shown here. The
 
 Fields include:
 
-.. list-table:: Title
+.. list-table:: Features
    :widths: 20 20 20 10 10 10
    :header-rows: 1
 

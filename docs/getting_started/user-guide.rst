@@ -178,8 +178,8 @@ variable replacement. A summary table of variables is included below, and then f
      - a timestamp to keep track of when you last saved
      - never
    * - default_version
-     - A boolean to indicate generating a .version file (LMOD or lua modules only)
-     - true
+     - Should a default version be used?
+     - module_sys
    * - singularity_module
      - if defined, add to module script to load this Singularity module first
      - null
@@ -358,6 +358,18 @@ you can add or remove entries via the config variable ``registry``
 
 # Note that "add" is used for lists of things (e.g., the registry config variable is a list)
 and "set" is used to set a key value pair.
+
+
+Default Version
+---------------
+
+The default version setting is there to support you telling shpc how you want module versions to be selected.
+There are four options:
+
+ - ``null`` do not set any kind of default version, it will be manually controlled by the installer (``false`` also supported for backwards compatibility)
+ - ``module_sys``: allow the module software to choose (``true`` also supported for backwards compatibility)
+ - ``last_installed``: always set default version to the last version installed
+ - ``first_installed``: only set default version for the first installed
 
 
 Module Names
