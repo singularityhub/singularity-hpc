@@ -228,7 +228,7 @@ class ModuleBase(BaseClient):
         symlink_path = self.get_symlink_path(module_dir)
         if os.path.exists(symlink_path):
             if force:
-                logger.info("Overwriting %s, as requested")
+                logger.info("Overwriting %s, as requested" % module_dir)
             elif not utils.confirm_action(
                 "%s already exists, are you sure you want to overwrite?" % symlink_path
             ):
