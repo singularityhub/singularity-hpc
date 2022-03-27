@@ -3,7 +3,7 @@ layout: container
 name:  "quay.io/biocontainers/multiqc"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/multiqc/container.yaml"
-updated_at: "2022-03-27 05:31:13.781769"
+updated_at: "2022-03-27 18:03:38.964796"
 container_url: "https://quay.io/repository/biocontainers/multiqc"
 aliases:
  - "multiqc"
