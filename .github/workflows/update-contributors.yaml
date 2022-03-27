@@ -13,7 +13,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
       - name: Tributors Update      
-        uses: con/tributors@run-twice
+        uses: con/tributors@0.0.21
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:        
