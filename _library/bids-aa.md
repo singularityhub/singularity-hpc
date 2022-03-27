@@ -3,7 +3,7 @@ layout: container
 name:  "bids/aa"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/bids/aa/container.yaml"
-updated_at: "2022-03-27 05:29:29.237286"
+updated_at: "2022-03-27 05:31:18.680652"
 container_url: "https://hub.docker.com/r/bids/aa"
 
 versions:
