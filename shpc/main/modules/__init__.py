@@ -219,7 +219,7 @@ class ModuleBase(BaseClient):
         # Create .version
         self.write_version_file(os.path.dirname(symlink_path))
 
-    def check_symlink(self, module_dir, force):
+    def check_symlink(self, module_dir, force=False):
         """
         Given an install command, if --symlink-tree is provided make
         sure we don't already have this symlink in the tree.
