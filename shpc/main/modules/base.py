@@ -106,21 +106,22 @@ class ModuleBase(BaseClient):
         # Podman needs image deletion
         self.container.delete(name)
 
-        if container_dir != module_dir:
-            self._uninstall(container_dir, "$container_base/%s" % name, force)
-            self._uninstall(module_dir, "$module_base/%s" % name, force)
-        else:
-            self._uninstall(module_dir, "$module_base/%s" % name, force)
+        if not force:
+            msg = name + "?"
+            if not utils.confirm_uninstall(msg, force):
+                return
 
-    def _uninstall(self, module_dir, name, force=False):
+        if container_dir != module_dir:
+            self._uninstall(container_dir, "$container_base/%s" % name)
+            self._uninstall(module_dir, "$module_base/%s" % name)
+        else:
+            self._uninstall(module_dir, "$module_base/%s" % name)
+
+    def _uninstall(self, module_dir, name):
         """
         Sub function, so we can pass more than one folder from uninstall
         """
         if os.path.exists(module_dir):
-            if not force:
-                msg = "%s, and all content below it? " % name
-                if not utils.confirm_uninstall(msg, force):
-                    return
             self._cleanup(module_dir)
             logger.info("%s and all subdirectories have been removed." % name)
         else:
