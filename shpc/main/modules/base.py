@@ -117,6 +117,13 @@ class ModuleBase(BaseClient):
         else:
             self._uninstall(module_dir, "$module_base/%s" % name)
 
+        # parent of versioned directory has module .version
+        module_dir = os.path.dirname(module_dir)
+
+        # update the default version file, if other versions still present
+        if os.path.exists(module_dir):
+            self.write_version_file(module_dir)
+
     def _uninstall(self, module_dir, name):
         """
         Sub function, so we can pass more than one folder from uninstall
@@ -126,13 +133,6 @@ class ModuleBase(BaseClient):
             logger.info("%s and all subdirectories have been removed." % name)
         else:
             logger.warning("%s does not exist." % name)
-
-        # parent of versioned directory has module .version
-        module_dir = os.path.dirname(module_dir)
-
-        # update the default version file, if other versions still present
-        if os.path.exists(module_dir):
-            self.write_version_file(module_dir)
 
     def _test_setup(self, tmpdir):
         """
