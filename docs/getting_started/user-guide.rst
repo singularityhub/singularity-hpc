@@ -189,7 +189,7 @@ variable replacement. A summary table of variables is included below, and then f
      - a timestamp to keep track of when you last saved
      - never
    * - default_version
-     - A boolean to indicate generating a .version file (LMOD or lua modules only)
+     - A boolean to indicate whether a default version will be arbitrarily chosen, when multiple versions are available, and none is explicitly requested
      - true
    * - singularity_module
      - if defined, add to module script to load this Singularity module first

@@ -103,7 +103,21 @@ shpc -c rm:registry:/tmp/registry""",
     install.add_argument(
         "--symlink-tree",
         dest="symlink",
-        help="install to symlink tree too.",
+        help="install to symlink tree too (overrides settings.yml).",
+        default=None,
+        action="store_true",
+    )
+    install.add_argument(
+        "--no-symlink-tree",
+        dest="symlink",
+        help="skip installing to symlink tree (in case set in settings.yml).",
+        action="store_false",
+    )
+    install.add_argument(
+        "--force",
+        "-f",
+        dest="force",
+        help="replace existing symlinks",
         default=False,
         action="store_true",
     )
@@ -362,8 +376,6 @@ def run_shpc():
         from .docgen import main
     elif args.command == "get":
         from .get import main
-    elif args.command == "delete":
-        from .delete import main
     elif args.command == "install":
         from .install import main
     elif args.command == "inspect":

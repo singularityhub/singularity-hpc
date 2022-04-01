@@ -38,8 +38,8 @@ For each of the above, you can export:
 
 {% if settings.singularity_module %}load("{{ settings.singularity_module }}"){% endif %}
 
--- directory containing this modulefile (dynamically defined)
-local moduleDir = myFileName():match("(.*[/])") or "."
+-- directory containing this modulefile, once symlinks resolved (dynamically defined)
+local moduleDir = subprocess("realpath " .. myFileName()):match("(.*[/])") or "."
 
 -- singularity environment variable to set shell
 setenv("SINGULARITY_SHELL", "{{ settings.singularity_shell }}")

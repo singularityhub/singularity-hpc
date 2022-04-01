@@ -21,4 +21,4 @@ def main(args, parser, extra, subparser):
     cli.settings.update_params(args.config_params)
 
     # And do the install
-    cli.install(args.install_recipe, symlink=args.symlink)
+    cli.install(args.install_recipe, symlink=args.symlink, force=args.force)
