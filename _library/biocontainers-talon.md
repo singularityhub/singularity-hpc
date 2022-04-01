@@ -3,7 +3,7 @@ layout: container
 name:  "biocontainers/talon"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/biocontainers/talon/container.yaml"
-updated_at: "2022-03-27 19:43:36.448178"
+updated_at: "2022-04-01 23:47:33.584153"
 container_url: "https://hub.docker.com/r/biocontainers/talon"
 aliases:
  - "talon"

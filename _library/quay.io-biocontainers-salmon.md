@@ -3,7 +3,7 @@ layout: container
 name:  "quay.io/biocontainers/salmon"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/salmon/container.yaml"
-updated_at: "2022-03-27 19:43:22.245442"
+updated_at: "2022-04-01 23:46:27.725958"
 container_url: "https://quay.io/repository/biocontainers/salmon"
 aliases:
  - "salmon"
