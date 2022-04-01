@@ -4,15 +4,15 @@ maintainer: '@vsoch'
 description: Solr is the popular, blazing-fast, open source enterprise search platform
   built on Apache Lucene™.
 latest:
-  8.11.1: sha256:2a0ef1e0adbf9d1da239f453e3b7b17f665938a6ecf9b7823d65e205f06ae59f
+  8.11.1: sha256:b9f548c50346f167b1e50df053ce554b50f3862c466e7035dca9b58b7d80e8fa
 tags:
-  8.8.2-slim: sha256:423d7404f2268d00ddeee4a9b7ee25e242fde459db153eead8c39043fe9b05ae
-  8.9.0: sha256:91aafd91fdab315dab674078b77816f674c7e2799702cc3a805ed43e1ac995d5
-  8.9.0-slim: sha256:af54ca0b1ec3d81ef68779cc5d4252a9597e9652e7a80281b91ab5bd787a61fb
-  8.10.1: sha256:d5760cf1163cfbc5ce5caf182c616328b815a00a7fa20cbb6a3d856bd442d289
+  8.8.2-slim: sha256:92fedf4eb4abe0f073491ae55abcab611763f78ed296bcd10ca4342655278531
+  8.9.0: sha256:d75ad2401dd8dd245d98ba1412dc64e5cedfb5a6918d8fb32ec7e1611ddfe11e
+  8.9.0-slim: sha256:8daec2ec0ac524a0064d0d68e16a1acbdc0472d8e8d4552ec0c87ae7b0517bef
+  8.10.1: sha256:e21992531ced44bc7ed0c44cef101f7435c8827bf1b3e027c0d7edaaeaf09fec
   8.11.0: sha256:66fe2feeba8c4afdea12c78a4f11218fadd81befc43f223a2f9267bf605a25d1
-  8.11.1: sha256:2a0ef1e0adbf9d1da239f453e3b7b17f665938a6ecf9b7823d65e205f06ae59f
-  latest: sha256:2a0ef1e0adbf9d1da239f453e3b7b17f665938a6ecf9b7823d65e205f06ae59f
+  8.11.1: sha256:b9f548c50346f167b1e50df053ce554b50f3862c466e7035dca9b58b7d80e8fa
+  latest: sha256:b9f548c50346f167b1e50df053ce554b50f3862c466e7035dca9b58b7d80e8fa
 aliases:
   post: /opt/solr/bin/post
   postlogs: /opt/solr/bin/postlogs
