@@ -201,7 +201,7 @@ class ModuleBase(BaseClient):
             short=short,
         )
 
-    # Symbolik links
+    # Symbolic links
 
     def get_symlink_path(self, module_dir):
         """
