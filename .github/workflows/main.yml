@@ -34,9 +34,28 @@ jobs:
         run: |
           export PATH="/usr/share/miniconda/bin:$PATH"
           source activate black
+          pyflakes shpc/utils/fileio.py
+          pyflakes shpc/utils/terminal.py
           pyflakes shpc/main/*.py
           pyflakes shpc/main/modules
           pyflakes shpc/main/container/base.py
           pyflakes shpc/main/container/podman.py
           pyflakes shpc/main/container/docker.py
           pyflakes shpc/main/container/singularity.py
+          pyflakes shpc/main/container/update/docker.py
+          pyflakes shpc/tests
+          pyflakes shpc/*.py
+          pyflakes shpc/client/add.py
+          pyflakes shpc/client/check.py
+          pyflakes shpc/client/config.py
+          pyflakes shpc/client/docgen.py
+          pyflakes shpc/client/get.py
+          pyflakes shpc/client/inspect.py
+          pyflakes shpc/client/install.py
+          pyflakes shpc/client/listing.py
+          pyflakes shpc/client/namespace.py
+          pyflakes shpc/client/pull.py
+          pyflakes shpc/client/show.py
+          pyflakes shpc/client/test.py
+          pyflakes shpc/client/uninstall.py
+          pyflakes shpc/main/wrappers

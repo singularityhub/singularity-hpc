@@ -1,0 +1,18 @@
+docker: quay.io/pawsey/intel-hpc-python
+url: https://quay.io/repository/pawsey/intel-hpc-python
+maintainer: '@marcodelapierre'
+description: Base Python images with popular packages for HPC workflows, using Intel Python.
+latest:
+  "2022.03-hdf5mpi": sha256:8cb0238d2ed84f284c50cf1cd8811b12043e687a2b5ff4c858eac70acec7a549
+tags:
+  "2021.09": sha256:a22b12d7341cac98f41fa59cff964d61838e53e88ab8ec7f4148a8b5624e794e
+  "2021.09-hdf5mpi": sha256:1fee6bca096915d6929cae10f75a0e8adc13859aeef2e140aa7ec4f9728f774d
+  "2022.03": sha256:d2a8ac146efbdff9b147f1d921295a710678d281a5af149c6f272da1cedf20a4
+  "2022.03-hdf5mpi": sha256:8cb0238d2ed84f284c50cf1cd8811b12043e687a2b5ff4c858eac70acec7a549
+aliases:
+  python: /opt/conda/bin/python
+env:
+  PYTHONSTARTUP: ""
+  PYTHONUSERBASE: ""
+features:
+  home: true

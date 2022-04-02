@@ -2,7 +2,7 @@ __author__ = "Vanessa Sochat"
 __copyright__ = "Copyright 2021-2022, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
-__version__ = "0.0.49"
+__version__ = "0.0.52"
 AUTHOR = "Vanessa Sochat"
 NAME = "singularity-hpc"
 PACKAGE_URL = "https://github.com/singularityhub/singularity-hpc"
@@ -17,10 +17,11 @@ LICENSE = "LICENSE"
 
 INSTALL_REQUIRES = (
     # 0.1.18 added support for oras
-    ("spython", {"min_version": "0.1.18"}),
+    ("spython", {"min_version": "0.2.0"}),
     ("Jinja2", {"min_version": None}),
     ("jsonschema", {"min_version": None}),
     ("ruamel.yaml", {"min_version": None}),
+    ("requests", {"min_version": None}),
 )
 
 TESTS_REQUIRES = (("pytest", {"min_version": "4.6.2"}),)

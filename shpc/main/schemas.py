@@ -57,18 +57,10 @@ aliases_list = {
 }
 
 
-latest = {
-    "type": "object",
-    "minProperties": 1,
-    "maxProperties": 1,
-    "patternProperties": {
-        "\\w[\\w-]*": {"type": "string"},
-    },
-}
-
 containerConfigProperties = {
     "latest": keyvals,
     "docker": {"type": "string"},
+    "path": {"type": "string"},
     "oras": {"type": "string"},
     "gh": {"type": "string"},
     "url": {"type": "string"},
@@ -137,7 +129,15 @@ settingsProperties = {
     "module_name": {"type": "string"},
     "config_editor": {"type": "string"},
     "environment_file": {"type": "string"},
-    "default_version": {"type": "boolean"},
+    "default_version": {
+        "oneOf": [
+            {"type": ["null", "boolean"]},
+            {
+                "type": "string",
+                "enum": ["module_sys", "last_installed", "first_installed"],
+            },
+        ]
+    },
     "enable_tty": {"type": "boolean"},
     "symlink_base": {"type": ["string", "null"]},
     "symlink_tree": {"type": "boolean"},

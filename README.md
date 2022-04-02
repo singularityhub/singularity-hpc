@@ -4,7 +4,6 @@
 [![DOI](https://zenodo.org/badge/354130612.svg)](https://zenodo.org/badge/latestdoi/354130612)
 [![DOI](https://joss.theoj.org/papers/10.21105/joss.03311/status.svg)](https://doi.org/10.21105/joss.03311)
 
-
 ![https://raw.githubusercontent.com/singularityhub/singularity-hpc/main/docs/assets/img/shpc.png](https://raw.githubusercontent.com/singularityhub/singularity-hpc/main/docs/assets/img/shpc.png)
 
 Singularity HPC is optimized for managing containers in an HPC environment. Currently, this includes
@@ -53,6 +52,7 @@ tool to generate a contributors graphic below.
     <td align="center"><a href="https://github.com/xdelaruelle"><img src="https://avatars.githubusercontent.com/u/4928853?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Xavier Delaruelle</b></sub></a><br /><a href="https://github.com/singularityhub/singularity-hpc/commits?author=xdelaruelle" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/SarahBeecroft"><img src="https://avatars.githubusercontent.com/u/16343767?v=4?s=100" width="100px;" alt=""/><br /><sub><b>SarahBeecroft</b></sub></a><br /><a href="https://github.com/singularityhub/singularity-hpc/commits?author=SarahBeecroft" title="Code">💻</a></td>
     <td align="center"><a href="https://muffato.github.io"><img src="https://avatars.githubusercontent.com/u/623458?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Matthieu Muffato</b></sub></a><br /><a href="https://github.com/singularityhub/singularity-hpc/commits?author=muffato" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/georgiastuart"><img src="https://avatars.githubusercontent.com/u/8276147?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Georgia Stuart</b></sub></a><br /><a href="https://github.com/singularityhub/singularity-hpc/commits?author=georgiastuart" title="Code">💻</a></td>
   </tr>
 </table>
 

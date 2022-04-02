@@ -27,8 +27,12 @@ module_base: $root_dir/modules
 # This is where you might add a prefix to your module names, if desired.
 module_name: '{{ parsed_name.tool }}'
 
-# When multiple versions are available and none requested, allow module picking one iself
-default_version: true
+# When multiple versions are available and none requested, allow module picking one itself
+# module_sys: allow the module software to decide
+# null: do nothing, versions will be specified manually
+# last_installed: use the last installed as the default
+# first_installed: use the first installed
+default_version: module_sys
 
 # store containers separately from module files
 # It's recommended to do this for faster loading

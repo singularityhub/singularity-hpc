@@ -16,4 +16,6 @@ def main(args, parser, extra, subparser):
 
     # Update config settings on the fly
     cli.settings.update_params(args.config_params)
-    cli.add(args.sif_path[0], args.module_id[0])
+
+    # If we don't have a module name, we derive from container URI
+    cli.add(args.container_uri, args.module_id)

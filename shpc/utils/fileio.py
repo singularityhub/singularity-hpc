@@ -5,13 +5,39 @@ __license__ = "MPL 2.0"
 import hashlib
 import errno
 import os
-import stat
 import re
 import shutil
+import stat
 import tempfile
 
 import json
 from shpc.logger import logger
+
+
+def can_be_deleted(path, ignore_files=None):
+    """
+    A path can be deleted if it contains no entries, *or*
+    if the only files are in ignore_files
+    """
+    ignore_files = ignore_files or []
+    if os.path.exists(path):
+        entries = os.listdir(path)
+        if not entries:
+            return True
+        if set(ignore_files).issuperset(entries):
+            return True
+    return False
+
+
+def creation_date(filename):
+    """
+    Get the creation date, and fallback to modified date.
+    """
+    stat = os.stat(filename)
+    try:
+        return stat.st_birthtime
+    except AttributeError:
+        return stat.st_mtime
 
 
 def mkdirp(dirnames):
@@ -33,6 +59,28 @@ def mkdir_p(path):
             pass
         else:
             logger.exit("Error creating path %s, exiting." % path)
+
+
+def rmdir_to_base(path, base_path):
+    """
+    Delete the tree under $path and all the parents
+    up to $base_path as long as they are empty
+    """
+    if not os.path.isdir(base_path):
+        logger.exit("Error: %s is not a directory" % base_path)
+    if not path.startswith(base_path):
+        logger.exit("Error: %s is not a parent of %s" % (base_path, path))
+
+    if os.path.exists(path):
+        shutil.rmtree(path)
+
+    # If directories above it are empty, remove
+    while path != base_path:
+        if os.path.exists(path):
+            if not can_be_deleted(path, [".version"]):
+                break
+            shutil.rmtree(path)
+        path = os.path.dirname(path)
 
 
 def get_tmpfile(tmpdir=None, prefix=""):

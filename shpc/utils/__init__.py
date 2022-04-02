@@ -7,12 +7,15 @@ from .terminal import (
     confirm_uninstall,
 )
 from .fileio import (
+    can_be_deleted,
     copyfile,
+    creation_date,
     get_file_hash,
     get_tmpdir,
     get_tmpfile,
     mkdir_p,
     mkdirp,
+    rmdir_to_base,
     print_json,
     read_file,
     read_json,
