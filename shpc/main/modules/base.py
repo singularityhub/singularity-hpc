@@ -262,18 +262,15 @@ class ModuleBase(BaseClient):
         symlinked_module = self.get_symlink_path(module_dir)
         if not symlinked_module:
             return
-        if os.path.exists(symlinked_module) and os.path.islink(symlinked_module):
+        if os.path.islink(symlinked_module):
             os.unlink(symlinked_module)
-
-        # Clean up directories that become empty
-        parent_dir = os.path.dirname(symlinked_module)
-        if not os.path.exists(parent_dir):
-            return
-
-        # If the parent of the symlink only has zero files OR one file .version, cleanup
-        files = os.listdir(parent_dir)
-        if len(files) == 0 or (len(files) == 1 and files[0] == ".version"):
-            shutil.rmtree(parent_dir)
+            # Clean up directories that become empty
+            utils.rmdir_to_base(symlinked_module, self.settings.symlink_base)
+            logger.info("%s has been removed." % symlinked_module)
+        elif os.path.exists(symlinked_module):
+            logger.error("%s exists and is not a symlink!" % symlinked_module)
+        else:
+            logger.warning("%s does not exist." % symlinked_module)
 
     def docgen(self, module_name, out=None):
         """
