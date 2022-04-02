@@ -13,6 +13,8 @@ class Client(ModuleBase):
         """
         super(Client, self).__init__(**kwargs)
         self.module_extension = "lua"
+        # With Lmod, the symlink names must end with `.lua` too
+        self.symlink_extension = ".lua"
 
     def _module_sys_default_version(self, version_file, tag=None):
         """

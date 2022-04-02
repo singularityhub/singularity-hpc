@@ -214,11 +214,7 @@ class ModuleBase(BaseClient):
             self.settings.symlink_base, *module_dir.split(os.sep)[-2:]
         )
 
-        # With Lmod, the symlink names must end with `.lua` too
-        if self.module_extension == "lua":
-            return symlink_base_name + ".lua"
-        else:
-            return symlink_base_name
+        return symlink_base_name + self.symlink_extension
 
     def create_symlink(self, module_dir):
         """

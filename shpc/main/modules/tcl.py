@@ -12,7 +12,10 @@ class Client(ModuleBase):
         An Lmod client generates an lmod recipe for install
         """
         super(Client, self).__init__(**kwargs)
+        # The extension is technically not required, but we still set one for clarity
         self.module_extension = "tcl"
+        # Except for symlink, since the goal is to have short names
+        self.symlink_extension = ""
 
     def _no_default_version(self, version_file, tag=None):
         """
