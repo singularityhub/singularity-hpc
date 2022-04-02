@@ -437,7 +437,7 @@ class ModuleBase(BaseClient):
             container_path = container_dest
 
         # Add a .version file to indicate the level of versioning
-        self.write_version_file(uri, tag.name)
+        self.write_version_file(os.path.join(self.settings.module_base, uri), tag.name)
 
         # For Singularity this is a path, podman is a uri. If None is returned
         # there was an error and we cleanup
@@ -508,11 +508,10 @@ class ModuleBase(BaseClient):
         template = self._load_template("default_version")
         utils.write_file(version_file, template.render(version=tag))
 
-    def write_version_file(self, uri, latest_tag_installed=None):
+    def write_version_file(self, version_dir, latest_tag_installed=None):
         """
         Create the .version file, if there is a template for it.
         """
-        version_dir = os.path.join(self.settings.module_base, uri)
         version_file = os.path.join(version_dir, ".version")
 
         # No default versions
