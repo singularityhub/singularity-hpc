@@ -17,6 +17,8 @@ import subprocess
 import sys
 import inspect
 
+here = os.path.dirname(os.path.abspath(__file__))
+
 
 class ModuleBase(BaseClient):
     def __init__(self, **kwargs):
@@ -445,7 +447,7 @@ class ModuleBase(BaseClient):
             container_path = container_dest
 
         # Add a .version file to indicate the level of versioning
-        self.write_version_file(uri, tag.name)
+        self.write_version_file(uri, tag.name, symlink)
 
         # For Singularity this is a path, podman is a uri. If None is returned
         # there was an error and we cleanup
@@ -498,6 +500,9 @@ class ModuleBase(BaseClient):
         logger.info("Module %s was created." % name)
         return container_path
 
+        if symlink:
+            self.create_symlink(module_dir)
+
     # Module software can choose how to handle each of these cases
     def _no_default_version(self, version_file, tag):
         return
@@ -544,9 +549,6 @@ class ModuleBase(BaseClient):
                     found,
                     key=lambda x: utils.creation_date(os.path.join(version_dir, x)),
                 )
-
-        if symlink:
-            self.create_symlink(module_dir)
 
         # Write the .version file
         return self._set_default_version(version_file, tag)
