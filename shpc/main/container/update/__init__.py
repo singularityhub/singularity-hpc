@@ -23,7 +23,23 @@ def update_config_tags(config):
 
         # Get list of current tags, and update with new versions
         current_tags = dict(config.get("tags", {}))
-        current_tags.update({x.vstring: "unknown" for x in versions})
+
+        # Now do the same practice as before - try to derive what is latest
+        sorted_tags = filter_versions(
+            list(current_tags.keys()), max_length=len(current_tags)
+        )
+
+        # Only take the earliest back, e.g., if current tags have 1.3 as earliest
+        # do not add a 1.2 we find in versions
+        earliest_tag = sorted_tags[-1]
+        recent_versions = []
+        for version in versions:
+            if version < earliest_tag:
+                break
+            recent_versions.append(version)
+
+        # Now update current tags
+        current_tags.update({x.vstring: "unknown" for x in recent_versions})
 
         # Get updated hashes
         for tag, _ in current_tags.items():
@@ -31,7 +47,7 @@ def update_config_tags(config):
             if digest:
                 current_tags[tag] = digest[tag]
 
-        # Now do the same practice as before - try to derive what is latest
+        # Sort them again
         sorted_tags = filter_versions(
             list(current_tags.keys()), max_length=len(current_tags)
         )

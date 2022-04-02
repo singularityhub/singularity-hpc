@@ -830,6 +830,7 @@ updated tags. An update generally means that:
  - Any versions (including latest) that cannot be sorted based on some semblance to a version are filtered out
  - We sort the list, and given duplicates of some major minor (ignoring the last part of): ``<major>.<minor>.<ignored>`` we take the first seen in the sorted list.
  - Then we take the top 5 newest to add.
+ - We then filter down to not include any versions older than the current oldest in the container.yaml
  
 This action is run automatically on CI for you, however it's just done once a month and you are welcome to run it on your own, and contribute
 changes to container.yaml files that you think are meaningful. To update one container
