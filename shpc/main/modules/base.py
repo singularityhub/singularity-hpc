@@ -246,7 +246,9 @@ class ModuleBase(BaseClient):
         # Get the symlink path - does it exist?
         symlink_path = self.get_symlink_path(module_dir)
         if not symlink_path:
-            logger.exit("symlink_base is not set, cannot create a symlink without it. Check your settings.")
+            logger.exit(
+                "symlink_base is not set, cannot create a symlink without it. Check your settings."
+            )
         elif os.path.exists(symlink_path):
             if force:
                 logger.info("Overwriting %s, as requested" % module_dir)
@@ -273,7 +275,6 @@ class ModuleBase(BaseClient):
             logger.error("%s exists and is not a symlink!" % symlinked_module)
         elif self.settings.symlink_tree:
             logger.warning("%s does not exist." % symlinked_module)
-
 
     def docgen(self, module_name, out=None):
         """
