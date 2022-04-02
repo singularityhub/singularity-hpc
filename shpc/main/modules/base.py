@@ -108,8 +108,8 @@ class ModuleBase(BaseClient):
                 module_dir, self.settings.module_base, "$module_base/%s" % name
             )
 
-            # Clean up symbolic links
-            self._cleanup_symlink(module_dir)
+        # Clean up symbolic links
+        self._cleanup_symlink(module_dir)
 
         # parent of versioned directory has module .version
         module_dir = os.path.dirname(module_dir)
