@@ -5,9 +5,6 @@ __license__ = "MPL 2.0"
 from shpc.logger import logger
 from .docker import DockerImage
 from .versions import filter_versions
-from .diff import print_diff
-
-import shpc.utils as utils
 
 
 def update_config_tags(config):

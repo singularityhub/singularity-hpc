@@ -7,7 +7,6 @@ from shpc.logger import logger, underline, add_prefix
 import shpc.main.schemas as schemas
 import shpc.main.container.update as update
 import shlex
-import re
 
 try:
     from ruamel_yaml import YAML
