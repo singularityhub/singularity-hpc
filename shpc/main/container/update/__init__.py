@@ -16,3 +16,11 @@ def get_container_tag(container_name, tag=None):
     tag = tag or "latest"
     digest = image.digest(tag)
     return {tag: digest}
+    
+    
+def get_latest_tags(container_name, tag=None):
+    """
+    Given a container name, get the latest tags.
+    """
+    image = DockerImage(container_name)
+    return image.tags()

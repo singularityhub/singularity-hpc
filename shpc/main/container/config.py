@@ -5,7 +5,9 @@ __license__ = "MPL 2.0"
 
 from shpc.logger import logger
 import shpc.main.schemas as schemas
+import shpc.main.container.update as update
 import shlex
+import re
 
 try:
     from ruamel_yaml import YAML
@@ -125,6 +127,32 @@ class ContainerConfig:
         name = self.docker or self.oras or self.gh
         return ContainerName(name)
 
+    def update(self, dryrun=False):
+        """
+        Update a container.yaml, meaning the tags and latest.
+        """
+        latest_tags = []
+        current_tags = dict(self._config['tags'])
+
+        if self.docker:
+            logger.info("Looking for updated digests for %s" % self.docker)
+            latest_tags = update.get_latest_tags(self.docker)
+        if latest_tags and self.filter:
+            for pattern in self.filter:
+                latest_tags = [x for x in latest_tags if re.search(pattern, x)]
+        
+        latest_tags.sort()
+        current_tags.update({x:None for x in latest_tags if x not in current_tags})        
+
+        for tag, _ in current_tags.items():
+            digest = update.get_container_tag(self.docker, tag)
+            if digest:
+                current_tags[tag] = digest
+ 
+        import IPython
+        IPython.embed()
+
+        
     @property
     def latest(self):
         """

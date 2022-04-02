@@ -817,6 +817,38 @@ each unique module name, just add ``--short``:
       ghcr.io/autamus/samtools: latest
         ghcr.io/autamus/clingo: 5.5.0
 
+Update
+------
+
+As of version 0.0.52, you can request on demand updates of container.yaml recipes,
+where an update means we ping the registry or resource for the module and find
+updated tags. This action is run automatically on CI for you, however it's just
+done once a month and you are welcome to run it on your own, and contribute
+changes to container.yaml files that you think are meaningful. To update one container
+module recipe in the registry:
+
+.. code-block:: console
+
+    $ shpc update ghcr.io/autamus/clingo
+
+or to update them all:
+
+
+.. code-block:: console
+
+    $ shpc update
+
+or to ask for a dryrun, meaning we check for updates but don't perform them.
+
+.. code-block:: console
+
+    $ shpc update --dryrun
+
+
+Let us know if there are other features you'd like for update! For specific recipes
+it could be that a different method of choosing or sorting tags (beyond the defaults
+and filter) is needed.
+
 
 Inspect
 -------

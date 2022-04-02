@@ -111,6 +111,22 @@ class Client:
         config.set_tag(tag)
         return config
 
+    def update(self, name=None, dryrun=False):
+        """
+        Given a module name (or None for all modules) update container.yaml files.        
+        """
+        import IPython
+        IPython.embed()
+
+        if name:
+            modules = [name]
+        else:
+            modules = [x[1] for x in list(self.container.iter_modules())]
+
+        for module_name in modules:
+            config = self._load_container(module_name)
+            config.update(dryrun)
+
     def test(
         self,
         module_name,
