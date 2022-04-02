@@ -214,9 +214,8 @@ class ModuleBase(BaseClient):
             self.settings.symlink_base, *module_dir.split(os.sep)[-2:]
         )
 
-        # With Lmod and default_version==True, the symlinks points to module.lua itself,
-        # and its name needs to end with `.lua` too
-        if self.module_extension == "lua" and self.settings.default_version in [True, "module_sys"]:
+        # With Lmod, the symlink names must end with `.lua` too
+        if self.module_extension == "lua":
             return symlink_base_name + ".lua"
         else:
             return symlink_base_name
@@ -234,11 +233,7 @@ class ModuleBase(BaseClient):
         if not os.path.exists(symlink_dir):
             utils.mkdirp([symlink_dir])
 
-        # With Lmod, default_version==False can't be made to work with symlinks at the module.lua level
-        if self.module_extension == "lua" and self.settings.default_version in [False, None]:
-            symlink_target = module_dir
-        else:
-            symlink_target = os.path.join(module_dir, self.modulefile)
+        symlink_target = os.path.join(module_dir, self.modulefile)
         logger.info("Creating link %s -> %s" % (symlink_target, symlink_path))
 
         # Create the symbolic link!
