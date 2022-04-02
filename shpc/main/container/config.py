@@ -3,7 +3,7 @@ __copyright__ = "Copyright 2021-2022, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
 
-from shpc.logger import logger
+from shpc.logger import logger, underline, add_prefix
 import shpc.main.schemas as schemas
 import shpc.main.container.update as update
 import shlex
@@ -131,28 +131,23 @@ class ContainerConfig:
         """
         Update a container.yaml, meaning the tags and latest.
         """
-        latest_tags = []
-        current_tags = dict(self._config['tags'])
-
+        updated = None
         if self.docker:
-            logger.info("Looking for updated digests for %s" % self.docker)
-            latest_tags = update.get_latest_tags(self.docker)
-        if latest_tags and self.filter:
-            for pattern in self.filter:
-                latest_tags = [x for x in latest_tags if re.search(pattern, x)]
-        
-        latest_tags.sort()
-        current_tags.update({x:None for x in latest_tags if x not in current_tags})        
+            previous_tags = self.get("tags", {})
+            previous_latest = self.get("latest", {})
+            updated = update.update_config_tags(self)
 
-        for tag, _ in current_tags.items():
-            digest = update.get_container_tag(self.docker, tag)
-            if digest:
-                current_tags[tag] = digest
- 
-        import IPython
-        IPython.embed()
+            # print the container name and latest tag:
+            print(add_prefix(underline(self.docker)))
+            print(add_prefix("Latest"))
+            update.print_diff(previous_latest, updated.get("latest"))
+            print(add_prefix("Tags"))
+            update.print_diff(previous_tags, updated.get("tags"))
 
-        
+            # Take a "diff" of tags
+            if not dryrun:
+                updated.save()
+
     @property
     def latest(self):
         """

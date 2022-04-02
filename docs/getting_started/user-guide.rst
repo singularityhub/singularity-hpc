@@ -822,31 +822,62 @@ Update
 
 As of version 0.0.52, you can request on demand updates of container.yaml recipes,
 where an update means we ping the registry or resource for the module and find
-updated tags. This action is run automatically on CI for you, however it's just
-done once a month and you are welcome to run it on your own, and contribute
+updated tags. An update generally means that:
+
+ - We start with the 50 latest tags of the container, as determined by `crane.ggcr.dev <https://crane.ggcr.dev/ls/quay.io/biocontainers/samtools>`_
+ - We filter according to any recipe ``filters`` in the container.yaml
+ - Given a convention of including a hash, we try to remove it and generate a loose version
+ - Any versions (including latest) that cannot be sorted based on some semblance to a version are filtered out
+ - We sort the list, and given duplicates of some major minor (ignoring the last part of): ``<major>.<minor>.<ignored>`` we take the first seen in the sorted list.
+ - Then we take the top 5 newest to add.
+ 
+This action is run automatically on CI for you, however it's just done once a month and you are welcome to run it on your own, and contribute
 changes to container.yaml files that you think are meaningful. To update one container
 module recipe in the registry:
 
 .. code-block:: console
 
-    $ shpc update ghcr.io/autamus/clingo
+    $ shpc update quay.io/biocontainers/samtools
+    Looking for updated digests for quay.io/biocontainers/samtools
+    >> quay.io/biocontainers/samtools
+    >> Latest
+    1.15--h3843a85_0:sha256:d68e1b5f504dc60eb9f2a02eecbac44a63f144e7d455b3fb1a25323c667ca4c4
+    >> Tags
+    + 1.9--h8571acd_11:sha256:3883c91317e7b6b62e31c82e2cef3cc1f3a9862633a13f850a944e828dd165ec
+    + 1.8--h46bd0b3_5:sha256:e495550231927c4b9b23a9f5920906f608129bf470dc3409ef7c6eecf0fa6d8e
+    + 1.7--2:sha256:9b3e923c44aa401e3e2b3bff825d36c9b07e97ba855ca04a368bf7b32f28aa97
+    + 1.6--he673b24_3:sha256:42031f060cde796279c09e6328d72bbce70d83a8f96e161faee3380ab689246d
+    + 1.5--2:sha256:9a2f99c26cee798e3b799447a7cfa0fbb0c1ce27c42eef7a3c1289ba871f55cb
+    1.12--h9aed4be_1:sha256:5fd5f0937adf8a24b5bf7655110e501df78ae51588547c8617f17c3291a723e1
+    1.15--h3843a85_0:sha256:d68e1b5f504dc60eb9f2a02eecbac44a63f144e7d455b3fb1a25323c667ca4c4
+    1.10--h2e538c0_3:sha256:84a8d0c0acec87448a47cefa60c4f4a545887239fcd7984a58b48e7a6ac86390
+    1.14--hb421002_0:sha256:88632c41eba8b94b7a2a1013f422aecf478a0cb278740bcc3a38058c903d61ad
+    1.13--h8c37831_0:sha256:04da5297386dfae2458a93613a8c60216d158ee7cb9f96188dad71c1952f7f72
+    1.11--h6270b1f_0:sha256:141120f19f849b79e05ae2fac981383988445c373b8b5db7f3dd221179af382b
 
-or to update them all:
-
-
-.. code-block:: console
-
-    $ shpc update
 
 or to ask for a dryrun, meaning we check for updates but don't perform them.
 
 .. code-block:: console
 
-    $ shpc update --dryrun
+    $ shpc update quay.io/biocontainers/samtools --dryrun
+
+
+The current implementation just supports updating from a Docker registry (e.g., oras and others will come after)
+and we don't currently support updating all tags at once, because the feature is relativly know
+and we want to take a conservative approach until we've seen it in action. However, you can easily
+loop through your module names to accomplish this:
+
+.. code-block:: console
+
+
+    $ for name in $(shpc show); do
+        shpc update ${name} --dryun
+      done
 
 
 Let us know if there are other features you'd like for update! For specific recipes
-it could be that a different method of choosing or sorting tags (beyond the defaults
+it could be that a different method of choosing or sorting tags (beyond the defaults mentioned above
 and filter) is needed.
 
 

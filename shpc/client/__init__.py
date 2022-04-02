@@ -231,7 +231,7 @@ shpc config remove registry:/tmp/registry""",
     update = subparsers.add_parser(
         "update", description="update a container recipe with new versions"
     )
-    update.add_argument("module_name", help="module to check (module:version)", nargs="?")
+    update.add_argument("module_name", help="module to update (no version required)")
     update.add_argument(
         "--dryrun",
         "-d",

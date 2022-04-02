@@ -104,7 +104,9 @@ class ContainerTechnology:
         """
         for registry in self.settings.registry:
             for filename in shpc.utils.recursive_find(registry):
-                yield registry, os.path.dirname(filename).replace(registry, '').strip(os.sep)
+                yield registry, os.path.dirname(filename).replace(registry, "").strip(
+                    os.sep
+                )
 
     def guess_tag(self, module_name, allow_fail=False):
         """
