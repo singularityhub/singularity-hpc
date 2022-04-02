@@ -10,7 +10,7 @@ from .diff import print_diff
 assert print_diff
 
 
-def update_config_tags(config):
+def update_config_tags(config, filters=None):
     """
     Given a container config, update the latest tags
     """
@@ -19,7 +19,7 @@ def update_config_tags(config):
         latest_tags = get_latest_tags(config.docker)
 
         # Notice this API call truncates at 50
-        versions = filter_versions(latest_tags, filters=config.filters)
+        versions = filter_versions(latest_tags, filters=filters or config.filters)
 
         # Get list of current tags, and update with new versions
         current_tags = dict(config.get("tags", {}))
@@ -31,12 +31,16 @@ def update_config_tags(config):
 
         # Only take the earliest back, e.g., if current tags have 1.3 as earliest
         # do not add a 1.2 we find in versions
-        earliest_tag = sorted_tags[-1]
-        recent_versions = []
-        for version in versions:
-            if version < earliest_tag:
-                break
-            recent_versions.append(version)
+        earliest_tag = get_earliest_tag(sorted_tags)
+
+        # Only try to derive earliest if we have numbers
+        recent_versions = versions
+        if earliest_tag:
+            recent_versions = []
+            for version in versions:
+                if version < earliest_tag:
+                    break
+                recent_versions.append(version)
 
         # Now update current tags
         current_tags.update({x.vstring: "unknown" for x in recent_versions})
@@ -62,6 +66,22 @@ def update_config_tags(config):
             )
 
     return config
+
+
+def get_earliest_tag(sorted_tags):
+    """
+    Given a list of sorted tags, try to find the earliest. If we cannot,
+    return None. This assumes a list sorted with latest at the beginning.
+    """
+    earliest_tags = list(reversed(sorted_tags))
+    earliest_tag = None
+    idx = 0
+    while not earliest_tag and idx < len(earliest_tags):
+        earliest_tag = earliest_tags[idx]
+        if not earliest_tag.contains_number():
+            earliest_tag = None
+            idx += 1
+    return earliest_tag
 
 
 def get_container_tag(container_name, tag=None):

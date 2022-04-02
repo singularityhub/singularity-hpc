@@ -12,6 +12,11 @@ def print_diff(obj1: dict, obj2: dict):
     Since we don't ever delete anything (just change) we print changed as
     yellow,
     """
+    # First look for tags in the first that aren't in the second - we aren't deleting them
+    unchanged = set(obj1.keys()).difference(obj2.keys())
+    unchanged = {k: obj1[k] for k in unchanged}
+    obj1 = {k: v for k, v in obj1.items() if k not in unchanged}
+
     obj1_content = ["%s:%s" % (k, v) for k, v in obj1.items()]
     obj2_content = ["%s:%s" % (k, v) for k, v in obj2.items()]
 
@@ -34,3 +39,5 @@ def print_diff(obj1: dict, obj2: dict):
     # No change!
     for line in intersect:
         print(line)
+    for name, digest in unchanged.items():
+        print("%s:%s" % (name, digest))

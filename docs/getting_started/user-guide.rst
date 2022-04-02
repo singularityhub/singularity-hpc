@@ -864,8 +864,22 @@ or to ask for a dryrun, meaning we check for updates but don't perform them.
     $ shpc update quay.io/biocontainers/samtools --dryrun
 
 
+If you want to look for a specific string or pattern in the tags, just add ``--filter``
+
+.. code-block:: console
+
+    $ shpc update redis --dryrun --filter alpine
+
+Since no tags are deleted, this will add the latest set found with the term "alpine." You can also use this
+strategy to add a specific tag:
+
+
+.. code-block:: console
+
+    $ shpc update redis --dryrun --filter 6.0-rc-alpine
+
 The current implementation just supports updating from a Docker registry (e.g., oras and others will come after)
-and we don't currently support updating all tags at once, because the feature is relativly know
+and we don't currently support updating all tags at once, because the feature is relatively know
 and we want to take a conservative approach until we've seen it in action. However, you can easily
 loop through your module names to accomplish this:
 

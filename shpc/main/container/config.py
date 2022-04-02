@@ -126,7 +126,7 @@ class ContainerConfig:
         name = self.docker or self.oras or self.gh
         return ContainerName(name)
 
-    def update(self, dryrun=False):
+    def update(self, dryrun=False, filters=None):
         """
         Update a container.yaml, meaning the tags and latest.
         """
@@ -134,7 +134,7 @@ class ContainerConfig:
         if self.docker:
             previous_tags = self.get("tags", {})
             previous_latest = self.get("latest", {})
-            updated = update.update_config_tags(self)
+            updated = update.update_config_tags(self, filters=filters)
 
             # print the container name and latest tag:
             print(add_prefix(underline(self.docker)))

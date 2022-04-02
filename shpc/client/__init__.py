@@ -233,6 +233,13 @@ shpc config remove registry:/tmp/registry""",
     )
     update.add_argument("module_name", help="module to update (no version required)")
     update.add_argument(
+        "--filter",
+        "-f",
+        action="append",
+        help="ignore container.yaml filters, run an update with this specific set",
+        dest="filters",
+    )
+    update.add_argument(
         "--dryrun",
         "-d",
         help="View updates without performing updates",
