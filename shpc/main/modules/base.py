@@ -383,7 +383,7 @@ class ModuleBase(BaseClient):
         config = self._load_container(module_name.rsplit(":", 1)[0])
         return self.container.check(module_name, config)
 
-    def install(self, name, tag=None, **kwargs):
+    def install(self, name, tag=None, symlink=None, force=False, **kwargs):
         """
         Given a unique resource identifier, install a recipe.
 
@@ -422,7 +422,7 @@ class ModuleBase(BaseClient):
 
         if symlink:
             # Cut out early if symlink desired and already exists
-            self.check_symlink(module_dir)
+            self.check_symlink(module_dir, force=force)
 
         shpc.utils.mkdirp([module_dir, container_dir])
 
