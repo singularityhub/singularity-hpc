@@ -54,23 +54,35 @@ class TaggedLooseVersion(LooseVersion):
             self._major_minor = components[0:2]
         self.version = components
 
+    def is_comparable(self):
+        """
+        An item is comparable if it's not all string. We don't have a meaningufl
+        way to compare things that are all strings.
+        """
+        all_string = True
+        for comp in self.version:
+            if not isinstance(comp, str):
+                all_string = False
+        return not all_string
+
     def _cmp(self, other):
         if isinstance(other, str):
             other = LooseVersion(other)
 
-        if self.version == other.version:
-            return 0
-        try:
-            if self.version < other.version:
-                return -1
-        except:
+        # Figure out if either version cannot be compared
+        if not self.is_comparable():
             self.tags.add("remove")
             return -1
-        try:
-            if self.version > other.version:
-                return 1
-        except:
-            self.tags.add("remove")
+        if not other.is_comparable():
+            other.tags.add("remove")
+            return -1
+
+        # When we get here, we assume comparable!
+        if self.version == other.version:
+            return 0
+        if self.version < other.version:
+            return -1
+        if self.version > other.version:
             return 1
 
 
