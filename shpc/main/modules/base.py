@@ -493,10 +493,11 @@ class ModuleBase(BaseClient):
         if ":" not in name:
             name = "%s:%s" % (name, tag.name)
         logger.info("Module %s was created." % name)
-        return container_path
 
         if symlink:
             self.create_symlink(module_dir)
+
+        return container_path
 
     # Module software can choose how to handle each of these cases
     def _no_default_version(self, version_file, tag):
