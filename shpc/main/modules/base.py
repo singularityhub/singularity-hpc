@@ -216,7 +216,7 @@ class ModuleBase(BaseClient):
 
         # With Lmod and default_version==True, the symlinks points to module.lua itself,
         # and its name needs to end with `.lua` too
-        if self.module_extension == "lua" and self.settings.default_version == True:
+        if self.module_extension == "lua" and self.settings.default_version in [True, "module_sys"]:
             return symlink_base_name + ".lua"
         else:
             return symlink_base_name
@@ -235,7 +235,7 @@ class ModuleBase(BaseClient):
             utils.mkdirp([symlink_dir])
 
         # With Lmod, default_version==False can't be made to work with symlinks at the module.lua level
-        if self.module_extension == "lua" and self.settings.default_version == False:
+        if self.module_extension == "lua" and self.settings.default_version in [False, None]:
             symlink_target = module_dir
         else:
             symlink_target = os.path.join(module_dir, self.modulefile)
