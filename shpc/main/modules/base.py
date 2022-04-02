@@ -447,7 +447,7 @@ class ModuleBase(BaseClient):
             container_path = container_dest
 
         # Add a .version file to indicate the level of versioning
-        self.write_version_file(uri, tag.name, symlink)
+        self.write_version_file(uri, tag.name)
 
         # For Singularity this is a path, podman is a uri. If None is returned
         # there was an error and we cleanup
