@@ -267,10 +267,13 @@ class ModuleBase(BaseClient):
             # Clean up directories that become empty
             utils.rmdir_to_base(symlinked_module, self.settings.symlink_base)
             logger.info("%s has been removed." % symlinked_module)
+            # Update .version
+            self.write_version_file(os.path.dirname(symlinked_module))
         elif os.path.exists(symlinked_module):
             logger.error("%s exists and is not a symlink!" % symlinked_module)
         elif self.settings.symlink_tree:
             logger.warning("%s does not exist." % symlinked_module)
+
 
     def docgen(self, module_name, out=None):
         """
