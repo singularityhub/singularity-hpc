@@ -17,7 +17,7 @@ user_settings_file = os.path.join(
 )
 
 # variables in settings that allow environment variable expansion
-allowed_envars = ["container_base", "module_base", "registry"]
+allowed_envars = ["container_base", "module_base", "symlink_base", "registry"]
 
 # The GitHub repository with recipes
 github_url = "https://github.com/singularityhub/singularity-hpc"
