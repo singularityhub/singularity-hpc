@@ -180,10 +180,10 @@ variable replacement. A summary table of variables is included below, and then f
      - The container technology to use (singularity or podman)
      - singularity
    * - symlink_base
-     - If set, where you want to install a simplified module tree to using ``--symlink-tree``
+     - If set, where you want to install a simplified module tree to using the ``symlink-tree`` option
      - $root_dir/symlinks
    * - symlink_tree
-     - If set to true, ALWAYS generate a symlink tree given that a symlink base is defined regardless of ``--symlink-tree`` flag
+     - If set to true, always generate a symlink unless the ``--no-symlink-tree`` flag is given
      - false
    * - updated_at
      - a timestamp to keep track of when you last saved
@@ -400,7 +400,7 @@ available!
 .. code-block:: console
 
     $ module use ./symlinks
-    $ module load clingo/5.5.1/module
+    $ module load clingo/5.5.1
 
 This is much more efficient compared to the install that uses the full paths:
 
