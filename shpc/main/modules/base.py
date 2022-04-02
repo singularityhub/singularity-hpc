@@ -515,6 +515,10 @@ class ModuleBase(BaseClient):
         """
         Create the .version file, if there is a template for it.
         """
+        if not os.path.exists(version_dir):
+            # Happens when uninstalling the last version of a tool
+            return
+
         version_file = os.path.join(version_dir, ".version")
 
         # No default versions
