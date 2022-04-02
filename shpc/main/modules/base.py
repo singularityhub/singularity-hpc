@@ -249,7 +249,9 @@ class ModuleBase(BaseClient):
         """
         # Get the symlink path - does it exist?
         symlink_path = self.get_symlink_path(module_dir)
-        if os.path.exists(symlink_path):
+        if not symlink_path:
+            logger.exit("symlink_base is not set, cannot create a symlink without it. Check your settings.")
+        elif os.path.exists(symlink_path):
             if force:
                 logger.info("Overwriting %s, as requested" % module_dir)
             elif not utils.confirm_action(
