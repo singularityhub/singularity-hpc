@@ -3,8 +3,7 @@ __copyright__ = "Copyright 2021-2022, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
 from jinja2.exceptions import TemplateNotFound
-from jinja2 import FileSystemLoader
-from jinja2.loaders import split_template_path
+from jinja2.loaders import split_template_path, FileSystemLoader
 from jinja2.utils import open_if_exists
 import posixpath
 import os
