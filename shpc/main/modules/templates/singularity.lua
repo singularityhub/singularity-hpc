@@ -36,7 +36,7 @@ For each of the above, you can export:
  - SINGULARITY_COMMAND_OPTS: to define custom options for the command (e.g., -b)
 ]]) 
 
-{% if settings.default_version in [False, None] %}
+{% if settings.default_version == None %}
 if (mode() == "load") then
   if ( myModuleUsrName() ~= myModuleFullName() and myModuleUsrName() ~= string.gsub(myModuleFullName(),"/module$","") ) then
     LmodError("You must specify module <name>/<version>.")
