@@ -14,12 +14,15 @@ def update_config_tags(config, filters=None):
     """
     Given a container config, update the latest tags
     """
-    if config.docker:
-        logger.info("Looking for updated digests for %s" % config.docker)
-        latest_tags = get_latest_tags(config.docker)
+    # Both docker and oras are from OCI registries
+    if config.docker or config.oras:
+        uri = config.docker or config.oras
+
+        logger.info("Looking for updated digests for %s" % uri)
+        latest_tags = get_latest_tags(uri)
 
         # Notice this API call truncates at 50
-        versions = filter_versions(latest_tags, filters=filters or config.filters)
+        versions = filter_versions(latest_tags, filters=filters or config.filter)
 
         # Get list of current tags, and update with new versions
         current_tags = dict(config.get("tags", {}))
@@ -47,7 +50,7 @@ def update_config_tags(config, filters=None):
 
         # Get updated hashes
         for tag, _ in current_tags.items():
-            digest = get_container_tag(config.docker, tag)
+            digest = get_container_tag(uri, tag)
             if digest:
                 current_tags[tag] = digest[tag]
 
@@ -56,10 +59,19 @@ def update_config_tags(config, filters=None):
             list(current_tags.keys()), max_length=len(current_tags)
         )
 
+        # Filter down to those with version strings to get latest
+        versioned_tags = [x for x in sorted_tags if x.version]
+        if not versioned_tags:
+            versioned_tags = sorted_tags
+
+        # Newest at end again
+        versioned_tags.sort()
+
         # Update latest and the rest
         if sorted_tags:
             config.set(
-                "latest", {sorted_tags[0].vstring: current_tags[sorted_tags[0].vstring]}
+                "latest",
+                {versioned_tags[-1].vstring: current_tags[versioned_tags[-1].vstring]},
             )
             config.set(
                 "tags", {x.vstring: current_tags[x.vstring] for x in sorted_tags}
@@ -78,7 +90,7 @@ def get_earliest_tag(sorted_tags):
     idx = 0
     while not earliest_tag and idx < len(earliest_tags):
         earliest_tag = earliest_tags[idx]
-        if not earliest_tag.contains_number():
+        if not earliest_tag.version:
             earliest_tag = None
             idx += 1
     return earliest_tag

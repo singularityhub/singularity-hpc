@@ -28,9 +28,6 @@ def filter_versions(tags, filters=None, max_length=5):
     # This has latest at the top
     versions.sort(reverse=True)
 
-    # Remove any tagged to remove or known tags
-    versions = [x for x in versions if "remove" not in x.tags]
-
     # Now only take the top major / minor of each
     filtered = []
     seen = set()
@@ -59,24 +56,22 @@ class TaggedLooseVersion(LooseVersion):
     """
 
     def __init__(self, vstring=None):
-        if vstring:
-            self.parse(vstring)
 
         # Additional set of tags for labeling
         self.tags = set()
+        self.version = []
+        if vstring:
+            self.parse(vstring)
 
     @property
     def major_minor(self):
         if self._major_minor:
             return ".".join(str(x) for x in self._major_minor)
 
-    def contains_number(self):
-        for comp in self.version:
-            if isinstance(comp, int):
-                return True
-        return False
-
     def parse(self, vstring):
+        """
+        Parse a version string (vstring) into pieces. Strings are added as tags.
+        """
         self.vstring = vstring
 
         # Do a custom parsing for weird biocontainers versions
@@ -93,11 +88,15 @@ class TaggedLooseVersion(LooseVersion):
         if "-" in vstring:
             vstring = vstring.replace("-", ".")
 
-        components = [x for x in self.component_re.split(vstring) if x and x != "."]
-        for i, obj in enumerate(components):
+        contenders = [x for x in self.component_re.split(vstring) if x and x != "."]
+        components = []
+
+        # Add non-numerical components as tags
+        for obj in contenders:
             try:
-                components[i] = int(obj)
+                components.append(int(obj))
             except ValueError:
+                self.tags.add(obj)
                 pass
 
         # If we have > 2 components, try to save a major/minor

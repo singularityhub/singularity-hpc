@@ -3,6 +3,8 @@ url: https://hub.docker.com/_/tomcat
 maintainer: '@vsoch'
 description: Apache Tomcat is an open source implementation of the Java Servlet and
   JavaServer Pages technologies
+filter:
+  - ^(?!jdk1[1-7]).*$
 latest:
   10.1.0: sha256:677559264c3c8d9a27bf2bbd1c82d55ca666245a61644a6f0782a9a71e03e575
 tags:

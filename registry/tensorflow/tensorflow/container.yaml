@@ -16,8 +16,7 @@ tags:
   latest-gpu: sha256:1e03623e335aac1610b1a3cfa6a96cf10156acb095287f9d6031df3980148663
   2.7.1-gpu: sha256:581575fc3a736398f0dff9e950f57f2e6d808296267ac98325451a0b1d101dd0
 filter:
-- 2.*
-- latest-gpu
+- 2[.]*
 features:
   gpu: true
 aliases:

@@ -131,21 +131,21 @@ class ContainerConfig:
         Update a container.yaml, meaning the tags and latest.
         """
         updated = None
-        if self.docker:
+        if self.docker or self.oras:
             previous_tags = self.get("tags", {})
             previous_latest = self.get("latest", {})
             updated = update.update_config_tags(self, filters=filters)
 
             # print the container name and latest tag:
-            print(add_prefix(underline(self.docker)))
+            print(add_prefix(underline(self.docker or self.oras)))
             print(add_prefix("Latest"))
-            update.print_diff(previous_latest, updated.get("latest"))
+            update.print_diff(previous_latest, updated.get("latest"), True)
             print(add_prefix("Tags"))
             update.print_diff(previous_tags, updated.get("tags"))
 
             # Take a "diff" of tags
             if not dryrun:
-                updated.save()
+                updated.save(updated.package_file)
 
     @property
     def latest(self):

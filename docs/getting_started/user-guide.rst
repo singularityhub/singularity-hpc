@@ -878,7 +878,7 @@ strategy to add a specific tag:
 
     $ shpc update redis --dryrun --filter 6.0-rc-alpine
 
-The current implementation just supports updating from a Docker registry (e.g., oras and others will come after)
+The current implementation just supports updating from a Docker / oras registry (others will come after)
 and we don't currently support updating all tags at once, because the feature is relatively know
 and we want to take a conservative approach until we've seen it in action. However, you can easily
 loop through your module names to accomplish this:
