@@ -61,7 +61,7 @@ def mkdir_p(path):
             logger.exit("Error creating path %s, exiting." % path)
 
 
-def rmdir_to_base(path, base_path):
+def rm_to_base(path, base_path):
     """
     Delete the tree under $path and all the parents
     up to $base_path as long as they are empty
@@ -71,7 +71,9 @@ def rmdir_to_base(path, base_path):
     if not path.startswith(base_path):
         logger.exit("Error: %s is not a parent of %s" % (base_path, path))
 
-    if os.path.exists(path):
+    if os.path.islink(path) or os.path.isfile(path):
+        os.unlink(path)
+    elif os.path.isdir(path):
         shutil.rmtree(path)
 
     # If directories above it are empty, remove
