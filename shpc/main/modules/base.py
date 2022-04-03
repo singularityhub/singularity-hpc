@@ -523,7 +523,7 @@ class ModuleBase(BaseClient):
         version_file = os.path.join(version_dir, ".version")
 
         # No default versions
-        if self.settings.default_version is None:
+        if not self.settings.default_version:
             return self._no_default_version(version_file, latest_tag_installed)
 
         # allow the module software to control versions
