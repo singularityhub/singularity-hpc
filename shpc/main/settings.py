@@ -21,7 +21,7 @@ import jsonschema
 import os
 import re
 
-# Legacy values we still support for backwards compatibility,
+# Legacy values we still support for backwards compatibility,
 # and a mapping to the new value that should be used.
 legacy_values = {
     "default_version": {
@@ -29,6 +29,7 @@ legacy_values = {
         True: "module_sys",
     },
 }
+
 
 def OrderedList(*l):
     ret = CommentedSeq(l)

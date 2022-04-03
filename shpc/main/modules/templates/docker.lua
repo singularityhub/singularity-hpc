@@ -34,14 +34,7 @@ For each of the above, you can export:
  - PODMAN_COMMAND_OPTS: to define custom options for the command
 ]]) 
 
-{% if not settings.default_version %}
-if (mode() == "load") then
-  if ( myModuleUsrName() ~= myModuleFullName() and myModuleUsrName() ~= string.gsub(myModuleFullName(),"/module$","") ) then
-    LmodError("You must specify module <name>/<version>.")
-  end
-end
-{% endif %}
-
+{% include "includes/default_version.lua" %}
 {% if settings.podman_module %}load("{{ settings.podman_module }}"){% endif %}
 
 -- Environment: only set options and command options if not already set
