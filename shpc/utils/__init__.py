@@ -15,7 +15,7 @@ from .fileio import (
     get_tmpfile,
     mkdir_p,
     mkdirp,
-    rm_to_base,
+    remove_to_base,
     print_json,
     read_file,
     read_json,

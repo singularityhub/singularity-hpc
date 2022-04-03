@@ -61,7 +61,7 @@ def mkdir_p(path):
             logger.exit("Error creating path %s, exiting." % path)
 
 
-def rm_to_base(path, base_path):
+def remove_to_base(path, base_path):
     """
     Delete the tree under $path and all the parents
     up to $base_path as long as they are empty

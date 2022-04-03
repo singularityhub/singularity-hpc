@@ -123,7 +123,7 @@ class ModuleBase(BaseClient):
         Sub function, so we can pass more than one folder from uninstall
         """
         if os.path.exists(path):
-            utils.rm_to_base(path, base_path)
+            utils.remove_to_base(path, base_path)
             logger.info("%s and all subdirectories have been removed." % name)
         else:
             logger.warning("%s does not exist." % name)
@@ -266,7 +266,7 @@ class ModuleBase(BaseClient):
             return
         if os.path.islink(symlinked_module):
             # Remove and clean up directories that become empty
-            utils.rm_to_base(symlinked_module, self.settings.symlink_base)
+            utils.remove_to_base(symlinked_module, self.settings.symlink_base)
             logger.info("%s has been removed." % symlinked_module)
             # Update .version
             self.write_version_file(os.path.dirname(symlinked_module))
@@ -450,7 +450,7 @@ class ModuleBase(BaseClient):
                 module_dir, container_dir, config, tag
             )
         if not container_path:
-            utils.rm_to_base(container_dir, self.container_base)
+            utils.remove_to_base(container_dir, self.container_base)
             logger.exit("There was an issue pulling %s" % container_path)
 
         # Get the template based on the module and container type
@@ -480,7 +480,7 @@ class ModuleBase(BaseClient):
 
         # If the container tech does not need storage, clean up
         if not os.listdir(container_dir):
-            utils.rm_to_base(container_dir, self.container_base)
+            utils.remove_to_base(container_dir, self.container_base)
 
         # Write the environment file to be bound to the container
         self.container.add_environment(
