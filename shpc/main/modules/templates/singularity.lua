@@ -36,14 +36,7 @@ For each of the above, you can export:
  - SINGULARITY_COMMAND_OPTS: to define custom options for the command (e.g., -b)
 ]]) 
 
-{% if not settings.default_version %}
-if (mode() == "load") then
-  if ( myModuleUsrName() ~= myModuleFullName() and myModuleUsrName() ~= string.gsub(myModuleFullName(),"/module$","") ) then
-    LmodError("You must specify module <name>/<version>.")
-  end
-end
-{% endif %}
-
+{% include "includes/default_version.lua" %}
 {% if settings.singularity_module %}load("{{ settings.singularity_module }}"){% endif %}
 
 -- directory containing this modulefile, once symlinks resolved (dynamically defined)
