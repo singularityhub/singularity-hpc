@@ -274,6 +274,7 @@ class ModuleBase(BaseClient):
         elif os.path.exists(symlinked_module):
             logger.error("%s exists and is not a symlink!" % symlinked_module)
         elif self.settings.symlink_tree:
+            # Should not happen. The symlink has someone already been deleted
             logger.warning("%s does not exist." % symlinked_module)
 
     def docgen(self, module_name, out=None):
