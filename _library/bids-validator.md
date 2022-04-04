@@ -3,7 +3,7 @@ layout: container
 name:  "bids/validator"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/bids/validator/container.yaml"
-updated_at: "2022-04-01 23:46:10.162614"
+updated_at: "2022-04-04 23:52:07.085262"
 container_url: "https://hub.docker.com/r/bids/validator"
 aliases:
  - "bids-validator"
