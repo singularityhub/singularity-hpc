@@ -7,7 +7,6 @@ from shpc.logger import logger
 import shpc.utils as utils
 import shpc.defaults as defaults
 import shpc.main.templates
-import shpc.main.loader as loader
 import shpc.main.container as container
 
 from datetime import datetime
@@ -17,13 +16,13 @@ import subprocess
 import sys
 import inspect
 
-from jinja2 import Environment
+from jinja2 import Environment, FileSystemLoader
 
 here = os.path.dirname(os.path.abspath(__file__))
 
 # Allow includes from this directory OR providing strings
 template_dir = os.path.join(here, "templates")
-env = Environment(loader=loader.CustomLoader(template_dir))
+env = Environment(loader=FileSystemLoader(template_dir))
 
 
 class ModuleBase(BaseClient):
@@ -49,7 +48,7 @@ class ModuleBase(BaseClient):
         template_file = self._get_template(template_name)
 
         with open(template_file, "r") as temp:
-            template = env.get_template(self.substitute(temp.read()))
+            template = env.from_string(self.substitute(temp.read()))
         return template
 
     def substitute(self, template):
