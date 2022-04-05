@@ -6,6 +6,7 @@ latest:
   1.10.2: sha256:41ff2df8bff8339897ff31120dfb0509dc328aa5396946c497d2a4df0adc9d36
 tags:
   1.10.2: sha256:41ff2df8bff8339897ff31120dfb0509dc328aa5396946c497d2a4df0adc9d36
+  latest: sha256:41ff2df8bff8339897ff31120dfb0509dc328aa5396946c497d2a4df0adc9d36
 aliases:
   ninja: /opt/view/bin/ninja
   ninja-build: /opt/view/bin/ninja-build

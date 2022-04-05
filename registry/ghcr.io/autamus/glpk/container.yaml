@@ -6,9 +6,9 @@ description: The GLPK package is a set of routines written in ANSI C and organiz
   linear programming (LP), mixed integer linear programming (MIP), and other related
   problems.
 latest:
-  "4.65": sha256:03d584ef5ffb74e41b944a7c7bba53053217e10fbcd2fa8552bc7c1cc0fa75a1
+  '4.65': sha256:03d584ef5ffb74e41b944a7c7bba53053217e10fbcd2fa8552bc7c1cc0fa75a1
 tags:
-  "4.65": sha256:03d584ef5ffb74e41b944a7c7bba53053217e10fbcd2fa8552bc7c1cc0fa75a1
+  '4.65': sha256:03d584ef5ffb74e41b944a7c7bba53053217e10fbcd2fa8552bc7c1cc0fa75a1
   latest: sha256:03d584ef5ffb74e41b944a7c7bba53053217e10fbcd2fa8552bc7c1cc0fa75a1
 aliases:
   glpsol: /opt/view/bin/glpsol

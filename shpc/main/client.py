@@ -154,6 +154,9 @@ class Client:
         # Generate a test template
         test_file = os.path.join(tmpdir, "test.sh")
 
+        import IPython
+
+        IPython.embed()
         # If the module name has a tag, only test it
         if ":" in module_name:
             module_name = module_name.split(":", 1)[0]

@@ -32,14 +32,19 @@ def filter_versions(tags, filters=None, max_length=5):
     filtered = []
     seen = set()
     for version in versions:
+
         # Keep all that don't have major or minor
-        if not version.major_minor:
+        if not version.major_minor and not version.major:
             filtered.append(version)
 
         # if we have a version major minor, only add if we haven't seen it
         if version.major_minor is not None and version.major_minor not in seen:
             filtered.append(version)
             seen.add(version.major_minor)
+
+        elif version.major is not None and version.major not in seen:
+            filtered.append(version)
+            seen.add(version.major)
 
     # these are sorted with newest at top, so we cut off top
     if len(filtered) > max_length:
@@ -67,6 +72,11 @@ class TaggedLooseVersion(LooseVersion):
     def major_minor(self):
         if self._major_minor:
             return ".".join(str(x) for x in self._major_minor)
+
+    @property
+    def major(self):
+        if self._major:
+            return ".".join(str(x) for x in self._major)
 
     def parse(self, vstring):
         """
@@ -101,6 +111,11 @@ class TaggedLooseVersion(LooseVersion):
 
         # If we have > 2 components, try to save a major/minor
         self._major_minor = None
+        self._major = None
+
+        # more strict considers duplicate of major "the same"
+        if len(components) >= 1:
+            self._major = components[0:1]
         if len(components) >= 2:
             self._major_minor = components[0:2]
         self.version = components

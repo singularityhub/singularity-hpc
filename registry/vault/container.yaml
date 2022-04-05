@@ -4,7 +4,7 @@ maintainer: '@vsoch'
 description: Vault is a tool for securely accessing secrets via a unified interface
   and tight access control.
 latest:
-  1.9.3: sha256:cafdf67809db6efbbf3ea8662df002f0b5ba2d6cdddac64df1acb4d86c18b2c1
+  1.10.0-rc1: sha256:098331fd62716988ebc29276760e8ffede31a73d5a28694f2b9aedc2e16a073e
 tags:
   1.4.7: sha256:3929780d624754b7127293649a2c4af1fbc0e22742ea5414b647db3f5de71960
   1.7.1: sha256:10f564c947706e021e60c84bd22b1e91559db133d6d3a57e930d32cd7e0cbf77
@@ -15,6 +15,11 @@ tags:
   1.9.0: sha256:b16dc6ba7319005d281b34013da19012eb1713b16400d45b62e15c8f06e70d44
   1.9.2: sha256:cc7bca14ebe2e6f32401bf5e59c1b95081c387b75fb0c06c18c085670338a59b
   1.9.3: sha256:cafdf67809db6efbbf3ea8662df002f0b5ba2d6cdddac64df1acb4d86c18b2c1
-  latest: sha256:cafdf67809db6efbbf3ea8662df002f0b5ba2d6cdddac64df1acb4d86c18b2c1
+  latest: sha256:6f0349625bd51d69ded3a6b4f4e1a924f3cc51ceeb27f5dd5d894420dce131b7
+  1.10.0: sha256:6f0349625bd51d69ded3a6b4f4e1a924f3cc51ceeb27f5dd5d894420dce131b7
+  1.10.0-rc1: sha256:098331fd62716988ebc29276760e8ffede31a73d5a28694f2b9aedc2e16a073e
+  1.9.4: sha256:bf30d85a3c7900dfabcaf6d57b3a9de442a37fd02e68bf85a3b75ecbcd7689db
+  1.8.9: sha256:2b6bd43e8dd5147174db12dc177edacc34c3a4ac8e0bc2575999d4d3b771fb83
+  1.7.10: sha256:bd12f9eba283fe77dec8636b36e64218d68c49ed8e138aded13cdb943473713e
 aliases:
   vault: /bin/vault

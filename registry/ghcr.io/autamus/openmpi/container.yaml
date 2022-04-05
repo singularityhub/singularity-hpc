@@ -7,6 +7,7 @@ latest:
 tags:
   4.1.1: sha256:571e607db699301e56d064f11e8c4d9f33bced922da04e018d679bf57649b7f4
   4.1.2: sha256:bdd2678d73198138b3dbda082ea658cbc78fd6928497a8a8fb7cd54c3130ebd4
+  latest: sha256:bdd2678d73198138b3dbda082ea658cbc78fd6928497a8a8fb7cd54c3130ebd4
 aliases:
   mpiCC: /opt/view/bin/mpiCC
   mpic++: /opt/view/bin/mpic++

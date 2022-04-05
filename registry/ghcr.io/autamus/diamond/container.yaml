@@ -10,5 +10,6 @@ tags:
   2.0.11: sha256:d600fd1952edb76df772b8eed6a3a2023fe58654f6b64629d285ffba89d7e367
   2.0.13: sha256:cd667efb08fa712f48cb98ef47afb5821cbddc988c57daabf7e85c08c947bff1
   latest: sha256:cd667efb08fa712f48cb98ef47afb5821cbddc988c57daabf7e85c08c947bff1
+  2.0.12: sha256:9a6d44cadaab9eefd66b9d43c9aadd7de9fdef6c934eec3b27fe92f9cba203af
 aliases:
   diamond: /opt/view/bin/diamond

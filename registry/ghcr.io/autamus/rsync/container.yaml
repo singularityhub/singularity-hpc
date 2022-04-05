@@ -8,6 +8,7 @@ latest:
 tags:
   3.2.2: sha256:99c4780710b1d844ca8998dea4c59b2d3b54c28ac206dc3ee580ca2c34f455d1
   3.2.3: sha256:370c0624084a02e3d919cb17847bdad4f7b79d4258d016e3aaac0b4de49492b0
+  latest: sha256:370c0624084a02e3d919cb17847bdad4f7b79d4258d016e3aaac0b4de49492b0
 aliases:
   rsync: /opt/view/bin/rsync
   rsync-ssl: /opt/view/bin/rsync-ssl

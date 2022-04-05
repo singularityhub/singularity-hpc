@@ -12,6 +12,7 @@ tags:
   21.10.0: sha256:c6b76b31a5566664896e1d055df8a186eee31c8a6ce3e168303367b8e12b2c3e
   21.11.0: sha256:fc8e899c6b81f8ed02b0adf09eda55b724c5575f03e06c3dca107399be7a0bd1
   latest: sha256:fc8e899c6b81f8ed02b0adf09eda55b724c5575f03e06c3dca107399be7a0bd1
+  21.09.0: sha256:3a85adb7afb5a060e9eeaf35eeb5a648b8e682c953d2f7e1db5d9fa7c906b903
 aliases:
   pdfattach: /opt/view/bin/pdfattach
   pdfdetach: /opt/view/bin/pdfdetach

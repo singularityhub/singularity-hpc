@@ -4,16 +4,20 @@ maintainer: '@vsoch'
 description: Redis is an open-source, networked, in-memory, key-value data store with
   optional durability.
 filter:
-  - ^(?!.*32bit).*$
+- ^(?!.*32bit).*$
 latest:
-  7.0-rc: sha256:939f6b81ae093c4c58c3913d1c8b4d3e53910b7da6bd96e67a10136e037ad985
+  7.0-rc-alpine: sha256:982e9d27030a4a6784b59a8c55842fef5eb25dc69cc50da2b0ecb23c6933ac7e
 tags:
   6.2.3-alpine: sha256:f8f0e809a4281714c33edf86f6da6cc2d4058c8549e44d8c83303c28b3123072
   6.2.4-alpine: sha256:0039796b887fd30e460353f14e46ba1004152aa97f5f59094cc21eac445fc89b
   6.2.5: sha256:c98f0230b5f1831f4f5dd764c4ea8ef11d3e3a1a3593278eb952373d97c82b27
-  6.2.6: sha256:0d9c9aed1eb385336db0bc9b976b6b49774aee3d2b9c2788a0d0d9e239986cb3
-  7.0-rc: sha256:939f6b81ae093c4c58c3913d1c8b4d3e53910b7da6bd96e67a10136e037ad985
-  latest: sha256:0d9c9aed1eb385336db0bc9b976b6b49774aee3d2b9c2788a0d0d9e239986cb3
+  6.2.6: sha256:69a3ab2516b560690e37197b71bc61ba245aafe4525ebdece1d8a0bc5669e3e2
+  7.0-rc: sha256:e623936d6cbf5d16d367f45b68b6161a9a793666c7f20877c48f855ab1782df9
+  latest: sha256:69a3ab2516b560690e37197b71bc61ba245aafe4525ebdece1d8a0bc5669e3e2
+  7.0-rc-alpine: sha256:982e9d27030a4a6784b59a8c55842fef5eb25dc69cc50da2b0ecb23c6933ac7e
+  '6': sha256:69a3ab2516b560690e37197b71bc61ba245aafe4525ebdece1d8a0bc5669e3e2
+  6-alpine3.15: sha256:ca7b891a380358a5f197a84884d42c3f8b441bc77761178a9743c471a0ef7367
+  '6.2': sha256:69a3ab2516b560690e37197b71bc61ba245aafe4525ebdece1d8a0bc5669e3e2
 aliases:
   redis-benchmark: /usr/local/bin/redis-benchmark
   redis-check-aof: /usr/local/bin/redis-check-aof

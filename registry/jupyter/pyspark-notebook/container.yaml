@@ -3,10 +3,15 @@ url: https://hub.docker.com/r/jupyter/pyspark-notebook
 maintainer: '@vsoch'
 description: Jupyter Pyspark Notebook from https://github.com/jupyter/docker-stacks
 latest:
-  "4.0": sha256:2aa9a0183bcfe80cd9e2a6c0a52d797bd5b67d1e2db9437c7345c2404b5a86c1
+  b78201340369: sha256:f8f0ed0531299e11370b8d8f1c7e9fbde20a1c8629108a2f2937b8a0bf34cf3e
 tags:
-  "4.0": sha256:2aa9a0183bcfe80cd9e2a6c0a52d797bd5b67d1e2db9437c7345c2404b5a86c1
-  latest: sha256:bf18aa3d516b5e253b6ccd8ae533cd4bf308c8dad0579256be8418189e0de9e9
+  '4.0': sha256:2aa9a0183bcfe80cd9e2a6c0a52d797bd5b67d1e2db9437c7345c2404b5a86c1
+  latest: sha256:119a43c2f81ae30a5bacff92cb6408b6981d5c53e5aed57f700dc6f0c29ec8f1
+  b78201340369: sha256:f8f0ed0531299e11370b8d8f1c7e9fbde20a1c8629108a2f2937b8a0bf34cf3e
+  b21474148606: sha256:be75f19034df162bdd72702d0ae44db751510b9fa0229955f7b3812930ddbb97
+  e20274919903: sha256:359360c15c13f408c1a0aac57df0e288e4ced2c1eed303382ff29c241c5430a0
+  c9428336463c: sha256:f2e5c6189ca45a2b4e5e1362f503723811597231d80d45bf37e38430deb058b8
+  aa7342436696: sha256:740a6ce9621aeccd354ddd59a39be4aa002521d7c7c0518909b68f02f904f8f9
 aliases:
 - name: run-notebook
   command: jupyter notebook --no-browser --port=$(shuf -i 2000-65000 -n 1) --ip 0.0.0.0

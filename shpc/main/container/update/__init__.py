@@ -54,7 +54,7 @@ def update_config_tags(config, filters=None):
             if digest:
                 current_tags[tag] = digest[tag]
 
-        # Sort them again
+        # Sort them again, just for versions
         sorted_tags = filter_versions(
             list(current_tags.keys()), max_length=len(current_tags)
         )
@@ -73,9 +73,7 @@ def update_config_tags(config, filters=None):
                 "latest",
                 {versioned_tags[-1].vstring: current_tags[versioned_tags[-1].vstring]},
             )
-            config.set(
-                "tags", {x.vstring: current_tags[x.vstring] for x in sorted_tags}
-            )
+            config.set("tags", {x: v for x, v in current_tags.items()})
 
     return config
 
