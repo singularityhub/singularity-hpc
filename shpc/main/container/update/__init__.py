@@ -46,20 +46,26 @@ def update_config_tags(config, filters=None):
                 recent_versions.append(version)
 
         # Now update current tags
-        current_tags.update({x.vstring: "unknown" for x in recent_versions})
+        current_tags.update(
+            {
+                x.vstring: "unknown"
+                for x in recent_versions
+                if x.vstring not in current_tags
+            }
+        )
 
         # Get updated hashes
         tags = list(current_tags.keys())
         for tag in tags:
             try:
-                digest = get_container_tag(uri, tag, allow_fail=False)
+                digest = get_container_tag(uri, tag)
             except:
-                digest = current_tags[tag]
+                digest = {tag: current_tags[tag]}
 
-            if not digest or digest == "unknown":
+            if not digest or digest[tag] == "unknown":
                 del current_tags[tag]
             else:
-                current_tags[tag] = digest
+                current_tags[tag] = digest[tag]
 
         # Sort them again, just for versions
         sorted_tags = filter_versions(

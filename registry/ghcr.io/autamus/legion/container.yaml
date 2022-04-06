@@ -7,6 +7,7 @@ latest:
   21.03.0: sha256:4eee30a0a952bdb090b263bd0aec6447d86954436e3a0f4903b16eaf3da33cba
 tags:
   21.03.0: sha256:4eee30a0a952bdb090b263bd0aec6447d86954436e3a0f4903b16eaf3da33cba
+  latest: sha256:4eee30a0a952bdb090b263bd0aec6447d86954436e3a0f4903b16eaf3da33cba
 aliases:
   legion_prof.py: /opt/view/bin/legion_prof.py
   legion_serializer.py: /opt/view/bin/legion_serializer.py

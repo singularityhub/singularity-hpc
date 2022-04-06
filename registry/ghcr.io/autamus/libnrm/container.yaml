@@ -4,6 +4,7 @@ maintainer: '@vsoch'
 description: Libnrm, the application instrumentation library for the Node Resource
   Manager(NRM).
 latest:
-  0.1.0: sha256:809fc3569d530a220e6b9f2a90d99026df28158d38e46f2d38f824406f522a9f
+  0.1.0: sha256:0f45d4ff897d8db6396866653a1dee11eeeef3233d77a355a58ec08dae6374dd
 tags:
-  0.1.0: sha256:809fc3569d530a220e6b9f2a90d99026df28158d38e46f2d38f824406f522a9f
+  0.1.0: sha256:0f45d4ff897d8db6396866653a1dee11eeeef3233d77a355a58ec08dae6374dd
+  latest: sha256:0f45d4ff897d8db6396866653a1dee11eeeef3233d77a355a58ec08dae6374dd

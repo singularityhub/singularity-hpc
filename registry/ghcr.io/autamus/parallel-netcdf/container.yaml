@@ -8,6 +8,7 @@ latest:
   1.12.2: sha256:4bb33f028452988fdebd920ebc18cc79f14acd82db8952941a046f40eb41eefa
 tags:
   1.12.2: sha256:4bb33f028452988fdebd920ebc18cc79f14acd82db8952941a046f40eb41eefa
+  latest: sha256:4bb33f028452988fdebd920ebc18cc79f14acd82db8952941a046f40eb41eefa
 aliases:
   pnetcdf-config: /opt/view/bin/pnetcdf-config
   pnetcdf_version: /opt/view/bin/pnetcdf_version

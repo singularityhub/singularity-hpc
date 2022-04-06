@@ -8,6 +8,7 @@ latest:
 tags:
   '1.4': sha256:1cbebd19203bbcf3a9306683bb3f689c414c108ef18b15a4163c6e3529952914
   '1.5': sha256:98a4f6f292749587045821d0ab5e8c17dd1596fe523aa53252de543fc44fdeb3
+  latest: sha256:98a4f6f292749587045821d0ab5e8c17dd1596fe523aa53252de543fc44fdeb3
 aliases:
   veloc-backend: /opt/view/bin/veloc-backend
   veloc_check_node: /opt/view/bin/veloc_check_node

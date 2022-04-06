@@ -4,6 +4,7 @@ latest:
 tags:
   v6.0.0-5: sha256:578a493569bdc8c170a9f83d4e2ae4fde565bee723221e7fc4f6b145dc96624d
   latest: sha256:578a493569bdc8c170a9f83d4e2ae4fde565bee723221e7fc4f6b145dc96624d
+  unstable: sha256:578a493569bdc8c170a9f83d4e2ae4fde565bee723221e7fc4f6b145dc96624d
 filter:
 - v*
 maintainer: '@vsoch'

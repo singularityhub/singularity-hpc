@@ -12,8 +12,10 @@ tags:
   2.25.5: sha256:0361840e9c70fbf9c701aecda3e488d399a6dc7f00c306fdfec14b8755f7a633
   2.25.6: sha256:a0604d204911e8e8ad17a47b1eebef02b590e811c02ecadccc2a33cdfa336fe4
   2.26.0: sha256:accd314b904bb0a3d97597d7496b5bf6f0ea8b7e1a784c89546c7ead1e5a6068
+  2.26.4: sha256:d5e54eb6f2dee5e94b3cca0110b3528a52a30361b2bbd38ad6c265d6acff88c8
   2.26.5: sha256:4bdde83c5a64bfd9be18631eb4ad5fe8b5b5bef6f11345fc70299c2bc370ac70
   latest: sha256:4bdde83c5a64bfd9be18631eb4ad5fe8b5b5bef6f11345fc70299c2bc370ac70
+  2.25.7: sha256:31bdbd379c8059d344cbbf5b31dafc54a17f30a164846f104001f5f3438b2075
 aliases:
   picard: /opt/view/bin/picard
   picard.jar: /opt/view/bin/java -jar /opt/view/bin/picard.jar

@@ -3,10 +3,15 @@ url: https://hub.docker.com/r/jupyter/datascience-notebook
 maintainer: '@vsoch'
 description: Jupyter Datascience Notebook from https://github.com/jupyter/docker-stacks
 latest:
-  '4.0': sha256:5e5bf78bfa351c0255cea5269a0461afbf6b50b51e923a7436229208ea8487f9
+  b78201340369: sha256:027e159b6780294aa930623f0f7e6c5094972be48d5e15027024a811fdc7e5c7
 tags:
   '4.0': sha256:5e5bf78bfa351c0255cea5269a0461afbf6b50b51e923a7436229208ea8487f9
-  latest: sha256:e6b6f2a13249c9b571b2bb385b9af2f674977d7247e6f8519c1a012dd98b4813
+  latest: sha256:f7a82d58c25e0b578ba47e696123be2aa590987a3c2bb1df979b3bfdc728b783
+  b78201340369: sha256:027e159b6780294aa930623f0f7e6c5094972be48d5e15027024a811fdc7e5c7
+  b21474148606: sha256:3633934ba83e8636d79ce770da3c6fd50552cb58cf3ee379a0034ef6a1adcb5e
+  e20274919903: sha256:1407d540643256747fb61e64bd081d40d1a410d0b6fc20fab55b348cb946eab0
+  c9428336463c: sha256:db24d5dd91f65cd5dadc4649336f6420c7fb7dae7326ab3f98540434a690bbbd
+  aa7342436696: sha256:9dac56b58fa89cb045153ff3454a9c1a9365cbbc51c7b89211074f97b24a0303
 aliases:
 - name: run-notebook
   command: jupyter notebook --no-browser --port=$(shuf -i 2000-65000 -n 1) --ip 0.0.0.0

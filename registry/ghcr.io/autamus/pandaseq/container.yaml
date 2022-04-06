@@ -4,10 +4,10 @@ maintainer: '@vsoch'
 description: A program to align Illumina reads, optionally with PCR primers embedded
   in the sequence, and reconstruct an overlapping sequence.
 latest:
-  '2.11': sha256:a08e6ed4d7336edf2abc70c51f414d4474d83fd4030fd7e979603e8ddf5ed971
+  '2.11': sha256:7db497adb7a07587e9cd0b84e7e6c4a7bd727f1d15a6c3fdcc7eb454fb13c609
 tags:
-  '2.11': sha256:a08e6ed4d7336edf2abc70c51f414d4474d83fd4030fd7e979603e8ddf5ed971
-  latest: sha256:a08e6ed4d7336edf2abc70c51f414d4474d83fd4030fd7e979603e8ddf5ed971
+  '2.11': sha256:7db497adb7a07587e9cd0b84e7e6c4a7bd727f1d15a6c3fdcc7eb454fb13c609
+  latest: sha256:7db497adb7a07587e9cd0b84e7e6c4a7bd727f1d15a6c3fdcc7eb454fb13c609
 aliases:
   pandaseq: /opt/view/bin/pandaseq
   pandaseq-checkid: /opt/view/bin/pandaseq-checkid

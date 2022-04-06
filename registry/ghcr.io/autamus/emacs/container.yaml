@@ -6,6 +6,7 @@ latest:
   '27.2': sha256:49a6cce6e5b4c62891bd18a7c876170de19b84a51d2f65e7cd1e761b08ba8c76
 tags:
   '27.2': sha256:49a6cce6e5b4c62891bd18a7c876170de19b84a51d2f65e7cd1e761b08ba8c76
+  latest: sha256:49a6cce6e5b4c62891bd18a7c876170de19b84a51d2f65e7cd1e761b08ba8c76
 aliases:
   ebrowse: /opt/view/bin/ebrowse
   emacs: /opt/view/bin/emacs

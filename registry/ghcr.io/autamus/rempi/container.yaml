@@ -6,6 +6,7 @@ latest:
   1.1.0: sha256:536850fb85e3c4c7a1893e3383af1c1341733a9e601752e1079eac2f14fd5ef8
 tags:
   1.1.0: sha256:536850fb85e3c4c7a1893e3383af1c1341733a9e601752e1079eac2f14fd5ef8
+  latest: sha256:536850fb85e3c4c7a1893e3383af1c1341733a9e601752e1079eac2f14fd5ef8
 aliases:
   rempi: /opt/view/bin/rempi
   rempi_record: /opt/view/bin/rempi_record
