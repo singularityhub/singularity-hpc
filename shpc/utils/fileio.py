@@ -61,6 +61,28 @@ def mkdir_p(path):
             logger.exit("Error creating path %s, exiting." % path)
 
 
+def rmdir_to_base(path, base_path):
+    """
+    Delete the tree under $path and all the parents
+    up to $base_path as long as they are empty
+    """
+    if not os.path.isdir(base_path):
+        logger.exit("Error: %s is not a directory" % base_path)
+    if not path.startswith(base_path):
+        logger.exit("Error: %s is not a parent of %s" % (base_path, path))
+
+    if os.path.exists(path):
+        shutil.rmtree(path)
+
+    # If directories above it are empty, remove
+    while path != base_path:
+        if os.path.exists(path):
+            if not can_be_deleted(path, [".version"]):
+                break
+            shutil.rmtree(path)
+        path = os.path.dirname(path)
+
+
 def get_tmpfile(tmpdir=None, prefix=""):
     """
     Get a temporary file with an optional prefix.

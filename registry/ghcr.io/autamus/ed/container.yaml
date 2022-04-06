@@ -7,7 +7,6 @@ latest:
   '1.4': sha256:047bde255263938d858d08cb4f461765758d2d2e38e8f39406eb83fa9f9f55ea
 tags:
   '1.4': sha256:047bde255263938d858d08cb4f461765758d2d2e38e8f39406eb83fa9f9f55ea
-  latest: sha256:047bde255263938d858d08cb4f461765758d2d2e38e8f39406eb83fa9f9f55ea
 aliases:
   ed: /opt/view/bin/ed
   red: /opt/view/bin/red

@@ -3,7 +3,7 @@ url: https://hub.docker.com/r/_/golang
 maintainer: '@vsoch'
 description: Go (a.k.a., Golang) is a programming language first developed at Google.
 latest:
-  1.18-rc: sha256:2da497bcc0c9ff09d4185907068c6f137d14e8848059971072f2e9cc936aae70
+  1.18-rc: sha256:c9be2380bfdc0f4da95e1635e914dbd596bc73b618cdf16894a631eb58945156
 filter:
 - ^(?!nano).*$
 tags:
@@ -13,11 +13,8 @@ tags:
   1.17.0: sha256:7dbfeb9d51c049e8bfe36cf1a4217c7b1ba304bf0eb72d57d0c04f405589f122
   1.17.2: sha256:124966f5d54a41317ee81ccfe5f849d4f0deef4ed3c5c32c20be855c51c15027
   1.17.3: sha256:199102125d11c943c927a8a33911ef960ca72c4879e307c7c2e40ceaa72201e3
-  1.18-rc: sha256:2da497bcc0c9ff09d4185907068c6f137d14e8848059971072f2e9cc936aae70
-  latest: sha256:5eb58ca0a747ed2e2f4e069d1116badb02a172cf160d31f801776a2342c12863
-  '1': sha256:5eb58ca0a747ed2e2f4e069d1116badb02a172cf160d31f801776a2342c12863
-  '1.18': sha256:5eb58ca0a747ed2e2f4e069d1116badb02a172cf160d31f801776a2342c12863
-  1.17rc2: sha256:c5b50f8381dcc9223b63dbb3e9f558eea0650310232bbc2dde8c3b861c60d1b2
+  1.18-rc: sha256:c9be2380bfdc0f4da95e1635e914dbd596bc73b618cdf16894a631eb58945156
+  latest: sha256:e06c83493ef6d69c95018da90f2887bf337470db074d3c648b8b648d8e3c441e
 aliases:
   go: /usr/local/go/bin/go
   gofmt: /usr/local/go/bin/gofmt

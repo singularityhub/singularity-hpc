@@ -7,10 +7,7 @@ description: XRootD software framework is a fully generic suite for fast, low la
 latest:
   5.3.2: sha256:79a446b1b5eda186b7ecaca7fc62fd6e337dc2f1c795d2f9be2e046d71962979
 tags:
-  5.1.0: sha256:37902350afb153684fa04bba4926f86f8bb0d580c8a2bda9dcdf0d371923dfbf
-  5.3.1: sha256:9b42939274b693da6a54e003855a8be2ca8a7114d9fe0705197cc987b6ccea5b
   5.3.2: sha256:79a446b1b5eda186b7ecaca7fc62fd6e337dc2f1c795d2f9be2e046d71962979
-  latest: sha256:79a446b1b5eda186b7ecaca7fc62fd6e337dc2f1c795d2f9be2e046d71962979
 aliases:
   xrdacctest: /opt/view/bin/xrdacctest
   xrdadler32: /opt/view/bin/xrdadler32

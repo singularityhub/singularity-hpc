@@ -3,10 +3,9 @@ url: https://hub.docker.com/r/vanessa/salad
 maintainer: '@vsoch'
 description: A container all about fork and spoon puns.
 latest:
-  add_github-actions: sha256:98939f1e7b5f3c872a3ff723d81334b0571fa438fdca04c4a4a10ad9f5240c22
+  latest: sha256:e8302da47e3200915c1d3a9406d9446f04da7244e4995b7135afd2b79d4f63db
 tags:
   latest: sha256:e8302da47e3200915c1d3a9406d9446f04da7244e4995b7135afd2b79d4f63db
-  add_github-actions: sha256:98939f1e7b5f3c872a3ff723d81334b0571fa438fdca04c4a4a10ad9f5240c22
 aliases:
   salad: /code/salad
 

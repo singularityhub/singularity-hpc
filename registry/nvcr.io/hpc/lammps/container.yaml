@@ -10,10 +10,8 @@ description: Large-scale Atomic/Molecular Massively Parallel Simulator (LAMMPS) 
   techniques and a spatial-decomposition of the simulation domain. Read more on the
   LAMMPS website https://lammps.sandia.gov/.
 latest:
-  29Sep2021up2: sha256:dceaf6340d84ec1fc7e6e8fb377e2ee41c26e5d05461ed98d29d8555ed026a43
+  29Oct2020: sha256:c6cf2371ad7eb491925e58cc28ee0ef9f0bd84a15634bb0e7f818c7d07e8877e
 tags:
   29Oct2020: sha256:c6cf2371ad7eb491925e58cc28ee0ef9f0bd84a15634bb0e7f818c7d07e8877e
-  29Sep2021: sha256:6c40caaa7c2aadd0e49748ddef584a7d88235651479e416919ced889e2156596
-  29Sep2021up2: sha256:dceaf6340d84ec1fc7e6e8fb377e2ee41c26e5d05461ed98d29d8555ed026a43
 filter:
 - '2021'

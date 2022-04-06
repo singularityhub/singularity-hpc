@@ -3,15 +3,10 @@ url: https://hub.docker.com/r/jupyter/r-notebook
 maintainer: '@vsoch'
 description: Jupyter R Notebook from https://github.com/jupyter/docker-stacks
 latest:
-  '605529603889': sha256:ce17e738565c3f2ccff4c2ed6e55fbdaeb51e3c75a055e7ccfb46b99697e03de
+  '4.0': sha256:8c9e0ae86ef780855cba13e48adbcd9a43a12f93e61fe424a1e3398700ce0b51
 tags:
   '4.0': sha256:8c9e0ae86ef780855cba13e48adbcd9a43a12f93e61fe424a1e3398700ce0b51
-  latest: sha256:d3c3fdb30c627e682a1a9f86d86ec6d369e7e1c131b9f880186bf360d33cec4b
-  '605529603889': sha256:ce17e738565c3f2ccff4c2ed6e55fbdaeb51e3c75a055e7ccfb46b99697e03de
-  b78201340369: sha256:53b8bb9fbda8a1cae293eebb77700c7beb9757a9d98b12a94617a7fc538e94ca
-  b21474148606: sha256:9fbdba3f888fffa304d7e6d09deb0d1f12d0843f8c5913a8eb3231f2ab222bf3
-  e20274919903: sha256:6f38340075c120516b3b84740eff7195cf09814f69b49b278ba9fd82f09a2e15
-  c9428336463c: sha256:cf28ee05e95a2fee5cafc7ef7259b1dd24deb8f2f0486f9c8daccefc885d3389
+  latest: sha256:81c62ae6524ea0186cbfec7090e43eba34677f933cf3667f6cfe8c4dda89a531
 aliases:
 - name: run-notebook
   command: jupyter notebook --no-browser --port=$(shuf -i 2000-65000 -n 1) --ip 0.0.0.0

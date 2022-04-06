@@ -31,6 +31,7 @@ def filter_versions(tags, filters=None, max_length=5):
     # Now only take the top major / minor of each
     filtered = []
     seen = set()
+
     for version in versions:
 
         # Keep all that don't have major or minor
@@ -41,6 +42,7 @@ def filter_versions(tags, filters=None, max_length=5):
         if version.major_minor is not None and version.major_minor not in seen:
             filtered.append(version)
             seen.add(version.major_minor)
+            seen.add(version.major)
 
         elif version.major is not None and version.major not in seen:
             filtered.append(version)
