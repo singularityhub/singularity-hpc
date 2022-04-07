@@ -6,6 +6,21 @@ from distutils.version import LooseVersion
 import re
 
 
+def not_all_letters(version):
+    """
+    Helper function to determine if a string is all lowercase letters.
+    This is unlikely to be a commit.
+    """
+    return re.sub("([a-z])+", "", version) != ""
+
+
+def only_lowercase_letters_numbers(version):
+    """
+    Return True if the string is only lowercase letters and numbers.
+    """
+    return re.sub("([0-9]|[a-z])+", "", version) == ""
+
+
 def filter_versions(tags, filters=None, max_length=5):
     """
     Given a list of tags, filter down to the latest up to a max length.
@@ -33,6 +48,15 @@ def filter_versions(tags, filters=None, max_length=5):
     seen = set()
 
     for version in versions:
+
+        # Do not allow any raw strings that look like commits
+        # We check for length, and replacing lowercase letters / numbers is empty
+        if (
+            len(version.vstring) >= 10
+            and not_all_letters(version.vstring)
+            and only_lowercase_letters_numbers(version.vstring)
+        ):
+            continue
 
         # Keep all that don't have major or minor
         if not version.major_minor and not version.major:
