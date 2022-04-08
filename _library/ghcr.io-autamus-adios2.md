@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/adios2"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/adios2/container.yaml"
-updated_at: "2022-04-06 14:47:37.264556"
+updated_at: "2022-04-08 03:03:56.524761"
 container_url: "https://github.com/orgs/autamus/packages/container/package/adios2"
 aliases:
  - "adios2-config"
@@ -18,6 +18,7 @@ aliases:
 
 versions:
  - "2.7.1"
+ - "latest"
 description: "The Adaptable Input Output System version 2, developed in the Exascale Computing Program"
 ---
 

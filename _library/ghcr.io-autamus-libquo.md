@@ -3,13 +3,14 @@ layout: container
 name:  "ghcr.io/autamus/libquo"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/libquo/container.yaml"
-updated_at: "2022-04-06 14:47:58.265091"
+updated_at: "2022-04-08 03:03:59.679606"
 container_url: "https://github.com/orgs/autamus/packages/container/package/libquo"
 aliases:
  - "quo-info"
 
 versions:
  - "1.3.1"
+ - "latest"
 description: "QUO (as in status quo) is a runtime library that aids in accommodating thread-level heterogeneity in dynamic, phased MPI+X applications comprising single- and multi-threaded libraries."
 ---
 

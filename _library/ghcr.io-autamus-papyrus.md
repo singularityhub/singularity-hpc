@@ -3,11 +3,12 @@ layout: container
 name:  "ghcr.io/autamus/papyrus"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/papyrus/container.yaml"
-updated_at: "2022-04-06 14:47:29.027574"
+updated_at: "2022-04-08 03:03:47.298625"
 container_url: "https://github.com/orgs/autamus/packages/container/package/papyrus"
 
 versions:
  - "1.0.2"
+ - "latest"
 description: "Parallel Aggregate Persistent Storage"
 ---
 

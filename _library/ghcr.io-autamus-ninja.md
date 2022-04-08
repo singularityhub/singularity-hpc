@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/ninja"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/ninja/container.yaml"
-updated_at: "2022-04-06 14:47:25.182951"
+updated_at: "2022-04-08 03:04:34.383017"
 container_url: "https://github.com/orgs/autamus/packages/container/package/ninja"
 aliases:
  - "ninja"
@@ -12,6 +12,7 @@ aliases:
 
 versions:
  - "1.10.2"
+ - "latest"
 description: "Ninja is a small build system with a focus on speed."
 ---
 

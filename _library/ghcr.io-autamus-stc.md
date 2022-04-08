@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/stc"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/stc/container.yaml"
-updated_at: "2022-04-06 14:47:56.785423"
+updated_at: "2022-04-08 03:04:39.974893"
 container_url: "https://github.com/orgs/autamus/packages/container/package/stc"
 aliases:
  - "stc"
@@ -12,6 +12,7 @@ aliases:
 
 versions:
  - "0.9.0"
+ - "latest"
 description: "The Swift-Turbine Compiler (STC)"
 ---
 

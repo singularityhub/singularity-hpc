@@ -3,11 +3,12 @@ layout: container
 name:  "ghcr.io/autamus/xnnpack"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/xnnpack/container.yaml"
-updated_at: "2022-04-06 14:47:45.145104"
+updated_at: "2022-04-08 03:04:27.658956"
 container_url: "https://github.com/orgs/autamus/packages/container/package/xnnpack"
 
 versions:
  - "2021.02.22"
+ - "latest"
 description: "High-efficiency floating-point neural network inference operators for mobile, server, and Web"
 ---
 

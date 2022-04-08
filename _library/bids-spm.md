@@ -3,7 +3,7 @@ layout: container
 name:  "bids/spm"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/bids/spm/container.yaml"
-updated_at: "2022-04-06 14:46:48.211472"
+updated_at: "2022-04-08 03:05:35.043835"
 container_url: "https://hub.docker.com/r/bids/spm"
 aliases:
  - "spm12"
@@ -11,6 +11,8 @@ aliases:
 versions:
  - "latest"
  - "v0.0.20"
+ - "chrisfilo-patch-1"
+ - "enh_various"
 description: "The implementation of the theoretical concepts of Statistical Parametric Mapping in a complete analysis package."
 ---
 

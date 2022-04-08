@@ -3,13 +3,14 @@ layout: container
 name:  "ncbi/blast"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ncbi/blast/container.yaml"
-updated_at: "2022-04-06 14:47:11.841956"
+updated_at: "2022-04-08 03:03:40.441133"
 container_url: "https://hub.docker.com/r/ncbi/blast"
 
 versions:
  - "2.11.0"
  - "2.12.0"
  - "latest"
+ - "2.13.0"
 description: "The Basic Local Alignment Search Tool (BLAST) finds regions of local similarity between sequences."
 ---
 

@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/jasper"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/jasper/container.yaml"
-updated_at: "2022-04-06 14:47:33.496100"
+updated_at: "2022-04-08 03:03:43.566557"
 container_url: "https://github.com/orgs/autamus/packages/container/package/jasper"
 aliases:
  - "jasper"
@@ -14,6 +14,7 @@ versions:
  - "2.0.32"
  - "2.0.33"
  - "latest"
+ - "20210822.2247"
 description: "JasPer is a collection of software (i.e., a library and application programs) for the coding and manipulation of images."
 ---
 

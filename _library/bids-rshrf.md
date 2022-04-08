@@ -3,13 +3,18 @@ layout: container
 name:  "bids/rshrf"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/bids/rshrf/container.yaml"
-updated_at: "2022-04-06 14:46:48.461507"
+updated_at: "2022-04-08 03:05:37.679714"
 container_url: "https://hub.docker.com/r/bids/rshrf"
 aliases:
  - "rsHRF"
 
 versions:
  - "latest"
+ - "1.5.8"
+ - "1.4.4"
+ - "1.3.9"
+ - "1.2.2"
+ - "1.1.1"
 description: "Resting state HRF estimation and deconvolution (https://github.com/BIDS-Apps/rsHRF)"
 ---
 

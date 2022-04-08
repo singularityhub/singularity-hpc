@@ -3,11 +3,12 @@ layout: container
 name:  "ghcr.io/autamus/slate"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/slate/container.yaml"
-updated_at: "2022-04-06 14:47:16.712294"
+updated_at: "2022-04-08 03:04:05.944734"
 container_url: "https://github.com/orgs/autamus/packages/container/package/slate"
 
 versions:
  - "2021.05.02"
+ - "latest"
 description: "The Software for Linear Algebra Targeting Exascale (SLATE) project is to provide fundamental dense linear algebra capabilities to the US Department of Energy and to the high-performance computing (HPC) community at large."
 ---
 

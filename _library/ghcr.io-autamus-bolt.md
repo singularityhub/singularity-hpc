@@ -3,11 +3,12 @@ layout: container
 name:  "ghcr.io/autamus/bolt"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/bolt/container.yaml"
-updated_at: "2022-04-06 14:47:40.805726"
+updated_at: "2022-04-08 03:04:10.327086"
 container_url: "https://github.com/orgs/autamus/packages/container/package/bolt"
 
 versions:
  - "2.0"
+ - "latest"
 description: "BOLT targets a high-performing OpenMP implementation, especially specialized for fine-grain parallelism."
 ---
 

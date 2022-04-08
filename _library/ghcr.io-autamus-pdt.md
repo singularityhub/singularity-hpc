@@ -3,11 +3,12 @@ layout: container
 name:  "ghcr.io/autamus/pdt"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/pdt/container.yaml"
-updated_at: "2022-04-06 14:47:44.636843"
+updated_at: "2022-04-08 03:04:31.837159"
 container_url: "https://github.com/orgs/autamus/packages/container/package/pdt"
 
 versions:
  - "3.25.1"
+ - "latest"
 description: "Program Database Toolkit (PDT) is a framework for analyzing source code written in several programming languages and for making rich program knowledge accessible to developers of static and dynamic analysis tools."
 ---
 

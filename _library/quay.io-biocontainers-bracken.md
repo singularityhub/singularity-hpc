@@ -3,7 +3,7 @@ layout: container
 name:  "quay.io/biocontainers/bracken"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/bracken/container.yaml"
-updated_at: "2022-04-06 14:47:06.376225"
+updated_at: "2022-04-08 03:05:30.432686"
 container_url: "https://quay.io/repository/biocontainers/bracken"
 aliases:
  - "bracken"
@@ -21,6 +21,7 @@ aliases:
 versions:
  - "2.6.1--py39h7cff6ad_2"
  - "2.6.1--py39hc16433a_3"
+ - "2.6.2--py39hc16433a_0"
 description: "A highly accurate statistical method that computes the abundance of species in DNA sequences from a metagenomics sample."
 ---
 

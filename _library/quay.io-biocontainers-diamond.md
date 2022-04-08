@@ -3,7 +3,7 @@ layout: container
 name:  "quay.io/biocontainers/diamond"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/diamond/container.yaml"
-updated_at: "2022-04-06 14:47:04.968807"
+updated_at: "2022-04-08 03:05:29.581632"
 container_url: "https://quay.io/repository/biocontainers/diamond"
 aliases:
  - "diamond"
@@ -13,6 +13,8 @@ versions:
  - "2.0.11--hdcc8f71_0"
  - "2.0.13--hdcc8f71_0"
  - "2.0.14--hdcc8f71_0"
+ - "0.9.36--h56fc30b_0"
+ - "0.8.36--h8b12597_4"
 description: "Accelerated blast compatible local sequence aligner"
 ---
 

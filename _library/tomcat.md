@@ -3,7 +3,7 @@ layout: container
 name:  "tomcat"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/tomcat/container.yaml"
-updated_at: "2022-04-06 14:46:58.674218"
+updated_at: "2022-04-08 03:03:36.107321"
 container_url: "https://hub.docker.com/_/tomcat"
 
 versions:
@@ -13,6 +13,11 @@ versions:
  - "10.0.8-jdk11-adoptopenjdk-hotspot"
  - "10.1.0"
  - "latest"
+ - "10"
+ - "10-jdk17"
+ - "10-jdk16"
+ - "10-jdk15"
+ - "10-jdk14"
 description: "Apache Tomcat is an open source implementation of the Java Servlet and JavaServer Pages technologies"
 ---
 

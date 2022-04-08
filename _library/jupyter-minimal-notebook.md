@@ -3,7 +3,7 @@ layout: container
 name:  "jupyter/minimal-notebook"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/jupyter/minimal-notebook/container.yaml"
-updated_at: "2022-04-06 14:46:53.213368"
+updated_at: "2022-04-08 03:03:37.848206"
 container_url: "https://hub.docker.com/r/jupyter/minimal-notebook"
 aliases:
  - "run-notebook"
@@ -11,6 +11,11 @@ aliases:
 versions:
  - "4.0"
  - "latest"
+ - "2022-04-05"
+ - "2022-03-28"
+ - "2022-02-28"
+ - "2022-01-31"
+ - "2021-12-27"
 description: "Jupyter Minimal Notebook from https://github.com/jupyter/docker-stacks"
 ---
 

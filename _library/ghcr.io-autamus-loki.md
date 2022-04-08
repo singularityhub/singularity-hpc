@@ -3,11 +3,12 @@ layout: container
 name:  "ghcr.io/autamus/loki"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/loki/container.yaml"
-updated_at: "2022-04-06 14:47:59.449131"
+updated_at: "2022-04-08 03:03:55.708668"
 container_url: "https://github.com/orgs/autamus/packages/container/package/loki"
 
 versions:
  - "0.1.7"
+ - "latest"
 description: "Loki is a C++ library of designs, containing flexible implementations of common design patterns and idioms."
 ---
 

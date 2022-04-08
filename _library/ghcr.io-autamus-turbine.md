@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/turbine"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/turbine/container.yaml"
-updated_at: "2022-04-06 14:47:22.966322"
+updated_at: "2022-04-08 03:04:12.182775"
 container_url: "https://github.com/orgs/autamus/packages/container/package/turbine"
 aliases:
  - "turbine"
@@ -16,6 +16,7 @@ aliases:
 
 versions:
  - "1.3.0"
+ - "latest"
 description: "Turbine is the Swift/T runtime"
 ---
 

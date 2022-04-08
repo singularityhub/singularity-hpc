@@ -3,7 +3,7 @@ layout: container
 name:  "rocker/tidyverse"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/rocker/tidyverse/container.yaml"
-updated_at: "2022-04-06 14:47:00.120423"
+updated_at: "2022-04-08 03:05:10.793433"
 container_url: "https://hub.docker.com/r/rocker/tidyverse"
 aliases:
  - "R"
@@ -24,6 +24,7 @@ aliases:
 
 versions:
  - "latest"
+ - "latest-daily"
 description: "Version-stable build of R, rstudio, and R packages "
 ---
 

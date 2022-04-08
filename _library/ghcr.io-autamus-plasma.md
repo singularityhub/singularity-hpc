@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/plasma"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/plasma/container.yaml"
-updated_at: "2022-04-06 14:47:36.107028"
+updated_at: "2022-04-08 03:04:04.232514"
 container_url: "https://github.com/orgs/autamus/packages/container/package/plasma"
 aliases:
  - "plasmatest"
@@ -11,6 +11,7 @@ aliases:
 versions:
  - "20.9.20"
  - "21.8.29"
+ - "latest"
 description: "Parallel Linear Algebra Software for Multicore Architectures, PLASMA is a software package for solving problems in dense linear algebra using multicore processors and Xeon Phi coprocessors."
 ---
 

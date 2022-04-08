@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/libtiff"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/libtiff/container.yaml"
-updated_at: "2022-04-06 14:47:35.271359"
+updated_at: "2022-04-08 03:03:45.452732"
 container_url: "https://github.com/orgs/autamus/packages/container/package/libtiff"
 aliases:
  - "fax2tiff"
@@ -42,6 +42,7 @@ versions:
  - "4.1.0"
  - "4.3.0"
  - "latest"
+ - "4.2.0"
 description: "Libtiff is a library for reading and writing Tagged Image File Format (abbreviated TIFF) files."
 ---
 

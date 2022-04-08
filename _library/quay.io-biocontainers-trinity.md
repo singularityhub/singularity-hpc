@@ -3,7 +3,7 @@ layout: container
 name:  "quay.io/biocontainers/trinity"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/trinity/container.yaml"
-updated_at: "2022-04-06 14:47:11.075228"
+updated_at: "2022-04-08 03:05:30.030112"
 container_url: "https://quay.io/repository/biocontainers/trinity"
 aliases:
  - "Trinity"
@@ -15,6 +15,8 @@ versions:
  - "2.12.0--h5ef6573_0"
  - "2.12.0--ha140323_1"
  - "2.13.2--ha140323_0"
+ - "2.13.2--h15cb65e_2"
+ - "2.12.0--ha140323_3"
 description: "Trinity, developed at the Broad Institute and the Hebrew University of Jerusalem, represents a novel method for the efficient and robust de novo reconstruction of transcriptomes from RNA-seq data."
 ---
 

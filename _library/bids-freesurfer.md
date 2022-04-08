@@ -3,12 +3,16 @@ layout: container
 name:  "bids/freesurfer"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/bids/freesurfer/container.yaml"
-updated_at: "2022-04-06 14:46:47.144139"
+updated_at: "2022-04-08 03:05:42.570239"
 container_url: "https://hub.docker.com/r/bids/freesurfer"
 
 versions:
  - "latest"
  - "v6.0.1-6.1"
+ - "V30-a43f1f"
+ - "V29-37bf1c"
+ - "V28-ae189c"
+ - "enh_QA"
 description: "Surface reconstruction using Freesurfer"
 ---
 

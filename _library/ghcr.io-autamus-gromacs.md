@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/gromacs"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/gromacs/container.yaml"
-updated_at: "2022-04-06 14:48:04.427001"
+updated_at: "2022-04-08 03:04:11.250891"
 container_url: "https://github.com/orgs/autamus/packages/container/package/gromacs"
 
 versions:
@@ -12,6 +12,7 @@ versions:
  - "2021.3"
  - "2021.4"
  - "latest"
+ - "2021"
 description: "A versatile package to perform molecular dynamics."
 ---
 

@@ -3,7 +3,7 @@ layout: container
 name:  "quay.io/biocontainers/canu"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/canu/container.yaml"
-updated_at: "2022-04-06 14:47:03.116252"
+updated_at: "2022-04-08 03:05:26.453851"
 container_url: "https://quay.io/repository/biocontainers/canu"
 aliases:
  - "canu"
@@ -12,6 +12,7 @@ versions:
  - "2.1.1--he1b5a44_0"
  - "2.1.1--he1b5a44_1"
  - "2.2--ha47f30e_0"
+ - "2.1.1--h1b792b2_2"
 description: "Canu is a fork of the celera assembler designed for high-noise single-molecule sequencing"
 ---
 

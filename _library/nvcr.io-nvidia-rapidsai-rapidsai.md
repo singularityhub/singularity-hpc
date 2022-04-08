@@ -3,13 +3,18 @@ layout: container
 name:  "nvcr.io/nvidia/rapidsai/rapidsai"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/nvcr.io/nvidia/rapidsai/rapidsai/container.yaml"
-updated_at: "2022-04-06 14:46:58.372451"
+updated_at: "2022-04-08 03:03:26.209420"
 container_url: "https://ngc.nvidia.com/catalog/containers/nvidia:rapidsai:rapidsai/tags"
 aliases:
  - "python"
 
 versions:
  - "0.18-cuda11.0-runtime-centos7"
+ - "22.02-cuda11.5-runtime-ubuntu20.04"
+ - "21.10-cuda11.2-runtime-ubuntu20.04"
+ - "21.08-cuda11.2-runtime-ubuntu20.04"
+ - "21.06-cuda11.2-runtime-ubuntu20.04"
+ - "cuda11.5-runtime-ubuntu20.04"
 description: "The RAPIDS suite of software libraries gives you the freedom to execute end-to-end data science and analytics pipelines entirely on GPUs."
 ---
 

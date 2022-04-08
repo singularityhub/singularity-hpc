@@ -3,12 +3,13 @@ layout: container
 name:  "ghcr.io/autamus/superlu"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/superlu/container.yaml"
-updated_at: "2022-04-06 14:47:34.075403"
+updated_at: "2022-04-08 03:04:22.998515"
 container_url: "https://github.com/orgs/autamus/packages/container/package/superlu"
 
 versions:
  - "5.2.2"
  - "5.3.0"
+ - "latest"
 description: "SuperLU is a general purpose library for the direct solution of large, sparse, nonsymmetric systems of linear equations on high performance machines."
 ---
 

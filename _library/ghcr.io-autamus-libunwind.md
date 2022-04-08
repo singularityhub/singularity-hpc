@@ -3,11 +3,12 @@ layout: container
 name:  "ghcr.io/autamus/libunwind"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/libunwind/container.yaml"
-updated_at: "2022-04-06 14:47:50.843658"
+updated_at: "2022-04-08 03:05:07.540010"
 container_url: "https://github.com/orgs/autamus/packages/container/package/libunwind"
 
 versions:
  - "1.5"
+ - "latest"
 description: "A portable and efficient C programming interface (API) to determine the call-chain of a program."
 ---
 

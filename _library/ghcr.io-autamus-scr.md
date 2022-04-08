@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/scr"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/scr/container.yaml"
-updated_at: "2022-04-06 14:48:01.225203"
+updated_at: "2022-04-08 03:04:27.178566"
 container_url: "https://github.com/orgs/autamus/packages/container/package/scr"
 aliases:
  - "scancel"
@@ -82,6 +82,7 @@ aliases:
 
 versions:
  - "3.0.rc.1"
+ - "latest"
 description: "SCR caches checkpoint data in storage on the compute nodes of a Linux cluster to provide a fast, scalable checkpoint/restart capability for MPI codes."
 ---
 

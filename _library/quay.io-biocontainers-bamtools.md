@@ -3,7 +3,7 @@ layout: container
 name:  "quay.io/biocontainers/bamtools"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/bamtools/container.yaml"
-updated_at: "2022-04-06 14:47:04.171665"
+updated_at: "2022-04-08 03:05:22.313879"
 container_url: "https://quay.io/repository/biocontainers/bamtools"
 aliases:
  - "bamtools"
@@ -12,6 +12,7 @@ versions:
  - "2.5.1--he860b03_4"
  - "2.5.1--h9a82719_9"
  - "2.5.1--hd03093a_10"
+ - "2.5.2--hd03093a_0"
 description: "C++ API and command-line toolkit for working with BAM data."
 ---
 

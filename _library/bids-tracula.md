@@ -3,12 +3,13 @@ layout: container
 name:  "bids/tracula"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/bids/tracula/container.yaml"
-updated_at: "2022-04-06 14:46:46.854970"
+updated_at: "2022-04-08 03:05:42.132992"
 container_url: "https://hub.docker.com/r/bids/tracula"
 
 versions:
  - "v6.0.0-5"
  - "latest"
+ - "unstable"
 description: "Implements Freesurfer's TRACULA (TRActs Constrained by UnderLying Anatomy) tool for cross-sectional as well as longitudinal (multi session) input data (https://github.com/BIDS-Apps/tracula)"
 ---
 

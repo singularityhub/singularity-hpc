@@ -3,11 +3,12 @@ layout: container
 name:  "ghcr.io/autamus/umap"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/umap/container.yaml"
-updated_at: "2022-04-06 14:47:51.751092"
+updated_at: "2022-04-08 03:03:44.054905"
 container_url: "https://github.com/orgs/autamus/packages/container/package/umap"
 
 versions:
  - "2.1.0"
+ - "latest"
 description: "Umap is a library that provides an mmap()-like interface to a simple, user-space page fault handler based on the userfaultfd Linux feature (starting with 4.3 linux kernel)."
 ---
 

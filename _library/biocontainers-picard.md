@@ -3,13 +3,16 @@ layout: container
 name:  "biocontainers/picard"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/biocontainers/picard/container.yaml"
-updated_at: "2022-04-06 14:48:08.528751"
+updated_at: "2022-04-08 03:03:28.589014"
 container_url: "https://hub.docker.com/r/biocontainers/picard"
 aliases:
  - "picard"
 
 versions:
  - "v1.139_cv3"
+ - "2.3.0"
+ - "1.141"
+ - "1.139"
 description: "Java CLI tools for manipulating HTS data and formats"
 ---
 

@@ -3,11 +3,12 @@ layout: container
 name:  "ghcr.io/autamus/datatransferkit"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/datatransferkit/container.yaml"
-updated_at: "2022-04-06 14:47:57.370194"
+updated_at: "2022-04-08 03:04:03.290417"
 container_url: "https://github.com/orgs/autamus/packages/container/package/datatransferkit"
 
 versions:
  - "3.1.rc.2"
+ - "latest"
 description: "DataTransferKit is an open-source software library of parallel solution transfer services for multiphysics simulations"
 ---
 

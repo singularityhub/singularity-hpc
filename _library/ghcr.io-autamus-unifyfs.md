@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/unifyfs"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/unifyfs/container.yaml"
-updated_at: "2022-04-06 14:47:26.061997"
+updated_at: "2022-04-08 03:04:43.944442"
 container_url: "https://github.com/orgs/autamus/packages/container/package/unifyfs"
 aliases:
  - "unifyfs"
@@ -14,6 +14,7 @@ aliases:
 
 versions:
  - "0.9.2"
+ - "latest"
 description: "User level file system that enables applications to use node-local storage as burst buffers for shared files."
 ---
 

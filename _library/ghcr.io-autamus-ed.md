@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/ed"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/ed/container.yaml"
-updated_at: "2022-04-06 14:47:38.156269"
+updated_at: "2022-04-08 03:04:05.544433"
 container_url: "https://github.com/orgs/autamus/packages/container/package/ed"
 aliases:
  - "ed"
@@ -12,6 +12,7 @@ aliases:
 
 versions:
  - "1.4"
+ - "latest"
 description: "GNU ed is a line-oriented text editor used to create, display, modify and otherwise manipulate text files, both interactively and via shell scripts https://www.gnu.org/software/ed."
 ---
 

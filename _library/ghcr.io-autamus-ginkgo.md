@@ -3,12 +3,13 @@ layout: container
 name:  "ghcr.io/autamus/ginkgo"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/ginkgo/container.yaml"
-updated_at: "2022-04-06 14:48:03.852754"
+updated_at: "2022-04-08 03:04:28.137343"
 container_url: "https://github.com/orgs/autamus/packages/container/package/ginkgo"
 
 versions:
  - "1.3.0"
  - "1.4.0"
+ - "latest"
 description: "High-performance linear algebra library for manycore systems, with a focus on sparse solution of linear systems."
 ---
 

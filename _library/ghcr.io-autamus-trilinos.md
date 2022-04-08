@@ -3,12 +3,13 @@ layout: container
 name:  "ghcr.io/autamus/trilinos"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/trilinos/container.yaml"
-updated_at: "2022-04-06 14:48:04.138063"
+updated_at: "2022-04-08 03:04:21.648080"
 container_url: "https://github.com/orgs/autamus/packages/container/package/trilinos"
 
 versions:
  - "13.0.1"
  - "13.2.0"
+ - "latest"
 description: "The Trilinos Project is an effort to develop algorithms and enabling technologies within an object-oriented software framework for the solution of large-scale, complex multi-physics engineering and scientific problems. A unique design feature of Trilinos is its focus on packages."
 ---
 

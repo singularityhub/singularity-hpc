@@ -3,11 +3,12 @@ layout: container
 name:  "bids/broccoli"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/bids/broccoli/container.yaml"
-updated_at: "2022-04-06 14:46:44.607310"
+updated_at: "2022-04-08 03:05:36.674639"
 container_url: "https://hub.docker.com/r/bids/broccoli"
 
 versions:
  - "enh_v"
+ - "enh_various"
 description: "BROCCOLI is a software for analysis of fMRI (functional magnetic resonance imaging) data and is written in OpenCL (Open Computing Language).  (https://github.com/BIDS-Apps/BROCCOLI)"
 ---
 

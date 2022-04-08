@@ -3,7 +3,7 @@ layout: container
 name:  "adminer"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/adminer/container.yaml"
-updated_at: "2022-04-06 14:46:51.192146"
+updated_at: "2022-04-08 03:05:34.598612"
 container_url: "https://hub.docker.com/_/adminer"
 
 versions:
@@ -11,6 +11,7 @@ versions:
  - "4.8.1"
  - "4.8.1-fastcgi"
  - "latest"
+ - "4"
 description: "Database management in a single PHP file."
 ---
 

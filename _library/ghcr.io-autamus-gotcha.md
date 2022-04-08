@@ -3,11 +3,12 @@ layout: container
 name:  "ghcr.io/autamus/gotcha"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/gotcha/container.yaml"
-updated_at: "2022-04-06 14:48:01.506658"
+updated_at: "2022-04-08 03:04:16.655872"
 container_url: "https://github.com/orgs/autamus/packages/container/package/gotcha"
 
 versions:
  - "1.0.3"
+ - "latest"
 description: "C software library for shared library function wrapping, enables tools to intercept calls into shared libraries"
 ---
 

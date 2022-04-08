@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/veloc"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/veloc/container.yaml"
-updated_at: "2022-04-06 14:47:29.918196"
+updated_at: "2022-04-08 03:04:20.708161"
 container_url: "https://github.com/orgs/autamus/packages/container/package/veloc"
 aliases:
  - "veloc-backend"
@@ -21,6 +21,7 @@ aliases:
 versions:
  - "1.4"
  - "1.5"
+ - "latest"
 description: "Very-Low Overhead Checkpointing System. VELOC is a multi-level checkpoint-restart runtime for HPC supercomputing infrastructures"
 ---
 

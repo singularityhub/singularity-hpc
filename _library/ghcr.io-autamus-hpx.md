@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/hpx"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/hpx/container.yaml"
-updated_at: "2022-04-06 14:47:57.676301"
+updated_at: "2022-04-08 03:04:38.406191"
 container_url: "https://github.com/orgs/autamus/packages/container/package/hpx"
 aliases:
  - "hpxcxx"
@@ -14,6 +14,7 @@ versions:
  - "1.6.0"
  - "1.7.0"
  - "1.7.1"
+ - "latest"
 description: "C++ runtime system for parallel and distributed applications."
 ---
 
