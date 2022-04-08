@@ -14,6 +14,7 @@ and **Merged pull requests**. Critical items to know are:
 The versions coincide with releases on pip. Only major versions will be released as tags on Github.
 
 ## [0.0.x](https://github.com/singularityhub/singularity-hpc/tree/main) (0.0.x)
+ - add support for shpc update so container can be updated without binoc (0.0.53)
  - better error message if container tag does not exist on update (0.0.52)
  - minimum version of spython required is 0.2.0 to support apptainer (0.0.51)
  - add support for TCL and LMOD default version, multiple variants (0.0.50)

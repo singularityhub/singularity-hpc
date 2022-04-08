@@ -13,7 +13,6 @@ tags:
   21.06-tensorflow-py3: sha256:fbe881eeb906edb58e67f7220617da648af74cac190fe4c14bb7646209eb5b89
   21.08-tensorflow-py3: sha256:0e6009fb379ef17aef8f5cacb87f5a251c7762e0042acc6073533bad34625989
   21.09-tensorflow-py3: sha256:2cd85ac9a8373804ae5242aeb36d2a438aabe2d349d07851b02ab0bb2309574d
-filter:
-- 21*
+  21.07-tensorflow-py3: sha256:84a670644b33b6e1bfe19f67779517110ec6cb5a6082fb3ed974c79cc5a01389
 aliases:
   python: /usr/bin/python

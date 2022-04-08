@@ -228,6 +228,25 @@ shpc config remove registry:/tmp/registry""",
         "uninstall_recipe", help="module to uninstall (module/version)"
     )
 
+    update = subparsers.add_parser(
+        "update", description="update a container recipe with new versions"
+    )
+    update.add_argument("module_name", help="module to update (no version required)")
+    update.add_argument(
+        "--filter",
+        "-f",
+        action="append",
+        help="ignore container.yaml filters, run an update with this specific set",
+        dest="filters",
+    )
+    update.add_argument(
+        "--dryrun",
+        "-d",
+        help="View updates without performing updates",
+        default=False,
+        action="store_true",
+    )
+
     # Add customization for each of container tech and module system
     for command in [
         install,
@@ -339,16 +358,14 @@ def run_shpc():
     # Does the user want a shell?
     if args.command == "add":
         from .add import main
-    if args.command == "config":
+    elif args.command == "config":
         from .config import main
-    if args.command == "check":
+    elif args.command == "check":
         from .check import main
-    if args.command == "docgen":
+    elif args.command == "docgen":
         from .docgen import main
     elif args.command == "get":
         from .get import main
-    elif args.command == "delete":
-        from .delete import main
     elif args.command == "install":
         from .install import main
     elif args.command == "inspect":
@@ -357,16 +374,18 @@ def run_shpc():
         from .listing import main
     elif args.command == "namespace":
         from .namespace import main
+    elif args.command == "pull":
+        from .pull import main
     elif args.command == "shell":
         from .shell import main
     elif args.command == "show":
         from .show import main
     elif args.command == "test":
         from .test import main
-    elif args.command == "pull":
-        from .pull import main
     elif args.command == "uninstall":
         from .uninstall import main
+    elif args.command == "update":
+        from .update import main
 
     # Pass on to the correct parser
     return_code = 0

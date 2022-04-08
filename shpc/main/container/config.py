@@ -3,8 +3,9 @@ __copyright__ = "Copyright 2021-2022, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
 
-from shpc.logger import logger
+from shpc.logger import logger, underline, add_prefix
 import shpc.main.schemas as schemas
+import shpc.main.container.update as update
 import shlex
 
 try:
@@ -124,6 +125,27 @@ class ContainerConfig:
             return "undefined"
         name = self.docker or self.oras or self.gh
         return ContainerName(name)
+
+    def update(self, dryrun=False, filters=None):
+        """
+        Update a container.yaml, meaning the tags and latest.
+        """
+        updated = None
+        if self.docker or self.oras:
+            previous_tags = self.get("tags", {})
+            previous_latest = self.get("latest", {})
+            updated = update.update_config_tags(self, filters=filters)
+
+            # print the container name and latest tag:
+            print(add_prefix(underline(self.docker or self.oras)))
+            print(add_prefix("Latest"))
+            update.print_diff(previous_latest, updated.get("latest"), True)
+            print(add_prefix("Tags"))
+            update.print_diff(previous_tags, updated.get("tags"))
+
+            # Take a "diff" of tags
+            if not dryrun:
+                updated.save(updated.package_file)
 
     @property
     def latest(self):

@@ -4,9 +4,9 @@ maintainer: '@vsoch'
 description: BWA is a software package for mapping low-divergent sequences against
   a large reference genome, such as the human genome.
 latest:
-  0.7.17: sha256:b91242c21fb1a1a6f22d1a2e676db6f7dda8270dc8f0a7ff2c7c5e05091aa4f0
+  0.7.17: sha256:c3cb22df8f27005c4fd3a548e352169ea572c5433a960462e03b6501ab61a720
 tags:
-  0.7.17: sha256:b91242c21fb1a1a6f22d1a2e676db6f7dda8270dc8f0a7ff2c7c5e05091aa4f0
-  latest: sha256:b91242c21fb1a1a6f22d1a2e676db6f7dda8270dc8f0a7ff2c7c5e05091aa4f0
+  0.7.17: sha256:c3cb22df8f27005c4fd3a548e352169ea572c5433a960462e03b6501ab61a720
+  latest: sha256:c3cb22df8f27005c4fd3a548e352169ea572c5433a960462e03b6501ab61a720
 aliases:
   bwa: /opt/view/bin/bwa

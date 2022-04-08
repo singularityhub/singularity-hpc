@@ -8,6 +8,7 @@ latest:
   1.13.1: sha256:03a4907149e3b05fdf171c67a538006af2e3414ae167fcc090df5a22593a0560
 tags:
   1.13.1: sha256:03a4907149e3b05fdf171c67a538006af2e3414ae167fcc090df5a22593a0560
+  latest: sha256:03a4907149e3b05fdf171c67a538006af2e3414ae167fcc090df5a22593a0560
 aliases:
   adios_config: /opt/view/bin/adios_config
   adios_lint: /opt/view/bin/adios_lint

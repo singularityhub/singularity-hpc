@@ -111,6 +111,21 @@ class Client:
         config.set_tag(tag)
         return config
 
+    def update(self, name, dryrun=False, filters=None):
+        """
+        Given a module name (or None for all modules) update container.yaml files.
+        """
+        if name:
+            modules = [name]
+
+        # We can eventually support "update all" when we have more confidence
+        # else:
+        #    modules = [x[1] for x in list(self.container.iter_modules())]
+
+        for module_name in modules:
+            config = self._load_container(module_name)
+            config.update(dryrun=dryrun, filters=filters)
+
     def test(
         self,
         module_name,

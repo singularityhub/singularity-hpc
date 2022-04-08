@@ -9,6 +9,7 @@ latest:
 tags:
   2021.3.0: sha256:d47d6fda408012c29949a208ef7b714f50fb695735e603ce6258071396a6a9fb
   2021.9.0: sha256:cb5e93afa7e118bf9d18bc16a036f6ff801806fb0c136efa1cd274ad458b43b7
+  latest: sha256:cb5e93afa7e118bf9d18bc16a036f6ff801806fb0c136efa1cd274ad458b43b7
 aliases:
   gasnet_trace: /opt/view/bin/gasnet_trace
   gasnet_trace.pl: /opt/view/bin/gasnet_trace.pl

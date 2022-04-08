@@ -1,7 +1,8 @@
 docker: quay.io/biocontainers/kraken2
 url: https://quay.io/repository/biocontainers/kraken2
 maintainer: '@marcodelapierre'
-description: 'A taxonomic classification system using exact k-mer matches to achieve high accuracy and fast classification speeds.'
+description: A taxonomic classification system using exact k-mer matches to achieve
+  high accuracy and fast classification speeds.
 latest:
   2.1.2--pl5321h9f5acd7_2: sha256:2208f6895251786e2a673789a3242d62873ac9e10d0edb40213e97ef7c92e980
 tags:

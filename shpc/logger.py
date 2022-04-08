@@ -10,10 +10,36 @@ import threading
 import inspect
 
 
+class LogColors:
+    PURPLE = "\033[95m"
+    OKBLUE = "\033[94m"
+    OKCYAN = "\033[96m"
+    OKGREEN = "\033[92m"
+    WARNING = "\033[93m"
+    RED = "\033[91m"
+    ENDC = "\033[0m"
+    BOLD = "\033[1m"
+    UNDERLINE = "\033[4m"
+
+
+def underline(msg):
+    """
+    Return an underlined message
+    """
+    return f"{LogColors.UNDERLINE}{msg}{LogColors.ENDC}"
+
+
+def add_prefix(msg, char=">>"):
+    """
+    Add an "OKBLUE" prefix to a message
+    """
+    return f"{LogColors.OKBLUE}{char}{LogColors.ENDC} {msg}"
+
+
 class ColorizingStreamHandler(_logging.StreamHandler):
 
     BLACK, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE = range(8)
-    RESET_SEQ = "\033[0m"
+    RESET_SEQ = LogColors.ENDC
     COLOR_SEQ = "\033[%dm"
     BOLD_SEQ = "\033[1m"
 
@@ -102,6 +128,9 @@ class Logger:
             "{}: {info.filename}, {info.function}, {info.lineno}".format(msg, info=info)
         )
 
+    def yellow(self, msg):
+        self.handler(dict(level="info", msg=msg))
+
     def info(self, msg):
         self.handler(dict(level="info", msg=msg))
 
@@ -127,8 +156,7 @@ class Logger:
             self.handler(msg)
 
     def text_handler(self, msg):
-        """The default snakemake log handler.
-        Prints the output to the console.
+        """The default log handler prints the output to the console.
         Args:
             msg (dict):     the log message dictionary
         """

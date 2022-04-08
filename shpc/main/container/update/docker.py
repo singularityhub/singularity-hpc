@@ -33,7 +33,7 @@ class DockerImage:
         """
         url = "%s/ls/%s" % (self.apiroot, self.container_name)
         response = self.get_request(url)
-        return [x for x in response.text.split("\n") if x]
+        return [x.strip() for x in response.text.split("\n") if x.strip()]
 
     def manifest(self, tag):
         url = "%s/manifest/%s:%s" % (self.apiroot, self.container_name, tag)
