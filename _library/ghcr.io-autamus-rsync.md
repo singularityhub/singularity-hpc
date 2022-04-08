@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/rsync"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/rsync/container.yaml"
-updated_at: "2022-04-08 03:04:45.319262"
+updated_at: "2022-04-08 03:05:47.567125"
 container_url: "https://github.com/orgs/autamus/packages/container/package/rsync"
 aliases:
  - "rsync"
