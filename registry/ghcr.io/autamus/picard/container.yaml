@@ -15,6 +15,7 @@ tags:
   2.26.4: sha256:d5e54eb6f2dee5e94b3cca0110b3528a52a30361b2bbd38ad6c265d6acff88c8
   2.26.5: sha256:4bdde83c5a64bfd9be18631eb4ad5fe8b5b5bef6f11345fc70299c2bc370ac70
   latest: sha256:4bdde83c5a64bfd9be18631eb4ad5fe8b5b5bef6f11345fc70299c2bc370ac70
+  2.25.7: sha256:31bdbd379c8059d344cbbf5b31dafc54a17f30a164846f104001f5f3438b2075
 aliases:
   picard: /opt/view/bin/picard
   picard.jar: /opt/view/bin/java -jar /opt/view/bin/picard.jar

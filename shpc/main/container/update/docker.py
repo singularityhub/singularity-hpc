@@ -37,14 +37,19 @@ class DockerImage:
 
     def manifest(self, tag):
         url = "%s/manifest/%s:%s" % (self.apiroot, self.container_name, tag)
-        return self.get_request(url).json()
+        response = self.get_request(url)
+        return response.json()
 
     def digest(self, tag):
         url = "%s/digest/%s:%s" % (self.apiroot, self.container_name, tag)
-        response = self.get_request(url).text
+        response = self.get_request(url)
         if "could not parse reference" in response:
             logger.exit("Issue getting digest: %s" % response)
-        return response.strip()
+        if "MANIFEST_UNKNOWN" in response.text:
+            logger.exit(
+                f"The tag {tag} you provided is not known. Check that it and the container both exist."
+            )
+        return response.text
 
     def config(self):
         url = "%s/config/%s" % (self.apiroot, self.container_name)

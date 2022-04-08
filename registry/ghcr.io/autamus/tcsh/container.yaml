@@ -1,7 +1,7 @@
 docker: ghcr.io/autamus/tcsh
 url: https://github.com/orgs/autamus/packages/container/package/tcsh
 maintainer: '@vsoch'
-description: ""
+description: ''
 latest:
   6.22.02: sha256:9f93757a94304b7a749bd2fbbe92192774906a40e4216f6ff9fc19f932ce06c0
 tags:

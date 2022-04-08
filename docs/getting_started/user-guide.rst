@@ -1281,9 +1281,6 @@ identifier to tell shpc it's from a Docker (OCI) registry.
 And that's it! The container module will use the same namespace, ``vanessa/pokemon`` as the Docker image,
 and we do this purposefully as a design decision. Note that ``add`` previously would add the container directly to the module
 directory, and as of version 0.0.49 it's been updated to generate the container.yaml first.
-Also note that ``add`` is only supported for Singularity, as Docker and Podman containers are 
-typically provided via registries. If you are looking for support for add for another
-container technology, please `open a new issue <https://github.com/singularityhub/singularity-hpc/issues>`_.
 
 
 Get

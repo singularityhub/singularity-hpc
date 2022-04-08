@@ -9,5 +9,6 @@ latest:
 tags:
   20.9.20: sha256:a4490385c99235b80515bc9f0c2e26ce236f74087df82f114665aba72668e516
   21.8.29: sha256:0115c8cecced1fdffdadc8417a5a88cdbd887ffd487774ee80278bca2a1b0b91
+  latest: sha256:0115c8cecced1fdffdadc8417a5a88cdbd887ffd487774ee80278bca2a1b0b91
 aliases:
   plasmatest: /opt/view/bin/plasmatest
