@@ -8,7 +8,6 @@ import shpc.utils as utils
 import shpc.defaults as defaults
 import shpc.main.templates
 import shpc.main.container as container
-from jinja2 import Template
 
 from datetime import datetime
 import os
@@ -17,7 +16,13 @@ import subprocess
 import sys
 import inspect
 
+from jinja2 import Environment, FileSystemLoader
+
 here = os.path.dirname(os.path.abspath(__file__))
+
+# Allow includes from this directory OR providing strings
+template_dir = os.path.join(here, "templates")
+env = Environment(loader=FileSystemLoader(template_dir))
 
 
 class ModuleBase(BaseClient):
@@ -42,9 +47,8 @@ class ModuleBase(BaseClient):
         """
         template_file = self._get_template(template_name)
 
-        # Make all substitutions here
         with open(template_file, "r") as temp:
-            template = Template(self.substitute(temp.read()))
+            template = env.from_string(self.substitute(temp.read()))
         return template
 
     def substitute(self, template):
@@ -108,8 +112,8 @@ class ModuleBase(BaseClient):
                 module_dir, self.settings.module_base, "$module_base/%s" % name
             )
 
-            # Clean up symbolic links
-            self._cleanup_symlink(module_dir)
+        # Clean up symbolic links
+        self._cleanup_symlink(module_dir)
 
         # parent of versioned directory has module .version
         module_dir = os.path.dirname(module_dir)
@@ -123,7 +127,7 @@ class ModuleBase(BaseClient):
         Sub function, so we can pass more than one folder from uninstall
         """
         if os.path.exists(path):
-            utils.rmdir_to_base(path, base_path)
+            utils.remove_to_base(path, base_path)
             logger.info("%s and all subdirectories have been removed." % name)
         else:
             logger.warning("%s does not exist." % name)
@@ -201,7 +205,7 @@ class ModuleBase(BaseClient):
             short=short,
         )
 
-    # Symbolik links
+    # Symbolic links
 
     def get_symlink_path(self, module_dir):
         """
@@ -214,12 +218,7 @@ class ModuleBase(BaseClient):
             self.settings.symlink_base, *module_dir.split(os.sep)[-2:]
         )
 
-        # With Lmod and default_version==True, the symlinks points to module.lua itself,
-        # and its name needs to end with `.lua` too
-        if self.module_extension == "lua" and self.settings.default_version == True:
-            return symlink_base_name + ".lua"
-        else:
-            return symlink_base_name
+        return symlink_base_name + self.symlink_extension
 
     def create_symlink(self, module_dir):
         """
@@ -234,11 +233,7 @@ class ModuleBase(BaseClient):
         if not os.path.exists(symlink_dir):
             utils.mkdirp([symlink_dir])
 
-        # With Lmod, default_version==False can't be made to work with symlinks at the module.lua level
-        if self.module_extension == "lua" and self.settings.default_version == False:
-            symlink_target = module_dir
-        else:
-            symlink_target = os.path.join(module_dir, self.modulefile)
+        symlink_target = os.path.join(module_dir, self.modulefile)
         logger.info("Creating link %s -> %s" % (symlink_target, symlink_path))
 
         # Create the symbolic link!
@@ -254,7 +249,11 @@ class ModuleBase(BaseClient):
         """
         # Get the symlink path - does it exist?
         symlink_path = self.get_symlink_path(module_dir)
-        if os.path.exists(symlink_path):
+        if not symlink_path:
+            logger.exit(
+                "symlink_base is not set, cannot create a symlink without it. Check your settings."
+            )
+        elif os.path.exists(symlink_path):
             if force:
                 logger.info("Overwriting %s, as requested" % module_dir)
             elif not utils.confirm_action(
@@ -269,18 +268,17 @@ class ModuleBase(BaseClient):
         symlinked_module = self.get_symlink_path(module_dir)
         if not symlinked_module:
             return
-        if os.path.exists(symlinked_module) and os.path.islink(symlinked_module):
-            os.unlink(symlinked_module)
-
-        # Clean up directories that become empty
-        parent_dir = os.path.dirname(symlinked_module)
-        if not os.path.exists(parent_dir):
-            return
-
-        # If the parent of the symlink only has zero files OR one file .version, cleanup
-        files = os.listdir(parent_dir)
-        if len(files) == 0 or (len(files) == 1 and files[0] == ".version"):
-            shutil.rmtree(parent_dir)
+        if os.path.islink(symlinked_module):
+            # Remove and clean up directories that become empty
+            utils.remove_to_base(symlinked_module, self.settings.symlink_base)
+            logger.info("%s has been removed." % symlinked_module)
+            # Update .version
+            self.write_version_file(os.path.dirname(symlinked_module))
+        elif os.path.exists(symlinked_module):
+            logger.error("%s exists and is not a symlink!" % symlinked_module)
+        elif self.settings.symlink_tree:
+            # Should not happen. The symlink has someone already been deleted
+            logger.warning("%s does not exist." % symlinked_module)
 
     def docgen(self, module_name, out=None):
         """
@@ -447,7 +445,7 @@ class ModuleBase(BaseClient):
             container_path = container_dest
 
         # Add a .version file to indicate the level of versioning
-        self.write_version_file(uri, tag.name)
+        self.write_version_file(os.path.join(self.settings.module_base, uri), tag.name)
 
         # For Singularity this is a path, podman is a uri. If None is returned
         # there was an error and we cleanup
@@ -456,7 +454,7 @@ class ModuleBase(BaseClient):
                 module_dir, container_dir, config, tag
             )
         if not container_path:
-            utils.rmdir_to_base(container_dir, self.container_base)
+            utils.remove_to_base(container_dir, self.container_base)
             logger.exit("There was an issue pulling %s" % container_path)
 
         # Get the template based on the module and container type
@@ -486,7 +484,7 @@ class ModuleBase(BaseClient):
 
         # If the container tech does not need storage, clean up
         if not os.listdir(container_dir):
-            utils.rmdir_to_base(container_dir, self.container_base)
+            utils.remove_to_base(container_dir, self.container_base)
 
         # Write the environment file to be bound to the container
         self.container.add_environment(
@@ -498,10 +496,11 @@ class ModuleBase(BaseClient):
         if ":" not in name:
             name = "%s:%s" % (name, tag.name)
         logger.info("Module %s was created." % name)
-        return container_path
 
         if symlink:
             self.create_symlink(module_dir)
+
+        return container_path
 
     # Module software can choose how to handle each of these cases
     def _no_default_version(self, version_file, tag):
@@ -517,19 +516,22 @@ class ModuleBase(BaseClient):
         template = self._load_template("default_version")
         utils.write_file(version_file, template.render(version=tag))
 
-    def write_version_file(self, uri, latest_tag_installed=None):
+    def write_version_file(self, version_dir, latest_tag_installed=None):
         """
         Create the .version file, if there is a template for it.
         """
-        version_dir = os.path.join(self.settings.module_base, uri)
+        if not os.path.exists(version_dir):
+            # Happens when uninstalling the last version of a tool
+            return
+
         version_file = os.path.join(version_dir, ".version")
 
         # No default versions
-        if self.settings.default_version in [False, None]:
+        if not self.settings.default_version:
             return self._no_default_version(version_file, latest_tag_installed)
 
         # allow the module software to control versions
-        if self.settings.default_version in [True, "module_sys"]:
+        if self.settings.default_version == "module_sys":
             return self._module_sys_default_version(version_file, latest_tag_installed)
 
         # First or last installed
