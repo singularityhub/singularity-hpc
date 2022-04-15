@@ -139,8 +139,8 @@ settingsProperties = {
         ]
     },
     "enable_tty": {"type": "boolean"},
-    "symlink_base": {"type": ["string", "null"]},
-    "symlink_tree": {"type": "boolean"},
+    "views_base": {"type": ["string", "null"]},
+    "default_view": {"type": ["string", "null"]},
     "wrapper_scripts": wrapper_scripts,
     "container_tech": {"type": "string", "enum": ["singularity", "podman", "docker"]},
     "singularity_shell": {"type": "string", "enum": shells},
@@ -168,5 +168,34 @@ settings = {
         "container_features",
     ],
     "properties": settingsProperties,
+    "additionalProperties": False,
+}
+
+# Views
+
+viewProperties = {
+    "type": "object",
+    "required": [
+        "name",
+        "modules",
+        "system_modules",
+    ],
+    "properties": {
+        "system_modules": {"type": "array", "items": {"type": "string"}},
+        "modules": {"type": "array", "items": {"type": "string"}},
+        "name": {"type": "string"},
+    },
+    "additionalProperties": False,
+}
+
+
+views = {
+    "$schema": schema_url,
+    "title": "Views Schema",
+    "type": "object",
+    "required": [
+        "view",
+    ],
+    "properties": viewProperties,
     "additionalProperties": False,
 }

@@ -5,6 +5,7 @@ __license__ = "MPL 2.0"
 
 from shpc.logger import logger
 import shpc.main.schemas as schemas
+import shpc.utils as utils
 import shlex
 
 try:
@@ -155,6 +156,9 @@ class ContainerConfig:
             self.tag = self.tags.get(tag)
 
     def dump(self, out=None):
+        """
+        Dump (display) the config to an output.
+        """
         out = out or sys.stdout
         yaml = YAML()
         yaml.dump(self._config, out)
@@ -265,9 +269,7 @@ class ContainerConfig:
         """
         Save the container.yaml to file. This is usually for shpc add.
         """
-        yaml = YAML()
-        with open(package_file, "w") as fd:
-            yaml.dump(self._config, fd)
+        utils.write_yaml(self._config, package_file)
 
     def load(self, package_file):
         """
@@ -278,9 +280,5 @@ class ContainerConfig:
             logger.exit("%s does not exist." % package_file)
 
         # Default to round trip so we can save comments
-        yaml = YAML()
-
-        # Store the original settings for update as we go
-        with open(package_file, "r") as fd:
-            self._config = yaml.load(fd.read())
         self.package_file = package_file
+        self._config = utils.read_yaml(package_file)

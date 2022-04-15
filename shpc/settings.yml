@@ -38,12 +38,11 @@ default_version: module_sys
 # It's recommended to do this for faster loading
 container_base: $root_dir/containers
 
-# If defined, create a simplified "symlink install" that shortens module names
-# to be just the container, e.g., ghcr.io/autamus/samtools -> module load samtools
-symlink_base: $root_dir/symlinks
+# Default root directory to create views
+views_base: $root_dir/views
 
-# Always generate a symlink, even without the command line argument
-symlink_tree: false
+# Always install to a default "active" view (null means we don't)
+default_view: null
 
 # if defined, add to lmod script to load this Singularity module first
 singularity_module:

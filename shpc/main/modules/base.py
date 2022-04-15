@@ -6,8 +6,10 @@ from shpc.main.client import Client as BaseClient
 from shpc.logger import logger
 import shpc.utils as utils
 import shpc.defaults as defaults
-import shpc.main.templates
+import shpc.main.template as templatectl
 import shpc.main.container as container
+import shpc.main.modules.views as views
+import shpc.main.modules.versions as versionfile
 
 from datetime import datetime
 import os
@@ -16,14 +18,6 @@ import subprocess
 import sys
 import inspect
 
-from jinja2 import Environment, FileSystemLoader
-
-here = os.path.dirname(os.path.abspath(__file__))
-
-# Allow includes from this directory OR providing strings
-template_dir = os.path.join(here, "templates")
-env = Environment(loader=FileSystemLoader(template_dir))
-
 
 class ModuleBase(BaseClient):
     def __init__(self, **kwargs):
@@ -31,36 +25,29 @@ class ModuleBase(BaseClient):
         # Files for module software to generate depending on user setting
         super(ModuleBase, self).__init__(**kwargs)
         self.here = os.path.dirname(inspect.getfile(self.__class__))
+        self.template = templatectl.Template(self.settings)
+        self.versionfile = versionfile.get_version_writer(self.module_extension)(
+            self.settings
+        )
+        self.init_views()
 
-    def _get_template(self, template_name):
+    def init_views(self):
         """
-        Get a template from templates
+        Load existing views into the module for easy interaction.
         """
-        template_file = os.path.join(here, "templates", template_name)
-        if not os.path.exists(template_file):
-            template_file = os.path.abspath(template_name)
-        return template_file
+        # Lookup of named views in the views base
+        self.views = {}
+        if not self.settings.views_base or not os.path.exists(self.settings.views_base):
+            return
 
-    def _load_template(self, template_name):
-        """
-        Load the default module template.
-        """
-        template_file = self._get_template(template_name)
-
-        with open(template_file, "r") as temp:
-            template = env.from_string(self.substitute(temp.read()))
-        return template
-
-    def substitute(self, template):
-        """
-        For all known identifiers, substitute user specified format strings.
-        """
-        subs = {
-            "{|module_name|}": self.settings.module_name or "{{ parsed_name.tool }}"
-        }
-        for key, replacewith in subs.items():
-            template = template.replace(key, replacewith)
-        return template
+        # Load existing views
+        for view_name in os.listdir(self.settings.views_base):
+            self.views[view_name] = views.View(
+                name=view_name,
+                settings=self.settings,
+                symlink_extension=self.symlink_extension,
+                module_extension=self.module_extension,
+            )
 
     @property
     def container_base(self):
@@ -79,9 +66,10 @@ class ModuleBase(BaseClient):
     def templatefile(self):
         return "%s.%s" % (self.container.templatefile, self.module_extension)
 
-    def uninstall(self, name, force=False):
+    def uninstall(self, name, view=None, force=False):
         """
-        Given a unique resource identifier, uninstall a module
+        Given a unique resource identifier, uninstall a module. If a view
+        name is provided, assume we only want to uninstall from the view
         """
         # The name can either be a folder or an install directory
         name = self.add_namespace(name)
@@ -96,6 +84,12 @@ class ModuleBase(BaseClient):
             msg = name + "?"
             if not utils.confirm_uninstall(msg, force):
                 return
+
+        # Only uninstall from the view
+        if view:
+            if view not in self.views:
+                logger.exit("View %s does not exist, cannot uninstall." % view)
+            return self.views[view].uninstall(module_dir)
 
         # Podman needs image deletion
         self.container.delete(name)
@@ -112,15 +106,16 @@ class ModuleBase(BaseClient):
                 module_dir, self.settings.module_base, "$module_base/%s" % name
             )
 
-        # Clean up symbolic links
-        self._cleanup_symlink(module_dir)
+        # If uninstalling the entire module, clean up symbolic links in all views
+        for view_name, view in self.views.items():
+            view.uninstall(module_dir)
 
         # parent of versioned directory has module .version
         module_dir = os.path.dirname(module_dir)
 
         # update the default version file, if other versions still present
         if os.path.exists(module_dir):
-            self.write_version_file(module_dir)
+            self.versionfile.write(module_dir)
 
     def _uninstall(self, path, base_path, name):
         """
@@ -143,7 +138,7 @@ class ModuleBase(BaseClient):
         Run specific tests for this module
         """
         # Generate a test template
-        template = self._load_template(template or "test.sh")
+        template = self.template.load(template or "test.sh")
         test_file = os.path.join(module_dir, "test.sh")
 
         # Generate the test script
@@ -205,81 +200,6 @@ class ModuleBase(BaseClient):
             short=short,
         )
 
-    # Symbolic links
-
-    def get_symlink_path(self, module_dir):
-        """
-        Should only be called given a self.settings.symlink_base is set
-        """
-        if not self.settings.symlink_base:
-            return
-
-        symlink_base_name = os.path.join(
-            self.settings.symlink_base, *module_dir.split(os.sep)[-2:]
-        )
-
-        return symlink_base_name + self.symlink_extension
-
-    def create_symlink(self, module_dir):
-        """
-        Create the symlink if desired by the user!
-        """
-        symlink_path = self.get_symlink_path(module_dir)
-        if os.path.exists(symlink_path):
-            os.unlink(symlink_path)
-        symlink_dir = os.path.dirname(symlink_path)
-
-        # If the parent directory doesn't exist, make it
-        if not os.path.exists(symlink_dir):
-            utils.mkdirp([symlink_dir])
-
-        symlink_target = os.path.join(module_dir, self.modulefile)
-        logger.info("Creating link %s -> %s" % (symlink_target, symlink_path))
-
-        # Create the symbolic link!
-        os.symlink(symlink_target, symlink_path)
-
-        # Create .version
-        self.write_version_file(os.path.dirname(symlink_path))
-
-    def check_symlink(self, module_dir, force=False):
-        """
-        Given an install command, if --symlink-tree is provided make
-        sure we don't already have this symlink in the tree.
-        """
-        # Get the symlink path - does it exist?
-        symlink_path = self.get_symlink_path(module_dir)
-        if not symlink_path:
-            logger.exit(
-                "symlink_base is not set, cannot create a symlink without it. Check your settings."
-            )
-        elif os.path.exists(symlink_path):
-            if force:
-                logger.info("Overwriting %s, as requested" % module_dir)
-            elif not utils.confirm_action(
-                "%s already exists, are you sure you want to overwrite" % symlink_path
-            ):
-                sys.exit(0)
-
-    def _cleanup_symlink(self, module_dir):
-        """
-        Remove symlink directories if they exist
-        """
-        symlinked_module = self.get_symlink_path(module_dir)
-        if not symlinked_module:
-            return
-        if os.path.islink(symlinked_module):
-            # Remove and clean up directories that become empty
-            utils.remove_to_base(symlinked_module, self.settings.symlink_base)
-            logger.info("%s has been removed." % symlinked_module)
-            # Update .version
-            self.write_version_file(os.path.dirname(symlinked_module))
-        elif os.path.exists(symlinked_module):
-            logger.error("%s exists and is not a symlink!" % symlinked_module)
-        elif self.settings.symlink_tree:
-            # Should not happen. The symlink has someone already been deleted
-            logger.warning("%s does not exist." % symlinked_module)
-
     def docgen(self, module_name, out=None):
         """
         Render documentation for a module.
@@ -287,7 +207,7 @@ class ModuleBase(BaseClient):
         config = self._load_container(module_name)
         out = out or sys.stdout
         aliases = config.get_aliases()
-        template = self._load_template("docs.md")
+        template = self.template.load("docs.md")
         github_url = "%s/blob/main/registry/%s/container.yaml" % (
             defaults.github_url,
             module_name,
@@ -383,7 +303,9 @@ class ModuleBase(BaseClient):
         config = self._load_container(module_name.rsplit(":", 1)[0])
         return self.container.check(module_name, config)
 
-    def install(self, name, tag=None, symlink=None, force=False, **kwargs):
+    def install(
+        self, name, tag=None, view=None, disable_view=False, force=False, **kwargs
+    ):
         """
         Given a unique resource identifier, install a recipe.
 
@@ -416,15 +338,25 @@ class ModuleBase(BaseClient):
         subfolder = os.path.join(uri, tag.name)
         container_dir = self.container.container_dir(subfolder)
 
-        # Default to global setting
-        if symlink is None:
-            symlink = self.settings.symlink_tree
+        # Are we also installing to a named view?
+        if view is None and not disable_view:
+            view = self.settings.default_view
 
-        if symlink:
-            # Cut out early if symlink desired and already exists
-            self.check_symlink(module_dir, force=force)
+        # A view is a symlink under views_base/$view/$module
+        if view:
+            if view not in self.views:
+                logger.exit(
+                    "View %s does not exist, shpc view create %s." % (view, view)
+                )
 
-        shpc.utils.mkdirp([module_dir, container_dir])
+            # Update view from name to be View to interact with
+            view = self.views[view]
+
+            # Don't continue if it exists, unless force is True
+            view.confirm_install(module_dir, force=force)
+
+        # Create the module and container directory
+        utils.mkdirp([module_dir, container_dir])
 
         # If we have a sif URI provided by path, the container needs to exist
         container_path = None
@@ -445,7 +377,7 @@ class ModuleBase(BaseClient):
             container_path = container_dest
 
         # Add a .version file to indicate the level of versioning
-        self.write_version_file(os.path.join(self.settings.module_base, uri), tag.name)
+        self.versionfile.write(os.path.join(self.settings.module_base, uri), tag.name)
 
         # For Singularity this is a path, podman is a uri. If None is returned
         # there was an error and we cleanup
@@ -458,7 +390,7 @@ class ModuleBase(BaseClient):
             logger.exit("There was an issue pulling %s" % container_path)
 
         # Get the template based on the module and container type
-        template = self._load_template(self.templatefile)
+        template = self.template.load(self.templatefile)
         module_path = os.path.join(module_dir, self.modulefile)
 
         # If the module has a version, overrides version
@@ -497,60 +429,8 @@ class ModuleBase(BaseClient):
             name = "%s:%s" % (name, tag.name)
         logger.info("Module %s was created." % name)
 
-        if symlink:
-            self.create_symlink(module_dir)
+        # Install the module (symlink) to the view and create version file
+        if view:
+            view.install(module_dir)
 
         return container_path
-
-    # Module software can choose how to handle each of these cases
-    def _no_default_version(self, version_file, tag):
-        return
-
-    def _module_sys_default_version(self, version_file, tag):
-        return
-
-    def _set_default_version(self, version_file, tag):
-        """
-        Set the default version to the given tag
-        """
-        template = self._load_template("default_version")
-        utils.write_file(version_file, template.render(version=tag))
-
-    def write_version_file(self, version_dir, latest_tag_installed=None):
-        """
-        Create the .version file, if there is a template for it.
-        """
-        if not os.path.exists(version_dir):
-            # Happens when uninstalling the last version of a tool
-            return
-
-        version_file = os.path.join(version_dir, ".version")
-
-        # No default versions
-        if not self.settings.default_version:
-            return self._no_default_version(version_file, latest_tag_installed)
-
-        # allow the module software to control versions
-        if self.settings.default_version == "module_sys":
-            return self._module_sys_default_version(version_file, latest_tag_installed)
-
-        # First or last installed
-        if latest_tag_installed and (self.settings.default_version == "last_installed"):
-            tag = latest_tag_installed
-        else:
-            # The versions we actually have
-            found = [x for x in os.listdir(version_dir) if x != ".version"]
-            if len(found) == 1:
-                tag = found[0]
-            else:
-                if self.settings.default_version == "first_installed":
-                    selector = min
-                else:
-                    selector = max
-                tag = selector(
-                    found,
-                    key=lambda x: utils.creation_date(os.path.join(version_dir, x)),
-                )
-
-        # Write the .version file
-        return self._set_default_version(version_file, tag)

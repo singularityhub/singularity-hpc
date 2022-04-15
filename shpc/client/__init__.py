@@ -101,16 +101,15 @@ shpc -c rm:registry:/tmp/registry""",
         help="recipe to install\nshpc install python\nshpc install python:3.9.5-alpine",
     )
     install.add_argument(
-        "--symlink-tree",
-        dest="symlink",
-        help="install to symlink tree too (overrides settings.yml).",
+        "--view",
+        dest="view",
+        help="install module to a named view (must be installed to shpc first).",
         default=None,
-        action="store_true",
     )
     install.add_argument(
-        "--no-symlink-tree",
-        dest="symlink",
-        help="skip installing to symlink tree (in case set in settings.yml).",
+        "--no-view",
+        dest="no_view",
+        help="skip installing to the default view, if defined in settings.",
         action="store_false",
     )
     install.add_argument(
@@ -172,6 +171,32 @@ shpc -c rm:registry:/tmp/registry""",
         "check", description="check if you have latest installed."
     )
     check.add_argument("module_name", help="module to check (module:version)")
+
+    view = subparsers.add_parser(
+        "view",
+        description="view control to create, install, and uninstall",
+        formatter_class=argparse.RawTextHelpFormatter,
+    )
+    view.add_argument(
+        "params",
+        nargs="*",
+        help="""View control. A view name is always required.
+shpc view create <name>
+shpc view delete <name>
+shpc view get <name>
+shpc view install <name> <module>
+shpc view uninstall <name> <module>
+shpc view edit <name>""",
+        type=str,
+    )
+    view.add_argument(
+        "--force",
+        "-f",
+        dest="force",
+        help="force install or uninstall",
+        default=False,
+        action="store_true",
+    )
 
     config = subparsers.add_parser(
         "config",
@@ -386,14 +411,16 @@ def run_shpc():
         from .listing import main
     elif args.command == "namespace":
         from .namespace import main
+    elif args.command == "pull":
+        from .pull import main
     elif args.command == "shell":
         from .shell import main
     elif args.command == "show":
         from .show import main
     elif args.command == "test":
         from .test import main
-    elif args.command == "pull":
-        from .pull import main
+    elif args.command == "view":
+        from .view import main
     elif args.command == "uninstall":
         from .uninstall import main
 

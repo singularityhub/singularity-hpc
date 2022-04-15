@@ -179,12 +179,12 @@ variable replacement. A summary table of variables is included below, and then f
    * - container_tech
      - The container technology to use (singularity or podman)
      - singularity
-   * - symlink_base
-     - If set, where you want to install a simplified module tree to using the ``symlink-tree`` option
-     - $root_dir/symlinks
-   * - symlink_tree
-     - If set to true, always generate a symlink unless the ``--no-symlink-tree`` flag is given
-     - false
+   * - views_base
+     - The default root for creating custom views. Defaults to ``views`` in the root directory.
+     - $root_dir/views
+   * - default_view
+     - Install to this default view (e.g., meaning you always create a second symlink tree of the same modules)
+     - unset
    * - updated_at
      - a timestamp to keep track of when you last saved
      - never
@@ -245,12 +245,12 @@ variable replacement. A summary table of variables is included below, and then f
 
 
 Note that any configuration value can be set permanently by using ``shpc config``
-or manually editing the file, but you can also set config values "one off" as follows:
+or manually editing the file, but you can also set config values "one off." As an example,
+here is a "one off" command to install to a different shpc module root:
 
 .. code-block:: console
 
-    $ shpc install -c set:symlink_base:/tmp/modules ghcr.io/autamus/clingo
-
+    $ shpc install -c set:modules_base:/tmp/modules ghcr.io/autamus/clingo
 
 These settings will be discussed in more detail in the following sections.
 
@@ -378,57 +378,6 @@ you can add or remove entries via the config variable ``registry``
 # Note that "add" is used for lists of things (e.g., the registry config variable is a list)
 and "set" is used to set a key value pair.
 
-Symlink Base
-------------
-
-By default, your modules are installed to your ``module_base`` described above with a complete
-namespace, meaning the container registry from where they arise. We do this so that the namespace
-is consistent and there are no conflicts. However, if you want a simplified tree to install from,
-meaning the module full names are _just_ the final container name, you can set the ``symlink_base``
-in your settings to a different root. For example, let's say we want to install a set of modules.
-We can use the default ``symlink_base`` of ``$root_dir/symlinks`` or set our own ``symlink_base``
-in the settings.yaml. We could do:
-
-.. code-block:: console
-
-    $ shpc install ghcr.io/autamus/clingo --symlink-tree
-    $ shpc install ghcr.io/autamus/samtools --symlink-tree
-
-Then, for example, if you want to load the modules, you'll see the shorter names are
-available!
-
-.. code-block:: console
-
-    $ module use ./symlinks
-    $ module load clingo/5.5.1
-
-This is much more efficient compared to the install that uses the full paths:
-
-.. code-block:: console
-
-    $ module use ./modules
-    $ module load ghcr.io/autamus/clingo/5.5.1/module
-
-Since we install based on the container name *and* version tag, this even gives you
-the ability to install versions from different container bases in the same root.
-If there is a conflict, you will be given the option to exit (and abort) or continue.
-Finally, if you need an easy way to run through the containers you've already installed
-to create the links:
-
-
-.. code-block:: console
-
-    for module in $(shpc list); do
-        shpc install $module --symlink-tree
-    done
-
-And that will reinstall the modules you have installed, but in their symlink tree location.
-
-
-.. warning::
-
-    Be cautious about creating symlinks in containers or other contexts where a bind
-    could eliminate the symlink or make the path non-existent.
 
 
 Default Version
@@ -634,6 +583,94 @@ Since we don't allow overlap
 of the name of an alias wrapper script (e.g., ``bin/python`` as a wrapper to a python entrypoint) from a custom container wrapper script (e.g., a wrapper script with name "python" under a container.yaml) we can keep them both in the modules directory. If you see a need to put them elsewhere please let us know. 
 
 .. _getting_started-commands:
+
+
+Views
+=====
+
+A view is a custom splicing of a set of installed modules that are intended to be used together, or loaded
+with other system modules. The concept is similar to a database in that you can only include in the view
+what you have in your shpc install, and the views themselves are done via symlinks to not redundantly store
+containers. If you want to generate a separate, non-symlink view, the suggested approach is to simply
+use a different shpc install.
+
+Views Base
+----------
+
+By default, your modules are installed to your ``module_base`` described in settings with a complete
+namespace, meaning the full name of the container registry from where they arise. We do this so that the namespace
+is consistent and there are no conflicts. However, for views we use a simplified tree to install from,
+meaning the module full names are _just_ the final container name. As an example, ``ghcr.io/autamus/clingo`` in
+a view would simply install to ``clingo``.
+
+Views are installed to the ``views_base`` in your settings, which defaults to 
+``$root_dir/views``. To create a new named view:
+
+.. code-block:: console
+
+    $ shpc view create mpi
+
+The above would be an example to create a new named "mpi," perhaps for a specific kind of mpi
+container to be installed there. Since it will be under the same directory, you'll be able to use
+this custom set of modules together. 
+
+.. code-block:: console
+
+    $ module use $(shpc view get mpi)
+
+
+views_base: $root_dir/views
+
+# Always install to a default "active" view (null means we don't)
+default_view: null
+
+
+, you can set the ``symlink_base``
+in your settings to a different root. For example, let's say we want to install a set of modules.
+We can use the default ``symlink_base`` of ``$root_dir/symlinks`` or set our own ``symlink_base``
+in the settings.yaml. We could do:
+
+.. code-block:: console
+
+    $ shpc install ghcr.io/autamus/clingo --symlink-tree
+    $ shpc install ghcr.io/autamus/samtools --symlink-tree
+
+Then, for example, if you want to load the modules, you'll see the shorter names are
+available!
+
+.. code-block:: console
+
+    $ module use ./symlinks
+    $ module load clingo/5.5.1
+
+This is much more efficient compared to the install that uses the full paths:
+
+.. code-block:: console
+
+    $ module use ./modules
+    $ module load ghcr.io/autamus/clingo/5.5.1/module
+
+Since we install based on the container name *and* version tag, this even gives you
+the ability to install versions from different container bases in the same root.
+If there is a conflict, you will be given the option to exit (and abort) or continue.
+Finally, if you need an easy way to run through the containers you've already installed
+to create the links:
+
+
+.. code-block:: console
+
+    for module in $(shpc list); do
+        shpc install $module --symlink-tree
+    done
+
+And that will reinstall the modules you have installed, but in their symlink tree location.
+
+
+.. warning::
+
+    Be cautious about creating symlinks in containers or other contexts where a bind
+    could eliminate the symlink or make the path non-existent.
+
 
 
 Commands
