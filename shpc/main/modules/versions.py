@@ -39,7 +39,7 @@ def get_version_writer(module_type):
     VersionClass.module_extension = module_type
     if module_type == "tcl":
         VersionClass._no_default_version = _tcl_no_default_version
-    if module_type == "lua":
+    elif module_type == "lua":
         VersionClass._module_sys_default_version = _lua_module_sys_default_version
     else:
         logger.exit("%s is not a known module_type" % module_type)
