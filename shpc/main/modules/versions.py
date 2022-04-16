@@ -2,9 +2,11 @@ __author__ = "Vanessa Sochat"
 __copyright__ = "Copyright 2021-2022, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
+from shpc.logger import logger
 import shpc.utils as utils
 import shpc.main.modules.template as templatectl
 
+import copy
 import os
 
 
@@ -33,12 +35,14 @@ def get_version_writer(module_type):
     """
     Return a version writer depending on the module type
     """
-    VersionClass = VersionFile
+    VersionClass = copy.deepcopy(VersionFile)
     VersionClass.module_extension = module_type
     if module_type == "tcl":
         VersionClass._no_default_version = _tcl_no_default_version
     if module_type == "lua":
         VersionClass._module_sys_default_version = _lua_module_sys_default_version
+    else:
+        logger.exit("%s is not a known module_type" % module_type)
     return VersionClass
 
 
@@ -76,15 +80,15 @@ class VersionFile:
         version_file = os.path.join(version_dir, ".version")
 
         # No default versions
-        if not self.settings.default_version:
+        if self.settings.default_version in [False, None]:
             return self._no_default_version(version_file, latest_tag_installed)
 
         # allow the module software to control versions
-        if self.settings.default_version == "module_sys":
+        if self.settings.default_version in [True, "module_sys"]:
             return self._module_sys_default_version(version_file, latest_tag_installed)
 
         # First or last installed
-        if latest_tag_installed and (self.settings.default_version == "last_installed"):
+        if latest_tag_installed and self.settings.default_version == "last_installed":
             tag = latest_tag_installed
         else:
             # The versions we actually have

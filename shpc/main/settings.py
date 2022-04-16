@@ -19,15 +19,6 @@ import jsonschema
 import os
 import re
 
-# Legacy values we still support for backwards compatibility,
-# and a mapping to the new value that should be used.
-legacy_values = {
-    "default_version": {
-        False: None,
-        True: "module_sys",
-    },
-}
-
 
 def OrderedList(*l):
     """
@@ -121,13 +112,6 @@ class SettingsBase:
         # Update with user or custom settings if not equal to default
         if self.settings_file != defaults.default_settings_file:
             self._settings.update(utils.read_yaml(self.settings_file))
-
-        # Upgrade legacy values to their new counterpart
-        for key in legacy_values:
-            current_value = self.get(key)
-            if current_value in legacy_values[key]:
-                new_value = legacy_values[key][current_value]
-                self.set(key, new_value)
 
     def get(self, key, default=None):
         """
