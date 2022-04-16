@@ -76,7 +76,9 @@ def test_views(tmp_path, module_sys, module_file, container_tech):
 
     module_path = os.path.join(view.path, "emacs")
     assert os.path.exists(module_path)
-    assert ".version" in os.listdir(module_path)
+
+    if module_sys == "lmod":
+        assert ".version" in os.listdir(module_path)
 
     # Find the module extension installed
     module_file = [x for x in os.listdir(module_path) if x != ".version"]
