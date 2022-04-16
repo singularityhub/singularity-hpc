@@ -747,7 +747,7 @@ Uninstall from a View
 ---------------------
 
 Uninstalling from a view is simply removing the symbolic link for a module, and it does
-not influence your module tree. You can uninstall either a specfic symlinked version:
+not influence your module tree. You can uninstall either a specific symlinked version:
 
 .. code-block:: console
 
