@@ -619,7 +619,17 @@ To create a new view, you just need to provide a name to ``shpc view create``:
 
 The above would be an example to create a new named "mpi," perhaps for a specific kind of mpi
 container to be installed there. Since it will be under the same directory, you'll be able to use
-this custom set of modules together.
+this custom set of modules together. You can also create a view from an existing view.yaml file,
+perhaps one of your own existint views or one that has been shared with you!
+
+
+.. code-block:: console
+
+    $ shpc view create second-mpi views/mpi/view.yaml
+    Creating link $module_base/ghcr.io/autamus/clingo/5.5.1/module.lua -> $views_base/second-mpi/clingo/5.5.1.lua
+    Module ghcr.io/autamus/emacs:27.2 was created.
+    Creating link $module_base/ghcr.io/autamus/emacs/27.2/module.lua -> $views_base/second-mpi/emacs/27.2.lua
+
 
 Loading a View
 --------------
@@ -713,6 +723,18 @@ And note you can also ask to install to a view "one off":
 
     $ shpc install --view mpi ghcr.io/autamus/emacs
 
+
+List Modules Installed to a View
+--------------------------------
+
+Listing modules installed to a view looks like the following:
+
+.. code-block:: console
+
+    $ shpc view list mpi
+        ghcr.io/autamus/emacs:27.2
+
+This is read directly from the view.yaml file.
 
 Edit a View
 -----------

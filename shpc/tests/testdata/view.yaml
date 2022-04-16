@@ -1,0 +1,6 @@
+view:
+  name: mpi
+  modules:
+  - ghcr.io/autamus/clingo:5.5.1
+  - ghcr.io/autamus/emacs:27.2
+  system_modules: []

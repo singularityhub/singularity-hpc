@@ -4,12 +4,54 @@ __license__ = "MPL 2.0"
 
 import shpc.main.modules.views as views
 from shpc.logger import logger
+import shpc.utils as utils
+from shpc.main import get_client
+import shpc.main.schemas as schemas
+
+import jsonschema
 import sys
+import os
+
+
+def create_from_file(
+    view_name,
+    filename,
+    settings_file=None,
+    quiet=False,
+    config_params=None,
+    force=False,
+):
+    """
+    Create a view from file
+    """
+    if not os.path.exists(filename):
+        logger.exit("%s does not exist." % filename)
+
+    view_handler = views.ViewsHandler(settings_file=settings_file)
+    view_handler.settings.update_params(config_params)
+
+    # Create the view
+    view_handler.create(view_name)
+
+    # Load and validate here, then create the view, install
+    cfg = utils.read_yaml(filename)
+    jsonschema.validate(instance=cfg, schema=schemas.views)
+
+    # At this point we only potentially have modules to install
+    install_modules = cfg["view"]["modules"]
+    if not install_modules:
+        return
+
+    # The client controls install, uninstall, and edit of views
+    cli = get_client(quiet=quiet, settings_file=settings_file)
+    cli.settings.update_params(config_params)
+
+    # Extra modules to install
+    for install_module in install_modules:
+        cli.install(install_module, view=view_name, disable_view=False, force=force)
 
 
 def main(args, parser, extra, subparser):
-
-    from shpc.main import get_client
 
     # If nothing provided or less than 2 (view name and command) show help
     if not args.params or len(args.params) < 2:
@@ -17,7 +59,7 @@ def main(args, parser, extra, subparser):
         sys.exit(0)
 
     # The first "param" is either create, get, install, uninstall, or edit
-    valid_commands = ["create", "delete", "get", "install", "uninstall", "edit"]
+    valid_commands = ["create", "delete", "get", "install", "uninstall", "edit", "list"]
     command = args.params.pop(0)
     if command not in valid_commands:
         logger.exit(
@@ -30,17 +72,36 @@ def main(args, parser, extra, subparser):
     view_handler.settings.update_params(args.config_params)
     view_name = args.params.pop(0)
 
-    # Take custom action depending on the command
-    if command == "create":
-        view_handler.create(view_name)
-        return
-
     if command == "delete":
         view_handler.delete(view_name, force=args.force)
         return
 
     if command == "edit":
         view_handler.edit(view_name)
+        return
+
+    if command == "list":
+        view_handler.list(view_name)
+        return
+
+    # Take custom action depending on the command
+    if command == "create":
+
+        # Create the view
+        if not args.params:
+            view_handler.create(view_name)
+
+        # If we have another argument, it's a file to install from
+        else:
+            filename = args.params.pop(0)
+            create_from_file(
+                view_name,
+                filename,
+                settings_file=args.settings_file,
+                quiet=args.quiet,
+                config_params=args.config_params,
+                force=args.force,
+            )
         return
 
     # The client controls install, uninstall, and edit of views

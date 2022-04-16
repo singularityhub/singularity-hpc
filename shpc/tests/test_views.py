@@ -10,8 +10,9 @@ import pytest
 import os
 
 import shpc.main.modules.views as views
+import shpc.client.view as view_client
 
-from .helpers import init_client
+from .helpers import init_client, here
 
 
 @pytest.mark.parametrize(
@@ -98,3 +99,9 @@ def test_views(tmp_path, module_sys, module_file, container_tech):
     # Ensure we can uninstall
     view_handler.delete(view_name, force=True)
     assert not os.path.exists(view.path)
+
+    # Test re-creating from file
+    views_config = os.path.join(here, "testdata", "view.yaml")
+    view_client.create_from_file(
+        view_name, views_config, settings_file=client.settings.settings_file, force=True
+    )

@@ -58,6 +58,19 @@ class ViewsHandler:
         self.generate_view_config(name)
         logger.info("View %s was created in %s" % (name, view_root))
 
+    def list(self, name, out=None):
+        """
+        List modules installed to a view
+        """
+        out = out or sys.stdout
+        if not self.exists(name):
+            logger.exit("View %s does not exist." % name)
+        view_config = self.view_config(name)
+        cfg = utils.read_yaml(view_config)
+        jsonschema.validate(instance=cfg, schema=schemas.views)
+        for module in cfg["view"]["modules"]:
+            out.write("%s\n" % module.rjust(30))
+
     def delete(self, name, force=False):
         """
         Delete a named view.
@@ -166,24 +179,34 @@ class View:
         # $root_dir/$view_name/$module_dir + extension
         return self.get_symlink_dir(module_dir) + self.symlink_extension
 
-    def get_symlink_dir(self, module_dir):
+    def get_symlink_dir(self, module_dir, has_version=True):
         """
         If a directory of a symlink is provided, return it without module extension
         """
         # $root_dir/$view_name/$module_dir
-        return os.path.join(self.path, self.module_slug(module_dir))
+        return os.path.join(self.path, self.module_slug(module_dir, has_version))
 
-    def module_slug(self, module_dir):
+    def module_slug(self, module_dir, has_version=True):
         """
         Get the module short name based on the original module path.
         """
-        return os.path.join(*module_dir.split(os.sep)[-2:])
+        if has_version:
+            return os.path.join(*module_dir.split(os.sep)[-2:])
+        return os.path.join(*module_dir.split(os.sep)[-1:])
 
-    def module_name(self, module_dir):
+    def module_name(self, module_dir, has_version=True):
         """
         Retrieve the original module name, which is the unique id.
         """
-        return module_dir.replace(self.settings.module_base + os.sep, "")
+        dirname = module_dir.replace(self.settings.module_base + os.sep, "")
+
+        # Without a version, we return the full directory name
+        if not has_version:
+            return dirname
+
+        # Otherwise the last "directory" is actually the version
+        name, version = dirname.rsplit(os.sep, 1)
+        return "%s:%s" % (name, version)
 
     def install(self, module_dir):
         """
@@ -236,15 +259,24 @@ class View:
             self._config["view"]["modules"].append(module_uid)
             self.save()
 
-    def remove_module(self, module_dir):
+    def remove_module(self, module_dir, has_version=False):
         """
-        Given the name of a module directory from the main root, remove.
+        Given the name of a module directory or path from the main root, remove.
         """
-        module_uid = self.module_name(module_dir)
-        if module_uid in self._config["view"]["modules"]:
-            self._config["view"]["modules"] = [
-                x for x in self._config["view"]["modules"] if x != module_uid
-            ]
+        module_uid = self.module_name(module_dir, has_version)
+        updated = []
+        change = False
+        for module in self._config["view"]["modules"]:
+
+            # This will match an entire dirname (if all delted) or a specific version
+            if module_uid not in module:
+                updated.append(module)
+            else:
+                change = True
+
+        # Only update if there is a change
+        if change:
+            self._config["view"]["modules"] = updated
             self.save()
 
     def create_symlink(self, module_dir):
@@ -277,13 +309,16 @@ class View:
         """
         # Case 1: delete a specific symlinked module
         if self.exists(module_dir):
-            return self._uninstall_version(module_dir)
+            self._uninstall_version(module_dir)
+            self.remove_module(module_dir)
+            return
 
-        # Case 2: delete an entire symlink tree (version too)
-        symlink_path = self.get_symlink_dir(module_dir)
+        # Case 2: delete an entire symlink tree (no version provided)
+        symlink_path = self.get_symlink_dir(module_dir, has_version=False)
         if os.path.exists(symlink_path):
             utils.remove_to_base(symlink_path, self.path)
             logger.info("%s has been removed." % symlink_path)
+            self.remove_module(module_dir, has_version=False)
 
     def _uninstall_version(self, module_dir):
         """
