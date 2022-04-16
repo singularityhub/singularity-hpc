@@ -1,7 +1,7 @@
 docker: ghcr.io/autamus/nco
 url: https://github.com/orgs/autamus/packages/container/package/nco
 maintainer: '@vsoch'
-description: ""
+description: ''
 latest:
   5.0.3: sha256:b06b237c4c115d986be3270c7959c8efc3acf0de037e702f10a40d87e0a32dca
 tags:

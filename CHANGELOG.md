@@ -14,9 +14,11 @@ and **Merged pull requests**. Critical items to know are:
 The versions coincide with releases on pip. Only major versions will be released as tags on Github.
 
 ## [0.0.x](https://github.com/singularityhub/singularity-hpc/tree/main) (0.0.x)
- - support for installing to symlink tree (0.0.52)
-  - also including cleanup of symlink tree on uninstall
+ - support for views create, delete, edit, install, uninstall (0.0.54)
+  - also including cleanup of module in views on uninstall
   - ability to set custom config variable on the fly with -c
+ - add support for shpc update so container can be updated without binoc (0.0.53)
+ - better error message if container tag does not exist on update (0.0.52)
  - minimum version of spython required is 0.2.0 to support apptainer (0.0.51)
  - add support for TCL and LMOD default version, multiple variants (0.0.50)
  - refactor to "add" to generate a container.yaml first (0.0.49)

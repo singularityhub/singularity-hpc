@@ -3,7 +3,7 @@ url: https://hub.docker.com/r/tensorflow/tensorflow
 maintainer: '@vsoch'
 description: An end-to-end open source platform for machine learning.
 latest:
-  2.7.1-gpu: sha256:581575fc3a736398f0dff9e950f57f2e6d808296267ac98325451a0b1d101dd0
+  2.8.0: sha256:7c01f75d58fadc2cd1109d5baac1925ed131e05925d840b1b49363c794d1c4db
 tags:
   2.5.0-custom-op-gpu-ubuntu16: sha256:478bee6f0691b48d74adc3fcffe3e9ececf35df5c02860cc51a2c48b1d92c730
   2.5.0rc0-gpu-jupyter: sha256:9808e04142b09482bb6b3d1738430ae7472a214dd38e086d41e481b376fa9abd
@@ -15,9 +15,11 @@ tags:
   2.8.0rc0: sha256:11e5d21a786da523d2f7de530c083d5c72a06e02c8895c84595d107c579027a1
   latest-gpu: sha256:1e03623e335aac1610b1a3cfa6a96cf10156acb095287f9d6031df3980148663
   2.7.1-gpu: sha256:581575fc3a736398f0dff9e950f57f2e6d808296267ac98325451a0b1d101dd0
+  2.7.1: sha256:c9940aa904694a1e5dc4ad3add3c933de45091d5b48e37e94993f19d1d213205
+  2.6.1: sha256:8f343633898c500138979065b62ecb50be4a29f8e7adfadd8f0b168d2642eab1
+  2.5.1: sha256:07d837eced57184599f50944a47e10a23584dae666dc93aa9a762b1111651fa7
 filter:
-- 2.*
-- latest-gpu
+- 2[.]*
 features:
   gpu: true
 aliases:

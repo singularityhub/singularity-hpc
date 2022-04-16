@@ -7,6 +7,7 @@ latest:
   3.0.rc.1: sha256:864198a7d35665f0bb176ac3f9e5f1a20f221b203732011be30760e0322b9742
 tags:
   3.0.rc.1: sha256:864198a7d35665f0bb176ac3f9e5f1a20f221b203732011be30760e0322b9742
+  latest: sha256:864198a7d35665f0bb176ac3f9e5f1a20f221b203732011be30760e0322b9742
 aliases:
   scancel: /opt/view/bin/scancel
   scontrol: /opt/view/bin/scontrol
