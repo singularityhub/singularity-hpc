@@ -121,9 +121,7 @@ class View:
         self.settings = settings
         self.symlink_extension = symlink_extension
         self.module_extension = module_extension
-        self.versionfile = versions.get_version_writer(self.module_extension)(
-            self.settings
-        )
+        self.versionfile = versions.VersionFile(self.settings, self.module_extension)
         self.modulefile = modulefile
         self._config = utils.read_yaml(self.config_path)
 

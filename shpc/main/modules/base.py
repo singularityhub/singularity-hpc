@@ -26,9 +26,7 @@ class ModuleBase(BaseClient):
         super(ModuleBase, self).__init__(**kwargs)
         self.here = os.path.dirname(inspect.getfile(self.__class__))
         self.template = templatectl.Template(self.settings)
-        self.versionfile = versionfile.get_version_writer(self.module_extension)(
-            self.settings
-        )
+        self.versionfile = versionfile.VersionFile(self.settings, self.module_extension)
         self.detect_views()
 
     def detect_views(self):

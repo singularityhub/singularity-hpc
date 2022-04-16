@@ -2,48 +2,10 @@ __author__ = "Vanessa Sochat"
 __copyright__ = "Copyright 2021-2022, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
-from shpc.logger import logger
 import shpc.utils as utils
 import shpc.main.modules.template as templatectl
 
-import copy
 import os
-
-
-def _tcl_no_default_version(self, version_file, tag=None):
-    """
-    No default version (default version in False or None).
-    We generate a file with a non-existent version number.
-    """
-    template = self.template.load("default_version")
-    utils.write_file(version_file, template.render())
-    # TCL module_sys or True default version, don't generate a .version file
-
-
-def _lua_module_sys_default_version(self, version_file, tag=None):
-    """
-    default version (default version in module_sys or True).
-    We generate a file with a non-existent version number.
-    """
-    template = self.template.load("default_version")
-    utils.write_file(version_file, template.render())
-
-    # LMOD False or null, don't generate a .version file
-
-
-def get_version_writer(module_type):
-    """
-    Return a version writer depending on the module type
-    """
-    VersionClass = copy.deepcopy(VersionFile)
-    VersionClass.module_extension = module_type
-    if module_type == "tcl":
-        VersionClass._no_default_version = _tcl_no_default_version
-    elif module_type == "lua":
-        VersionClass._module_sys_default_version = _lua_module_sys_default_version
-    else:
-        logger.exit("%s is not a known module_type" % module_type)
-    return VersionClass
 
 
 class VersionFile:
@@ -51,16 +13,22 @@ class VersionFile:
     A VersionFile is a handler to write version files
     """
 
-    def __init__(self, settings):
+    def __init__(self, settings, module_extension):
         self.settings = settings
+        self.module_extension = module_extension
         self.template = templatectl.Template(settings)
 
-    # Module software can choose how to handle each of these cases
     def _no_default_version(self, version_file, tag):
-        return
+        if self.module_extension == "tcl":
+            template = self.template.load("default_version")
+            utils.write_file(version_file, template.render())
+        # LMOD (lua) False or null, don't generate a .version file
 
     def _module_sys_default_version(self, version_file, tag):
-        return
+        if self.module_extension == "lua":
+            template = self.template.load("default_version")
+            utils.write_file(version_file, template.render())
+        # TCL module_sys or True default version, don't generate a .version file
 
     def _set_default_version(self, version_file, tag):
         """

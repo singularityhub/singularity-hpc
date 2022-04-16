@@ -33,9 +33,6 @@ def test_install_get(tmp_path, module_sys, module_file, container_tech):
     # Install known tag
     client.install("python:3.9.2-alpine")
 
-    # View should not exist
-    assert not os.path.exists(client.settings.view_base)
-
     # Modules folder is created
     assert os.path.exists(client.settings.module_base)
 
