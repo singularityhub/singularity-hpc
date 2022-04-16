@@ -56,7 +56,7 @@ Or set a configuration value on the fly for any command:
 
 .. code-block:: console
 
-    $ shpc install -c set:symlink_base:/tmp/modules biocontainers/samtools
+    $ shpc install -c set:views_base:/tmp/views biocontainers/samtools
 
 The above assumes that you've installed the software, and have already
 added the modules folder to be seen by your module software. If your module
