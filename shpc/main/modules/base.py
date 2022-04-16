@@ -6,8 +6,8 @@ from shpc.main.client import Client as BaseClient
 from shpc.logger import logger
 import shpc.utils as utils
 import shpc.defaults as defaults
-import shpc.main.template as templatectl
 import shpc.main.container as container
+import shpc.main.modules.template as templatectl
 import shpc.main.modules.views as views
 import shpc.main.modules.versions as versionfile
 
@@ -29,11 +29,11 @@ class ModuleBase(BaseClient):
         self.versionfile = versionfile.get_version_writer(self.module_extension)(
             self.settings
         )
-        self.init_views()
+        self.detect_views()
 
-    def init_views(self):
+    def detect_views(self):
         """
-        Load existing views into the module for easy interaction.
+        Detect and load existing views into the module for easy interaction.
         """
         # Lookup of named views in the views base
         self.views = {}
@@ -47,6 +47,7 @@ class ModuleBase(BaseClient):
                 settings=self.settings,
                 symlink_extension=self.symlink_extension,
                 module_extension=self.module_extension,
+                modulefile=self.modulefile,
             )
 
     @property

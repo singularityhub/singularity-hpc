@@ -17,7 +17,7 @@ def main(args, parser, extra, subparser):
         sys.exit(0)
 
     # The first "param" is either create, get, install, uninstall, or edit
-    valid_commands = ["create", "get", "install", "uninstall", "edit"]
+    valid_commands = ["create", "delete", "get", "install", "uninstall", "edit"]
     command = args.params.pop(0)
     if command not in valid_commands:
         logger.exit(
@@ -25,14 +25,9 @@ def main(args, parser, extra, subparser):
             % (command, ",".join(valid_commands))
         )
 
-    # The client controls install, uninstall, and edit of views
-    cli = get_client(quiet=args.quiet, settings_file=args.settings_file)
-    cli.settings.update_params(args.config_params)
-
     # The view handler is to create / delete
     view_handler = views.ViewsHandler(settings_file=args.settings_file)
     view_handler.settings.update_params(args.config_params)
-
     view_name = args.params.pop(0)
 
     # Take custom action depending on the command
@@ -47,6 +42,10 @@ def main(args, parser, extra, subparser):
     if command == "edit":
         view_handler.edit(view_name)
         return
+
+    # The client controls install, uninstall, and edit of views
+    cli = get_client(quiet=args.quiet, settings_file=args.settings_file)
+    cli.settings.update_params(args.config_params)
 
     # All of the remaining commands require the view to exist
     if command in ["get", "install", "uninstall"] and view_name not in cli.views:
@@ -69,4 +68,4 @@ def main(args, parser, extra, subparser):
         cli.install(module_name, view=view_name, disable_view=False, force=args.force)
 
     if command == "uninstall":
-        cli.uninstall(module_name, view=view_name, disable_view=False, force=args.force)
+        cli.uninstall(module_name, view=view_name, force=args.force)

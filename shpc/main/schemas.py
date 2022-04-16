@@ -174,18 +174,9 @@ settings = {
 # Views
 
 viewProperties = {
-    "type": "object",
-    "required": [
-        "name",
-        "modules",
-        "system_modules",
-    ],
-    "properties": {
-        "system_modules": {"type": "array", "items": {"type": "string"}},
-        "modules": {"type": "array", "items": {"type": "string"}},
-        "name": {"type": "string"},
-    },
-    "additionalProperties": False,
+    "system_modules": {"type": "array", "items": {"type": "string"}},
+    "modules": {"type": "array", "items": {"type": "string"}},
+    "name": {"type": "string"},
 }
 
 
@@ -196,6 +187,12 @@ views = {
     "required": [
         "view",
     ],
-    "properties": viewProperties,
+    "properties": {
+        "view": {
+            "type": "object",
+            "properties": viewProperties,
+            "additionalProperties": False,
+        }
+    },
     "additionalProperties": False,
 }

@@ -220,6 +220,7 @@ def read_yaml(filename):
         content = yaml.load(fd.read())
     return content
 
+
 def read_file(filename, mode="r"):
     """
     Read a file.

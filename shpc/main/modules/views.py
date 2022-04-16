@@ -56,16 +56,19 @@ class ViewsHandler:
 
         # Add a default template there
         self.generate_view_config(name)
+        logger.info("View %s was created in %s" % (name, view_root))
 
     def delete(self, name, force=False):
         """
         Delete a named view.
         """
-        if self.exists(name):
-            logger.exit("View does not exist and cannot be deleted." % name)
+        if not self.exists(name):
+            logger.exit("View %s does not exist and cannot be deleted." % name)
 
         view_root = self.view_path(name)
-        if not force and not utils.confirm_action:
+        if not force and not utils.confirm_action(
+            "Are you sure you want to delete view %s" % name
+        ):
             logger.exit("Not deleting view %s." % view_root)
 
         # This should be all symlinks plus the config
@@ -95,7 +98,12 @@ class View:
     An shpc view is created from a core module install.
     """
 
-    def __init__(self, name, settings, symlink_extension, module_extension):
+    def __init__(self, name, settings, symlink_extension, module_extension, modulefile):
+        """
+        init of a view must be done when it exists, and from the base.ModuleBase
+        (instantiated with either lmod or tcl). There is no concept of a view
+        without this central installation.
+        """
         self.name = name
         self.settings = settings
         self.symlink_extension = symlink_extension
@@ -103,6 +111,7 @@ class View:
         self.versionfile = versions.get_version_writer(self.module_extension)(
             self.settings
         )
+        self.modulefile = modulefile
         self._config = utils.read_yaml(self.config_path)
 
     @property
@@ -118,6 +127,12 @@ class View:
         Return True or false if the view exists or not.
         """
         return os.path.exists(self.get_symlink_path(module_dir))
+
+    def _sub_module_base(self, path):
+        return path.replace(self.settings.module_base, "$module_base")
+
+    def _sub_views_base(self, path):
+        return path.replace(self.settings.views_base, "$views_base")
 
     @property
     def config_path(self):
@@ -139,8 +154,8 @@ class View:
                     % (self.name, module_dir)
                 )
             elif not utils.confirm_action(
-                "%s/%s already exists, are you sure you want to overwrite"
-                % (self.name, module_dir)
+                "%s in view %s already exists, are you sure you want to overwrite"
+                % (self._sub_module_base(module_dir), self.name)
             ):
                 sys.exit(0)
 
@@ -149,16 +164,26 @@ class View:
         Get the symlink path of a module installed to the view
         """
         # $root_dir/$view_name/$module_dir + extension
-        return (
-            os.path.join(self.path, self.module_name(module_dir))
-            + self.symlink_extension
-        )
+        return self.get_symlink_dir(module_dir) + self.symlink_extension
+
+    def get_symlink_dir(self, module_dir):
+        """
+        If a directory of a symlink is provided, return it without module extension
+        """
+        # $root_dir/$view_name/$module_dir
+        return os.path.join(self.path, self.module_slug(module_dir))
+
+    def module_slug(self, module_dir):
+        """
+        Get the module short name based on the original module path.
+        """
+        return os.path.join(*module_dir.split(os.sep)[-2:])
 
     def module_name(self, module_dir):
         """
-        Get the module name based on the original module path.
+        Retrieve the original module name, which is the unique id.
         """
-        return os.path.join(module_dir.split(os.sep)[-2:])
+        return module_dir.replace(self.settings.module_base + os.sep, "")
 
     def install(self, module_dir):
         """
@@ -179,7 +204,15 @@ class View:
         # TODO if we want to customize this with additional module load
         # requirements, we will need to create a copy of this file
         symlink_target = os.path.join(module_dir, self.modulefile)
-        logger.info("Creating link %s -> %s" % (symlink_target, symlink_path))
+
+        # Courtesy print to get an easier to read path
+        logger.info(
+            "Creating link %s -> %s"
+            % (
+                self._sub_module_base(symlink_target),
+                self._sub_views_base(symlink_path),
+            )
+        )
 
         # Create the symbolic link and version file
         os.symlink(symlink_target, symlink_path)
@@ -199,8 +232,8 @@ class View:
         list of installed for the view.
         """
         module_uid = self.module_name(module_dir)
-        if module_uid not in self._config["modules"]:
-            self._config["modules"].append(module_uid)
+        if module_uid not in self._config["view"]["modules"]:
+            self._config["view"]["modules"].append(module_uid)
             self.save()
 
     def remove_module(self, module_dir):
@@ -208,9 +241,9 @@ class View:
         Given the name of a module directory from the main root, remove.
         """
         module_uid = self.module_name(module_dir)
-        if module_uid in self._config["modules"]:
-            self._config["modules"] = [
-                x for x in self._config["modules"] if x != module_uid
+        if module_uid in self._config["view"]["modules"]:
+            self._config["view"]["modules"] = [
+                x for x in self._config["view"]["modules"] if x != module_uid
             ]
             self.save()
 
@@ -234,16 +267,28 @@ class View:
         os.symlink(symlink_target, symlink_path)
 
         # Create .version
-        self.write_version_file(os.path.dirname(symlink_path))
+        self.versionfile.write(os.path.dirname(symlink_path))
 
     def uninstall(self, module_dir):
         """
-        Uninstall of a module means removal of symlink directories if they exist
+        Uninstall of a module means removal of symlink directories if they exist.
+        This can either be for a specific version (a lua file) or the entire
+        view directory with the module
         """
-        # TODO load config and remove
-        if not self.exists(module_dir):
-            return
+        # Case 1: delete a specific symlinked module
+        if self.exists(module_dir):
+            return self._uninstall_version(module_dir)
 
+        # Case 2: delete an entire symlink tree (version too)
+        symlink_path = self.get_symlink_dir(module_dir)
+        if os.path.exists(symlink_path):
+            utils.remove_to_base(symlink_path, self.path)
+            logger.info("%s has been removed." % symlink_path)
+
+    def _uninstall_version(self, module_dir):
+        """
+        Install a specific version expects a $view/$module/$version.lua
+        """
         symlinked_module = self.get_symlink_path(module_dir)
 
         if os.path.islink(symlinked_module):
@@ -252,9 +297,6 @@ class View:
             logger.info("%s has been removed." % symlinked_module)
 
             # Update .version
-            self.write_version_file(os.path.dirname(symlinked_module))
+            self.versionfile.write(os.path.dirname(symlinked_module))
         elif os.path.exists(symlinked_module):
             logger.error("%s exists and is not a symlink!" % symlinked_module)
-        elif self.settings.symlink_tree:
-            # Should not happen. The symlink has someone already been deleted
-            logger.warning("%s does not exist." % symlinked_module)

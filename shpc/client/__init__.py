@@ -110,7 +110,7 @@ shpc -c rm:registry:/tmp/registry""",
         "--no-view",
         dest="no_view",
         help="skip installing to the default view, if defined in settings.",
-        action="store_false",
+        action="store_true",
     )
     install.add_argument(
         "--force",
