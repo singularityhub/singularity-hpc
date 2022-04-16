@@ -16,4 +16,4 @@ def main(args, parser, extra, subparser):
 
     # Update config settings on the fly
     cli.settings.update_params(args.config_params)
-    cli.uninstall(args.uninstall_recipe, args.force)
+    cli.uninstall(args.uninstall_recipe, force=args.force)
