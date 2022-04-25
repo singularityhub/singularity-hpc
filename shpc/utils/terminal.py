@@ -95,7 +95,7 @@ def confirm_action(question, force=False):
     if force is True:
         return True
 
-    response = input(question + " (yes/no)?")
+    response = input(question + " (yes/no)? ")
     while len(response) < 1 or response[0].lower().strip() not in "ynyesno":
         response = input("Please answer yes or no: ")
 

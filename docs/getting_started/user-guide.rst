@@ -724,6 +724,31 @@ And note you can also ask to install to a view "one off":
     $ shpc install --view mpi ghcr.io/autamus/emacs
 
 
+List Views
+----------
+
+If you want to list the views, just do:
+
+.. code-block:: console
+
+    $ shpc view list
+                   mpi
+            second-mpi
+
+In the example above you have two views, mpi and second-mpi, and each
+has it's own tree in views:
+
+.. code-block:: console
+
+    views/
+    ├── mpi
+    |   ...
+    │   └── view.yaml
+    └── second-mpi
+        ...
+        └── view.yaml
+
+
 List Modules Installed to a View
 --------------------------------
 

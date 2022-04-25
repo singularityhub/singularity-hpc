@@ -58,10 +58,23 @@ class ViewsHandler:
         self.generate_view_config(name)
         logger.info("View %s was created in %s" % (name, view_root))
 
-    def list(self, name, out=None):
+    def list_views(self, out=None):
+        """
+        List all views available.
+        """
+        out = out or sys.stdout
+        for name in os.listdir(self.settings.views_base):
+            out.write("%s\n" % name.rjust(30))
+
+    def list(self, name=None, out=None):
         """
         List modules installed to a view
         """
+        # If no name provided, list all views known
+        if not name:
+            self.list_views(out=out)
+            return
+
         out = out or sys.stdout
         if not self.exists(name):
             logger.exit("View %s does not exist." % name)
@@ -133,11 +146,25 @@ class View:
         """
         return os.path.join(self.settings.views_base, self.name)
 
+    def symlink_exists(self, module_dir):
+        """
+        Return True or false if the view to a specific version exists or not.
+        This check is looking for a symlink.
+        """
+        return os.path.islink(self.get_symlink_path(module_dir))
+
     def exists(self, module_dir):
         """
-        Return True or false if the view exists or not.
+        Determine if a specific version is symlinked OR there is a matching
+        directory for a module. This exists is intended for looking to see
+        if a module_dir pattern (either to a directory or version) exists.
+        E.g.,:
+
+        shpc uninstall ghcr.io/autamus/clingo:5.5.1 will link to a lua file
+        shpc uninstall ghcr.io/autamus/clingo will point to a directory.
         """
-        return os.path.exists(self.get_symlink_path(module_dir))
+        symlink_path = self.get_symlink_dir(module_dir, has_version=False)
+        return os.path.exists(symlink_path) or self.symlink_exists(module_dir)
 
     def _sub_module_base(self, path):
         return path.replace(self.settings.module_base, "$module_base")
@@ -158,7 +185,7 @@ class View:
         is a symbolic link, so here we are checking for existence of that. If
         force is True, we continue even if it already exists.
         """
-        if self.exists(module_dir):
+        if self.symlink_exists(module_dir):
             if force:
                 logger.info(
                     "Overwriting view %s install of %s, as requested"
@@ -306,9 +333,9 @@ class View:
         view directory with the module
         """
         # Case 1: delete a specific symlinked module
-        if self.exists(module_dir):
+        if self.symlink_exists(module_dir):
             self._uninstall_version(module_dir)
-            self.remove_module(module_dir)
+            self.remove_module(module_dir, has_version=True)
             return
 
         # Case 2: delete an entire symlink tree (no version provided)

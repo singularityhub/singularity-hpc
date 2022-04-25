@@ -54,7 +54,7 @@ def create_from_file(
 def main(args, parser, extra, subparser):
 
     # If nothing provided or less than 2 (view name and command) show help
-    if not args.params or len(args.params) < 2:
+    if not args.params:
         print(subparser.format_help())
         sys.exit(0)
 
@@ -70,8 +70,19 @@ def main(args, parser, extra, subparser):
     # The view handler is to create / delete
     view_handler = views.ViewsHandler(settings_file=args.settings_file)
     view_handler.settings.update_params(args.config_params)
-    view_name = args.params.pop(0)
 
+    # If command is list and no view name, list views available
+    if command == "list" and not args.params:
+        view_handler.list()
+        return
+
+    # If nothing provided or less than 2 (view name and command) show help
+    if not args.params:
+        print(subparser.format_help())
+        sys.exit(0)
+
+    # At this point we are expected to have a view name
+    view_name = args.params.pop(0)
     if command == "delete":
         view_handler.delete(view_name, force=args.force)
         return

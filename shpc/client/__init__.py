@@ -184,6 +184,7 @@ shpc -c rm:registry:/tmp/registry""",
 shpc view create <name>
 shpc view delete <name>
 shpc view get <name>
+shpc view list <name>
 shpc view install <name> <module>
 shpc view uninstall <name> <module>
 shpc view edit <name>""",

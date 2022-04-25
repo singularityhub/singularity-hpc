@@ -78,9 +78,25 @@ class ModuleBase(BaseClient):
         module_dir = os.path.join(self.settings.module_base, name)
         container_dir = self.container.container_dir(name)
 
+        # We need to look for the module in all views and show to the user first
+        views_with_module = set()
+
+        # Only populate if the command is not directed to a view
+        if not view:
+
+            # If uninstalling the entire module, clean up symbolic links in all views
+            for view_name, entry in self.views.items():
+                if entry.exists(module_dir):
+                    views_with_module.add(view_name)
+
         # Ask before deleting anything!
         if not force:
             msg = name + "?"
+            if views_with_module:
+                msg += (
+                    "\nThis will uninstall the module from views:\n  %s\nAre you sure?"
+                    % "\n  ".join(views_with_module)
+                )
             if not utils.confirm_uninstall(msg, force):
                 return
 
