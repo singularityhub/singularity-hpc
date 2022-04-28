@@ -39,6 +39,8 @@ proc ModulesHelp { } {
 
 }
 
+{% include "includes/load_view.tcl" %}
+
 # Environment - only set if not already defined
 if { ![info exists ::env(SINGULARITY_OPTS)] } {
     setenv SINGULARITY_OPTS ""

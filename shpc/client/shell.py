@@ -37,7 +37,7 @@ def create_client(args):
     cli = get_client(
         quiet=args.quiet,
         settings_file=args.settings_file,
-        module=args.module,
+        module_sys=args.module_sys,
         container_tech=args.container_tech,
     )
 

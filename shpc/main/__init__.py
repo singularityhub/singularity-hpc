@@ -20,8 +20,8 @@ def get_client(quiet=False, **kwargs):
     quiet: if True, suppress most output about the client (e.g. speak)
 
     """
-    # The name of the module
-    module = kwargs.get("module")
+    # The name of the module system
+    module_sys = kwargs.get("module_sys")
     validate = kwargs.get("validate", True)
 
     # Load user settings to add to client, and container technology
@@ -29,12 +29,12 @@ def get_client(quiet=False, **kwargs):
     container = kwargs.get("container_tech") or settings.container_tech
 
     # Use the user provided module OR the default
-    module = module or settings.get("module_sys", "lmod")
+    module_sys = module_sys or settings.get("module_sys", "lmod")
 
     # Determine the client based on the module name (defaults to base client)
-    if module == "lmod":
+    if module_sys == "lmod":
         from shpc.main.modules.lmod import Client
-    elif module == "tcl":
+    elif module_sys == "tcl":
         from shpc.main.modules.tcl import Client
     else:
         from .client import Client

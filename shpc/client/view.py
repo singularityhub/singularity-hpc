@@ -16,6 +16,7 @@ import os
 def create_from_file(
     view_name,
     filename,
+    module_sys=None,
     settings_file=None,
     quiet=False,
     config_params=None,
@@ -27,7 +28,9 @@ def create_from_file(
     if not os.path.exists(filename):
         logger.exit("%s does not exist." % filename)
 
-    view_handler = views.ViewsHandler(settings_file=settings_file)
+    view_handler = views.ViewsHandler(
+        settings_file=settings_file, module_sys=module_sys
+    )
     view_handler.settings.update_params(config_params)
 
     # Create the view
@@ -59,7 +62,16 @@ def main(args, parser, extra, subparser):
         sys.exit(0)
 
     # The first "param" is either create, get, install, uninstall, or edit
-    valid_commands = ["create", "delete", "get", "install", "uninstall", "edit", "list"]
+    valid_commands = [
+        "create",
+        "delete",
+        "get",
+        "install",
+        "uninstall",
+        "edit",
+        "list",
+        "add",
+    ]
     command = args.params.pop(0)
     if command not in valid_commands:
         logger.exit(
@@ -68,7 +80,9 @@ def main(args, parser, extra, subparser):
         )
 
     # The view handler is to create / delete
-    view_handler = views.ViewsHandler(settings_file=args.settings_file)
+    view_handler = views.ViewsHandler(
+        settings_file=args.settings_file, module_sys=args.module_sys
+    )
     view_handler.settings.update_params(args.config_params)
 
     # If command is list and no view name, list views available
@@ -95,6 +109,14 @@ def main(args, parser, extra, subparser):
         view_handler.list(view_name)
         return
 
+    # Add a variable (e.g., system-module) to a view
+    if command == "add":
+        if len(args.params) < 2:
+            logger.exit("You are required to add a <variable> <value>")
+        var_name = args.params.pop(0)
+        view_handler.add_variable(view_name, var_name, args.params)
+        return
+
     # Take custom action depending on the command
     if command == "create":
 
@@ -110,6 +132,7 @@ def main(args, parser, extra, subparser):
                 filename,
                 settings_file=args.settings_file,
                 quiet=args.quiet,
+                module_sys=args.module_sys,
                 config_params=args.config_params,
                 force=args.force,
             )

@@ -36,7 +36,9 @@ def test_views(tmp_path, module_sys, module_file, container_tech):
     client = init_client(str(tmp_path), module_sys, container_tech)
 
     # Create the view handler based on the client settings file
-    view_handler = views.ViewsHandler(settings_file=client.settings.settings_file)
+    view_handler = views.ViewsHandler(
+        settings_file=client.settings.settings_file, module_sys=module_sys
+    )
 
     # A view name
     view_name = "mpi"
@@ -97,6 +99,16 @@ def test_views(tmp_path, module_sys, module_file, container_tech):
     assert "emacs" in os.listdir(
         os.path.join(client.settings.module_base, "ghcr.io", "autamus")
     )
+
+    # Try adding system modules
+    view_module = os.path.join(view.path, ".view_module")
+    assert not os.path.exists(view_module)
+    view_handler.add_variable(view_name, "system_modules", "openmpi")
+    assert os.path.exists(view_module)
+
+    # We can't add unknown variables
+    with pytest.raises(SystemExit):
+        view_handler.add_variable(view_name, "system-modules", [1, 2, 3])
 
     # Ensure we can uninstall
     view_handler.delete(view_name, force=True)

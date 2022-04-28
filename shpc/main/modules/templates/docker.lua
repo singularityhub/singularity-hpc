@@ -35,6 +35,7 @@ For each of the above, you can export:
 ]]) 
 
 {% include "includes/default_version.lua" %}
+{% include "includes/load_view.lua" %}
 {% if settings.podman_module %}load("{{ settings.podman_module }}"){% endif %}
 
 -- Environment: only set options and command options if not already set

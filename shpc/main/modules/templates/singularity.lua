@@ -37,6 +37,7 @@ For each of the above, you can export:
 ]]) 
 
 {% include "includes/default_version.lua" %}
+{% include "includes/load_view.lua" %}
 {% if settings.singularity_module %}load("{{ settings.singularity_module }}"){% endif %}
 
 -- directory containing this modulefile, once symlinks resolved (dynamically defined)

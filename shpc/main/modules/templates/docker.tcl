@@ -42,6 +42,8 @@ if { ![info exists ::env(PODMAN_COMMAND_OPTS)] } {
     setenv PODMAN_COMMAND_OPTS ""
 } 
 
+{% include "includes/load_view.tcl" %}
+
 # Variables
 
 set name        "{{ name }}"

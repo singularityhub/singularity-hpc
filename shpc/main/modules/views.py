@@ -3,6 +3,7 @@ __copyright__ = "Copyright 2022, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
 from shpc.logger import logger
+import shpc.main.modules.template as templatectl
 import shpc.main.modules.versions as versions
 import shpc.main.settings as settings
 import shpc.main.schemas as schemas
@@ -14,6 +15,38 @@ import os
 import sys
 
 
+# Supported variables and defaults
+supported_view_variables = {"system_modules": []}
+
+
+class ViewModule:
+    """
+    A VersionModule is a .view_module written to the base of a view.
+    The symlinked module files always attempt to load it, and it is allowed
+    to silently fail if it does not exist. In a view it can exist if the
+    user has customized the view with system modules, etc.
+    """
+
+    def __init__(self, settings, module_extension):
+        self.settings = settings
+        self.module_extension = module_extension
+        self.template = templatectl.Template(settings)
+
+    def write(self, view_dir, view_config):
+        """
+        Write a .view_module file in a root view directory based on a config.
+        """
+        if not os.path.exists(view_dir):
+            return
+        template = self.template.load("view_module.%s" % self.module_extension)
+        view_module_file = os.path.join(view_dir, ".view_module")
+        out = template.render(
+            system_modules=view_config["view"].get("system_modules", [])
+        )
+        utils.write_file(view_module_file, out)
+        logger.info("Wrote updated .view_module: %s" % view_module_file)
+
+
 class ViewsHandler:
     """
     A controller for creating or otherwise interacting with views.
@@ -21,8 +54,11 @@ class ViewsHandler:
     uninstalling modules must be done in context of an shpc module install.
     """
 
-    def __init__(self, settings_file):
+    def __init__(self, settings_file, module_sys):
         self.settings = settings.Settings(settings_file)
+        self.module_sys = module_sys or self.settings.module_sys
+        self.module_sys = "lua" if self.module_sys == "lmod" else "tcl"
+        self.view_module = ViewModule(self.settings, self.module_sys)
 
     def view_path(self, name):
         """
@@ -41,6 +77,49 @@ class ViewsHandler:
         Return True or false if a named view exists or not.
         """
         return os.path.exists(self.view_path(name))
+
+    def add_variable(self, view_name, var_name, values):
+        """
+        Add a variable to a view. The variable name should be first in a list
+        of params.
+        """
+        if not self.exists(view_name):
+            logger.exit("View %s does not exist." % view_name)
+        if var_name not in supported_view_variables:
+            logger.exit(
+                "Variable %s is not supported, supported choices are %s"
+                % (var_name, ", ".join(supported_view_variables))
+            )
+
+        cfg = self.load_config(view_name)
+        changes, cfg = self._add_variable(var_name, values, cfg)
+
+        # If we have changes, write the view module and updated config
+        if changes:
+            self.save_config(view_name, cfg)
+            view_dir = os.path.dirname(self.view_config(view_name))
+            self.view_module.write(view_dir, cfg)
+
+    def _add_variable(self, var_name, values, cfg):
+        """
+        Given a variable name and value, add to a view. This is the helper
+        function to add_variable that handles different types
+        """
+        # Assume the value can be a single value or list
+        if not isinstance(values, list):
+            values = [values]
+
+        changes = False
+        if var_name not in cfg["view"]:
+            cfg["view"][var_name] = supported_view_variables[var_name]
+
+        # Add based on type (currently we only support list)
+        if isinstance(cfg["view"][var_name], list):
+            for value in values:
+                if value not in cfg["view"][var_name]:
+                    cfg["view"][var_name].append(value)
+                    changes = True
+        return changes, cfg
 
     def create(self, name):
         """
@@ -75,14 +154,29 @@ class ViewsHandler:
             self.list_views(out=out)
             return
 
+        cfg = self.load_config(name)
         out = out or sys.stdout
+        for module in cfg["view"]["modules"]:
+            out.write("%s\n" % module.rjust(30))
+
+    def save_config(self, name, cfg):
+        """
+        Save a config for a named view, assuring it validates first.
+        """
+        view_config = self.view_config(name)
+        jsonschema.validate(instance=cfg, schema=schemas.views)
+        utils.write_yaml(cfg, view_config)
+
+    def load_config(self, name):
+        """
+        Load and validate a named view config. Exit if the view does not exist.
+        """
         if not self.exists(name):
             logger.exit("View %s does not exist." % name)
         view_config = self.view_config(name)
         cfg = utils.read_yaml(view_config)
         jsonschema.validate(instance=cfg, schema=schemas.views)
-        for module in cfg["view"]["modules"]:
-            out.write("%s\n" % module.rjust(30))
+        return cfg
 
     def delete(self, name, force=False):
         """
@@ -113,10 +207,8 @@ class ViewsHandler:
         """
         Generate an empty view config. system_modules are not supported yet.
         """
-        view_config = self.view_config(name)
         cfg = {"view": {"name": name, "modules": [], "system_modules": []}}
-        jsonschema.validate(instance=cfg, schema=schemas.views)
-        utils.write_yaml(cfg, view_config)
+        self.save_config(name, cfg)
 
 
 class View:
@@ -249,8 +341,6 @@ class View:
             utils.mkdir_p(symlink_dir)
 
         # The target for the symlink is the original module file
-        # TODO if we want to customize this with additional module load
-        # requirements, we will need to create a copy of this file
         symlink_target = os.path.join(module_dir, self.modulefile)
 
         # Courtesy print to get an easier to read path

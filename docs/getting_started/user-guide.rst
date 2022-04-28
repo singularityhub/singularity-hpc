@@ -773,6 +773,24 @@ you can technically edit a view as follows:
 
 This might be just an easy way to view it for the time being!
 
+Add System Modules to a View
+----------------------------
+
+Views have support for customization, such as a system module that you always want loaded.
+We do this by way of an extra view_module that is generated in the root of the view (and
+always attempted to be loaded) by the installed modules. For example, let's say that when
+we load a view module named mpi, we always want to load a system module named "openmpi" and "mymod." We could do:
+
+.. code-block:: console
+
+    $ shpc view add mpi system_modules openmpi mymod
+    Wrote updated .view_module: /home/vanessa/Desktop/Code/shpc/views/mpi/.view_module
+    
+The add command always requires a named view attribute (e.g.,``system_modules`` is a list) and
+then one or more values to add to it. This will write the view module to your view,
+and the module file symlinked should always attempt to try loading it.
+
+
 Delete a View
 -------------
 
