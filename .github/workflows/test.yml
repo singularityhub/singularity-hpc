@@ -9,7 +9,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        module: ["lmod", "tcl"]
+        module: [["lmod", "8.4.27"] , ["tcl", "4.7.1"], ["tcl", "5.0.1"]]
         container_tech: ["podman", "singularity", "docker"]
     steps:
 
@@ -18,20 +18,23 @@ jobs:
           sudo apt-get install lua5.2 liblua5.2-dev lua-filesystem lua-posix tcl tcl-dev tcsh
 
       - name: Install Environment Modules
-        if: ${{ matrix.module == 'tcl' }}
+        if: ${{ matrix.module[0] == 'tcl' }}
+        env:
+          PKG_VERSION: ${{ matrix.module[1] }}
         run: |
-         curl -LJO https://github.com/cea-hpc/modules/releases/download/v4.7.1/modules-4.7.1.tar.gz
-         tar xfz modules-4.7.1.tar.gz
+         curl -LJO https://github.com/cea-hpc/modules/releases/download/v${PKG_VERSION}/modules-${PKG_VERSION}.tar.gz
+         tar xfz modules-${PKG_VERSION}.tar.gz
          ls
-         cd modules-4.7.1
+         cd modules-${PKG_VERSION}
          ./configure
          make
          sudo make install
 
       - name: Install Lmod
-        if: ${{ matrix.module == 'lmod' }}
+        if: ${{ matrix.module[0] == 'lmod' }}
+        env:
+          PKG_VERSION: ${{ matrix.module[1] }}
         run: |
-          PKG_VERSION=8.4.27
           PKG_URL="https://github.com/TACC/Lmod/archive/${PKG_VERSION}.tar.gz"
           wget $PKG_URL
           tar xfz ${PKG_VERSION}.tar.gz
@@ -47,7 +50,7 @@ jobs:
       - name: Create conda environment
         run: conda create --quiet -c conda-forge --name shpc spython
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Install shpc
         run: |
           export PATH="/usr/share/miniconda/bin:$PATH"
@@ -56,8 +59,10 @@ jobs:
 
       - name: Run python module tests (bash)
         shell: bash
+        env:
+          module_sys: ${{ matrix.module[0] }}
         run: |
-          case "${{ matrix.module }}" in
+          case "${module_sys}" in
             lmod)
               . /usr/share/lmod/lmod/init/bash
               ;;
@@ -71,7 +76,7 @@ jobs:
           export PATH="/usr/share/miniconda/bin:$PATH"
           source activate shpc
           shpc config set container_tech:${{ matrix.container_tech }}
-          shpc config set module_sys:${{ matrix.module }}
+          shpc config set module_sys:${module_sys}
           shpc config set enable_tty:false
 
           printf "\n\shpc test ============================================\n"
@@ -110,8 +115,10 @@ jobs:
  
       - name: Run python module tests (tcsh)
         shell: tcsh -e {0}
+        env:
+          module_sys: ${{ matrix.module[0] }}
         run: |
-          switch ("${{ matrix.module }}")
+          switch ("${module_sys}")
             case lmod:
               source /usr/share/lmod/lmod/init/tcsh
               breaksw
@@ -123,7 +130,7 @@ jobs:
           source /usr/share/miniconda/etc/profile.d/conda.csh
           conda activate shpc
           shpc config set container_tech:${{ matrix.container_tech }}
-          shpc config set module_sys:${{ matrix.module }}
+          shpc config set module_sys:${module_sys}
           shpc config set enable_tty:false
 
           shpc install python:3.9.5-alpine

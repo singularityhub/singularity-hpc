@@ -788,7 +788,9 @@ we load a view module named mpi, we always want to load a system module named "o
     
 The add command always requires a named view attribute (e.g.,``system_modules`` is a list) and
 then one or more values to add to it. This will write the view module to your view,
-and the module file symlinked should always attempt to try loading it.
+and the module file symlinked should always attempt to try loading it. Note that if you are using
+modules version `earlier than 4.8 <https://github.com/cea-hpc/modules/issues/392>`_ the ``try-load``
+command is not available so you will not have support for view customizations.
 
 
 Delete a View

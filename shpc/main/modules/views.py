@@ -21,7 +21,7 @@ supported_view_variables = {"system_modules": []}
 
 class ViewModule:
     """
-    A VersionModule is a .view_module written to the base of a view.
+    A ViewModule is a .view_module written to the base of a view.
     The symlinked module files always attempt to load it, and it is allowed
     to silently fail if it does not exist. In a view it can exist if the
     user has customized the view with system modules, etc.
