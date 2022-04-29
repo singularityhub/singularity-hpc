@@ -63,14 +63,15 @@ def main(args, parser, extra, subparser):
 
     # The first "param" is either create, get, install, uninstall, or edit
     valid_commands = [
+        "add",
         "create",
         "delete",
+        "edit",
         "get",
         "install",
-        "uninstall",
-        "edit",
         "list",
-        "add",
+        "remove",
+        "uninstall",
     ]
     command = args.params.pop(0)
     if command not in valid_commands:
@@ -110,11 +111,15 @@ def main(args, parser, extra, subparser):
         return
 
     # Add a variable (e.g., system-module) to a view
-    if command == "add":
+    if command in ["add", "remove"]:
         if len(args.params) < 2:
             logger.exit("You are required to add a <variable> <value>")
         var_name = args.params.pop(0)
-        view_handler.add_variable(view_name, var_name, args.params)
+
+        if command == "add":
+            view_handler.add_variable(view_name, var_name, args.params)
+        else:
+            view_handler.remove_variable(view_name, var_name, args.params)
         return
 
     # Take custom action depending on the command

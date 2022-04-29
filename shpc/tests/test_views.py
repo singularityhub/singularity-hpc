@@ -10,6 +10,7 @@ import pytest
 import os
 
 import shpc.main.modules.views as views
+import shpc.utils as utils
 import shpc.client.view as view_client
 
 from .helpers import init_client, here
@@ -101,14 +102,30 @@ def test_views(tmp_path, module_sys, module_file, container_tech):
     )
 
     # Try adding system modules
+    assert not view._config["view"]["system_modules"]
     view_module = os.path.join(view.path, ".view_module")
     assert not os.path.exists(view_module)
     view_handler.add_variable(view_name, "system_modules", "openmpi")
     assert os.path.exists(view_module)
 
+    # Make sure we have openmpi in the content
+    content = utils.read_file(view_module)
+    assert "openmpi" in content
+
+    # Reload the view config file
+    view.reload()
+    assert "openmpi" in view._config["view"]["system_modules"]
+
     # We can't add unknown variables
     with pytest.raises(SystemExit):
         view_handler.add_variable(view_name, "system-modules", [1, 2, 3])
+
+    # Try removing now
+    view_handler.remove_variable(view_name, "system_modules", "openmpi")
+    view.reload()
+    assert not view._config["view"]["system_modules"]
+    content = utils.read_file(view_module)
+    assert "openmpi" not in content
 
     # Ensure we can uninstall
     view_handler.delete(view_name, force=True)

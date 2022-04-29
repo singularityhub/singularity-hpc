@@ -78,10 +78,9 @@ class ViewsHandler:
         """
         return os.path.exists(self.view_path(name))
 
-    def add_variable(self, view_name, var_name, values):
+    def _variable_checks(self, view_name, var_name):
         """
-        Add a variable to a view. The variable name should be first in a list
-        of params.
+        Ensure a view exists and a variable name is valid
         """
         if not self.exists(view_name):
             logger.exit("View %s does not exist." % view_name)
@@ -91,14 +90,18 @@ class ViewsHandler:
                 % (var_name, ", ".join(supported_view_variables))
             )
 
+    def add_variable(self, view_name, var_name, values):
+        """
+        Add a variable to a view. The variable name should be first in a list
+        of params.
+        """
+        self._variable_checks(view_name, var_name)
         cfg = self.load_config(view_name)
         changes, cfg = self._add_variable(var_name, values, cfg)
 
         # If we have changes, write the view module and updated config
         if changes:
-            self.save_config(view_name, cfg)
-            view_dir = os.path.dirname(self.view_config(view_name))
-            self.view_module.write(view_dir, cfg)
+            self.save_view_module(view_name, cfg)
 
     def _add_variable(self, var_name, values, cfg):
         """
@@ -118,6 +121,41 @@ class ViewsHandler:
             for value in values:
                 if value not in cfg["view"][var_name]:
                     cfg["view"][var_name].append(value)
+                    changes = True
+        return changes, cfg
+
+    def remove_variable(self, view_name, var_name, values):
+        """
+        Remove a variable from a view.
+        """
+        self._variable_checks(view_name, var_name)
+        cfg = self.load_config(view_name)
+        changes, cfg = self._remove_variable(var_name, values, cfg)
+        if changes:
+            self.save_view_module(view_name, cfg)
+        else:
+            logger.warning("No matches found. No changes were made to the view.")
+
+    def _remove_variable(self, var_name, values, cfg):
+        """
+        Given a variable name and value, remove from a view.
+        """
+        # Assume the value can be a single value or list
+        if not isinstance(values, list):
+            values = [values]
+
+        # Cut out early if the key isn't there
+        changes = False
+        if var_name not in cfg["view"]:
+            return changes, cfg
+
+        # Add based on type (currently we only support list)
+        if isinstance(cfg["view"][var_name], list):
+            for value in values:
+                if value in cfg["view"][var_name]:
+                    cfg["view"][var_name] = [
+                        x for x in cfg["view"][var_name] if x != value
+                    ]
                     changes = True
         return changes, cfg
 
@@ -158,6 +196,14 @@ class ViewsHandler:
         out = out or sys.stdout
         for module in cfg["view"]["modules"]:
             out.write("%s\n" % module.rjust(30))
+
+    def save_view_module(self, view_name, cfg):
+        """
+        Save of a view module includes the view.yaml and the .view_module
+        """
+        self.save_config(view_name, cfg)
+        view_dir = os.path.dirname(self.view_config(view_name))
+        self.view_module.write(view_dir, cfg)
 
     def save_config(self, name, cfg):
         """
@@ -228,7 +274,7 @@ class View:
         self.module_extension = module_extension
         self.versionfile = versions.VersionFile(self.settings, self.module_extension)
         self.modulefile = modulefile
-        self._config = utils.read_yaml(self.config_path)
+        self.reload()
 
     @property
     def path(self):
@@ -237,6 +283,12 @@ class View:
         if it does not.
         """
         return os.path.join(self.settings.views_base, self.name)
+
+    def reload(self):
+        """
+        Reload the view's config (given a change)
+        """
+        self._config = utils.read_yaml(self.config_path)
 
     def symlink_exists(self, module_dir):
         """

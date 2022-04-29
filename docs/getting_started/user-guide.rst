@@ -792,6 +792,20 @@ and the module file symlinked should always attempt to try loading it. Note that
 modules version `earlier than 4.8 <https://github.com/cea-hpc/modules/issues/392>`_ the ``try-load``
 command is not available so you will not have support for view customizations.
 
+Remove System Modules from A View
+---------------------------------
+
+Of course an "add" command would not be complete without a "remove" command! To remove modules:
+
+.. code-block:: console
+
+    $ shpc view remove mpi system_modules mymod
+    Wrote updated .view_module: /home/vanessa/Desktop/Code/shpc/views/mpi/.view_module
+
+
+Note that if you edit the files manually, you would need to edit the view.yaml AND the hidden
+.view_module that is always updated from it.
+
 
 Delete a View
 -------------
