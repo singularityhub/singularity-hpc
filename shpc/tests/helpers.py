@@ -25,7 +25,7 @@ def init_client(tmpdir, module_sys, container_tech):
     client = get_client(
         quiet=False,
         settings_file=new_settings,
-        module=module_sys,
+        module_sys=module_sys,
         container_tech=container_tech,
     )
 
