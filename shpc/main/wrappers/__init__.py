@@ -37,7 +37,9 @@ def generate(image, container, config, **kwargs):
             wrapper = WrapperScript(
                 wrapper_template=template_name, **constructor_kwargs
             )
-            generated += wrapper.generate_aliases()
+            for alias in aliases:
+                # NB: alias is a dictionary
+                generated += wrapper.generate(alias["name"], alias)
 
     # Container level wrapper scripts (allow eventually supporting custom podman)
     scripts = {
@@ -54,6 +56,7 @@ def generate(image, container, config, **kwargs):
             wrapper = WrapperScript(
                 wrapper_template=template_name, **constructor_kwargs
             )
-            generated += wrapper.generate(alias)
+            # NB: alias is a string
+            generated += wrapper.generate(alias, alias)
 
     return list(set(generated))

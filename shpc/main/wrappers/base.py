@@ -103,51 +103,29 @@ class WrapperScript:
         env = Environment(loader=loader)
         self.template = env.get_template(os.path.basename(template_file))
 
-    def generate_aliases(self):
+    def generate(self, wrapper_name, alias_definition):
         """
-        Generate looping over aliases
+        Template generation function.
+        NB: alias_definition is a dictionary for command aliases, and a string
+        for additional arbitrary commands
         """
         self.load_template()
 
         # Write scripts into container directory
         wrapper_dir = os.path.join(self.module_dir, "bin")
         shpc.utils.mkdirp([wrapper_dir])
+        wrapper_path = os.path.join(wrapper_dir, wrapper_name)
 
-        generated = []
-        # When we get here we know we have aliases!
-        for alias in self.kwargs["aliases"]:
-            wrapper_path = os.path.join(wrapper_dir, alias["name"])
-            self._generate(wrapper_path, alias)
-            generated.append(os.path.basename(wrapper_path))
-
-        return generated
-
-    def _generate(self, wrapper_path, alias):
-        """
-        Shared generation function.
-        """
         out = self.template.render(
-            alias=alias,
+            alias=alias_definition,
             container=self.container,
             settings=self.settings,
             image=self.image,
             config=self.config,
-            # includes module_dir, features, aliases
+            # includes module_dir, features, etc
             **self.kwargs
         )
         shpc.utils.write_file(wrapper_path, out, exec=True)
 
         # Return the alias / script name
-        return os.path.basename(wrapper_path)
-
-    def generate(self, alias):
-        """
-        A default generation cannot know what the template wants, so we give it everything.
-        """
-        self.load_template()
-
-        # Write scripts into container directory
-        wrapper_dir = os.path.join(self.module_dir, "bin")
-        shpc.utils.mkdirp([wrapper_dir])
-        wrapper_path = os.path.join(wrapper_dir, alias)
-        return [self._generate(wrapper_path, alias)]
+        return [os.path.basename(wrapper_path)]
