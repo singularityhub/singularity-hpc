@@ -5,8 +5,6 @@ __license__ = "MPL 2.0"
 
 from .docker import DockerContainer
 
-import os
-
 
 class PodmanContainer(DockerContainer):
     """
@@ -17,11 +15,8 @@ class PodmanContainer(DockerContainer):
     templatefile = "docker"
     command = "podman"
 
-    def shell(self, image):
+    def get_shell_path(self):
         """
-        Interactive shell into a container image.
+        Return the path of the shell to use with this container.
         """
-        os.system(
-            "podman run -it --rm --entrypoint %s %s"
-            % (self.settings.podman_shell, image)
-        )
+        return self.settings.podman_shell

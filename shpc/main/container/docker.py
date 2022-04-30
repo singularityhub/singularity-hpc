@@ -33,13 +33,19 @@ class DockerContainer(ContainerTechnology):
             )
         super(DockerContainer, self).__init__()
 
+    def get_shell_path(self):
+        """
+        Return the path of the shell to use with this container.
+        """
+        return self.settings.docker_shell
+
     def shell(self, image):
         """
         Interactive shell into a container image.
         """
         os.system(
-            "docker run -it --rm --entrypoint %s %s"
-            % (self.settings.docker_shell, image)
+            "%s run -it --rm --entrypoint %s %s"
+            % (self.command, self.get_shell_path(), image)
         )
 
     def add_registry(self, uri):
