@@ -37,6 +37,8 @@ def generate(image, container, config, **kwargs):
             wrapper = WrapperScript(
                 wrapper_template=template_name, **constructor_kwargs
             )
+            # No extra parameters -> only look in the global locations
+            wrapper.load_template()
             for alias in aliases:
                 # NB: alias is a dictionary
                 generated += wrapper.generate(alias["name"], alias)
@@ -56,6 +58,7 @@ def generate(image, container, config, **kwargs):
             wrapper = WrapperScript(
                 wrapper_template=template_name, **constructor_kwargs
             )
+            wrapper.load_template(include_container_dir=True)
             # NB: alias is a string
             generated += wrapper.generate(alias, alias)
 
