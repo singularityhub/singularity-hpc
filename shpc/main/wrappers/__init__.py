@@ -2,7 +2,7 @@ __author__ = "Vanessa Sochat"
 __copyright__ = "Copyright 2022, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
-from .scripts import get_wrapper_script
+from .base import WrapperScript
 import os
 
 
@@ -34,7 +34,7 @@ def generate(image, container, config, **kwargs):
     for container_tech in ["docker", "podman", "singularity"]:
         template_name = settings.wrapper_scripts.get(container_tech)
         if template_name and aliases and container_tech == container.command:
-            wrapper = get_wrapper_script(template_name)(
+            wrapper = WrapperScript(
                 wrapper_template=template_name, **constructor_kwargs
             )
             generated += wrapper.generate_aliases()
@@ -51,7 +51,7 @@ def generate(image, container, config, **kwargs):
         if not listing or container.templatefile != command:
             continue
         for alias, template_name in listing.items():
-            wrapper = get_wrapper_script(template_name)(
+            wrapper = WrapperScript(
                 wrapper_template=template_name, **constructor_kwargs
             )
             generated += wrapper.generate(alias)
