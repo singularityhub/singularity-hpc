@@ -36,10 +36,9 @@ class WrapperScript:
         self.kwargs = kwargs
         self.image = image
         self.template_type = "custom"
-        if not wrapper_template and not hasattr(self, "wrapper_template"):
+        if not wrapper_template:
             logger.exit("A wrapper template is required to generate a wrapper script.")
-        if not hasattr(self, "wrapper_template") and wrapper_template:
-            self.wrapper_template = wrapper_template
+        self.wrapper_template = wrapper_template
 
     @property
     def container_dest_dir(self):
