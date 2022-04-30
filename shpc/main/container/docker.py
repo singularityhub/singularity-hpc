@@ -237,17 +237,10 @@ class DockerContainer(ContainerTechnology):
                 config=config,
             )
 
-        # What shell to use?
-        shell = (
-            self.settings.podman_shell
-            if self.command == "podman"
-            else self.settings.docker_shell
-        )
-
         # Make sure to render all values!
         out = template.render(
             settings=self.settings,
-            shell=shell,
+            shell=self.get_shell_path(),
             image=container_path,
             description=description,
             aliases=aliases,
