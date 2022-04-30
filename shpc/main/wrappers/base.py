@@ -63,7 +63,6 @@ class WrapperScript:
         Load the wrapper template.
         """
 
-
         # Where to find the template and the files it may include
         # Lowest precedence: default location shipped with shpc
         template_paths = [default_templates]
