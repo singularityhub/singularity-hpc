@@ -3,7 +3,7 @@ url: https://hub.docker.com/_/python
 maintainer: '@vsoch'
 description: An interpreted, high-level and general-purpose programming language.
 latest:
-  rc-windowsservercore-1803: sha256:5ddaebadc0ab81e8142d479a91e0280a9555db3da66be7497351df0fe5cd3302
+  3.9.10: sha256:3aae21920963df3205fba69826cc07fcf2fad91f9e062add921766b36e89e6e8
 tags:
   3.9.2-alpine: sha256:f046c06388c0721961fe5c9b6184d2f8aeb7eb01b39601babab06cfd975dae01
   3.9.2-slim: sha256:ce367bb30b8928efb632c369e3bd4a8dbd7905417bd0a245087a82c250e54a24
@@ -14,13 +14,11 @@ tags:
   3.9.9: sha256:dd8335df6162579adadd56ff2b9fbd61199da5405c8856c6e34356c13b48cce4
   3.9.10: sha256:3aae21920963df3205fba69826cc07fcf2fad91f9e062add921766b36e89e6e8
   3.10.0a7-alpine: sha256:9b7958e47cd5bd4d092c3b28802493ad1870bce988b2f6ff97f6c81d96fcda80
-  '3.9': sha256:3f15a766051ff444ff55a68ce0a14565f51412b2e335c13941cf8f4957def8d8
-  rc-windowsservercore-1803: sha256:5ddaebadc0ab81e8142d479a91e0280a9555db3da66be7497351df0fe5cd3302
-  '3': sha256:555f5affd32250ca74758b297f262fa8f421eb0102877596b48c0b8b464606ea
-  alpine3.15: sha256:b9c3acf9463696075eb8757d7fed88ed02d2a4e566f6e4e6e15cbde35fe807fe
-  alpine3.14: sha256:d38c041b2d09cff540cd6b3de1ab74ad14dab174b8a0fe2cacb80846c5c73ad8
-  alpine3.13: sha256:93eb0ba98b15791a071ec8bce2483e670e52c83af51962d3255b4f8f93b52d24
+  '3.9': sha256:a83c0aa6471527636d7331c30704d0f88e0ab3331bbc460d4ae2e53bbae64dca
+  '3': sha256:edc8e6a550e4be7c340df18b252364554ea46a5ac14be4dcad711c285d25d1db
 filter:
 - 3[.]*
+- ^(?!.*alpine).*$
+- ^(?!.*windows).*$
 aliases:
   python: /usr/local/bin/python

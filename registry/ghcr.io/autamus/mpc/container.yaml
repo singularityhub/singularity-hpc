@@ -4,8 +4,8 @@ maintainer: '@vsoch'
 description: 'mithi/mpc: A software pipeline using the Model Predictive Control method
   to drive a car around a virtual track.'
 latest:
-  1.2.1: sha256:27f99569e47307f80c3966438c3cf12d09107b7ac579f821638e7ac240ca109b
+  1.2.1: sha256:7ed1a26ec6b04f1d1abebb9fd04ef96743ca7cb0eed2e2a513733f6ff383a69d
 tags:
   1.1.0: sha256:c7628ce2156af17ad77505740c40c85063dde3c4b17a46c3f6594fd2883a674f
-  1.2.1: sha256:27f99569e47307f80c3966438c3cf12d09107b7ac579f821638e7ac240ca109b
-  latest: sha256:27f99569e47307f80c3966438c3cf12d09107b7ac579f821638e7ac240ca109b
+  1.2.1: sha256:7ed1a26ec6b04f1d1abebb9fd04ef96743ca7cb0eed2e2a513733f6ff383a69d
+  latest: sha256:7ed1a26ec6b04f1d1abebb9fd04ef96743ca7cb0eed2e2a513733f6ff383a69d

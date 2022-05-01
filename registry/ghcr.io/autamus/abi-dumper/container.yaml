@@ -4,9 +4,9 @@ maintainer: '@vsoch'
 description: ABI Dumper is a tool for dumping ABI information of an ELF object containing
   DWARF debug info.
 latest:
-  '1.2': sha256:322291ec21640cd814ef1d8db835fbbff9e04a2d2fed5592e50a714a2a1432a3
+  '1.2': sha256:352bf50515b9a5afb3112dbccdc784a5da7e12f9d24377815e15122769fbefaa
 tags:
-  '1.2': sha256:322291ec21640cd814ef1d8db835fbbff9e04a2d2fed5592e50a714a2a1432a3
-  latest: sha256:322291ec21640cd814ef1d8db835fbbff9e04a2d2fed5592e50a714a2a1432a3
+  '1.2': sha256:352bf50515b9a5afb3112dbccdc784a5da7e12f9d24377815e15122769fbefaa
+  latest: sha256:352bf50515b9a5afb3112dbccdc784a5da7e12f9d24377815e15122769fbefaa
 aliases:
   abi-dumper: /opt/view/bin/abi-dumper
