@@ -3,7 +3,7 @@ layout: container
 name:  "jupyter/r-notebook"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/jupyter/r-notebook/container.yaml"
-updated_at: "2022-04-08 03:04:46.697841"
+updated_at: "2022-05-01 04:16:21.431951"
 container_url: "https://hub.docker.com/r/jupyter/r-notebook"
 aliases:
  - "run-notebook"
@@ -16,6 +16,7 @@ versions:
  - "2022-02-28"
  - "2022-01-31"
  - "2021-12-27"
+ - "2022-04-25"
 description: "Jupyter R Notebook from https://github.com/jupyter/docker-stacks"
 ---
 

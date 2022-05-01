@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/octave"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/octave/container.yaml"
-updated_at: "2022-04-08 03:05:44.132609"
+updated_at: "2022-05-01 04:16:48.906162"
 container_url: "https://github.com/orgs/autamus/packages/container/package/octave"
 aliases:
  - "octave"
@@ -23,6 +23,7 @@ versions:
  - "6.3.0"
  - "6.4.0"
  - "latest"
+ - "7.1.0"
 description: "GNU Octave is a high-level interpreted language, primarily intended for numerical computations (like an open source Matlab)"
 ---
 

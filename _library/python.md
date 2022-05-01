@@ -3,7 +3,7 @@ layout: container
 name:  "python"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/python/container.yaml"
-updated_at: "2022-04-08 03:06:09.200000"
+updated_at: "2022-05-01 04:18:01.028478"
 container_url: "https://hub.docker.com/_/python"
 aliases:
  - "python"
@@ -19,11 +19,7 @@ versions:
  - "3.9.10"
  - "3.10.0a7-alpine"
  - "3.9"
- - "rc-windowsservercore-1803"
  - "3"
- - "alpine3.15"
- - "alpine3.14"
- - "alpine3.13"
 description: "An interpreted, high-level and general-purpose programming language."
 ---
 

@@ -3,7 +3,7 @@ layout: container
 name:  "ncbi/blast"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ncbi/blast/container.yaml"
-updated_at: "2022-04-08 03:04:47.974957"
+updated_at: "2022-05-01 04:17:54.934302"
 container_url: "https://hub.docker.com/r/ncbi/blast"
 
 versions:
