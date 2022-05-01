@@ -5,11 +5,12 @@ description: GASNet is a language-independent, networking middleware layer that 
   network-independent, high-performance communication primitives including Remote
   Memory Access (RMA) and Active Messages (AM).
 latest:
-  2021.9.0: sha256:cb5e93afa7e118bf9d18bc16a036f6ff801806fb0c136efa1cd274ad458b43b7
+  2022.3.0: sha256:32d8335b9ce542bbd132a0f1789d542a6fc843cec78fb0a92972eea926c51f08
 tags:
   2021.3.0: sha256:d47d6fda408012c29949a208ef7b714f50fb695735e603ce6258071396a6a9fb
   2021.9.0: sha256:cb5e93afa7e118bf9d18bc16a036f6ff801806fb0c136efa1cd274ad458b43b7
-  latest: sha256:cb5e93afa7e118bf9d18bc16a036f6ff801806fb0c136efa1cd274ad458b43b7
+  latest: sha256:32d8335b9ce542bbd132a0f1789d542a6fc843cec78fb0a92972eea926c51f08
+  2022.3.0: sha256:32d8335b9ce542bbd132a0f1789d542a6fc843cec78fb0a92972eea926c51f08
 aliases:
   gasnet_trace: /opt/view/bin/gasnet_trace
   gasnet_trace.pl: /opt/view/bin/gasnet_trace.pl
