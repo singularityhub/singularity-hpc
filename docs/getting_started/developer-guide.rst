@@ -304,44 +304,10 @@ If you want to write a custom container.yaml script:
 1. Add either (or both) of singularity_scripts/docker_scripts in the container.yaml, including an alias command and an associated script.
 2. Write the script with the associated name into that folder.
 
-The following variables are passed for rendering.
-
-.. list-table:: Container YAML Alias Variables
-   :widths: 15 15 40 30
-   :header-rows: 1
-
-   * - Name
-     - Type
-     - Description
-     - Example
-   * - alias
-     - string
-     - The alias name defined under singularity_scripts or docker_scripts
-     - ``{{ alias }}`` 
-   * - settings
-     - dictionary
-     - Everything referenced in the user settings
-     - ``{{ settings.wrapper_shell }}``
-   * - container
-     - dictionary
-     - The container technology
-     - ``{{ container.command }}`` renders to docker, singularity, or podman
-   * - config
-     - dictionary
-     - The entire container config (container.yaml) structured the same
-     - ``{{ config.docker }}``
-   * - image
-     - string
-     - The name of the container binary (SIF) or unique resource identifier
-     - ``{{ image }}``
-   * - module_dir
-     - string
-     - The name of the module directory
-     - ``{{ module_dir }}``
-   * - features
-     - dictionary
-     - A dictionary of parsed features
-     - ``{{ features.gpu }}``
+For rendering, the same variables as for alias wrapper scripts are passed,
+**except** ``alias`` which is now a *string* (the name of the alias defined
+under singularity_scripts or docker_scripts) and should be used directly, e.g.
+``{{ alias }}``.
 
 
 Templating for both wrapper script types
