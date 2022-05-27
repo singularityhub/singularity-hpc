@@ -11,7 +11,7 @@ proc ModulesHelp { } {
     puts stderr "This module is a singularity container wrapper for {{ name }} v{{ version }}"
     {% if description %}puts stderr "{{ description }}"{% endif %}
     puts stderr ""
-    puts stderr "Container:"
+    puts stderr "Container (available through variable SINGULARITY_SIF):"
     puts stderr ""
     puts stderr " - {{ container_sif }}"
     puts stderr ""
@@ -70,6 +70,9 @@ conflict {{ parsed_name.tool }}
 
 # singularity environment variable to set shell
 setenv SINGULARITY_SHELL {{ settings.singularity_shell }}
+
+# service environment variable to access full SIF image path
+setenv SINGULARITY_SIF "${containerPath}"
 
 # interactive shell to any container, plus exec for aliases
 set shellCmd "singularity \${SINGULARITY_OPTS} shell \${SINGULARITY_COMMAND_OPTS} -s {{ settings.singularity_shell }} {% if features.gpu %}{{ features.gpu }} {% endif %}{% if features.home %}-B {{ features.home | replace("$", "\$") }} --home {{ features.home | replace("$", "\$") }} {% endif %}{% if features.x11 %}-B {{ features.x11 | replace("$", "\$") }} {% endif %}{% if settings.environment_file %}-B ${moduleDir}/{{ settings.environment_file }}:/.singularity.d/env/{{ settings.environment_file }}{% endif %} {% if settings.bindpaths %}-B {{ settings.bindpaths }}{% endif %} ${containerPath}"

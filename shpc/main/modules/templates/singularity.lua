@@ -9,7 +9,7 @@ help(
 This module is a singularity container wrapper for {{ name }} v{{ version }}
 {% if description %}{{ description }}{% endif %}
 
-Container:
+Container (available through variable SINGULARITY_SIF):
 
  - {{ container_sif }}
 
@@ -48,8 +48,11 @@ setenv("SINGULARITY_SHELL", "{{ settings.singularity_shell }}")
 if not os.getenv("SINGULARITY_OPTS") then setenv ("SINGULARITY_OPTS", "") end
 if not os.getenv("SINGULARITY_COMMAND_OPTS") then setenv ("SINGULARITY_COMMAND_OPTS", "") end
 
--- interactive shell to any container, plus exec for aliases
 local containerPath = '{{ container_sif }}'
+-- service environment variable to access full SIF image path
+setenv("SINGULARITY_SIF", containerPath)
+
+-- interactive shell to any container, plus exec for aliases
 local shellCmd = "singularity ${SINGULARITY_OPTS} shell ${SINGULARITY_COMMAND_OPTS} -s {{ settings.singularity_shell }} {% if features.gpu %}{{ features.gpu }} {% endif %}{% if features.home %}-B {{ features.home }} --home {{ features.home }} {% endif %}{% if features.x11 %}-B {{ features.x11 }} {% endif %}{% if settings.environment_file %}-B " .. moduleDir .. "/{{ settings.environment_file }}:/.singularity.d/env/{{ settings.environment_file }}{% endif %} {% if settings.bindpaths %}-B {{ settings.bindpaths }}{% endif %} " .. containerPath
 local execCmd = "singularity ${SINGULARITY_OPTS} exec ${SINGULARITY_COMMAND_OPTS} {% if features.gpu %}{{ features.gpu }} {% endif %}{% if features.home %}-B {{ features.home }} --home {{ features.home }} {% endif %}{% if features.x11 %}-B {{ features.x11 }} {% endif %}{% if settings.environment_file %}-B " .. moduleDir .. "/{{ settings.environment_file }}:/.singularity.d/env/{{ settings.environment_file }}{% endif %} {% if settings.bindpaths %}-B {{ settings.bindpaths }}{% endif %} "
 local runCmd = "singularity ${SINGULARITY_OPTS} run ${SINGULARITY_COMMAND_OPTS} {% if features.gpu %}{{ features.gpu }} {% endif %}{% if features.home %}-B {{ features.home }} --home {{ features.home }} {% endif %}{% if features.x11 %}-B {{ features.x11 }} {% endif %}{% if settings.environment_file %}-B " .. moduleDir .. "/{{ settings.environment_file }}:/.singularity.d/env/{{ settings.environment_file }}{% endif %} {% if settings.bindpaths %}-B {{ settings.bindpaths }}{% endif %} " .. containerPath
