@@ -15,7 +15,8 @@ class PodmanContainer(DockerContainer):
     templatefile = "docker"
     command = "podman"
 
-    def get_shell_path(self):
+    @property
+    def shell_path(self):
         """
         Return the path of the shell to use with this container.
         """

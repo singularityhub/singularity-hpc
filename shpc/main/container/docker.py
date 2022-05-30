@@ -33,7 +33,8 @@ class DockerContainer(ContainerTechnology):
             )
         super(DockerContainer, self).__init__()
 
-    def get_shell_path(self):
+    @property
+    def shell_path(self):
         """
         Return the path of the shell to use with this container.
         """
@@ -45,7 +46,7 @@ class DockerContainer(ContainerTechnology):
         """
         os.system(
             "%s run -it --rm --entrypoint %s %s"
-            % (self.command, self.get_shell_path(), image)
+            % (self.command, self.shell_path, image)
         )
 
     def add_registry(self, uri):
@@ -240,7 +241,7 @@ class DockerContainer(ContainerTechnology):
         # Make sure to render all values!
         out = template.render(
             settings=self.settings,
-            shell=self.get_shell_path(),
+            shell=self.shell_path,
             image=container_path,
             description=description,
             aliases=aliases,
