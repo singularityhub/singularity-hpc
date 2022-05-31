@@ -1,5 +1,8 @@
-# https://github.com/cea-hpc/modules/issues/392
-if {[info exists ModuleTool] && $ModuleTool eq {Modules}
-    && [versioncmp $ModuleToolVersion 4.8] >= 0} {
-    module try-load .view_module
+set view_dir "[file dirname [file dirname ${ModulesCurrentModulefile}] ]"
+set view_name "[file tail ${view_dir}]"
+set view_module ".view_${view_name}"
+set view_modulefile "${view_dir}/${view_module}"
+
+if {[file exists ${view_modulefile}]} {
+    source ${view_modulefile}
 }
