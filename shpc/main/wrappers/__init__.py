@@ -2,6 +2,7 @@ __author__ = "Vanessa Sochat"
 __copyright__ = "Copyright 2022, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
+from shpc.logger import logger
 from .base import WrapperScript
 import os
 
@@ -50,11 +51,16 @@ def generate(image, container, config, **kwargs):
                 wrapper_template=alias[custom_wrapper_option_name], **constructor_kwargs
             )
             wrapper.load_template(include_container_dir=True)
-        else:
+        elif default_wrapper:
             wrapper = default_wrapper
-        if wrapper:
-            # NB: alias is a dictionary
-            generated += wrapper.generate(alias["name"], alias)
+        else:
+            logger.exit(
+                "Can't generate a wrapper script for '%s' as there is no template defined for %s"
+                % (alias["name"], container.templatefile)
+            )
+
+        # NB: alias is a dictionary
+        generated += wrapper.generate(alias["name"], alias)
 
     # Container level wrapper scripts (allow eventually supporting custom podman)
     scripts = {
