@@ -41,6 +41,21 @@ def generate(image, container, config, **kwargs):
         # No extra parameters -> only look in the global locations
         default_wrapper.load_template()
 
+    # Command aliases
+    custom_wrapper_option_name = "%s_script" % container.templatefile
+    for alias in aliases:
+        # Allow overriding the template name in the script option
+        if custom_wrapper_option_name in alias:
+            wrapper = WrapperScript(
+                wrapper_template=alias[custom_wrapper_option_name], **constructor_kwargs
+            )
+            wrapper.load_template(include_container_dir=True)
+        else:
+            wrapper = default_wrapper
+        if wrapper:
+            # NB: alias is a dictionary
+            generated += wrapper.generate(alias["name"], alias)
+
     # Container level wrapper scripts (allow eventually supporting custom podman)
     scripts = {
         "singularity": config.singularity_scripts,
@@ -49,26 +64,10 @@ def generate(image, container, config, **kwargs):
     }
     # Additional commands defined in the custom container.yaml script section
     listing = scripts.get(container.templatefile, [])
-    container_wrappers = {}
     for alias, template_name in listing.items():
         wrapper = WrapperScript(wrapper_template=template_name, **constructor_kwargs)
         # Template wrapper scripts may live alongside container.yaml
         wrapper.load_template(include_container_dir=True)
-        container_wrappers[alias] = wrapper
-
-    # Command aliases
-    for alias in aliases:
-        # Allow overriding the template name in the scripts section
-        if alias["name"] in container_wrappers:
-            wrapper = container_wrappers.pop(alias["name"])
-        else:
-            wrapper = default_wrapper
-        if wrapper:
-            # NB: alias is a dictionary
-            generated += wrapper.generate(alias["name"], alias)
-
-    # Additional commands defined in the scripts sections
-    for alias, wrapper in container_wrappers.items():
         # NB: alias is a string
         generated += wrapper.generate(alias, alias)
 

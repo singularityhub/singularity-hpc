@@ -52,6 +52,8 @@ aliases_list = {
             "command": {"type": "string"},
             "singularity_options": {"type": "string"},
             "docker_options": {"type": "string"},
+            "singularity_script": {"type": "string"},
+            "docker_script": {"type": "string"},
         },
     },
 }

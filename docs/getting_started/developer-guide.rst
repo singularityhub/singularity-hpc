@@ -267,7 +267,7 @@ about it. For alias wrapper scripts, the following variables are passed for rend
      - Example
    * - alias
      - dictionary
-     - The entire alias in question, including subfields name, command, singularity_options or docker_options, and args
+     - The entire alias in question, including subfields name, command, singularity_options or docker_options, singularity_script or docker_script, and args
      - ``{{ alias.name }}`` 
    * - settings
      - dictionary
