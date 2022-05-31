@@ -17,28 +17,13 @@ class WrapperScript:
     which can be extended for custom named wrapper scripts.
     """
 
-    def __init__(
-        self,
-        settings,
-        image,
-        container=None,
-        config=None,
-        wrapper_template=None,
-        **kwargs
-    ):
-        """
-        On init, a wrapper_template should be provided (string) OR the class
-        should have an attribute.
-        """
+    def __init__(self, settings, image, container=None, config=None, **kwargs):
         self.settings = settings
         self.container = container
         self.config = config
         self.kwargs = kwargs
         self.image = image
         self.template_type = "custom"
-        if not wrapper_template:
-            logger.exit("A wrapper template is required to generate a wrapper script.")
-        self.wrapper_template = wrapper_template
 
     @property
     def container_dest_dir(self):
@@ -58,10 +43,10 @@ class WrapperScript:
         """
         return self.kwargs["module_dir"]
 
-    def load_template(self, include_container_dir=False):
-        """
-        Load the wrapper template.
-        """
+    def find_wrapper_script(self, wrapper_template, include_container_dir):
+
+        if not self.wrapper_template:
+            logger.exit("A wrapper template is required to generate a wrapper script.")
 
         # Where to find the template and the files it may include
         # Lowest precedence: default location shipped with shpc
@@ -108,7 +93,15 @@ class WrapperScript:
         # its own directory to the search (highest precedence) to honour its
         # possible inclusions
         template_paths = [os.path.dirname(self.template_file)] + template_paths
+        return template_paths
 
+    def load_template(self, wrapper_template, include_container_dir=False):
+        """
+        Load the wrapper template.
+        """
+
+        self.wrapper_template = wrapper_template
+        template_paths = self.find_wrapper_script(wrapper_template, include_container_dir)
         loader = FileSystemLoader(template_paths)
         env = Environment(loader=loader)
         self.template = env.get_template(self.wrapper_template)
