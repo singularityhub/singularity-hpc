@@ -4,7 +4,7 @@ maintainer: '@vsoch'
 description: several hash-map implementations, similar in API to SGI's hash_map class,
   but with different performance characteristics.
 latest:
-  2.0.4: sha256:1dc57ca94effc8bd22bbbc7ca4007cc5fbb6bed51bd64e82c23b3ed7495d677f
+  2.0.4: sha256:7b5d79878ab0cccb191b5ca3296d0327a102052b5cc3d694566758ce46ea20e3
 tags:
-  2.0.4: sha256:1dc57ca94effc8bd22bbbc7ca4007cc5fbb6bed51bd64e82c23b3ed7495d677f
-  latest: sha256:1dc57ca94effc8bd22bbbc7ca4007cc5fbb6bed51bd64e82c23b3ed7495d677f
+  2.0.4: sha256:7b5d79878ab0cccb191b5ca3296d0327a102052b5cc3d694566758ce46ea20e3
+  latest: sha256:7b5d79878ab0cccb191b5ca3296d0327a102052b5cc3d694566758ce46ea20e3
