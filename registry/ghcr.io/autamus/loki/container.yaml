@@ -4,7 +4,7 @@ maintainer: '@vsoch'
 description: Loki is a C++ library of designs, containing flexible implementations
   of common design patterns and idioms.
 latest:
-  0.1.7: sha256:1c950d532ddd2986cb7d2497c12c84ff3885080c49e629634094f36f562fdcd4
+  0.1.7: sha256:a5309bd0c0922ced3590ea0c893ae05a9501fea9a0111edca1bb8b475e388a74
 tags:
-  0.1.7: sha256:1c950d532ddd2986cb7d2497c12c84ff3885080c49e629634094f36f562fdcd4
-  latest: sha256:1c950d532ddd2986cb7d2497c12c84ff3885080c49e629634094f36f562fdcd4
+  0.1.7: sha256:a5309bd0c0922ced3590ea0c893ae05a9501fea9a0111edca1bb8b475e388a74
+  latest: sha256:a5309bd0c0922ced3590ea0c893ae05a9501fea9a0111edca1bb8b475e388a74

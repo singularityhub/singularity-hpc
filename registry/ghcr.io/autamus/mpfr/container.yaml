@@ -4,7 +4,7 @@ maintainer: '@vsoch'
 description: The MPFR library is a C library for multiple-precision floating-point
   computations with correct rounding.
 latest:
-  4.1.0: sha256:b253cb328978fd8475be125c5c5d91126b11916bac2f80d42d82e50c15e1cc6c
+  4.1.0: sha256:1d8b946b9399588ba54f6b3357f57ef0beff519d9c5d2b05c1faa41526e6878d
 tags:
-  4.1.0: sha256:b253cb328978fd8475be125c5c5d91126b11916bac2f80d42d82e50c15e1cc6c
-  latest: sha256:b253cb328978fd8475be125c5c5d91126b11916bac2f80d42d82e50c15e1cc6c
+  4.1.0: sha256:1d8b946b9399588ba54f6b3357f57ef0beff519d9c5d2b05c1faa41526e6878d
+  latest: sha256:1d8b946b9399588ba54f6b3357f57ef0beff519d9c5d2b05c1faa41526e6878d
