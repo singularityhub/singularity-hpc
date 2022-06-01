@@ -3,7 +3,7 @@ url: https://quay.io/repository/biocontainers/samtools
 maintainer: '@audreystott'
 description: Tools for reading/writing/editing/indexing/viewing SAM/BAM/CRAM format.
 latest:
-  1.15--h3843a85_0: sha256:d68e1b5f504dc60eb9f2a02eecbac44a63f144e7d455b3fb1a25323c667ca4c4
+  1.15.1--h1170115_0: sha256:c3e0ba2add590177a2e6ea33ae9074dc1f82b99e6913338d3d1c3a70dc78b518
 tags:
   1.10--h2e538c0_3: sha256:84a8d0c0acec87448a47cefa60c4f4a545887239fcd7984a58b48e7a6ac86390
   1.11--h6270b1f_0: sha256:141120f19f849b79e05ae2fac981383988445c373b8b5db7f3dd221179af382b
@@ -11,6 +11,7 @@ tags:
   1.13--h8c37831_0: sha256:04da5297386dfae2458a93613a8c60216d158ee7cb9f96188dad71c1952f7f72
   1.14--hb421002_0: sha256:88632c41eba8b94b7a2a1013f422aecf478a0cb278740bcc3a38058c903d61ad
   1.15--h3843a85_0: sha256:d68e1b5f504dc60eb9f2a02eecbac44a63f144e7d455b3fb1a25323c667ca4c4
+  1.15.1--h1170115_0: sha256:c3e0ba2add590177a2e6ea33ae9074dc1f82b99e6913338d3d1c3a70dc78b518
 aliases:
   bgzip: /usr/local/bin/bgzip
   htsfile: /usr/local/bin/htsfile
