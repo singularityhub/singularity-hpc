@@ -3,7 +3,7 @@ layout: container
 name:  "nvcr.io/hpc/gromacs"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/nvcr.io/hpc/gromacs/container.yaml"
-updated_at: "2022-05-01 04:17:53.189323"
+updated_at: "2022-06-01 01:10:41.222109"
 container_url: "https://ngc.nvidia.com/catalog/containers/hpc:gromacs/tags"
 aliases:
  - "python"
@@ -14,6 +14,7 @@ versions:
  - "2021"
  - "2021.3"
  - "2020.2-x86_64"
+ - "2022.1"
 description: "GROMACS is a popular molecular dynamics application used to simulate proteins and lipids."
 ---
 

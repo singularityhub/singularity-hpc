@@ -3,12 +3,13 @@ layout: container
 name:  "ghcr.io/autamus/zlib"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/zlib/container.yaml"
-updated_at: "2022-05-01 04:17:25.026107"
+updated_at: "2022-06-01 01:10:07.603477"
 container_url: "https://github.com/orgs/autamus/packages/container/package/zlib"
 
 versions:
  - "1.2.11"
  - "latest"
+ - "1.2.12"
 description: "zlib is a software library used for data compression. zlib was written by Jean-loup Gailly and Mark Adler and is an abstraction of the DEFLATE compression algorithm used in their gzip file compression program."
 ---
 

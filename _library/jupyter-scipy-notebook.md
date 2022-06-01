@@ -3,7 +3,7 @@ layout: container
 name:  "jupyter/scipy-notebook"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/jupyter/scipy-notebook/container.yaml"
-updated_at: "2022-05-01 04:16:21.004344"
+updated_at: "2022-06-01 01:10:24.500390"
 container_url: "https://hub.docker.com/r/jupyter/scipy-notebook"
 aliases:
  - "run-notebook"
@@ -17,6 +17,7 @@ versions:
  - "2022-01-31"
  - "2021-12-27"
  - "2022-04-25"
+ - "2022-05-31"
 description: "Jupyter Notebook Scientific Python Stack from https://github.com/jupyter/docker-stacks"
 ---
 

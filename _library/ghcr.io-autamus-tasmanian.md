@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/tasmanian"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/tasmanian/container.yaml"
-updated_at: "2022-05-01 04:17:41.444137"
+updated_at: "2022-06-01 01:09:55.603063"
 container_url: "https://github.com/orgs/autamus/packages/container/package/tasmanian"
 aliases:
  - "tasgrid"

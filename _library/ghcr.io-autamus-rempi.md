@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/rempi"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/rempi/container.yaml"
-updated_at: "2022-05-01 04:16:49.336021"
+updated_at: "2022-06-01 01:10:18.602182"
 container_url: "https://github.com/orgs/autamus/packages/container/package/rempi"
 aliases:
  - "rempi"
