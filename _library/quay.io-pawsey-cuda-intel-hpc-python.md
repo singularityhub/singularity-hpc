@@ -3,7 +3,7 @@ layout: container
 name:  "quay.io/pawsey/cuda-intel-hpc-python"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/pawsey/cuda-intel-hpc-python/container.yaml"
-updated_at: "2022-06-01 01:08:12.391942"
+updated_at: "2022-06-01 02:27:09.480096"
 container_url: "https://quay.io/repository/pawsey/cuda-intel-hpc-python"
 aliases:
  - "python"

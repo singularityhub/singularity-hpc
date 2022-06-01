@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/lammps"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/lammps/container.yaml"
-updated_at: "2022-06-01 01:09:00.190416"
+updated_at: "2022-06-01 02:27:52.883626"
 container_url: "https://github.com/orgs/autamus/packages/container/package/lammps"
 
 versions:
