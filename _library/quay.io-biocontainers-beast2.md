@@ -3,7 +3,7 @@ layout: container
 name:  "quay.io/biocontainers/beast2"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/beast2/container.yaml"
-updated_at: "2022-06-02 03:39:53.443871"
+updated_at: "2022-06-02 04:05:29.328977"
 container_url: "https://quay.io/repository/biocontainers/beast2"
 aliases:
  - "beast"
