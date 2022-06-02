@@ -73,7 +73,7 @@ class WrapperScript:
                     "%s designated as a template wrapper script, but it does not exist."
                     % self.wrapper_template
                 )
-            self.template_file = self.wrapper_template
+            template_file = self.wrapper_template
 
         else:
             # Otherwise, check that the template wrapper is found in one of the
@@ -81,7 +81,6 @@ class WrapperScript:
             for template_path in template_paths:
                 template_file = os.path.join(template_path, self.wrapper_template)
                 if os.path.exists(template_file):
-                    self.template_file = template_file
                     break
             else:
                 logger.exit(
@@ -92,7 +91,7 @@ class WrapperScript:
         # Once the full path of the template wrapper has been determined, add
         # its own directory to the search (highest precedence) to honour its
         # possible inclusions
-        template_paths = [os.path.dirname(self.template_file)] + template_paths
+        template_paths = [os.path.dirname(template_file)] + template_paths
         return template_paths
 
     def load_template(self, wrapper_template, include_container_dir=False):
