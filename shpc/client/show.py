@@ -8,4 +8,7 @@ def main(args, parser, extra, subparser):
     from shpc.main import get_client
 
     cli = get_client(quiet=args.quiet, settings_file=args.settings_file)
+
+    # Update config settings on the fly
+    cli.settings.update_params(args.config_params)
     cli.show(args.name, names_only=not args.versions, filter_string=args.filter_string)

@@ -6,22 +6,24 @@ __license__ = "MPL 2.0"
 from shpc.logger import logger
 import shpc.defaults as defaults
 import shpc.main.schemas
-import shpc.utils
+import shpc.utils as utils
 import shutil
 
 try:
-    from ruamel_yaml import YAML
     from ruamel_yaml.comments import CommentedSeq
 except:
-    from ruamel.yaml import YAML
     from ruamel.yaml.comments import CommentedSeq
 
 from datetime import datetime
 import jsonschema
 import os
+import re
 
 
 def OrderedList(*l):
+    """
+    Preserve ordering when saved to yaml
+    """
     ret = CommentedSeq(l)
     ret.fa.set_flow_style()
     return ret
@@ -64,21 +66,22 @@ class SettingsBase:
         shutil.copyfile(self.settings_file, defaults.user_settings_file)
         logger.info("Created user settings file %s" % defaults.user_settings_file)
 
-    def edit(self):
+    def edit(self, settings_file=None):
         """
-        Interactively edit a config file.
+        Interactively edit a config (or other) file.
         """
-        if not self.settings_file or not os.path.exists(self.settings_file):
-            logger.exit("Settings file not found.")
+        settings_file = settings_file or self.settings_file
+        if not settings_file or not os.path.exists(settings_file):
+            logger.exit("%s does not exist." % settings_file)
 
         # Make sure editor exists first!
-        editor = shpc.utils.which(self.config_editor)
+        editor = utils.which(self.config_editor)
         if editor["return_code"] != 0:
             logger.exit(
                 "Editor '%s' not found! Update with shpc config set config_editor:<name>"
                 % self.config_editor
             )
-        shpc.utils.run_command([self.config_editor, self.settings_file], stream=True)
+        utils.run_command([self.config_editor, settings_file], stream=True)
 
     def get_settings_file(self, settings_file=None):
         """
@@ -103,18 +106,12 @@ class SettingsBase:
         if not os.path.exists(self.settings_file):
             logger.exit("%s does not exist." % self.settings_file)
 
-        # Default to round trip so we can save comments
-        yaml = YAML()
-        yaml.preserve_quotes = True
-
         # Always load default settings first
-        with open(defaults.default_settings_file, "r") as fd:
-            self._settings = yaml.load(fd.read())
+        self._settings = utils.read_yaml(defaults.default_settings_file)
 
         # Update with user or custom settings if not equal to default
         if self.settings_file != defaults.default_settings_file:
-            with open(self.settings_file, "r") as fd:
-                self._settings.update(yaml.load(fd.read()))
+            self._settings.update(utils.read_yaml(self.settings_file))
 
     def get(self, key, default=None):
         """
@@ -267,14 +264,54 @@ class SettingsBase:
         filename = filename or self.settings_file
         if not filename:
             logger.exit("A filename is required to save to.")
-        yaml = YAML()
-
-        with open(filename, "w") as fd:
-            yaml.dump(self._settings, fd)
+        utils.write_yaml(self._settings, filename)
 
     def __iter__(self):
         for key, value in self.__dict__.items():
             yield key, value
+
+    def update_params(self, params):
+        """
+        Update a configuration on the fly (no save) only for set/add/remove.
+        Unlike the traditional set/get/add functions, this function expects
+        each entry in the params list to start with the action, e.g.:
+
+        set:name:value
+        add:name:value
+        rm:name:value
+        """
+        # Cut out early if params not provided
+        if not params:
+            return
+
+        for param in params:
+            if not re.search("^(add|set|rm)", param, re.IGNORECASE) or ":" not in param:
+                logger.warning(
+                    "Parameter update request must start with (add|set|rm):, skipping %s"
+                )
+            command, param = param.split(":", 1)
+            self.update_param(command.lower(), param)
+
+    def update_param(self, command, param):
+        """
+        Given a parameter, update the configuration on the fly if it's in set/add/remove
+        """
+        if ":" not in param:
+            logger.warning(
+                "Param %s is missing a :, should be key:value pair. Skipping." % param
+            )
+            return
+
+        key, value = param.split(":", 1)
+        if command == "set":
+            self.set(key, value)
+            logger.info("Updated %s to be %s" % (key, value))
+        elif command == "add":
+            self.add(key, value)
+            logger.info("Added %s to %s" % (key, value))
+        elif command == "remove":
+            self.remove(key, value)
+            logger.info("Removed %s from %s" % (key, value))
 
 
 class Settings(SettingsBase):

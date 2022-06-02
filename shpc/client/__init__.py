@@ -40,6 +40,17 @@ def get_parser():
         help="custom path to settings file.",
     )
 
+    # On the fly updates to config params
+    parser.add_argument(
+        "-c",
+        dest="config_params",
+        help=""""customize a config value on the fly to ADD/SET/REMOVE for a command
+shpc -c set:key:value <command> <args>
+shpc -c add:registry:/tmp/registry <command> <args>
+shpc -c rm:registry:/tmp/registry""",
+        action="append",
+    )
+
     parser.add_argument(
         "--version",
         dest="version",
@@ -88,6 +99,26 @@ def get_parser():
     install.add_argument(
         "install_recipe",
         help="recipe to install\nshpc install python\nshpc install python:3.9.5-alpine",
+    )
+    install.add_argument(
+        "--view",
+        dest="view",
+        help="install module to a named view (must be installed to shpc first).",
+        default=None,
+    )
+    install.add_argument(
+        "--no-view",
+        dest="no_view",
+        help="skip installing to the default view, if defined in settings.",
+        action="store_true",
+    )
+    install.add_argument(
+        "--force",
+        "-f",
+        dest="force",
+        help="replace existing symlinks",
+        default=False,
+        action="store_true",
     )
 
     # List installed modules
@@ -141,6 +172,33 @@ def get_parser():
     )
     check.add_argument("module_name", help="module to check (module:version)")
 
+    view = subparsers.add_parser(
+        "view",
+        description="view control to create, install, and uninstall",
+        formatter_class=argparse.RawTextHelpFormatter,
+    )
+    view.add_argument(
+        "params",
+        nargs="*",
+        help="""View control. A view name is always required.
+shpc view create <name>
+shpc view delete <name>
+shpc view get <name>
+shpc view list <name>
+shpc view install <name> <module>
+shpc view uninstall <name> <module>
+shpc view edit <name>""",
+        type=str,
+    )
+    view.add_argument(
+        "--force",
+        "-f",
+        dest="force",
+        help="force install or uninstall",
+        default=False,
+        action="store_true",
+    )
+
     config = subparsers.add_parser(
         "config",
         description="update configuration settings. Use set or get to see or set information.",
@@ -149,7 +207,6 @@ def get_parser():
 
     config.add_argument(
         "--central",
-        "-c",
         dest="central",
         help="make edits to the central config file.",
         default=False,
@@ -249,20 +306,21 @@ shpc config remove registry:/tmp/registry""",
 
     # Add customization for each of container tech and module system
     for command in [
-        install,
-        uninstall,
-        shell,
-        inspect,
         add,
-        get,
         check,
-        test,
-        listing,
         docgen,
+        get,
+        inspect,
+        install,
+        listing,
+        shell,
+        test,
+        uninstall,
+        view,
     ]:
         command.add_argument(
             "--module-sys",
-            dest="module",
+            dest="module_sys",
             help="module system to use (defaults to lmod)",
             choices=["lmod", "tcl"],
             default=None,
@@ -382,6 +440,8 @@ def run_shpc():
         from .show import main
     elif args.command == "test":
         from .test import main
+    elif args.command == "view":
+        from .view import main
     elif args.command == "uninstall":
         from .uninstall import main
     elif args.command == "update":
@@ -389,11 +449,11 @@ def run_shpc():
 
     # Pass on to the correct parser
     return_code = 0
-    #    try:
-    main(args=args, parser=parser, extra=extra, subparser=helper)
-    sys.exit(return_code)
-    #    except UnboundLocalError:
-    #        return_code = 1
+    try:
+        main(args=args, parser=parser, extra=extra, subparser=helper)
+        sys.exit(return_code)
+    except UnboundLocalError:
+        return_code = 1
 
     help(return_code)
 

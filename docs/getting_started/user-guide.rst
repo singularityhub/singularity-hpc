@@ -52,6 +52,11 @@ You can then easily install, load, and use modules:
     $ module load biocontainers/samtools
     $ samtools
 
+Or set a configuration value on the fly for any command:
+
+.. code-block:: console
+
+    $ shpc install -c set:views_base:/tmp/views biocontainers/samtools
 
 The above assumes that you've installed the software, and have already
 added the modules folder to be seen by your module software. If your module
@@ -174,6 +179,12 @@ variable replacement. A summary table of variables is included below, and then f
    * - container_tech
      - The container technology to use (singularity or podman)
      - singularity
+   * - views_base
+     - The default root for creating custom views. Defaults to ``views`` in the root directory.
+     - $root_dir/views
+   * - default_view
+     - Install to this default view (e.g., meaning you always create a second symlink tree of the same modules)
+     - unset
    * - updated_at
      - a timestamp to keep track of when you last saved
      - never
@@ -232,6 +243,14 @@ variable replacement. A summary table of variables is included below, and then f
      - A key, value paired set of features to add to the container (see table below)
      - All features default to null
 
+
+Note that any configuration value can be set permanently by using ``shpc config``
+or manually editing the file, but you can also set config values "one off." As an example,
+here is a "one off" command to install to a different shpc module root:
+
+.. code-block:: console
+
+    $ shpc install -c set:modules_base:/tmp/modules ghcr.io/autamus/clingo
 
 These settings will be discussed in more detail in the following sections.
 
@@ -358,6 +377,7 @@ you can add or remove entries via the config variable ``registry``
 
 # Note that "add" is used for lists of things (e.g., the registry config variable is a list)
 and "set" is used to set a key value pair.
+
 
 
 Default Version
@@ -563,6 +583,296 @@ Since we don't allow overlap
 of the name of an alias wrapper script (e.g., ``bin/python`` as a wrapper to a python entrypoint) from a custom container wrapper script (e.g., a wrapper script with name "python" under a container.yaml) we can keep them both in the modules directory. If you see a need to put them elsewhere please let us know. 
 
 .. _getting_started-commands:
+
+
+Views
+=====
+
+A view is a custom splicing of a set of installed modules that are intended to be used together, or loaded
+with other system modules. The concept is similar to a database in that you can only include in the view
+what you have in your shpc install, and the views themselves are done via symlinks to not redundantly store
+containers. If you want to generate a separate, non-symlink view, the suggested approach is to simply
+use a different shpc install.
+
+Views Base
+----------
+
+By default, your modules are installed to your ``module_base`` described in settings with a complete
+namespace, meaning the full name of the container registry from where they arise. We do this so that the namespace
+is consistent and there are no conflicts. However, for views we use a simplified tree to install from,
+meaning the module full names are _just_ the final container name. As an example, ``ghcr.io/autamus/clingo`` in
+a view would simply install to ``clingo``.
+
+Views are installed to the ``views_base`` in your settings, which defaults to 
+``$root_dir/views``. To create a new named view:
+
+
+Creating a New View
+-------------------
+
+To create a new view, you just need to provide a name to ``shpc view create``:
+
+.. code-block:: console
+
+    $ shpc view create mpi
+    View mpi was created in /home/vanessa/Desktop/Code/shpc/views/mpi
+
+The above would be an example to create a new named "mpi," perhaps for a specific kind of mpi
+container to be installed there. Since it will be under the same directory, you'll be able to use
+this custom set of modules together. You can also create a view from an existing view.yaml file,
+perhaps one of your own existint views or one that has been shared with you!
+
+
+.. code-block:: console
+
+    $ shpc view create second-mpi views/mpi/view.yaml
+    Creating link $module_base/ghcr.io/autamus/clingo/5.5.1/module.lua -> $views_base/second-mpi/clingo/5.5.1.lua
+    Module ghcr.io/autamus/emacs:27.2 was created.
+    Creating link $module_base/ghcr.io/autamus/emacs/27.2/module.lua -> $views_base/second-mpi/emacs/27.2.lua
+
+
+Loading a View
+--------------
+
+When you are ready to use your view, the "get" command returns the path:
+
+.. code-block:: console
+
+    $ shpc view get mpi
+    /home/vanessa/Desktop/Code/shpc/views/mpi
+
+So you will be able to load as follows:
+
+.. code-block:: console
+
+    $ module use $(shpc view get mpi)
+
+
+Installing Modules to a View
+----------------------------
+
+Installing a module means generating a symlink for a module to your view, and with a
+shortened name. We do this assuming that views are always smaller versions of the entire
+module tree, and that we want them to be easier to interact with (e.g., shorter names).
+To make interactions as easy as possible, if you install a module to your view that does 
+not exist in the main shpc tree, it will be installed there first and linked. When you
+ask to install a module, always refer to the full name:
+
+.. code-block:: console
+
+    # install to the mpi view the module "ghcr.io/autamus/clingo"
+    $ shpc view install mpi ghcr.io/autamus/clingo
+    Module ghcr.io/autamus/clingo:5.5.1 was created.
+    Creating link $module_base/ghcr.io/autamus/clingo/5.5.1/module.lua -> $views_base/mpi/clingo/5.5.1.lua
+
+
+This will create symlinks to your previously installed modules in the view:
+
+.. code-block:: console
+
+    $ tree views
+    views/
+    └── mpi
+        ├── clingo
+        │   └── 5.5.1.lua -> /home/vanessa/Desktop/Code/shpc/modules/ghcr.io/autamus/clingo/5.5.1/module.lua
+        └── view.yaml
+
+Since we are linking the same file, the same containers will be shared.
+
+Always Install to a View
+------------------------
+
+If you always want to install to an (existing) named view, simply set the ``default_view`` to a name:
+
+.. code-block:: console
+
+    $ shpc config set default_view:mpi
+
+You should obviously create the view first or you'll get an error message that it does not exist!
+When you have a default view set, any install that you do will install to the module base and also your view.
+
+.. code-block:: console
+
+    $ shpc install ghcr.io/autamus/emacs
+    ...
+    Module ghcr.io/autamus/emacs:27.2 was created.
+    Creating link $module_base/ghcr.io/autamus/emacs/27.2/module.lua -> $views_base/mpi/emacs/27.2.lua
+
+And we can confirm it was created!
+
+.. code-block:: console
+
+    $ tree views/mpi
+    views/mpi/
+    ├── clingo
+    │   └── 5.5.1.lua -> /home/vanessa/Desktop/Code/shpc/modules/ghcr.io/autamus/clingo/5.5.1/module.lua
+    ├── emacs
+    │   └── 27.2.lua -> /home/vanessa/Desktop/Code/shpc/modules/ghcr.io/autamus/emacs/27.2/module.lua
+    └── view.yaml
+
+The above can be useful for a permanent view you want to install everything to, or if you want to enable a view
+for a short period of time to install to it. If you want to disable this, then just do:
+
+.. code-block:: console
+
+    $ shpc config set default_view:null
+
+And note you can also ask to install to a view "one off":
+
+.. code-block:: console
+
+    $ shpc install --view mpi ghcr.io/autamus/emacs
+
+
+List Views
+----------
+
+If you want to list the views, just do:
+
+.. code-block:: console
+
+    $ shpc view list
+                   mpi
+            second-mpi
+
+In the example above you have two views, mpi and second-mpi, and each
+has it's own tree in views:
+
+.. code-block:: console
+
+    views/
+    ├── mpi
+    |   ...
+    │   └── view.yaml
+    └── second-mpi
+        ...
+        └── view.yaml
+
+
+List Modules Installed to a View
+--------------------------------
+
+Listing modules installed to a view looks like the following:
+
+.. code-block:: console
+
+    $ shpc view list mpi
+        ghcr.io/autamus/emacs:27.2
+
+This is read directly from the view.yaml file.
+
+Edit a View
+-----------
+
+While this isn't yet going to be useful (since we don't have additional modules to load)
+you can technically edit a view as follows:
+
+.. code-block:: console
+
+    $ shpc view edit mpi
+
+This might be just an easy way to view it for the time being!
+
+Add System Modules to a View
+----------------------------
+
+Views have support for customization, such as a system module that you always want loaded.
+We do this by way of an extra view_module that is generated in the root of the view (and
+always attempted to be loaded) by the installed modules. For example, let's say that when
+we load a view module named mpi, we always want to load a system module named "openmpi" and "mymod." We could do:
+
+.. code-block:: console
+
+    $ shpc view add mpi system_modules openmpi mymod
+    Wrote updated .view_module: /home/vanessa/Desktop/Code/shpc/views/mpi/.view_module
+    
+The add command always requires a named view attribute (e.g.,``system_modules`` is a list) and
+then one or more values to add to it. This will write the view module to your view,
+and the module file symlinked should always attempt to try loading it. Note that if you are using
+modules version `earlier than 4.8 <https://github.com/cea-hpc/modules/issues/392>`_ the ``try-load``
+command is not available so you will not have support for view customizations.
+
+Remove System Modules from A View
+---------------------------------
+
+Of course an "add" command would not be complete without a "remove" command! To remove modules:
+
+.. code-block:: console
+
+    $ shpc view remove mpi system_modules mymod
+    Wrote updated .view_module: /home/vanessa/Desktop/Code/shpc/views/mpi/.view_module
+
+
+Note that if you edit the files manually, you would need to edit the view.yaml AND the hidden
+.view_module that is always updated from it.
+
+
+Delete a View
+-------------
+
+If you want to nuke a view, just ask for it to be deleted.
+
+.. code-block:: console
+
+    $ shpc view delete mpi
+
+
+By default you'll be asked for a confirmation. To force deletion:
+
+.. code-block:: console
+
+     $ shpc view delete mpi --force
+
+
+Uninstall from a View
+---------------------
+
+Uninstalling from a view is simply removing the symbolic link for a module, and it does
+not influence your module tree. You can uninstall either a specific symlinked version:
+
+.. code-block:: console
+
+     $ shpc view uninstall mpi ghcr.io/autamus/emacs:27.2
+
+Or the entire tree of symlinks (e.g., all versions of emacs that are symlinked):
+
+.. code-block:: console
+
+     $ shpc view uninstall mpi ghcr.io/autamus/emacs
+
+
+If you look in the view.yaml, it will be updated with what you install or uninstall. We do this
+so you can share the file with a collaborator and then can regenerate the view, discussed next.
+
+
+Using a View
+-------------
+
+You can easily use a view as follows:
+
+.. code-block:: console
+
+    $ module use $(shpc view get mpi)
+    $ module load clingo/5.5.1
+
+
+This is much more efficient compared to the install that uses the full paths:
+
+.. code-block:: console
+
+    $ module use ./modules
+    $ module load ghcr.io/autamus/clingo/5.5.1/module
+
+
+Since we install based on the container name *and* version tag, this even gives you
+the ability to install versions from different container bases in the same root.
+If there is a conflict, you will be given the option to exit (and abort) or continue.
+
+
+.. warning::
+
+    Be cautious about creating symlinks in containers or other contexts where a bind
+    could eliminate the symlink or make the path non-existent.
 
 
 Commands

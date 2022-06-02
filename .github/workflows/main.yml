@@ -57,5 +57,6 @@ jobs:
           pyflakes shpc/client/pull.py
           pyflakes shpc/client/show.py
           pyflakes shpc/client/test.py
+          pyflakes shpc/client/view.py
           pyflakes shpc/client/uninstall.py
           pyflakes shpc/main/wrappers

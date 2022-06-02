@@ -10,10 +10,12 @@ def main(args, parser, extra, subparser):
     cli = get_client(
         quiet=args.quiet,
         settings_file=args.settings_file,
-        module=args.module,
+        module_sys=args.module_sys,
         container_tech=args.container_tech,
     )
 
+    # Update config settings on the fly
+    cli.settings.update_params(args.config_params)
     result = cli.get(args.module_name, args.env_file)
     if result:
         print(result)
