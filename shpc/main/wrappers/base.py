@@ -48,7 +48,10 @@ class WrapperScript:
         """
         return self.kwargs["module_dir"]
 
-    def find_wrapper_script(self, include_container_dir):
+    def get_template_paths(self, include_container_dir):
+        """
+        Establishes the list of paths in which to search the templates and their dependencies
+        """
 
         # Where to find the template and the files it may include
         # Lowest precedence: default location shipped with shpc
@@ -68,14 +71,21 @@ class WrapperScript:
         if include_container_dir:
             template_paths = [self.container_dir] + template_paths
 
-        # If the given path is absolute, confirm it exists
+        return template_paths
+
+    def find_wrapper_script(self, template_paths):
+        """
+        Finds the exact, absolute, path of the template, given a list of search directories
+        """
+
+        # If the given wrapper path is absolute, confirm it exists
         if os.path.isabs(self.wrapper_template):
             if not os.path.exists(self.wrapper_template):
                 logger.exit(
                     "%s designated as a template wrapper script, but it does not exist."
                     % self.wrapper_template
                 )
-            template_file = self.wrapper_template
+            return self.wrapper_template
 
         else:
             # Otherwise, check that the template wrapper is found in one of the
@@ -83,25 +93,24 @@ class WrapperScript:
             for template_path in template_paths:
                 template_file = os.path.join(template_path, self.wrapper_template)
                 if os.path.exists(template_file):
-                    break
+                    return template_file
             else:
                 logger.exit(
                     "%s not found in %s."
                     % (self.wrapper_template, ", ".join(template_paths))
                 )
 
-        # Once the full path of the template wrapper has been determined, add
-        # its own directory to the search (highest precedence) to honour its
-        # possible inclusions
-        template_paths = [os.path.dirname(template_file)] + template_paths
-        return template_paths
-
     def load_template(self, include_container_dir=False):
         """
         Load the wrapper template.
         """
 
-        template_paths = self.find_wrapper_script(include_container_dir)
+        template_paths = self.get_template_paths(include_container_dir)
+        template_file = self.find_wrapper_script(template_paths)
+        # Once the full path of the template wrapper has been determined, add
+        # its own directory to the search (highest precedence) to honour its
+        # possible inclusions
+        template_paths = [os.path.dirname(template_file)] + template_paths
         loader = FileSystemLoader(template_paths)
         env = Environment(loader=loader)
         self.template = env.get_template(self.wrapper_template)
