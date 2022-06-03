@@ -86,9 +86,9 @@ If you want to inspect aliases available or singularity commands to debug:
        This module is a singularity container wrapper for tensorflow/tensorflow v2.2.2
        Commands include:
         - tensorflow-tensorflow-shell:
-               singularity shell -s /bin/bash /usr/WS2/sochat1/singularity-hpc/modules/tensorflow/tensorflow/2.2.2/tensorflow-tensorflow-2.2.2-sha256:e2cde2bb70055511521d995cba58a28561089dfc443895fd5c66e65bbf33bfc0.sif
+               singularity shell -s /bin/bash /home/shpc-user/singularity-hpc/modules/tensorflow/tensorflow/2.2.2/tensorflow-tensorflow-2.2.2-sha256:e2cde2bb70055511521d995cba58a28561089dfc443895fd5c66e65bbf33bfc0.sif
         - python:
-               singularity exec --nv /usr/WS2/sochat1/singularity-hpc/modules/tensorflow/tensorflow/2.2.2/tensorflow-tensorflow-2.2.2-sha256:e2cde2bb70055511521d995cba58a28561089dfc443895fd5c66e65bbf33bfc0.sif /usr/local/bin/python”)
+               singularity exec --nv /home/shpc-user/singularity-hpc/modules/tensorflow/tensorflow/2.2.2/tensorflow-tensorflow-2.2.2-sha256:e2cde2bb70055511521d995cba58a28561089dfc443895fd5c66e65bbf33bfc0.sif /usr/local/bin/python”)
 
 
 
@@ -167,9 +167,9 @@ loaded, just do:
        This module is a singularity container wrapper for python v3.9.2-slim
        Commands include:
         - python-shell:
-           singularity shell -s /bin/bash /usr/WS2/sochat1/singularity-hpc/modules/python/3.9.2-slim/python-3.9.2-slim-    sha256:85ed629e6ff79d0bf796339ea188c863048e9aedbf7f946171266671ee5c04ef.sif
+           singularity shell -s /bin/bash /home/shpc-user/singularity-hpc/modules/python/3.9.2-slim/python-3.9.2-slim-    sha256:85ed629e6ff79d0bf796339ea188c863048e9aedbf7f946171266671ee5c04ef.sif
         - python:
-           singularity exec /usr/WS2/sochat1/singularity-hpc/modules/python/3.9.2-slim/python-3.9.2-slim-sha256:85ed629e6ff79d0bf796339ea188c863048e9aedbf7f946171266671ee5c04ef.sif /usr/local/bin/python”)
+           singularity exec /home/shpc-user/singularity-hpc/modules/python/3.9.2-slim/python-3.9.2-slim-sha256:85ed629e6ff79d0bf796339ea188c863048e9aedbf7f946171266671ee5c04ef.sif /usr/local/bin/python”)
     
     
 The above not only shows you the description, but also the commands if you
@@ -243,8 +243,8 @@ or the same shell, ``vanessa-salad-latest-shell``. Of course you can check this 
        This module is a singularity container wrapper for vanessa-salad-latest vNone
        Commands include:
         - vanessa-salad-latest-shell:
-           singularity shell -s /bin/bash /usr/WS2/sochat1/singularity-hpc/modules/vanessa/salad/latest/vanessa-salad-latest-sha256:71d1f3e42c1ceee9c02295577c9c6dfba4f011d9b8bce82ebdbb6c187b784b35.sif
-        - vanessa-salad-latest: singularity run /usr/WS2/sochat1/singularity-hpc/modules/vanessa/salad/latest/vanessa-salad-latest-sha256:71d1f3e42c1ceee9c02295577c9c6dfba4f011d9b8bce82ebdbb6c187b784b35.sif
+           singularity shell -s /bin/bash /home/shpc-user/singularity-hpc/modules/vanessa/salad/latest/vanessa-salad-latest-sha256:71d1f3e42c1ceee9c02295577c9c6dfba4f011d9b8bce82ebdbb6c187b784b35.sif
+        - vanessa-salad-latest: singularity run /home/shpc-user/singularity-hpc/modules/vanessa/salad/latest/vanessa-salad-latest-sha256:71d1f3e42c1ceee9c02295577c9c6dfba4f011d9b8bce82ebdbb6c187b784b35.sif
 
 
 And then use them! For example, the command without ``-shell`` just runs the container:
