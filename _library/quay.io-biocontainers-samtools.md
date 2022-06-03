@@ -3,7 +3,7 @@ layout: container
 name:  "quay.io/biocontainers/samtools"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/samtools/container.yaml"
-updated_at: "2022-06-02 04:05:33.873428"
+updated_at: "2022-06-03 04:17:23.041039"
 container_url: "https://quay.io/repository/biocontainers/samtools"
 aliases:
  - "bgzip"
