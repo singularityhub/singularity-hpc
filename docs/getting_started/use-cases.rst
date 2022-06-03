@@ -167,7 +167,7 @@ loaded, just do:
        This module is a singularity container wrapper for python v3.9.2-slim
        Commands include:
         - python-shell:
-           singularity shell -s /bin/bash /home/shpc-user/singularity-hpc/modules/python/3.9.2-slim/python-3.9.2-slim-    sha256:85ed629e6ff79d0bf796339ea188c863048e9aedbf7f946171266671ee5c04ef.sif
+           singularity shell -s /bin/bash /home/shpc-user/singularity-hpc/modules/python/3.9.2-slim/python-3.9.2-slim-sha256:85ed629e6ff79d0bf796339ea188c863048e9aedbf7f946171266671ee5c04ef.sif
         - python:
            singularity exec /home/shpc-user/singularity-hpc/modules/python/3.9.2-slim/python-3.9.2-slim-sha256:85ed629e6ff79d0bf796339ea188c863048e9aedbf7f946171266671ee5c04ef.sif /usr/local/bin/python”)
     
