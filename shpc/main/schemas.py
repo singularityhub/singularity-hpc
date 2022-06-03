@@ -139,6 +139,8 @@ settingsProperties = {
         ]
     },
     "enable_tty": {"type": "boolean"},
+    "views_base": {"type": ["string", "null"]},
+    "default_view": {"type": ["string", "null"]},
     "wrapper_scripts": wrapper_scripts,
     "container_tech": {"type": "string", "enum": ["singularity", "podman", "docker"]},
     "singularity_shell": {"type": "string", "enum": shells},
@@ -166,5 +168,31 @@ settings = {
         "container_features",
     ],
     "properties": settingsProperties,
+    "additionalProperties": False,
+}
+
+# Views
+
+viewProperties = {
+    "system_modules": {"type": "array", "items": {"type": "string"}},
+    "modules": {"type": "array", "items": {"type": "string"}},
+    "name": {"type": "string"},
+}
+
+
+views = {
+    "$schema": schema_url,
+    "title": "Views Schema",
+    "type": "object",
+    "required": [
+        "view",
+    ],
+    "properties": {
+        "view": {
+            "type": "object",
+            "properties": viewProperties,
+            "additionalProperties": False,
+        }
+    },
     "additionalProperties": False,
 }

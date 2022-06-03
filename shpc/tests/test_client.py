@@ -12,31 +12,7 @@ import os
 import io
 
 import shpc.utils
-from shpc.main import get_client
-
-here = os.path.dirname(os.path.abspath(__file__))
-root = os.path.dirname(here)
-
-
-def init_client(tmpdir, module_sys, container_tech):
-    """Get a common client for singularity and lmod"""
-    settings_file = os.path.join(root, "settings.yml")
-    new_settings = os.path.join(tmpdir, "settings.yml")
-    shutil.copyfile(settings_file, new_settings)
-    client = get_client(
-        quiet=False,
-        settings_file=new_settings,
-        module=module_sys,
-        container_tech=container_tech,
-    )
-
-    # The module folder needs to be temporary too
-    modules = os.path.join(tmpdir, "modules")
-    modules = os.path.join(tmpdir, "containers")
-    client.settings.set("module_base", modules)
-    client.settings.set("container_base", modules)
-    client.settings.save()
-    return client
+from .helpers import here, init_client
 
 
 @pytest.mark.parametrize(
@@ -49,7 +25,9 @@ def init_client(tmpdir, module_sys, container_tech):
     ],
 )
 def test_install_get(tmp_path, module_sys, module_file, container_tech):
-    """Test install and get"""
+    """
+    Test install and get
+    """
     client = init_client(str(tmp_path), module_sys, container_tech)
 
     # Install known tag
@@ -66,6 +44,8 @@ def test_install_get(tmp_path, module_sys, module_file, container_tech):
     assert os.path.exists(env_file)
 
     assert client.get("python:3.9.2-alpine")
+
+    client.install("python:3.9.2-alpine")
 
 
 @pytest.mark.parametrize(
@@ -222,7 +202,9 @@ def test_docgen(tmp_path, module_sys):
     ],
 )
 def test_inspect(tmp_path, module_sys, container_tech):
-    """Test inspect"""
+    """
+    Test inspect
+    """
     client = init_client(str(tmp_path), module_sys, container_tech)
     client.install("python:3.9.2-slim")
     # Python won't have much TODO we should test a custom container

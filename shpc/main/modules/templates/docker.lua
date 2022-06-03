@@ -34,14 +34,16 @@ For each of the above, you can export:
  - PODMAN_COMMAND_OPTS: to define custom options for the command
 ]]) 
 
+{% include "includes/default_version.lua" %}
+{% include "includes/load_view.lua" %}
 {% if settings.podman_module %}load("{{ settings.podman_module }}"){% endif %}
 
 -- Environment: only set options and command options if not already set
 if not os.getenv("PODMAN_OPTS") then setenv ("PODMAN_OPTS", "") end
 if not os.getenv("PODMAN_COMMAND_OPTS") then setenv ("PODMAN_COMMAND_OPTS", "") end
 
--- directory containing this modulefile (dynamically defined)
-local moduleDir = myFileName():match("(.*[/])") or "."
+-- directory containing this modulefile, once symlinks resolved (dynamically defined)
+local moduleDir = subprocess("realpath " .. myFileName()):match("(.*[/])") or "."
 
 -- interactive shell to any container, plus exec for aliases
 local containerPath = '{{ image }}'

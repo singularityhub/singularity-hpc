@@ -10,7 +10,10 @@ def main(args, parser, extra, subparser):
     cli = get_client(
         quiet=args.quiet,
         settings_file=args.settings_file,
-        module=args.module,
+        module_sys=args.module_sys,
         container_tech=args.container_tech,
     )
-    cli.uninstall(args.uninstall_recipe, args.force)
+
+    # Update config settings on the fly
+    cli.settings.update_params(args.config_params)
+    cli.uninstall(args.uninstall_recipe, force=args.force)

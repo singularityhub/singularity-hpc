@@ -41,6 +41,8 @@ proc ModulesHelp { } {
 
 }
 
+{% include "includes/load_view.tcl" %}
+
 # Environment - only set if not already defined
 if { ![info exists ::env(SINGULARITY_OPTS)] } {
     setenv SINGULARITY_OPTS ""
@@ -61,8 +63,8 @@ set helpcommand "This module is a singularity container wrapper for {{ name }} v
 {% if labels %}{% for key, value in labels.items() %}set {{ key }} "{{ value }}"
 {% endfor %}{% endif %}
 
-# directory containing this modulefile (dynamically defined)
-set moduleDir   "[file dirname ${ModulesCurrentModulefile}]"
+# directory containing this modulefile, once symlinks resolved (dynamically defined)
+set moduleDir   [file dirname [expr { [string equal [file type ${ModulesCurrentModulefile}] "link"] ? [file readlink ${ModulesCurrentModulefile}] : ${ModulesCurrentModulefile} }]]
 
 # conflict with modules with the same alias name
 conflict {{ parsed_name.tool }}

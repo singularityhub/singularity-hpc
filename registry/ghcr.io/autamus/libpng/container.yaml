@@ -3,10 +3,10 @@ url: https://github.com/orgs/autamus/packages/container/package/libpng
 maintainer: '@vsoch'
 description: libpng is the official PNG reference library.
 latest:
-  1.6.37: sha256:6d372577bfd52d2a15a97c072694199d4f0440e77cd098c6f6d5bdf17679aeb8
+  1.6.37: sha256:d7a0870b2bbf44308f510198267556e71a72fea9f137731e48234eae24abd17e
 tags:
-  1.6.37: sha256:6d372577bfd52d2a15a97c072694199d4f0440e77cd098c6f6d5bdf17679aeb8
-  latest: sha256:6d372577bfd52d2a15a97c072694199d4f0440e77cd098c6f6d5bdf17679aeb8
+  1.6.37: sha256:d7a0870b2bbf44308f510198267556e71a72fea9f137731e48234eae24abd17e
+  latest: sha256:d7a0870b2bbf44308f510198267556e71a72fea9f137731e48234eae24abd17e
 aliases:
   libpng-config: /opt/view/bin/libpng-config
   libpng16-config: /opt/view/bin/libpng16-config
