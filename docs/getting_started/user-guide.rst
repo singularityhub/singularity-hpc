@@ -397,8 +397,8 @@ Module Names
 
 The setting ``module_name`` is a format string in `Jinja2 <https://jinja.palletsprojects.com/en/3.0.x/>`_ 
 that is used to generate your module command names. For each module, in addition
-to aliases that are custom to the module, a set of commands for run, inspect, exec,
-and shell are generated. These commands will use the ``module_name`` format string
+to aliases that are custom to the module, a set of commands for run, exec,
+shell, inspect, and container are generated. These commands will use the ``module_name`` format string
 to determine their names. For example, for a python container with the default ``module_name``
 of "{{ tool }}" we will derive the following aliases for a Singularity module:
 
@@ -409,6 +409,7 @@ of "{{ tool }}" we will derive the following aliases for a Singularity module:
     python-exec
     python-inspect-deffile
     python-inspect-runscript
+    python-container
 
 A container identifier is parsed as follows:
 
@@ -431,6 +432,7 @@ If you change the format string to ``{{ tool }}-{{ version }}`` you would see:
     python-3.9.5-alpine-exec
     python-3.9.5-alpine-deffile
     python-3.9.5-alpine-runscript
+    python-3.9.5-alpine-container
 
 
 And of course you are free to add any string that you wish, e.g., ``plab-{{ tool }}``

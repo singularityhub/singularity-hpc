@@ -1,0 +1,70 @@
+{
+    "version": "2.0.0",
+    "tasks": 
+    [
+    {
+    "type": "shell",
+    "label": "clang build active file",
+    "command": "${config:1 AOCC.Clang_Compiler_Bin_Path}clang",
+    "args": 
+    [
+    "${config:5 AOCC.C_Optimization_Flags}", 
+    "-march=${config:4 march_Flag}",
+    "${file}",
+    "-o",
+    "${fileDirname}/${fileBasenameNoExtension}"
+    ],
+    "group": 
+    {
+    "kind": "build",
+    "isDefault": true
+    }                    
+    },
+    {
+    "type": "shell",
+    "label": "clang++ build active file",
+    "command": "${config:2 AOCC.Clang++_Compiler_Bin_Path}clang++",
+    "args": 
+    [
+    "${config:6 AOCC.C++_Optimization_Flags}",
+    "-march=${config:4 march_Flag}",
+    "${file}",
+    "-o",
+    "${fileDirname}/${fileBasenameNoExtension}"
+    ],
+    "group": 
+    {
+    "kind": "build",
+    "isDefault": true
+    }
+    },
+    {
+    "type": "shell",
+    "label": "flang build active file",
+    "command": "${config:3 AOCC.Flang_Compiler_Bin_Path}flang",
+    "args": 
+    [
+    "${config:7 AOCC.Fortran_Optimization_Flags}",
+    "-march=${config:4 march_Flag}",
+    "${file}",
+    "-o",
+    "${fileDirname}/${fileBasenameNoExtension}"
+    ],
+    "group": 
+    {
+    "kind": "build",
+    "isDefault": true
+    }
+    },
+    {
+    "type": "shell",
+    "label": "Run active file",
+    "command": "${fileDirname}/${fileBasenameNoExtension}",
+    "group": 
+    {
+    "kind": "test",
+    "isDefault": true
+    }
+    }    
+    ]
+}
