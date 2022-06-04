@@ -55,7 +55,7 @@ if not os.getenv("SINGULARITY_COMMAND_OPTS") then setenv ("SINGULARITY_COMMAND_O
 local containerPath = '{{ container_sif }}'
 -- service environment variable to access full SIF image path
 setenv("SINGULARITY_CONTAINER", containerPath)
-set_shell_function("{|module_name|}-container", "echo " .. containerPath)
+set_shell_function("{|module_name|}-container", "echo " .. "\"" .. containerPath .. "\"")
 
 -- interactive shell to any container, plus exec for aliases
 local shellCmd = "singularity ${SINGULARITY_OPTS} shell ${SINGULARITY_COMMAND_OPTS} -s {{ settings.singularity_shell }} {% if features.gpu %}{{ features.gpu }} {% endif %}{% if features.home %}-B {{ features.home }} --home {{ features.home }} {% endif %}{% if features.x11 %}-B {{ features.x11 }} {% endif %}{% if settings.environment_file %}-B " .. moduleDir .. "/{{ settings.environment_file }}:/.singularity.d/env/{{ settings.environment_file }}{% endif %} {% if settings.bindpaths %}-B {{ settings.bindpaths }}{% endif %} " .. containerPath

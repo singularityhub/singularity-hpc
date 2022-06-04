@@ -101,6 +101,7 @@ jobs:
           cat test_output
           grep --quiet donuts test_output
 
+          echo "${SINGULARITY_CONTAINER}"
           python-container > container_output
           cat container_output
           grep --quiet 'sif' container_output
@@ -153,6 +154,7 @@ jobs:
           printf "\n\nmodule help ============================================\n"
           module help python/3.9.5-alpine
 
+          echo "${SINGULARITY_CONTAINER}"
           python-container > container_output
           cat container_output
           grep --quiet 'sif' container_output

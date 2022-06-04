@@ -77,7 +77,7 @@ setenv SINGULARITY_SHELL {{ settings.singularity_shell }}
 
 # service environment variable to access full SIF image path
 setenv SINGULARITY_CONTAINER "${containerPath}"
-set-alias {|module_name|}-container "echo ${containerPath}"
+set-alias {|module_name|}-container "echo \"${containerPath}\""
 
 # interactive shell to any container, plus exec for aliases
 set shellCmd "singularity \${SINGULARITY_OPTS} shell \${SINGULARITY_COMMAND_OPTS} -s {{ settings.singularity_shell }} {% if features.gpu %}{{ features.gpu }} {% endif %}{% if features.home %}-B {{ features.home | replace("$", "\$") }} --home {{ features.home | replace("$", "\$") }} {% endif %}{% if features.x11 %}-B {{ features.x11 | replace("$", "\$") }} {% endif %}{% if settings.environment_file %}-B ${moduleDir}/{{ settings.environment_file }}:/.singularity.d/env/{{ settings.environment_file }}{% endif %} {% if settings.bindpaths %}-B {{ settings.bindpaths }}{% endif %} ${containerPath}"
