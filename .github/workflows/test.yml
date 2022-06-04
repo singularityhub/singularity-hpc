@@ -101,6 +101,11 @@ jobs:
           cat test_output
           grep --quiet donuts test_output
 
+          python-container > container_output
+          cat container_output
+          grep --quiet 'sif' container_output
+          test -f $(python-container)
+
           python-run python --version >test_output
           cat test_output
           grep --quiet 'Python 3.9.5' test_output
@@ -147,6 +152,11 @@ jobs:
 
           printf "\n\nmodule help ============================================\n"
           module help python/3.9.5-alpine
+
+          python-container > container_output
+          cat container_output
+          grep --quiet 'sif' container_output
+          test -f $(python-container)
 
           python-exec echo donuts >test_output
           cat test_output

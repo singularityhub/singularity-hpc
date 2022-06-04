@@ -15,7 +15,9 @@ root = os.path.dirname(here)
 
 
 def test_pull_gh(tmp_path):
-    """Test a singularity container command"""
+    """
+    Test a singularity container command
+    """
     cli = container.SingularityContainer()
 
     # Test default Singularity pull
@@ -39,7 +41,9 @@ def test_pull_oras(tmp_path):
 
 
 def test_podman(tmp_path):
-    """Test a singularity container command"""
+    """
+    Test a singularity container command
+    """
     cli = container.PodmanContainer()
 
     # Test default Singularity pull
@@ -50,7 +54,9 @@ def test_podman(tmp_path):
 
 
 def test_docker(tmp_path):
-    """Test a singularity container command"""
+    """
+    Test a singularity container command
+    """
     cli = container.DockerContainer()
 
     # Test default Singularity pull
