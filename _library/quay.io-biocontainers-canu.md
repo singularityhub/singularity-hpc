@@ -3,7 +3,7 @@ layout: container
 name:  "quay.io/biocontainers/canu"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/canu/container.yaml"
-updated_at: "2022-06-03 04:17:25.567836"
+updated_at: "2022-06-11 07:46:58.856432"
 container_url: "https://quay.io/repository/biocontainers/canu"
 aliases:
  - "canu"
