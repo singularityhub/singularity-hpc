@@ -14,7 +14,13 @@ aliases:
   bcftools: /usr/local/bin/bcftools
   bgzip: /usr/local/bin/bgzip
   color-chrs.pl: /usr/local/bin/color-chrs.pl
+  gff2gff.py: /usr/local/bin/gff2gff.py
   guess-ploidy.py: /usr/local/bin/guess-ploidy.py
   htsfile: /usr/local/bin/htsfile
+  libdeflate-gunzip: /usr/local/bin/libdeflate-gunzip
+  libdeflate-gzip: /usr/local/bin/libdeflate-gzip
+  plot-roh.py: /usr/local/bin/plot-roh.py
+  plot-vcfstats: /usr/local/bin/plot-vcfstats
+  run-roh.pl: /usr/local/bin/run-roh.pl
   tabix: /usr/local/bin/tabix
   vcfutils.pl: /usr/local/bin/vcfutils.pl
