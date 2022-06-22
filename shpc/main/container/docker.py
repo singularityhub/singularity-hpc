@@ -33,13 +33,20 @@ class DockerContainer(ContainerTechnology):
             )
         super(DockerContainer, self).__init__()
 
+    @property
+    def shell_path(self):
+        """
+        Return the path of the shell to use with this container.
+        """
+        return self.settings.docker_shell
+
     def shell(self, image):
         """
         Interactive shell into a container image.
         """
         os.system(
-            "docker run -it --rm --entrypoint %s %s"
-            % (self.settings.docker_shell, image)
+            "%s run -it --rm --entrypoint %s %s"
+            % (self.command, self.shell_path, image)
         )
 
     def add_registry(self, uri):
@@ -231,17 +238,10 @@ class DockerContainer(ContainerTechnology):
                 config=config,
             )
 
-        # What shell to use?
-        shell = (
-            self.settings.podman_shell
-            if self.command == "podman"
-            else self.settings.docker_shell
-        )
-
         # Make sure to render all values!
         out = template.render(
             settings=self.settings,
-            shell=shell,
+            shell=self.shell_path,
             image=container_path,
             description=description,
             aliases=aliases,
