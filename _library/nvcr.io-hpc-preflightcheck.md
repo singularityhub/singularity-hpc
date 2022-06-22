@@ -3,7 +3,7 @@ layout: container
 name:  "nvcr.io/hpc/preflightcheck"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/nvcr.io/hpc/preflightcheck/container.yaml"
-updated_at: "2022-06-11 07:45:19.169595"
+updated_at: "2022-06-22 03:44:19.174936"
 container_url: "https://ngc.nvidia.com/catalog/containers/hpc:preflightcheck"
 
 versions:

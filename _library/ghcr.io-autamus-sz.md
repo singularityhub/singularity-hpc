@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/sz"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/sz/container.yaml"
-updated_at: "2022-06-11 07:46:00.452999"
+updated_at: "2022-06-22 03:45:26.768044"
 container_url: "https://github.com/orgs/autamus/packages/container/package/sz"
 aliases:
  - "sz"

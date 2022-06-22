@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/octave"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/octave/container.yaml"
-updated_at: "2022-06-11 07:46:17.476215"
+updated_at: "2022-06-22 03:45:12.090093"
 container_url: "https://github.com/orgs/autamus/packages/container/package/octave"
 aliases:
  - "octave"
