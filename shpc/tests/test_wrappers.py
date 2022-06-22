@@ -78,7 +78,7 @@ def test_get_template_paths(
 )
 def test_find_wrapper_script(tmp_path, make_absolute, exists):
     """
-    Test views:
+    Test the shpc.main.wrappers.base.WrapperScript.find_wrapper_script function
     """
     # Note: the module_sys and container_tech parameters are actually not used in the test
     client = init_client(str(tmp_path), "tcl", "singularity")
