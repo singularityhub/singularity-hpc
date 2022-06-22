@@ -40,7 +40,7 @@ def test_get_template_paths(
         "dummy.sh",  # Not used in this test
         client.settings,
         None,  # image
-        config = config,
+        config=config,
     )
     client.settings.set(
         "wrapper_scripts",
@@ -103,7 +103,7 @@ def test_find_wrapper_script(tmp_path, make_absolute, exists):
         wrapper_template,
         client.settings,
         None,  # image
-        config = config,
+        config=config,
     )
 
     if exists:
