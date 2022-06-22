@@ -104,7 +104,7 @@ jobs:
           echo "${SINGULARITY_CONTAINER}"
           python-container > container_output
           cat container_output
-          grep --quiet 'sif' container_output
+          grep --quiet '\.sif$' container_output
           test -f $(python-container)
 
           python-run python --version >test_output
@@ -154,10 +154,10 @@ jobs:
           printf "\n\nmodule help ============================================\n"
           module help python/3.9.5-alpine
 
-          echo "${SINGULARITY_CONTAINER}"
+          #echo "${SINGULARITY_CONTAINER}"
           python-container > container_output
           cat container_output
-          grep --quiet 'sif' container_output
+          grep --quiet '\.sif$' container_output
           test -f $(python-container)
 
           python-exec echo donuts >test_output
