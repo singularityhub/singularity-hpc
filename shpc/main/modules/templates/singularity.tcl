@@ -38,6 +38,7 @@ proc ModulesHelp { } {
     puts stderr ""
     puts stderr " - SINGULARITY_OPTS: to define custom options for singularity (e.g., --debug)"
     puts stderr " - SINGULARITY_COMMAND_OPTS: to define custom options for the command (e.g., -b)"
+    puts stderr " - SINGULARITY_CONTAINER: The Singularity (sif) path"
 
 }
 

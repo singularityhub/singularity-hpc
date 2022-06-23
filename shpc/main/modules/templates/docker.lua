@@ -23,6 +23,8 @@ Commands include:
        {{ command }} run -i{% if settings.enable_tty %}t{% endif %} -u `id -u`:`id -g` --rm --entrypoint "" {% if settings.environment_file %}--env-file <moduleDir>/{{ settings.environment_file }} {% endif %} {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %} -v ${PWD} -w ${PWD} <container> "$@"
  - {|module_name|}-inspect:
        {{ command }} inspect <container>
+ - {|module_name|}-container:
+       echo "$PODMAN_CONTAINER"
 
 {% if aliases %}{% for alias in aliases %} - {{ alias.name }}:
        {{ command }} run -i{% if settings.enable_tty %}t{% endif %} -u `id -u`:`id -g` --rm --entrypoint {{ alias.entrypoint }} {% if settings.environment_file %}--env-file <moduleDir>/{{ settings.environment_file }}{% endif %} {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %}{% if alias.docker_options %}{{ alias.docker_options }} {% endif %} -v ${PWD} -w ${PWD} <container> "{{ alias.args }}" "$@"
@@ -32,6 +34,7 @@ For each of the above, you can export:
 
  - PODMAN_OPTS: to define custom options for {{ command }}
  - PODMAN_COMMAND_OPTS: to define custom options for the command
+ - PODMAN_CONTAINER: the container unique resource identifier
 ]]) 
 
 {% include "includes/default_version.lua" %}
@@ -47,6 +50,10 @@ local moduleDir = subprocess("realpath " .. myFileName()):match("(.*[/])") or ".
 
 -- interactive shell to any container, plus exec for aliases
 local containerPath = '{{ image }}'
+
+-- service environment variable to access docker URI
+setenv("PODMAN_CONTAINER", containerPath)
+set_shell_function("{|module_name|}-container", "echo " .. containerPath, "echo " .. containerPath)
 
 local shellCmd = "{{ command }} ${PODMAN_OPTS} run -i{% if settings.enable_tty %}t{% endif %} ${PODMAN_COMMAND_OPTS} -u `id -u`:`id -g` --rm --entrypoint {{ shell }} {% if settings.environment_file %}--env-file " .. moduleDir .. "/{{ settings.environment_file }}{% endif %} {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %} -v ${PWD} -w ${PWD} " .. containerPath
 -- execCmd needs entrypoint to be the executor

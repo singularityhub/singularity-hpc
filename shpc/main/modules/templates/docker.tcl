@@ -22,6 +22,8 @@ proc ModulesHelp { } {
     puts stderr "       {{ command }} run -i{% if settings.enable_tty %}t{% endif %} -u `id -u`:`id -g` --rm --entrypoint \"\" {% if settings.environment_file %} --env-file  <moduleDir>/{{ settings.environment_file }} {% endif %} {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %} -v . -w . <container> \"\$@\""
     puts stderr " - {|module_name|}-inspect:"
     puts stderr "       {{ command }} inspect <container>"
+    puts stderr " - {|module_name|}-container:"
+    puts stderr "       echo \"\$PODMAN_CONTAINER\""
     puts stderr ""
 {% if aliases %}{% for alias in aliases %}    puts stderr " - {{ alias.name }}:"
     puts stderr "       {{ command }} run -i{% if settings.enable_tty %}t{% endif %} --rm -u `id -u`:`id -g` --entrypoint {{ alias.entrypoint | replace("$", "\$") }} {% if settings.environment_file %}--settings.environment_file  <moduleDir>/{{ settings.environment_file }} {% endif %}{% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %}{% if alias.docker_options %}{{ alias.docker_options | replace("$", "\$") }} {% endif %} -v . -w . <container> {{ alias.args | replace("$", "\$") }} \"\$@\""
@@ -31,7 +33,7 @@ proc ModulesHelp { } {
     puts stderr ""
     puts stderr "        - PODMAN_OPTS: to define custom options for {{ command }}"
     puts stderr "        - PODMAN_COMMAND_OPTS: to define custom options for the command"
-
+    puts stderr "        - PODMAN_CONTAINER: to define the container unique resource identifier"
 }
 
 # Environment - only set if not already defined
@@ -65,6 +67,10 @@ conflict {{ parsed_name.tool }}
 {% if name != parsed_name.tool %}conflict {{ name }}{% endif %}
 {% if aliases %}{% for alias in aliases %}{% if alias.name != parsed_name.tool %}conflict {{ alias.name }}{% endif %}
 {% endfor %}{% endif %}
+
+# service environment variable to access full SIF image path
+setenv PODMAN_CONTAINER "${containerPath}"
+set-alias {|module_name|}-container "echo ${containerPath}"
 
 # interactive shell to any container, plus exec for aliases
 set shellCmd "{{ command }} \${PODMAN_OPTS} run \${PODMAN_COMMAND_OPTS} -u `id -u`:`id -g` --rm -i{% if settings.enable_tty %}t{% endif %} --entrypoint {{ shell }} {% if settings.environment_file %}--env-file ${moduleDir}/{{ settings.environment_file }}{% endif %} {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %} -v $workdir -w $workdir ${containerPath}" 

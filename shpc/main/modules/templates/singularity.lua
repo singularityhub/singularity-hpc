@@ -36,6 +36,7 @@ For each of the above, you can export:
 
  - SINGULARITY_OPTS: to define custom options for singularity (e.g., --debug)
  - SINGULARITY_COMMAND_OPTS: to define custom options for the command (e.g., -b)
+ - SINGULARITY_CONTAINER: full path to the Singularity Container
 ]]) 
 
 {% include "includes/default_version.lua" %}

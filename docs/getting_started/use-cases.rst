@@ -200,7 +200,7 @@ can be output by using the "container" suffixed alias:
     $ python-container
     /home/shpc-user/singularity-hpc/modules/python/3.9.2-slim/python-3.9.2-slim-sha256:85ed629e6ff79d0bf796339ea188c863048e9aedbf7f946171266671ee5c04ef.sif
 
-or equivalently by accessing the value of the **SINGULARITY_CONTAINER** environment variable.
+or equivalently by accessing the value of the **SINGULARITY_CONTAINER** environment variable (or **PODMAN_CONTAINER** for each of Podman and Docker).
 
 
 Adding Options
