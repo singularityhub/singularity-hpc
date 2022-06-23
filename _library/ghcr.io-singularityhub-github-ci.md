@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/singularityhub/github-ci"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/singularityhub/github-ci/container.yaml"
-updated_at: "2022-06-23 04:29:50.750631"
+updated_at: "2022-06-23 04:32:16.667780"
 container_url: "https://github.com/singularityhub/github-ci/pkgs/container/github-ci"
 
 versions:
