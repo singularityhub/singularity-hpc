@@ -103,7 +103,14 @@ jobs:
 
           python-container > container_output
           cat container_output
-          grep --quiet '\.sif$' container_output
+
+          if [[ "${{ matrix.container_tech }}" == "singularity" ]]; then
+              printf "${SINGULARITY_CONTAINER}\n"
+              grep --quiet '\.sif$' container_output
+          else
+              grep --quiet 'python' container_output
+              printf "${PODMAN_CONTAINER}\n"
+          fi
           test -f `python-container`
 
           python-run python --version >test_output
@@ -155,7 +162,13 @@ jobs:
 
           python-container > container_output
           cat container_output
-          grep --quiet '\.sif$' container_output
+          if [[ "${{ matrix.container_tech }}" == "singularity" ]]; then
+              printf "${SINGULARITY_CONTAINER}\n"
+              grep --quiet '\.sif$' container_output
+          else
+              grep --quiet 'python' container_output
+              printf "${PODMAN_CONTAINER}\n"
+          fi
           test -f `python-container`
 
           python-exec echo donuts >test_output
