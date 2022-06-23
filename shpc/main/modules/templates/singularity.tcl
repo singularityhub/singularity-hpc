@@ -11,7 +11,7 @@ proc ModulesHelp { } {
     puts stderr "This module is a singularity container wrapper for {{ name }} v{{ version }}"
     {% if description %}puts stderr "{{ description }}"{% endif %}
     puts stderr ""
-    puts stderr "Container:"
+    puts stderr "Container (available through variable SINGULARITY_CONTAINER):"
     puts stderr ""
     puts stderr " - {{ container_sif }}"
     puts stderr ""
@@ -27,6 +27,8 @@ proc ModulesHelp { } {
     puts stderr "       singularity inspect -r <container>"
     puts stderr " - {|module_name|}-inspect-deffile:"
     puts stderr "       singularity inspect -d <container>"
+    puts stderr " - {|module_name|}-container:"
+    puts stderr "       echo \"\$SINGULARITY_CONTAINER\""
     puts stderr ""
 {% if aliases %}{% for alias in aliases %}    puts stderr " - {{ alias.name }}:"
     puts stderr "       singularity exec {% if features.gpu %}{{ features.gpu }} {% endif %}{% if features.home %}-B {{ features.home | replace("$", "\$") }} --home {{ features.home | replace("$", "\$") }} {% endif %}{% if features.x11 %}-B {{ features.x11 | replace("$", "\$") }} {% endif %}{% if settings.environment_file %}-B <moduleDir>/{{ settings.environment_file }}:/.singularity.d/env/{{ settings.environment_file }}{% endif %} {% if settings.bindpaths %}-B {{ settings.bindpaths }} {% endif %}{% if alias.singularity_options %}{{ alias.singularity_options | replace("$", "\$") }} {% endif %}<container> {{ alias.command | replace("$", "\$") }} \"\$@\""
@@ -36,6 +38,7 @@ proc ModulesHelp { } {
     puts stderr ""
     puts stderr " - SINGULARITY_OPTS: to define custom options for singularity (e.g., --debug)"
     puts stderr " - SINGULARITY_COMMAND_OPTS: to define custom options for the command (e.g., -b)"
+    puts stderr " - SINGULARITY_CONTAINER: The Singularity (sif) path"
 
 }
 
@@ -72,6 +75,10 @@ conflict {{ parsed_name.tool }}
 
 # singularity environment variable to set shell
 setenv SINGULARITY_SHELL {{ settings.singularity_shell }}
+
+# service environment variable to access full SIF image path
+setenv SINGULARITY_CONTAINER "${containerPath}"
+set-alias {|module_name|}-container "echo ${containerPath}"
 
 # interactive shell to any container, plus exec for aliases
 set shellCmd "singularity \${SINGULARITY_OPTS} shell \${SINGULARITY_COMMAND_OPTS} -s {{ settings.singularity_shell }} {% if features.gpu %}{{ features.gpu }} {% endif %}{% if features.home %}-B {{ features.home | replace("$", "\$") }} --home {{ features.home | replace("$", "\$") }} {% endif %}{% if features.x11 %}-B {{ features.x11 | replace("$", "\$") }} {% endif %}{% if settings.environment_file %}-B ${moduleDir}/{{ settings.environment_file }}:/.singularity.d/env/{{ settings.environment_file }}{% endif %} {% if settings.bindpaths %}-B {{ settings.bindpaths }}{% endif %} ${containerPath}"

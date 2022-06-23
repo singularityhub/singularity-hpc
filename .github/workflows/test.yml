@@ -61,6 +61,7 @@ jobs:
         shell: bash
         env:
           module_sys: ${{ matrix.module[0] }}
+          container_tech: ${{ matrix.container_tech }}
         run: |
           case "${module_sys}" in
             lmod)
@@ -101,6 +102,9 @@ jobs:
           cat test_output
           grep --quiet donuts test_output
 
+          python-container > container_output
+          cat container_output
+
           python-run python --version >test_output
           cat test_output
           grep --quiet 'Python 3.9.5' test_output
@@ -117,6 +121,7 @@ jobs:
         shell: tcsh -e {0}
         env:
           module_sys: ${{ matrix.module[0] }}
+          container_tech: ${{ matrix.container_tech }}
         run: |
           switch ("${module_sys}")
             case lmod:
@@ -147,6 +152,9 @@ jobs:
 
           printf "\n\nmodule help ============================================\n"
           module help python/3.9.5-alpine
+
+          python-container > container_output
+          cat container_output
 
           python-exec echo donuts >test_output
           cat test_output

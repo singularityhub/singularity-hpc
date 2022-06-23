@@ -167,7 +167,7 @@ loaded, just do:
        This module is a singularity container wrapper for python v3.9.2-slim
        Commands include:
         - python-shell:
-           singularity shell -s /bin/bash /home/shpc-user/singularity-hpc/modules/python/3.9.2-slim/python-3.9.2-slim-    sha256:85ed629e6ff79d0bf796339ea188c863048e9aedbf7f946171266671ee5c04ef.sif
+           singularity shell -s /bin/bash /home/shpc-user/singularity-hpc/modules/python/3.9.2-slim/python-3.9.2-slim-sha256:85ed629e6ff79d0bf796339ea188c863048e9aedbf7f946171266671ee5c04ef.sif
         - python:
            singularity exec /home/shpc-user/singularity-hpc/modules/python/3.9.2-slim/python-3.9.2-slim-sha256:85ed629e6ff79d0bf796339ea188c863048e9aedbf7f946171266671ee5c04ef.sif /usr/local/bin/python”)
     
@@ -192,6 +192,17 @@ singularity recipe) then you can do:
     python/3.9.2-slim/module             : org.label-schema.usage.singularity.version  : 3.7.1-1.el7
 
 
+If your workflow requires knowledge of the local path to the sif image, this information
+can be output by using the "container" suffixed alias:
+
+.. code-block:: console
+
+    $ python-container
+    /home/shpc-user/singularity-hpc/modules/python/3.9.2-slim/python-3.9.2-slim-sha256:85ed629e6ff79d0bf796339ea188c863048e9aedbf7f946171266671ee5c04ef.sif
+
+or equivalently by accessing the value of the **SINGULARITY_CONTAINER** environment variable (or **PODMAN_CONTAINER** for each of Podman and Docker).
+
+
 Adding Options
 --------------
 
@@ -200,8 +211,8 @@ a container intended for gpu will have a feature: gpu set to true, and this will
 it could be the case that you want to define custom options at the time of use.
 In this case, you can export the following custom environment variables to add them:
 
-**SINGULARITY_OPTS**: will provide additional options to the base Singularity command, such as ``--debug``
-**SINGULARITY_COMMAND_OPTS**: will provide additional options to the command (e.g., exec), such as ``--cleanenv`` or ``--nv``.
+**SINGULARITY_OPTS**: will provide additional options to the base Singularity command, such as ``--debug``  
+**SINGULARITY_COMMAND_OPTS**: will provide additional options to the command (e.g., exec), such as ``--cleanenv`` or ``--nv``.  
 
 
 Custom Images that are Added
