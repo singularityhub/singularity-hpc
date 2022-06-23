@@ -104,7 +104,6 @@ jobs:
 
           python-container > container_output
           cat container_output
-          grep --quiet "${container_tech}" container_output
 
           python-run python --version >test_output
           cat test_output
@@ -156,7 +155,6 @@ jobs:
 
           python-container > container_output
           cat container_output
-          grep --quiet "${container_tech}" container_output
 
           python-exec echo donuts >test_output
           cat test_output
