@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/hpctoolkit"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/hpctoolkit/container.yaml"
-updated_at: "2022-06-22 03:45:07.768830"
+updated_at: "2022-06-23 04:30:43.722156"
 container_url: "https://github.com/orgs/autamus/packages/container/package/hpctoolkit"
 aliases:
  - "hello"

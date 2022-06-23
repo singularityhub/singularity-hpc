@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/libquo"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/libquo/container.yaml"
-updated_at: "2022-06-22 03:46:03.697616"
+updated_at: "2022-06-23 04:30:06.175318"
 container_url: "https://github.com/orgs/autamus/packages/container/package/libquo"
 aliases:
  - "quo-info"

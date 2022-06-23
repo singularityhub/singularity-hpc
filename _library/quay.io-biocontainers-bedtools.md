@@ -3,7 +3,7 @@ layout: container
 name:  "quay.io/biocontainers/bedtools"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/bedtools/container.yaml"
-updated_at: "2022-06-22 03:44:37.551743"
+updated_at: "2022-06-23 04:31:29.037560"
 container_url: "https://quay.io/repository/biocontainers/bedtools"
 aliases:
  - "bedtools"
