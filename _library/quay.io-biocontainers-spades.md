@@ -3,10 +3,62 @@ layout: container
 name:  "quay.io/biocontainers/spades"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/spades/container.yaml"
-updated_at: "2022-06-23 04:34:22.879419"
+updated_at: "2022-06-27 17:11:44.720784"
 container_url: "https://quay.io/repository/biocontainers/spades"
 aliases:
+ - "cds-mapping-stats"
+
+ - "cds-subgraphs"
+
+ - "coronaspades.py"
+
+ - "mag-improve"
+
+ - "metaplasmidspades.py"
+
+ - "metaspades.py"
+
+ - "metaviralspades.py"
+
+ - "plasmidspades.py"
+
+ - "rnaspades.py"
+
+ - "rnaviralspades.py"
+
+ - "spades-bwa"
+
+ - "spades-convert-bin-to-fasta"
+
+ - "spades-core"
+
+ - "spades-corrector-core"
+
+ - "spades-gbuilder"
+
+ - "spades-gmapper"
+
+ - "spades-gsimplifier"
+
+ - "spades-hammer"
+
+ - "spades-ionhammer"
+
+ - "spades-kmer-estimating"
+
+ - "spades-kmercount"
+
+ - "spades-read-filter"
+
+ - "spades-truseq-scfcorrection"
+
  - "spades.py"
+
+ - "spades_init.py"
+
+ - "spaligner"
+
+ - "truspades.py"
 
 versions:
  - "3.15.0--h633aebb_0"
@@ -99,12 +151,246 @@ $ singularity inspect -d <container>
 ```
 
 
+#### cds-mapping-stats
+       
+```bash
+$ singularity exec <container> /usr/local/bin/cds-mapping-stats
+$ podman run --it --rm --entrypoint /usr/local/bin/cds-mapping-stats   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/local/bin/cds-mapping-stats   -v ${PWD} -w ${PWD} <container> -c " $@"
+```
+
+
+#### cds-subgraphs
+       
+```bash
+$ singularity exec <container> /usr/local/bin/cds-subgraphs
+$ podman run --it --rm --entrypoint /usr/local/bin/cds-subgraphs   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/local/bin/cds-subgraphs   -v ${PWD} -w ${PWD} <container> -c " $@"
+```
+
+
+#### coronaspades.py
+       
+```bash
+$ singularity exec <container> /usr/local/bin/coronaspades.py
+$ podman run --it --rm --entrypoint /usr/local/bin/coronaspades.py   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/local/bin/coronaspades.py   -v ${PWD} -w ${PWD} <container> -c " $@"
+```
+
+
+#### mag-improve
+       
+```bash
+$ singularity exec <container> /usr/local/bin/mag-improve
+$ podman run --it --rm --entrypoint /usr/local/bin/mag-improve   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/local/bin/mag-improve   -v ${PWD} -w ${PWD} <container> -c " $@"
+```
+
+
+#### metaplasmidspades.py
+       
+```bash
+$ singularity exec <container> /usr/local/bin/metaplasmidspades.py
+$ podman run --it --rm --entrypoint /usr/local/bin/metaplasmidspades.py   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/local/bin/metaplasmidspades.py   -v ${PWD} -w ${PWD} <container> -c " $@"
+```
+
+
+#### metaspades.py
+       
+```bash
+$ singularity exec <container> /usr/local/bin/metaspades.py
+$ podman run --it --rm --entrypoint /usr/local/bin/metaspades.py   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/local/bin/metaspades.py   -v ${PWD} -w ${PWD} <container> -c " $@"
+```
+
+
+#### metaviralspades.py
+       
+```bash
+$ singularity exec <container> /usr/local/bin/metaviralspades.py
+$ podman run --it --rm --entrypoint /usr/local/bin/metaviralspades.py   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/local/bin/metaviralspades.py   -v ${PWD} -w ${PWD} <container> -c " $@"
+```
+
+
+#### plasmidspades.py
+       
+```bash
+$ singularity exec <container> /usr/local/bin/plasmidspades.py
+$ podman run --it --rm --entrypoint /usr/local/bin/plasmidspades.py   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/local/bin/plasmidspades.py   -v ${PWD} -w ${PWD} <container> -c " $@"
+```
+
+
+#### rnaspades.py
+       
+```bash
+$ singularity exec <container> /usr/local/bin/rnaspades.py
+$ podman run --it --rm --entrypoint /usr/local/bin/rnaspades.py   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/local/bin/rnaspades.py   -v ${PWD} -w ${PWD} <container> -c " $@"
+```
+
+
+#### rnaviralspades.py
+       
+```bash
+$ singularity exec <container> /usr/local/bin/rnaviralspades.py
+$ podman run --it --rm --entrypoint /usr/local/bin/rnaviralspades.py   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/local/bin/rnaviralspades.py   -v ${PWD} -w ${PWD} <container> -c " $@"
+```
+
+
+#### spades-bwa
+       
+```bash
+$ singularity exec <container> /usr/local/bin/spades-bwa
+$ podman run --it --rm --entrypoint /usr/local/bin/spades-bwa   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/local/bin/spades-bwa   -v ${PWD} -w ${PWD} <container> -c " $@"
+```
+
+
+#### spades-convert-bin-to-fasta
+       
+```bash
+$ singularity exec <container> /usr/local/bin/spades-convert-bin-to-fasta
+$ podman run --it --rm --entrypoint /usr/local/bin/spades-convert-bin-to-fasta   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/local/bin/spades-convert-bin-to-fasta   -v ${PWD} -w ${PWD} <container> -c " $@"
+```
+
+
+#### spades-core
+       
+```bash
+$ singularity exec <container> /usr/local/bin/spades-core
+$ podman run --it --rm --entrypoint /usr/local/bin/spades-core   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/local/bin/spades-core   -v ${PWD} -w ${PWD} <container> -c " $@"
+```
+
+
+#### spades-corrector-core
+       
+```bash
+$ singularity exec <container> /usr/local/bin/spades-corrector-core
+$ podman run --it --rm --entrypoint /usr/local/bin/spades-corrector-core   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/local/bin/spades-corrector-core   -v ${PWD} -w ${PWD} <container> -c " $@"
+```
+
+
+#### spades-gbuilder
+       
+```bash
+$ singularity exec <container> /usr/local/bin/spades-gbuilder
+$ podman run --it --rm --entrypoint /usr/local/bin/spades-gbuilder   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/local/bin/spades-gbuilder   -v ${PWD} -w ${PWD} <container> -c " $@"
+```
+
+
+#### spades-gmapper
+       
+```bash
+$ singularity exec <container> /usr/local/bin/spades-gmapper
+$ podman run --it --rm --entrypoint /usr/local/bin/spades-gmapper   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/local/bin/spades-gmapper   -v ${PWD} -w ${PWD} <container> -c " $@"
+```
+
+
+#### spades-gsimplifier
+       
+```bash
+$ singularity exec <container> /usr/local/bin/spades-gsimplifier
+$ podman run --it --rm --entrypoint /usr/local/bin/spades-gsimplifier   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/local/bin/spades-gsimplifier   -v ${PWD} -w ${PWD} <container> -c " $@"
+```
+
+
+#### spades-hammer
+       
+```bash
+$ singularity exec <container> /usr/local/bin/spades-hammer
+$ podman run --it --rm --entrypoint /usr/local/bin/spades-hammer   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/local/bin/spades-hammer   -v ${PWD} -w ${PWD} <container> -c " $@"
+```
+
+
+#### spades-ionhammer
+       
+```bash
+$ singularity exec <container> /usr/local/bin/spades-ionhammer
+$ podman run --it --rm --entrypoint /usr/local/bin/spades-ionhammer   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/local/bin/spades-ionhammer   -v ${PWD} -w ${PWD} <container> -c " $@"
+```
+
+
+#### spades-kmer-estimating
+       
+```bash
+$ singularity exec <container> /usr/local/bin/spades-kmer-estimating
+$ podman run --it --rm --entrypoint /usr/local/bin/spades-kmer-estimating   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/local/bin/spades-kmer-estimating   -v ${PWD} -w ${PWD} <container> -c " $@"
+```
+
+
+#### spades-kmercount
+       
+```bash
+$ singularity exec <container> /usr/local/bin/spades-kmercount
+$ podman run --it --rm --entrypoint /usr/local/bin/spades-kmercount   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/local/bin/spades-kmercount   -v ${PWD} -w ${PWD} <container> -c " $@"
+```
+
+
+#### spades-read-filter
+       
+```bash
+$ singularity exec <container> /usr/local/bin/spades-read-filter
+$ podman run --it --rm --entrypoint /usr/local/bin/spades-read-filter   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/local/bin/spades-read-filter   -v ${PWD} -w ${PWD} <container> -c " $@"
+```
+
+
+#### spades-truseq-scfcorrection
+       
+```bash
+$ singularity exec <container> /usr/local/bin/spades-truseq-scfcorrection
+$ podman run --it --rm --entrypoint /usr/local/bin/spades-truseq-scfcorrection   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/local/bin/spades-truseq-scfcorrection   -v ${PWD} -w ${PWD} <container> -c " $@"
+```
+
+
 #### spades.py
        
 ```bash
 $ singularity exec <container> /usr/local/bin/spades.py
 $ podman run --it --rm --entrypoint /usr/local/bin/spades.py   -v ${PWD} -w ${PWD} <container> -c " $@"
 $ docker run --it --rm --entrypoint /usr/local/bin/spades.py   -v ${PWD} -w ${PWD} <container> -c " $@"
+```
+
+
+#### spades_init.py
+       
+```bash
+$ singularity exec <container> /usr/local/bin/spades_init.py
+$ podman run --it --rm --entrypoint /usr/local/bin/spades_init.py   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/local/bin/spades_init.py   -v ${PWD} -w ${PWD} <container> -c " $@"
+```
+
+
+#### spaligner
+       
+```bash
+$ singularity exec <container> /usr/local/bin/spaligner
+$ podman run --it --rm --entrypoint /usr/local/bin/spaligner   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/local/bin/spaligner   -v ${PWD} -w ${PWD} <container> -c " $@"
+```
+
+
+#### truspades.py
+       
+```bash
+$ singularity exec <container> /usr/local/bin/truspades.py
+$ podman run --it --rm --entrypoint /usr/local/bin/truspades.py   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /usr/local/bin/truspades.py   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 

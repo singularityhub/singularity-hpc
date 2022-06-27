@@ -3,7 +3,7 @@ layout: container
 name:  "uvarc/qiime2"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/uvarc/qiime2/container.yaml"
-updated_at: "2022-06-23 04:34:26.976810"
+updated_at: "2022-06-27 17:11:48.209135"
 container_url: "https://hub.docker.com/r/uvarc/qiime2"
 
 versions:
