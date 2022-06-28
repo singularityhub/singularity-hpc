@@ -151,6 +151,11 @@ class Client:
         # Derive the registry entry from the module_name
         config = self._load_container(module_name)
 
+        # Ensure any alias files exist
+        if not config.check_aliases():
+            cleanup(tmpdir)
+            logger.exit("Test of %s was not successful." % module_name)
+
         # Generate a test template
         test_file = os.path.join(tmpdir, "test.sh")
 
@@ -185,7 +190,7 @@ class Client:
             if not test_exec:
                 continue
 
-            for alias in config.get_aliases():
+            for alias in config.get_aliases(tag):
                 result = self.client.execute(image, alias["command"])
 
         # Cleanup the test install

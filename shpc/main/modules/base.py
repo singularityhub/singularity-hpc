@@ -419,7 +419,7 @@ class ModuleBase(BaseClient):
             container_path,
             name,
             template,
-            aliases=config.get_aliases(),
+            aliases=config.get_aliases(version),
             config=config,
             parsed_name=config.name,
             url=config.url,

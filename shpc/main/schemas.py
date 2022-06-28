@@ -78,6 +78,7 @@ containerConfigProperties = {
     },
     "env": keyvals,
     "features": features,
+    "alias_files": keyvals,
     "aliases": {
         "oneOf": [
             keyvals,

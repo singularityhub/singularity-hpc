@@ -129,6 +129,30 @@ class ContainerConfig:
         name = self.docker or self.oras or self.gh
         return ContainerName(name)
 
+    def load_alias_file(self, relative_path):
+        """
+        By the time we get here, the file needs to exist.
+        """
+        alias_file = os.path.join(self.package_dir, relative_path)
+        if not os.path.exists(alias_file):
+            logger.exit(f"Alias file {alias_file} does not exist.")
+        return utils.read_yaml(alias_file).get("aliases", [])
+
+    def check_aliases(self):
+        """
+        Given a loaded config, ensure that all container alias files exist.
+        """
+        if not self.alias_files:
+            return
+        for tag, filename in self.alias_files.items():
+            alias_file = os.path.join(self.package_dir, filename)
+            if not os.path.exists(alias_file):
+                logger.warning(
+                    f"Alias file {filename} does not exist in {self.package_dir}"
+                )
+                return False
+        return True
+
     def update(self, dryrun=False, filters=None):
         """
         Update a container.yaml, meaning the tags and latest.
@@ -259,26 +283,35 @@ class ContainerConfig:
         """
         return dict(self.env) if self.env else {}
 
-    def get_aliases(self):
+    def get_aliases(self, tag=None):
         """
         Return a consistently formatted list of aliases
         """
+        # Default aliases (given no tag or alias file)
+        aliases = self.aliases
+
         # Aliases are not required
-        if not self.aliases:
+        if not aliases:
             return []
 
-        # Format 1: allows for a list
-        if isinstance(self.aliases, list):
-            return [dict(x) for x in self.aliases]
+        # Do we have an alias file for the tag?
+        if tag and self.alias_files and tag in self.alias_files:
+            print(self.alias_files[tag])
+            aliases = self.load_alias_file(self.alias_files[tag])
 
-        # Format 2: allows for a key:value pair
-        aliases = []
+        # Format 1: allows for a list
+        if isinstance(aliases, list):
+            return [dict(x) for x in aliases]
+
+        # Format 2: load from key:value pairs
+        loaded = []
+        print(aliases)
         seen = set()
-        for key, value in self.aliases.items():
+        for key, value in aliases.items():
             if key in seen:
                 logger.warning("Warning, alias %s is defined more than once." % key)
             command_list = shlex.split(value)
-            aliases.append(
+            loaded.append(
                 {
                     "name": key,
                     "command": value,
@@ -287,7 +320,7 @@ class ContainerConfig:
                 }
             )
             seen.add(key)
-        return aliases
+        return loaded
 
     def save(self, package_file):
         """
