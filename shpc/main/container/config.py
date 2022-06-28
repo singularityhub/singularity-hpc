@@ -143,7 +143,7 @@ class ContainerConfig:
         Given a loaded config, ensure that all container alias files exist.
         """
         if not self.alias_files:
-            return
+            return True
         for tag, filename in self.alias_files.items():
             alias_file = os.path.join(self.package_dir, filename)
             if not os.path.exists(alias_file):
