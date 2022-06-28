@@ -11,6 +11,7 @@ tags:
   2022.03-hdf5mpi: sha256:e9a0db88e98c2388d8731a983ed845b46ce0e2d99d4566802b84142ce21e1c23
 aliases:
   python: /usr/local/bin/python
+  python3: /usr/local/bin/python3
 env:
   PYTHONSTARTUP: ''
   PYTHONUSERBASE: ''
