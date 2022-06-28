@@ -12,6 +12,7 @@ tags:
   2022.03-hdf5mpi: sha256:8cb0238d2ed84f284c50cf1cd8811b12043e687a2b5ff4c858eac70acec7a549
 aliases:
   python: /opt/conda/bin/python
+  python3: /opt/conda/bin/python3
 env:
   PYTHONSTARTUP: ''
   PYTHONUSERBASE: ''
