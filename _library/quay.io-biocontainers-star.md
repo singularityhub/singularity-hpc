@@ -3,7 +3,7 @@ layout: container
 name:  "quay.io/biocontainers/star"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/star/container.yaml"
-updated_at: "2022-06-27 17:11:41.684887"
+updated_at: "2022-06-28 01:34:02.978889"
 container_url: "https://quay.io/repository/biocontainers/star"
 aliases:
  - "STAR"

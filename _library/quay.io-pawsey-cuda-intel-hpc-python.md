@@ -3,10 +3,12 @@ layout: container
 name:  "quay.io/pawsey/cuda-intel-hpc-python"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/pawsey/cuda-intel-hpc-python/container.yaml"
-updated_at: "2022-06-27 17:11:31.587816"
+updated_at: "2022-06-28 01:33:51.328520"
 container_url: "https://quay.io/repository/pawsey/cuda-intel-hpc-python"
 aliases:
  - "python"
+
+ - "python3"
 
 versions:
  - "2021.09"
@@ -105,6 +107,15 @@ $ singularity inspect -d <container>
 $ singularity exec <container> /opt/conda/bin/python
 $ podman run --it --rm --entrypoint /opt/conda/bin/python   -v ${PWD} -w ${PWD} <container> -c " $@"
 $ docker run --it --rm --entrypoint /opt/conda/bin/python   -v ${PWD} -w ${PWD} <container> -c " $@"
+```
+
+
+#### python3
+       
+```bash
+$ singularity exec <container> /opt/conda/bin/python3
+$ podman run --it --rm --entrypoint /opt/conda/bin/python3   -v ${PWD} -w ${PWD} <container> -c " $@"
+$ docker run --it --rm --entrypoint /opt/conda/bin/python3   -v ${PWD} -w ${PWD} <container> -c " $@"
 ```
 
 
