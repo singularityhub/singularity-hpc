@@ -304,29 +304,26 @@ class ContainerConfig:
         """
         return dict(self.env) if self.env else {}
 
-    def get_aliases(self, tag=None):
+    def get_aliases(self):
         """
         Return a consistently formatted list of aliases
         """
-        # Default aliases (given no tag or alias file)
-        aliases = self.aliases
-
         # Aliases are not required
-        if not aliases:
+        if not self.aliases:
             return []
 
         # Format 1: allows for a list
-        if isinstance(aliases, list):
-            return [dict(x) for x in aliases]
+        if isinstance(self.aliases, list):
+            return [dict(x) for x in self.aliases]
 
-        # Format 2: load from key:value pairs
-        loaded = []
+        # Format 2: allows for a key:value pair
+        aliases = []
         seen = set()
-        for key, value in aliases.items():
+        for key, value in self.aliases.items():
             if key in seen:
                 logger.warning("Warning, alias %s is defined more than once." % key)
             command_list = shlex.split(value)
-            loaded.append(
+            aliases.append(
                 {
                     "name": key,
                     "command": value,
@@ -335,7 +332,7 @@ class ContainerConfig:
                 }
             )
             seen.add(key)
-        return loaded
+        return aliases
 
     def save(self, package_file):
         """
