@@ -152,7 +152,7 @@ class Client:
         config = self._load_container(module_name)
 
         # Ensure any alias files exist
-        if not config.check_aliases():
+        if config and not config.check_overrides():
             cleanup(tmpdir)
             logger.exit("Test of %s was not successful." % module_name)
 
