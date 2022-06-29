@@ -198,13 +198,21 @@ For each of the above, depending on the prefix of options that you choose, it wi
 This means that if you design a new registry recipe, you should consider how to run it for both kinds of technology. Also note that ``docker_options`` are
 those that will also be used for Podman.
 
-Alias Files
------------
+Overrides
+---------
 
-It might be the case that as your containers change over time, the set of commands (aliases) does too! Or it might
-be the case that you have hundreds, and want to better organize them separately from the container.yaml. To support this, shpc
-(as of version 0.0.56) has support for an ``alias_files`` section in the container.yaml, meaning that you can define pairs of container
-tags and relative path lookups to external files only with an alias specification. A simple example might look like this:
+It might be the case that as your containers change over time, the set of any of:
+
+- commands (aliases)
+- docker_script
+- singularity_script
+- environment (env)
+- features
+- description
+
+does too! Or it be the case that you have hundreds of aliases, and want to better organize them separately from the container.yaml. To support this, shpc
+(as of version 0.0.56) has support for an ``overrides`` section in the container.yaml, meaning that you can define pairs of container
+tags and relative path lookups to external files with any of the stated sections. A simple example might look like this:
 
 .. code-block:: yaml
 
@@ -216,29 +224,22 @@ tags and relative path lookups to external files only with an alias specificatio
       3.9.5-alpine: sha256:f189f7366b0d381bf6186b2a2c3d37f143c587e0da2e8dcc21a732bddf4e6f7b
     tags:
       3.9.2-alpine: sha256:f046c06388c0721961fe5c9b6184d2f8aeb7eb01b39601babab06cfd975dae01
-    alias_files:
+    overrides:
       3.9.2-alpine: aliases/3.9.2-alpine.yaml
     aliases:
         python: /usr/local/bin/python
 
 
-And then the corresponding alias file, with relative path ``aliases/3.9.2-alpine.yaml`` might look like this:
+Since this file only has aliases, we chose to use a subdirectory called "aliases" to make that clear, however
+the file can have any of the fields mentioned above, and can be organized in any relative path to the container directory that you deem apppropriate.
+Here is what this corresponding file with relative path ``aliases/3.9.2-alpine.yaml`` might look like this:
 
 .. code-block:: yaml
 
     aliases:
       python: /alias/path/to/python
 
-Note that there is no rule about the naming or path organization of the alias files. They are expected to be provided
-as a path relative to the container directory (and we suggest an "aliases" directory as shown above) but there is no rule
-that you need to name them based on a tag. We have found this naming convention and organization useful in practice and are
-recommending it here, although you don't need to follow it! Finally, the alias files are expected to follow the same convention as
-either or the alias formats noted above - a list or dictionary of values under an "aliases" key.
-
-.. note::
-
-    Note that the ``aliases`` key is maintained in these lookup files, and the reason for this is if we ever need to extend other
-    "extra metadata" to be associated with a particular version, we can easily extend this feature.
+Finally, for all fields mentioned above, the format is expected to follow the same convention as above (and it will be validated again on update).
 
 
 Wrapper Script
@@ -557,8 +558,8 @@ Fields include:
    * - aliases
      - Named entrypoints for container (dict) as described above
      - false
-   * - aliase_files
-     - Key value pairs for container tags, and relative paths to alias files
+   * - overrides
+     - Key value pairs to override container.yaml defaults.
      - false
    * - url
      - Documentation or other url for the container uri

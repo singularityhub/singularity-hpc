@@ -12,7 +12,8 @@ tags:
   3.10.0a7-alpine: sha256:9b7958e47cd5bd4d092c3b28802493ad1870bce988b2f6ff97f6c81d96fcda80
 filter:
 - 3.9.*
-alias_files:
-  3.10.0a7-alpine: aliases.yaml
+overrides:
+  3.10.0a7-alpine: overrides.yaml
+  3.9.4-alpine: overrides-invalid.yaml
 aliases:
   python: /usr/local/bin/python

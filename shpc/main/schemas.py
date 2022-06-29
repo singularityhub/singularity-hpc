@@ -58,7 +58,6 @@ aliases_list = {
     },
 }
 
-
 containerConfigProperties = {
     "latest": keyvals,
     "docker": {"type": "string"},
@@ -78,7 +77,7 @@ containerConfigProperties = {
     },
     "env": keyvals,
     "features": features,
-    "alias_files": keyvals,
+    "overrides": keyvals,
     "aliases": {
         "oneOf": [
             keyvals,

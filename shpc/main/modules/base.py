@@ -331,6 +331,9 @@ class ModuleBase(BaseClient):
         name = self.add_namespace(name)
         config = self._load_container(name, tag)
 
+        # We only want to load over-rides for a tag at install time
+        config.load_override_file(tag)
+
         # The chosen tag is set for the config (or defaults to latest)
         if not config.tag:
             logger.exit(

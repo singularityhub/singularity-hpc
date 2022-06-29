@@ -129,26 +129,47 @@ class ContainerConfig:
         name = self.docker or self.oras or self.gh
         return ContainerName(name)
 
-    def load_alias_file(self, relative_path):
+    def load_override_file(self, tag):
         """
         By the time we get here, the file needs to exist.
         """
-        alias_file = os.path.join(self.package_dir, relative_path)
-        if not os.path.exists(alias_file):
-            logger.exit(f"Alias file {alias_file} does not exist.")
-        return utils.read_yaml(alias_file).get("aliases", [])
+        # Do we have an alias file for the tag?
+        if not self.overrides or tag not in self.overrides:
+            return
+        override_file = os.path.join(self.package_dir, self.overrides[tag])
+        if not os.path.exists(override_file):
+            logger.exit(f"Override file {override_file} does not exist.")
+        overrides = utils.read_yaml(override_file)
 
-    def check_aliases(self):
+        # Only allow over-ride of these fields
+        allowed_overrides = [
+            "aliases",
+            "docker_script",
+            "singularity_script",
+            "env",
+            "features",
+            "description",
+        ]
+        for k, v in overrides.items():
+            if k in allowed_overrides:
+                self._config[k] = v
+            else:
+                logger.warning("%s is not an allowed override field." % k)
+
+        # Always validate
+        self.validate()
+
+    def check_overrides(self):
         """
-        Given a loaded config, ensure that all container alias files exist.
+        Given a loaded config, ensure that all override files exist.
         """
-        if not self.alias_files:
+        if not self.overrides:
             return True
-        for tag, filename in self.alias_files.items():
-            alias_file = os.path.join(self.package_dir, filename)
-            if not os.path.exists(alias_file):
+        for tag, filename in self.overrides.items():
+            override_file = os.path.join(self.package_dir, filename)
+            if not os.path.exists(override_file):
                 logger.warning(
-                    f"Alias file {filename} does not exist in {self.package_dir}"
+                    f"Override file {filename} does not exist in {self.package_dir}"
                 )
                 return False
         return True
@@ -294,18 +315,12 @@ class ContainerConfig:
         if not aliases:
             return []
 
-        # Do we have an alias file for the tag?
-        if tag and self.alias_files and tag in self.alias_files:
-            print(self.alias_files[tag])
-            aliases = self.load_alias_file(self.alias_files[tag])
-
         # Format 1: allows for a list
         if isinstance(aliases, list):
             return [dict(x) for x in aliases]
 
         # Format 2: load from key:value pairs
         loaded = []
-        print(aliases)
         seen = set()
         for key, value in aliases.items():
             if key in seen:

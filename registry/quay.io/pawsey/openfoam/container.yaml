@@ -10,7 +10,7 @@ tags:
   'v1912': sha256:ad68ad8e13252915300b29dcdb5803bca9bed68fa5099265c7071ace7f9e3330
   'v1812': sha256:6197994d3eba966ab9c8cbdcfde97bdd67313fab55ada09d9665e974a0ef707a
   'v1712': sha256:ac766f92b678cf9c70aefaa914bcad3837675e57dae38554220ec9024a4a3dc9
-alias_files:
+overrides:
   v1712: aliases/v1712.yaml
   v1812: aliases/v1812.yaml
   v1912: aliases/v1912.yaml

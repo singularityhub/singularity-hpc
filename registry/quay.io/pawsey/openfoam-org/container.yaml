@@ -10,7 +10,7 @@ tags:
   '5.x':   sha256:843cdada36df281c832298ba22f5364a61ca05d47b8596fb90bd3a854136d777
   '2.4.x': sha256:39b619a4e5ddea85803b228c03a3665863d768876dff4c87211f04279df47a9d
   '2.2.0': sha256:32f0a464f0ea128e6b68b58e90719c24b5acb962dc8b7b8767440f8d70ed9156
-alias_files:
+overrides:
   '2.2.0': aliases/2.2.0.yaml
   '2.4.x': aliases/2.4.x.yaml
   '5.x': aliases/5.x.yaml
