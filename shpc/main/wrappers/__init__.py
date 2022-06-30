@@ -67,7 +67,7 @@ def generate(image, container, config, **kwargs):
         "podman": config.docker_scripts,
     }
     # Additional commands defined in the custom container.yaml script section
-    listing = scripts.get(container.templatefile, [])
+    listing = scripts.get(container.templatefile) or {}
     for alias, template_name in listing.items():
         wrapper = WrapperScript(template_name, **constructor_kwargs)
         # Template wrapper scripts may live alongside container.yaml
