@@ -69,6 +69,19 @@ def test_overrides(tmp_path):
     assert aliases[0]["name"] == "python"
     assert aliases[0]["command"] == "/alias/path/to/python"
 
+    samtools_container = os.path.join(here, "testdata", "samtools", "container.yaml")
+    config = container.ContainerConfig(samtools_container)
+    assert len(config.get_aliases()) == 14
+
+    config.load_override_file("1.14--hb421002_0")
+    assert len(config.get_aliases()) == 27
+
+    config = container.ContainerConfig(samtools_container)
+    config.load_override_file("1.15--h3843a85_0")
+    assert len(config.get_aliases()) == 14
+    assert "REF_PATH" in config.env
+    assert config.env["REF_PATH"] == "/shared/cram_cache/%2s/%2s/%s"
+
 
 def test_invalid_overrides(tmp_path):
     """

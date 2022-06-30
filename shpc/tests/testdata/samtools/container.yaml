@@ -12,7 +12,8 @@ tags:
   1.14--hb421002_0: sha256:88632c41eba8b94b7a2a1013f422aecf478a0cb278740bcc3a38058c903d61ad
   1.15--h3843a85_0: sha256:d68e1b5f504dc60eb9f2a02eecbac44a63f144e7d455b3fb1a25323c667ca4c4
 overrides:
-  1.14--hb421002_0: overrides/1.14--hb421002_0.yaml
+  1.14--hb421002_0: 1.14--hb421002_0.yaml
+  1.15--h3843a85_0: 1.15--h3843a85_0.yaml
 aliases:
   ace2sam: /usr/local/bin/ace2sam
   bgzip: /usr/local/bin/bgzip

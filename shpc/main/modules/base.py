@@ -331,9 +331,6 @@ class ModuleBase(BaseClient):
         name = self.add_namespace(name)
         config = self._load_container(name, tag)
 
-        # We only want to load over-rides for a tag at install time
-        config.load_override_file(tag)
-
         # The chosen tag is set for the config (or defaults to latest)
         if not config.tag:
             logger.exit(
@@ -359,6 +356,14 @@ class ModuleBase(BaseClient):
         # Are we also installing to a named view?
         if view is None and not disable_view:
             view = self.settings.default_view
+
+        # If the module has a version, overrides version
+        version = tag.name
+        if ":" in name:
+            name, version = name.split(":", 1)
+
+        # We only want to load over-rides for a tag at install time
+        config.load_override_file(version)
 
         # A view is a symlink under views_base/$view/$module
         if view:
@@ -410,11 +415,6 @@ class ModuleBase(BaseClient):
         # Get the template based on the module and container type
         template = self.template.load(self.templatefile)
         module_path = os.path.join(module_dir, self.modulefile)
-
-        # If the module has a version, overrides version
-        version = tag.name
-        if ":" in name:
-            name, version = name.split(":", 1)
 
         # Install the container
         self.container.install(
