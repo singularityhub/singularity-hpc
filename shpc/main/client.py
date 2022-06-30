@@ -190,7 +190,7 @@ class Client:
             if not test_exec:
                 continue
 
-            for alias in config.get_aliases(tag):
+            for alias in config.get_aliases():
                 result = self.client.execute(image, alias["command"])
 
         # Cleanup the test install
