@@ -4,7 +4,7 @@ maintainer: '@vsoch'
 description: The RAPIDS suite of software libraries gives you the freedom to execute
   end-to-end data science and analytics pipelines entirely on GPUs.
 latest:
-  22.04-cuda11.5-runtime-ubuntu20.04: sha256:8a2c14908d12558e1e1d96950bb032c6e54563aa0faa73ae112d2e602aff6def
+  22.06-cuda11.5-runtime-ubuntu20.04-py3.9: sha256:bbe4fc5eb916f9e1c26b885f5586335b86fbbbc9fb8e8f19d2429ab4a79aa0fd
 tags:
   0.18-cuda11.0-runtime-centos7: sha256:9491e49936e10fc6e7c5b90a1d8141bab74e5879e1681146f0d2cf9aa6a9d24a
   22.02-cuda11.5-runtime-ubuntu20.04: sha256:961282c653419d174ba496b023e27c9535b475c949947343ceda0b8e8baea64a
@@ -13,6 +13,7 @@ tags:
   21.06-cuda11.2-runtime-ubuntu20.04: sha256:e28506f37088fbd9bb24356f9ebbbe40553dd4898127f0fe7d8c145b61fed736
   cuda11.5-runtime-ubuntu20.04: sha256:8a2c14908d12558e1e1d96950bb032c6e54563aa0faa73ae112d2e602aff6def
   22.04-cuda11.5-runtime-ubuntu20.04: sha256:8a2c14908d12558e1e1d96950bb032c6e54563aa0faa73ae112d2e602aff6def
+  22.06-cuda11.5-runtime-ubuntu20.04-py3.9: sha256:bbe4fc5eb916f9e1c26b885f5586335b86fbbbc9fb8e8f19d2429ab4a79aa0fd
 filter:
 - ^((?!base).)*$
 aliases:

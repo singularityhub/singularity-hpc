@@ -4,7 +4,7 @@ maintainer: '@vsoch'
 description: Elasticsearch is a powerful open source search and analytics engine that
   makes data easy to explore.
 latest:
-  8.2.2: sha256:8c666cb1e76650306655b67644a01663f9c7a5422b2c51dd570524267f11ce3d
+  8.3.1: sha256:31368b48bff6d3a0bbdea8d3c31d440f8149168aabf426fed3db8cd1567e57c4
 tags:
   7.12.0: sha256:383e9fb572f3ca2fdef5ba2edb0dae2c467736af96aba2c193722aa0c08ca7ec
   7.12.1: sha256:622f854572780281bc85b5fde33be27e99670941ed8b7eea5ba4aaf533fa64ec
@@ -23,6 +23,9 @@ tags:
   7.17.3: sha256:5e6ac15bf6a57c42fa702a647c13749b1249c89e59be8f654f61a3feade9dc47
   8.2.2: sha256:8c666cb1e76650306655b67644a01663f9c7a5422b2c51dd570524267f11ce3d
   7.17.4: sha256:529b3cfec4354beda158c6c7f2f8015cbdc9432a48c1d63e824d6fd728f30db2
+  8.3.1: sha256:31368b48bff6d3a0bbdea8d3c31d440f8149168aabf426fed3db8cd1567e57c4
+  8.2.3: sha256:f1363868e19aa721355f387a8e79a33496c56fb525d37bc27e032a5c1e540b1e
+  7.17.5: sha256:dbe8b72faf342789d756e268378d2b0a553c61a8b9a05492032babc9a334481f
 aliases:
   elasticsearch: /usr/share/elasticsearch/bin/elasticsearch
   elasticsearch-certgen: /usr/share/elasticsearch/bin/elasticsearch-certgen
