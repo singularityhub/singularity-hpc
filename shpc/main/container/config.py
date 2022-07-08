@@ -129,6 +129,51 @@ class ContainerConfig:
         name = self.docker or self.oras or self.gh
         return ContainerName(name)
 
+    def load_override_file(self, tag):
+        """
+        By the time we get here, the file needs to exist.
+        """
+        # Do we have an alias file for the tag?
+        if not self.overrides or tag not in self.overrides:
+            return
+        override_file = os.path.join(self.package_dir, self.overrides[tag])
+        if not os.path.exists(override_file):
+            logger.exit(f"Override file {override_file} does not exist.")
+        overrides = utils.read_yaml(override_file)
+
+        # Only allow over-ride of these fields
+        allowed_overrides = [
+            "aliases",
+            "docker_script",
+            "singularity_script",
+            "env",
+            "features",
+            "description",
+        ]
+        for k, v in overrides.items():
+            if k in allowed_overrides:
+                self._config[k] = v
+            else:
+                logger.warning("%s is not an allowed override field." % k)
+
+        # Always validate
+        self.validate()
+
+    def check_overrides(self):
+        """
+        Given a loaded config, ensure that all override files exist.
+        """
+        if not self.overrides:
+            return True
+        for tag, filename in self.overrides.items():
+            override_file = os.path.join(self.package_dir, filename)
+            if not os.path.exists(override_file):
+                logger.warning(
+                    f"Override file {filename} does not exist in {self.package_dir}"
+                )
+                return False
+        return True
+
     def update(self, dryrun=False, filters=None):
         """
         Update a container.yaml, meaning the tags and latest.

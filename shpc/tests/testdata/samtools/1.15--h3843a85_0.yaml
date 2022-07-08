@@ -1,0 +1,2 @@
+env:
+  REF_PATH: /shared/cram_cache/%2s/%2s/%s

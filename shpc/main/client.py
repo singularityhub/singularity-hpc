@@ -151,6 +151,11 @@ class Client:
         # Derive the registry entry from the module_name
         config = self._load_container(module_name)
 
+        # Ensure any alias files exist
+        if config and not config.check_overrides():
+            cleanup(tmpdir)
+            logger.exit("Test of %s was not successful." % module_name)
+
         # Generate a test template
         test_file = os.path.join(tmpdir, "test.sh")
 

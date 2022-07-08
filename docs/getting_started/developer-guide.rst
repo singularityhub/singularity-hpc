@@ -198,6 +198,50 @@ For each of the above, depending on the prefix of options that you choose, it wi
 This means that if you design a new registry recipe, you should consider how to run it for both kinds of technology. Also note that ``docker_options`` are
 those that will also be used for Podman.
 
+Overrides
+---------
+
+It might be the case that as your containers change over time, the set of any of:
+
+- commands (aliases)
+- docker_script
+- singularity_script
+- environment (env)
+- features
+- description
+
+does too! Or it be the case that you have hundreds of aliases, and want to better organize them separately from the container.yaml. To support this, shpc
+(as of version 0.0.56) has support for an ``overrides`` section in the container.yaml, meaning that you can define pairs of container
+tags and relative path lookups to external files with any of the stated sections. A simple example might look like this:
+
+.. code-block:: yaml
+
+    docker: python
+    url: https://hub.docker.com/_/python
+    maintainer: '@vsoch'
+    description: An interpreted, high-level and general-purpose programming language.
+    latest:
+      3.9.5-alpine: sha256:f189f7366b0d381bf6186b2a2c3d37f143c587e0da2e8dcc21a732bddf4e6f7b
+    tags:
+      3.9.2-alpine: sha256:f046c06388c0721961fe5c9b6184d2f8aeb7eb01b39601babab06cfd975dae01
+    overrides:
+      3.9.2-alpine: aliases/3.9.2-alpine.yaml
+    aliases:
+        python: /usr/local/bin/python
+
+
+Since this file only has aliases, we chose to use a subdirectory called "aliases" to make that clear, however
+the file can have any of the fields mentioned above, and can be organized in any relative path to the container directory that you deem apppropriate.
+Here is what this corresponding file with relative path ``aliases/3.9.2-alpine.yaml`` might look like this:
+
+.. code-block:: yaml
+
+    aliases:
+      python: /alias/path/to/python
+
+Finally, for all fields mentioned above, the format is expected to follow the same convention as above (and it will be validated again on update).
+
+
 Wrapper Script
 --------------
 
@@ -513,6 +557,9 @@ Fields include:
      - false
    * - aliases
      - Named entrypoints for container (dict) as described above
+     - false
+   * - overrides
+     - Key value pairs to override container.yaml defaults.
      - false
    * - url
      - Documentation or other url for the container uri

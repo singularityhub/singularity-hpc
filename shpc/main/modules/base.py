@@ -329,6 +329,10 @@ class ModuleBase(BaseClient):
         grabbed the name from docker (which is currently the only supported).
         """
         name = self.add_namespace(name)
+
+        # If the module has a version, overrides provided tag
+        if ":" in name:
+            name, tag = name.split(":", 1)
         config = self._load_container(name, tag)
 
         # The chosen tag is set for the config (or defaults to latest)
@@ -356,6 +360,9 @@ class ModuleBase(BaseClient):
         # Are we also installing to a named view?
         if view is None and not disable_view:
             view = self.settings.default_view
+
+        # We only want to load over-rides for a tag at install time
+        config.load_override_file(tag.name)
 
         # A view is a symlink under views_base/$view/$module
         if view:
@@ -408,11 +415,6 @@ class ModuleBase(BaseClient):
         template = self.template.load(self.templatefile)
         module_path = os.path.join(module_dir, self.modulefile)
 
-        # If the module has a version, overrides version
-        version = tag.name
-        if ":" in name:
-            name, version = name.split(":", 1)
-
         # Install the container
         self.container.install(
             module_path,
@@ -424,7 +426,7 @@ class ModuleBase(BaseClient):
             parsed_name=config.name,
             url=config.url,
             description=config.description,
-            version=version,
+            version=tag.name,
             config_features=config.features,
             features=kwargs.get("features"),
         )

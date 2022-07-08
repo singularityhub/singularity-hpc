@@ -33,12 +33,15 @@ jobs:
         run: |
           # Continue if we have a changed recipe file
           if [[ "${{ matrix.changed_recipe }}" = registry* ]]; then
-            echo "keepgoing=true" >> $GITHUB_ENV
+            recipe_basename=$(basename "${{ matrix.changed_recipe }}")
+            if [[ "${recipe_basename}" == "container.yaml" ]]; then  
+              echo "keepgoing=true" >> $GITHUB_ENV
+            fi
           fi          
 
       - name: Checkout
         if: ${{ env.keepgoing == 'true' }}
-        uses: actions/checkout@v2        
+        uses: actions/checkout@v3
 
       - name: Make Space For Build
         if: ${{ env.keepgoing == 'true' }}
