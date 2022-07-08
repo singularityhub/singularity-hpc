@@ -3,7 +3,7 @@ layout: container
 name:  "openjdk"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/openjdk/container.yaml"
-updated_at: "2022-07-08 12:08:31.249146"
+updated_at: "2022-07-08 12:10:10.361243"
 container_url: "https://hub.docker.com/_/openjdk"
 aliases:
  - "jar"
@@ -73,6 +73,7 @@ versions:
  - "17"
  - "18.0"
  - "19-alpine3.16"
+ - "20"
 description: "OpenJDK is an open-source implementation of the Java Platform, Standard Edition."
 ---
 
