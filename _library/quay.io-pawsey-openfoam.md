@@ -1,32 +1,33 @@
 ---
 layout: container
-name:  "ghcr.io/autamus/fastqc"
+name:  "quay.io/pawsey/openfoam"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/fastqc/container.yaml"
-updated_at: "2022-07-08 12:08:53.356957"
-container_url: "https://github.com/orgs/autamus/packages/container/package/fastqc"
-aliases:
- - "fastqc"
+github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/pawsey/openfoam/container.yaml"
+updated_at: "2022-07-08 12:10:17.907895"
+container_url: "https://quay.io/repository/pawsey/openfoam"
 
 versions:
- - "0.11.9"
- - "latest"
-description: "A quality control tool for high throughput sequence data."
+ - "v2012"
+ - "v2006"
+ - "v1912"
+ - "v1812"
+ - "v1712"
+description: "OpenFOAM (openfoam.com) images built on top of MPICH."
 ---
 
-This module is a singularity container wrapper for ghcr.io/autamus/fastqc.
-A quality control tool for high throughput sequence data.
+This module is a singularity container wrapper for quay.io/pawsey/openfoam.
+OpenFOAM (openfoam.com) images built on top of MPICH.
 After [installing shpc](#install) you will want to install this container module:
 
 
 ```bash
-$ shpc install ghcr.io/autamus/fastqc
+$ shpc install quay.io/pawsey/openfoam
 ```
 
 Or a specific version:
 
 ```bash
-$ shpc install ghcr.io/autamus/fastqc:0.11.9
+$ shpc install quay.io/pawsey/openfoam:v2012
 ```
 
 And then you can tell lmod about your modules folder:
@@ -38,8 +39,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load ghcr.io/autamus/fastqc/0.11.9
-$ module help ghcr.io/autamus/fastqc/0.11.9
+$ module load quay.io/pawsey/openfoam/v2012
+$ module help quay.io/pawsey/openfoam/v2012
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
@@ -51,7 +52,7 @@ You can use tab for auto-completion of module names or commands that are provide
 When you install this module, you will be able to load it to make the following commands accessible.
 Examples for both Singularity, Podman, and Docker (container technologies supported) are included.
 
-#### fastqc-run:
+#### openfoam-run:
 
 ```bash
 $ singularity run <container>
@@ -59,7 +60,7 @@ $ podman run --rm  -v ${PWD} -w ${PWD} <container>
 $ docker run --rm  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### fastqc-shell:
+#### openfoam-shell:
 
 ```bash
 $ singularity shell -s /bin/sh <container>
@@ -67,7 +68,7 @@ $ podman run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 $ docker run --it --rm --entrypoint /bin/sh  -v ${PWD} -w ${PWD} <container>
 ```
 
-#### fastqc-exec:
+#### openfoam-exec:
 
 ```bash
 $ singularity exec <container> "$@"
@@ -75,7 +76,7 @@ $ podman run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 $ docker run --it --rm --entrypoint ""  -v ${PWD} -w ${PWD} <container> "$@"
 ```
 
-#### fastqc-inspect:
+#### openfoam-inspect:
 
 Podman and Docker only have one inspect type.
 
@@ -84,27 +85,27 @@ $ podman inspect <container>
 $ docker inspect <container>
 ```
 
-#### fastqc-inspect-runscript:
+#### openfoam-inspect-runscript:
 
 ```bash
 $ singularity inspect -r <container>
 ```
 
-#### fastqc-inspect-deffile:
+#### openfoam-inspect-deffile:
 
 ```bash
 $ singularity inspect -d <container>
 ```
 
 
-#### fastqc
-       
-```bash
-$ singularity exec <container> /opt/view/bin/fastqc
-$ podman run --it --rm --entrypoint /opt/view/bin/fastqc   -v ${PWD} -w ${PWD} <container> -c " $@"
-$ docker run --it --rm --entrypoint /opt/view/bin/fastqc   -v ${PWD} -w ${PWD} <container> -c " $@"
-```
 
+#### openfoam
+
+```bash
+$ singularity run <container>
+$ podman run --rm  -v ${PWD} -w ${PWD} <container>
+$ docker run --rm  -v ${PWD} -w ${PWD} <container>
+```
 
 
 In the above, the `<container>` directive will reference an actual container provided
