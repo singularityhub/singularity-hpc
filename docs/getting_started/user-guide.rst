@@ -520,6 +520,26 @@ Container-specific scripts you'll want to include in the container.yaml are desc
       # use for singularity aliases
       singularity: singularity.sh 
 
+Since these are nested values, to get the current value you can use a ``:`` to separate
+the fields, e.g.,:
+
+.. code-block:: console
+
+    $ shpc config get wrapper_scripts:enabled
+    wrapper_scripts:enabled        False
+
+And if you want to change the default, just add another level:
+
+.. code-block:: console
+
+    $ shpc config set wrapper_scripts:enabled:true
+    Updated wrapper_scripts to be enabled:true
+
+And don't forget you can manually update the file in an editor:
+
+.. code-block:: console
+
+    $ shpc config edit
 
 Since different container technologies might expose different environment variables (e.g., ``SINGULARITY_OPTS`` vs ``PODMAN_OPTS``)
 they are organized above based on the container technology. If you want to customize the wrapper script, simply replace the relative paths

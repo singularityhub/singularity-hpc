@@ -202,7 +202,10 @@ class SettingsBase:
         """
         Set a setting based on key and value. If the key has :, it's nested
         """
-        value = self.parse_boolean(value)
+        while ":" in key:
+            value = str(value)
+            key, extra = key.split(":", 1)
+            value = f"{extra}:{value}"
 
         # List values not allowed for set
         current = self._settings.get(key)
@@ -210,12 +213,14 @@ class SettingsBase:
             logger.exit("You cannot use 'set' for a list. Use add/remove instead.")
 
         # This is a reference to a dictionary (object) setting
+        # We assume only one level of nesting allowed
         if isinstance(value, str) and ":" in value:
             subkey, value = value.split(":")
             value = self.parse_boolean(value)
             value = self.parse_null(value)
             self._settings[key][subkey] = value
         else:
+            value = self.parse_boolean(value)
             value = self.parse_null(value)
             self._settings[key] = value
 
