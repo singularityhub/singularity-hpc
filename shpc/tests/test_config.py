@@ -23,7 +23,17 @@ def test_config(tmp_path):
     client.settings.set("container_features:gpu", None)
     assert not client.settings.get("container_features:gpu")
 
+    client.settings.set("container_features:gpu", "null")
+    assert not client.settings.get("container_features:gpu")
+
+    client.settings.set("container_features:gpu", "none")
+    assert not client.settings.get("container_features:gpu")
+
     # Boolean
     assert client.settings.get("wrapper_scripts:enabled") == True
     client.settings.set("wrapper_scripts:enabled", False)
     assert client.settings.get("wrapper_scripts:enabled") == False
+    client.settings.set("wrapper_scripts:enabled", "false")
+    assert client.settings.get("wrapper_scripts:enabled") == False
+    client.settings.set("wrapper_scripts:enabled", "TRUE")
+    assert client.settings.get("wrapper_scripts:enabled") == True
