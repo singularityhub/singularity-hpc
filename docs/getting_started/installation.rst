@@ -80,9 +80,9 @@ variables in the config:
 .. code-block:: console
  
 
-    $ shpc config add registry:/<DIR>
-    $ shpc config set module_base:/<DIR> 
-    $ shpc config set container_base:/<DIR> 
+    $ shpc config add registry /<DIR>
+    $ shpc config set module_base /<DIR> 
+    $ shpc config set container_base  /<DIR> 
 
 
 Also importantly, if you are using environment modules (Tcl) and not LMOD, you need
@@ -90,7 +90,7 @@ to tell shpc about this (as it defaults to LMOD):
 
 .. code-block:: console
 
-    $ shpc config set module_sys:tcl
+    $ shpc config set module_sys tcl
 
 You can also easily (manually) update any settings in the ``shpc/settings.yaml`` file:
 

@@ -6,6 +6,7 @@
 # with this file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 from .helpers import init_client
+import pytest
 
 
 def test_config(tmp_path):
@@ -37,3 +38,34 @@ def test_config(tmp_path):
     assert client.settings.get("wrapper_scripts:enabled") == False
     client.settings.set("wrapper_scripts:enabled", "TRUE")
     assert client.settings.get("wrapper_scripts:enabled") == True
+
+
+@pytest.mark.parametrize(
+    "command,name,param,default,result",
+    [
+        (
+            "set",
+            "container_features:gpu",
+            "container_features:gpu:nvidia",
+            None,
+            "nvidia",
+        ),
+        (
+            "set",
+            "container_features:gpu",
+            ["container_features:gpu", "nvidia"],
+            None,
+            "nvidia",
+        ),
+    ],
+)
+def update_param_string(tmp_path, command, name, param, default, result):
+    """
+    Test general update_param used by client
+    """
+    client = init_client(str(tmp_path), "lmod", "singularity")
+
+    # Set/get one level
+    assert client.settings.get(name) == default
+    client.settings.update_param(command, param)
+    assert client.settings.get(name) == result

@@ -35,10 +35,7 @@ def main(args, parser, extra, subparser):
         return cli.settings.edit()
 
     if command in ["set", "add", "remove"]:
-
-        # Update each param
-        for param in args.params:
-            cli.settings.update_param(command, param)
+        cli.settings.update_param(command, args.params)
 
         # Save settings
         cli.settings.save()

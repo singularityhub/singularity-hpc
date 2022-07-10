@@ -301,13 +301,27 @@ class SettingsBase:
         """
         Given a parameter, update the configuration on the fly if it's in set/add/remove
         """
-        if ":" not in param:
-            logger.warning(
-                "Param %s is missing a :, should be key:value pair. Skipping." % param
-            )
-            return
+        # If we are given a list, assume is key and value at end
+        if isinstance(param, list):
+            # If one given, assume old format
+            if len(param) == 1:
+                param = param[0]
+            elif len(param) == 2:
+                key, value = param
+            elif len(param) != 2:
+                logger.exit(
+                    f"When providing a list, it must be a [key, value]. Found {param}"
+                )
 
-        key, value = param.split(":", 1)
+        # With a string, assume splittling by :
+        if isinstance(param, str):
+            if ":" not in param:
+                logger.exit(
+                    "Param %s is missing a :, should be key:value pair. Skipping."
+                    % param
+                )
+            key, value = param.rsplit(":", 1)
+
         if command == "set":
             self.set(key, value)
             logger.info("Updated %s to be %s" % (key, value))
