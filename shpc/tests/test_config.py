@@ -57,9 +57,23 @@ def test_config(tmp_path):
             None,
             "nvidia",
         ),
+        (
+            "set",
+            "wrapper_scripts:templates",
+            "wrapper_scripts:templates:value",
+            None,
+            "value",
+        ),
+        (
+            "set",
+            "wrapper_scripts:templates",
+            ["wrapper_scripts:templates", "value"],
+            None,
+            "value",
+        ),
     ],
 )
-def update_param_string(tmp_path, command, name, param, default, result):
+def test_update_param_string(tmp_path, command, name, param, default, result):
     """
     Test general update_param used by client
     """
