@@ -73,7 +73,7 @@ def test_config(tmp_path):
         ),
     ],
 )
-def test_update_param_string(tmp_path, command, name, param, default, result):
+def test_update_param(tmp_path, command, name, param, default, result):
     """
     Test general update_param used by client
     """
@@ -83,3 +83,40 @@ def test_update_param_string(tmp_path, command, name, param, default, result):
     assert client.settings.get(name) == default
     client.settings.update_param(command, param)
     assert client.settings.get(name) == result
+
+
+def test_add_remove(tmp_path):
+    """
+    Test add/remove (from list)
+    """
+    client = init_client(str(tmp_path), "lmod", "singularity")
+
+    # Default is a single list
+    registry = client.settings.get("registry")
+    assert isinstance(registry, list)
+    assert len(registry) == 1
+    assert registry[0].endswith("registry")
+
+    # Add a registry location
+    client.settings.update_param("add", ["registry", "/tmp/registry"])
+    registry = client.settings.get("registry")
+    assert len(registry) == 2
+    assert "/tmp/registry" in registry
+
+    # Remove from list
+    client.settings.update_param("remove", ["registry", "/tmp/registry"])
+    registry = client.settings.get("registry")
+    assert len(registry) == 1
+    assert "/tmp/registry" not in registry
+
+    # Add a registry location (old format)
+    client.settings.update_param("add", "registry:/tmp/registry")
+    registry = client.settings.get("registry")
+    assert len(registry) == 2
+    assert "/tmp/registry" in registry
+
+    # Remove a registry location (old format)
+    client.settings.update_param("remove", "registry:/tmp/registry")
+    registry = client.settings.get("registry")
+    assert len(registry) == 1
+    assert "/tmp/registry" not in registry
