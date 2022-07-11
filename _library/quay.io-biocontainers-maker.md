@@ -3,7 +3,7 @@ layout: container
 name:  "quay.io/biocontainers/maker"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/maker/container.yaml"
-updated_at: "2022-07-08 12:12:04.275714"
+updated_at: "2022-07-11 03:45:16.251166"
 container_url: "https://quay.io/repository/biocontainers/maker"
 aliases:
  - "maker"

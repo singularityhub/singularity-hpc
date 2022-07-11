@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/faodel"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/faodel/container.yaml"
-updated_at: "2022-07-08 12:11:39.381592"
+updated_at: "2022-07-11 03:44:51.683291"
 container_url: "https://github.com/orgs/autamus/packages/container/package/faodel"
 aliases:
  - "faodel"
