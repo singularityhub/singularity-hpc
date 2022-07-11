@@ -217,12 +217,13 @@ shpc view edit <name>""",
         "params",
         nargs="*",
         help="""Set or get a config value, edit the config, add or remove a list variable, or create a user-specific config.
-shpc config set key:value
+shpc config set key value
+shpc config set key:subkey value
 shpc config get key
 shpc edit
 shpc config inituser
-shpc config add registry:/tmp/registry
-shpc config remove registry:/tmp/registry""",
+shpc config add registry /tmp/registry
+shpc config remove registry /tmp/registry""",
         type=str,
     )
     # Generate markdown docs for a container registry entry

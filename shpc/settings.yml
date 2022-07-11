@@ -70,7 +70,7 @@ wrapper_shell: /bin/bash
 # If you want a custom wrapper script for a one-off container, define it there with the script
 # stored alongside the container.yaml.
 wrapper_scripts:
-  enabled: false
+  enabled: true
 
   # use for docker aliases (set to null to disable)
   docker: docker.sh
@@ -99,3 +99,4 @@ container_features:
             # defaults to ~/.Xauthority if set to true and the container has x11: true
   home:     # one of null, or a single path or src:dest path. 
             # home: true in a container.yaml will use this path, if defines
+updated_at: '2022-07-08T11:31:49Z'
