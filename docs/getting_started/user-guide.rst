@@ -1265,7 +1265,7 @@ And finally, you can ask to add new containers and completely update container.y
 This means we do a side by side comparison of your registry and the upstream, and we add new
 recipes folders that you don't have, and we replace any upstream files into recipes that you do have.
 Be careful with this option, as if you've made changes to a container.yaml or associated
-file in the upstream they will be lost. For this reason, we always reccommend that you do a dry run first:
+file in the upstream they will be lost. For this reason, we always recommend that you do a dry run first:
 
 .. code-block:: console
 
