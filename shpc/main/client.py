@@ -152,19 +152,21 @@ class Client:
             if existing_path and upgrade_all:
                 updates = True
                 logger.info("%s will be upgraded with all new files." % module)
-                if dryrun:
-                    continue
-                self.registry.update_container_module(module, from_path, existing_path)
+                if not dryrun:
+                    self.registry.update_container_module(
+                        module, from_path, existing_path
+                    )
 
             # If the path doesn't exist, we add / update it either way
             elif not existing_path:
                 updates = True
                 logger.info("%s will be added newly." % module)
-                if dryrun:
-                    continue
-                existing_path = os.path.join(regpath, module)
-                shpc.utils.mkdirp(existing_path)
-                self.registry.update_container_module(module, from_path, existing_path)
+                if not dryrun:
+                    existing_path = os.path.join(regpath, module)
+                    shpc.utils.mkdirp(existing_path)
+                    self.registry.update_container_module(
+                        module, from_path, existing_path
+                    )
 
         if not updates:
             logger.info("There were no upgrades.")
