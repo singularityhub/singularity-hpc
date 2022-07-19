@@ -15,9 +15,9 @@ def update_container_module(module, from_path, to_path):
     Update a container module, meaning copying over all files
     """
     for filename in shpc.utils.recursive_find(from_path):
-        relative_dir = existing_path.split(module)[-1]
+        relative_dir = to_path.split(module)[-1]
         basename = os.path.join(relative_dir, os.path.basename(filename))
-        to_path = os.path.join(existing_path, basename)
+        to_path = os.path.join(to_path, basename)
         if os.path.exists(to_path):
             os.remove(to_path)
         shutil.copyfile(from_path, to_path)

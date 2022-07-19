@@ -94,8 +94,8 @@ class Client:
         """
         Given an identifier, find the first match in the registry.
         """
-        for registry, fullpath in self.registry.iter_registry():
-            package_dir = os.path.join(registry, name)
+        for reg, fullpath in self.registry.iter_registry():
+            package_dir = os.path.join(reg, name)
             package_file = os.path.join(package_dir, "container.yaml")
             if package_file == fullpath:
                 return container.ContainerConfig(package_file)
@@ -163,7 +163,7 @@ class Client:
                 logger.info("%s will be added newly." % module)
                 if not dryrun:
                     existing_path = os.path.join(regpath, module)
-                    shpc.utils.mkdirp(existing_path)
+                    utils.mkdirp(existing_path)
                     self.registry.update_container_module(
                         module, from_path, existing_path
                     )
@@ -279,10 +279,10 @@ class Client:
             out = out or sys.stdout
 
             # List the known registry modules
-            for registry, fullpath in self.registry.iter_registry():
+            for reg, fullpath in self.registry.iter_registry():
                 if fullpath.endswith("container.yaml"):
                     module_name = (
-                        os.path.dirname(fullpath).replace(registry, "").strip(os.sep)
+                        os.path.dirname(fullpath).replace(reg, "").strip(os.sep)
                     )
 
                     # If the user has provided a filter, honor it
