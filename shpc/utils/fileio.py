@@ -134,7 +134,6 @@ def recursive_find(base, pattern=None):
 
             if pattern and not re.search(pattern, fullpath):
                 continue
-
             yield fullpath
 
 

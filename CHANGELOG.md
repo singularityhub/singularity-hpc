@@ -14,6 +14,7 @@ and **Merged pull requests**. Critical items to know are:
 The versions coincide with releases on pip. Only major versions will be released as tags on Github.
 
 ## [0.0.x](https://github.com/singularityhub/singularity-hpc/tree/main) (0.0.x)
+ - Add support for upgrade (add new recipes) and update --all (0.0.58)
  - fixing bug to config set/get nested fields, default for wrapper scripts true (0.0.57)
   - change in behavior, instead of `key:value` for set/add `key value` now also works.
  - adding support for container.yaml overrides (0.0.56)

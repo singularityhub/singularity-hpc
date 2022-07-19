@@ -1210,13 +1210,16 @@ strategy to add a specific tag:
 
     $ shpc update redis --dryrun --filter 6.0-rc-alpine
 
-The current implementation just supports updating from a Docker / oras registry (others will come after)
-and we don't currently support updating all tags at once, because the feature is relatively know
-and we want to take a conservative approach until we've seen it in action. However, you can easily
-loop through your module names to accomplish this:
+The current implementation just supports updating from a Docker / oras registry (others can come after if requested).
+As of version 0.0.58, there is support to ask to update all recipes - just leave out the name!
 
 .. code-block:: console
 
+    $ shpc update
+
+If you are using an earlier release than 0.0.58 you can accomplish the same as follows:
+
+.. code-block:: console
 
     $ for name in $(shpc show); do
         shpc update ${name} --dryun
@@ -1226,6 +1229,47 @@ loop through your module names to accomplish this:
 Let us know if there are other features you'd like for update! For specific recipes
 it could be that a different method of choosing or sorting tags (beyond the defaults mentioned above
 and filter) is needed.
+
+
+Upgrade
+-------
+
+An upgrade means not just updating tags of existing recipes, but retrieving new
+ones from the main repository. If you clone shpc from the GitHub repository, you can easily achieve
+this by pulling latest changes. However, if you install a release, you cannot do this!
+This is the reason we have upgrade, and there are two modes. Just running:
+
+.. code-block:: console
+
+    $ shpc upgrade
+    
+Will compare your main registry folder against the main branch and only add new recipes 
+that you do not have. To ask to update from a specific reference (tag or branch):
+
+.. code-block:: console
+
+    $ shpc upgrade --tag 0.0.58
+    
+You can also ask to add just a specific container:
+
+.. code-block:: console
+
+    $ shpc upgrade quay.io/not-local/container
+        
+And finally, you can ask to add new containers and completely update container.yaml files. 
+
+.. code-block:: console
+
+    $ shpc upgrade --all
+    
+This means we do a side by side comparison of your registry and the upstream, and we add new
+recipes folders that you don't have, and we replace any upstream files into recipes that you do have.
+Be careful with this option, as if you've made changes to a container.yaml or associated
+file in the upstream they will be lost. For this reason, we always reccommend that you do a dry run first:
+
+.. code-block:: console
+
+    $ shpc upgrade --dry-run
 
 
 Inspect

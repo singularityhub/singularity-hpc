@@ -90,24 +90,6 @@ class ContainerTechnology:
             return os.path.join(self.settings.module_base, name)
         return os.path.join(self.settings.container_base, name)
 
-    def iter_registry(self):
-        """
-        Iterate over known registries defined in settings.
-        """
-        for registry in self.settings.registry:
-            for filename in shpc.utils.recursive_find(registry):
-                yield registry, filename
-
-    def iter_modules(self):
-        """
-        Iterate over modules found across the registry
-        """
-        for registry in self.settings.registry:
-            for filename in shpc.utils.recursive_find(registry):
-                yield registry, os.path.dirname(filename).replace(registry, "").strip(
-                    os.sep
-                )
-
     def guess_tag(self, module_name, allow_fail=False):
         """
         If a user asks for a name without a tag, try to figure it out.

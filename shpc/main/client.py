@@ -6,6 +6,7 @@ __license__ = "MPL 2.0"
 from shpc.logger import logger
 import shpc.main.container as container
 import shpc.utils as utils
+import shpc.main.registry as registry
 from .settings import Settings
 
 import os
@@ -41,6 +42,9 @@ class Client:
         # If we don't have default settings, load
         if not hasattr(self, "settings"):
             self.settings = Settings(settings_file)
+
+        # Load registries from settings (into a single registry)
+        self.registry = registry.Registry(self.settings)
 
     def __repr__(self):
         return str(self)
@@ -90,7 +94,7 @@ class Client:
         """
         Given an identifier, find the first match in the registry.
         """
-        for registry, fullpath in self.container.iter_registry():
+        for registry, fullpath in self.registry.iter_registry():
             package_dir = os.path.join(registry, name)
             package_file = os.path.join(package_dir, "container.yaml")
             if package_file == fullpath:
@@ -113,18 +117,57 @@ class Client:
 
     def update(self, name, dryrun=False, filters=None):
         """
-        Given a module name (or None for all modules) update container.yaml files.
+        Given a module name (or None for all modules) upgrade the registry.
         """
+        # No name provided == "update all"
         if name:
             modules = [name]
-
-        # We can eventually support "update all" when we have more confidence
-        # else:
-        #    modules = [x[1] for x in list(self.container.iter_modules())]
+        else:
+            modules = [x[1] for x in list(self.registry.iter_modules())]
 
         for module_name in modules:
             config = self._load_container(module_name)
             config.update(dryrun=dryrun, filters=filters)
+
+    def upgrade(self, name, dryrun=False, tag="main", upgrade_all=False):
+        """
+        Given a module name (or None for all modules) update container.yaml files.
+        """
+        # Create a remote registry (currently only support upgrade from shpc)
+        url = "https://github.com/singularityhub/singularity-hpc"
+        remote = registry.GitHub(url, tag=tag, subdir="registry")
+
+        # Be able to tell user if no updates
+        updates = False
+
+        # These are modules to update
+        for regpath, module in remote.iter_modules():
+            if name and module != name:
+                continue
+
+            from_path = os.path.join(regpath, module)
+            existing_path = self.registry.exists(module)
+
+            # If we have an existing module and we want to replace all files
+            if existing_path and upgrade_all:
+                updates = True
+                logger.info("%s will be upgraded with all new files." % module)
+                if dryrun:
+                    continue
+                self.registry.update_container_module(module, from_path, existing_path)
+
+            # If the path doesn't exist, we add / update it either way
+            elif not existing_path:
+                updates = True
+                logger.info("%s will be added newly." % module)
+                if dryrun:
+                    continue
+                existing_path = os.path.join(regpath, module)
+                shpc.utils.mkdirp(existing_path)
+                self.registry.update_container_module(module, from_path, existing_path)
+
+        if not updates:
+            logger.info("There were no upgrades.")
 
     def test(
         self,
@@ -234,7 +277,7 @@ class Client:
             out = out or sys.stdout
 
             # List the known registry modules
-            for registry, fullpath in self.container.iter_registry():
+            for registry, fullpath in self.registry.iter_registry():
                 if fullpath.endswith("container.yaml"):
                     module_name = (
                         os.path.dirname(fullpath).replace(registry, "").strip(os.sep)

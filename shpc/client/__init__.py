@@ -286,10 +286,13 @@ shpc config remove registry /tmp/registry""",
         "uninstall_recipe", help="module to uninstall (module/version)"
     )
 
+    # Update gets latest tags from OCI registries
     update = subparsers.add_parser(
         "update", description="update a container recipe with new versions"
     )
-    update.add_argument("module_name", help="module to update (no version required)")
+    update.add_argument(
+        "module_name", help="module to update (no version required)", nargs="?"
+    )
     update.add_argument(
         "--filter",
         "-f",
@@ -297,13 +300,37 @@ shpc config remove registry /tmp/registry""",
         help="ignore container.yaml filters, run an update with this specific set",
         dest="filters",
     )
-    update.add_argument(
-        "--dryrun",
-        "-d",
-        help="View updates without performing updates",
+
+    # Upgrade gets latest files and non-existing containers from upstream shpc
+    upgrade = subparsers.add_parser(
+        "upgrade", description="get latest files and containers from an upstream shpc"
+    )
+    upgrade.add_argument(
+        "module_name", help="module to add or upgrade from upstream", nargs="?"
+    )
+    upgrade.add_argument(
+        "--tag",
+        "-t",
+        default="main",
+        help="Upstream shpc repository reference (tag or branch) to upgrade from.",
+    )
+    upgrade.add_argument(
+        "--all",
+        "-a",
+        dest="upgrade_all",
+        help="In addition to adding new containers, replace files for existing ones.",
         default=False,
         action="store_true",
     )
+
+    for command in update, upgrade:
+        command.add_argument(
+            "--dryrun",
+            "-d",
+            help="Do a dry run to view changes without performing them.",
+            default=False,
+            action="store_true",
+        )
 
     # Add customization for each of container tech and module system
     for command in [
@@ -447,6 +474,8 @@ def run_shpc():
         from .uninstall import main
     elif args.command == "update":
         from .update import main
+    elif args.command == "upgrade":
+        from .upgrade import main
 
     # Pass on to the correct parser
     return_code = 0
