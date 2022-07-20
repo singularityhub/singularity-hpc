@@ -115,7 +115,7 @@ class Client:
         config.set_tag(tag)
         return config
 
-    def update(self, name, dryrun=False, filters=None):
+    def update(self, name=None, dryrun=False, filters=None):
         """
         Given a module name (or None for all modules) upgrade the registry.
         """
@@ -129,7 +129,7 @@ class Client:
             config = self._load_container(module_name)
             config.update(dryrun=dryrun, filters=filters)
 
-    def upgrade(self, name, dryrun=False, tag="main", upgrade_all=False):
+    def upgrade(self, name=None, dryrun=False, tag="main", upgrade_all=False):
         """
         Given a module name (or None for all modules) update container.yaml files.
         """

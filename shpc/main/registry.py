@@ -80,6 +80,8 @@ class Registry:
         If the registry module is not installed, we install to the first
         filesystem registry found in the list.
         """
+        updates = False
+
         # These are modules to update
         for regpath, module in remote.iter_modules():
             if name and module != name:
