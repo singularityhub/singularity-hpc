@@ -7,11 +7,8 @@
 # with this file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 import pytest
-import shutil
 import os
-import io
 
-import shpc.utils
 import shpc.main.registry as registry
 from .helpers import here, init_client
 
