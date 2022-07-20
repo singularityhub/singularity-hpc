@@ -31,6 +31,9 @@ def test_filesystem_upgrade(tmp_path):
     os.makedirs(registry_path)
     local = registry.Filesystem(registry_path)
 
+    # Re-init registries
+    client.registry = registry.Registry(client.settings)
+
     # It should be empty
     assert not list(local.iter_modules())
 
@@ -46,15 +49,9 @@ def test_filesystem_upgrade(tmp_path):
     assert mods[0][0] == test_registry_path
     assert module == "dinosaur/salad"
 
-    assert not local.exists(module)
-    from_path = os.path.join(test_registry_path, module)
-    to_path = os.path.join(registry_path, module)
-    assert os.path.exists(from_path)
-
-    # Update container module from test to tmp registry
-    registry.update_container_module(module, from_path, to_path)
-    assert local.exists(module)
-    # TODO eventually want to create dummy remote registry to test
-
-    local.cleanup()
-    assert not os.path.exists(registry_path)
+    # Upgrade the current registry from the "remote" (test registry)
+    assert not client.registry.exists(module)
+    client.registry.upgrade(test_registry, module)
+    existing = client.registry.exists(module)
+    assert existing is not None
+    assert os.path.exists(existing)

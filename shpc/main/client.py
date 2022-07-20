@@ -137,38 +137,9 @@ class Client:
         url = "https://github.com/singularityhub/singularity-hpc"
         remote = registry.GitHub(url, tag=tag, subdir="registry")
 
-        # Be able to tell user if no updates
-        updates = False
-
-        # These are modules to update
-        for regpath, module in remote.iter_modules():
-            if name and module != name:
-                continue
-
-            from_path = os.path.join(regpath, module)
-            existing_path = self.registry.exists(module)
-
-            # If we have an existing module and we want to replace all files
-            if existing_path and upgrade_all:
-                updates = True
-                logger.info("%s will be upgraded with all new files." % module)
-                if not dryrun:
-                    self.registry.update_container_module(
-                        module, from_path, existing_path
-                    )
-
-            # If the path doesn't exist, we add / update it either way
-            elif not existing_path:
-                updates = True
-                logger.info("%s will be added newly." % module)
-                if not dryrun:
-                    self.registry.update_container_module(
-                        module, from_path, os.path.join(regpath, module)
-                    )
-
-        if not updates:
-            logger.info("There were no upgrades.")
-        del remote
+        # Upgrade the current registry from the remote
+        self.registry.upgrade(remote, name, overwrite=upgrade_all, dryrun=dryrun)
+        remote.cleanup()
 
     def test(
         self,

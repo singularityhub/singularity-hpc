@@ -5,6 +5,7 @@ __license__ = "MPL 2.0"
 
 import shpc.utils
 from shpc.main.settings import SettingsBase
+from shpc.logger import logger
 import subprocess as sp
 import shutil
 import os
@@ -16,16 +17,13 @@ def update_container_module(module, from_path, existing_path):
     """
     if not os.path.exists(existing_path):
         shpc.utils.mkdir_p(existing_path)
-    relative_dir = existing_path.split(module)[-1]
     for filename in shpc.utils.recursive_find(from_path):
-        basename = os.path.join(relative_dir, os.path.basename(filename))
-        to_path = os.path.join(existing_path, basename)
-        parent = os.path.dirname(to_path)
-        shpc.utils.mkdir_p(parent)
-        if os.path.isdir(filename):
-            shpc.utils.mkdirp(to_path)
-        else:
-            shutil.copyfile(filename, to_path)
+        relative_path = filename.replace(from_path, "").strip("/")
+        to_path = os.path.join(existing_path, relative_path)
+        if os.path.exists(to_path):
+            shutil.rmtree(to_path)
+        shpc.utils.mkdir_p(os.path.dirname(to_path))
+        shutil.copyfile(filename, to_path)
 
 
 class Registry:
@@ -75,8 +73,47 @@ class Registry:
                 return Registry(source)
         raise ValueError("No matching registry provider for %s" % source)
 
+    def upgrade(self, remote, name=None, overwrite=False, dryrun=False):
+        """
+        Update our main set of registries with a new module.
+
+        If the registry module is not installed, we install to the first
+        filesystem registry found in the list.
+        """
+        # These are modules to update
+        for regpath, module in remote.iter_modules():
+            if name and module != name:
+                continue
+
+            from_path = os.path.join(regpath, module)
+            existing_path = self.exists(module)
+
+            # If we have an existing module and we want to replace all files
+            if existing_path and overwrite:
+                updates = True
+                logger.info("%s will be upgraded with all new files." % module)
+                if not dryrun:
+                    update_container_module(module, from_path, existing_path)
+
+            # If the path doesn't exist, we add / update it either way
+            elif not existing_path:
+                local = self.registries[0]
+                updates = True
+                logger.info("%s will be added newly." % module)
+                if not dryrun:
+                    update_container_module(
+                        module, from_path, os.path.join(local.source, module)
+                    )
+
+        if not updates:
+            logger.info("There were no upgrades.")
+
 
 class Provider:
+    """
+    A general provider should retrieve and provide registry files.
+    """
+
     def __init__(self, source, *args, **kwargs):
         if not (source.startswith("https://") or os.path.exists(source)):
             raise ValueError(

@@ -1,0 +1,23 @@
+docker: vanessa/salad
+url: https://hub.docker.com/r/vanessa/salad
+maintainer: '@vsoch'
+description: A container all about fork and spoon puns.
+filter:
+- ^(?!.*add_github-actions).*$
+
+latest:
+  latest: sha256:e8302da47e3200915c1d3a9406d9446f04da7244e4995b7135afd2b79d4f63db
+tags:
+  latest: sha256:e8302da47e3200915c1d3a9406d9446f04da7244e4995b7135afd2b79d4f63db
+aliases:
+  salad: /code/salad
+
+# An example of a custom wrapper script, stored here, will generate "fork" alias
+# for each of a docker and singularity container
+docker_scripts:
+  fork: docker_fork.sh
+singularity_scripts:
+  fork: singularity_fork.sh
+
+env:
+  maintainer: vsoch
