@@ -10,17 +10,22 @@ import shutil
 import os
 
 
-def update_container_module(module, from_path, to_path):
+def update_container_module(module, from_path, existing_path):
     """
     Update a container module, meaning copying over all files
     """
+    if not os.path.exists(existing_path):
+        shpc.utils.mkdir_p(existing_path)
+    relative_dir = existing_path.split(module)[-1]
     for filename in shpc.utils.recursive_find(from_path):
-        relative_dir = to_path.split(module)[-1]
         basename = os.path.join(relative_dir, os.path.basename(filename))
-        to_path = os.path.join(to_path, basename)
-        if os.path.exists(to_path):
-            os.remove(to_path)
-        shutil.copyfile(from_path, to_path)
+        to_path = os.path.join(existing_path, basename)
+        parent = os.path.dirname(to_path)
+        shpc.utils.mkdir_p(parent)
+        if os.path.isdir(filename):
+            shpc.utils.mkdirp(to_path)
+        else:
+            shutil.copyfile(filename, to_path)
 
 
 class Registry:
@@ -90,6 +95,9 @@ class Provider:
     def matches(cls, source_url: str):
         pass
 
+    def cleanup(self):
+        pass
+
     def iter_registry(self):
         pass
 
@@ -107,6 +115,13 @@ class Filesystem(Provider):
             yield self.source, os.path.dirname(filename).replace(self.source, "").strip(
                 os.sep
             )
+
+    def cleanup(self):
+        """
+        Cleanup the temporary registry
+        """
+        if os.path.exists(self.source):
+            shutil.rmtree(self.source)
 
     def iter_registry(self):
         """
@@ -134,6 +149,13 @@ class GitHub(Provider):
         tmpdir = shpc.utils.get_tmpdir()
         self.clone(tmpdir)
         self.source = tmpdir
+
+    def cleanup(self):
+        """
+        Cleanup the temporary registry
+        """
+        if os.path.exists(self.source):
+            shutil.rmtree(self.source)
 
     def exists(self, name):
         """

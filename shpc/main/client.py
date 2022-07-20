@@ -162,14 +162,13 @@ class Client:
                 updates = True
                 logger.info("%s will be added newly." % module)
                 if not dryrun:
-                    existing_path = os.path.join(regpath, module)
-                    utils.mkdirp(existing_path)
                     self.registry.update_container_module(
-                        module, from_path, existing_path
+                        module, from_path, os.path.join(regpath, module)
                     )
 
         if not updates:
             logger.info("There were no upgrades.")
+        del remote
 
     def test(
         self,
