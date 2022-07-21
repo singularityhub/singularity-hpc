@@ -73,7 +73,25 @@ class Registry:
                 return Registry(source)
         raise ValueError("No matching registry provider for %s" % source)
 
-    def upgrade(self, remote, name=None, overwrite=False, dryrun=False):
+    def sync(
+        self, name=None, dryrun=False, tag="main", upgrade_all=False, add_new=True
+    ):
+        """
+        Given a module name (or None for all modules) update container.yaml files.
+        """
+        # Create a remote registry (currently only support upgrade from shpc)
+        url = "https://github.com/singularityhub/singularity-hpc"
+        remote = GitHub(url, tag=tag, subdir="registry")
+
+        # Upgrade the current registry from the remote
+        self.sync_from_remote(
+            remote, name, overwrite=upgrade_all, dryrun=dryrun, add_new=add_new
+        )
+        remote.cleanup()
+
+    def sync_from_remote(
+        self, remote, name=None, overwrite=False, dryrun=False, add_new=True
+    ):
         """
         Update our main set of registries with a new module.
 
@@ -97,8 +115,8 @@ class Registry:
                 if not dryrun:
                     update_container_module(module, from_path, existing_path)
 
-            # If the path doesn't exist, we add / update it either way
-            elif not existing_path:
+            # If the path doesn't exist, we add / update it only if we want to add new
+            elif not existing_path and add_new:
                 local = self.registries[0]
                 updates = True
                 logger.info("%s will be added newly." % module)
@@ -170,7 +188,7 @@ class Filesystem(Provider):
             yield self.source, filename
 
 
-class GitHub(Provider):
+class GitHub(Filesystem):
     """
     Currently a GitHub provider is only needed for on-demand upgrade.
     """
@@ -188,13 +206,6 @@ class GitHub(Provider):
         tmpdir = shpc.utils.get_tmpdir()
         self.clone(tmpdir)
         self.source = tmpdir
-
-    def cleanup(self):
-        """
-        Cleanup the temporary registry
-        """
-        if os.path.exists(self.source):
-            shutil.rmtree(self.source)
 
     def exists(self, name):
         """
@@ -221,13 +232,6 @@ class GitHub(Provider):
             sp.run(cmd, cwd=tmpdir, check=True)
         except sp.CalledProcessError as e:
             raise ValueError("Failed to clone repository {}:\n{}", self.source, e)
-
-    def __exit__(self):
-        """
-        Clean up temporary clone on exit.
-        """
-        if os.path.exists(self.source):
-            shutil.rmtree(self.source)
 
     def iter_modules(self):
         """

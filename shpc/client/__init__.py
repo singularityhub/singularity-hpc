@@ -301,29 +301,36 @@ shpc config remove registry /tmp/registry""",
         dest="filters",
     )
 
-    # Upgrade gets latest files and non-existing containers from upstream shpc
-    upgrade = subparsers.add_parser(
-        "upgrade", description="get latest files and containers from an upstream shpc"
+    # sync-registry gets latest files and non-existing containers from upstream shpc
+    sync = subparsers.add_parser(
+        "sync-registry",
+        description="get latest files and containers from an upstream shpc",
     )
-    upgrade.add_argument(
-        "module_name", help="module to add or upgrade from upstream", nargs="?"
+    sync.add_argument(
+        "module_name", help="module to add or sync from upstream", nargs="?"
     )
-    upgrade.add_argument(
+    sync.add_argument(
         "--tag",
         "-t",
         default="main",
         help="Upstream shpc repository reference (tag or branch) to upgrade from.",
     )
-    upgrade.add_argument(
+    sync.add_argument(
         "--all",
         "-a",
         dest="upgrade_all",
-        help="In addition to adding new containers, replace files for existing ones.",
+        help="Replace all existing files in sync set.",
+        default=False,
+        action="store_true",
+    )
+    sync.add_argument(
+        "--existing-only",
+        help="Do not add recipes that are not found in the local repository (only sync existing).",
         default=False,
         action="store_true",
     )
 
-    for command in update, upgrade:
+    for command in update, sync:
         command.add_argument(
             "--dryrun",
             "-d",
@@ -474,8 +481,8 @@ def run_shpc():
         from .uninstall import main
     elif args.command == "update":
         from .update import main
-    elif args.command == "upgrade":
-        from .upgrade import main
+    elif args.command == "sync-registry":
+        from .sync import sync_registry as main
 
     # Pass on to the correct parser
     return_code = 0

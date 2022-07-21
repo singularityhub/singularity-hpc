@@ -129,18 +129,6 @@ class Client:
             config = self._load_container(module_name)
             config.update(dryrun=dryrun, filters=filters)
 
-    def upgrade(self, name=None, dryrun=False, tag="main", upgrade_all=False):
-        """
-        Given a module name (or None for all modules) update container.yaml files.
-        """
-        # Create a remote registry (currently only support upgrade from shpc)
-        url = "https://github.com/singularityhub/singularity-hpc"
-        remote = registry.GitHub(url, tag=tag, subdir="registry")
-
-        # Upgrade the current registry from the remote
-        self.registry.upgrade(remote, name, overwrite=upgrade_all, dryrun=dryrun)
-        remote.cleanup()
-
     def test(
         self,
         module_name,

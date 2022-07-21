@@ -1231,36 +1231,37 @@ it could be that a different method of choosing or sorting tags (beyond the defa
 and filter) is needed.
 
 
-Upgrade
--------
+Sync Registry
+-------------
 
-An upgrade means not just updating tags of existing recipes, but retrieving new
-ones from the main repository. If you clone shpc from the GitHub repository, you can easily achieve
+A sync means not just updating tags of existing recipes, but retrieving new
+ones from the main repository (e.g., syncing with it, or a subset of it). 
+If you clone shpc from the GitHub repository, you can easily achieve
 this by pulling latest changes. However, if you install a release, you cannot do this!
-This is the reason we have upgrade, and there are two modes. Just running:
+This is the reason we have ``sync-registry``, and there are two modes. Just running:
 
 .. code-block:: console
 
-    $ shpc upgrade
+    $ shpc sync-registry
     
 Will compare your main registry folder against the main branch and only add new recipes 
 that you do not have. To ask to update from a specific reference (tag or branch):
 
 .. code-block:: console
 
-    $ shpc upgrade --tag 0.0.58
+    $ shpc sync-registry --tag 0.0.58
     
 You can also ask to add just a specific container:
 
 .. code-block:: console
 
-    $ shpc upgrade quay.io/not-local/container
+    $ shpc sync-registry quay.io/not-local/container
         
 And finally, you can ask to add new containers and completely update container.yaml files. 
 
 .. code-block:: console
 
-    $ shpc upgrade --all
+    $ shpc sync-registry --all
     
 This means we do a side by side comparison of your registry and the upstream, and we add new
 recipes folders that you don't have, and we replace any upstream files into recipes that you do have.
@@ -1269,7 +1270,7 @@ file in the upstream they will be lost. For this reason, we always recommend tha
 
 .. code-block:: console
 
-    $ shpc upgrade --dry-run
+    $ shpc sync-registry --dry-run
 
 
 Inspect
