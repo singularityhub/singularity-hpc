@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/trilinos"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/trilinos/container.yaml"
-updated_at: "2022-08-01 16:58:51.210645"
+updated_at: "2022-08-01 18:20:22.670304"
 container_url: "https://github.com/orgs/autamus/packages/container/package/trilinos"
 
 versions:

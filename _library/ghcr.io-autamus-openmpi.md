@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/openmpi"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/openmpi/container.yaml"
-updated_at: "2022-08-01 16:59:01.990392"
+updated_at: "2022-08-01 18:20:33.104982"
 container_url: "https://github.com/orgs/autamus/packages/container/package/openmpi"
 aliases:
  - "mpiCC"
