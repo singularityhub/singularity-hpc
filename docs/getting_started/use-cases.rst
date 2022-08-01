@@ -207,7 +207,7 @@ Adding Options
 --------------
 
 By default, some of the commands will come with singularity options. For example,
-a container intended for gpu will have a feature: gpu set to true, and this will add the ``--nv`` flag given that the user or cluster settings file has that feature enabled. However,
+a container intended for gpu will have a features: gpu set to true, and this will add the ``--nv`` flag given that the user or cluster settings file has that feature enabled. However,
 it could be the case that you want to define custom options at the time of use.
 In this case, you can export the following custom environment variables to add them:
 
