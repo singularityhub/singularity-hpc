@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/sqlite"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/sqlite/container.yaml"
-updated_at: "2022-07-11 07:57:35.227371"
+updated_at: "2022-08-01 01:52:06.057554"
 container_url: "https://github.com/orgs/autamus/packages/container/package/sqlite"
 aliases:
  - "sqlite3"

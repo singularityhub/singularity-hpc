@@ -3,7 +3,7 @@ layout: container
 name:  "quay.io/biocontainers/blast"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/blast/container.yaml"
-updated_at: "2022-07-11 07:58:31.789777"
+updated_at: "2022-08-01 01:52:45.547020"
 container_url: "https://quay.io/repository/biocontainers/blast"
 aliases:
  - "blast_formatter"
@@ -47,6 +47,7 @@ versions:
  - "2.11.0--pl5262h3289130_1"
  - "2.12.0--pl5262h3289130_0"
  - "2.12.0--hf3cf87c_4"
+ - "2.13.0--hf3cf87c_0"
 description: "BLAST finds regions of similarity between biological sequences."
 ---
 

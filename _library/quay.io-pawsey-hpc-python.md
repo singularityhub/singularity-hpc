@@ -3,7 +3,7 @@ layout: container
 name:  "quay.io/pawsey/hpc-python"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/pawsey/hpc-python/container.yaml"
-updated_at: "2022-07-11 07:58:25.291277"
+updated_at: "2022-08-01 01:52:54.296962"
 container_url: "https://quay.io/repository/pawsey/hpc-python"
 aliases:
  - "python"

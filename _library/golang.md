@@ -3,7 +3,7 @@ layout: container
 name:  "golang"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/golang/container.yaml"
-updated_at: "2022-07-11 07:56:49.264900"
+updated_at: "2022-08-01 01:53:05.324451"
 container_url: "https://hub.docker.com/r/_/golang"
 aliases:
  - "go"
@@ -25,6 +25,8 @@ versions:
  - "1.17rc2-buster"
  - "1.19-rc"
  - "1.18-rc-buster"
+ - "1.17"
+ - "1.16"
 description: "Go (a.k.a., Golang) is a programming language first developed at Google."
 ---
 

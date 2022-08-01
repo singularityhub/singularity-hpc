@@ -3,7 +3,7 @@ layout: container
 name:  "ghcr.io/autamus/pumi"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/pumi/container.yaml"
-updated_at: "2022-07-11 07:57:19.460568"
+updated_at: "2022-08-01 01:52:25.340264"
 container_url: "https://github.com/orgs/autamus/packages/container/package/pumi"
 aliases:
  - "print_pumipic_partition"

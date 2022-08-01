@@ -3,7 +3,7 @@ layout: container
 name:  "bids/mrtrix3_connectome"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/bids/mrtrix3_connectome/container.yaml"
-updated_at: "2022-07-11 07:56:47.579523"
+updated_at: "2022-08-01 01:53:18.287771"
 container_url: "https://hub.docker.com/r/bids/mrtrix3_connectome"
 
 versions:
@@ -13,6 +13,7 @@ versions:
  - "0.4.2"
  - "0.3.0"
  - "0.2.2"
+ - "0.5.2"
 description: "Generation and subsequent group analysis of structural connectomes generated from diffusion MRI data (via the MRtrix3 software package). https://github.com/BIDS-Apps/MRtrix3_connectome"
 ---
 

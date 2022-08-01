@@ -3,7 +3,7 @@ layout: container
 name:  "spack/ubuntu-bionic"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/spack/ubuntu-bionic/container.yaml"
-updated_at: "2022-07-11 07:56:59.091672"
+updated_at: "2022-08-01 01:53:03.670066"
 container_url: "https://hub.docker.com/r/spack/ubuntu-bionic"
 aliases:
  - "sbang"
@@ -21,6 +21,8 @@ versions:
  - "prerelease"
  - "v0.17.2"
  - "v0.18.0"
+ - "v0.18.1"
+ - "v0.17.3"
 description: "Ubuntu 18.04 with Spack preinstalled."
 ---
 

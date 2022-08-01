@@ -3,7 +3,7 @@ layout: container
 name:  "quay.io/biocontainers/gatk4"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/gatk4/container.yaml"
-updated_at: "2022-07-11 07:58:39.992842"
+updated_at: "2022-08-01 01:52:42.276982"
 container_url: "https://quay.io/repository/biocontainers/gatk4"
 aliases:
  - "gatk"
