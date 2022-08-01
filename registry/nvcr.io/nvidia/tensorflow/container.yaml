@@ -28,3 +28,5 @@ tags:
   22.07-tf2-py3: sha256:5ceb426d476b0c24104fd8b036d6c8f7ef0d1579b133f53158f891861cddab1f
 filter:
 - 21*
+features:
+  gpu: true

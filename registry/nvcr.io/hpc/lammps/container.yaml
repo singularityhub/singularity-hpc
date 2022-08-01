@@ -16,3 +16,5 @@ tags:
   29Sep2021: sha256:6c40caaa7c2aadd0e49748ddef584a7d88235651479e416919ced889e2156596
 filter:
 - '2021'
+features:
+  gpu: true

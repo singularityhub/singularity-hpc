@@ -22,3 +22,5 @@ maintainer: '@vsoch'
 url: https://ngc.nvidia.com/catalog/containers/nvidia:hpc-benchmarks/tags
 description: 'The NVIDIA HPC-Benchmarks collection provides three NVIDIA accelerated
   HPC benchmarks: HPL-NVIDIA, HPL-AI-NVIDIA, and HPCG-NVIDIA.'
+features:
+  gpu: true

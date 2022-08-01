@@ -16,3 +16,5 @@ aliases:
   pvbatch: /opt/paraview/bin/pvbatch
   pypython: /opt/paraview/bin/pvpython
   pvserver: /opt/paraview/bin/pvserver
+features:
+  gpu: true
