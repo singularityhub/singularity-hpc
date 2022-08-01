@@ -3,10 +3,10 @@ url: https://github.com/orgs/autamus/packages/container/package/unixodbc
 maintainer: '@vsoch'
 description: unixODBC-Test containing Qt based ODBC test tool, and autotest framework.
 latest:
-  2.3.4: sha256:d957a829bb05cab612753cbf9d3a1dd29639790bd88f956a87a6d4c5c73d9295
+  2.3.4: sha256:dcf6d3fa3d50eba2b404c6f5d07dbec71cce60794fc84b99520b181cdec9c772
 tags:
-  2.3.4: sha256:d957a829bb05cab612753cbf9d3a1dd29639790bd88f956a87a6d4c5c73d9295
-  latest: sha256:d957a829bb05cab612753cbf9d3a1dd29639790bd88f956a87a6d4c5c73d9295
+  2.3.4: sha256:dcf6d3fa3d50eba2b404c6f5d07dbec71cce60794fc84b99520b181cdec9c772
+  latest: sha256:dcf6d3fa3d50eba2b404c6f5d07dbec71cce60794fc84b99520b181cdec9c772
 aliases:
   odbc_config: /opt/view/bin/odbc_config
   odbcinst: /opt/view/bin/odbcinst

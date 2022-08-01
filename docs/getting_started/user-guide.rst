@@ -40,8 +40,8 @@ default).
 
 .. code-block:: console
 
-    $ shpc config set module_sys:tcl
-    $ shpc config set module_sys:lmod  # default
+    $ shpc config set module_sys tcl
+    $ shpc config set module_sys lmod  # default
 
 
 You can then easily install, load, and use modules:
@@ -81,8 +81,8 @@ software, which is typicall lmod or tcl. Here is how to change from the default
 
 .. code-block:: console
 
-    $ shpc config set module_sys:tcl
-    $ shpc config set module_sys:lmod # this is the default, which we change back to!
+    $ shpc config set module_sys tcl
+    $ shpc config set module_sys lmod # this is the default, which we change back to!
 
 
 Once you have the correct module software indicated, try installing a container:
@@ -315,10 +315,10 @@ your install:
 .. code-block:: console
 
     # an absolute path
-    $ shpc config set module_base:/opt/lmod/modules
+    $ shpc config set module_base /opt/lmod/modules
 
     # or a path relative to a variable location remember to escape the "$"
-    $ shpc config set module_base:\$root_dir/modules
+    $ shpc config set module_base \$root_dir/modules
 
 
 This directory will be the base where lua files are added, and containers are stored
@@ -351,7 +351,7 @@ different. For example:
 .. code-block:: console
 
     $ mkdir -p /tmp/containers
-    $ shpc config set container_base:/tmp/containers
+    $ shpc config set container_base /tmp/containers
 
 
 The same hierarchy will be preserved as to not put all containers in the same
@@ -464,7 +464,7 @@ or you can set the global variable to what you want to use (it defaults to lmod)
 
 .. code-block:: console
 
-    $ shpc config set module_sys:tcl
+    $ shpc config set module_sys tcl
 
 
 The command line argument, if provided, always over-rides the default.
@@ -488,7 +488,7 @@ or for a global setting:
 
 .. code-block:: console
 
-    $ shpc config set container_tech:podman
+    $ shpc config set container_tech podman
 
 
 If you would like support for a different container technology that has not been
@@ -520,6 +520,26 @@ Container-specific scripts you'll want to include in the container.yaml are desc
       # use for singularity aliases
       singularity: singularity.sh 
 
+Since these are nested values, to get the current value you can use a ``:`` to separate
+the fields, e.g.,:
+
+.. code-block:: console
+
+    $ shpc config get wrapper_scripts:enabled
+    wrapper_scripts:enabled        False
+
+And if you want to change the default, just add another level:
+
+.. code-block:: console
+
+    $ shpc config set wrapper_scripts:enabled true
+    Updated wrapper_scripts:enabled to be true
+
+And don't forget you can manually update the file in an editor:
+
+.. code-block:: console
+
+    $ shpc config edit
 
 Since different container technologies might expose different environment variables (e.g., ``SINGULARITY_OPTS`` vs ``PODMAN_OPTS``)
 they are organized above based on the container technology. If you want to customize the wrapper script, simply replace the relative paths
@@ -688,7 +708,7 @@ If you always want to install to an (existing) named view, simply set the ``defa
 
 .. code-block:: console
 
-    $ shpc config set default_view:mpi
+    $ shpc config set default_view mpi
 
 You should obviously create the view first or you'll get an error message that it does not exist!
 When you have a default view set, any install that you do will install to the module base and also your view.
@@ -717,7 +737,7 @@ for a short period of time to install to it. If you want to disable this, then j
 
 .. code-block:: console
 
-    $ shpc config set default_view:null
+    $ shpc config set default_view null
 
 And note you can also ask to install to a view "one off":
 
@@ -908,10 +928,10 @@ The following example shows changing the default module_base path from the insta
 .. code-block:: console
 
     # an absolute path
-    $ shpc config set module_base:/opt/lmod/modules
+    $ shpc config set module_base /opt/lmod/modules
 
     # or a path relative to the install directory, remember to escape the "$"
-    $ shpc config set module_base:\$install_dir/modules
+    $ shpc config set module_base \$install_dir/modules
 
 
 And then to get values:
@@ -925,8 +945,8 @@ And to add and remove a value to a list:
 
 .. code-block:: console
 
-    $ shpc config add registry:/tmp/registry
-    $ shpc config remove registry:/tmp/registry
+    $ shpc config add registry /tmp/registry
+    $ shpc config remove registry /tmp/registry
 
 
 You can also open the config in the editor defined in settings at ``config_editor``
@@ -1081,7 +1101,7 @@ Note that you can also set the namespace as any other setting:
 
 .. code-block:: console
 
-    $ shpc config set namespace:ghcr.io/autamus
+    $ shpc config set namespace ghcr.io/autamus
 
 Namespaces currently work with:
 

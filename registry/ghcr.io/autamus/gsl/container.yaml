@@ -7,7 +7,7 @@ latest:
 tags:
   '2.6': sha256:e61cb98bef8557181282243129209b2472478525dae9dc44f34fd7381beb39f2
   '2.7': sha256:674c111e37385d8e73910defd5d058d414e430837a7eceee687d8191eb2b1266
-  latest: sha256:f45fadf32691d9d9863789138cc9a11c90865188165bc644758da56d49f304f9
+  latest: sha256:41918457b0731c277fac56d66e499168e20adff22b4ce32eeea6a09a7eab6636
 aliases:
   gsl-config: /opt/view/bin/gsl-config
   gsl-histogram: /opt/view/bin/gsl-histogram

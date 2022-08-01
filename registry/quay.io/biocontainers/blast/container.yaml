@@ -3,12 +3,13 @@ url: https://quay.io/repository/biocontainers/blast
 maintainer: '@marcodelapierre'
 description: BLAST finds regions of similarity between biological sequences.
 latest:
-  2.12.0--hf3cf87c_4: sha256:9df91dee10f97405384734f964021feae38fcf68a721315f706be99be9366d86
+  2.13.0--hf3cf87c_0: sha256:221b0ab5540cf7c4013b51b60b2c66113104a5b700611d411ae25eb5904f78d8
 tags:
   2.10.1--pl526he19e7b1_3: sha256:f12a5a35a0e6645134fcfe8650b0d1b5ff1f486430828a4ec3c4c9bfe35a5d78
   2.11.0--pl5262h3289130_1: sha256:52e8e0ed12a0fe8854681dadb600e1d5599e04b960b01034cb53812fad944c3d
   2.12.0--pl5262h3289130_0: sha256:a7eb056f5ca6a32551bf9f87b6b15acc45598cfef39bffdd672f59da3847cd18
   2.12.0--hf3cf87c_4: sha256:9df91dee10f97405384734f964021feae38fcf68a721315f706be99be9366d86
+  2.13.0--hf3cf87c_0: sha256:221b0ab5540cf7c4013b51b60b2c66113104a5b700611d411ae25eb5904f78d8
 aliases:
   blast_formatter: /usr/local/bin/blast_formatter
   blastdb_aliastool: /usr/local/bin/blastdb_aliastool

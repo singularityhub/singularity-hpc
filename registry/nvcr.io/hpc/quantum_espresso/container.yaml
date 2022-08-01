@@ -5,10 +5,11 @@ description: Quantum ESPRESSO is an integrated suite of Open-Source computer cod
   for electronic-structure calculations and materials modeling at the nanoscale based
   on density-functional theory, plane waves, and pseudopotentials.
 latest:
-  qe-7.0: sha256:e117f9df9868b7d7908fabc951719d8bf4a450ef7a9a01cf2e0ed5ab3f2b9651
+  qe-7.1: sha256:e525848fd411302f1e941b34f145a988a0ea2d300e14c93d3deec291c4c88edc
 tags:
   v6.7: sha256:fdcea13eec98f48af813f172be42a40adf4e856d07cfb4ee1fc584d5c4a8f0f9
   qe-6.8: sha256:1db6a3eae9baa8cbb6c72f227c14d48fd8a8b2548f021c10764608a321525de8
   qe-7.0: sha256:e117f9df9868b7d7908fabc951719d8bf4a450ef7a9a01cf2e0ed5ab3f2b9651
+  qe-7.1: sha256:e525848fd411302f1e941b34f145a988a0ea2d300e14c93d3deec291c4c88edc
 filter:
 - v*
