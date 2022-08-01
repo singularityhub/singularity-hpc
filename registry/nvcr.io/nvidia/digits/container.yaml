@@ -16,3 +16,6 @@ tags:
   21.07-tensorflow-py3: sha256:84a670644b33b6e1bfe19f67779517110ec6cb5a6082fb3ed974c79cc5a01389
 aliases:
   python: /usr/bin/python
+features:
+  gpu: true
+

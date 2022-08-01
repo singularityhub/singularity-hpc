@@ -23,3 +23,5 @@ aliases:
   psfgen: /usr/local/bin/psfgen
   sortreplicas: /usr/local/bin/sortreplicas
   vmd: /usr/local/bin/vmd
+features:
+  gpu: true

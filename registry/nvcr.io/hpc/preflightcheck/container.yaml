@@ -9,3 +9,5 @@ maintainer: '@vsoch'
 url: https://ngc.nvidia.com/catalog/containers/hpc:preflightcheck
 description: The Pre-Flight Check container verifies that the container runtime is
   setup correctly for GPUs and InfiniBand.
+features:
+  gpu: true

@@ -18,3 +18,5 @@ filter:
 - ^((?!base).)*$
 aliases:
   python: /opt/conda/bin/python
+features:
+  gpu: true
