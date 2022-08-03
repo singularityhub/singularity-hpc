@@ -67,7 +67,7 @@ software doesn't see the module, remember that you need to have done:
     $ module use $(pwd)/modules
 
 
-We walk through these steps in more detail in the next section.
+Also know that by default, we use a remote registry, `shpc-registry on GitHub <https://github.com/singularityhub/shpc-registry>`_ to find recipes for. If you want to use a local filesystem registry (a clone of that registry or your own custom) see the following sections, where we will walk through these steps in more detail.
 
 
 Quick Start
@@ -168,8 +168,11 @@ variable replacement. A summary table of variables is included below, and then f
      - Set a default module system. Currently lmod and tcl are supported
      - lmod
    * - registry
-     - A list of full paths to one or more registry folders (with subfolders with container.yaml recipes)
-     - [$root_dir/registry]
+     - A list of full paths to one or more registry remotes (e.g., GitHub addresses) or local directories (each with subfolders with container.yaml recipes)
+     - ["https://github.com/singularityhub/shpc-registry"]
+   * - sync_registry
+     - A default remote to sync from (is not required to have an API/docs, as it is cloned).
+     - https://github.com/singularityhub/shpc-registry     
    * - module_base
      - The install directory for modules
      - $root_dir/modules
@@ -364,10 +367,24 @@ Registry
 --------
 
 The registry parameter is a list of one or more registry locations (filesystem
-directories) where shpc will search for ``container.yaml`` files. The default
-registry shipped with shpc is the folder in the root of the repository, but 
-you can add or remove entries via the config variable ``registry``
+directories or remote GitHub repositories with the same structure) where shpc will search 
+for ``container.yaml`` files. The default registry used to be shipped with shpc, but as of
+version 0.1.0 is provided remotely. This means that by default, you don't need to worry about 
+updating or syncing recipes - they will always be retrieved from the latest, as the remote registry
+`shpc-registry  <https://github.com/singularityhub/shpc-registry>`_ is automatically updated.
+However, you have several options for managing your own (or updating) recipes.
 
+1. Use the default remote, no additional work needed
+2. Clone the default remote to a local filesystem folder and manage manually (e.g., git pull)
+3. Create your own local registry in addition (or without) the remote.
+4. For any local registry, either sync (``shpc sync``) or add a recipe locally from a remote (``registry-add``).
+
+If you want to do the first, no further action is needed! Each of these remaining
+examples will be described here.
+
+Use the default 
+
+TODO WRITE THESE OUT SHOW HOW TO UPDATE 
 
 .. code-block:: console
 
@@ -958,8 +975,8 @@ You can also open the config in the editor defined in settings at ``config_edito
 
 which defaults to vim.
 
-Show and Install
-----------------
+Show
+----
 
 The most basic thing you might want to do is install an already existing
 recipe in the registry. You might first want to show the known registry entries
@@ -1000,6 +1017,18 @@ To get details about a package, you would then add it's name to show:
 .. code-block:: console
 
     $ shpc show python
+
+Finally, to show recipes in a local filesystem registry (that may not be added to your
+shpc config) you can specify the path with ``--registry``. All of the above should work
+except with this argument, e.g.,:
+
+.. code-block:: console
+
+    $ shpc show --registry .
+
+
+Install
+-------
 
 
 And then you can install a version that you like (or don't specify to default to
@@ -1234,43 +1263,58 @@ and filter) is needed.
 Sync Registry
 -------------
 
-A sync means not just updating tags of existing recipes, but retrieving new
-ones from the main repository (e.g., syncing with it, or a subset of it). 
-If you clone shpc from the GitHub repository, you can easily achieve
-this by pulling latest changes. However, if you install a release, you cannot do this!
-This is the reason we have ``sync-registry``, and there are two modes. Just running:
+A sync is when we take your local filesystem registry, and retrieve updates from the remote defined at 
+``sync_registry`` in your settings.yaml. Since sync will be writing recipes to the filesystem
+it only works if you target a filesystem registry (meaning that the default registry
+as a remote will not work). 
+
+.. note::
+
+   By default, the first filesystem registry found in your settings under the registry list will
+   be used. To provide a one off registry folder (that should exist but does not need to be in your
+   defined list) you can use ``--registry``.
+
+As an example, if we do this without changing the defaults:
 
 .. code-block:: console
 
     $ shpc sync-registry
-    
+    This command is only supported for a filesystem registry! Add one or use --registry.    
+
+We can then make a dummy directory to support sync. You could also make this directory and add to your settings proper under ``registry``.
+
+.. code-block:: console
+
+    $ mkdir -p ./registry
+    $ shpc sync-registry --registry ./registry
+
 Will compare your main registry folder against the main branch and only add new recipes 
 that you do not have. To ask to update from a specific reference (tag or branch):
 
 .. code-block:: console
 
-    $ shpc sync-registry --tag 0.0.58
+    $ shpc sync-registry --registry ./registry --tag 0.0.58
     
 You can also ask to add just a specific container:
 
 .. code-block:: console
 
-    $ shpc sync-registry quay.io/not-local/container
+    $ shpc sync-registry --registry ./registry quay.io/not-local/container
         
 And finally, you can ask to add new containers and completely update container.yaml files. 
 
 .. code-block:: console
 
-    $ shpc sync-registry --all
+    $ shpc sync-registry --registry ./registry --all
     
-This means we do a side by side comparison of your registry and the upstream, and we add new
+This means we do a side by side comparison of your filesystem registry and the upstream, and we add new
 recipes folders that you don't have, and we replace any upstream files into recipes that you do have.
 Be careful with this option, as if you've made changes to a container.yaml or associated
 file in the upstream they will be lost. For this reason, we always recommend that you do a dry run first:
 
 .. code-block:: console
 
-    $ shpc sync-registry --dry-run
+    $ shpc sync-registry --registry ./registry --dry-run
 
 
 Inspect
@@ -1336,7 +1380,7 @@ can do:
 
 .. code-block:: console
 
-    shpc test python
+    $ shpc test python
 
 
 If you don't have it, you can run tests in the provided docker container. 
@@ -1467,7 +1511,7 @@ If you want a quick way to shell into an installed module's container
 
 .. code-block:: console
 
-    shpc shell vanessa/salad:latest
+    $ shpc shell vanessa/salad:latest
     Singularity> /code/salad fork
 
      My life purpose: I cut butter.  
@@ -1592,8 +1636,33 @@ The steps for adding a container are:
 
 In the case of a docker image that is public (that you can share) you are encouraged
 to contribute your recipe directly to shpc for others to use, and once in the repository
-tags will also get updated automatically. 
+tags will also get updated automatically.
 
+.. warning::
+
+    The add command only works for a local filesystem registry. This means it will
+    not work with the default settings that retrieve recipes from a remote registry!
+    To use add and create your own filesystem folder, you can use ``--registry`` with
+    a newly created directory (that you can then add to your settings.yaml registry
+    list).
+
+
+Creating a Local Registry
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+For any of the commands below you can create a local registry very easily - it's just a directory!
+
+.. code-block:: console
+
+    $ mkdir -p registry
+    
+And then use it via a one off command to add, e.g.,:
+
+.. code-block:: console
+
+    $ shpc add --registry ./registry docker://vanessa/pokemon
+
+    
 Add a Local Container
 ^^^^^^^^^^^^^^^^^^^^^
 

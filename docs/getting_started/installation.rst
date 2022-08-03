@@ -69,9 +69,9 @@ Once it's installed, you should be able to inspect the client!
 
 
 You'll next want to configure and create your registry, discussed next in :ref:`getting-started`.
-Generally, remember that your modules will be installed in
-the ``modules`` folder, and container recipes are nested in ``registry``. If you don't
-want your container images (sif files) installed alongside your module recipes,
+
+Generally, remember that your modules will be installed in the ``modules`` folder, and container
+recipes will come from the remote registry `shpc-registry <https://github.com/singularityhub/shpc-registry>`_ by default.  If you don't want your container images (sif files) installed alongside your module recipes,
 then you can define ``container_base`` to be somewhere else. You
 can change these easily with ``shpc config``, as they are defined via these
 variables in the config:
@@ -79,8 +79,6 @@ variables in the config:
 
 .. code-block:: console
  
-
-    $ shpc config add registry /<DIR>
     $ shpc config set module_base /<DIR> 
     $ shpc config set container_base  /<DIR> 
 

@@ -45,6 +45,8 @@ class DockerImage:
         response = self.get_request(url)
         if "could not parse reference" in response:
             logger.exit("Issue getting digest: %s" % response)
+        if "unsupported status" in response:
+            logger.exit("Issue getting digest: %s" % response)
         if "MANIFEST_UNKNOWN" in response.text:
             logger.exit(
                 f"The tag {tag} you provided is not known. Check that it and the container both exist."

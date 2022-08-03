@@ -232,6 +232,9 @@ shpc config remove registry /tmp/registry""",
         description="Generate a markdown document for a container registry entry.",
     )
     docgen.add_argument("module_name", help="the module to generate docs for.")
+    docgen.add_argument(
+        "--registry-url", help="GitHub repository where registry can be found."
+    )
 
     # Pull a nontraditional container type (e.g., github release asset)
     pull = subparsers.add_parser(
@@ -396,11 +399,17 @@ shpc config remove registry /tmp/registry""",
         dest="filter_string",
     )
 
+    for command in docgen, show, add, sync:
+        command.add_argument(
+            "--registry", help="GitHub repository or local path where registry lives."
+        )
     return parser
 
 
 def run_shpc():
-    """run_shpc is the entrypoint to the singularity-hpc client."""
+    """
+    run_shpc is the entrypoint to the singularity-hpc client.
+    """
 
     parser = get_parser()
 

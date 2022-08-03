@@ -21,18 +21,19 @@ def test_filesystem_upgrade(tmp_path):
 
     # Create temporary registry that will be empty
     registry_path = os.path.join(tmp_path, "registry")
-    client.settings.remove("registry", os.path.join("$root_dir", "registry"))
-    client.settings.add("registry", registry_path)
-    assert registry_path in client.settings.get("registry")
+    client.settings.registry = [registry_path]
+
+    with pytest.raises(ValueError):
+        client.reload_registry()
+
+    # Should fail if does not exist
+    os.makedirs(registry_path)
+    client.reload_registry()
+
+    assert client.settings.filesystem_registry == registry_path
 
     # Test interacting with local filesystem registry
-    with pytest.raises(ValueError):
-        local = registry.Filesystem(registry_path)
-    os.makedirs(registry_path)
-    local = registry.Filesystem(registry_path)
-
-    # Re-init registries
-    client.registry = registry.Registry(client.settings)
+    local = registry.Filesystem(client.settings.filesystem_registry)
 
     # It should be empty
     assert not list(local.iter_modules())
@@ -65,9 +66,9 @@ def test_github_upgrade(tmp_path):
 
     # Create temporary registry that will be empty
     registry_path = os.path.join(tmp_path, "registry")
-    client.settings.remove("registry", os.path.join("$root_dir", "registry"))
-    client.settings.add("registry", registry_path)
+    client.settings.registry = [registry_path]
     os.makedirs(registry_path)
+    client.reload_registry()
 
     # Re-init registries
     client.registry = registry.Registry(client.settings)

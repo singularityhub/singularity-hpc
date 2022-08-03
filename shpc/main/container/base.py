@@ -26,6 +26,9 @@ class ContainerName:
         self.digest = None
         self.parse(raw)
 
+    def __str__(self):
+        return self.raw
+
     def parse(self, raw):
         """
         Parse a name into known pieces

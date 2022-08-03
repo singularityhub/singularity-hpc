@@ -31,8 +31,7 @@ def generate(image, container, config, **kwargs):
         **kwargs,
     }
 
-    # Default wrapper for this container technology. Will be used for all
-    # aliases (unless overriden)
+    # Default wrapper for container technology, used for aliases unless overridden
     default_wrapper = None
     default_template_name = settings.wrapper_scripts.get(container.command)
     if default_template_name:

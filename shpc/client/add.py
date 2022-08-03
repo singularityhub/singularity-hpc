@@ -17,5 +17,10 @@ def main(args, parser, extra, subparser):
     # Update config settings on the fly
     cli.settings.update_params(args.config_params)
 
+    # Specify custom registry to add
+    if args.registry:
+        cli.settings.registry = [args.registry]
+        cli.reload_registry()
+
     # If we don't have a module name, we derive from container URI
     cli.add(args.container_uri, args.module_id)

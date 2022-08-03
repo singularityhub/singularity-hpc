@@ -9,6 +9,7 @@
 import pytest
 import os
 
+import shpc.main.registry as registry
 import shpc.main.container as container
 import shpc.main.wrappers.base as wrappers_base
 
@@ -16,7 +17,7 @@ from .helpers import init_client, here
 
 
 @pytest.mark.parametrize(
-    "with_custom_wrapper_template_path,include_container_dir",
+    "with_custom_wrapper_template_path",
     [
         (False, False),
         (False, True),
@@ -24,23 +25,23 @@ from .helpers import init_client, here
         (True, True),
     ],
 )
-def test_get_template_paths(
-    tmp_path, with_custom_wrapper_template_path, include_container_dir
-):
+def test_get_local_template_paths(tmp_path, with_custom_wrapper_template_path):
     """
     Test the shpc.main.wrappers.base.WrapperScript.get_template_paths function
     """
     # Note: the module_sys and container_tech parameters are actually not used in the test
-    client = init_client(str(tmp_path), "tcl", "singularity")
+    client = init_client(str(tmp_path), "tcl", "singularity", remote=False)
     # The file name is actually not used in the test, only its enclosing directory
     testdata_dir = os.path.join(here, "testdata")
     container_yaml = os.path.join(testdata_dir, "quay-container.yaml")
-    config = container.ContainerConfig(container_yaml)
+    config = container.ContainerConfig(
+        registry.FilesystemResult("quay.io/vgteam/vg", container_yaml)
+    )
     ws = wrappers_base.WrapperScript(
         "dummy.sh",  # Not used in this test
         client.settings,
-        None,  # image
         config=config,
+        image=None,
     )
     client.settings.set(
         "wrapper_scripts",
@@ -50,20 +51,41 @@ def test_get_template_paths(
     # get_template_paths
     # - always default template path
     # - optional wrapper path from settings
-    # - optional cf include_container_dir
-    tp = ws.get_template_paths(include_container_dir)
-    expected_len = (
-        1 + int(with_custom_wrapper_template_path) + int(include_container_dir)
-    )
+    tp = ws.get_template_paths()
+    expected_len = 2 if with_custom_wrapper_template_path else 1
     assert len(tp) == expected_len
     if with_custom_wrapper_template_path:
         assert str(tmp_path) in tp
     else:
         assert str(tmp_path) not in tp
-    if include_container_dir:
-        assert testdata_dir in tp
+    assert testdata_dir not in tp
+
+
+@pytest.mark.parametrize(
+    "remote",
+    [False, True],
+)
+def test_get_registry_wrapper_script(tmp_path, remote):
+    """
+    Test getting a wrapper script from a remote and local registry.
+    """
+    client = init_client(str(tmp_path), "tcl", "singularity", remote=remote)
+
+    # This container has wrappers both local/remote
+    result = client.registry.find("vanessa/salad")
+    assert result
+
+    # This is an existing one
+    assert result.find_wrapper_script("singularity", "singularity_fork.sh")
+    script = result.load_wrapper_script("singularity", "singularity_fork.sh")
+    if not remote:
+        assert os.path.exists(script)
     else:
-        assert testdata_dir not in tp
+        assert '{% extends "bases/shell-script-base.sh" %}' in script
+
+    # This is not
+    assert not result.find_wrapper_script("singularity", "singularity.sh")
+    assert not result.load_wrapper_script("singularity", "singularity.sh")
 
 
 @pytest.mark.parametrize(
@@ -80,11 +102,13 @@ def test_find_wrapper_script(tmp_path, make_absolute, exists):
     Test the shpc.main.wrappers.base.WrapperScript.find_wrapper_script function
     """
     # Note: the module_sys and container_tech parameters are actually not used in the test
-    client = init_client(str(tmp_path), "tcl", "singularity")
+    client = init_client(str(tmp_path), "tcl", "singularity", remote=False)
     # The file name is actually not used in the test, only its enclosing directory
     testdata_dir = os.path.join(here, "testdata")
     container_yaml = os.path.join(testdata_dir, "quay-container.yaml")
-    config = container.ContainerConfig(container_yaml)
+    config = container.ContainerConfig(
+        registry.FilesystemResult("quay.io/vgteam/vg", container_yaml)
+    )
 
     if exists:
         # Using "empty_singularity.sh" to avoid potential false positives in the default wrapper template directory
@@ -102,15 +126,16 @@ def test_find_wrapper_script(tmp_path, make_absolute, exists):
     ws = wrappers_base.WrapperScript(
         wrapper_template,
         client.settings,
-        None,  # image
+        image=None,
         config=config,
     )
 
     if exists:
         p = ws.find_wrapper_script(template_paths)
+        assert "path" in p
         if make_absolute:
-            assert wrapper_template == p
-        assert os.path.isabs(p)
+            assert wrapper_template == p["path"]
+        assert os.path.isabs(p["path"])
     else:
         with pytest.raises(SystemExit):
             ws.find_wrapper_script(template_paths)

@@ -13,9 +13,13 @@ config_editor: vim
 # set a default container technology (singularity or podman)
 container_tech: singularity
 
-# Registry Recipes (order of paths here is honored for search path))
+# Registry Recipes (order of GitHub providers or paths here is honored for search path))
+# To reference a path in the $PWD of the shpc install use $root_dir (e.g., $root_dir/registry)
 # Please preserve the flat list format for the yaml loader
-registry: [$root_dir/registry]
+registry: ["https://github.com/singularityhub/shpc-registry"]
+
+# Registry to sync from (only to a filesystem registry supported)
+sync_registry: https://github.com/singularityhub/shpc-registry
 
 # Lmod or Environment Modules settings 
 # The install directory for modules. Defaults to the install directory/modules

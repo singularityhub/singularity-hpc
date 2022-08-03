@@ -9,6 +9,36 @@ registry entries and building containers. If you haven't read :ref:`getting_star
 you should do that first.
 
 
+Developer Commands
+==================
+
+Singularity Registry HPC has a few "developer specific" commands that likely will only be
+used in automation, but are provided here for the interested reader.
+
+Docgen
+------
+
+To generate documentation for a registry (e.g., see `this registry example <https://singularityhub.github.io/shpc-registry>`_ we can use docgen. Docgen, by way of needing to interact with the local filesystem,
+currently only supports generation for a filesystem registry. E.g., here is how to generate a registry module
+(from a local container.yaml) that ultimately will be found in GitHub pages:
+
+.. code-block:: console
+
+    $ shpc docgen --registry . --registry-url https://github.com/singularityhub/shpc-registry python
+    
+And you could easily pipe this to a file. Here is how we generate this programatically in a loop:
+
+
+.. code-block:: console
+
+    for module in $(shpc show --registry ../shpc-registry); do          
+        flatname=${module#/}
+        name=$(echo ${flatname//\//-})
+        echo "Generating docs for $module, _library/$name.md"
+        shpc docgen --registry ../shpc-registry --registry-url https://github.com/singularityhub/shpc-registry $module > "_library/${name}.md"
+    done
+
+
 Creating a Registry
 ===================
 

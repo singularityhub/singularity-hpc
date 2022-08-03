@@ -212,7 +212,6 @@ class SingularityContainer(ContainerTechnology):
             metadata = None
             deffile = None
             labels = {}
-            logger.warning("Singularity is not installed, skipping metadata.")
 
         # Option to create wrapper scripts for commands
         module_dir = os.path.dirname(module_path)

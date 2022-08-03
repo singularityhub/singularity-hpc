@@ -7,12 +7,14 @@ from shpc.logger import logger
 import shpc.utils as utils
 import shpc.defaults as defaults
 import shpc.main.container as container
+import shpc.main.registry as registry
 import shpc.main.modules.template as templatectl
 import shpc.main.modules.views as views
 import shpc.main.modules.versions as versionfile
 
 from datetime import datetime
 import os
+import json
 import shutil
 import subprocess
 import sys
@@ -170,6 +172,8 @@ class ModuleBase(BaseClient):
         """
         Add a container to the registry to enable install.
         """
+        self.settings.ensure_filesystem_registry()
+
         # Docker module name is always the same namespace as the image
         if image.startswith("docker"):
             module_name = image.replace("docker://", "")
@@ -181,17 +185,21 @@ class ModuleBase(BaseClient):
 
         # Assume adding to default registry
         dest = os.path.join(
-            self.settings.registry[0], module_name.split(":")[0], "container.yaml"
+            self.settings.filesystem_registry,
+            module_name.split(":")[0],
+            "container.yaml",
         )
+        template = container.ContainerConfig.get_config_template("container.yaml")
 
         # if the container.yaml already exists, use it
-        template = container.ContainerConfig.get_config_template("container.yaml")
         if os.path.exists(dest):
             logger.warning("%s already exists and will be updated!" % module_name)
             template = dest
 
         # Load config (but don't validate yet!)
-        config = container.ContainerConfig(template, validate=False)
+        config = container.ContainerConfig(
+            registry.FilesystemResult(module_name, template), validate=False
+        )
         self.container.add(module_name, image, config, container_yaml=dest, **kwargs)
 
     def get(self, module_name, env_file=False):
@@ -215,17 +223,21 @@ class ModuleBase(BaseClient):
             short=short,
         )
 
-    def docgen(self, module_name, out=None):
+    def docgen(self, module_name, registry=None, out=None):
         """
-        Render documentation for a module.
+        Render documentation for a module within a local registry.
         """
         config = self._load_container(module_name)
+
         out = out or sys.stdout
         aliases = config.get_aliases()
         template = self.template.load("docs.md")
-        github_url = "%s/blob/main/registry/%s/container.yaml" % (
-            defaults.github_url,
-            module_name,
+        registry = registry or defaults.github_url
+        github_url = "%s/blob/main/%s/container.yaml" % (registry, module_name)
+        registry_bare = registry.split("github.com")[-1]
+        raw_github_url = (
+            "https://raw.githubusercontent.com/%s/main/%s/container.yaml"
+            % (registry_bare, module_name)
         )
 
         # Currently one doc is rendered for all containers
@@ -237,15 +249,20 @@ class ModuleBase(BaseClient):
             versions=config.tags.keys(),
             github_url=github_url,
             container_url=config.url,
+            config_url=raw_github_url,
             creation_date=datetime.now(),
             name=module_name,
+            latest=config.latest.name,
             flatname=module_name.replace(os.sep, "-"),
+            config=json.dumps(config.entry._config),
         )
         out.write(result)
         return out
 
     def shell(self, module_name):
-        """Shell into an installed module container"""
+        """
+        Shell into an installed module container
+        """
         image = self.container.get(module_name)
         if not image:
             logger.exit("%s does not exist." % module_name)
@@ -264,7 +281,9 @@ class ModuleBase(BaseClient):
     def _list_modules(
         self, base, filename, pattern=None, names_only=False, out=None, short=False
     ):
-        """A shared function to list modules or registry entries."""
+        """
+        A shared function to list modules or registry entries.
+        """
         out = out or sys.stdout
         modules = self._get_module_lookup(base, filename, pattern)
 
@@ -283,7 +302,9 @@ class ModuleBase(BaseClient):
                     out.write("%s:%s\n" % (module_name.rjust(30), version))
 
     def _get_module_lookup(self, base, filename, pattern=None):
-        """A shared function to get a lookup of installed modules or registry entries"""
+        """
+        A shared function to get a lookup of installed modules or registry entries
+        """
         modules = {}
         for fullpath in utils.recursive_find(base, pattern):
             if fullpath.endswith(filename):
@@ -383,11 +404,11 @@ class ModuleBase(BaseClient):
         # If we have a sif URI provided by path, the container needs to exist
         container_path = None
         if config.path:
-            container_path = os.path.join(config.package_dir, config.path)
+            container_path = os.path.join(config.entry.dirname, config.path)
             if not os.path.exists(container_path):
                 logger.exit(
                     "Expected container defined by path %s not found in %s."
-                    % (config.path, config.package_dir)
+                    % (config.path, config.entry.dirname)
                 )
             container_dest = os.path.join(container_dir, config.path)
 

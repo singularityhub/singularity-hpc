@@ -1,9 +1,0 @@
-docker: ghcr.io/autamus/r-seqlogo
-url: https://github.com/orgs/autamus/packages/container/package/r-seqlogo
-maintainer: '@vsoch'
-description: Sequence logos for DNA sequence alignments
-latest:
-  1.56.0: sha256:761a07e0c24d4fc7657c99825128717253a616fd1f0e00a48ab611f899649724
-tags:
-  1.56.0: sha256:761a07e0c24d4fc7657c99825128717253a616fd1f0e00a48ab611f899649724
-  latest: sha256:761a07e0c24d4fc7657c99825128717253a616fd1f0e00a48ab611f899649724

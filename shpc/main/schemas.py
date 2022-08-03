@@ -121,6 +121,7 @@ shells = ["/bin/bash", "/bin/sh", "/bin/csh"]
 # Currently all of these are required
 settingsProperties = {
     "registry": {"type": "array", "items": {"type": "string"}},
+    "sync_registry": {"type": "string"},
     "module_base": {"type": "string"},
     "container_base": {"type": ["string", "null"]},
     "namespace": {"type": ["string", "null"]},

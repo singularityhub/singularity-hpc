@@ -35,20 +35,13 @@ class WrapperScript:
         return os.path.dirname(self.image)
 
     @property
-    def container_dir(self):
-        """
-        Source of container.yaml
-        """
-        return os.path.dirname(self.config.package_file)
-
-    @property
     def module_dir(self):
         """
         Get the module directory (should error if not provided in kwargs)
         """
         return self.kwargs["module_dir"]
 
-    def get_template_paths(self, include_container_dir):
+    def get_template_paths(self):
         """
         Establishes the list of paths in which to search the templates and their dependencies
         """
@@ -66,18 +59,12 @@ class WrapperScript:
                     % path
                 )
             template_paths = [path] + template_paths
-
-        # Optionally, (even higher precedence) the directory of container.yaml
-        if include_container_dir:
-            template_paths = [self.container_dir] + template_paths
-
         return template_paths
 
-    def find_wrapper_script(self, template_paths):
+    def find_wrapper_script(self, template_paths, include_container_dir=False):
         """
         Finds the exact, absolute, path of the template, given a list of search directories
         """
-
         # If the given wrapper path is absolute, confirm it exists
         if os.path.isabs(self.wrapper_template):
             if not os.path.exists(self.wrapper_template):
@@ -85,35 +72,40 @@ class WrapperScript:
                     "%s designated as a template wrapper script, but it does not exist."
                     % self.wrapper_template
                 )
-            return self.wrapper_template
+            return {"path": self.wrapper_template}
 
-        else:
-            # Otherwise, check that the template wrapper is found in one of the
-            # search paths
-            for template_path in template_paths:
-                template_file = os.path.join(template_path, self.wrapper_template)
-                if os.path.exists(template_file):
-                    return template_file
-            else:
-                logger.exit(
-                    "%s not found in %s."
-                    % (self.wrapper_template, ", ".join(template_paths))
-                )
+        # Second check is the container directory, which can be local or remote
+        # For this case we load the template string
+        if include_container_dir:
+            wrapper_script = self.config.load_wrapper_script(
+                self.container.command, self.wrapper_template
+            )
+            if wrapper_script:
+                return {"content": wrapper_script}
+
+        # Otherwise, check that the template wrapper is found in a template path
+        for template_path in template_paths:
+            template_file = os.path.join(template_path, self.wrapper_template)
+            if os.path.exists(template_file):
+                return {"path": template_file}
+        logger.exit(
+            "%s not found in %s." % (self.wrapper_template, ", ".join(template_paths))
+        )
 
     def load_template(self, include_container_dir=False):
         """
         Load the wrapper template.
         """
+        template_paths = self.get_template_paths()
 
-        template_paths = self.get_template_paths(include_container_dir)
-        template_file = self.find_wrapper_script(template_paths)
-        # Once the full path of the template wrapper has been determined, add
-        # its own directory to the search (highest precedence) to honour its
-        # possible inclusions
-        template_paths = [os.path.dirname(template_file)] + template_paths
+        # This is a dict with either path (filesystem to load) or loaded (content)
+        result = self.find_wrapper_script(template_paths, include_container_dir)
         loader = FileSystemLoader(template_paths)
         env = Environment(loader=loader)
-        self.template = env.get_template(self.wrapper_template)
+        if "path" in result:
+            self.template = env.get_template(self.wrapper_template)
+        else:
+            self.template = env.from_string(result["content"])
 
     def generate(self, wrapper_name, alias_definition):
         """

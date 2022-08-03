@@ -15,4 +15,7 @@ def main(args, parser, extra, subparser):
     )
     # Update config settings on the fly
     cli.settings.update_params(args.config_params)
-    cli.docgen(args.module_name)
+    if args.registry:
+        cli.settings.registry = [args.registry]
+        cli.reload_registry()
+    cli.docgen(args.module_name, registry=args.registry_url)

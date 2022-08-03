@@ -8,6 +8,12 @@ def sync_registry(args, parser, extra, subparser):
     from shpc.main import get_client
 
     cli = get_client(quiet=args.quiet, settings_file=args.settings_file)
+
+    # One off custom registry, reload
+    if args.registry:
+        cli.settings.registry = [args.registry]
+        cli.reload_registry()
+
     cli.registry.sync(
         args.module_name,
         dryrun=args.dryrun,

@@ -10,7 +10,6 @@ import shpc.main.registry as registry
 from .settings import Settings
 
 import os
-import re
 import shutil
 import sys
 
@@ -44,13 +43,19 @@ class Client:
             self.settings = Settings(settings_file)
 
         # Load registries from settings (into a single registry)
-        self.registry = registry.Registry(self.settings)
+        self.reload_registry()
 
     def __repr__(self):
         return str(self)
 
     def __str__(self):
         return "[shpc-client]"
+
+    def reload_registry(self):
+        """
+        Reload registry from settings.
+        """
+        self.registry = registry.Registry(self.settings)
 
     def install(self, name, tag=None, **kwargs):
         """
@@ -92,15 +97,12 @@ class Client:
 
     def load_registry_config(self, name):
         """
-        Given an identifier, find the first match in the registry.
+        Given an identifier, find the first match in a registry provider.
         """
-        for reg, fullpath in self.registry.iter_registry():
-            package_dir = os.path.join(reg, name)
-            package_file = os.path.join(package_dir, "container.yaml")
-            if package_file == fullpath:
-                return container.ContainerConfig(package_file)
-
-        logger.exit("%s is not a known recipe in any registry." % name)
+        result = self.registry.find(name)
+        if not result:
+            logger.exit("%s is not a known recipe in any registry." % name)
+        return container.ContainerConfig(result)
 
     def _load_container(self, name, tag=None):
         """
@@ -219,7 +221,7 @@ class Client:
         """
         raise NotImplementedError
 
-    def docgen(self, module_name):
+    def docgen(self, module_name, registry=None):
         """
         Render documentation for a module.
         """
@@ -237,19 +239,10 @@ class Client:
             out = out or sys.stdout
 
             # List the known registry modules
-            for reg, fullpath in self.registry.iter_registry():
-                if fullpath.endswith("container.yaml"):
-                    module_name = (
-                        os.path.dirname(fullpath).replace(reg, "").strip(os.sep)
-                    )
-
-                    # If the user has provided a filter, honor it
-                    if filter_string and not re.search(filter_string, module_name):
-                        continue
-
-                    if names_only:
-                        out.write("%s\n" % module_name)
-                    else:
-                        config = self._load_container(module_name)
-                        for version in config.tags.keys():
-                            out.write("%s:%s\n" % (module_name, version))
+            for entry in self.registry.iter_registry(filter_string=filter_string):
+                config = container.ContainerConfig(entry)
+                if names_only:
+                    out.write("%s\n" % config.name)
+                else:
+                    for version in config.tags.keys():
+                        out.write("%s:%s\n" % (config.name, version))
