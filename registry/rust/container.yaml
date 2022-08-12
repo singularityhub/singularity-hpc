@@ -1,0 +1,26 @@
+docker: rust
+url: https://hub.docker.com/_/rust
+maintainer: '@muffato'
+description: Rust is a multi-paradigm programming language designed for performance
+  and safety, especially safe concurrency.
+latest:
+  1.63.0: sha256:69b13bd25c9491a89f68207cbcce1ff6484b117595a12804f60e3aa93f02f7be
+tags:
+  1.63.0: sha256:69b13bd25c9491a89f68207cbcce1ff6484b117595a12804f60e3aa93f02f7be
+  latest: sha256:69b13bd25c9491a89f68207cbcce1ff6484b117595a12804f60e3aa93f02f7be
+aliases:
+  cargo: /usr/local/cargo/bin/cargo
+  cargo-clippy: /usr/local/cargo/bin/cargo-clippy
+  cargo-fmt: /usr/local/cargo/bin/cargo-fmt
+  cargo-miri: /usr/local/cargo/bin/cargo-miri
+  clippy-driver: /usr/local/cargo/bin/clippy-driver
+  rls: /usr/local/cargo/bin/rls
+  rust-gdb: /usr/local/cargo/bin/rust-gdb
+  rust-gdbgui: /usr/local/cargo/bin/rust-gdbgui
+  rust-lldb: /usr/local/cargo/bin/rust-lldb
+  rustc: /usr/local/cargo/bin/rustc
+  rustdoc: /usr/local/cargo/bin/rustdoc
+  rustfmt: /usr/local/cargo/bin/rustfmt
+  rustup: /usr/local/cargo/bin/rustup
+env:
+  CARGO_HOME: ''
