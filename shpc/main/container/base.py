@@ -3,13 +3,14 @@ __copyright__ = "Copyright 2021-2022, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
 
-from shpc.logger import logger
-import shpc.main.templates
-import shpc.utils
-
-from jinja2 import Template
 import os
 import re
+
+from jinja2 import Template
+
+import shpc.main.templates
+import shpc.utils
+from shpc.logger import logger
 
 
 class ContainerName:

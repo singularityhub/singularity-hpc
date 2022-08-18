@@ -3,15 +3,16 @@ __copyright__ = "Copyright 2021-2022, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
 
-from shpc.logger import logger
-import shpc.main.container as container
-import shpc.utils as utils
-import shpc.main.registry as registry
-from .settings import Settings
-
 import os
 import shutil
 import sys
+
+import shpc.main.container as container
+import shpc.main.registry as registry
+import shpc.utils as utils
+from shpc.logger import logger
+
+from .settings import Settings
 
 
 class Client:

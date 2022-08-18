@@ -6,10 +6,12 @@
 # Mozilla Public License, v. 2.0. If a copy of the MPL was not distributed
 # with this file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-import pytest
 import os
 
+import pytest
+
 import shpc.main.registry as registry
+
 from .helpers import here, init_client
 
 

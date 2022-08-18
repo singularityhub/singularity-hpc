@@ -3,13 +3,15 @@ __copyright__ = "Copyright 2021-2022, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
 
+import os
+import re
+import subprocess as sp
+import sys
+
+import requests
+
 import shpc.utils
 from shpc.logger import logger
-import requests
-import subprocess as sp
-import re
-import os
-import sys
 
 from .provider import Provider, Result
 
@@ -125,6 +127,11 @@ class GitHub(Provider):
         if self.subdir:
             dirname = os.path.join(dirname, self.subdir)
         for filename in shpc.utils.recursive_find(dirname):
+
+            # Don't include hidden files, directories, etc.
+            basename = os.path.basename(filename)
+            if basename.startswith("."):
+                continue
             module = os.path.dirname(filename).replace(dirname, "").strip(os.sep)
             if not module:
                 continue

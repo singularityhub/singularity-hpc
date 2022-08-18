@@ -3,11 +3,12 @@ __copyright__ = "Copyright 2021-2022, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
 
-from shpc.logger import logger
-import shpc.utils
-import shutil
-import re
 import os
+import re
+import shutil
+
+import shpc.utils
+from shpc.logger import logger
 
 from .provider import Provider, Result
 
@@ -83,6 +84,9 @@ class Filesystem(Provider):
 
     def iter_modules(self):
         for filename in shpc.utils.recursive_find(self.source):
+            basename = os.path.basename(filename)
+            if basename.startswith("."):
+                continue
             yield self.source, os.path.dirname(filename).replace(self.source, "").strip(
                 os.sep
             )

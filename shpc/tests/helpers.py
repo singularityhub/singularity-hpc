@@ -6,10 +6,11 @@
 # Mozilla Public License, v. 2.0. If a copy of the MPL was not distributed
 # with this file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-from shpc.main import get_client
-from shpc.main.registry import GitHub
 import os
 import shutil
+
+from shpc.main import get_client
+from shpc.main.registry import GitHub
 
 here = os.path.dirname(os.path.abspath(__file__))
 root = os.path.dirname(here)

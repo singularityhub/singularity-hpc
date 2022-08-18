@@ -3,13 +3,17 @@ __copyright__ = "Copyright 2021-2022, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
 
-from shpc.logger import logger
 import sys
+
+import shpc.utils
+from shpc.logger import logger
 
 
 def main(args, parser, extra, subparser):
 
     from shpc.main import get_client
+
+    shpc.utils.ensure_no_extra(extra)
 
     cli = get_client(quiet=args.quiet, settings_file=args.settings_file)
 

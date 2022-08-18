@@ -2,10 +2,12 @@ __author__ = "Vanessa Sochat"
 __copyright__ = "Copyright 2022, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
-from shpc.logger import logger
-from jinja2 import Environment, FileSystemLoader
-import shpc.utils
 import os
+
+from jinja2 import Environment, FileSystemLoader
+
+import shpc.utils
+from shpc.logger import logger
 
 here = os.path.dirname(os.path.abspath(__file__))
 default_templates = os.path.join(here, "templates")

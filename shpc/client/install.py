@@ -2,12 +2,15 @@ __author__ = "Vanessa Sochat"
 __copyright__ = "Copyright 2021-2022, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
+import shpc.utils
 from shpc.logger import logger
 
 
 def main(args, parser, extra, subparser):
 
     from shpc.main import get_client
+
+    shpc.utils.ensure_no_extra(extra)
 
     if args.install_recipe.startswith("gh://"):
         args.container_tech = "singularity-deploy"

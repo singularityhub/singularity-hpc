@@ -3,10 +3,11 @@ __copyright__ = "Copyright 2021-2022, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
 
-from shpc.logger import logger, underline, add_prefix
-import shpc.main.schemas as schemas
-import shpc.main.container.update as update
 import shlex
+
+import shpc.main.container.update as update
+import shpc.main.schemas as schemas
+from shpc.logger import add_prefix, logger, underline
 
 try:
     from ruamel_yaml import YAML
@@ -14,8 +15,9 @@ except:
     from ruamel.yaml import YAML
 
 import os
-import jsonschema
 import sys
+
+import jsonschema
 
 here = os.path.abspath(os.path.dirname(__file__))
 

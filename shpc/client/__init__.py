@@ -4,11 +4,12 @@ __author__ = "Vanessa Sochat"
 __copyright__ = "Copyright 2021-2022, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
+import argparse
+import os
+import sys
+
 import shpc
 from shpc.logger import setup_logger
-import argparse
-import sys
-import os
 
 
 def get_parser():
@@ -335,8 +336,9 @@ shpc config remove registry /tmp/registry""",
 
     for command in update, sync:
         command.add_argument(
-            "--dryrun",
+            "--dry-run",
             "-d",
+            dest="dryrun",
             help="Do a dry run to view changes without performing them.",
             default=False,
             action="store_true",

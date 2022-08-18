@@ -3,14 +3,15 @@ __copyright__ = "Copyright 2021-2022, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
 
-import shpc.utils
-from shpc.main.settings import SettingsBase
-from shpc.logger import logger
-import shutil
 import os
+import shutil
 
-from .github import GitHub
+import shpc.utils
+from shpc.logger import logger
+from shpc.main.settings import SettingsBase
+
 from .filesystem import Filesystem, FilesystemResult
+from .github import GitHub
 
 
 def update_container_module(module, from_path, existing_path):

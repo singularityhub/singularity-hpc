@@ -3,9 +3,10 @@ __copyright__ = "Copyright 2021-2022, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
 from shpc.logger import logger
+
+from .diff import print_diff
 from .docker import DockerImage
 from .versions import filter_versions
-from .diff import print_diff
 
 assert print_diff
 

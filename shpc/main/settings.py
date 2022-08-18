@@ -3,21 +3,23 @@ __copyright__ = "Copyright 2021-2022, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
 
-from shpc.logger import logger
+import shutil
+
 import shpc.defaults as defaults
 import shpc.main.schemas
 import shpc.utils as utils
-import shutil
+from shpc.logger import logger
 
 try:
     from ruamel_yaml.comments import CommentedSeq
 except:
     from ruamel.yaml.comments import CommentedSeq
 
-from datetime import datetime
-import jsonschema
 import os
 import re
+from datetime import datetime
+
+import jsonschema
 
 
 def OrderedList(*l):

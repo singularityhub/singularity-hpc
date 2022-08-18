@@ -2,18 +2,18 @@ __author__ = "Vanessa Sochat"
 __copyright__ = "Copyright 2022, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
-from shpc.logger import logger
-import shpc.main.modules.template as templatectl
-import shpc.main.modules.versions as versions
-import shpc.main.settings as settings
-import shpc.main.schemas as schemas
-import shpc.utils as utils
-
-import shutil
-import jsonschema
 import os
+import shutil
 import sys
 
+import jsonschema
+
+import shpc.main.modules.template as templatectl
+import shpc.main.modules.versions as versions
+import shpc.main.schemas as schemas
+import shpc.main.settings as settings
+import shpc.utils as utils
+from shpc.logger import logger
 
 # Supported variables and defaults
 supported_view_variables = {"system_modules": []}

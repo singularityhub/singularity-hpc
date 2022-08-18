@@ -6,14 +6,15 @@
 # Mozilla Public License, v. 2.0. If a copy of the MPL was not distributed
 # with this file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-import pytest
 import os
 
-import shpc.main.registry as registry
+import pytest
+
 import shpc.main.container as container
+import shpc.main.registry as registry
 import shpc.main.wrappers.base as wrappers_base
 
-from .helpers import init_client, here
+from .helpers import here, init_client
 
 
 @pytest.mark.parametrize(
