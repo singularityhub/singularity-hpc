@@ -85,6 +85,10 @@ class VersionControl(Provider):
         super().__init__(*args, **kwargs)
         self._url = self.source
 
+    @classmethod
+    def matches(cls, source):
+        return cls.provider_name in source and source.startswith("http")
+
     def exists(self, name):
         """
         Determine if a module exists in the registry.
@@ -173,17 +177,9 @@ class VersionControl(Provider):
             yield RemoteResult(uri, entry, load=False, config=entry["config"])
 
 
-class GitHub(Provider):
+class GitHub(VersionControl):
     provider_name = "github"
 
-    @classmethod
-    def matches(cls, source):
-        return "github" in source and source.startswith("http")
 
-
-class GitLab(Provider):
+class GitLab(VersionControl):
     provider_name = "gitlab"
-
-    @classmethod
-    def matches(cls, source):
-        return "gitlab" in source and source.startswith("http")
