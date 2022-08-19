@@ -22,4 +22,4 @@ def main(args, parser, extra, subparser):
     if args.registry:
         cli.settings.registry = [args.registry]
         cli.reload_registry()
-    cli.docgen(args.module_name, registry=args.registry_url)
+    cli.docgen(args.module_name, registry=args.registry_url, branch=args.branch)

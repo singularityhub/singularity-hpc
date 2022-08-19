@@ -236,6 +236,11 @@ shpc config remove registry /tmp/registry""",
     docgen.add_argument(
         "--registry-url", help="GitHub repository where registry can be found."
     )
+    docgen.add_argument(
+        "--branch",
+        help="Branch that registry source files live (defaults to main)",
+        default="main",
+    )
 
     # Pull a nontraditional container type (e.g., github release asset)
     pull = subparsers.add_parser(

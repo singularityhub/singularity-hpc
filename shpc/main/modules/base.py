@@ -223,7 +223,7 @@ class ModuleBase(BaseClient):
             short=short,
         )
 
-    def docgen(self, module_name, registry=None, out=None):
+    def docgen(self, module_name, registry=None, out=None, branch="main"):
         """
         Render documentation for a module within a local registry.
         """
@@ -233,11 +233,12 @@ class ModuleBase(BaseClient):
         aliases = config.get_aliases()
         template = self.template.load("docs.md")
         registry = registry or defaults.github_url
-        github_url = "%s/blob/main/%s/container.yaml" % (registry, module_name)
+        github_url = "%s/blob/%s/%s/container.yaml" % (registry, branch, module_name)
         registry_bare = registry.split("github.com")[-1]
-        raw_github_url = (
-            "https://raw.githubusercontent.com/%s/main/%s/container.yaml"
-            % (registry_bare, module_name)
+        raw_github_url = "https://raw.githubusercontent.com/%s/%s/%s/container.yaml" % (
+            registry_bare,
+            branch,
+            module_name,
         )
 
         # Currently one doc is rendered for all containers
