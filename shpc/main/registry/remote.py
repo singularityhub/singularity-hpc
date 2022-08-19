@@ -94,10 +94,6 @@ class VersionControl(Provider):
             dirname = os.path.join(dirname, self.subdir)
         return os.path.exists(os.path.join(dirname, name))
 
-    @classmethod
-    def matches(cls, source):
-        return self.provider_name in source and source.startswith("http")
-
     def clone(self, tmpdir=None):
         """
         Clone the known source URL to a temporary directory
@@ -180,6 +176,14 @@ class VersionControl(Provider):
 class GitHub(Provider):
     provider_name = "github"
 
+    @classmethod
+    def matches(cls, source):
+        return "github" in source and source.startswith("http")
+
 
 class GitLab(Provider):
     provider_name = "gitlab"
+
+    @classmethod
+    def matches(cls, source):
+        return "gitlab" in source and source.startswith("http")
