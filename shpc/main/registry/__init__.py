@@ -11,7 +11,7 @@ from shpc.logger import logger
 from shpc.main.settings import SettingsBase
 
 from .filesystem import Filesystem, FilesystemResult
-from .github import GitHub
+from .remote import GitHub, GitLab
 
 
 def update_container_module(module, from_path, existing_path):
@@ -93,16 +93,26 @@ class Registry:
         raise ValueError("No matching registry provider for %s" % source)
 
     def sync(
-        self, name=None, dryrun=False, tag="main", upgrade_all=False, add_new=True
+        self,
+        name=None,
+        dryrun=False,
+        tag="main",
+        upgrade_all=False,
+        add_new=True,
+        sync_registry=None,
     ):
         """
         Given a module name (or None for all modules) update container.yaml files.
         """
+        # Registry to sync from
+        sync_registry = sync_registry or self.settings.sync_registry
+
         # We sync to our first registry - if not filesystem, no go
         self.settings.ensure_filesystem_registry()
 
         # Create a remote registry with settings preference
-        remote = GitHub(self.settings.sync_registry, tag=tag)
+        Remote = GitHub if "github.com" in self.settings.sync_registry else GitLab
+        remote = Remote(sync_registry, tag=tag)
 
         # Upgrade the current registry from the remote
         self.sync_from_remote(
@@ -155,4 +165,4 @@ class Registry:
 
 
 # We only currently allow Filesystem registries to be used in settings
-PROVIDERS = [GitHub, Filesystem]
+PROVIDERS = [GitHub, Filesystem, GitLab]

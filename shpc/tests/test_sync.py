@@ -60,7 +60,14 @@ def test_filesystem_upgrade(tmp_path):
     assert os.path.exists(existing)
 
 
-def test_github_upgrade(tmp_path):
+@pytest.mark.parametrize(
+    "remote",
+    [
+        "https://github.com/singularityhub/shpc-registry",
+        "https://gitlab.com/singularityhub/shpc-registry",
+    ],
+)
+def test_remote_upgrade(tmp_path, remote):
     """
     Test upgrade from a filesystem registry.
     """
@@ -76,12 +83,12 @@ def test_github_upgrade(tmp_path):
     client.registry = registry.Registry(client.settings)
 
     # Upgrade from remote
-    client.registry.sync(dryrun=True)
+    client.registry.sync(dryrun=True, sync_registry=remote)
     assert not list(client.registry.iter_modules())
 
     # We should not be adding a recipe unless we already have it
-    client.registry.sync(add_new=False)
+    client.registry.sync(add_new=False, sync_registry=remote)
     assert not list(client.registry.iter_modules())
 
-    client.registry.sync()
+    client.registry.sync(sync_registry=remote)
     assert list(client.registry.iter_modules())

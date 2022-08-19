@@ -15,6 +15,7 @@ The versions coincide with releases on pip. Only major versions will be released
 
 ## [0.0.x](https://github.com/singularityhub/singularity-hpc/tree/main) (0.0.x)
  - Add support for remote registry and sync commands --all (0.1.0)
+  - support for GitLab and GitHub remotes
  - fixing bug to config set/get nested fields, default for wrapper scripts true (0.0.57)
   - change in behavior, instead of `key:value` for set/add `key value` now also works.
  - adding support for container.yaml overrides (0.0.56)

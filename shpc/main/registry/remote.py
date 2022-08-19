@@ -73,11 +73,7 @@ class RemoteResult(Result):
         )
 
 
-class GitHub(Provider):
-    """
-    Currently a GitHub provider is only needed for on-demand upgrade.
-    """
-
+class VersionControl(Provider):
     def __init__(self, *args, **kwargs):
         self.tag = kwargs.get("tag")
 
@@ -100,7 +96,7 @@ class GitHub(Provider):
 
     @classmethod
     def matches(cls, source):
-        return cls.__name__.lower() in source and source.startswith("http")
+        return self.provider_name in source and source.startswith("http")
 
     def clone(self, tmpdir=None):
         """
@@ -156,7 +152,7 @@ class GitHub(Provider):
 
         # Check for API
         org, repo = self.source.split("/")[3:]
-        gh_pages = "https://%s.github.io/%s/library.json" % (org, repo)
+        gh_pages = "https://%s.%s.io/%s/library.json" % (org, self.provider_name, repo)
         response = requests.get(gh_pages)
         if response.status_code != 200:
             sys.exit(
@@ -167,7 +163,7 @@ class GitHub(Provider):
 
     def iter_registry(self, filter_string=None):
         """
-        Yield metadata about containers in the GitHub registry.
+        Yield metadata about containers in a remote registry.
         """
         self._update_cache()
 
@@ -179,3 +175,11 @@ class GitHub(Provider):
                 continue
             # Assemble a faux config with tags so we don't hit remote
             yield RemoteResult(uri, entry, load=False, config=entry["config"])
+
+
+class GitHub(Provider):
+    provider_name = "github"
+
+
+class GitLab(Provider):
+    provider_name = "gitlab"
