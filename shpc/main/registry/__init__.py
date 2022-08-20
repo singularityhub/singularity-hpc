@@ -132,6 +132,13 @@ class Registry:
         # Create a remote registry with settings preference
         remote = self.get_registry(sync_registry or self.settings.sync_registry, tag=tag)
 
+        # Double-check it's really a remote one
+        if remote.is_filesystem_registry:
+            logger.exit(
+                "sync is only supported for a remote to a filesystem registry: %s"
+                % remote.source
+            )
+
         local = self.get_registry(local or self.settings.filesystem_registry)
 
         # We sync to our first registry - if not filesystem, no go
