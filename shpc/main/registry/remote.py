@@ -89,15 +89,6 @@ class VersionControl(Provider):
     def matches(cls, source):
         return cls.provider_name in source and source.startswith("http")
 
-    def exists(self, name):
-        """
-        Determine if a module exists in the registry.
-        """
-        dirname = self.source
-        if self.subdir:
-            dirname = os.path.join(dirname, self.subdir)
-        return os.path.exists(os.path.join(dirname, name))
-
     def clone(self, tmpdir=None):
         """
         Clone the known source URL to a temporary directory
@@ -108,27 +99,14 @@ class VersionControl(Provider):
         if self.tag:
             cmd += ["-b", self.tag]
         cmd += [self._url, tmpdir]
-        self.source = tmpdir
         try:
             sp.run(cmd, check=True)
         except sp.CalledProcessError as e:
-            raise ValueError("Failed to clone repository {}:\n{}", self.source, e)
-        return tmpdir
-
-    def iter_modules(self):
-        """
-        yield module names
-        """
-        dirname = self.source
+            raise ValueError("Failed to clone repository {}:\n{}", tmpdir, e)
+        self.source = tmpdir
         if self.subdir:
-            dirname = os.path.join(dirname, self.subdir)
-
-        # Find modules based on container.yaml
-        for filename in shpc.utils.recursive_find(dirname, "container.yaml"):
-            module = os.path.dirname(filename).replace(dirname, "").strip(os.sep)
-            if not module:
-                continue
-            yield dirname, module
+            self.source = os.path.join(self.source, self.subdir)
+        return tmpdir
 
     def find(self, name):
         """

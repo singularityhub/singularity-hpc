@@ -40,6 +40,9 @@ class Provider:
         self.source = source
 
     def exists(self, name):
+        """
+        Determine if a module exists in the registry.
+        """
         return os.path.exists(os.path.join(self.source, name))
 
     @property
@@ -64,4 +67,11 @@ class Provider:
         pass
 
     def iter_modules(self):
-        pass
+        """
+        yield module names
+        """
+        for filename in shpc.utils.recursive_find(self.source, "container.yaml"):
+            module = os.path.dirname(filename).replace(self.source, "").strip(os.sep)
+            if not module:
+                continue
+            yield self.source, module
