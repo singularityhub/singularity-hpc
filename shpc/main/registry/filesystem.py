@@ -79,8 +79,11 @@ class Filesystem(Provider):
         self.source = os.path.abspath(self.source)
 
     @classmethod
-    def matches(cls, source):
-        return os.path.exists(source) or source == "."
+    def assert_match(cls, source):
+        if source == ".":
+            return
+        if not os.path.exists(source):
+            raise ValueError("Registry source must exist on the filesystem, %s doesn't" % source)
 
     def find(self, name):
         """

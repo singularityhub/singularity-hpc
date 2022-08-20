@@ -33,10 +33,7 @@ class Provider:
     """
 
     def __init__(self, source, *args, **kwargs):
-        if not (source.startswith("https://") or os.path.exists(source)):
-            raise ValueError(
-                "Registry source must exist on the filesystem or be given as https://."
-            )
+        self.assert_match(source)
         self.source = source
 
     def exists(self, name):
@@ -54,8 +51,16 @@ class Provider:
         return self.__class__.__name__.lower()
 
     @classmethod
-    def matches(cls, source_url: str):
+    def assert_match(cls, source_url: str):
         pass
+
+    @classmethod
+    def matches(cls, source_url: str):
+        try:
+            cls.assert_match(source_url)
+            return True
+        except ValueError:
+            return False
 
     def find(self, name):
         pass

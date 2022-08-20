@@ -86,8 +86,11 @@ class VersionControl(Provider):
         self._url = self.source
 
     @classmethod
-    def matches(cls, source):
-        return cls.provider_name in source and source.startswith("http")
+    def assert_match(cls, url):
+        if not url.startswith("https://"):
+            raise ValueError("Registry source must be given as https://. Got %s" % url)
+        if cls.provider_name not in url:
+            raise ValueError("%s registry source must contain '%s'. Got %s" % (cls.__name__, cls.provider_name, url)
 
     def clone(self, tmpdir=None):
         """
