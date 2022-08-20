@@ -83,13 +83,11 @@ class Filesystem(Provider):
         return os.path.exists(source) or source == "."
 
     def iter_modules(self):
-        for filename in shpc.utils.recursive_find(self.source):
-            basename = os.path.basename(filename)
-            if basename.startswith("."):
+        for filename in shpc.utils.recursive_find(self.source, "container.yaml"):
+            module = os.path.dirname(filename).replace(self.source, "").strip(os.sep)
+            if not module:
                 continue
-            yield self.source, os.path.dirname(filename).replace(self.source, "").strip(
-                os.sep
-            )
+            yield self.source, module
 
     def find(self, name):
         """

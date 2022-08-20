@@ -122,12 +122,9 @@ class VersionControl(Provider):
         dirname = self.source
         if self.subdir:
             dirname = os.path.join(dirname, self.subdir)
-        for filename in shpc.utils.recursive_find(dirname):
 
-            # Don't include hidden files, directories, etc.
-            basename = os.path.basename(filename)
-            if basename.startswith("."):
-                continue
+        # Find modules based on container.yaml
+        for filename in shpc.utils.recursive_find(dirname, "container.yaml"):
             module = os.path.dirname(filename).replace(dirname, "").strip(os.sep)
             if not module:
                 continue
