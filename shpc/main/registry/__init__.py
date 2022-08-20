@@ -84,7 +84,7 @@ class Registry:
             for registry, module in reg.iter_modules():
                 yield registry, module
 
-    def get_registry(self, source):
+    def get_registry(self, source, *args, **kwargs):
         """
         A registry is a local or remote registry.
 
@@ -92,7 +92,7 @@ class Registry:
         """
         for Registry in PROVIDERS:
             if Registry.matches(source):
-                return Registry(source)
+                return Registry(source, *args, **kwargs)
         raise ValueError("No matching registry provider for %s" % source)
 
     def sync(
@@ -128,12 +128,10 @@ class Registry:
         local=None,
         sync_registry=None,
     ):
-        # Registry to sync from
-        sync_registry = sync_registry or self.settings.sync_registry
 
         # Create a remote registry with settings preference
-        Remote = GitHub if "github.com" in sync_registry else GitLab
-        remote = Remote(sync_registry, tag=tag)
+        remote = self.get_registry(sync_registry or self.settings.sync_registry, tag=tag)
+
         local = self.get_registry(local or self.settings.filesystem_registry)
 
         # We sync to our first registry - if not filesystem, no go
