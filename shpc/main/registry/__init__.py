@@ -29,7 +29,7 @@ def update_container_module(module, from_path, existing_path):
         if os.path.exists(to_path):
             shutil.rmtree(to_path)
         shpc.utils.mkdir_p(os.path.dirname(to_path))
-        shutil.copyfile(filename, to_path)
+        shutil.copy2(filename, to_path)
 
 
 class Registry:
