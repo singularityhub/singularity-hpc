@@ -87,6 +87,21 @@ containerConfigProperties = {
 }
 
 
+# Shpc extra configuration
+# Currently supports sync-registry
+
+extraConfig = {
+    "$schema": schema_url,
+    "title": "Registry Extra Schema",
+    "type": "object",
+    "required": [
+        "sync_registry",
+    ],
+    "properties": {"sync_registry": keyvals},
+    "additionalProperties": False,
+}
+
+
 containerConfig = {
     "$schema": schema_url,
     "title": "ContainerConfig Schema",

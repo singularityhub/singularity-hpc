@@ -1301,7 +1301,7 @@ You can also ask to add just a specific container:
 
     $ shpc sync-registry --registry ./registry quay.io/not-local/container
         
-And finally, you can ask to add new containers and completely update container.yaml files. 
+You can also ask to add new containers and completely update container.yaml files. 
 
 .. code-block:: console
 
@@ -1316,6 +1316,24 @@ file in the upstream they will be lost. For this reason, we always recommend tha
 
     $ shpc sync-registry --registry ./registry --dry-run
 
+Finally, if you have a more complex configuration that you want to automate, you can provide a
+yaml file with your specifications:
+
+
+.. code-block:: yaml
+
+    sync_registry:
+      "/tmp/github-shpc": "https://github.com/singularityhub/shpc-registry"
+      "/tmp/gitlab-shpc": "https://gitlab.com/singularityhub/shpc-registry"
+
+
+The above says to sync each respective local filesystem registry (key) with the remote (value).
+And then do:
+
+
+.. code-block:: console
+
+    $ shpc sync-registry --config-file registries.yaml
 
 Inspect
 -------

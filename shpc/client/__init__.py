@@ -325,6 +325,12 @@ shpc config remove registry /tmp/registry""",
         help="Upstream shpc repository reference (tag or branch) to upgrade from.",
     )
     sync.add_argument(
+        "--config-file",
+        "-c",
+        dest="config_file",
+        help="Provide a registries.yaml config file to coordinate the sync.",
+    )
+    sync.add_argument(
         "--all",
         "-a",
         dest="upgrade_all",

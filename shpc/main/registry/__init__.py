@@ -6,6 +6,9 @@ __license__ = "MPL 2.0"
 import os
 import shutil
 
+import jsonschema
+
+import shpc.main.schemas
 import shpc.utils
 from shpc.logger import logger
 from shpc.main.settings import SettingsBase
@@ -99,29 +102,60 @@ class Registry:
         tag="main",
         upgrade_all=False,
         add_new=True,
+        local=None,
+        config_file=None,
         sync_registry=None,
     ):
         """
         Given a module name (or None for all modules) update container.yaml files.
         """
+        if not config_file:
+            return self._sync(
+                name, dryrun, tag, upgrade_all, add_new, local, sync_registry
+            )
+        cfg = shpc.utils.read_yaml(config_file)
+        jsonschema.validate(cfg, shpc.main.schemas.extraConfig)
+        for local, sync_registry in cfg["sync_registry"].items():
+            self._sync(name, dryrun, tag, upgrade_all, add_new, local, sync_registry)
+
+    def _sync(
+        self,
+        name=None,
+        dryrun=False,
+        tag="main",
+        upgrade_all=False,
+        add_new=True,
+        local=None,
+        sync_registry=None,
+    ):
         # Registry to sync from
         sync_registry = sync_registry or self.settings.sync_registry
 
-        # We sync to our first registry - if not filesystem, no go
-        self.settings.ensure_filesystem_registry()
-
         # Create a remote registry with settings preference
-        Remote = GitHub if "github.com" in self.settings.sync_registry else GitLab
+        Remote = GitHub if "github.com" in sync_registry else GitLab
         remote = Remote(sync_registry, tag=tag)
+        local = self.get_registry(local or self.settings.filesystem_registry)
+
+        # We sync to our first registry - if not filesystem, no go
+        if not local.is_filesystem_registry:
+            logger.exit(
+                "sync is only supported for a remote to a filesystem registry: %s"
+                % sync_registry.source
+            )
 
         # Upgrade the current registry from the remote
         self.sync_from_remote(
-            remote, name, overwrite=upgrade_all, dryrun=dryrun, add_new=add_new
+            remote,
+            name,
+            overwrite=upgrade_all,
+            dryrun=dryrun,
+            add_new=add_new,
+            local=local,
         )
         remote.cleanup()
 
     def sync_from_remote(
-        self, remote, name=None, overwrite=False, dryrun=False, add_new=True
+        self, remote, name=None, overwrite=False, dryrun=False, add_new=True, local=None
     ):
         """
         Update our local filesystem registry with a new module.
@@ -131,7 +165,14 @@ class Registry:
         """
         updates = False
 
-        local = Filesystem(self.settings.filesystem_registry)
+        # A local (string) path provided
+        if local and isinstance(local, str) and os.path.exists(local):
+            local = Filesystem(local)
+
+        # No local registry provided, use default
+        if not local:
+            local = Filesystem(self.settings.filesystem_registry)
+
         tmpdir = remote.source
         if tmpdir.startswith("http") or not os.path.exists(tmpdir):
             tmpdir = remote.clone()

@@ -43,6 +43,10 @@ class Provider:
         return os.path.exists(os.path.join(self.source, name))
 
     @property
+    def is_filesystem_registry(self):
+        return not self.source.startswith("http") and os.path.exists(self.source)
+
+    @property
     def name(self):
         return self.__class__.__name__.lower()
 

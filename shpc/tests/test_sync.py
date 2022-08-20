@@ -11,6 +11,7 @@ import os
 import pytest
 
 import shpc.main.registry as registry
+import shpc.utils
 
 from .helpers import here, init_client
 
@@ -58,6 +59,46 @@ def test_filesystem_upgrade(tmp_path):
     existing = client.registry.exists(module)
     assert existing is not None
     assert os.path.exists(existing)
+
+
+def test_sync_from_file(tmp_path):
+    """
+    Test syncing from file, from each of gitlab and github
+    """
+    client = init_client(str(tmp_path), "lmod", "singularity")
+
+    cfg = {
+        "sync_registry": {
+            "%s/tmp/github-shpc"
+            % tmp_path: "https://github.com/singularityhub/shpc-registry",
+            "%s/gitlab-shpc"
+            % tmp_path: "https://gitlab.com/singularityhub/shpc-registry",
+        }
+    }
+    registry_config = os.path.join(tmp_path, "registries.yaml")
+    registries = []
+    for name in cfg["sync_registry"]:
+        os.makedirs(name)
+        registries.append(name)
+    shpc.utils.write_yaml(cfg, registry_config)
+
+    # Start out empty
+    for path in registries:
+        assert not os.listdir(path)
+
+    # Dryrun should also be empty
+    client.registry.sync(dryrun=True, config_file=registry_config)
+    for path in registries:
+        assert not os.listdir(path)
+
+    # We should not be adding a recipe unless we already have it
+    client.registry.sync(add_new=False, config_file=registry_config)
+    for path in registries:
+        assert not os.listdir(path)
+
+    client.registry.sync(config_file=registry_config)
+    for path in registries:
+        assert os.listdir(path)
 
 
 @pytest.mark.parametrize(

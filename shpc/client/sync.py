@@ -22,6 +22,7 @@ def sync_registry(args, parser, extra, subparser):
         args.module_name,
         dryrun=args.dryrun,
         tag=args.tag,
+        config_file=args.config_file,
         upgrade_all=args.upgrade_all,
         add_new=not args.existing_only,
     )
