@@ -144,17 +144,15 @@ class VersionControl(Provider):
         """
         if self._cache and not force:
             return
-        if not self.source.startswith("http"):
-            self.source = "https://%s" % self.source
 
         # Check for API
-        org, repo = self.source.split("/")[3:]
+        org, repo = self._url.split("/")[3:]
         gh_pages = "https://%s.%s.io/%s/library.json" % (org, self.provider_name, repo)
         response = requests.get(gh_pages)
         if response.status_code != 200:
             sys.exit(
                 "Remote %s is not deploying a Registry API. Open a GitHub issue to ask for help."
-                % self.source
+                % self._url
             )
         self._cache = response.json()
 
