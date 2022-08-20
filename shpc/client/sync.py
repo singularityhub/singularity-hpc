@@ -18,6 +18,9 @@ def sync_registry(args, parser, extra, subparser):
         cli.settings.registry = [args.registry]
         cli.reload_registry()
 
+    if args.config_file and not os.path.exists(args.config_file):
+        logger.exit("%s does not exist." % args.config_file)
+
     cli.registry.sync(
         args.module_name,
         dryrun=args.dryrun,
