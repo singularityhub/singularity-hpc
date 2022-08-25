@@ -4,6 +4,7 @@ __license__ = "MPL 2.0"
 
 import shpc.logger as logger
 import shpc.utils
+import os
 
 
 def sync_registry(args, parser, extra, subparser):

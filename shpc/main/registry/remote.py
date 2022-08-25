@@ -89,6 +89,30 @@ class VersionControl(Provider):
     def matches(cls, source):
         return cls.provider_name in source and source.startswith("http")
 
+    @property
+    def source_url(self):
+        """
+        Retrieve a parsed / formatted url, ensuring https and without git.
+        """
+        url = self.source
+        if not url.startswith("http"):
+            url = "https://%s" % url
+        if url.endswith(".git"):
+            url = url[:-4]
+        return url
+
+    @property
+    def web_url(self):
+        """
+        Retrieve the web url, either pages or (eventually) custom.
+        """
+        parts = self.source_url.split("/")[3:]
+        return "https://%s.%s.io/%s/library.json" % (
+            parts[0],
+            self.provider_name,
+            "/".join(parts[1:]),
+        )
+
     def exists(self, name):
         """
         Determine if a module exists in the registry.
@@ -144,17 +168,13 @@ class VersionControl(Provider):
         """
         if self._cache and not force:
             return
-        if not self.source.startswith("http"):
-            self.source = "https://%s" % self.source
 
-        # Check for API
-        org, repo = self.source.split("/")[3:]
-        gh_pages = "https://%s.%s.io/%s/library.json" % (org, self.provider_name, repo)
-        response = requests.get(gh_pages)
+        # Check for exposed library API on GitHub or GitLab pages
+        response = requests.get(self.web_url)
         if response.status_code != 200:
             sys.exit(
-                "Remote %s is not deploying a Registry API. Open a GitHub issue to ask for help."
-                % self.source
+                "Remote %s is not deploying a Registry API (%s). Open a GitHub issue to ask for help."
+                % (self.source, self.web_url)
             )
         self._cache = response.json()
 
