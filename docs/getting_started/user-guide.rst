@@ -377,24 +377,69 @@ However, you have several options for managing your own (or updating) recipes.
 1. Use the default remote, no additional work needed
 2. Clone the default remote to a local filesystem folder and manage manually (e.g., git pull)
 3. Create your own local registry in addition (or without) the remote.
-4. For any local registry, either sync (``shpc sync``) or add a recipe locally from a remote (``registry-add``).
+4. For any local registry, you can sync (``shpc sync``) from a remote.
 
 If you want to do the first, no further action is needed! Each of these remaining
-examples will be described here.
+examples will be described here, and for instructions for creating your own
+registry, see :ref:`getting_started-developer-guide`.
 
-Use the default 
+1. Use the Default Remote
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
-TODO WRITE THESE OUT SHOW HOW TO UPDATE 
+Congratulations, you are done! This is the default and you don't need to make
+any changes.
+
+
+2. Clone a Remote Registry
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+It could be the case that you want to start with a remote registry, but keep it locally
+with your own changes or secrets. This is essentially turning a remote registry into a filesystem 
+(local) one. The easiest thing to do here is to clone it to your filesyste, and then add to shpc as a filesystem
+registry.
 
 .. code-block:: console
 
+    # Clone to a special spot
+    $ git clone https://github.com/singularityhub/shpc-registry /opt/lmod/my-registry
+
     # change to your own registry of container yaml configs
-    $ shpc config add registry:/opt/lmod/registry
+    $ shpc config add registry:/opt/lmod/my-registry
+
+Since add is adding to a list, you might want to open your settings.yaml and ensure that
+the order is to your liking. The order determines the search path, and you might have
+preferences about what is searched first.
+
+3. Create A Local Registry
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This would correspond to the same set of steps as above, but starting from scratch!
+For example:
+
+.. code-block:: console
+
+    $ mkdir -p /opt/lmod/my-registry
+    $ cd /opt/lmod/my-registry
 
 
-# Note that "add" is used for lists of things (e.g., the registry config variable is a list)
-and "set" is used to set a key value pair.
+And then you might want to inspect :ref:`getting_started-commands-add:` to see
+how to use shpc add to generate new container.yaml files. We are working on automation
+that can make this easier, so stay tuned for updates! After that, you'll still want to
+ensure your filesystem registry is known to shpc:
 
+.. code-block:: console
+
+    $ shpc config add registry:/opt/lmod/my-registry
+
+
+4. Sync from a Remote
+^^^^^^^^^^^^^^^^^^^^^
+
+See :ref:`getting_started-commands-sync-registry:` for instructions
+of how to sync from a remote. You'll want to ensure you have added a filesystem
+registry to be known to shpc to sync to.
+
+Want to design your own remote registry? See the :ref:`getting_started-developer-guide`.
 
 
 Default Version
@@ -517,7 +562,7 @@ Wrapper Scripts
 
 Singularity HPC allows for global definition of wrapper scripts, meaning that instead of writing a module alias to run a container for some given alias,
 we generate a wrapper script of the same name instead. Since the settings.yml is global, all wrapper scripts defined here are specific to replacing aliases.
-Container-specific scripts you'll want to include in the container.yaml are described in the developer docs. Let's take a look at the settings:
+Container-specific scripts you'll want to include in the container.yaml are described in :ref:`getting_started-developer-guide`. Let's take a look at the settings:
 
 
 .. code-block:: yaml
@@ -622,7 +667,7 @@ Since we don't allow overlap
 of the name of an alias wrapper script (e.g., ``bin/python`` as a wrapper to a python entrypoint) from a custom container wrapper script (e.g., a wrapper script with name "python" under a container.yaml) we can keep them both in the modules directory. If you see a need to put them elsewhere please let us know. 
 
 .. _getting_started-commands:
-
+.. _getting_started-commands-views:
 
 Views
 =====
@@ -975,6 +1020,8 @@ You can also open the config in the editor defined in settings at ``config_edito
 
 which defaults to vim.
 
+.. _getting_started-commands-show:
+
 Show
 ----
 
@@ -1026,6 +1073,8 @@ except with this argument, e.g.,:
 
     $ shpc show --registry .
 
+.. _getting_started-commands-install:
+
 
 Install
 -------
@@ -1076,6 +1125,9 @@ Install Private Images
 
 What about private containers on Docker Hub? If you have a private image, you can
 simply use `Singularity remote login <https://github.com/sylabs/singularity-userdocs/blob/master/singularity_and_docker.rst#singularity-cli-remote-command>`_ before attempting the install and everything should work.
+
+.. _getting_started-commands-namespace:
+
 
 Namespace
 ---------
@@ -1140,6 +1192,9 @@ Namespaces currently work with:
  - add
  - check
 
+
+.. _getting_started-commands-list:
+
 List
 ----
 
@@ -1177,6 +1232,9 @@ each unique module name, just add ``--short``:
       ghcr.io/autamus/prodigal: latest
       ghcr.io/autamus/samtools: latest
         ghcr.io/autamus/clingo: 5.5.0
+
+
+.. _getting_started-commands-update:
 
 Update
 ------
@@ -1259,6 +1317,8 @@ Let us know if there are other features you'd like for update! For specific reci
 it could be that a different method of choosing or sorting tags (beyond the defaults mentioned above
 and filter) is needed.
 
+.. _getting_started-commands-sync-registry:
+
 
 Sync Registry
 -------------
@@ -1335,6 +1395,8 @@ And then do:
 
     $ shpc sync-registry --config-file registries.yaml
 
+.. _getting_started-commands-inspect:
+
 Inspect
 -------
 
@@ -1383,7 +1445,6 @@ Or to get the entire metadata entry dumped as json to the terminal:
 
 
 .. _getting_started-commands-test:
-
 
 
 Test
@@ -1452,6 +1513,7 @@ section of a ``container.yaml``.
 
     shpc test --skip-module --commands python
 
+.. _getting_started-commands-uninstall:
 
 Uninstall
 ---------
@@ -1473,6 +1535,8 @@ You can also uninstall an entire family  of modules:
 
 The uninstall will go up to the top level module folder but not remove it
 in the case that you've added it to your ``MODULEPATH``.
+
+.. _getting_started-commands-pull:
 
 Pull
 ----
@@ -1519,6 +1583,7 @@ See the `Singularity Deploy <https://github.com/singularityhub/singularity-deplo
 for complete details for how to set up your container! Note that this uri (``gh://``)
 can also be used in a registry entry.
 
+.. _getting_started-commands-shell:
 
 Shell
 -----
@@ -1569,6 +1634,7 @@ And then you can interact with the client, which will be loaded.
 
     client.install('python')
 
+.. _getting_started-commands-show:
 
 
 Show
@@ -1598,6 +1664,8 @@ Or without any arguments, it will show a list of all registry entries available:
 
     $ shpc show
     python
+
+.. _getting_started-commands-check:
 
 
 Check
@@ -1638,6 +1706,9 @@ we check for new recipes to test.
     ⭐️ tag 5.5.1 is up to date. ⭐️
     ⭐️ tag 1.54.0 is up to date. ⭐️
 
+
+
+.. _getting_started-commands-add:
 
 Add
 ---
