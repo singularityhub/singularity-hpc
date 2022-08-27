@@ -39,10 +39,10 @@ def test_get_local_template_paths(tmp_path, with_custom_wrapper_template_path):
         registry.FilesystemResult("quay.io/vgteam/vg", container_yaml)
     )
     ws = wrappers_base.WrapperScript(
-        "dummy.sh",  # Not used in this test
+        "dummy.sh",
         client.settings,
         config=config,
-        image=None,
+        image=None,  # Not used in this test
     )
     client.settings.set(
         "wrapper_scripts",
