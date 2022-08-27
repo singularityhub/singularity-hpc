@@ -3,21 +3,23 @@ __copyright__ = "Copyright 2021-2022, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
 
-from shpc.logger import logger
+import shutil
+
 import shpc.defaults as defaults
 import shpc.main.schemas
 import shpc.utils as utils
-import shutil
+from shpc.logger import logger
 
 try:
     from ruamel_yaml.comments import CommentedSeq
 except:
     from ruamel.yaml.comments import CommentedSeq
 
-from datetime import datetime
-import jsonschema
 import os
 import re
+from datetime import datetime
+
+import jsonschema
 
 
 def OrderedList(*l):
@@ -237,6 +239,32 @@ class SettingsBase:
         except jsonschema.exceptions.ValidationError as error:
             logger.exit(
                 "%s:%s cannot be added to config: %s" % (key, value, error.message)
+            )
+
+    @property
+    def filesystem_registry(self):
+        """
+        Return the first found filesystem registry
+        """
+        for path in self.registry:
+            if path.startswith("http") or not os.path.exists(path):
+                continue
+            return path
+
+    def ensure_filesystem_registry(self):
+        """
+        Ensure that the settings has a filesystem registry.
+        """
+        found = False
+        for path in self.registry:
+            if path.startswith("http") or not os.path.exists(path):
+                continue
+            found = True
+
+        # Cut out early if registry isn't on the filesystem
+        if not found:
+            logger.exit(
+                "This command is only supported for a filesystem registry! Add one or use --registry."
             )
 
     def _substitutions(self, value):

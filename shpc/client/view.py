@@ -2,15 +2,16 @@ __author__ = "Vanessa Sochat"
 __copyright__ = "Copyright 2022, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
-import shpc.main.modules.views as views
-from shpc.logger import logger
-import shpc.utils as utils
-from shpc.main import get_client
-import shpc.main.schemas as schemas
+import os
+import sys
 
 import jsonschema
-import sys
-import os
+
+import shpc.main.modules.views as views
+import shpc.main.schemas as schemas
+import shpc.utils as utils
+from shpc.logger import logger
+from shpc.main import get_client
 
 
 def create_from_file(
@@ -55,6 +56,8 @@ def create_from_file(
 
 
 def main(args, parser, extra, subparser):
+
+    utils.ensure_no_extra(extra)
 
     # If nothing provided or less than 2 (view name and command) show help
     if not args.params:

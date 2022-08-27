@@ -1,9 +1,0 @@
-docker: ghcr.io/autamus/papyrus
-url: https://github.com/orgs/autamus/packages/container/package/papyrus
-maintainer: '@vsoch'
-description: Parallel Aggregate Persistent Storage
-latest:
-  1.0.2: sha256:9cdbe3399d113f8d4efac68abc2419e4a38633055e86cdc6ff49ae63952a12a9
-tags:
-  1.0.2: sha256:9cdbe3399d113f8d4efac68abc2419e4a38633055e86cdc6ff49ae63952a12a9
-  latest: sha256:9cdbe3399d113f8d4efac68abc2419e4a38633055e86cdc6ff49ae63952a12a9

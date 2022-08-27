@@ -3,9 +3,21 @@ __copyright__ = "Copyright 2021-2022, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
 
-from shpc.logger import logger
-from subprocess import Popen, PIPE, STDOUT
 import os
+from subprocess import PIPE, STDOUT, Popen
+
+from shpc.logger import logger
+
+
+def ensure_no_extra(extra):
+    """
+    Ensure no extra arguments (in case typos)
+    """
+    if extra:
+        logger.exit(
+            "Extra arguments provided that are not known to this command: %s"
+            % " ".join(extra)
+        )
 
 
 def which(software=None, strip_newline=True):

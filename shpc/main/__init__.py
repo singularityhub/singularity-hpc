@@ -3,11 +3,11 @@ __copyright__ = "Copyright 2021-2022, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
 
-from .settings import Settings
-
+import shpc.defaults
 import shpc.utils
 from shpc.logger import logger
-import shpc.defaults
+
+from .settings import Settings
 
 
 def get_client(quiet=False, **kwargs):

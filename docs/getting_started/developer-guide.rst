@@ -9,10 +9,40 @@ registry entries and building containers. If you haven't read :ref:`getting_star
 you should do that first.
 
 
-Creating a Registry
-===================
+Developer Commands
+==================
 
-A registry consists of a database of local containers files, which are added
+Singularity Registry HPC has a few "developer specific" commands that likely will only be
+used in automation, but are provided here for the interested reader.
+
+Docgen
+------
+
+To generate documentation for a registry (e.g., see `this registry example <https://singularityhub.github.io/shpc-registry>`_ we can use docgen. Docgen, by way of needing to interact with the local filesystem,
+currently only supports generation for a filesystem registry. E.g., here is how to generate a registry module
+(from a local container.yaml) that ultimately will be found in GitHub pages:
+
+.. code-block:: console
+
+    $ shpc docgen --registry . --registry-url https://github.com/singularityhub/shpc-registry python
+    
+And you could easily pipe this to a file. Here is how we generate this programatically in a loop:
+
+
+.. code-block:: console
+
+    for module in $(shpc show --registry ../shpc-registry); do          
+        flatname=${module#/}
+        name=$(echo ${flatname//\//-})
+        echo "Generating docs for $module, _library/$name.md"
+        shpc docgen --registry ../shpc-registry --registry-url https://github.com/singularityhub/shpc-registry $module > "_library/${name}.md"
+    done
+
+
+Creating a FileSystem Registry
+==============================
+
+A fileystem registry consists of a database of local containers files, which are added
 to the module system as executables for your user base. This typically means that you are a
 linux administrator of your cluster, and shpc should be installed for you to use
 (but your users will not be interacting with it).
@@ -88,9 +118,59 @@ It's reasonable that you can store your recipes alongside these files, in the ``
 folder. If you see a conflict and want to request allowing for a custom install path
 for recipes, please open an issue.
 
+Creating a Remote Registry
+==========================
+
+If you want to create your own remote registry (currently supported to be on GitHub or GitLab)
+the easiest thing to do is start with one of our shpc provided registries as a template:
+
+ - `**GitHub** <https://github.com/singularityhub/shpc-registry>`_
+ - `**GitLab** <https://gitlab.com/singularityhub/shpc-registry>`_
+
+This means (for either) you'll want to clone the original repository:
+
+.. code-block:: console
+
+    $ git clone https://github.com/singularityhub/shpc-registry my-registry
+    $ cd my-registry
+    
+Ensure you do a fetch to get the github pages branch, which deploys the web interface!
+
+.. code-block:: console
+
+    $ git fetch
+
+At this point, you can create an empty repository to push to. If you don't mind
+it being a fork, you can also just fork the original repository (and then pull
+from it instead). GitLab has a feature to fork and then remove the fork, so that
+is an option too. Ensure that you push the gh-pages branch too (for GitHub only):
+
+.. code-block:: console
+
+    $ git checkout gh-pages
+    $ git push origin gh-pages
+
+Once you have your cloned registry repository, it's up to you for how you want
+to delete / edit / add containers! You'll likely use ``shpc add`` to generate new
+configs, and you might want to delete most of the default containers provided.
+Importantly, you should take note of the workflows in the repository. Generally:
+
+ - We have an update workflow (GitHub) that will check for new versions of containers. This still need to be ported to GitLab.
+ - The docs workflow (on GitHub, this is in the .github-ci.yaml) will deploy docs to GitHub/GitLab pages.
+
+For each of GitLab and GitHub, ensure after you deploy that your pages are enabled.
+It helps to ensure the website (static) URL is in the description to be easily find-able.
+Once it's deployed, ensure you see your containers, and clicking the ``</>`` (code)
+icon shows the library.json that shpc will use. Finally, akin to adding a filesystem registry,
+you can just do the same, but specify your remote URL:
+
+.. code-block:: console
+
+    $ shpc config add registry https://github.com/singularityhub/shpc-registry
+
+And that's it!
 
 .. _getting_started-writing-registry-entries:
-
 
 Writing Registry Entries
 ========================

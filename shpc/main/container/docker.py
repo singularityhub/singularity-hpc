@@ -3,16 +3,17 @@ __copyright__ = "Copyright 2021-2022, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
 
-from shpc.logger import logger
-from .base import ContainerTechnology
-import shpc.main.templates
-import shpc.main.wrappers
-import shpc.utils
-
-from datetime import datetime
 import json
 import os
 import sys
+from datetime import datetime
+
+import shpc.main.templates
+import shpc.main.wrappers
+import shpc.utils
+from shpc.logger import logger
+
+from .base import ContainerTechnology
 
 
 class DockerContainer(ContainerTechnology):

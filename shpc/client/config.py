@@ -2,14 +2,18 @@ __author__ = "Vanessa Sochat"
 __copyright__ = "Copyright 2021-2022, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
-import shpc.defaults as defaults
-from shpc.logger import logger
 import sys
+
+import shpc.defaults as defaults
+import shpc.utils
+from shpc.logger import logger
 
 
 def main(args, parser, extra, subparser):
 
     from shpc.main import get_client
+
+    shpc.utils.ensure_no_extra(extra)
 
     # If nothing provided, show help
     if not args.params:

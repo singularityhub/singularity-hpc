@@ -3,11 +3,11 @@ __copyright__ = "Copyright 2021-2022, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
 
-from shpc.logger import logger, underline, add_prefix
-import shpc.main.schemas as schemas
-import shpc.utils as utils
-import shpc.main.container.update as update
 import shlex
+
+import shpc.main.container.update as update
+import shpc.main.schemas as schemas
+from shpc.logger import add_prefix, logger, underline
 
 try:
     from ruamel_yaml import YAML
@@ -15,8 +15,9 @@ except:
     from ruamel.yaml import YAML
 
 import os
-import jsonschema
 import sys
+
+import jsonschema
 
 here = os.path.abspath(os.path.dirname(__file__))
 
@@ -69,12 +70,14 @@ class Tag:
 
 class ContainerConfig:
     """
-    A ContainerConfig wraps a container.yaml file, intended for install.
+    A ContainerConfig is a light wrapper around a registry Entry.
     """
 
-    def __init__(self, package_file, validate=True):
-        """Load a package file for a container."""
-        self.load(package_file)
+    def __init__(self, entry, validate=True):
+        """
+        Interact with a registry container config.
+        """
+        self.entry = entry
         if validate:
             self.validate()
 
@@ -101,8 +104,8 @@ class ContainerConfig:
         """
         Return a set of tags (including latest)
         """
-        latest = self._config.get("latest")
-        tags = self._config.get("tags", {})
+        latest = self.get("latest")
+        tags = self.get("tags", {})
         return Tags(tags, latest)
 
     @property
@@ -110,7 +113,7 @@ class ContainerConfig:
         """
         Flatten the docker uri into a filesystem appropriate name
         """
-        name = self.docker or self.oras or self.gh or self.path
+        name = self.docker or self.oras or self.gh or self.path or self.entry.module
         return name.replace("/", "-")
 
     @property
@@ -121,13 +124,19 @@ class ContainerConfig:
         from .base import ContainerName
 
         if hasattr(self, "path") and self.path is not None:
-            return ContainerName("/".join(self.package_dir.split("/")[-2:]))
+            return ContainerName("/".join(self.entry.dirname.split("/")[-2:]))
 
         # A path is not set yet
-        if not self.docker and not self.oras and not self.gh:
+        if not self.docker and not self.oras and not self.gh and not self.entry.module:
             return "undefined"
-        name = self.docker or self.oras or self.gh
+        name = self.docker or self.oras or self.gh or self.entry.module
         return ContainerName(name)
+
+    def load_wrapper_script(self, container_tech, script):
+        """
+        Load a wrapper script from the registry.
+        """
+        return self.entry.load_wrapper_script(container_tech, script)
 
     def load_override_file(self, tag):
         """
@@ -136,10 +145,7 @@ class ContainerConfig:
         # Do we have an alias file for the tag?
         if not self.overrides or tag not in self.overrides:
             return
-        override_file = os.path.join(self.package_dir, self.overrides[tag])
-        if not os.path.exists(override_file):
-            logger.exit(f"Override file {override_file} does not exist.")
-        overrides = utils.read_yaml(override_file)
+        overrides = self.entry.get_overrides(tag) or {}
 
         # Only allow over-ride of these fields
         allowed_overrides = [
@@ -152,7 +158,7 @@ class ContainerConfig:
         ]
         for k, v in overrides.items():
             if k in allowed_overrides:
-                self._config[k] = v
+                self.entry._config[k] = v
             else:
                 logger.warning("%s is not an allowed override field." % k)
 
@@ -165,12 +171,8 @@ class ContainerConfig:
         """
         if not self.overrides:
             return True
-        for tag, filename in self.overrides.items():
-            override_file = os.path.join(self.package_dir, filename)
-            if not os.path.exists(override_file):
-                logger.warning(
-                    f"Override file {filename} does not exist in {self.package_dir}"
-                )
+        for tag in self.overrides:
+            if not self.entry.override_exists(tag):
                 return False
         return True
 
@@ -206,10 +208,10 @@ class ContainerConfig:
         """
         Update loaded config with keys and values
         """
-        self._config[key] = value
+        self.entry._config[key] = value
 
     def add_tag(self, key, value):
-        self._config["tags"][key] = value
+        self.entry._config["tags"][key] = value
 
     def set_tag(self, tag):
         """
@@ -230,7 +232,7 @@ class ContainerConfig:
         """
         out = out or sys.stdout
         yaml = YAML()
-        yaml.dump(self._config, out)
+        yaml.dump(self.entry._config, out)
 
     def get_url(self):
         """
@@ -238,29 +240,17 @@ class ContainerConfig:
         """
         # Not in json schema, but currently required
         if (
-            "docker" not in self._config
-            and "gh" not in self._config
-            and "path" not in self._config
+            "docker" not in self.entry._config
+            and "gh" not in self.entry._config
+            and "path" not in self.entry._config
         ):
             logger.exit(
                 "A docker, gh, or path field is currently required in the config."
             )
-        return (
-            self._config.get("docker")
-            or self._config.get("gh")
-            or self._config.get("path")
-        )
+        return self.get("docker") or self.get("gh") or self.get("path")
 
     def get(self, key, default=None):
-        return self._config.get(key, default)
-
-    @property
-    def package_dir(self):
-        """
-        Get the directory of the container.yaml, for finding local containers.
-        """
-        if self.package_file:
-            return os.path.dirname(self.package_file)
+        return self.entry._config.get(key, default)
 
     def get_pull_type(self):
         if self.oras:
@@ -296,7 +286,7 @@ class ContainerConfig:
         """
         Validate a loaded config with jsonschema
         """
-        jsonschema.validate(instance=self._config, schema=schemas.containerConfig)
+        jsonschema.validate(instance=self.entry._config, schema=schemas.containerConfig)
 
     def get_envars(self):
         """
@@ -338,16 +328,4 @@ class ContainerConfig:
         """
         Save the container.yaml to file. This is usually for shpc add.
         """
-        utils.write_yaml(self._config, package_file)
-
-    def load(self, package_file):
-        """
-        Load the settings file into the settings object
-        """
-        # Exit quickly if the package does not exist
-        if not os.path.exists(package_file):
-            logger.exit("%s does not exist." % package_file)
-
-        # Default to round trip so we can save comments
-        self.package_file = package_file
-        self._config = utils.read_yaml(package_file)
+        self.entry.save(package_file)

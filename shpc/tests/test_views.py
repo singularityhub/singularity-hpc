@@ -6,26 +6,31 @@
 # Mozilla Public License, v. 2.0. If a copy of the MPL was not distributed
 # with this file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-import pytest
 import os
 
+import pytest
+
+import shpc.client.view as view_client
 import shpc.main.modules.views as views
 import shpc.utils as utils
-import shpc.client.view as view_client
 
-from .helpers import init_client, here
+from .helpers import here, init_client
 
 
 @pytest.mark.parametrize(
-    "module_sys,module_file,container_tech",
+    "module_sys,module_file,container_tech,remote",
     [
-        ("lmod", "module.lua", "singularity"),
-        ("lmod", "module.lua", "podman"),
-        ("tcl", "module.tcl", "singularity"),
-        ("tcl", "module.tcl", "podman"),
+        ("lmod", "module.lua", "singularity", True),
+        ("lmod", "module.lua", "podman", True),
+        ("tcl", "module.tcl", "singularity", True),
+        ("tcl", "module.tcl", "podman", True),
+        ("lmod", "module.lua", "singularity", False),
+        ("lmod", "module.lua", "podman", False),
+        ("tcl", "module.tcl", "singularity", False),
+        ("tcl", "module.tcl", "podman", False),
     ],
 )
-def test_views(tmp_path, module_sys, module_file, container_tech):
+def test_views(tmp_path, module_sys, module_file, container_tech, remote):
     """
     Test views:
 
@@ -34,7 +39,7 @@ def test_views(tmp_path, module_sys, module_file, container_tech):
     uninstall
     delete
     """
-    client = init_client(str(tmp_path), module_sys, container_tech)
+    client = init_client(str(tmp_path), module_sys, container_tech, remote=remote)
 
     # Create the view handler based on the client settings file
     view_handler = views.ViewsHandler(

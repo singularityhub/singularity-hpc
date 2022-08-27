@@ -2,9 +2,12 @@ __author__ = "Vanessa Sochat"
 __copyright__ = "Copyright 2021-2022, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
+import shpc.utils
+
 
 def main(args, parser, extra, subparser):
 
+    shpc.utils.ensure_no_extra(extra)
     lookup = {"ipython": ipython, "python": python, "bpython": bpython}
     shells = ["ipython", "python", "bpython"]
 

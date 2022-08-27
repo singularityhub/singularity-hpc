@@ -3,14 +3,16 @@ layout: container
 name:  "{{ name }}"
 maintainer: "@vsoch"
 github: "{{ github_url }}"
+config_url: "{{ config_url }}"
 updated_at: "{{ creation_date }}"
+latest: "{{ latest }}"
 container_url: "{{ container_url }}"
 {% if aliases %}aliases:{% for alias in aliases %}
- - "{{ alias.name }}"
-{% endfor %}{% endif %}
+ - "{{ alias.name }}"{% endfor %}{% endif %}
 versions:{% for version in versions %}
  - "{{ version }}"{% endfor %}
 {% if description %}description: "{{ description }}"{% endif %}
+config: {{ config }}
 ---
 
 This module is a singularity container wrapper for {{ name }}.

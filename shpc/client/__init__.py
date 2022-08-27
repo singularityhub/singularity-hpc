@@ -4,11 +4,12 @@ __author__ = "Vanessa Sochat"
 __copyright__ = "Copyright 2021-2022, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
+import argparse
+import os
+import sys
+
 import shpc
 from shpc.logger import setup_logger
-import argparse
-import sys
-import os
 
 
 def get_parser():
@@ -232,6 +233,14 @@ shpc config remove registry /tmp/registry""",
         description="Generate a markdown document for a container registry entry.",
     )
     docgen.add_argument("module_name", help="the module to generate docs for.")
+    docgen.add_argument(
+        "--registry-url", help="GitHub repository where registry can be found."
+    )
+    docgen.add_argument(
+        "--branch",
+        help="Branch that registry source files live (defaults to main)",
+        default="main",
+    )
 
     # Pull a nontraditional container type (e.g., github release asset)
     pull = subparsers.add_parser(
@@ -286,10 +295,13 @@ shpc config remove registry /tmp/registry""",
         "uninstall_recipe", help="module to uninstall (module/version)"
     )
 
+    # Update gets latest tags from OCI registries
     update = subparsers.add_parser(
         "update", description="update a container recipe with new versions"
     )
-    update.add_argument("module_name", help="module to update (no version required)")
+    update.add_argument(
+        "module_name", help="module to update (no version required)", nargs="?"
+    )
     update.add_argument(
         "--filter",
         "-f",
@@ -297,13 +309,51 @@ shpc config remove registry /tmp/registry""",
         help="ignore container.yaml filters, run an update with this specific set",
         dest="filters",
     )
-    update.add_argument(
-        "--dryrun",
-        "-d",
-        help="View updates without performing updates",
+
+    # sync-registry gets latest files and non-existing containers from upstream shpc
+    sync = subparsers.add_parser(
+        "sync-registry",
+        description="get latest files and containers from an upstream shpc",
+    )
+    sync.add_argument(
+        "module_name", help="module to add or sync from upstream", nargs="?"
+    )
+    sync.add_argument(
+        "--tag",
+        "-t",
+        default="main",
+        help="Upstream shpc repository reference (tag or branch) to upgrade from.",
+    )
+    sync.add_argument(
+        "--config-file",
+        "-c",
+        dest="config_file",
+        help="Provide a registries.yaml config file to coordinate the sync.",
+    )
+    sync.add_argument(
+        "--all",
+        "-a",
+        dest="upgrade_all",
+        help="Replace all existing files in sync set.",
         default=False,
         action="store_true",
     )
+    sync.add_argument(
+        "--existing-only",
+        help="Do not add recipes that are not found in the local repository (only sync existing).",
+        default=False,
+        action="store_true",
+    )
+
+    for command in update, sync:
+        command.add_argument(
+            "--dry-run",
+            "-d",
+            dest="dryrun",
+            help="Do a dry run to view changes without performing them.",
+            default=False,
+            action="store_true",
+        )
 
     # Add customization for each of container tech and module system
     for command in [
@@ -362,11 +412,17 @@ shpc config remove registry /tmp/registry""",
         dest="filter_string",
     )
 
+    for command in docgen, show, add, sync:
+        command.add_argument(
+            "--registry", help="GitHub repository or local path where registry lives."
+        )
     return parser
 
 
 def run_shpc():
-    """run_shpc is the entrypoint to the singularity-hpc client."""
+    """
+    run_shpc is the entrypoint to the singularity-hpc client.
+    """
 
     parser = get_parser()
 
@@ -447,6 +503,8 @@ def run_shpc():
         from .uninstall import main
     elif args.command == "update":
         from .update import main
+    elif args.command == "sync-registry":
+        from .sync import sync_registry as main
 
     # Pass on to the correct parser
     return_code = 0

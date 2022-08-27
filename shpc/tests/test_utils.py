@@ -8,6 +8,7 @@
 
 import os
 import shutil
+
 import pytest
 
 
@@ -40,7 +41,8 @@ def test_write_bad_json(tmp_path):
 
 def test_write_json(tmp_path):
     import json
-    from shpc.utils import write_json, read_json
+
+    from shpc.utils import read_json, write_json
 
     good_json = {"Wakkawakkawakka": [True, "2", 3]}
     tmpfile = str(tmp_path / "good_json_file.txt")

@@ -1,9 +1,0 @@
-docker: ghcr.io/autamus/fraggenescan
-url: https://github.com/orgs/autamus/packages/container/package/fraggenescan
-maintainer: '@vsoch'
-description: An application for finding (fragmented) genes in short reads.
-latest:
-  '1.31': sha256:9a2c44ffb301dd55c106af940b82ff0b4c86005aef50ab7ad614099f85e8e88a
-tags:
-  '1.31': sha256:9a2c44ffb301dd55c106af940b82ff0b4c86005aef50ab7ad614099f85e8e88a
-  latest: sha256:9a2c44ffb301dd55c106af940b82ff0b4c86005aef50ab7ad614099f85e8e88a

@@ -5,8 +5,9 @@
 # Mozilla Public License, v. 2.0. If a copy of the MPL was not distributed
 # with this file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-from .helpers import init_client
 import pytest
+
+from .helpers import init_client
 
 
 def test_config(tmp_path):

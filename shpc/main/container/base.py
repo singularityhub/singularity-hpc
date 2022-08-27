@@ -3,13 +3,14 @@ __copyright__ = "Copyright 2021-2022, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
 
-from shpc.logger import logger
-import shpc.main.templates
-import shpc.utils
-
-from jinja2 import Template
 import os
 import re
+
+from jinja2 import Template
+
+import shpc.main.templates
+import shpc.utils
+from shpc.logger import logger
 
 
 class ContainerName:
@@ -25,6 +26,9 @@ class ContainerName:
         self.version = None
         self.digest = None
         self.parse(raw)
+
+    def __str__(self):
+        return self.raw
 
     def parse(self, raw):
         """
@@ -89,24 +93,6 @@ class ContainerTechnology:
         if not self.settings.container_base:
             return os.path.join(self.settings.module_base, name)
         return os.path.join(self.settings.container_base, name)
-
-    def iter_registry(self):
-        """
-        Iterate over known registries defined in settings.
-        """
-        for registry in self.settings.registry:
-            for filename in shpc.utils.recursive_find(registry):
-                yield registry, filename
-
-    def iter_modules(self):
-        """
-        Iterate over modules found across the registry
-        """
-        for registry in self.settings.registry:
-            for filename in shpc.utils.recursive_find(registry):
-                yield registry, os.path.dirname(filename).replace(registry, "").strip(
-                    os.sep
-                )
 
     def guess_tag(self, module_name, allow_fail=False):
         """

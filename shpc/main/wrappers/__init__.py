@@ -2,10 +2,11 @@ __author__ = "Vanessa Sochat"
 __copyright__ = "Copyright 2022, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
-from shpc.logger import logger
-from .base import WrapperScript
 import os
 
+from shpc.logger import logger
+
+from .base import WrapperScript
 
 here = os.path.abspath(os.path.dirname(__file__))
 
@@ -31,8 +32,7 @@ def generate(image, container, config, **kwargs):
         **kwargs,
     }
 
-    # Default wrapper for this container technology. Will be used for all
-    # aliases (unless overriden)
+    # Default wrapper for container technology, used for aliases unless overridden
     default_wrapper = None
     default_template_name = settings.wrapper_scripts.get(container.command)
     if default_template_name:

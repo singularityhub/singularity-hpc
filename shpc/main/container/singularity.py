@@ -3,17 +3,18 @@ __copyright__ = "Copyright 2021-2022, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
 
-from shpc.logger import logger
-import shpc.utils as utils
-import shpc.main.wrappers
-import shpc.main.container.update as update
-from .base import ContainerTechnology
-
+import os
+import re
+import shutil
 from datetime import datetime
 from glob import glob
-import re
-import os
-import shutil
+
+import shpc.main.container.update as update
+import shpc.main.wrappers
+import shpc.utils as utils
+from shpc.logger import logger
+
+from .base import ContainerTechnology
 
 
 class SingularityContainer(ContainerTechnology):
@@ -212,7 +213,6 @@ class SingularityContainer(ContainerTechnology):
             metadata = None
             deffile = None
             labels = {}
-            logger.warning("Singularity is not installed, skipping metadata.")
 
         # Option to create wrapper scripts for commands
         module_dir = os.path.dirname(module_path)

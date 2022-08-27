@@ -67,7 +67,7 @@ software doesn't see the module, remember that you need to have done:
     $ module use $(pwd)/modules
 
 
-We walk through these steps in more detail in the next section.
+Also know that by default, we use a remote registry, `shpc-registry on GitHub <https://github.com/singularityhub/shpc-registry>`_ to find recipes for. If you want to use a local filesystem registry (a clone of that registry or your own custom) see the following sections, where we will walk through these steps in more detail.
 
 
 Quick Start
@@ -168,8 +168,11 @@ variable replacement. A summary table of variables is included below, and then f
      - Set a default module system. Currently lmod and tcl are supported
      - lmod
    * - registry
-     - A list of full paths to one or more registry folders (with subfolders with container.yaml recipes)
-     - [$root_dir/registry]
+     - A list of full paths to one or more registry remotes (e.g., GitHub addresses) or local directories (each with subfolders with container.yaml recipes)
+     - ["https://github.com/singularityhub/shpc-registry"]
+   * - sync_registry
+     - A default remote to sync from (is not required to have an API/docs, as it is cloned).
+     - https://github.com/singularityhub/shpc-registry     
    * - module_base
      - The install directory for modules
      - $root_dir/modules
@@ -364,20 +367,79 @@ Registry
 --------
 
 The registry parameter is a list of one or more registry locations (filesystem
-directories) where shpc will search for ``container.yaml`` files. The default
-registry shipped with shpc is the folder in the root of the repository, but 
-you can add or remove entries via the config variable ``registry``
+directories or remote GitHub repositories with the same structure) where shpc will search 
+for ``container.yaml`` files. The default registry used to be shipped with shpc, but as of
+version 0.1.0 is provided remotely. This means that by default, you don't need to worry about 
+updating or syncing recipes - they will always be retrieved from the latest, as the remote registry
+`shpc-registry  <https://github.com/singularityhub/shpc-registry>`_ is automatically updated.
+However, you have several options for managing your own (or updating) recipes.
 
+1. Use the default remote, no additional work needed
+2. Clone the default remote to a local filesystem folder and manage manually (e.g., git pull)
+3. Create your own local registry in addition (or without) the remote.
+4. For any local registry, you can sync (``shpc sync``) from a remote.
+
+If you want to do the first, no further action is needed! Each of these remaining
+examples will be described here, and for instructions for creating your own
+registry, see :ref:`getting_started-developer-guide`.
+
+1. Use the Default Remote
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Congratulations, you are done! This is the default and you don't need to make
+any changes.
+
+
+2. Clone a Remote Registry
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+It could be the case that you want to start with a remote registry, but keep it locally
+with your own changes or secrets. This is essentially turning a remote registry into a filesystem 
+(local) one. The easiest thing to do here is to clone it to your filesyste, and then add to shpc as a filesystem
+registry.
 
 .. code-block:: console
 
+    # Clone to a special spot
+    $ git clone https://github.com/singularityhub/shpc-registry /opt/lmod/my-registry
+
     # change to your own registry of container yaml configs
-    $ shpc config add registry:/opt/lmod/registry
+    $ shpc config add registry:/opt/lmod/my-registry
+
+Since add is adding to a list, you might want to open your settings.yaml and ensure that
+the order is to your liking. The order determines the search path, and you might have
+preferences about what is searched first.
+
+3. Create A Local Registry
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This would correspond to the same set of steps as above, but starting from scratch!
+For example:
+
+.. code-block:: console
+
+    $ mkdir -p /opt/lmod/my-registry
+    $ cd /opt/lmod/my-registry
 
 
-# Note that "add" is used for lists of things (e.g., the registry config variable is a list)
-and "set" is used to set a key value pair.
+And then you might want to inspect :ref:`getting_started-commands-add:` to see
+how to use shpc add to generate new container.yaml files. We are working on automation
+that can make this easier, so stay tuned for updates! After that, you'll still want to
+ensure your filesystem registry is known to shpc:
 
+.. code-block:: console
+
+    $ shpc config add registry:/opt/lmod/my-registry
+
+
+4. Sync from a Remote
+^^^^^^^^^^^^^^^^^^^^^
+
+See :ref:`getting_started-commands-sync-registry:` for instructions
+of how to sync from a remote. You'll want to ensure you have added a filesystem
+registry to be known to shpc to sync to.
+
+Want to design your own remote registry? See the :ref:`getting_started-developer-guide`.
 
 
 Default Version
@@ -500,7 +562,7 @@ Wrapper Scripts
 
 Singularity HPC allows for global definition of wrapper scripts, meaning that instead of writing a module alias to run a container for some given alias,
 we generate a wrapper script of the same name instead. Since the settings.yml is global, all wrapper scripts defined here are specific to replacing aliases.
-Container-specific scripts you'll want to include in the container.yaml are described in the developer docs. Let's take a look at the settings:
+Container-specific scripts you'll want to include in the container.yaml are described in :ref:`getting_started-developer-guide`. Let's take a look at the settings:
 
 
 .. code-block:: yaml
@@ -605,7 +667,7 @@ Since we don't allow overlap
 of the name of an alias wrapper script (e.g., ``bin/python`` as a wrapper to a python entrypoint) from a custom container wrapper script (e.g., a wrapper script with name "python" under a container.yaml) we can keep them both in the modules directory. If you see a need to put them elsewhere please let us know. 
 
 .. _getting_started-commands:
-
+.. _getting_started-commands-views:
 
 Views
 =====
@@ -958,8 +1020,10 @@ You can also open the config in the editor defined in settings at ``config_edito
 
 which defaults to vim.
 
-Show and Install
-----------------
+.. _getting_started-commands-show:
+
+Show
+----
 
 The most basic thing you might want to do is install an already existing
 recipe in the registry. You might first want to show the known registry entries
@@ -1000,6 +1064,20 @@ To get details about a package, you would then add it's name to show:
 .. code-block:: console
 
     $ shpc show python
+
+Finally, to show recipes in a local filesystem registry (that may not be added to your
+shpc config) you can specify the path with ``--registry``. All of the above should work
+except with this argument, e.g.,:
+
+.. code-block:: console
+
+    $ shpc show --registry .
+
+.. _getting_started-commands-install:
+
+
+Install
+-------
 
 
 And then you can install a version that you like (or don't specify to default to
@@ -1047,6 +1125,9 @@ Install Private Images
 
 What about private containers on Docker Hub? If you have a private image, you can
 simply use `Singularity remote login <https://github.com/sylabs/singularity-userdocs/blob/master/singularity_and_docker.rst#singularity-cli-remote-command>`_ before attempting the install and everything should work.
+
+.. _getting_started-commands-namespace:
+
 
 Namespace
 ---------
@@ -1111,6 +1192,9 @@ Namespaces currently work with:
  - add
  - check
 
+
+.. _getting_started-commands-list:
+
 List
 ----
 
@@ -1148,6 +1232,9 @@ each unique module name, just add ``--short``:
       ghcr.io/autamus/prodigal: latest
       ghcr.io/autamus/samtools: latest
         ghcr.io/autamus/clingo: 5.5.0
+
+
+.. _getting_started-commands-update:
 
 Update
 ------
@@ -1210,13 +1297,16 @@ strategy to add a specific tag:
 
     $ shpc update redis --dryrun --filter 6.0-rc-alpine
 
-The current implementation just supports updating from a Docker / oras registry (others will come after)
-and we don't currently support updating all tags at once, because the feature is relatively know
-and we want to take a conservative approach until we've seen it in action. However, you can easily
-loop through your module names to accomplish this:
+The current implementation just supports updating from a Docker / oras registry (others can come after if requested).
+As of version 0.0.58, there is support to ask to update all recipes - just leave out the name!
 
 .. code-block:: console
 
+    $ shpc update
+
+If you are using an earlier release than 0.0.58 you can accomplish the same as follows:
+
+.. code-block:: console
 
     $ for name in $(shpc show); do
         shpc update ${name} --dryun
@@ -1227,6 +1317,85 @@ Let us know if there are other features you'd like for update! For specific reci
 it could be that a different method of choosing or sorting tags (beyond the defaults mentioned above
 and filter) is needed.
 
+.. _getting_started-commands-sync-registry:
+
+
+Sync Registry
+-------------
+
+A sync is when we take your local filesystem registry, and retrieve updates from the remote defined at 
+``sync_registry`` in your settings.yaml. Since sync will be writing recipes to the filesystem
+it only works if you target a filesystem registry (meaning that the default registry
+as a remote will not work). 
+
+.. note::
+
+   By default, the first filesystem registry found in your settings under the registry list will
+   be used. To provide a one off registry folder (that should exist but does not need to be in your
+   defined list) you can use ``--registry``.
+
+As an example, if we do this without changing the defaults:
+
+.. code-block:: console
+
+    $ shpc sync-registry
+    This command is only supported for a filesystem registry! Add one or use --registry.    
+
+We can then make a dummy directory to support sync. You could also make this directory and add to your settings proper under ``registry``.
+
+.. code-block:: console
+
+    $ mkdir -p ./registry
+    $ shpc sync-registry --registry ./registry
+
+Will compare your main registry folder against the main branch and only add new recipes 
+that you do not have. To ask to update from a specific reference (tag or branch):
+
+.. code-block:: console
+
+    $ shpc sync-registry --registry ./registry --tag 0.0.58
+    
+You can also ask to add just a specific container:
+
+.. code-block:: console
+
+    $ shpc sync-registry --registry ./registry quay.io/not-local/container
+        
+You can also ask to add new containers and completely update container.yaml files. 
+
+.. code-block:: console
+
+    $ shpc sync-registry --registry ./registry --all
+    
+This means we do a side by side comparison of your filesystem registry and the upstream, and we add new
+recipes folders that you don't have, and we replace any upstream files into recipes that you do have.
+Be careful with this option, as if you've made changes to a container.yaml or associated
+file in the upstream they will be lost. For this reason, we always recommend that you do a dry run first:
+
+.. code-block:: console
+
+    $ shpc sync-registry --registry ./registry --dry-run
+
+Finally, if you have a more complex configuration that you want to automate, you can provide a
+yaml file with your specifications:
+
+
+.. code-block:: yaml
+
+    sync_registry:
+      "/tmp/github-shpc": "https://github.com/singularityhub/shpc-registry"
+      "/tmp/gitlab-shpc": "https://gitlab.com/singularityhub/shpc-registry"
+
+
+The above says to sync each respective local filesystem registry (key) with the remote (value).
+And then do:
+
+
+.. code-block:: console
+
+    $ shpc sync-registry --config-file registries.yaml
+
+.. _getting_started-commands-inspect:
 
 Inspect
 -------
@@ -1278,7 +1447,6 @@ Or to get the entire metadata entry dumped as json to the terminal:
 .. _getting_started-commands-test:
 
 
-
 Test
 ----
 
@@ -1291,7 +1459,7 @@ can do:
 
 .. code-block:: console
 
-    shpc test python
+    $ shpc test python
 
 
 If you don't have it, you can run tests in the provided docker container. 
@@ -1345,6 +1513,7 @@ section of a ``container.yaml``.
 
     shpc test --skip-module --commands python
 
+.. _getting_started-commands-uninstall:
 
 Uninstall
 ---------
@@ -1366,6 +1535,8 @@ You can also uninstall an entire family  of modules:
 
 The uninstall will go up to the top level module folder but not remove it
 in the case that you've added it to your ``MODULEPATH``.
+
+.. _getting_started-commands-pull:
 
 Pull
 ----
@@ -1412,6 +1583,7 @@ See the `Singularity Deploy <https://github.com/singularityhub/singularity-deplo
 for complete details for how to set up your container! Note that this uri (``gh://``)
 can also be used in a registry entry.
 
+.. _getting_started-commands-shell:
 
 Shell
 -----
@@ -1422,7 +1594,7 @@ If you want a quick way to shell into an installed module's container
 
 .. code-block:: console
 
-    shpc shell vanessa/salad:latest
+    $ shpc shell vanessa/salad:latest
     Singularity> /code/salad fork
 
      My life purpose: I cut butter.  
@@ -1462,6 +1634,7 @@ And then you can interact with the client, which will be loaded.
 
     client.install('python')
 
+.. _getting_started-commands-show:
 
 
 Show
@@ -1491,6 +1664,8 @@ Or without any arguments, it will show a list of all registry entries available:
 
     $ shpc show
     python
+
+.. _getting_started-commands-check:
 
 
 Check
@@ -1532,6 +1707,9 @@ we check for new recipes to test.
     ⭐️ tag 1.54.0 is up to date. ⭐️
 
 
+
+.. _getting_started-commands-add:
+
 Add
 ---
 
@@ -1547,8 +1725,33 @@ The steps for adding a container are:
 
 In the case of a docker image that is public (that you can share) you are encouraged
 to contribute your recipe directly to shpc for others to use, and once in the repository
-tags will also get updated automatically. 
+tags will also get updated automatically.
 
+.. warning::
+
+    The add command only works for a local filesystem registry. This means it will
+    not work with the default settings that retrieve recipes from a remote registry!
+    To use add and create your own filesystem folder, you can use ``--registry`` with
+    a newly created directory (that you can then add to your settings.yaml registry
+    list).
+
+
+Creating a Local Registry
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+For any of the commands below you can create a local registry very easily - it's just a directory!
+
+.. code-block:: console
+
+    $ mkdir -p registry
+    
+And then use it via a one off command to add, e.g.,:
+
+.. code-block:: console
+
+    $ shpc add --registry ./registry docker://vanessa/pokemon
+
+    
 Add a Local Container
 ^^^^^^^^^^^^^^^^^^^^^
 
