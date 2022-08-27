@@ -4,7 +4,7 @@ name:  "biocontainers/plink1.9"
 maintainer: "@vsoch"
 github: "https://github.com/singularityhub/shpc-registry/blob/main/biocontainers/plink1.9/container.yaml"
 config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/biocontainers/plink1.9/container.yaml"
-updated_at: "2022-08-27 01:35:19.364753"
+updated_at: "2022-08-27 02:51:37.420083"
 latest: "v1.90b6.6-181012-1-deb_cv1"
 container_url: "https://hub.docker.com/r/biocontainers/plink1.9"
 aliases:
