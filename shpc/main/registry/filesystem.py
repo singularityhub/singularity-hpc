@@ -49,6 +49,7 @@ class FilesystemResult(Result):
         """
         Save the new package file to container.yaml
         """
+        package_file = package_file or self.package_file
         shpc.utils.write_yaml(self._config, package_file)
 
     def load_wrapper_script(self, container_tech, script):

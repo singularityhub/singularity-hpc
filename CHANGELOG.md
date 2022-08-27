@@ -14,6 +14,7 @@ and **Merged pull requests**. Critical items to know are:
 The versions coincide with releases on pip. Only major versions will be released as tags on Github.
 
 ## [0.0.x](https://github.com/singularityhub/singularity-hpc/tree/main) (0.0.x)
+ - Fixing bug with writing package file in update (0.1.1)
  - Add support for remote registry and sync commands --all (0.1.0)
   - support for GitLab and GitHub remotes
  - fixing bug to config set/get nested fields, default for wrapper scripts true (0.0.57)
