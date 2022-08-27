@@ -2,17 +2,19 @@
 layout: container
 name:  "quay.io/biocontainers/bwa"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/bwa/container.yaml"
-updated_at: "2022-08-01 18:21:30.164646"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/quay.io/biocontainers/bwa/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/quay.io/biocontainers/bwa/container.yaml"
+updated_at: "2022-08-27 01:37:23.148113"
+latest: "0.7.17--h7132678_9"
 container_url: "https://quay.io/repository/biocontainers/bwa"
 aliases:
  - "bwa"
-
 versions:
  - "0.7.17--h84994c4_4"
  - "0.7.17--h5bf99c6_8"
  - "0.7.17--h7132678_9"
 description: "BWA is a program for aligning sequencing reads against a large reference genome."
+config: {"docker": "quay.io/biocontainers/bwa", "url": "https://quay.io/repository/biocontainers/bwa", "maintainer": "@marcodelapierre", "description": "BWA is a program for aligning sequencing reads against a large reference genome.", "latest": {"0.7.17--h7132678_9": "sha256:07822e4293a8c59755b295c448b9541db6c9bdbfdedb010bdbdcc1e1e935370f"}, "tags": {"0.7.17--h84994c4_4": "sha256:4f183ae370c240d175cd55424538b39f047c8add50896de896f0d12a73d4a9a0", "0.7.17--h5bf99c6_8": "sha256:f8494324de6da332792dc8e4acc2549152375e1966c96163087d6ff6d42ff48c", "0.7.17--h7132678_9": "sha256:07822e4293a8c59755b295c448b9541db6c9bdbfdedb010bdbdcc1e1e935370f"}, "aliases": {"bwa": "/usr/local/bin/bwa"}}
 ---
 
 This module is a singularity container wrapper for quay.io/biocontainers/bwa.

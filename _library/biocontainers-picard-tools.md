@@ -2,13 +2,16 @@
 layout: container
 name:  "biocontainers/picard-tools"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/biocontainers/picard-tools/container.yaml"
-updated_at: "2022-08-01 18:19:59.134854"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/biocontainers/picard-tools/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/biocontainers/picard-tools/container.yaml"
+updated_at: "2022-08-27 01:35:18.320066"
+latest: "v2.18.25dfsg-2-deb_cv1"
 container_url: "https://hub.docker.com/r/biocontainers/picard-tools/tags"
 
 versions:
  - "v2.18.25dfsg-2-deb_cv1"
 description: "The Picard command-line tools are packaged as executable jar files."
+config: {"docker": "biocontainers/picard-tools", "latest": {"v2.18.25dfsg-2-deb_cv1": "sha256:55513f9b0bda5403e31dec41142447045650e28a2accf3d0dd7e548b301c3a88"}, "tags": {"v2.18.25dfsg-2-deb_cv1": "sha256:55513f9b0bda5403e31dec41142447045650e28a2accf3d0dd7e548b301c3a88"}, "filter": ["v*"], "maintainer": "@vsoch", "description": "The Picard command-line tools are packaged as executable jar files.", "url": "https://hub.docker.com/r/biocontainers/picard-tools/tags"}
 ---
 
 This module is a singularity container wrapper for biocontainers/picard-tools.

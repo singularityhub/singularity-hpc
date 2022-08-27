@@ -2,18 +2,20 @@
 layout: container
 name:  "ghcr.io/autamus/gatk"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/gatk/container.yaml"
-updated_at: "2022-08-01 18:20:29.198327"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/gatk/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/gatk/container.yaml"
+updated_at: "2022-08-27 01:35:53.049530"
+latest: "4.2.3.0"
 container_url: "https://github.com/orgs/autamus/packages/container/package/gatk"
 aliases:
  - "gatk"
-
 versions:
  - "4.2.0.0"
  - "4.2.2.0"
  - "4.2.3.0"
  - "latest"
 description: "GATK (pronounced 'Gee-ay-tee-kay', not 'Gat-kay'), stands for GenomeAnalysisToolkit. It is a collection of command-line tools for analyzing high-throughput sequencing data with a primary focus on variant discovery."
+config: {"docker": "ghcr.io/autamus/gatk", "url": "https://github.com/orgs/autamus/packages/container/package/gatk", "maintainer": "@vsoch", "description": "GATK (pronounced 'Gee-ay-tee-kay', not 'Gat-kay'), stands for GenomeAnalysisToolkit. It is a collection of command-line tools for analyzing high-throughput sequencing data with a primary focus on variant discovery.", "latest": {"4.2.3.0": "sha256:61adbb45a3a346cf987e56b49a5c9325d134a596a794b2a1569545205ecc296a"}, "tags": {"4.2.0.0": "sha256:1e46de1d7a1629f3c7c18cbd803cf1a06ddc36814a79a960f1e6128d35a71c9c", "4.2.2.0": "sha256:73b7c52cd78aceab6638a4734aefecdcaa800c9d46a79afb53da63b9ae6838b1", "4.2.3.0": "sha256:61adbb45a3a346cf987e56b49a5c9325d134a596a794b2a1569545205ecc296a", "latest": "sha256:61adbb45a3a346cf987e56b49a5c9325d134a596a794b2a1569545205ecc296a"}, "aliases": {"gatk": "/opt/view/bin/gatk"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/gatk.

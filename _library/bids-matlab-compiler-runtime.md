@@ -2,13 +2,16 @@
 layout: container
 name:  "bids/matlab-compiler-runtime"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/bids/matlab-compiler-runtime/container.yaml"
-updated_at: "2022-08-01 18:21:59.630498"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/bids/matlab-compiler-runtime/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/bids/matlab-compiler-runtime/container.yaml"
+updated_at: "2022-08-27 01:35:13.028956"
+latest: "R2016b"
 container_url: "https://hub.docker.com/r/bids/matlab-compiler-runtime"
 
 versions:
  - "R2016b"
 description: "Base image with Matlab compiler runtime (https://github.com/BIDS-Apps/matlab-compiler-runtime)"
+config: {"docker": "bids/matlab-compiler-runtime", "latest": {"R2016b": "sha256:cd3170ac40fe8c00e84f69963a3cf8a5c39e2c9c25bb9df899754c3d31252bd1"}, "tags": {"R2016b": "sha256:cd3170ac40fe8c00e84f69963a3cf8a5c39e2c9c25bb9df899754c3d31252bd1"}, "filter": ["R2016b"], "maintainer": "@vsoch", "description": "Base image with Matlab compiler runtime (https://github.com/BIDS-Apps/matlab-compiler-runtime)", "url": "https://hub.docker.com/r/bids/matlab-compiler-runtime"}
 ---
 
 This module is a singularity container wrapper for bids/matlab-compiler-runtime.

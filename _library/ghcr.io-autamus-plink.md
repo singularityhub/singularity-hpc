@@ -2,16 +2,18 @@
 layout: container
 name:  "ghcr.io/autamus/plink"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/plink/container.yaml"
-updated_at: "2022-08-01 18:21:13.279445"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/plink/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/plink/container.yaml"
+updated_at: "2022-08-27 01:36:32.452693"
+latest: "1.9.beta.6.10"
 container_url: "https://github.com/orgs/autamus/packages/container/package/plink"
 aliases:
  - "plink"
-
 versions:
  - "1.9.beta.6.10"
  - "latest"
 description: "PLINK is a free, open-source whole genome association analysis toolset, designed to perform a range of basic, large-scale analyses in a computationally efficient manner."
+config: {"docker": "ghcr.io/autamus/plink", "url": "https://github.com/orgs/autamus/packages/container/package/plink", "maintainer": "@vsoch", "description": "PLINK is a free, open-source whole genome association analysis toolset, designed to perform a range of basic, large-scale analyses in a computationally efficient manner.", "latest": {"1.9.beta.6.10": "sha256:561d3a6d0e34bae0880daa39d4f150048ff4be15fb27bc027d64f0e5c1ca4a23"}, "tags": {"1.9.beta.6.10": "sha256:561d3a6d0e34bae0880daa39d4f150048ff4be15fb27bc027d64f0e5c1ca4a23", "latest": "sha256:561d3a6d0e34bae0880daa39d4f150048ff4be15fb27bc027d64f0e5c1ca4a23"}, "aliases": {"plink": "/opt/view/bin/plink"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/plink.

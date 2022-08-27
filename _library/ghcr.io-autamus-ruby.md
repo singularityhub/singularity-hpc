@@ -2,38 +2,30 @@
 layout: container
 name:  "ghcr.io/autamus/ruby"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/ruby/container.yaml"
-updated_at: "2022-08-01 18:21:01.650964"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/ruby/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/ruby/container.yaml"
+updated_at: "2022-08-27 01:36:41.907388"
+latest: "3.1.0"
 container_url: "https://github.com/orgs/autamus/packages/container/package/ruby"
 aliases:
  - "bundle"
-
  - "bundler"
-
  - "erb"
-
  - "gem"
-
  - "irb"
-
  - "racc"
-
  - "rake"
-
  - "rbs"
-
  - "rdoc"
-
  - "ri"
-
  - "ruby"
-
 versions:
  - "3.0.0"
  - "3.0.2"
  - "3.1.0"
  - "latest"
 description: "An interpreted, high-level, general-purpose programming language."
+config: {"docker": "ghcr.io/autamus/ruby", "url": "https://github.com/orgs/autamus/packages/container/package/ruby", "maintainer": "@vsoch", "description": "An interpreted, high-level, general-purpose programming language.", "latest": {"3.1.0": "sha256:2090e247c5efcff49e18b1d80f37091251376e6f8321c97e9b886b9fb442e859"}, "tags": {"3.0.0": "sha256:13449cbf4d0edc53e79bb7d8080b8a3ce34b2ff26219ea1318c7122d1f497208", "3.0.2": "sha256:8c9057626f354e76b6550c7081b628f434b27951058bdd64b76d4f7b24463e8a", "3.1.0": "sha256:2090e247c5efcff49e18b1d80f37091251376e6f8321c97e9b886b9fb442e859", "latest": "sha256:2090e247c5efcff49e18b1d80f37091251376e6f8321c97e9b886b9fb442e859"}, "aliases": {"bundle": "/opt/view/bin/bundle", "bundler": "/opt/view/bin/bundler", "erb": "/opt/view/bin/erb", "gem": "/opt/view/bin/gem", "irb": "/opt/view/bin/irb", "racc": "/opt/view/bin/racc", "rake": "/opt/view/bin/rake", "rbs": "/opt/view/bin/rbs", "rdoc": "/opt/view/bin/rdoc", "ri": "/opt/view/bin/ri", "ruby": "/opt/view/bin/ruby"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/ruby.

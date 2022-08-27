@@ -2,16 +2,18 @@
 layout: container
 name:  "jupyter/tensorflow-notebook"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/jupyter/tensorflow-notebook/container.yaml"
-updated_at: "2022-08-01 18:22:07.018004"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/jupyter/tensorflow-notebook/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/jupyter/tensorflow-notebook/container.yaml"
+updated_at: "2022-08-27 01:37:04.580879"
+latest: "ubuntu-20.04"
 container_url: "https://hub.docker.com/r/jupyter/tensorflow-notebook"
 aliases:
  - "run-notebook"
-
 versions:
  - "latest"
  - "ubuntu-20.04"
 description: "Jupyter Tensorflow Notebook from https://github.com/jupyter/docker-stacks"
+config: {"docker": "jupyter/tensorflow-notebook", "url": "https://hub.docker.com/r/jupyter/tensorflow-notebook", "maintainer": "@vsoch", "description": "Jupyter Tensorflow Notebook from https://github.com/jupyter/docker-stacks", "latest": {"ubuntu-20.04": "sha256:dfcfb0ed66e577a8ae8271b19819a336cb3d25976492ea77cad81a4280926c9d"}, "tags": {"latest": "sha256:dfcfb0ed66e577a8ae8271b19819a336cb3d25976492ea77cad81a4280926c9d", "ubuntu-20.04": "sha256:dfcfb0ed66e577a8ae8271b19819a336cb3d25976492ea77cad81a4280926c9d"}, "filter": ["ubuntu*"], "aliases": [{"name": "run-notebook", "command": "jupyter notebook --no-browser --port=$(shuf -i 2000-65000 -n 1) --ip 0.0.0.0"}]}
 ---
 
 This module is a singularity container wrapper for jupyter/tensorflow-notebook.

@@ -2,17 +2,19 @@
 layout: container
 name:  "ghcr.io/autamus/grass"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/grass/container.yaml"
-updated_at: "2022-08-01 18:20:57.352827"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/grass/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/grass/container.yaml"
+updated_at: "2022-08-27 01:35:59.902678"
+latest: "7.8.6"
 container_url: "https://github.com/orgs/autamus/packages/container/package/grass"
 aliases:
  - "grass78"
-
 versions:
  - "7.8.5"
  - "7.8.6"
  - "latest"
 description: "GRASS GIS (https://grass.osgeo.org/) is a Geographic Information System used for geospatial data management and analysis, image processing, graphics/map production, spatial modeling, and visualization."
+config: {"docker": "ghcr.io/autamus/grass", "url": "https://github.com/orgs/autamus/packages/container/package/grass", "maintainer": "@vsoch", "description": "GRASS GIS (https://grass.osgeo.org/) is a Geographic Information System used for geospatial data management and analysis, image processing, graphics/map production, spatial modeling, and visualization.", "latest": {"7.8.6": "sha256:46ec0172ef66aeecff3bfc4518190a9d9c58644080683ea1dae46ed5c3e9835f"}, "tags": {"7.8.5": "sha256:9a25e2628f7e72e8b32e0097ed5ad36c93af36a39355659359a6f5b9211c57e0", "7.8.6": "sha256:46ec0172ef66aeecff3bfc4518190a9d9c58644080683ea1dae46ed5c3e9835f", "latest": "sha256:46ec0172ef66aeecff3bfc4518190a9d9c58644080683ea1dae46ed5c3e9835f"}, "aliases": {"grass78": "/opt/view/bin/grass78"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/grass.

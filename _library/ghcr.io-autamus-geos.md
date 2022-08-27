@@ -2,17 +2,19 @@
 layout: container
 name:  "ghcr.io/autamus/geos"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/geos/container.yaml"
-updated_at: "2022-08-01 18:20:03.897569"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/geos/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/geos/container.yaml"
+updated_at: "2022-08-27 01:35:55.684828"
+latest: "3.9.1"
 container_url: "https://github.com/orgs/autamus/packages/container/package/geos"
 aliases:
  - "geos-config"
-
 versions:
  - "3.8.1"
  - "3.9.1"
  - "latest"
 description: "GEOS is a C++11 library for performing operations on two-dimensional vector geometries."
+config: {"docker": "ghcr.io/autamus/geos", "url": "https://github.com/orgs/autamus/packages/container/package/geos", "maintainer": "@vsoch", "description": "GEOS is a C++11 library for performing operations on two-dimensional vector geometries.", "latest": {"3.9.1": "sha256:d653c6418210258c86a159b292fe65189fa8c1ed0de67cd0d939ff5445217e64"}, "tags": {"3.8.1": "sha256:731b5a546569eabad6aa69e43a01b507184379a04f5071d55d96a213bf22a121", "3.9.1": "sha256:d653c6418210258c86a159b292fe65189fa8c1ed0de67cd0d939ff5445217e64", "latest": "sha256:d653c6418210258c86a159b292fe65189fa8c1ed0de67cd0d939ff5445217e64"}, "aliases": {"geos-config": "/opt/view/bin/geos-config"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/geos.

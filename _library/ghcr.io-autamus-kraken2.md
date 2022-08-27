@@ -2,23 +2,22 @@
 layout: container
 name:  "ghcr.io/autamus/kraken2"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/kraken2/container.yaml"
-updated_at: "2022-08-01 18:20:15.202994"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/kraken2/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/kraken2/container.yaml"
+updated_at: "2022-08-27 01:36:10.392837"
+latest: "2.1.2"
 container_url: "https://github.com/orgs/autamus/packages/container/package/kraken2"
 aliases:
  - "kraken2"
-
  - "kraken2-build"
-
  - "kraken2-inspect"
-
  - "kraken2lib.pm"
-
 versions:
  - "2.1.1"
  - "2.1.2"
  - "latest"
 description: "Kraken 2 is the newest version of Kraken, a taxonomic classification system using exact k-mer matches to achieve high accuracy and fast classification speeds."
+config: {"docker": "ghcr.io/autamus/kraken2", "url": "https://github.com/orgs/autamus/packages/container/package/kraken2", "maintainer": "@vsoch", "description": "Kraken 2 is the newest version of Kraken, a taxonomic classification system using exact k-mer matches to achieve high accuracy and fast classification speeds.", "latest": {"2.1.2": "sha256:f7f2af79f42b5993444896c685d4cf315b2cb0ac45b4ac1a2597ba4f3eec5023"}, "tags": {"2.1.1": "sha256:88cd78f2f279f6ab54621b3f3ed70af6e8c567d5b2854d529fdb9c4bd5c7f051", "2.1.2": "sha256:f7f2af79f42b5993444896c685d4cf315b2cb0ac45b4ac1a2597ba4f3eec5023", "latest": "sha256:f7f2af79f42b5993444896c685d4cf315b2cb0ac45b4ac1a2597ba4f3eec5023"}, "aliases": {"kraken2": "/opt/view/bin/kraken2", "kraken2-build": "/opt/view/bin/kraken2-build", "kraken2-inspect": "/opt/view/bin/kraken2-inspect", "kraken2lib.pm": "/opt/view/bin/kraken2lib.pm"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/kraken2.

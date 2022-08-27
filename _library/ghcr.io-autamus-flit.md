@@ -2,16 +2,18 @@
 layout: container
 name:  "ghcr.io/autamus/flit"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/flit/container.yaml"
-updated_at: "2022-08-01 18:21:07.675852"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/flit/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/flit/container.yaml"
+updated_at: "2022-08-27 01:35:51.474774"
+latest: "2.1.0"
 container_url: "https://github.com/orgs/autamus/packages/container/package/flit"
 aliases:
  - "flit"
-
 versions:
  - "2.1.0"
  - "latest"
 description: "Floating-point Litmus Tests (FLiT) is a C++ test infrastructure for detecting variability in floating-point code caused by variations in compiler code generation, hardware and execution environments."
+config: {"docker": "ghcr.io/autamus/flit", "url": "https://github.com/orgs/autamus/packages/container/package/flit", "maintainer": "@vsoch", "description": "Floating-point Litmus Tests (FLiT) is a C++ test infrastructure for detecting variability in floating-point code caused by variations in compiler code generation, hardware and execution environments.", "latest": {"2.1.0": "sha256:c846aae5413546b722576b469b52ce1a52948040b778111cb4de4c8501161354"}, "tags": {"2.1.0": "sha256:c846aae5413546b722576b469b52ce1a52948040b778111cb4de4c8501161354", "latest": "sha256:c846aae5413546b722576b469b52ce1a52948040b778111cb4de4c8501161354"}, "aliases": {"flit": "/opt/view/bin/flit"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/flit.

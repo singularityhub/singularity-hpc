@@ -2,20 +2,20 @@
 layout: container
 name:  "ghcr.io/autamus/unifyfs"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/unifyfs/container.yaml"
-updated_at: "2022-08-01 18:20:53.458978"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/unifyfs/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/unifyfs/container.yaml"
+updated_at: "2022-08-27 01:36:54.561592"
+latest: "0.9.2"
 container_url: "https://github.com/orgs/autamus/packages/container/package/unifyfs"
 aliases:
  - "unifyfs"
-
  - "unifyfs-config"
-
  - "unifyfsd"
-
 versions:
  - "0.9.2"
  - "latest"
 description: "User level file system that enables applications to use node-local storage as burst buffers for shared files."
+config: {"docker": "ghcr.io/autamus/unifyfs", "url": "https://github.com/orgs/autamus/packages/container/package/unifyfs", "maintainer": "@vsoch", "description": "User level file system that enables applications to use node-local storage as burst buffers for shared files.", "latest": {"0.9.2": "sha256:2b2a925b3e1d7fec92bdcf74f93d0e9e2aa278a3e778283ec7d7d7230da83fde"}, "tags": {"0.9.2": "sha256:2b2a925b3e1d7fec92bdcf74f93d0e9e2aa278a3e778283ec7d7d7230da83fde", "latest": "sha256:2b2a925b3e1d7fec92bdcf74f93d0e9e2aa278a3e778283ec7d7d7230da83fde"}, "aliases": {"unifyfs": "/opt/view/bin/unifyfs", "unifyfs-config": "/opt/view/bin/unifyfs-config", "unifyfsd": "/opt/view/bin/unifyfsd"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/unifyfs.

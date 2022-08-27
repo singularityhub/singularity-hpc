@@ -2,17 +2,19 @@
 layout: container
 name:  "ghcr.io/autamus/plasma"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/plasma/container.yaml"
-updated_at: "2022-08-01 18:20:05.631473"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/plasma/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/plasma/container.yaml"
+updated_at: "2022-08-27 01:36:31.932913"
+latest: "21.8.29"
 container_url: "https://github.com/orgs/autamus/packages/container/package/plasma"
 aliases:
  - "plasmatest"
-
 versions:
  - "20.9.20"
  - "21.8.29"
  - "latest"
 description: "Parallel Linear Algebra Software for Multicore Architectures, PLASMA is a software package for solving problems in dense linear algebra using multicore processors and Xeon Phi coprocessors."
+config: {"docker": "ghcr.io/autamus/plasma", "url": "https://github.com/orgs/autamus/packages/container/package/plasma", "maintainer": "@vsoch", "description": "Parallel Linear Algebra Software for Multicore Architectures, PLASMA is a software package for solving problems in dense linear algebra using multicore processors and Xeon Phi coprocessors.", "latest": {"21.8.29": "sha256:0115c8cecced1fdffdadc8417a5a88cdbd887ffd487774ee80278bca2a1b0b91"}, "tags": {"20.9.20": "sha256:a4490385c99235b80515bc9f0c2e26ce236f74087df82f114665aba72668e516", "21.8.29": "sha256:0115c8cecced1fdffdadc8417a5a88cdbd887ffd487774ee80278bca2a1b0b91", "latest": "sha256:0115c8cecced1fdffdadc8417a5a88cdbd887ffd487774ee80278bca2a1b0b91"}, "aliases": {"plasmatest": "/opt/view/bin/plasmatest"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/plasma.

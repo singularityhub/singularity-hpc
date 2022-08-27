@@ -2,8 +2,10 @@
 layout: container
 name:  "ghcr.io/autamus/metall"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/metall/container.yaml"
-updated_at: "2022-08-01 18:20:21.365669"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/metall/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/metall/container.yaml"
+updated_at: "2022-08-27 01:36:18.776473"
+latest: "0.18"
 container_url: "https://github.com/orgs/autamus/packages/container/package/metall"
 
 versions:
@@ -14,6 +16,7 @@ versions:
  - "0.18"
  - "latest"
 description: "A Persistent Memory Allocator For Data-Centric Analytics"
+config: {"docker": "ghcr.io/autamus/metall", "url": "https://github.com/orgs/autamus/packages/container/package/metall", "maintainer": "@vsoch", "description": "A Persistent Memory Allocator For Data-Centric Analytics", "latest": {"0.18": "sha256:4d4e8c403c58ebcd04c22910d8cf4ddbc3b3008e373f2c1706a1f69399969187"}, "tags": {"0.13": "sha256:38b265f335af401fb19f8839cb923e5d7236da7d5c8e88571180ac846ed4674b", "0.15": "sha256:e38dee252c235ad3a894fc15fbd7c141dfd3c91004aeb1118fc80c18ab46517e", "0.16": "sha256:982b182bbaabb05ca2d0e32e5fa3bfda3134a76e92dc39f383c6c544f5d7ed5d", "0.17": "sha256:4e9599ba5172626c91c4bf16cc0fb855da2ee807f23719a7fe07dbf5c9afde69", "0.18": "sha256:4d4e8c403c58ebcd04c22910d8cf4ddbc3b3008e373f2c1706a1f69399969187", "latest": "sha256:4d4e8c403c58ebcd04c22910d8cf4ddbc3b3008e373f2c1706a1f69399969187"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/metall.

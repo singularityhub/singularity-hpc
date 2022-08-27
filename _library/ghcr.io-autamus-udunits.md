@@ -2,16 +2,18 @@
 layout: container
 name:  "ghcr.io/autamus/udunits"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/udunits/container.yaml"
-updated_at: "2022-08-01 18:20:51.294229"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/udunits/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/udunits/container.yaml"
+updated_at: "2022-08-27 01:36:53.499476"
+latest: "2.2.28"
 container_url: "https://github.com/orgs/autamus/packages/container/package/udunits"
 aliases:
  - "udunits2"
-
 versions:
  - "2.2.28"
  - "latest"
 description: "The UDUNITS package supports units of physical quantities. Its C library provides for arithmetic manipulation of units and for conversion of numeric values between compatible units."
+config: {"docker": "ghcr.io/autamus/udunits", "url": "https://github.com/orgs/autamus/packages/container/package/udunits", "maintainer": "@vsoch", "description": "The UDUNITS package supports units of physical quantities. Its C library provides for arithmetic manipulation of units and for conversion of numeric values between compatible units.", "latest": {"2.2.28": "sha256:d5295a8d2186a31a2717bb75123004e381b70038090fd3818ec12128b4c07c2a"}, "tags": {"2.2.28": "sha256:d5295a8d2186a31a2717bb75123004e381b70038090fd3818ec12128b4c07c2a", "latest": "sha256:d5295a8d2186a31a2717bb75123004e381b70038090fd3818ec12128b4c07c2a"}, "aliases": {"udunits2": "/opt/view/bin/udunits2"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/udunits.

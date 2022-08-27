@@ -2,17 +2,19 @@
 layout: container
 name:  "ghcr.io/autamus/r"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/r/container.yaml"
-updated_at: "2022-08-01 18:21:18.886086"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/r/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/r/container.yaml"
+updated_at: "2022-08-27 01:36:39.279935"
+latest: "4.1.0"
 container_url: "https://github.com/orgs/autamus/packages/container/package/r"
 aliases:
  - "R"
-
 versions:
  - "4.0.4"
  - "4.1.0"
  - "latest"
 description: "R is a language and environment for statistical computing and graphics."
+config: {"docker": "ghcr.io/autamus/r", "url": "https://github.com/orgs/autamus/packages/container/package/r", "maintainer": "@vsoch", "description": "R is a language and environment for statistical computing and graphics.", "latest": {"4.1.0": "sha256:68d20470a1c451c2d3ff5d5f388024db6f1294e5dbeb9712dd5000de7a0f6390"}, "tags": {"4.0.4": "sha256:047ce431f400d13df423898e62d78fc72e32c58236772eeaaf69ad2511dd528d", "4.1.0": "sha256:68d20470a1c451c2d3ff5d5f388024db6f1294e5dbeb9712dd5000de7a0f6390", "latest": "sha256:c122eb178062d9a17af241ce02bb3b64f14dd3a473fe31d41e7c3773769f7116"}, "aliases": {"R": "/opt/view/bin/R"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/r.

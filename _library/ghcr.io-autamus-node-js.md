@@ -2,16 +2,18 @@
 layout: container
 name:  "ghcr.io/autamus/node-js"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/node-js/container.yaml"
-updated_at: "2022-08-01 18:21:22.344835"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/node-js/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/node-js/container.yaml"
+updated_at: "2022-08-27 01:36:23.507133"
+latest: "15.3.0"
 container_url: "https://github.com/orgs/autamus/packages/container/package/node-js"
 aliases:
  - "node"
-
 versions:
  - "15.3.0"
  - "latest"
 description: "A JavaScript runtime built on Chrome's V8 JavaScript engine."
+config: {"docker": "ghcr.io/autamus/node-js", "url": "https://github.com/orgs/autamus/packages/container/package/node-js", "maintainer": "@vsoch", "description": "A JavaScript runtime built on Chrome's V8 JavaScript engine.", "latest": {"15.3.0": "sha256:7f5c1e62b065e5c4c2bffb3f785acc090038590d694ee75c7a86ebc74497e46c"}, "tags": {"15.3.0": "sha256:7f5c1e62b065e5c4c2bffb3f785acc090038590d694ee75c7a86ebc74497e46c", "latest": "sha256:7f5c1e62b065e5c4c2bffb3f785acc090038590d694ee75c7a86ebc74497e46c"}, "aliases": {"node": "/opt/view/bin/node"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/node-js.

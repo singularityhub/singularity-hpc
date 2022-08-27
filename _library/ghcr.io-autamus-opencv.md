@@ -2,19 +2,20 @@
 layout: container
 name:  "ghcr.io/autamus/opencv"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/opencv/container.yaml"
-updated_at: "2022-08-01 18:20:18.762632"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/opencv/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/opencv/container.yaml"
+updated_at: "2022-08-27 01:36:25.610995"
+latest: "4.5.3"
 container_url: "https://github.com/orgs/autamus/packages/container/package/opencv"
 aliases:
  - "opencv_version"
-
  - "setup_vars_opencv4.sh"
-
 versions:
  - "4.5.2"
  - "4.5.3"
  - "latest"
 description: "OpenCV is a library of programming functions mainly aimed at real-time computer vision. Originally developed by Intel, it was later supported by Willow Garage then Itseez."
+config: {"docker": "ghcr.io/autamus/opencv", "url": "https://github.com/orgs/autamus/packages/container/package/opencv", "maintainer": "@vsoch", "description": "OpenCV is a library of programming functions mainly aimed at real-time computer vision. Originally developed by Intel, it was later supported by Willow Garage then Itseez.", "latest": {"4.5.3": "sha256:5f21e07ad4a6bb1b9e1832c2498fcf308f71a8fab152b6e01eed63ae3f080389"}, "tags": {"4.5.2": "sha256:587521b8a8446e22d7997d972449430d86603f2cc8fb52519fe5a8224e1cd43a", "4.5.3": "sha256:5f21e07ad4a6bb1b9e1832c2498fcf308f71a8fab152b6e01eed63ae3f080389", "latest": "sha256:587521b8a8446e22d7997d972449430d86603f2cc8fb52519fe5a8224e1cd43a"}, "aliases": {"opencv_version": "/opt/view/bin/opencv_version", "setup_vars_opencv4.sh": "/opt/view/bin/setup_vars_opencv4.sh"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/opencv.

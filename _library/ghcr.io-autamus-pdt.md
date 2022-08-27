@@ -2,14 +2,17 @@
 layout: container
 name:  "ghcr.io/autamus/pdt"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/pdt/container.yaml"
-updated_at: "2022-08-01 18:20:58.208733"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/pdt/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/pdt/container.yaml"
+updated_at: "2022-08-27 01:36:29.315037"
+latest: "3.25.1"
 container_url: "https://github.com/orgs/autamus/packages/container/package/pdt"
 
 versions:
  - "3.25.1"
  - "latest"
 description: "Program Database Toolkit (PDT) is a framework for analyzing source code written in several programming languages and for making rich program knowledge accessible to developers of static and dynamic analysis tools."
+config: {"docker": "ghcr.io/autamus/pdt", "url": "https://github.com/orgs/autamus/packages/container/package/pdt", "maintainer": "@vsoch", "description": "Program Database Toolkit (PDT) is a framework for analyzing source code written in several programming languages and for making rich program knowledge accessible to developers of static and dynamic analysis tools.", "latest": {"3.25.1": "sha256:d3d0f27ad9050d2b9283b9d6872cdb2c461963fc77c86d520771126f0d2eed0e"}, "tags": {"3.25.1": "sha256:d3d0f27ad9050d2b9283b9d6872cdb2c461963fc77c86d520771126f0d2eed0e", "latest": "sha256:d3d0f27ad9050d2b9283b9d6872cdb2c461963fc77c86d520771126f0d2eed0e"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/pdt.

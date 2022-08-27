@@ -2,63 +2,41 @@
 layout: container
 name:  "ghcr.io/autamus/openjdk"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/openjdk/container.yaml"
-updated_at: "2022-08-01 18:21:14.140005"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/openjdk/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/openjdk/container.yaml"
+updated_at: "2022-08-27 01:36:26.135728"
+latest: "latest"
 container_url: "https://github.com/orgs/autamus/packages/container/package/openjdk"
 aliases:
  - "jaotc"
-
  - "jar"
-
  - "jarsigner"
-
  - "java"
-
  - "javac"
-
  - "javadoc"
-
  - "javap"
-
  - "jcmd"
-
  - "jconsole"
-
  - "jdb"
-
  - "jdeps"
-
  - "jfr"
-
  - "jhsdb"
-
  - "jimage"
-
  - "jinfo"
-
  - "jjs"
-
  - "jlink"
-
  - "jmap"
-
  - "jmod"
-
  - "jps"
-
  - "jrunscript"
-
  - "jshell"
-
  - "jstack"
-
  - "jstat"
-
  - "jstatd"
-
 versions:
  - "latest"
 description: "Open Java Development Kit"
+config: {"docker": "ghcr.io/autamus/openjdk", "url": "https://github.com/orgs/autamus/packages/container/package/openjdk", "maintainer": "@vsoch", "description": "Open Java Development Kit", "latest": {"latest": "sha256:e2f3595a504866456916b7ce610affa10b4261716d655863ce0bd2ab7f472772"}, "tags": {"latest": "sha256:e2f3595a504866456916b7ce610affa10b4261716d655863ce0bd2ab7f472772"}, "aliases": {"jaotc": "/opt/view/bin/jaotc", "jar": "/opt/view/bin/jar", "jarsigner": "/opt/view/bin/jarsigner", "java": "/opt/view/bin/java", "javac": "/opt/view/bin/javac", "javadoc": "/opt/view/bin/javadoc", "javap": "/opt/view/bin/javap", "jcmd": "/opt/view/bin/jcmd", "jconsole": "/opt/view/bin/jconsole", "jdb": "/opt/view/bin/jdb", "jdeps": "/opt/view/bin/jdeps", "jfr": "/opt/view/bin/jfr", "jhsdb": "/opt/view/bin/jhsdb", "jimage": "/opt/view/bin/jimage", "jinfo": "/opt/view/bin/jinfo", "jjs": "/opt/view/bin/jjs", "jlink": "/opt/view/bin/jlink", "jmap": "/opt/view/bin/jmap", "jmod": "/opt/view/bin/jmod", "jps": "/opt/view/bin/jps", "jrunscript": "/opt/view/bin/jrunscript", "jshell": "/opt/view/bin/jshell", "jstack": "/opt/view/bin/jstack", "jstat": "/opt/view/bin/jstat", "jstatd": "/opt/view/bin/jstatd"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/openjdk.

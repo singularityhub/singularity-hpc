@@ -2,18 +2,20 @@
 layout: container
 name:  "bids/spm"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/bids/spm/container.yaml"
-updated_at: "2022-08-01 18:21:57.052296"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/bids/spm/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/bids/spm/container.yaml"
+updated_at: "2022-08-27 01:35:15.690288"
+latest: "chrisfilo-patch-1"
 container_url: "https://hub.docker.com/r/bids/spm"
 aliases:
  - "spm12"
-
 versions:
  - "latest"
  - "v0.0.20"
  - "chrisfilo-patch-1"
  - "enh_various"
 description: "The implementation of the theoretical concepts of Statistical Parametric Mapping in a complete analysis package."
+config: {"docker": "bids/spm", "url": "https://hub.docker.com/r/bids/spm", "maintainer": "@vsoch", "description": "The implementation of the theoretical concepts of Statistical Parametric Mapping in a complete analysis package.", "latest": {"chrisfilo-patch-1": "sha256:a569a8fc2b9b4b99bea1ea0b61c3772961708ec1890080084ed008fe27846a44"}, "tags": {"latest": "sha256:e72a97f0aad8a4e635d7c1d92f6fbf38ee98cb117eba520e26bbc135c052255c", "v0.0.20": "sha256:e72a97f0aad8a4e635d7c1d92f6fbf38ee98cb117eba520e26bbc135c052255c", "chrisfilo-patch-1": "sha256:a569a8fc2b9b4b99bea1ea0b61c3772961708ec1890080084ed008fe27846a44", "enh_various": "sha256:e477c8a30722eafe8fc61592bf17b64c0afd5f737140589ef55d76ebc47bffd7"}, "aliases": {"spm12": "/opt/spm12/spm12"}, "filter": ["v*"]}
 ---
 
 This module is a singularity container wrapper for bids/spm.

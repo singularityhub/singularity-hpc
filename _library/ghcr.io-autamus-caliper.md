@@ -2,19 +2,20 @@
 layout: container
 name:  "ghcr.io/autamus/caliper"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/caliper/container.yaml"
-updated_at: "2022-08-01 18:20:54.756175"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/caliper/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/caliper/container.yaml"
+updated_at: "2022-08-27 01:35:38.811155"
+latest: "2.7.0"
 container_url: "https://github.com/orgs/autamus/packages/container/package/caliper"
 aliases:
  - "cali-query"
-
  - "cali-stat"
-
 versions:
  - "2.6.0"
  - "2.7.0"
  - "latest"
 description: "Caliper is a program instrumentation and performance measurement framework."
+config: {"docker": "ghcr.io/autamus/caliper", "url": "https://github.com/orgs/autamus/packages/container/package/caliper", "maintainer": "@vsoch", "description": "Caliper is a program instrumentation and performance measurement framework.", "latest": {"2.7.0": "sha256:fa18e4ad79b34e701713ed964cf766036b77bf120b7416aa826ad6d64e632a1e"}, "tags": {"2.6.0": "sha256:f6dce0cfbd6149dc02ec59916a40d8d841224cd79d03f2fd76b33264ae660fe5", "2.7.0": "sha256:fa18e4ad79b34e701713ed964cf766036b77bf120b7416aa826ad6d64e632a1e", "latest": "sha256:fa18e4ad79b34e701713ed964cf766036b77bf120b7416aa826ad6d64e632a1e"}, "aliases": {"cali-query": "/opt/view/bin/cali-query", "cali-stat": "/opt/view/bin/cali-stat"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/caliper.

@@ -2,25 +2,23 @@
 layout: container
 name:  "ghcr.io/autamus/perl"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/perl/container.yaml"
-updated_at: "2022-08-01 18:21:16.290233"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/perl/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/perl/container.yaml"
+updated_at: "2022-08-27 01:36:29.839082"
+latest: "5.35.0"
 container_url: "https://github.com/orgs/autamus/packages/container/package/perl"
 aliases:
  - "perl"
-
  - "perlbug"
-
  - "perldoc"
-
  - "perlivp"
-
  - "perlthanks"
-
 versions:
  - "5.33.3"
  - "5.35.0"
  - "latest"
 description: "The Perl programming language."
+config: {"docker": "ghcr.io/autamus/perl", "url": "https://github.com/orgs/autamus/packages/container/package/perl", "maintainer": "@vsoch", "description": "The Perl programming language.", "latest": {"5.35.0": "sha256:52533a12008858c35d966a9d3f6743f01e75b206cb16760d367f80206f071e4d"}, "tags": {"5.33.3": "sha256:ddbe04d704c8883aed0959dbd88bd8410cf5e1a6775a2f46264af306723b6459", "5.35.0": "sha256:52533a12008858c35d966a9d3f6743f01e75b206cb16760d367f80206f071e4d", "latest": "sha256:52533a12008858c35d966a9d3f6743f01e75b206cb16760d367f80206f071e4d"}, "aliases": {"perl": "/opt/view/bin/perl", "perlbug": "/opt/view/bin/perlbug", "perldoc": "/opt/view/bin/perldoc", "perlivp": "/opt/view/bin/perlivp", "perlthanks": "/opt/view/bin/perlthanks"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/perl.

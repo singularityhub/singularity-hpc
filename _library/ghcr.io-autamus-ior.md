@@ -2,16 +2,18 @@
 layout: container
 name:  "ghcr.io/autamus/ior"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/ior/container.yaml"
-updated_at: "2022-08-01 18:20:20.496209"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/ior/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/ior/container.yaml"
+updated_at: "2022-08-27 01:36:07.257108"
+latest: "3.3.0"
 container_url: "https://github.com/orgs/autamus/packages/container/package/ior"
 aliases:
  - "ior"
-
 versions:
  - "3.3.0"
  - "latest"
 description: "IOR is a parallel IO benchmark that can be used to test the performance of parallel storage systems using various interfaces and access patterns. "
+config: {"docker": "ghcr.io/autamus/ior", "url": "https://github.com/orgs/autamus/packages/container/package/ior", "maintainer": "@vsoch", "description": "IOR is a parallel IO benchmark that can be used to test the performance of parallel storage systems using various interfaces and access patterns. ", "latest": {"3.3.0": "sha256:6b18c80e0fd241fd4a80e391b926ae56897628a4e641b5cd39104badb0166f70"}, "tags": {"3.3.0": "sha256:6b18c80e0fd241fd4a80e391b926ae56897628a4e641b5cd39104badb0166f70", "latest": "sha256:6b18c80e0fd241fd4a80e391b926ae56897628a4e641b5cd39104badb0166f70"}, "aliases": {"ior": "/opt/view/bin/ior"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/ior.

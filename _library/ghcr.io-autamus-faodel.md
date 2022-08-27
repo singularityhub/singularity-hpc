@@ -2,17 +2,19 @@
 layout: container
 name:  "ghcr.io/autamus/faodel"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/faodel/container.yaml"
-updated_at: "2022-08-01 18:21:15.432771"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/faodel/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/faodel/container.yaml"
+updated_at: "2022-08-27 01:35:49.908526"
+latest: "1.2108.1"
 container_url: "https://github.com/orgs/autamus/packages/container/package/faodel"
 aliases:
  - "faodel"
-
 versions:
  - "1.1906.1"
  - "1.2108.1"
  - "latest"
 description: "Flexible, Asynchronous, Object Data-Exchange Libraries"
+config: {"docker": "ghcr.io/autamus/faodel", "url": "https://github.com/orgs/autamus/packages/container/package/faodel", "maintainer": "@vsoch", "description": "Flexible, Asynchronous, Object Data-Exchange Libraries", "latest": {"1.2108.1": "sha256:2ce5c210992fc449059368cab300f11cb796569ad5ef6a6dc798826981b35b67"}, "tags": {"1.1906.1": "sha256:60f42cef7751dea8354b3d3cc2575f671daefc1d5c3dd925871952e7a899a5e1", "1.2108.1": "sha256:2ce5c210992fc449059368cab300f11cb796569ad5ef6a6dc798826981b35b67", "latest": "sha256:2ce5c210992fc449059368cab300f11cb796569ad5ef6a6dc798826981b35b67"}, "aliases": {"faodel": "/opt/view/bin/faodel"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/faodel.

@@ -2,8 +2,10 @@
 layout: container
 name:  "ghcr.io/autamus/arborx"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/arborx/container.yaml"
-updated_at: "2022-08-01 18:21:02.508638"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/arborx/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/arborx/container.yaml"
+updated_at: "2022-08-27 01:35:29.315809"
+latest: "1.1"
 container_url: "https://github.com/orgs/autamus/packages/container/package/arborx"
 
 versions:
@@ -11,6 +13,7 @@ versions:
  - "1.1"
  - "latest"
 description: "ArborX is a performance-portable library for geometric search"
+config: {"docker": "ghcr.io/autamus/arborx", "url": "https://github.com/orgs/autamus/packages/container/package/arborx", "maintainer": "@vsoch", "description": "ArborX is a performance-portable library for geometric search", "latest": {"1.1": "sha256:e5970b877b4e9233373440babb70df8db1af648fbe94359f5e8225d833cb23fa"}, "tags": {"1.0": "sha256:d4c1d3e22344cf4c8f3d4b2a4a8f5532b303dc7a75a37c55c463a685b359a03b", "1.1": "sha256:e5970b877b4e9233373440babb70df8db1af648fbe94359f5e8225d833cb23fa", "latest": "sha256:e5970b877b4e9233373440babb70df8db1af648fbe94359f5e8225d833cb23fa"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/arborx.

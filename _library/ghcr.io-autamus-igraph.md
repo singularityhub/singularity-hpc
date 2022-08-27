@@ -2,14 +2,17 @@
 layout: container
 name:  "ghcr.io/autamus/igraph"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/igraph/container.yaml"
-updated_at: "2022-08-01 18:20:53.888058"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/igraph/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/igraph/container.yaml"
+updated_at: "2022-08-27 01:36:06.203603"
+latest: "0.7.1"
 container_url: "https://github.com/orgs/autamus/packages/container/package/igraph"
 
 versions:
  - "0.7.1"
  - "latest"
 description: "igraph is a library collection for creating and manipulating graphs and analyzing networks. It is written in C and also exists as Python and R packages."
+config: {"docker": "ghcr.io/autamus/igraph", "url": "https://github.com/orgs/autamus/packages/container/package/igraph", "maintainer": "@vsoch", "description": "igraph is a library collection for creating and manipulating graphs and analyzing networks. It is written in C and also exists as Python and R packages.", "latest": {"0.7.1": "sha256:a2d66d312ebc4b21a39a16dd6febf3191da7b0c18281400d79db425623a88951"}, "tags": {"0.7.1": "sha256:a2d66d312ebc4b21a39a16dd6febf3191da7b0c18281400d79db425623a88951", "latest": "sha256:a2d66d312ebc4b21a39a16dd6febf3191da7b0c18281400d79db425623a88951"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/igraph.

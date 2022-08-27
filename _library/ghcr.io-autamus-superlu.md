@@ -2,8 +2,10 @@
 layout: container
 name:  "ghcr.io/autamus/superlu"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/superlu/container.yaml"
-updated_at: "2022-08-01 18:21:18.024171"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/superlu/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/superlu/container.yaml"
+updated_at: "2022-08-27 01:36:49.823580"
+latest: "5.3.0"
 container_url: "https://github.com/orgs/autamus/packages/container/package/superlu"
 
 versions:
@@ -11,6 +13,7 @@ versions:
  - "5.3.0"
  - "latest"
 description: "SuperLU is a general purpose library for the direct solution of large, sparse, nonsymmetric systems of linear equations on high performance machines."
+config: {"docker": "ghcr.io/autamus/superlu", "url": "https://github.com/orgs/autamus/packages/container/package/superlu", "maintainer": "@vsoch", "description": "SuperLU is a general purpose library for the direct solution of large, sparse, nonsymmetric systems of linear equations on high performance machines.", "latest": {"5.3.0": "sha256:5d151dc6b33254970a71698104ba61648eb3159ed0b4cce8d2f1c13d5f2c011f"}, "tags": {"5.2.2": "sha256:31e2968aa8503840fceae8c81c5b7b197483b1a787d6a9488535ddd511cc787d", "5.3.0": "sha256:5d151dc6b33254970a71698104ba61648eb3159ed0b4cce8d2f1c13d5f2c011f", "latest": "sha256:5d151dc6b33254970a71698104ba61648eb3159ed0b4cce8d2f1c13d5f2c011f"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/superlu.

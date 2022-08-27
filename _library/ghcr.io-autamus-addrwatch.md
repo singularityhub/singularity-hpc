@@ -2,20 +2,20 @@
 layout: container
 name:  "ghcr.io/autamus/addrwatch"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/addrwatch/container.yaml"
-updated_at: "2022-08-01 18:20:17.400359"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/addrwatch/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/addrwatch/container.yaml"
+updated_at: "2022-08-27 01:35:24.593617"
+latest: "1.0.2"
 container_url: "https://github.com/orgs/autamus/packages/container/package/addrwatch"
 aliases:
  - "addrwatch"
-
  - "addrwatch_stdout"
-
  - "addrwatch_syslog"
-
 versions:
  - "1.0.2"
  - "latest"
 description: "addrwatch is a similar software to arpwatch. It main purpose is to monitor network and log ethernet/ip pairings."
+config: {"docker": "ghcr.io/autamus/addrwatch", "url": "https://github.com/orgs/autamus/packages/container/package/addrwatch", "maintainer": "@vsoch", "description": "addrwatch is a similar software to arpwatch. It main purpose is to monitor network and log ethernet/ip pairings.", "latest": {"1.0.2": "sha256:6e98e19cbf1cdac3e591809389993855cf5ce5f8ecea8a3bbfe46af40627b3ff"}, "tags": {"1.0.2": "sha256:6e98e19cbf1cdac3e591809389993855cf5ce5f8ecea8a3bbfe46af40627b3ff", "latest": "sha256:6e98e19cbf1cdac3e591809389993855cf5ce5f8ecea8a3bbfe46af40627b3ff"}, "aliases": {"addrwatch": "/opt/view/bin/addrwatch", "addrwatch_stdout": "/opt/view/bin/addrwatch_stdout", "addrwatch_syslog": "/opt/view/bin/addrwatch_syslog"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/addrwatch.

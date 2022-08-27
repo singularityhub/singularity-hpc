@@ -2,12 +2,13 @@
 layout: container
 name:  "gradle"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/gradle/container.yaml"
-updated_at: "2022-08-01 18:22:09.204938"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/gradle/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/gradle/container.yaml"
+updated_at: "2022-08-27 01:37:01.429788"
+latest: "7-jdk18"
 container_url: "https://hub.docker.com/_/gradle"
 aliases:
  - "gradle"
-
 versions:
  - "7.0.0-hotspot"
  - "7.0.1-hotspot"
@@ -26,6 +27,7 @@ versions:
  - "7-jdk-openj9"
  - "7-jdk18"
 description: "Gradle is a build tool with a focus on build automation and support for multi-language development."
+config: {"docker": "gradle", "url": "https://hub.docker.com/_/gradle", "maintainer": "@vsoch", "description": "Gradle is a build tool with a focus on build automation and support for multi-language development.", "latest": {"7-jdk18": "sha256:d0d756611201a1c54c0c31b28e28f6d083bdfacd656f9d1fe418264a0d258383"}, "tags": {"7.0.0-hotspot": "sha256:cef49a7bdb0c53dc0d64ed24f375fb0fdd6e3489d0b4fcd393f0c8c09be11320", "7.0.1-hotspot": "sha256:f3207f774a8ceb3286e0b65ca1864cfab639797a307c3d505bc6775adfb28d66", "7.0.2-hotspot": "sha256:b36aabaa3f4b333aae071be8658ad2fa558bcaea9e31b3e8dc42f6e7846cbd01", "7.1.0-hotspot": "sha256:92c0f3381fd8db612dac10b5b584d68376c192bae6b1a11b2190780a60411fe4", "7.1.1-hotspot": "sha256:19d9bdf24a291e5d7ac758c8d0c7d8f2f5d641b130d17b556dbab2c49701bf3e", "7.2.0": "sha256:67de4380b26d2b5406077cf5439b3488d139f7fedd9bdb8ddfadbe277750ede8", "7.3.0": "sha256:1f65f4991aa496cf835cbce10290bdc71c1cb526b4df807d97c4f51b863f2399", "7.3.3": "sha256:8d037a3bd86fc48b591ad778d6eb6130e641bad1be546923e6d097a7ad7708eb", "7.4.0": "sha256:5248d0e8f7f6ad2095c3a053d5461daa17b02097410f0e9f6397f8f4dedc34bf", "latest": "sha256:ce56c8bbe223806848aee26c58d05d3d797049a67b22d8a80fbb5af93e958e18", "7": "sha256:ce56c8bbe223806848aee26c58d05d3d797049a67b22d8a80fbb5af93e958e18", "7-jdk17": "sha256:ce56c8bbe223806848aee26c58d05d3d797049a67b22d8a80fbb5af93e958e18", "7-jdk16": "sha256:f174c0dcf9a84b4035f1fcb62f0340ddc69c0b93320e0d35f097d20ce2ca89d5", "7-jdk11": "sha256:66e99844e0687a482d9481f522361a382a22d420cf9a0964ec8c2d81d82fb126", "7-jdk-openj9": "sha256:acd908af42e1bee2f841eeac031d41317ab3fddcc3ec9d0d4e1cb4b28be24f5f", "7-jdk18": "sha256:d0d756611201a1c54c0c31b28e28f6d083bdfacd656f9d1fe418264a0d258383"}, "aliases": {"gradle": "/usr/bin/gradle"}}
 ---
 
 This module is a singularity container wrapper for gradle.

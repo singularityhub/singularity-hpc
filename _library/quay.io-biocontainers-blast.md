@@ -2,53 +2,37 @@
 layout: container
 name:  "quay.io/biocontainers/blast"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/blast/container.yaml"
-updated_at: "2022-08-01 18:21:31.888900"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/quay.io/biocontainers/blast/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/quay.io/biocontainers/blast/container.yaml"
+updated_at: "2022-08-27 01:37:21.022127"
+latest: "2.12.0--hf3cf87c_4"
 container_url: "https://quay.io/repository/biocontainers/blast"
 aliases:
  - "blast_formatter"
-
  - "blastdb_aliastool"
-
  - "blastdbcheck"
-
  - "blastdbcmd"
-
  - "blastn"
-
  - "blastp"
-
  - "blastx"
-
  - "cleanup-blastdb-volumes.py"
-
  - "convert2blastmask"
-
  - "deltablast"
-
  - "eblast"
-
  - "makeblastdb"
-
  - "psiblast"
-
  - "rpsblast"
-
  - "rpstblastn"
-
  - "tblastn"
-
  - "tblastx"
-
  - "update_blastdb.pl"
-
 versions:
  - "2.10.1--pl526he19e7b1_3"
  - "2.11.0--pl5262h3289130_1"
  - "2.12.0--pl5262h3289130_0"
  - "2.12.0--hf3cf87c_4"
- - "2.13.0--hf3cf87c_0"
 description: "BLAST finds regions of similarity between biological sequences."
+config: {"docker": "quay.io/biocontainers/blast", "url": "https://quay.io/repository/biocontainers/blast", "maintainer": "@marcodelapierre", "description": "BLAST finds regions of similarity between biological sequences.", "latest": {"2.12.0--hf3cf87c_4": "sha256:9df91dee10f97405384734f964021feae38fcf68a721315f706be99be9366d86"}, "tags": {"2.10.1--pl526he19e7b1_3": "sha256:f12a5a35a0e6645134fcfe8650b0d1b5ff1f486430828a4ec3c4c9bfe35a5d78", "2.11.0--pl5262h3289130_1": "sha256:52e8e0ed12a0fe8854681dadb600e1d5599e04b960b01034cb53812fad944c3d", "2.12.0--pl5262h3289130_0": "sha256:a7eb056f5ca6a32551bf9f87b6b15acc45598cfef39bffdd672f59da3847cd18", "2.12.0--hf3cf87c_4": "sha256:9df91dee10f97405384734f964021feae38fcf68a721315f706be99be9366d86"}, "aliases": {"blast_formatter": "/usr/local/bin/blast_formatter", "blastdb_aliastool": "/usr/local/bin/blastdb_aliastool", "blastdbcheck": "/usr/local/bin/blastdbcheck", "blastdbcmd": "/usr/local/bin/blastdbcmd", "blastn": "/usr/local/bin/blastn", "blastp": "/usr/local/bin/blastp", "blastx": "/usr/local/bin/blastx", "cleanup-blastdb-volumes.py": "/usr/local/bin/cleanup-blastdb-volumes.py", "convert2blastmask": "/usr/local/bin/convert2blastmask", "deltablast": "/usr/local/bin/deltablast", "eblast": "/usr/local/bin/eblast", "makeblastdb": "/usr/local/bin/makeblastdb", "psiblast": "/usr/local/bin/psiblast", "rpsblast": "/usr/local/bin/rpsblast", "rpstblastn": "/usr/local/bin/rpstblastn", "tblastn": "/usr/local/bin/tblastn", "tblastx": "/usr/local/bin/tblastx", "update_blastdb.pl": "/usr/local/bin/update_blastdb.pl"}}
 ---
 
 This module is a singularity container wrapper for quay.io/biocontainers/blast.

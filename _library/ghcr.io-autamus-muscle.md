@@ -2,16 +2,18 @@
 layout: container
 name:  "ghcr.io/autamus/muscle"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/muscle/container.yaml"
-updated_at: "2022-08-01 18:20:25.714792"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/muscle/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/muscle/container.yaml"
+updated_at: "2022-08-27 01:36:21.928122"
+latest: "3.8.1551"
 container_url: "https://github.com/orgs/autamus/packages/container/package/muscle"
 aliases:
  - "muscle"
-
 versions:
  - "3.8.1551"
  - "latest"
 description: "Multiple Sequence Alignment."
+config: {"docker": "ghcr.io/autamus/muscle", "url": "https://github.com/orgs/autamus/packages/container/package/muscle", "maintainer": "@vsoch", "description": "Multiple Sequence Alignment.", "latest": {"3.8.1551": "sha256:50a90119cc64b7424bd7d8d6c5fcc9251290ef257e4a753c457789ff7ec23bf3"}, "tags": {"3.8.1551": "sha256:50a90119cc64b7424bd7d8d6c5fcc9251290ef257e4a753c457789ff7ec23bf3", "latest": "sha256:50a90119cc64b7424bd7d8d6c5fcc9251290ef257e4a753c457789ff7ec23bf3"}, "aliases": {"muscle": "/opt/view/bin/muscle"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/muscle.

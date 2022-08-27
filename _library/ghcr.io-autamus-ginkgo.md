@@ -2,8 +2,10 @@
 layout: container
 name:  "ghcr.io/autamus/ginkgo"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/ginkgo/container.yaml"
-updated_at: "2022-08-01 18:20:30.064135"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/ginkgo/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/ginkgo/container.yaml"
+updated_at: "2022-08-27 01:35:56.212663"
+latest: "1.4.0"
 container_url: "https://github.com/orgs/autamus/packages/container/package/ginkgo"
 
 versions:
@@ -11,6 +13,7 @@ versions:
  - "1.4.0"
  - "latest"
 description: "High-performance linear algebra library for manycore systems, with a focus on sparse solution of linear systems."
+config: {"docker": "ghcr.io/autamus/ginkgo", "url": "https://github.com/orgs/autamus/packages/container/package/ginkgo", "maintainer": "@vsoch", "description": "High-performance linear algebra library for manycore systems, with a focus on sparse solution of linear systems.", "latest": {"1.4.0": "sha256:fed53880b12e60a5ce006c0e8499583f6dab449cf05c27c8932299a63a51e845"}, "tags": {"1.3.0": "sha256:39a4a6df46bf92043cc4915aa5e379710897af41c46e2c672a4431b8f80a80b4", "1.4.0": "sha256:fed53880b12e60a5ce006c0e8499583f6dab449cf05c27c8932299a63a51e845", "latest": "sha256:fed53880b12e60a5ce006c0e8499583f6dab449cf05c27c8932299a63a51e845"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/ginkgo.

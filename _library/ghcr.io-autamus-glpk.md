@@ -2,16 +2,18 @@
 layout: container
 name:  "ghcr.io/autamus/glpk"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/glpk/container.yaml"
-updated_at: "2022-08-01 18:21:21.908994"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/glpk/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/glpk/container.yaml"
+updated_at: "2022-08-27 01:35:57.264503"
+latest: "4.65"
 container_url: "https://github.com/orgs/autamus/packages/container/package/glpk"
 aliases:
  - "glpsol"
-
 versions:
  - "4.65"
  - "latest"
 description: "The GLPK package is a set of routines written in ANSI C and organized in the form of a callable library. This package is intended for solving large-scale linear programming (LP), mixed integer linear programming (MIP), and other related problems."
+config: {"docker": "ghcr.io/autamus/glpk", "url": "https://github.com/orgs/autamus/packages/container/package/glpk", "maintainer": "@vsoch", "description": "The GLPK package is a set of routines written in ANSI C and organized in the form of a callable library. This package is intended for solving large-scale linear programming (LP), mixed integer linear programming (MIP), and other related problems.", "latest": {"4.65": "sha256:80145d616bc26f09eb8443684751162fbbd990791b8f14311e1dc3b4b93bfc4a"}, "tags": {"4.65": "sha256:80145d616bc26f09eb8443684751162fbbd990791b8f14311e1dc3b4b93bfc4a", "latest": "sha256:80145d616bc26f09eb8443684751162fbbd990791b8f14311e1dc3b4b93bfc4a"}, "aliases": {"glpsol": "/opt/view/bin/glpsol"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/glpk.

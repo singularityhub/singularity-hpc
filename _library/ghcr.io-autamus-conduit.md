@@ -2,28 +2,24 @@
 layout: container
 name:  "ghcr.io/autamus/conduit"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/conduit/container.yaml"
-updated_at: "2022-08-01 18:20:59.935003"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/conduit/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/conduit/container.yaml"
+updated_at: "2022-08-27 01:35:43.576123"
+latest: "0.7.2"
 container_url: "https://github.com/orgs/autamus/packages/container/package/conduit"
 aliases:
  - "conduit_blueprint_verify"
-
  - "conduit_relay_entangle.py"
-
  - "conduit_relay_io_convert"
-
  - "conduit_relay_io_ls"
-
  - "conduit_relay_node_viewer"
-
  - "conduit_staging"
-
  - "conduit_staging.sh"
-
 versions:
  - "0.7.2"
  - "latest"
 description: "Conduit is an open source project from Lawrence Livermore National Laboratory that provides an intuitive model for describing hierarchical scientific data in C++, C, Fortran, and Python."
+config: {"docker": "ghcr.io/autamus/conduit", "url": "https://github.com/orgs/autamus/packages/container/package/conduit", "maintainer": "@vsoch", "description": "Conduit is an open source project from Lawrence Livermore National Laboratory that provides an intuitive model for describing hierarchical scientific data in C++, C, Fortran, and Python.", "latest": {"0.7.2": "sha256:229cddc031a67d7a75f7bf90b22ac82c88b5ae12c58663397fab18c7e5608b72"}, "tags": {"0.7.2": "sha256:229cddc031a67d7a75f7bf90b22ac82c88b5ae12c58663397fab18c7e5608b72", "latest": "sha256:229cddc031a67d7a75f7bf90b22ac82c88b5ae12c58663397fab18c7e5608b72"}, "aliases": {"conduit_blueprint_verify": "/opt/view/bin/conduit_blueprint_verify", "conduit_relay_entangle.py": "/opt/view/bin/conduit_relay_entangle.py", "conduit_relay_io_convert": "/opt/view/bin/conduit_relay_io_convert", "conduit_relay_io_ls": "/opt/view/bin/conduit_relay_io_ls", "conduit_relay_node_viewer": "/opt/view/bin/conduit_relay_node_viewer", "conduit_staging": "/opt/view/bin/conduit_staging", "conduit_staging.sh": "/opt/view/bin/conduit_staging.sh"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/conduit.

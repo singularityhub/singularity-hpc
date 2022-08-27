@@ -2,17 +2,19 @@
 layout: container
 name:  "ghcr.io/autamus/cloc"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/cloc/container.yaml"
-updated_at: "2022-08-01 18:20:31.799305"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/cloc/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/cloc/container.yaml"
+updated_at: "2022-08-27 01:35:43.048231"
+latest: "1.90"
 container_url: "https://github.com/orgs/autamus/packages/container/package/cloc"
 aliases:
  - "cloc"
-
 versions:
  - "1.88"
  - "1.90"
  - "latest"
 description: "cloc is a command line program that takes file, directory, and/or archive names as inputs."
+config: {"docker": "ghcr.io/autamus/cloc", "url": "https://github.com/orgs/autamus/packages/container/package/cloc", "maintainer": "@vsoch", "description": "cloc is a command line program that takes file, directory, and/or archive names as inputs.", "latest": {"1.90": "sha256:8e1450774c0513eb1d7b4b71cd1ccca744d004fae2142f078ba4f39a148be300"}, "tags": {"1.88": "sha256:d83cabface35c70df9484dff3f606a10f13432747a7570e238525e3722061c31", "1.90": "sha256:8e1450774c0513eb1d7b4b71cd1ccca744d004fae2142f078ba4f39a148be300", "latest": "sha256:8e1450774c0513eb1d7b4b71cd1ccca744d004fae2142f078ba4f39a148be300"}, "aliases": {"cloc": "/opt/view/bin/cloc"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/cloc.

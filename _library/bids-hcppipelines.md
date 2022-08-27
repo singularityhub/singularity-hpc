@@ -2,8 +2,10 @@
 layout: container
 name:  "bids/hcppipelines"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/bids/hcppipelines/container.yaml"
-updated_at: "2022-08-01 18:21:58.773318"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/bids/hcppipelines/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/bids/hcppipelines/container.yaml"
+updated_at: "2022-08-27 01:35:12.492040"
+latest: "v4.3.0-3"
 container_url: "https://hub.docker.com/r/bids/hcppipelines"
 
 versions:
@@ -12,6 +14,7 @@ versions:
  - "v4.3.0-2"
  - "v4.3.0-3"
 description: "BIDS-ified HPC Piplines to process MRI data for the Human Connectome Project (https://github.com/BIDS-Apps/HCPPipelines)"
+config: {"docker": "bids/hcppipelines", "url": "https://hub.docker.com/r/bids/hcppipelines", "maintainer": "@vsoch", "description": "BIDS-ified HPC Piplines to process MRI data for the Human Connectome Project (https://github.com/BIDS-Apps/HCPPipelines)", "latest": {"v4.3.0-3": "sha256:f4c532880bbf65e7fb457b41005e1bd3f6049657371b36a22b6ac44dd59236e2"}, "tags": {"latest": "sha256:f4c532880bbf65e7fb457b41005e1bd3f6049657371b36a22b6ac44dd59236e2", "v4.1.3-1": "sha256:aea536f1dde005bc0e30451a42709d436146e373c2088b10614b5d3a1614b52b", "v4.3.0-2": "sha256:2834881a48f6849b306f59ac604b46016b06c402ed0ed5e0d03ef98964097154", "v4.3.0-3": "sha256:f4c532880bbf65e7fb457b41005e1bd3f6049657371b36a22b6ac44dd59236e2"}, "filter": ["v*"]}
 ---
 
 This module is a singularity container wrapper for bids/hcppipelines.

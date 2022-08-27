@@ -2,26 +2,24 @@
 layout: container
 name:  "ghcr.io/autamus/beast2"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/beast2/container.yaml"
-updated_at: "2022-08-01 18:20:04.330731"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/beast2/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/beast2/container.yaml"
+updated_at: "2022-08-27 01:35:33.525862"
+latest: "2.6.6"
 container_url: "https://github.com/orgs/autamus/packages/container/package/beast2"
 aliases:
  - "beast"
-
  - "beasti"
-
  - "beauti"
-
  - "densitree"
-
  - "treeannotator"
-
 versions:
  - "2.6.3"
  - "2.6.4"
  - "2.6.6"
  - "latest"
 description: "BEAST 2 is a cross-platform program for Bayesian phylogenetic analysis of molecular sequences."
+config: {"docker": "ghcr.io/autamus/beast2", "url": "https://github.com/orgs/autamus/packages/container/package/beast2", "maintainer": "@vsoch", "description": "BEAST 2 is a cross-platform program for Bayesian phylogenetic analysis of molecular sequences.", "latest": {"2.6.6": "sha256:1596e4a5bae443ad40e070abbc02aef7d2e0776dbdfbe31ef9a5ea7a6c2decdc"}, "tags": {"2.6.3": "sha256:5eae1eabe7b127b3847401fe69e3430f97936d7ef7198287aabe01c5e1a957cf", "2.6.4": "sha256:cc2db4b4748d750a8b62e0f6984c2c09b87815e59a8ca66ba2cfbaf33862f0db", "2.6.6": "sha256:1596e4a5bae443ad40e070abbc02aef7d2e0776dbdfbe31ef9a5ea7a6c2decdc", "latest": "sha256:1596e4a5bae443ad40e070abbc02aef7d2e0776dbdfbe31ef9a5ea7a6c2decdc"}, "aliases": {"beast": "/opt/view/bin/beast", "beasti": "/opt/view/bin/beasti", "beauti": "/opt/view/bin/beauti", "densitree": "/opt/view/bin/densitree", "treeannotator": "/opt/view/bin/treeannotator"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/beast2.

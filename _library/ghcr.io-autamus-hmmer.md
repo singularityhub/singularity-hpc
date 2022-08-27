@@ -2,41 +2,31 @@
 layout: container
 name:  "ghcr.io/autamus/hmmer"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/hmmer/container.yaml"
-updated_at: "2022-08-01 18:20:32.233436"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/hmmer/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/hmmer/container.yaml"
+updated_at: "2022-08-27 01:36:03.045473"
+latest: "3.3"
 container_url: "https://github.com/orgs/autamus/packages/container/package/hmmer"
 aliases:
  - "hmmalign"
-
  - "hmmbuild"
-
  - "hmmconvert"
-
  - "hmmemit"
-
  - "hmmfetch"
-
  - "hmmlogo"
-
  - "hmmpgmd"
-
  - "hmmpgmd_shard"
-
  - "hmmpress"
-
  - "hmmscan"
-
  - "hmmsearch"
-
  - "hmmsim"
-
  - "hmmstat"
-
 versions:
  - "3.3"
  - "3.3.2"
  - "latest"
 description: "HMMER is used for searching sequence databases for sequence homologs, and for making sequence alignments."
+config: {"docker": "ghcr.io/autamus/hmmer", "url": "https://github.com/orgs/autamus/packages/container/package/hmmer", "maintainer": "@vsoch", "description": "HMMER is used for searching sequence databases for sequence homologs, and for making sequence alignments.", "latest": {"3.3": "sha256:87ac88c3db4f5a80af3701ceb43e29fac4fdab86db71f6763425881f28f51335"}, "tags": {"3.3": "sha256:87ac88c3db4f5a80af3701ceb43e29fac4fdab86db71f6763425881f28f51335", "3.3.2": "sha256:68bc943e526ad06966106f215f3b8127cb7c47d013056fa043c7b0b39769cb98", "latest": "sha256:68bc943e526ad06966106f215f3b8127cb7c47d013056fa043c7b0b39769cb98"}, "aliases": {"hmmalign": "/opt/view/bin/hmmalign", "hmmbuild": "/opt/view/bin/hmmbuild", "hmmconvert": "/opt/view/bin/hmmconvert", "hmmemit": "/opt/view/bin/hmmemit", "hmmfetch": "/opt/view/bin/hmmfetch", "hmmlogo": "/opt/view/bin/hmmlogo", "hmmpgmd": "/opt/view/bin/hmmpgmd", "hmmpgmd_shard": "/opt/view/bin/hmmpgmd_shard", "hmmpress": "/opt/view/bin/hmmpress", "hmmscan": "/opt/view/bin/hmmscan", "hmmsearch": "/opt/view/bin/hmmsearch", "hmmsim": "/opt/view/bin/hmmsim", "hmmstat": "/opt/view/bin/hmmstat"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/hmmer.

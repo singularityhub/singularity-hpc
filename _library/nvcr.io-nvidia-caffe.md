@@ -2,15 +2,17 @@
 layout: container
 name:  "nvcr.io/nvidia/caffe"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/nvcr.io/nvidia/caffe/container.yaml"
-updated_at: "2022-08-01 18:21:51.423409"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/nvcr.io/nvidia/caffe/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/nvcr.io/nvidia/caffe/container.yaml"
+updated_at: "2022-08-27 01:37:12.008863"
+latest: "20.03-py3"
 container_url: "https://ngc.nvidia.com/catalog/containers/nvidia:caffe/tags"
 aliases:
  - "python"
-
 versions:
  - "20.03-py3"
 description: "NVIDIA Caffe, also known as NVCaffe, is an NVIDIA-maintained fork of Berkeley Vision and Learning Center (BVLC) Caffe tuned for NVIDIA GPUs, particularly in multi-GPU configurations."
+config: {"docker": "nvcr.io/nvidia/caffe", "url": "https://ngc.nvidia.com/catalog/containers/nvidia:caffe/tags", "maintainer": "@vsoch", "description": "NVIDIA Caffe, also known as NVCaffe, is an NVIDIA-maintained fork of Berkeley Vision and Learning Center (BVLC) Caffe tuned for NVIDIA GPUs, particularly in multi-GPU configurations.", "latest": {"20.03-py3": "sha256:c6fb6d8309be4c43ccdc7dd19dde73d186404df3627f660866178eff507e22c7"}, "tags": {"20.03-py3": "sha256:c6fb6d8309be4c43ccdc7dd19dde73d186404df3627f660866178eff507e22c7"}, "aliases": {"python": "/usr/bin/python"}, "features": {"gpu": true}}
 ---
 
 This module is a singularity container wrapper for nvcr.io/nvidia/caffe.

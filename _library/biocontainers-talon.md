@@ -2,35 +2,27 @@
 layout: container
 name:  "biocontainers/talon"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/biocontainers/talon/container.yaml"
-updated_at: "2022-08-01 18:20:00.865105"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/biocontainers/talon/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/biocontainers/talon/container.yaml"
+updated_at: "2022-08-27 01:35:20.416301"
+latest: "v5.0_cv1"
 container_url: "https://hub.docker.com/r/biocontainers/talon"
 aliases:
  - "talon"
-
  - "talon_create_GTF"
-
  - "talon_fetch_reads"
-
  - "talon_filter_transcripts"
-
  - "talon_generate_report"
-
  - "talon_initialize_database"
-
  - "talon_get_sjs"
-
  - "talon_label_reads"
-
  - "talon_reformat_gtf"
-
  - "talon_summarize"
-
  - "talon_abundance"
-
 versions:
  - "v5.0_cv1"
 description: "Mailgun library to extract message quotations and signatures."
+config: {"docker": "biocontainers/talon", "latest": {"v5.0_cv1": "sha256:05748cad5faceab2a1a9ab072d2cbee20d1c95d587ac6ba2dbdf913c7f6849f4"}, "tags": {"v5.0_cv1": "sha256:05748cad5faceab2a1a9ab072d2cbee20d1c95d587ac6ba2dbdf913c7f6849f4"}, "filter": ["v*"], "maintainer": "@vsoch", "url": "https://hub.docker.com/r/biocontainers/talon", "description": "Mailgun library to extract message quotations and signatures.", "aliases": {"talon": "/usr/local/bin/talon", "talon_create_GTF": "/usr/local/bin/talon_create_GTF", "talon_fetch_reads": "/usr/local/bin/talon_fetch_reads", "talon_filter_transcripts": "/usr/local/bin/talon_filter_transcripts", "talon_generate_report": "/usr/local/bin/talon_generate_report", "talon_initialize_database": "/usr/local/bin/talon_initialize_database", "talon_get_sjs": "/usr/local/bin/talon_get_sjs", "talon_label_reads": "/usr/local/bin/talon_label_reads", "talon_reformat_gtf": "/usr/local/bin/talon_reformat_gtf", "talon_summarize": "/usr/local/bin/talon_summarize", "talon_abundance": "/usr/local/bin/talon_abundance"}}
 ---
 
 This module is a singularity container wrapper for biocontainers/talon.

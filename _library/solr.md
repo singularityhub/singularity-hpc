@@ -2,16 +2,15 @@
 layout: container
 name:  "solr"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/solr/container.yaml"
-updated_at: "2022-08-01 18:21:55.322647"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/solr/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/solr/container.yaml"
+updated_at: "2022-08-27 01:37:43.803167"
+latest: "9.0"
 container_url: "https://hub.docker.com/_/solr"
 aliases:
  - "post"
-
  - "postlogs"
-
  - "solr"
-
 versions:
  - "8.8.2-slim"
  - "8.9.0"
@@ -28,6 +27,7 @@ versions:
  - "9"
  - "9.0"
 description: "Solr is the popular, blazing-fast, open source enterprise search platform built on Apache Lucene™."
+config: {"docker": "solr", "url": "https://hub.docker.com/_/solr", "maintainer": "@vsoch", "description": "Solr is the popular, blazing-fast, open source enterprise search platform built on Apache Lucene\u2122.", "latest": {"9.0": "sha256:08fff33aefacc81423de6f13b1974728ce2adcba5397293a4d0faa5bc8898efb"}, "tags": {"8.8.2-slim": "sha256:c07b46b904443f7e07d9da00aa9feb91af0b54ba75bf1e1891916d3ed1ff8d9b", "8.9.0": "sha256:857cb9fadcc4dae9d20405d60eff3762a13b2bcfc33898628716df8f91b01ee8", "8.9.0-slim": "sha256:ab6fb88298782688b5932c761c16291efe3b46c63e3c16a72604b4a8c100dce0", "8.10.1": "sha256:dff43964cd5ca52199fe015a51bd2d1de37b8f82fbdeffaa266d4f9f7ef56fa7", "8.11.0": "sha256:66fe2feeba8c4afdea12c78a4f11218fadd81befc43f223a2f9267bf605a25d1", "8.11.1": "sha256:8c5f7881cebb283d8230203db2083eef2a64d604d0f6020d74de63e2645f0aec", "latest": "sha256:08fff33aefacc81423de6f13b1974728ce2adcba5397293a4d0faa5bc8898efb", "8": "sha256:026eaf024cf49771235dae576387bf3a17c78639bdcd80a3927e9c4aab8d2155", "8.11": "sha256:026eaf024cf49771235dae576387bf3a17c78639bdcd80a3927e9c4aab8d2155", "8.10": "sha256:dff43964cd5ca52199fe015a51bd2d1de37b8f82fbdeffaa266d4f9f7ef56fa7", "8.9": "sha256:857cb9fadcc4dae9d20405d60eff3762a13b2bcfc33898628716df8f91b01ee8", "8.8": "sha256:cb946e325f1372b86b70dbdccc4f050655f63d9f678f645bf508088704349363", "9": "sha256:08fff33aefacc81423de6f13b1974728ce2adcba5397293a4d0faa5bc8898efb", "9.0": "sha256:08fff33aefacc81423de6f13b1974728ce2adcba5397293a4d0faa5bc8898efb"}, "aliases": {"post": "/opt/solr/bin/post", "postlogs": "/opt/solr/bin/postlogs", "solr": "/opt/solr/bin/solr"}}
 ---
 
 This module is a singularity container wrapper for solr.

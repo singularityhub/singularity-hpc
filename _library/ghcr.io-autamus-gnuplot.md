@@ -2,17 +2,19 @@
 layout: container
 name:  "ghcr.io/autamus/gnuplot"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/gnuplot/container.yaml"
-updated_at: "2022-08-01 18:21:07.249952"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/gnuplot/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/gnuplot/container.yaml"
+updated_at: "2022-08-27 01:35:58.311517"
+latest: "5.4.2"
 container_url: "https://github.com/orgs/autamus/packages/container/package/gnuplot"
 aliases:
  - "gnuplot"
-
 versions:
  - "5.2.8"
  - "5.4.2"
  - "latest"
 description: "Gnuplot is a portable command-line driven graphing utility for Linux, OS/2, MS Windows, OSX, VMS, and many other platforms."
+config: {"docker": "ghcr.io/autamus/gnuplot", "url": "https://github.com/orgs/autamus/packages/container/package/gnuplot", "maintainer": "@vsoch", "description": "Gnuplot is a portable command-line driven graphing utility for Linux, OS/2, MS Windows, OSX, VMS, and many other platforms.", "latest": {"5.4.2": "sha256:0f63f37292bc6bb27bac115e47c064c41da0ec40e71a20ccb4c8445db7d9b028"}, "tags": {"5.2.8": "sha256:9e18e91463b3db78df3505e43632ab5e9086ff72aa6a91d1d110efbfe0e51ca1", "5.4.2": "sha256:0f63f37292bc6bb27bac115e47c064c41da0ec40e71a20ccb4c8445db7d9b028", "latest": "sha256:0f63f37292bc6bb27bac115e47c064c41da0ec40e71a20ccb4c8445db7d9b028"}, "aliases": {"gnuplot": "/opt/view/bin/gnuplot"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/gnuplot.

@@ -2,12 +2,13 @@
 layout: container
 name:  "ghcr.io/autamus/rclone"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/rclone/container.yaml"
-updated_at: "2022-08-01 18:20:19.196607"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/rclone/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/rclone/container.yaml"
+updated_at: "2022-08-27 01:36:40.330436"
+latest: "1.57.0"
 container_url: "https://github.com/orgs/autamus/packages/container/package/rclone"
 aliases:
  - "rclone"
-
 versions:
  - "1.55.0"
  - "1.55.1"
@@ -16,6 +17,7 @@ versions:
  - "1.57.0"
  - "latest"
 description: "Rclone is a command line program to manage files on cloud storage."
+config: {"docker": "ghcr.io/autamus/rclone", "url": "https://github.com/orgs/autamus/packages/container/package/rclone", "maintainer": "@vsoch", "description": "Rclone is a command line program to manage files on cloud storage.", "latest": {"1.57.0": "sha256:8e22eebdf6a5c0473b6c3010eeae66496a05ded4349d209278ddb4cd85f0a611"}, "tags": {"1.55.0": "sha256:8a8c07e1759f8ad45b34828b5adc6b43b811569f84093970d0366afd9f7b4b5f", "1.55.1": "sha256:e1020f643a5e613fb301f2b33c219e6f7430ff5bcaacf523655ad6d8e2e439c0", "1.56.0": "sha256:d95c8c617bef5259d583d9f994a93296bce22e67dc8fa193d3f30a33dc35326c", "1.56.2": "sha256:8fca8f455745ee5ff83b0bf31ec695766b02919b0babda81f97d96ba6bfe0113", "1.57.0": "sha256:8e22eebdf6a5c0473b6c3010eeae66496a05ded4349d209278ddb4cd85f0a611", "latest": "sha256:8e22eebdf6a5c0473b6c3010eeae66496a05ded4349d209278ddb4cd85f0a611"}, "aliases": {"rclone": "/opt/view/bin/rclone"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/rclone.

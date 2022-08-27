@@ -2,16 +2,18 @@
 layout: container
 name:  "ghcr.io/autamus/siesta"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/siesta/container.yaml"
-updated_at: "2022-08-01 18:20:27.023552"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/siesta/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/siesta/container.yaml"
+updated_at: "2022-08-27 01:36:45.068716"
+latest: "4.0.2"
 container_url: "https://github.com/orgs/autamus/packages/container/package/siesta"
 aliases:
  - "siesta"
-
 versions:
  - "4.0.2"
  - "latest"
 description: "SIESTA performs electronic structure calculations and ab initio molecular dynamics simulations of molecules and solids."
+config: {"docker": "ghcr.io/autamus/siesta", "url": "https://github.com/orgs/autamus/packages/container/package/siesta", "maintainer": "@vsoch", "description": "SIESTA performs electronic structure calculations and ab initio molecular dynamics simulations of molecules and solids.", "latest": {"4.0.2": "sha256:abab7286e84010408829b2c98afb2a927107905164a619f1f06db6b870457463"}, "tags": {"4.0.2": "sha256:abab7286e84010408829b2c98afb2a927107905164a619f1f06db6b870457463", "latest": "sha256:abab7286e84010408829b2c98afb2a927107905164a619f1f06db6b870457463"}, "aliases": {"siesta": "/opt/view/bin/siesta"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/siesta.

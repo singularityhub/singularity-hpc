@@ -2,14 +2,17 @@
 layout: container
 name:  "ghcr.io/autamus/xnnpack"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/xnnpack/container.yaml"
-updated_at: "2022-08-01 18:20:55.627125"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/xnnpack/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/xnnpack/container.yaml"
+updated_at: "2022-08-27 01:36:57.712965"
+latest: "2021.02.22"
 container_url: "https://github.com/orgs/autamus/packages/container/package/xnnpack"
 
 versions:
  - "2021.02.22"
  - "latest"
 description: "High-efficiency floating-point neural network inference operators for mobile, server, and Web"
+config: {"docker": "ghcr.io/autamus/xnnpack", "url": "https://github.com/orgs/autamus/packages/container/package/xnnpack", "maintainer": "@vsoch", "description": "High-efficiency floating-point neural network inference operators for mobile, server, and Web", "latest": {"2021.02.22": "sha256:73c567e8a950b820fb8e1bdbd623a601869ab2c634ecd5790cc0af4dbb53dee0"}, "tags": {"2021.02.22": "sha256:73c567e8a950b820fb8e1bdbd623a601869ab2c634ecd5790cc0af4dbb53dee0", "latest": "sha256:73c567e8a950b820fb8e1bdbd623a601869ab2c634ecd5790cc0af4dbb53dee0"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/xnnpack.

@@ -2,19 +2,20 @@
 layout: container
 name:  "quay.io/biocontainers/velvet"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/velvet/container.yaml"
-updated_at: "2022-08-01 18:21:24.926100"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/quay.io/biocontainers/velvet/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/quay.io/biocontainers/velvet/container.yaml"
+updated_at: "2022-08-27 01:37:34.289283"
+latest: "1.2.10--h7132678_5"
 container_url: "https://quay.io/repository/biocontainers/velvet"
 aliases:
  - "velvetg"
-
  - "velveth"
-
 versions:
  - "1.2.10--h470a237_2"
  - "1.2.10--h5bf99c6_4"
  - "1.2.10--h7132678_5"
 description: "Short read de novo assembler using de Bruijn graphs"
+config: {"docker": "quay.io/biocontainers/velvet", "url": "https://quay.io/repository/biocontainers/velvet", "maintainer": "@audreystott", "description": "Short read de novo assembler using de Bruijn graphs", "latest": {"1.2.10--h7132678_5": "sha256:eaf254b874804a5785453098daf4e9f0d0ae7d1f21086fb22d9224d691114ca7"}, "tags": {"1.2.10--h470a237_2": "sha256:eb63751dc77dd0d3fbf2beb87eb48dc4d939c4b426676016f92dd4b202b87176", "1.2.10--h5bf99c6_4": "sha256:7fc2606a1431883dcd0acf830abcfeddb975677733d110a085da0f07782f5a27", "1.2.10--h7132678_5": "sha256:eaf254b874804a5785453098daf4e9f0d0ae7d1f21086fb22d9224d691114ca7"}, "aliases": {"velvetg": "/usr/local/bin/velvetg", "velveth": "/usr/local/bin/velveth"}}
 ---
 
 This module is a singularity container wrapper for quay.io/biocontainers/velvet.

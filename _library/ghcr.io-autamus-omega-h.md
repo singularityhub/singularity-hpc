@@ -2,8 +2,10 @@
 layout: container
 name:  "ghcr.io/autamus/omega-h"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/omega-h/container.yaml"
-updated_at: "2022-08-01 18:21:18.455117"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/omega-h/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/omega-h/container.yaml"
+updated_at: "2022-08-27 01:36:24.556217"
+latest: "9.34.6"
 container_url: "https://github.com/orgs/autamus/packages/container/package/omega-h"
 
 versions:
@@ -13,6 +15,7 @@ versions:
  - "9.34.5"
  - "latest"
 description: "Omega_h is a C++11 library providing data structures and algorithms for adaptive discretizations."
+config: {"docker": "ghcr.io/autamus/omega-h", "url": "https://github.com/orgs/autamus/packages/container/package/omega-h", "maintainer": "@vsoch", "description": "Omega_h is a C++11 library providing data structures and algorithms for adaptive discretizations.", "latest": {"9.34.6": "sha256:02def9b6a5c0f9aba1e538b8a36f8c31b5e6638af68462008b3aab1cd240a389"}, "tags": {"9.32.5": "sha256:34ff23ca78005b63181955a9d1e8eec9e7b95238a06e68b5b86892f1d62ac711", "9.33.3": "sha256:badd22d17ca9060051b7d44652cad72516c796edc7450d8560c35318c7bd014d", "9.34.6": "sha256:02def9b6a5c0f9aba1e538b8a36f8c31b5e6638af68462008b3aab1cd240a389", "9.34.5": "sha256:8b2ea55ac9427dd0b9a55e1bc705e68091146a7157d7f6a27ce1ad554e874e13", "latest": "sha256:02def9b6a5c0f9aba1e538b8a36f8c31b5e6638af68462008b3aab1cd240a389"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/omega-h.

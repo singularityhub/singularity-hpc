@@ -2,12 +2,13 @@
 layout: container
 name:  "quay.io/biocontainers/diamond"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/diamond/container.yaml"
-updated_at: "2022-08-01 18:21:27.523262"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/quay.io/biocontainers/diamond/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/quay.io/biocontainers/diamond/container.yaml"
+updated_at: "2022-08-27 01:37:25.279779"
+latest: "2.0.14--hdcc8f71_0"
 container_url: "https://quay.io/repository/biocontainers/diamond"
 aliases:
  - "diamond"
-
 versions:
  - "0.8.26--h2e03b76_4"
  - "2.0.11--hdcc8f71_0"
@@ -16,6 +17,7 @@ versions:
  - "0.9.36--h56fc30b_0"
  - "0.8.36--h8b12597_4"
 description: "Accelerated blast compatible local sequence aligner"
+config: {"docker": "quay.io/biocontainers/diamond", "url": "https://quay.io/repository/biocontainers/diamond", "maintainer": "@sarahbeecroft", "description": "Accelerated blast compatible local sequence aligner", "latest": {"2.0.14--hdcc8f71_0": "sha256:275f3b3c587f8a40a39693db8acd91da8be6f053ff1426863da22061bd4e7957"}, "tags": {"0.8.26--h2e03b76_4": "sha256:1bdf8de97dfdfb795a14cecf22cc7b249801ac9886e187533c3b1cf3c9cb7613", "2.0.11--hdcc8f71_0": "sha256:cb3a52f7f7d745e3c023b40faebd5099afceddb290bd65ebd892ddabef41463a", "2.0.13--hdcc8f71_0": "sha256:2c70b7e6e92116163822053400f8528bae95b8846073fa61224cae14cf1ed0dc", "2.0.14--hdcc8f71_0": "sha256:275f3b3c587f8a40a39693db8acd91da8be6f053ff1426863da22061bd4e7957", "0.9.36--h56fc30b_0": "sha256:0f80076288d495263598b24d8684da078a86f359bd58e39958cb491abd817399", "0.8.36--h8b12597_4": "sha256:13476bcb2a7077eae93db47fcc9f7f7662fdcb06193dc95139c7a6cf7c2de824"}, "aliases": {"diamond": "/usr/local/bin/diamond"}}
 ---
 
 This module is a singularity container wrapper for quay.io/biocontainers/diamond.

@@ -2,28 +2,21 @@
 layout: container
 name:  "ghcr.io/autamus/python"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/python/container.yaml"
-updated_at: "2022-08-01 18:20:22.237950"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/python/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/python/container.yaml"
+updated_at: "2022-08-27 01:36:37.700991"
+latest: "3.10.1"
 container_url: "https://github.com/orgs/autamus/packages/container/package/python"
 aliases:
  - "pydoc3"
-
  - "pydoc3.8"
-
  - "python"
-
  - "python-config"
-
  - "python3"
-
  - "python3-config"
-
  - "python3.8"
-
  - "python3.8-config"
-
  - "python3.8-gdb.py"
-
 versions:
  - "3.9.5"
  - "3.9.6"
@@ -32,6 +25,7 @@ versions:
  - "3.10.1"
  - "latest"
 description: "An interpreted, high-level and general-purpose programming language."
+config: {"docker": "ghcr.io/autamus/python", "url": "https://github.com/orgs/autamus/packages/container/package/python", "maintainer": "@vsoch", "description": "An interpreted, high-level and general-purpose programming language.", "latest": {"3.10.1": "sha256:179c843e98149941b537812ca5749924e7656e35acdd9c044c906dd142ee03fb"}, "tags": {"3.9.5": "sha256:66eb30b70c9bc9eb5242dc983fd8558df7090411b976ed6a320127b7734d8d80", "3.9.6": "sha256:0cace3cf597a1f89c5ab232f8a232d1cfa0b007e74a63bd52d47da7678e305cc", "3.9.7": "sha256:b84ad1424ede72262413652ae6f33a030480055bca53f21dd0e1f164b2c64d08", "3.9.9": "sha256:0bb373de5bab398a6c24f37ece9e5eddd53f35101949c18747ac8b303b332d03", "3.10.1": "sha256:179c843e98149941b537812ca5749924e7656e35acdd9c044c906dd142ee03fb", "latest": "sha256:179c843e98149941b537812ca5749924e7656e35acdd9c044c906dd142ee03fb"}, "aliases": {"pydoc3": "/opt/view/bin/pydoc3", "pydoc3.8": "/opt/view/bin/pydoc3.8", "python": "/opt/view/bin/python", "python-config": "/opt/view/bin/python-config", "python3": "/opt/view/bin/python3", "python3-config": "/opt/view/bin/python3-config", "python3.8": "/opt/view/bin/python3.8", "python3.8-config": "/opt/view/bin/python3.8-config", "python3.8-gdb.py": "/opt/view/bin/python3.8-gdb.py"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/python.

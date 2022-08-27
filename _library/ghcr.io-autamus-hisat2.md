@@ -2,56 +2,38 @@
 layout: container
 name:  "ghcr.io/autamus/hisat2"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/hisat2/container.yaml"
-updated_at: "2022-08-01 18:20:45.231299"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/hisat2/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/hisat2/container.yaml"
+updated_at: "2022-08-27 01:36:02.516639"
+latest: "2.2.0"
 container_url: "https://github.com/orgs/autamus/packages/container/package/hisat2"
 aliases:
  - "hisat2"
-
  - "hisat2-align-l"
-
  - "hisat2-align-s"
-
  - "hisat2-build"
-
  - "hisat2-build-l"
-
  - "hisat2-build-s"
-
  - "hisat2-inspect"
-
  - "hisat2-inspect-l"
-
  - "hisat2-inspect-s"
-
  - "hisat2_extract_exons.py"
-
  - "hisat2_extract_snps_haplotypes_UCSC.py"
-
  - "hisat2_extract_snps_haplotypes_VCF.py"
-
  - "hisat2_extract_splice_sites.py"
-
  - "hisat2_read_statistics.py"
-
  - "hisat2_simulate_reads.py"
-
  - "hisatgenotype.py"
-
  - "hisatgenotype_build_genome.py"
-
  - "hisatgenotype_extract_reads.py"
-
  - "hisatgenotype_extract_vars.py"
-
  - "hisatgenotype_hla_cyp.py"
-
  - "hisatgenotype_locus.py"
-
 versions:
  - "2.2.0"
  - "latest"
 description: "HISAT2 is a fast and sensitive alignment program for mapping next-generation sequencing reads (both DNA and RNA) to a population of human genomes as well as to a single reference genome."
+config: {"docker": "ghcr.io/autamus/hisat2", "url": "https://github.com/orgs/autamus/packages/container/package/hisat2", "maintainer": "@vsoch", "description": "HISAT2 is a fast and sensitive alignment program for mapping next-generation sequencing reads (both DNA and RNA) to a population of human genomes as well as to a single reference genome.", "latest": {"2.2.0": "sha256:8ce9ed3acdcf4c8556797f244e6d2ee05277ec6d6376e5afab5abfdea49bad3c"}, "tags": {"2.2.0": "sha256:8ce9ed3acdcf4c8556797f244e6d2ee05277ec6d6376e5afab5abfdea49bad3c", "latest": "sha256:8ce9ed3acdcf4c8556797f244e6d2ee05277ec6d6376e5afab5abfdea49bad3c"}, "aliases": {"hisat2": "/opt/view/bin/hisat2", "hisat2-align-l": "/opt/view/bin/hisat2-align-l", "hisat2-align-s": "/opt/view/bin/hisat2-align-s", "hisat2-build": "/opt/view/bin/hisat2-build", "hisat2-build-l": "/opt/view/bin/hisat2-build-l", "hisat2-build-s": "/opt/view/bin/hisat2-build-s", "hisat2-inspect": "/opt/view/bin/hisat2-inspect", "hisat2-inspect-l": "/opt/view/bin/hisat2-inspect-l", "hisat2-inspect-s": "/opt/view/bin/hisat2-inspect-s", "hisat2_extract_exons.py": "/opt/view/bin/hisat2_extract_exons.py", "hisat2_extract_snps_haplotypes_UCSC.py": "/opt/view/bin/hisat2_extract_snps_haplotypes_UCSC.py", "hisat2_extract_snps_haplotypes_VCF.py": "/opt/view/bin/hisat2_extract_snps_haplotypes_VCF.py", "hisat2_extract_splice_sites.py": "/opt/view/bin/hisat2_extract_splice_sites.py", "hisat2_read_statistics.py": "/opt/view/bin/hisat2_read_statistics.py", "hisat2_simulate_reads.py": "/opt/view/bin/hisat2_simulate_reads.py", "hisatgenotype.py": "/opt/view/bin/hisatgenotype.py", "hisatgenotype_build_genome.py": "/opt/view/bin/hisatgenotype_build_genome.py", "hisatgenotype_extract_reads.py": "/opt/view/bin/hisatgenotype_extract_reads.py", "hisatgenotype_extract_vars.py": "/opt/view/bin/hisatgenotype_extract_vars.py", "hisatgenotype_hla_cyp.py": "/opt/view/bin/hisatgenotype_hla_cyp.py", "hisatgenotype_locus.py": "/opt/view/bin/hisatgenotype_locus.py"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/hisat2.

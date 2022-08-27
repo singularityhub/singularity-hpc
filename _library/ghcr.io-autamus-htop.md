@@ -2,17 +2,19 @@
 layout: container
 name:  "ghcr.io/autamus/htop"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/htop/container.yaml"
-updated_at: "2022-08-01 18:20:37.866776"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/htop/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/htop/container.yaml"
+updated_at: "2022-08-27 01:36:04.620472"
+latest: "3.1.1"
 container_url: "https://github.com/orgs/autamus/packages/container/package/htop"
 aliases:
  - "htop"
-
 versions:
  - "2.2.0"
  - "3.1.1"
  - "latest"
 description: "htop is an interactive text-mode process viewer for Unix systems. https://github.com/hishamhm/htop"
+config: {"docker": "ghcr.io/autamus/htop", "url": "https://github.com/orgs/autamus/packages/container/package/htop", "maintainer": "@vsoch", "description": "htop is an interactive text-mode process viewer for Unix systems. https://github.com/hishamhm/htop", "latest": {"3.1.1": "sha256:b048e55631aa8b1712ae9f05636e698096d6816b23e8388b0718df70cd82f378"}, "tags": {"2.2.0": "sha256:861a0982efda17ecdb78c271c330a9056ba9edf61c8fc390afbf7692d15b239b", "3.1.1": "sha256:b048e55631aa8b1712ae9f05636e698096d6816b23e8388b0718df70cd82f378", "latest": "sha256:b048e55631aa8b1712ae9f05636e698096d6816b23e8388b0718df70cd82f378"}, "aliases": {"htop": "/opt/view/bin/htop"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/htop.

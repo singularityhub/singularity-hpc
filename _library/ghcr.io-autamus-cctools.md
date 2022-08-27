@@ -2,67 +2,44 @@
 layout: container
 name:  "ghcr.io/autamus/cctools"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/cctools/container.yaml"
-updated_at: "2022-08-01 18:20:26.152223"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/cctools/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/cctools/container.yaml"
+updated_at: "2022-08-27 01:35:39.880494"
+latest: "7.2.10"
 container_url: "https://github.com/orgs/autamus/packages/container/package/cctools"
 aliases:
  - "c_rehash"
-
  - "captoinfo"
-
  - "catalog_query"
-
  - "catalog_server"
-
  - "catalog_update"
-
  - "ccache-swig"
-
  - "cctools_gpu_autodetect"
-
  - "chirp"
-
  - "chirp_audit_cluster"
-
  - "chirp_benchmark"
-
  - "chirp_distribute"
-
  - "chirp_fuse"
-
  - "chirp_get"
-
  - "chirp_put"
-
  - "chirp_server"
-
  - "chirp_server_hdfs"
-
  - "chirp_status"
-
  - "chirp_stream_files"
-
  - "chroot_package_run"
-
  - "clear"
-
  - "condor_submit_makeflow"
-
  - "condor_submit_workers"
-
  - "confuga_adm"
-
  - "corelist"
-
  - "cpan"
-
  - "cpanm"
-
 versions:
  - "7.2.4"
  - "7.2.10"
  - "latest"
 description: "The Cooperative Computing Tools (CCTools) are a collection of programs that enable large scale distributed computing on systems such as clusters, clouds, and grids."
+config: {"docker": "ghcr.io/autamus/cctools", "url": "https://github.com/orgs/autamus/packages/container/package/cctools", "maintainer": "@vsoch", "description": "The Cooperative Computing Tools (CCTools) are a collection of programs that enable large scale distributed computing on systems such as clusters, clouds, and grids.", "latest": {"7.2.10": "sha256:30e70fb34dfc64836ab146cdaf9af607897a5f8310636dfe9c87672d2d23131c"}, "tags": {"7.2.4": "sha256:c685c9bfa6ad095519d8102dd024acd4c27434444b3da5e5c2fd745ebc09444d", "7.2.10": "sha256:30e70fb34dfc64836ab146cdaf9af607897a5f8310636dfe9c87672d2d23131c", "latest": "sha256:30e70fb34dfc64836ab146cdaf9af607897a5f8310636dfe9c87672d2d23131c"}, "aliases": {"c_rehash": "/opt/view/bin/c_rehash", "captoinfo": "/opt/view/bin/captoinfo", "catalog_query": "/opt/view/bin/catalog_query", "catalog_server": "/opt/view/bin/catalog_server", "catalog_update": "/opt/view/bin/catalog_update", "ccache-swig": "/opt/view/bin/ccache-swig", "cctools_gpu_autodetect": "/opt/view/bin/cctools_gpu_autodetect", "chirp": "/opt/view/bin/chirp", "chirp_audit_cluster": "/opt/view/bin/chirp_audit_cluster", "chirp_benchmark": "/opt/view/bin/chirp_benchmark", "chirp_distribute": "/opt/view/bin/chirp_distribute", "chirp_fuse": "/opt/view/bin/chirp_fuse", "chirp_get": "/opt/view/bin/chirp_get", "chirp_put": "/opt/view/bin/chirp_put", "chirp_server": "/opt/view/bin/chirp_server", "chirp_server_hdfs": "/opt/view/bin/chirp_server_hdfs", "chirp_status": "/opt/view/bin/chirp_status", "chirp_stream_files": "/opt/view/bin/chirp_stream_files", "chroot_package_run": "/opt/view/bin/chroot_package_run", "clear": "/opt/view/bin/clear", "condor_submit_makeflow": "/opt/view/bin/condor_submit_makeflow", "condor_submit_workers": "/opt/view/bin/condor_submit_workers", "confuga_adm": "/opt/view/bin/confuga_adm", "corelist": "/opt/view/bin/corelist", "cpan": "/opt/view/bin/cpan", "cpanm": "/opt/view/bin/cpanm"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/cctools.

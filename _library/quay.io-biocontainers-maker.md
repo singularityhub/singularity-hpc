@@ -2,18 +2,20 @@
 layout: container
 name:  "quay.io/biocontainers/maker"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/maker/container.yaml"
-updated_at: "2022-08-01 18:21:34.034939"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/quay.io/biocontainers/maker/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/quay.io/biocontainers/maker/container.yaml"
+updated_at: "2022-08-27 01:37:27.934189"
+latest: "3.01.03--pl5262h8f1cd36_2"
 container_url: "https://quay.io/repository/biocontainers/maker"
 aliases:
  - "maker"
-
 versions:
  - "2.31.11--pl526h61907ee_0"
  - "3.01.03--pl526hb8757ab_0"
  - "3.01.03--pl5262h8f1cd36_2"
  - "2.31.11--pl5262hec0a270_1"
 description: "A portable and easily configurable genome annotation pipeline"
+config: {"docker": "quay.io/biocontainers/maker", "url": "https://quay.io/repository/biocontainers/maker", "maintainer": "@sarahbeecroft", "description": "A portable and easily configurable genome annotation pipeline", "latest": {"3.01.03--pl5262h8f1cd36_2": "sha256:6d9024749b96d7873fb095e64412e73978170ef180467107e96a8d5b445f99e3"}, "tags": {"2.31.11--pl526h61907ee_0": "sha256:b9bd2979ddc5f74effd67c03d56a7f4f2640b36e242c54e2337ade9c5b6dca98", "3.01.03--pl526hb8757ab_0": "sha256:89d7a781ab33be10bfc001675b644c52e616ccf75805ab2a7f694681c5c98ebb", "3.01.03--pl5262h8f1cd36_2": "sha256:6d9024749b96d7873fb095e64412e73978170ef180467107e96a8d5b445f99e3", "2.31.11--pl5262hec0a270_1": "sha256:284cd94bd1aa733082aa673a8fd892e76453b87d210d5f410c02ea611b364ef0"}, "aliases": {"maker": "/usr/local/bin/maker"}}
 ---
 
 This module is a singularity container wrapper for quay.io/biocontainers/maker.

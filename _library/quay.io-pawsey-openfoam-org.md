@@ -2,8 +2,10 @@
 layout: container
 name:  "quay.io/pawsey/openfoam-org"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/pawsey/openfoam-org/container.yaml"
-updated_at: "2022-08-01 18:21:39.647450"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/quay.io/pawsey/openfoam-org/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/quay.io/pawsey/openfoam-org/container.yaml"
+updated_at: "2022-08-27 01:37:36.939260"
+latest: "8"
 container_url: "https://quay.io/repository/pawsey/openfoam-org"
 
 versions:
@@ -13,6 +15,7 @@ versions:
  - "2.4.x"
  - "2.2.0"
 description: "OpenFOAM (openfoam.org) images built on top of MPICH."
+config: {"docker": "quay.io/pawsey/openfoam-org", "url": "https://quay.io/repository/pawsey/openfoam-org", "maintainer": "@marcodelapierre", "description": "OpenFOAM (openfoam.org) images built on top of MPICH.", "latest": {"8": "sha256:13eafb0fa58dafbdaacf8000886bdd3c9c63ee29c35f09a2cc1cdf44c1871226"}, "tags": {"8": "sha256:13eafb0fa58dafbdaacf8000886bdd3c9c63ee29c35f09a2cc1cdf44c1871226", "7": "sha256:3d427b3dec890193bb671185acefdc91fb126363b5f368d147603002b4708afe", "5.x": "sha256:301765ba65e135ad1954bc8dabfc1a76ad716000ae8142d0c0a61810b3dce922", "2.4.x": "sha256:526ed37410c31789c5da9f3dd5f842835989533181b0c7e7feafd1eaa683ff43", "2.2.0": "sha256:32f0a464f0ea128e6b68b58e90719c24b5acb962dc8b7b8767440f8d70ed9156"}, "overrides": {"2.2.0": "aliases/2.2.0.yaml", "2.4.x": "aliases/2.4.x.yaml", "5.x": "aliases/5.x.yaml", "7": "aliases/7.yaml", "8": "aliases/8.yaml"}}
 ---
 
 This module is a singularity container wrapper for quay.io/pawsey/openfoam-org.

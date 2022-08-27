@@ -2,8 +2,10 @@
 layout: container
 name:  "ghcr.io/autamus/slepc"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/slepc/container.yaml"
-updated_at: "2022-08-01 18:20:33.535452"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/slepc/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/slepc/container.yaml"
+updated_at: "2022-08-27 01:36:46.142651"
+latest: "3.16.1"
 container_url: "https://github.com/orgs/autamus/packages/container/package/slepc"
 
 versions:
@@ -13,6 +15,7 @@ versions:
  - "3.15.2"
  - "latest"
 description: "Scalable Library for Eigenvalue Problem Computations."
+config: {"docker": "ghcr.io/autamus/slepc", "url": "https://github.com/orgs/autamus/packages/container/package/slepc", "maintainer": "@vsoch", "description": "Scalable Library for Eigenvalue Problem Computations.", "latest": {"3.16.1": "sha256:996170bda838c208b42d8c97fe3d5003b125802bf94e952476ab871bc1c5958a"}, "tags": {"3.15.1": "sha256:811d519414a4336d65ff4373cc9e0177deecd493702c7b32e5f08b3e91846047", "3.16.0": "sha256:43057b8923b8b15f7f365ae41b1859efd1e9718eee569fd6417f387a5a5a2a89", "3.16.1": "sha256:996170bda838c208b42d8c97fe3d5003b125802bf94e952476ab871bc1c5958a", "3.15.2": "sha256:94dcc33b55e6e5e1ab85eea811ed1096c3e822866689821549561b81665fb4fd", "latest": "sha256:996170bda838c208b42d8c97fe3d5003b125802bf94e952476ab871bc1c5958a"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/slepc.

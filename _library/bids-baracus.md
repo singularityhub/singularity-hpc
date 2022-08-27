@@ -2,8 +2,10 @@
 layout: container
 name:  "bids/baracus"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/bids/baracus/container.yaml"
-updated_at: "2022-08-01 18:22:00.932757"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/bids/baracus/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/bids/baracus/container.yaml"
+updated_at: "2022-08-27 01:35:09.838536"
+latest: "dev7"
 container_url: "https://hub.docker.com/r/bids/baracus"
 
 versions:
@@ -12,6 +14,7 @@ versions:
  - "dev7"
  - "unstable"
 description: "Brain-Age Regression Analysis and Computation Utility Software (https://github.com/BIDS-Apps/baracus)"
+config: {"docker": "bids/baracus", "url": "https://hub.docker.com/r/bids/baracus", "maintainer": "@vsoch", "description": "Brain-Age Regression Analysis and Computation Utility Software (https://github.com/BIDS-Apps/baracus)", "latest": {"dev7": "sha256:6b47fc45ec68e1cbcff5f844a076a36a272ee43fb13217f8f9832abf01a6906a"}, "tags": {"latest": "sha256:8e42305ab7321fcdb468c22a87b5a9b248866a5821e64721200f927c2019dcb4", "v1.1.4": "sha256:8e42305ab7321fcdb468c22a87b5a9b248866a5821e64721200f927c2019dcb4", "dev7": "sha256:6b47fc45ec68e1cbcff5f844a076a36a272ee43fb13217f8f9832abf01a6906a", "unstable": "sha256:8e42305ab7321fcdb468c22a87b5a9b248866a5821e64721200f927c2019dcb4"}, "filter": ["v*"]}
 ---
 
 This module is a singularity container wrapper for bids/baracus.

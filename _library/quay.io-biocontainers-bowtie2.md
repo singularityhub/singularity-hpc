@@ -2,34 +2,28 @@
 layout: container
 name:  "quay.io/biocontainers/bowtie2"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/bowtie2/container.yaml"
-updated_at: "2022-08-01 18:21:31.458129"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/quay.io/biocontainers/bowtie2/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/quay.io/biocontainers/bowtie2/container.yaml"
+updated_at: "2022-08-27 01:37:21.555064"
+latest: "2.4.5--py36hd4290be_0"
 container_url: "https://quay.io/repository/biocontainers/bowtie2"
 aliases:
  - "bowtie2"
-
  - "bowtie2-align-l"
-
  - "bowtie2-align-s"
-
  - "bowtie2-build"
-
  - "bowtie2-build-l"
-
  - "bowtie2-build-s"
-
  - "bowtie2-inspect"
-
  - "bowtie2-inspect-l"
-
  - "bowtie2-inspect-s"
-
 versions:
  - "2.3.5.1--py37he513fc3_0"
  - "2.4.4--py36hd4290be_0"
  - "2.4.4--py39hbb4e92a_0"
  - "2.4.5--py36hd4290be_0"
 description: "Bowtie 2 is an ultrafast and memory-efficient tool for aligning sequencing reads to long reference sequences."
+config: {"docker": "quay.io/biocontainers/bowtie2", "url": "https://quay.io/repository/biocontainers/bowtie2", "maintainer": "@marcodelapierre", "description": "Bowtie 2 is an ultrafast and memory-efficient tool for aligning sequencing reads to long reference sequences.", "latest": {"2.4.5--py36hd4290be_0": "sha256:7c547046fcb6f742789a741ef52289f174edb75d46db6d835d654e673cd2dafc"}, "tags": {"2.3.5.1--py37he513fc3_0": "sha256:361034b738118d023b5ed35b070458864f23bf63de09017ac30d08ff48a815b0", "2.4.4--py36hd4290be_0": "sha256:323054e2dd75372c36ad789bbf5666b0b90c5405bd243f81a426d0895ed46497", "2.4.4--py39hbb4e92a_0": "sha256:8295d4e8d7e665e9309cb8311a6aac6d4cc721b30e7e13135c18cd4016baad36", "2.4.5--py36hd4290be_0": "sha256:7c547046fcb6f742789a741ef52289f174edb75d46db6d835d654e673cd2dafc"}, "aliases": {"bowtie2": "/usr/local/bin/bowtie2", "bowtie2-align-l": "/usr/local/bin/bowtie2-align-l", "bowtie2-align-s": "/usr/local/bin/bowtie2-align-s", "bowtie2-build": "/usr/local/bin/bowtie2-build", "bowtie2-build-l": "/usr/local/bin/bowtie2-build-l", "bowtie2-build-s": "/usr/local/bin/bowtie2-build-s", "bowtie2-inspect": "/usr/local/bin/bowtie2-inspect", "bowtie2-inspect-l": "/usr/local/bin/bowtie2-inspect-l", "bowtie2-inspect-s": "/usr/local/bin/bowtie2-inspect-s"}}
 ---
 
 This module is a singularity container wrapper for quay.io/biocontainers/bowtie2.

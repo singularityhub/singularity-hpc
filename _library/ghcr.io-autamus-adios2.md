@@ -2,24 +2,22 @@
 layout: container
 name:  "ghcr.io/autamus/adios2"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/adios2/container.yaml"
-updated_at: "2022-08-01 18:21:23.204269"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/adios2/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/adios2/container.yaml"
+updated_at: "2022-08-27 01:35:25.639813"
+latest: "2.7.1"
 container_url: "https://github.com/orgs/autamus/packages/container/package/adios2"
 aliases:
  - "adios2-config"
-
  - "adios2_deactivate_bp"
-
  - "adios2_iotest"
-
  - "adios2_reorganize"
-
  - "adios2_reorganize_mpi"
-
 versions:
  - "2.7.1"
  - "latest"
 description: "The Adaptable Input Output System version 2, developed in the Exascale Computing Program"
+config: {"docker": "ghcr.io/autamus/adios2", "url": "https://github.com/orgs/autamus/packages/container/package/adios2", "maintainer": "@vsoch", "description": "The Adaptable Input Output System version 2, developed in the Exascale Computing Program", "latest": {"2.7.1": "sha256:ad475f144747104b57674f84e72efa877e904645ce5edeb9d43a06e058764c72"}, "tags": {"2.7.1": "sha256:ad475f144747104b57674f84e72efa877e904645ce5edeb9d43a06e058764c72", "latest": "sha256:ad475f144747104b57674f84e72efa877e904645ce5edeb9d43a06e058764c72"}, "aliases": {"adios2-config": "/opt/view/bin/adios2-config", "adios2_deactivate_bp": "/opt/view/bin/adios2_deactivate_bp", "adios2_iotest": "/opt/view/bin/adios2_iotest", "adios2_reorganize": "/opt/view/bin/adios2_reorganize", "adios2_reorganize_mpi": "/opt/view/bin/adios2_reorganize_mpi"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/adios2.

@@ -2,14 +2,17 @@
 layout: container
 name:  "ghcr.io/autamus/umap"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/umap/container.yaml"
-updated_at: "2022-08-01 18:20:35.259552"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/umap/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/umap/container.yaml"
+updated_at: "2022-08-27 01:36:54.038524"
+latest: "2.1.0"
 container_url: "https://github.com/orgs/autamus/packages/container/package/umap"
 
 versions:
  - "2.1.0"
  - "latest"
 description: "Umap is a library that provides an mmap()-like interface to a simple, user-space page fault handler based on the userfaultfd Linux feature (starting with 4.3 linux kernel)."
+config: {"docker": "ghcr.io/autamus/umap", "url": "https://github.com/orgs/autamus/packages/container/package/umap", "maintainer": "@vsoch", "description": "Umap is a library that provides an mmap()-like interface to a simple, user-space page fault handler based on the userfaultfd Linux feature (starting with 4.3 linux kernel).", "latest": {"2.1.0": "sha256:44db85ad345ca7d1f40b6ce5bb78b0f49d60a80ab7a78f248973b69902c7079c"}, "tags": {"2.1.0": "sha256:44db85ad345ca7d1f40b6ce5bb78b0f49d60a80ab7a78f248973b69902c7079c", "latest": "sha256:44db85ad345ca7d1f40b6ce5bb78b0f49d60a80ab7a78f248973b69902c7079c"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/umap.

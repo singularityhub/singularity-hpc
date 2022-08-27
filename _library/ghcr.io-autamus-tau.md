@@ -2,8 +2,10 @@
 layout: container
 name:  "ghcr.io/autamus/tau"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/tau/container.yaml"
-updated_at: "2022-08-01 18:21:08.974885"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/tau/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/tau/container.yaml"
+updated_at: "2022-08-27 01:36:51.393487"
+latest: "2.31"
 container_url: "https://github.com/orgs/autamus/packages/container/package/tau"
 
 versions:
@@ -12,6 +14,7 @@ versions:
  - "2.31"
  - "latest"
 description: "A portable profiling and tracing toolkit for performance analysis of parallel programs written in Fortran, C, C++, UPC, Java, Python."
+config: {"docker": "ghcr.io/autamus/tau", "url": "https://github.com/orgs/autamus/packages/container/package/tau", "maintainer": "@vsoch", "description": "A portable profiling and tracing toolkit for performance analysis of parallel programs written in Fortran, C, C++, UPC, Java, Python.", "latest": {"2.31": "sha256:89d061bfaf921f102528f1e2ab06741041e0bec28f197b2a81f9ef2aa438088e"}, "tags": {"2.30.1": "sha256:3df1deaa0fcecedafae828a493afbf49a0df3c201fd1f4d261f8246e05d538be", "2.30.2": "sha256:e85557bb38b25bfe39a28258f209c2d5c9c15cfc3860f1bcb49de316391db958", "2.31": "sha256:89d061bfaf921f102528f1e2ab06741041e0bec28f197b2a81f9ef2aa438088e", "latest": "sha256:89d061bfaf921f102528f1e2ab06741041e0bec28f197b2a81f9ef2aa438088e"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/tau.

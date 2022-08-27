@@ -2,14 +2,17 @@
 layout: container
 name:  "ghcr.io/autamus/lammps"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/lammps/container.yaml"
-updated_at: "2022-08-01 18:20:28.327601"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/lammps/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/lammps/container.yaml"
+updated_at: "2022-08-27 01:36:10.918696"
+latest: "20210310"
 container_url: "https://github.com/orgs/autamus/packages/container/package/lammps"
 
 versions:
  - "latest"
  - "20210310"
 description: "LAMMPS is a classical molecular dynamics code with a focus on materials modeling."
+config: {"docker": "ghcr.io/autamus/lammps", "url": "https://github.com/orgs/autamus/packages/container/package/lammps", "maintainer": "@vsoch", "description": "LAMMPS is a classical molecular dynamics code with a focus on materials modeling.", "latest": {"20210310": "sha256:6b49f26c1d75e460ca1edae7ed7ad819204cff880c69acaeaa868c6e7eacc893"}, "tags": {"latest": "sha256:6b49f26c1d75e460ca1edae7ed7ad819204cff880c69acaeaa868c6e7eacc893", "20210310": "sha256:6b49f26c1d75e460ca1edae7ed7ad819204cff880c69acaeaa868c6e7eacc893"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/lammps.

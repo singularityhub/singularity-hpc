@@ -2,42 +2,28 @@
 layout: container
 name:  "ghcr.io/autamus/libtiff"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/libtiff/container.yaml"
-updated_at: "2022-08-01 18:21:17.155354"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/libtiff/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/libtiff/container.yaml"
+updated_at: "2022-08-27 01:36:13.531161"
+latest: "4.4.0"
 container_url: "https://github.com/orgs/autamus/packages/container/package/libtiff"
 aliases:
  - "fax2tiff"
-
  - "ppm2tiff"
-
  - "raw2tiff"
-
  - "tiff2bw"
-
  - "tiff2pdf"
-
  - "tiff2ps"
-
  - "tiff2rgba"
-
  - "tiffcmp"
-
  - "tiffcp"
-
  - "tiffcrop"
-
  - "tiffdither"
-
  - "tiffdump"
-
  - "tiffinfo"
-
  - "tiffmedian"
-
  - "tiffset"
-
  - "tiffsplit"
-
 versions:
  - "4.1.0"
  - "4.3.0"
@@ -45,6 +31,7 @@ versions:
  - "4.2.0"
  - "4.4.0"
 description: "Libtiff is a library for reading and writing Tagged Image File Format (abbreviated TIFF) files."
+config: {"docker": "ghcr.io/autamus/libtiff", "url": "https://github.com/orgs/autamus/packages/container/package/libtiff", "maintainer": "@vsoch", "description": "Libtiff is a library for reading and writing Tagged Image File Format (abbreviated TIFF) files.", "latest": {"4.4.0": "sha256:2d752336581eedb5aa0a5cabdb6fa472e66d9ddc4d6b25c884ff017523aa6712"}, "tags": {"4.1.0": "sha256:9b7046a7f1aeda65bbdd29587e89dc56c0831ee82e377591030ee340de2245fb", "4.3.0": "sha256:3502e639d185e196d1cb79fb751d290b9a5c69ca596f8635a8b976567b8ee29d", "latest": "sha256:2d752336581eedb5aa0a5cabdb6fa472e66d9ddc4d6b25c884ff017523aa6712", "4.2.0": "sha256:5e31be7f2575232321b0237b5adaf809bf5a6df2e2c87ff3b55a48dd87f6d145", "4.4.0": "sha256:2d752336581eedb5aa0a5cabdb6fa472e66d9ddc4d6b25c884ff017523aa6712"}, "aliases": {"fax2tiff": "/opt/view/bin/fax2tiff", "ppm2tiff": "/opt/view/bin/ppm2tiff", "raw2tiff": "/opt/view/bin/raw2tiff", "tiff2bw": "/opt/view/bin/tiff2bw", "tiff2pdf": "/opt/view/bin/tiff2pdf", "tiff2ps": "/opt/view/bin/tiff2ps", "tiff2rgba": "/opt/view/bin/tiff2rgba", "tiffcmp": "/opt/view/bin/tiffcmp", "tiffcp": "/opt/view/bin/tiffcp", "tiffcrop": "/opt/view/bin/tiffcrop", "tiffdither": "/opt/view/bin/tiffdither", "tiffdump": "/opt/view/bin/tiffdump", "tiffinfo": "/opt/view/bin/tiffinfo", "tiffmedian": "/opt/view/bin/tiffmedian", "tiffset": "/opt/view/bin/tiffset", "tiffsplit": "/opt/view/bin/tiffsplit"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/libtiff.

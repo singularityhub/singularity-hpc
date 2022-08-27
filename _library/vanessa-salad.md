@@ -2,15 +2,17 @@
 layout: container
 name:  "vanessa/salad"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/vanessa/salad/container.yaml"
-updated_at: "2022-08-01 18:21:40.077922"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/vanessa/salad/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/vanessa/salad/container.yaml"
+updated_at: "2022-08-27 01:37:46.464006"
+latest: "latest"
 container_url: "https://hub.docker.com/r/vanessa/salad"
 aliases:
  - "salad"
-
 versions:
  - "latest"
 description: "A container all about fork and spoon puns."
+config: {"docker": "vanessa/salad", "url": "https://hub.docker.com/r/vanessa/salad", "maintainer": "@vsoch", "description": "A container all about fork and spoon puns.", "filter": ["^(?!.*add_github-actions).*$"], "latest": {"latest": "sha256:e8302da47e3200915c1d3a9406d9446f04da7244e4995b7135afd2b79d4f63db"}, "tags": {"latest": "sha256:e8302da47e3200915c1d3a9406d9446f04da7244e4995b7135afd2b79d4f63db"}, "aliases": {"salad": "/code/salad"}, "docker_scripts": {"fork": "docker_fork.sh"}, "singularity_scripts": {"fork": "singularity_fork.sh"}, "env": {"maintainer": "vsoch"}}
 ---
 
 This module is a singularity container wrapper for vanessa/salad.

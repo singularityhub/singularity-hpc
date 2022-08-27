@@ -2,12 +2,13 @@
 layout: container
 name:  "nvcr.io/hpc/gromacs"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/nvcr.io/hpc/gromacs/container.yaml"
-updated_at: "2022-08-01 18:21:49.685520"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/nvcr.io/hpc/gromacs/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/nvcr.io/hpc/gromacs/container.yaml"
+updated_at: "2022-08-27 01:37:09.369576"
+latest: "2022.1"
 container_url: "https://ngc.nvidia.com/catalog/containers/hpc:gromacs/tags"
 aliases:
  - "python"
-
 versions:
  - "2020.2"
  - "2020.2-arm64"
@@ -16,6 +17,7 @@ versions:
  - "2020.2-x86_64"
  - "2022.1"
 description: "GROMACS is a popular molecular dynamics application used to simulate proteins and lipids."
+config: {"docker": "nvcr.io/hpc/gromacs", "url": "https://ngc.nvidia.com/catalog/containers/hpc:gromacs/tags", "maintainer": "@vsoch", "description": "GROMACS is a popular molecular dynamics application used to simulate proteins and lipids.", "latest": {"2022.1": "sha256:1a300919fef314b2b42b4f252eb92052ccb912eaed066f1cd3f1415038a6cbce"}, "tags": {"2020.2": "sha256:2d51288e7b0cacc3c33fdde07a2b81a803c243411ccb805e03179fa2554b8daa", "2020.2-arm64": "sha256:2b8c453a5fc709f19e48c76d2b8403d1a5248eef2f05c1429df23b77e1c06b33", "2021": "sha256:aa095dcdb175e10132a5862204bf91e6f374f72ba9f2360d9ff5c45ae67785fd", "2021.3": "sha256:bfa887d5bebc48fe551873a240ecd0a2bb87f7c3d67f0178233304b5b779cedc", "2020.2-x86_64": "sha256:b76a847b8f85bab0a5605a97b774583650132d8f413c0d878ffbdc381a04472a", "2022.1": "sha256:1a300919fef314b2b42b4f252eb92052ccb912eaed066f1cd3f1415038a6cbce"}, "filter": ["^((?!arm).)*$"], "features": {"gpu": true}, "aliases": {"python": "/usr/bin/python"}}
 ---
 
 This module is a singularity container wrapper for nvcr.io/hpc/gromacs.

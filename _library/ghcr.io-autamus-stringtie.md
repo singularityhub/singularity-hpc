@@ -2,18 +2,20 @@
 layout: container
 name:  "ghcr.io/autamus/stringtie"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/stringtie/container.yaml"
-updated_at: "2022-08-01 18:20:36.999795"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/stringtie/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/stringtie/container.yaml"
+updated_at: "2022-08-27 01:36:49.301180"
+latest: "2.1.7"
 container_url: "https://github.com/orgs/autamus/packages/container/package/stringtie"
 aliases:
  - "stringtie"
-
 versions:
  - "2.1.5"
  - "2.1.6"
  - "2.1.7"
  - "latest"
 description: "StringTie is a fast and highly efficient assembler of RNA-Seq alignments into potential transcripts."
+config: {"docker": "ghcr.io/autamus/stringtie", "url": "https://github.com/orgs/autamus/packages/container/package/stringtie", "maintainer": "@vsoch", "description": "StringTie is a fast and highly efficient assembler of RNA-Seq alignments into potential transcripts.", "latest": {"2.1.7": "sha256:d076165e92438fcee137f81868f524a9a03b4eab802abadf52d14f38adffe0b7"}, "tags": {"2.1.5": "sha256:17ad259efefe11dea4baf80631a189d2d1ff6c5ff59c339dfadf9c30806668f1", "2.1.6": "sha256:ff3ded2da21df79de3d53c61140d02dd0caea7603037663d8560986d3e345c8c", "2.1.7": "sha256:d076165e92438fcee137f81868f524a9a03b4eab802abadf52d14f38adffe0b7", "latest": "sha256:b46c04536a9458bccf9ea7130d415f1f6a7e03d8838c7f7fc4a6debd1dc79ed0"}, "aliases": {"stringtie": "/opt/view/bin/stringtie"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/stringtie.

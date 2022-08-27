@@ -2,39 +2,30 @@
 layout: container
 name:  "ghcr.io/autamus/mafft"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/mafft/container.yaml"
-updated_at: "2022-08-01 18:21:09.830648"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/mafft/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/mafft/container.yaml"
+updated_at: "2022-08-27 01:36:16.685863"
+latest: "7.481"
 container_url: "https://github.com/orgs/autamus/packages/container/package/mafft"
 aliases:
  - "mafft"
-
  - "mafft-distance"
-
  - "mafft-einsi"
-
  - "mafft-fftns"
-
  - "mafft-fftnsi"
-
  - "mafft-ginsi"
-
  - "mafft-linsi"
-
  - "mafft-nwns"
-
  - "mafft-nwnsi"
-
  - "mafft-profile"
-
  - "mafft-qinsi"
-
  - "mafft-xinsi"
-
 versions:
  - "7.475"
  - "7.481"
  - "latest"
 description: "MAFFT is a multiple sequence alignment program for unix-like operating systems."
+config: {"docker": "ghcr.io/autamus/mafft", "url": "https://github.com/orgs/autamus/packages/container/package/mafft", "maintainer": "@vsoch", "description": "MAFFT is a multiple sequence alignment program for unix-like operating systems.", "latest": {"7.481": "sha256:57f31a2b94088e04694f5e5b709eea2b16c5c7c8298776b672c9cab343585772"}, "tags": {"7.475": "sha256:68187dfeeef282e59e5b0e09d9467523d655c3913bda90b5d21a183beec41720", "7.481": "sha256:57f31a2b94088e04694f5e5b709eea2b16c5c7c8298776b672c9cab343585772", "latest": "sha256:57f31a2b94088e04694f5e5b709eea2b16c5c7c8298776b672c9cab343585772"}, "aliases": {"mafft": "/opt/view/bin/mafft", "mafft-distance": "/opt/view/bin/mafft-distance", "mafft-einsi": "/opt/view/bin/mafft-einsi", "mafft-fftns": "/opt/view/bin/mafft-fftns", "mafft-fftnsi": "/opt/view/bin/mafft-fftnsi", "mafft-ginsi": "/opt/view/bin/mafft-ginsi", "mafft-linsi": "/opt/view/bin/mafft-linsi", "mafft-nwns": "/opt/view/bin/mafft-nwns", "mafft-nwnsi": "/opt/view/bin/mafft-nwnsi", "mafft-profile": "/opt/view/bin/mafft-profile", "mafft-qinsi": "/opt/view/bin/mafft-qinsi", "mafft-xinsi": "/opt/view/bin/mafft-xinsi"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/mafft.

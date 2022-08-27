@@ -2,16 +2,18 @@
 layout: container
 name:  "ghcr.io/autamus/lp-solve"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/lp-solve/container.yaml"
-updated_at: "2022-08-01 18:20:43.928805"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/lp-solve/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/lp-solve/container.yaml"
+updated_at: "2022-08-27 01:36:16.162330"
+latest: "5.5.2.11"
 container_url: "https://github.com/orgs/autamus/packages/container/package/lp-solve"
 aliases:
  - "lp_solve"
-
 versions:
  - "5.5.2.11"
  - "latest"
 description: "Lp_solve is freely available (under LGPL 2) software for solving linear, integer and mixed integer programs."
+config: {"docker": "ghcr.io/autamus/lp-solve", "url": "https://github.com/orgs/autamus/packages/container/package/lp-solve", "maintainer": "@vsoch", "description": "Lp_solve is freely available (under LGPL 2) software for solving linear, integer and mixed integer programs.", "latest": {"5.5.2.11": "sha256:f40dd3c1ce12e781ddee354421aa0d274ce41435b0b8db8c88e48b30836ee760"}, "tags": {"5.5.2.11": "sha256:f40dd3c1ce12e781ddee354421aa0d274ce41435b0b8db8c88e48b30836ee760", "latest": "sha256:f40dd3c1ce12e781ddee354421aa0d274ce41435b0b8db8c88e48b30836ee760"}, "aliases": {"lp_solve": "/opt/view/bin/lp_solve"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/lp-solve.

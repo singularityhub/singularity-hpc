@@ -2,12 +2,13 @@
 layout: container
 name:  "quay.io/biocontainers/salmon"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/salmon/container.yaml"
-updated_at: "2022-08-01 18:21:31.024905"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/quay.io/biocontainers/salmon/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/quay.io/biocontainers/salmon/container.yaml"
+updated_at: "2022-08-27 01:37:30.051462"
+latest: "1.9.0--h7e5ed60_0"
 container_url: "https://quay.io/repository/biocontainers/salmon"
 aliases:
  - "salmon"
-
 versions:
  - "1.4.0--h84f40af_1"
  - "1.5.2--h84f40af_0"
@@ -17,6 +18,7 @@ versions:
  - "1.7.0--h10bb6b4_1"
  - "1.9.0--h7e5ed60_0"
 description: "Salmon is a wicked-fast program to produce a highly-accurate, transcript-level quantification estimates from RNA-seq data."
+config: {"docker": "quay.io/biocontainers/salmon", "url": "https://quay.io/repository/biocontainers/salmon", "maintainer": "@marcodelapierre", "description": "Salmon is a wicked-fast program to produce a highly-accurate, transcript-level quantification estimates from RNA-seq data.", "latest": {"1.9.0--h7e5ed60_0": "sha256:97bd11c4d683edf3cf04b7b877e6c0c2f4e0c0fd0e81d64f8ecff7c83565621c"}, "tags": {"1.4.0--h84f40af_1": "sha256:bad1f9d2ffeac08bf7087d706634f7724f978c4ba6f9c26eddca5aad004c8e4c", "1.5.2--h84f40af_0": "sha256:4ae09a47788f08317bd2f758ac4c8804c9e87d88caf500c449e18ac4794d0332", "1.6.0--h84f40af_0": "sha256:e1da9c3e2abe7c1cd36062b9fa13c336e69ee3dd9e1f285fb3736fed4bdf7b48", "1.7.0--h84f40af_0": "sha256:64d58a2c873b4bc9a68781653b58ed2ebfc1e20195da9308657f2fbf9f694ae1", "1.8.0--h7e5ed60_1": "sha256:a9cccd97c393306641308f208c4c3ed1f20aade9aab44361da315ae286a01cee", "1.7.0--h10bb6b4_1": "sha256:4b42a8bf872393e5207f101c2650dbd6a45f7bfde58ae68211e75e0aa668db6e", "1.9.0--h7e5ed60_0": "sha256:97bd11c4d683edf3cf04b7b877e6c0c2f4e0c0fd0e81d64f8ecff7c83565621c"}, "aliases": {"salmon": "/usr/local/bin/salmon"}}
 ---
 
 This module is a singularity container wrapper for quay.io/biocontainers/salmon.

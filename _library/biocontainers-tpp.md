@@ -2,25 +2,22 @@
 layout: container
 name:  "biocontainers/tpp"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/biocontainers/tpp/container.yaml"
-updated_at: "2022-08-01 18:20:01.739464"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/biocontainers/tpp/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/biocontainers/tpp/container.yaml"
+updated_at: "2022-08-27 01:35:20.936940"
+latest: "v5.2_cv1"
 container_url: "https://hub.docker.com/r/biocontainers/tpp"
 aliases:
  - "config_data"
-
  - "json_xs"
-
  - "lwp-download"
-
  - "lwp-dump"
-
  - "lwp-mirror"
-
  - "lwp-request"
-
 versions:
  - "v5.2_cv1"
 description: "The Trans-Proteomic Pipeline (TPP) is a collection of integrated tools for MS/MS proteomics, developed at the SPC."
+config: {"docker": "biocontainers/tpp", "latest": {"v5.2_cv1": "sha256:67a0453b89084fd75550e90198f1df8d63de29e58a9f31e560439c682759e462"}, "tags": {"v5.2_cv1": "sha256:67a0453b89084fd75550e90198f1df8d63de29e58a9f31e560439c682759e462"}, "filter": ["v*"], "maintainer": "@vsoch", "url": "https://hub.docker.com/r/biocontainers/tpp", "description": "The Trans-Proteomic Pipeline (TPP) is a collection of integrated tools for MS/MS proteomics, developed at the SPC.", "aliases": {"config_data": "/usr/local/bin/config_data", "json_xs": "/usr/local/bin/json_xs", "lwp-download": "/usr/local/bin/lwp-download", "lwp-dump": "/usr/local/bin/lwp-dump", "lwp-mirror": "/usr/local/bin/lwp-mirror", "lwp-request": "/usr/local/bin/lwp-request"}}
 ---
 
 This module is a singularity container wrapper for biocontainers/tpp.

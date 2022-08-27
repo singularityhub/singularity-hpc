@@ -2,24 +2,22 @@
 layout: container
 name:  "ghcr.io/autamus/dakota"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/dakota/container.yaml"
-updated_at: "2022-08-01 18:20:39.594008"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/dakota/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/dakota/container.yaml"
+updated_at: "2022-08-27 01:35:46.212398"
+latest: "6.12"
 container_url: "https://github.com/orgs/autamus/packages/container/package/dakota"
 aliases:
  - "dakota"
-
  - "dakota_library_mode"
-
  - "dakota_library_split"
-
  - "dakota_order_input"
-
  - "dakota_restart_util"
-
 versions:
  - "6.12"
  - "latest"
 description: "The Dakota project delivers both state-of-the-art research and robust, usable software for optimization and UQ. Broadly, the Dakota software's advanced parametric analyses enable design exploration, model calibration, risk analysis, and quantification of margins and uncertainty with computational models."
+config: {"docker": "ghcr.io/autamus/dakota", "url": "https://github.com/orgs/autamus/packages/container/package/dakota", "maintainer": "@vsoch", "description": "The Dakota project delivers both state-of-the-art research and robust, usable software for optimization and UQ. Broadly, the Dakota software's advanced parametric analyses enable design exploration, model calibration, risk analysis, and quantification of margins and uncertainty with computational models.", "latest": {"6.12": "sha256:0fdfa85f7d9cf97e055e84aca17a954161eef086ea0f5999c1c01bbd87c16fe0"}, "tags": {"6.12": "sha256:0fdfa85f7d9cf97e055e84aca17a954161eef086ea0f5999c1c01bbd87c16fe0", "latest": "sha256:0fdfa85f7d9cf97e055e84aca17a954161eef086ea0f5999c1c01bbd87c16fe0"}, "aliases": {"dakota": "/opt/view/bin/dakota", "dakota_library_mode": "/opt/view/bin/dakota_library_mode", "dakota_library_split": "/opt/view/bin/dakota_library_split", "dakota_order_input": "/opt/view/bin/dakota_order_input", "dakota_restart_util": "/opt/view/bin/dakota_restart_util"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/dakota.

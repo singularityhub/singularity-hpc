@@ -2,18 +2,16 @@
 layout: container
 name:  "kibana"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/kibana/container.yaml"
-updated_at: "2022-08-01 18:21:45.336322"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/kibana/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/kibana/container.yaml"
+updated_at: "2022-08-27 01:37:05.111916"
+latest: "8.2.3"
 container_url: "https://hub.docker.com/_/kibana"
 aliases:
  - "kibana"
-
  - "kibana-encryption-keys"
-
  - "kibana-keystore"
-
  - "kibana-plugin"
-
 versions:
  - "7.12.0"
  - "7.12.1"
@@ -33,9 +31,8 @@ versions:
  - "8.2.2"
  - "7.17.4"
  - "8.2.3"
- - "8.3.3"
- - "7.17.5"
 description: "Kibana gives shape to any kind of data — structured and unstructured — indexed in Elasticsearch."
+config: {"docker": "kibana", "url": "https://hub.docker.com/_/kibana", "maintainer": "@vsoch", "description": "Kibana gives shape to any kind of data \u2014 structured and unstructured \u2014 indexed in Elasticsearch.", "latest": {"8.2.3": "sha256:d285696735a16772037f6ef7e763a9a347d2538c9ffd584f64c854b01a37f5d7"}, "tags": {"7.12.0": "sha256:767581addfa1f3c0520774a30c5d872bbc8f833e172d93685baf89c579a1808a", "7.12.1": "sha256:e96f8b6a90db0b4ba804f7023922448a1d752a85e77f6c645ec309fa0328627d", "7.13.1": "sha256:298a8520298f229f4be784f8fb204976b4e5215b89968f82bc45a469c00933ab", "7.13.2": "sha256:3d975ad10f72f05e3b572302f5545206de7be1d3f1d7060ce42cc8d5fa8efc78", "7.13.3": "sha256:17e13d811898aac8bfe6f4bf58c287381aaafa1fef1435f60b56886a30ec4500", "7.14.0": "sha256:7188839aee88057c1f92aaff12d6ca4f54f5f89c1a07caedbc0247c4ec041392", "7.14.2": "sha256:d3eaf39c5aae353a9edae380030188ed712547a31954c8057d069ef8f2d8cbba", "7.16.2": "sha256:cbff0e7f8200798130dc9ebca666c89d440f203272d66b007763ef554b21d0f0", "7.16.3": "sha256:a9bb1d796ca13a9d658c7ca4e3ca78ec555e532256ee3246addcf7606cc55527", "8.0.0": "sha256:498cfc53922d8299baa88e5a0f306a7fbf7f50bd85ac79b4eb43cbfd2ed89ec9", "8.1.2": "sha256:16522ca04a01c252ff4785f0c8102178995d3bc31bb4302abc49903623fad3b6", "8.0.1": "sha256:1ec3a471e124c74a404c0d15820ff038d6e68241788bc6ff77b6462adedc654e", "7.17.2": "sha256:214302162d75a7c8ade156b3298f3e12ba275bc537503109f13a8caac33fbef0", "8.1.3": "sha256:54160acbcec72562994675bcc84ff5241c54d0ad1e89cc6c5c1236b15f210b8f", "7.17.3": "sha256:e2e2031c15be40af4369fe04db4d91d65976b39c06f70447d878a1d44b9915be", "8.2.2": "sha256:cf34801f36a2e79c834b3cdeb0a3463ff34b8d8588c3ccdd47212c4e0753f8a5", "7.17.4": "sha256:13572cada04ff3730aa7cb6ebc0e0f28e0ae7b4a3a4304fff5104e011b2cba05", "8.2.3": "sha256:d285696735a16772037f6ef7e763a9a347d2538c9ffd584f64c854b01a37f5d7"}, "aliases": {"kibana": "/usr/share/kibana/bin/kibana", "kibana-encryption-keys": "/usr/share/kibana/bin/kibana-encryption-keys", "kibana-keystore": "/usr/share/kibana/bin/kibana-keystore", "kibana-plugin": "/usr/share/kibana/bin/kibana-plugin"}}
 ---
 
 This module is a singularity container wrapper for kibana.

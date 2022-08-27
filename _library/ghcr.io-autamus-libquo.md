@@ -2,16 +2,18 @@
 layout: container
 name:  "ghcr.io/autamus/libquo"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/libquo/container.yaml"
-updated_at: "2022-08-01 18:20:57.780562"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/libquo/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/libquo/container.yaml"
+updated_at: "2022-08-27 01:36:13.005901"
+latest: "1.3.1"
 container_url: "https://github.com/orgs/autamus/packages/container/package/libquo"
 aliases:
  - "quo-info"
-
 versions:
  - "1.3.1"
  - "latest"
 description: "QUO (as in status quo) is a runtime library that aids in accommodating thread-level heterogeneity in dynamic, phased MPI+X applications comprising single- and multi-threaded libraries."
+config: {"docker": "ghcr.io/autamus/libquo", "url": "https://github.com/orgs/autamus/packages/container/package/libquo", "maintainer": "@vsoch", "description": "QUO (as in status quo) is a runtime library that aids in accommodating thread-level heterogeneity in dynamic, phased MPI+X applications comprising single- and multi-threaded libraries.", "latest": {"1.3.1": "sha256:b1271a2bc7ba00ed611ae722c97aeff4f7af4399f8d5f04a5d0da4745e04a0b2"}, "tags": {"1.3.1": "sha256:b1271a2bc7ba00ed611ae722c97aeff4f7af4399f8d5f04a5d0da4745e04a0b2", "latest": "sha256:b1271a2bc7ba00ed611ae722c97aeff4f7af4399f8d5f04a5d0da4745e04a0b2"}, "aliases": {"quo-info": "/opt/view/bin/quo-info"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/libquo.

@@ -2,8 +2,10 @@
 layout: container
 name:  "ghcr.io/autamus/cfitsio"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/cfitsio/container.yaml"
-updated_at: "2022-08-01 18:20:49.576358"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/cfitsio/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/cfitsio/container.yaml"
+updated_at: "2022-08-27 01:35:40.952216"
+latest: "4.0.0"
 container_url: "https://github.com/orgs/autamus/packages/container/package/cfitsio"
 
 versions:
@@ -11,6 +13,7 @@ versions:
  - "4.0.0"
  - "latest"
 description: "CFITSIO is a library of C and Fortran subroutines for reading and writing data files in FITS (Flexible Image Transport System) data format."
+config: {"docker": "ghcr.io/autamus/cfitsio", "url": "https://github.com/orgs/autamus/packages/container/package/cfitsio", "maintainer": "@vsoch", "description": "CFITSIO is a library of C and Fortran subroutines for reading and writing data files in FITS (Flexible Image Transport System) data format.", "latest": {"4.0.0": "sha256:30056262bf72403df091b0f112816ffc84e3e664fb9c9866272bc55f7b697e42"}, "tags": {"3.49": "sha256:eca430653a52ec08feb642747d4e3f9d70f9d585f0bf9eea092673d81140bacc", "4.0.0": "sha256:30056262bf72403df091b0f112816ffc84e3e664fb9c9866272bc55f7b697e42", "latest": "sha256:30056262bf72403df091b0f112816ffc84e3e664fb9c9866272bc55f7b697e42"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/cfitsio.

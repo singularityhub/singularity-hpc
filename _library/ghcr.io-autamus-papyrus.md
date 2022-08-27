@@ -2,14 +2,17 @@
 layout: container
 name:  "ghcr.io/autamus/papyrus"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/papyrus/container.yaml"
-updated_at: "2022-08-01 18:20:09.531479"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/papyrus/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/papyrus/container.yaml"
+updated_at: "2022-08-27 01:36:28.257442"
+latest: "1.0.2"
 container_url: "https://github.com/orgs/autamus/packages/container/package/papyrus"
 
 versions:
  - "1.0.2"
  - "latest"
 description: "Parallel Aggregate Persistent Storage"
+config: {"docker": "ghcr.io/autamus/papyrus", "url": "https://github.com/orgs/autamus/packages/container/package/papyrus", "maintainer": "@vsoch", "description": "Parallel Aggregate Persistent Storage", "latest": {"1.0.2": "sha256:9cdbe3399d113f8d4efac68abc2419e4a38633055e86cdc6ff49ae63952a12a9"}, "tags": {"1.0.2": "sha256:9cdbe3399d113f8d4efac68abc2419e4a38633055e86cdc6ff49ae63952a12a9", "latest": "sha256:9cdbe3399d113f8d4efac68abc2419e4a38633055e86cdc6ff49ae63952a12a9"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/papyrus.

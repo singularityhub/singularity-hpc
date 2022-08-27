@@ -2,16 +2,18 @@
 layout: container
 name:  "ghcr.io/autamus/kallisto"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/kallisto/container.yaml"
-updated_at: "2022-08-01 18:20:34.827400"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/kallisto/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/kallisto/container.yaml"
+updated_at: "2022-08-27 01:36:09.870406"
+latest: "0.46.2"
 container_url: "https://github.com/orgs/autamus/packages/container/package/kallisto"
 aliases:
  - "kallisto"
-
 versions:
  - "0.46.2"
  - "latest"
 description: "kallisto is a program for quantifying abundances of transcripts from bulk and single-cell RNA-Seq data, or more generally of target sequences using high-throughput sequencing reads."
+config: {"docker": "ghcr.io/autamus/kallisto", "url": "https://github.com/orgs/autamus/packages/container/package/kallisto", "maintainer": "@vsoch", "description": "kallisto is a program for quantifying abundances of transcripts from bulk and single-cell RNA-Seq data, or more generally of target sequences using high-throughput sequencing reads.", "latest": {"0.46.2": "sha256:fe74aadc99ef7b850861fe476a54bdff56f8c967da9c2d2d589388e016bf5b82"}, "tags": {"0.46.2": "sha256:fe74aadc99ef7b850861fe476a54bdff56f8c967da9c2d2d589388e016bf5b82", "latest": "sha256:fe74aadc99ef7b850861fe476a54bdff56f8c967da9c2d2d589388e016bf5b82"}, "aliases": {"kallisto": "/opt/view/bin/kallisto"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/kallisto.

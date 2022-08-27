@@ -2,14 +2,17 @@
 layout: container
 name:  "ghcr.io/autamus/bracken"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/bracken/container.yaml"
-updated_at: "2022-08-01 18:20:34.398859"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/bracken/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/bracken/container.yaml"
+updated_at: "2022-08-27 01:35:37.218162"
+latest: "1.0.0"
 container_url: "https://github.com/orgs/autamus/packages/container/package/bracken"
 
 versions:
  - "1.0.0"
  - "latest"
 description: "Bracken (Bayesian Reestimation of Abundance with KrakEN) is a highly accurate statistical method that computes the abundance of species in DNA sequences from a metagenomics sample."
+config: {"docker": "ghcr.io/autamus/bracken", "url": "https://github.com/orgs/autamus/packages/container/package/bracken", "maintainer": "@vsoch", "description": "Bracken (Bayesian Reestimation of Abundance with KrakEN) is a highly accurate statistical method that computes the abundance of species in DNA sequences from a metagenomics sample.", "latest": {"1.0.0": "sha256:191ed4df49157c121e212132ef822bf262a0a6fbe77a12d26104e03ab6eabfcd"}, "tags": {"1.0.0": "sha256:191ed4df49157c121e212132ef822bf262a0a6fbe77a12d26104e03ab6eabfcd", "latest": "sha256:191ed4df49157c121e212132ef822bf262a0a6fbe77a12d26104e03ab6eabfcd"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/bracken.

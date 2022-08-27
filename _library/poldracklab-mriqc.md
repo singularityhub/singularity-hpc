@@ -2,15 +2,17 @@
 layout: container
 name:  "poldracklab/mriqc"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/poldracklab/mriqc/container.yaml"
-updated_at: "2022-08-01 18:22:07.889967"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/poldracklab/mriqc/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/poldracklab/mriqc/container.yaml"
+updated_at: "2022-08-27 01:37:16.766594"
+latest: "0.16.1"
 container_url: "https://hub.docker.com/r/poldracklab/mriqc"
 aliases:
  - "mriqc"
-
 versions:
  - "0.16.1"
 description: "Automatic prediction of quality and visual reporting of MRI scans."
+config: {"docker": "poldracklab/mriqc", "latest": {"0.16.1": "sha256:cbaeda87ca5f7a0f86816ac4a56fc28fef0ac88f392be7a9037371f8d7f48e53"}, "tags": {"0.16.1": "sha256:cbaeda87ca5f7a0f86816ac4a56fc28fef0ac88f392be7a9037371f8d7f48e53"}, "filter": ["2[.]*"], "maintainer": "@vsoch", "description": "Automatic prediction of quality and visual reporting of MRI scans.", "url": "https://hub.docker.com/r/poldracklab/mriqc", "aliases": {"mriqc": "/usr/local/miniconda/bin/mriqc"}}
 ---
 
 This module is a singularity container wrapper for poldracklab/mriqc.

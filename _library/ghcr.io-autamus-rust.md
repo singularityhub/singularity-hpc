@@ -2,32 +2,23 @@
 layout: container
 name:  "ghcr.io/autamus/rust"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/rust/container.yaml"
-updated_at: "2022-08-01 18:20:44.366448"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/rust/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/rust/container.yaml"
+updated_at: "2022-08-27 01:36:42.431424"
+latest: "1.54.0"
 container_url: "https://github.com/orgs/autamus/packages/container/package/rust"
 aliases:
  - "cargo"
-
  - "cargo-clippy"
-
  - "cargo-fmt"
-
  - "clippy-driver"
-
  - "rust"
-
  - "rust-gdb"
-
  - "rust-gdbgui"
-
  - "rust-lldb"
-
  - "rustc"
-
  - "rustdoc"
-
  - "rustfmt"
-
 versions:
  - "1.50.0"
  - "1.52.1"
@@ -35,6 +26,7 @@ versions:
  - "1.54.0"
  - "latest"
 description: "Rust is a multi-paradigm programming language designed for performance and safety, especially safe concurrency."
+config: {"docker": "ghcr.io/autamus/rust", "url": "https://github.com/orgs/autamus/packages/container/package/rust", "maintainer": "@vsoch", "description": "Rust is a multi-paradigm programming language designed for performance and safety, especially safe concurrency.", "latest": {"1.54.0": "sha256:df047336872fe0ffae5ee3f683e166cd816d7a6a437ddc63de6d19a5c9e713c9"}, "tags": {"1.50.0": "sha256:238c8e6fd628cea11f9023ab4b92b1e1295cae1400548b318c62fbe9be616611", "1.52.1": "sha256:340e767aa1f43b61f2ffbce26072e4846b2068c73b4808eb85f8cf9f4630d24a", "1.53.0": "sha256:ee8420808012967a81d5a205dee5372134e2b0ee63a1729d8b8550d91e823ba1", "1.54.0": "sha256:df047336872fe0ffae5ee3f683e166cd816d7a6a437ddc63de6d19a5c9e713c9", "latest": "sha256:621a331d970994c34ab996d06411d879ff1e653318549af6d8ce9cc1de10ff09"}, "aliases": {"cargo": "/opt/view/bin/cargo", "cargo-clippy": "/opt/view/bin/cargo-clippy", "cargo-fmt": "/opt/view/bin/cargo-fmt", "clippy-driver": "/opt/view/bin/clippy-driver", "rust": "/opt/view/bin/rust", "rust-gdb": "/opt/view/bin/rust-gdb", "rust-gdbgui": "/opt/view/bin/rust-gdbgui", "rust-lldb": "/opt/view/bin/rust-lldb", "rustc": "/opt/view/bin/rustc", "rustdoc": "/opt/view/bin/rustdoc", "rustfmt": "/opt/view/bin/rustfmt"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/rust.

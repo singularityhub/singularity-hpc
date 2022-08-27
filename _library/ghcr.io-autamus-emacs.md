@@ -2,22 +2,21 @@
 layout: container
 name:  "ghcr.io/autamus/emacs"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/emacs/container.yaml"
-updated_at: "2022-08-01 18:20:09.962163"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/emacs/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/emacs/container.yaml"
+updated_at: "2022-08-27 01:35:49.383867"
+latest: "27.2"
 container_url: "https://github.com/orgs/autamus/packages/container/package/emacs"
 aliases:
  - "ebrowse"
-
  - "emacs"
-
  - "emacsclient"
-
  - "etags"
-
 versions:
  - "27.2"
  - "latest"
 description: "The Emacs programmable text editor. https://www.gnu.org/software/emacs"
+config: {"docker": "ghcr.io/autamus/emacs", "url": "https://github.com/orgs/autamus/packages/container/package/emacs", "maintainer": "@vsoch", "description": "The Emacs programmable text editor. https://www.gnu.org/software/emacs", "latest": {"27.2": "sha256:49a6cce6e5b4c62891bd18a7c876170de19b84a51d2f65e7cd1e761b08ba8c76"}, "tags": {"27.2": "sha256:49a6cce6e5b4c62891bd18a7c876170de19b84a51d2f65e7cd1e761b08ba8c76", "latest": "sha256:49a6cce6e5b4c62891bd18a7c876170de19b84a51d2f65e7cd1e761b08ba8c76"}, "aliases": {"ebrowse": "/opt/view/bin/ebrowse", "emacs": "/opt/view/bin/emacs", "emacsclient": "/opt/view/bin/emacsclient", "etags": "/opt/view/bin/etags"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/emacs.

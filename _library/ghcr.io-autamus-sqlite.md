@@ -2,12 +2,13 @@
 layout: container
 name:  "ghcr.io/autamus/sqlite"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/sqlite/container.yaml"
-updated_at: "2022-08-01 18:21:00.366308"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/sqlite/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/sqlite/container.yaml"
+updated_at: "2022-08-27 01:36:48.253758"
+latest: "3.38.3"
 container_url: "https://github.com/orgs/autamus/packages/container/package/sqlite"
 aliases:
  - "sqlite3"
-
 versions:
  - "3.35.4"
  - "3.35.5"
@@ -17,6 +18,7 @@ versions:
  - "3.37.2"
  - "3.38.3"
 description: "SQLite is a relational database management system contained in a C library. "
+config: {"docker": "ghcr.io/autamus/sqlite", "url": "https://github.com/orgs/autamus/packages/container/package/sqlite", "maintainer": "@vsoch", "description": "SQLite is a relational database management system contained in a C library. ", "latest": {"3.38.3": "sha256:1d3a02d3733e5686ecff10a0fc33b5e3f75579b12c351d4559bcaa298c2a4164"}, "tags": {"3.35.4": "sha256:6fff31edcc2e88880c57b4ccf77bccfa3d89d626f289aa652103a906b8780880", "3.35.5": "sha256:5df8dfaf8a8273fa86bcbc6a172956285ba42b73e6893c0cd9f7c1989c522e14", "3.36.0": "sha256:d4d8fb1c2e40656247de3af3a0f8313d6cf7b2ecf979bb49cd1a577812525c0e", "3.37.1": "sha256:d94599a03df1134af1c2f2fec9244c5550551504209c7f0690aeaaecd2061f6a", "latest": "sha256:db9ddab38c750c462261b093c15f1520ae00b85bbd900080ac2d39d4f26fde47", "3.37.2": "sha256:76268c5e136035fdbbc6b4032910ffe19842766488b1ca015213f1a5bec718f6", "3.38.3": "sha256:1d3a02d3733e5686ecff10a0fc33b5e3f75579b12c351d4559bcaa298c2a4164"}, "aliases": {"sqlite3": "/opt/view/bin/sqlite3"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/sqlite.

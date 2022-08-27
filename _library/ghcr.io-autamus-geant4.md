@@ -2,78 +2,50 @@
 layout: container
 name:  "ghcr.io/autamus/geant4"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/geant4/container.yaml"
-updated_at: "2022-08-01 18:20:41.774093"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/geant4/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/geant4/container.yaml"
+updated_at: "2022-08-27 01:35:55.153260"
+latest: "11.0.0"
 container_url: "https://github.com/orgs/autamus/packages/container/package/geant4"
 aliases:
  - "Cast-config"
-
  - "CreateDOMDocument"
-
  - "DOMCount"
-
  - "DOMPrint"
-
  - "EnumVal"
-
  - "Evaluator-config"
-
  - "Exceptions-config"
-
  - "GenericFunctions-config"
-
  - "Geometry-config"
-
  - "Matrix-config"
-
  - "MemParse"
-
  - "PParse"
-
  - "PSVIWriter"
-
  - "Random-config"
-
  - "RandomObjects-config"
-
  - "Redirect"
-
  - "RefCount-config"
-
  - "SAX2Count"
-
  - "SAX2Print"
-
  - "SAXCount"
-
  - "SAXPrint"
-
  - "SCMPrint"
-
  - "SEnumVal"
-
  - "StdInParse"
-
  - "Units-config"
-
  - "Utility-config"
-
  - "Vector-config"
-
  - "XInclude"
-
  - "geant4-config"
-
  - "geant4.csh"
-
  - "geant4.sh"
-
 versions:
  - "10.7.1"
  - "10.7.2"
  - "11.0.0"
  - "latest"
 description: "Geant4 is a platform for the simulation of the passage of particles through matter using Monte Carlo methods."
+config: {"docker": "ghcr.io/autamus/geant4", "url": "https://github.com/orgs/autamus/packages/container/package/geant4", "maintainer": "@vsoch", "description": "Geant4 is a platform for the simulation of the passage of particles through matter using Monte Carlo methods.", "latest": {"11.0.0": "sha256:5181b262eaef780d0e571730e41c6162ea7d71e2696d1147f24b16d68b7c7ca5"}, "tags": {"10.7.1": "sha256:50ef5b260eae59c38f2360984095ee1752a0ad212d0f82bcaf6c712c8dda4e02", "10.7.2": "sha256:6c93f83aa3e4c5933d175b1a7777a5907d35033234a2dae47ab0383bc00a98df", "11.0.0": "sha256:5181b262eaef780d0e571730e41c6162ea7d71e2696d1147f24b16d68b7c7ca5", "latest": "sha256:5181b262eaef780d0e571730e41c6162ea7d71e2696d1147f24b16d68b7c7ca5"}, "aliases": {"Cast-config": "/opt/view/bin/Cast-config", "CreateDOMDocument": "/opt/view/bin/CreateDOMDocument", "DOMCount": "/opt/view/bin/DOMCount", "DOMPrint": "/opt/view/bin/DOMPrint", "EnumVal": "/opt/view/bin/EnumVal", "Evaluator-config": "/opt/view/bin/Evaluator-config", "Exceptions-config": "/opt/view/bin/Exceptions-config", "GenericFunctions-config": "/opt/view/bin/GenericFunctions-config", "Geometry-config": "/opt/view/bin/Geometry-config", "Matrix-config": "/opt/view/bin/Matrix-config", "MemParse": "/opt/view/bin/MemParse", "PParse": "/opt/view/bin/PParse", "PSVIWriter": "/opt/view/bin/PSVIWriter", "Random-config": "/opt/view/bin/Random-config", "RandomObjects-config": "/opt/view/bin/RandomObjects-config", "Redirect": "/opt/view/bin/Redirect", "RefCount-config": "/opt/view/bin/RefCount-config", "SAX2Count": "/opt/view/bin/SAX2Count", "SAX2Print": "/opt/view/bin/SAX2Print", "SAXCount": "/opt/view/bin/SAXCount", "SAXPrint": "/opt/view/bin/SAXPrint", "SCMPrint": "/opt/view/bin/SCMPrint", "SEnumVal": "/opt/view/bin/SEnumVal", "StdInParse": "/opt/view/bin/StdInParse", "Units-config": "/opt/view/bin/Units-config", "Utility-config": "/opt/view/bin/Utility-config", "Vector-config": "/opt/view/bin/Vector-config", "XInclude": "/opt/view/bin/XInclude", "geant4-config": "/opt/view/bin/geant4-config", "geant4.csh": "/opt/view/bin/geant4.csh", "geant4.sh": "/opt/view/bin/geant4.sh"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/geant4.

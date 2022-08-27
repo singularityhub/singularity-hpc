@@ -2,18 +2,20 @@
 layout: container
 name:  "quay.io/biocontainers/cutadapt"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/cutadapt/container.yaml"
-updated_at: "2022-08-01 18:21:33.606197"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/quay.io/biocontainers/cutadapt/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/quay.io/biocontainers/cutadapt/container.yaml"
+updated_at: "2022-08-27 01:37:24.744937"
+latest: "3.7--py38hbff2b2d_0"
 container_url: "https://quay.io/repository/biocontainers/cutadapt"
 aliases:
  - "cutadapt"
-
 versions:
  - "3.4--py36h4c5857e_0"
  - "3.4--py38h4a8c8d9_1"
  - "3.5--py39h38f01e4_0"
  - "3.7--py38hbff2b2d_0"
 description: "Trim adapters from high-throughput sequencing reads"
+config: {"docker": "quay.io/biocontainers/cutadapt", "url": "https://quay.io/repository/biocontainers/cutadapt", "maintainer": "@sarahbeecroft", "description": "Trim adapters from high-throughput sequencing reads", "latest": {"3.7--py38hbff2b2d_0": "sha256:c2201f010d14f6beed26e2fee75d2b8418c1413c457ccb6862b27e75913ce1ff"}, "tags": {"3.4--py36h4c5857e_0": "sha256:53a1f7ff0f9d78fc02e594b3a63ad4ceb84e2834639a23d4e90bcc9c1a1196a0", "3.4--py38h4a8c8d9_1": "sha256:489eda33229f60e7ca8e0397f95c775d53d6f40fa0baed04386e3726d4e9e136", "3.5--py39h38f01e4_0": "sha256:7df6dc446d6a920fa78319113f05d15e79240aee0829f08ee5ebef2f8d4775a4", "3.7--py38hbff2b2d_0": "sha256:c2201f010d14f6beed26e2fee75d2b8418c1413c457ccb6862b27e75913ce1ff"}, "aliases": {"cutadapt": "/usr/local/bin/cutadapt"}}
 ---
 
 This module is a singularity container wrapper for quay.io/biocontainers/cutadapt.

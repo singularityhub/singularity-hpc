@@ -2,79 +2,50 @@
 layout: container
 name:  "ghcr.io/autamus/admixtools"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/admixtools/container.yaml"
-updated_at: "2022-08-01 18:21:21.046585"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/admixtools/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/admixtools/container.yaml"
+updated_at: "2022-08-27 01:35:26.161631"
+latest: "7.0.2"
 container_url: "https://github.com/orgs/autamus/packages/container/package/admixtools"
 aliases:
  - "convertf"
-
  - "dowtjack"
-
  - "expfit.sh"
-
  - "gcount"
-
  - "grabpars"
-
  - "gsl-config"
-
  - "gsl-histogram"
-
  - "gsl-randist"
-
  - "jackdiff"
-
  - "kimf"
-
  - "mergeit"
-
  - "mkpretty"
-
  - "qp3Pop"
-
  - "qp4diff"
-
  - "qpAdm"
-
  - "qpBound"
-
  - "qpDpart"
-
  - "qpDstat"
-
  - "qpF4ratio"
-
  - "qpGraph"
-
  - "qpWave"
-
  - "qpdslow"
-
  - "qpff3base"
-
  - "qpfmv"
-
  - "qpfstats"
-
  - "qpreroot"
-
  - "rexpfit.r"
-
  - "rolloff"
-
  - "rolloffp"
-
  - "simpjack2"
-
  - "twtable"
-
  - "wtjack.pl"
-
 versions:
  - "7.0.1"
  - "7.0.2"
  - "latest"
 description: "ADMIXTOOLS is a collection of programs which use genetic data to infer how populations are related to one another."
+config: {"docker": "ghcr.io/autamus/admixtools", "url": "https://github.com/orgs/autamus/packages/container/package/admixtools", "maintainer": "@vsoch", "description": "ADMIXTOOLS is a collection of programs which use genetic data to infer how populations are related to one another.", "latest": {"7.0.2": "sha256:7202006778146368453d2648641faafb39d468f863294c29b962f243b7c18bb0"}, "tags": {"7.0.1": "sha256:20d0c229eefa759f2d810067757eb5db0d0147023a9859877004d1082d434246", "7.0.2": "sha256:7202006778146368453d2648641faafb39d468f863294c29b962f243b7c18bb0", "latest": "sha256:7202006778146368453d2648641faafb39d468f863294c29b962f243b7c18bb0"}, "aliases": {"convertf": "/opt/view/bin/convertf", "dowtjack": "/opt/view/bin/dowtjack", "expfit.sh": "/opt/view/bin/expfit.sh", "gcount": "/opt/view/bin/gcount", "grabpars": "/opt/view/bin/grabpars", "gsl-config": "/opt/view/bin/gsl-config", "gsl-histogram": "/opt/view/bin/gsl-histogram", "gsl-randist": "/opt/view/bin/gsl-randist", "jackdiff": "/opt/view/bin/jackdiff", "kimf": "/opt/view/bin/kimf", "mergeit": "/opt/view/bin/mergeit", "mkpretty": "/opt/view/bin/mkpretty", "qp3Pop": "/opt/view/bin/qp3Pop", "qp4diff": "/opt/view/bin/qp4diff", "qpAdm": "/opt/view/bin/qpAdm", "qpBound": "/opt/view/bin/qpBound", "qpDpart": "/opt/view/bin/qpDpart", "qpDstat": "/opt/view/bin/qpDstat", "qpF4ratio": "/opt/view/bin/qpF4ratio", "qpGraph": "/opt/view/bin/qpGraph", "qpWave": "/opt/view/bin/qpWave", "qpdslow": "/opt/view/bin/qpdslow", "qpff3base": "/opt/view/bin/qpff3base", "qpfmv": "/opt/view/bin/qpfmv", "qpfstats": "/opt/view/bin/qpfstats", "qpreroot": "/opt/view/bin/qpreroot", "rexpfit.r": "/opt/view/bin/rexpfit.r", "rolloff": "/opt/view/bin/rolloff", "rolloffp": "/opt/view/bin/rolloffp", "simpjack2": "/opt/view/bin/simpjack2", "twtable": "/opt/view/bin/twtable", "wtjack.pl": "/opt/view/bin/wtjack.pl"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/admixtools.

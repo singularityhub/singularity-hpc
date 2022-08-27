@@ -2,27 +2,24 @@
 layout: container
 name:  "ghcr.io/autamus/qhull"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/qhull/container.yaml"
-updated_at: "2022-08-01 18:20:40.899939"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/qhull/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/qhull/container.yaml"
+updated_at: "2022-08-27 01:36:38.224715"
+latest: "2020.2"
 container_url: "https://github.com/orgs/autamus/packages/container/package/qhull"
 aliases:
  - "qconvex"
-
  - "qdelaunay"
-
  - "qhalf"
-
  - "qhull"
-
  - "qvoronoi"
-
  - "rbox"
-
 versions:
  - "2020.1"
  - "2020.2"
  - "latest"
 description: "Snappy (previously known as Zippy) is a fast data compression and decompression library written in C++ by Google based on ideas from LZ77 and open-sourced in 2011."
+config: {"docker": "ghcr.io/autamus/qhull", "url": "https://github.com/orgs/autamus/packages/container/package/qhull", "maintainer": "@vsoch", "description": "Snappy (previously known as Zippy) is a fast data compression and decompression library written in C++ by Google based on ideas from LZ77 and open-sourced in 2011.", "latest": {"2020.2": "sha256:dd6a7a89a88741ecc4856d025fcdc04304375133a7697b1abdd3fea21e8cb9ca"}, "tags": {"2020.1": "sha256:eeeb21a12856b1a4864df42b5399958305f47fb2aa4cae967319648f18fa9d86", "2020.2": "sha256:dd6a7a89a88741ecc4856d025fcdc04304375133a7697b1abdd3fea21e8cb9ca", "latest": "sha256:dd6a7a89a88741ecc4856d025fcdc04304375133a7697b1abdd3fea21e8cb9ca"}, "aliases": {"qconvex": "/opt/view/bin/qconvex", "qdelaunay": "/opt/view/bin/qdelaunay", "qhalf": "/opt/view/bin/qhalf", "qhull": "/opt/view/bin/qhull", "qvoronoi": "/opt/view/bin/qvoronoi", "rbox": "/opt/view/bin/rbox"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/qhull.

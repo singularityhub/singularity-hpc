@@ -2,16 +2,18 @@
 layout: container
 name:  "ghcr.io/autamus/angsd"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/angsd/container.yaml"
-updated_at: "2022-08-01 18:21:03.809996"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/angsd/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/angsd/container.yaml"
+updated_at: "2022-08-27 01:35:28.790187"
+latest: "0.935"
 container_url: "https://github.com/orgs/autamus/packages/container/package/angsd"
 aliases:
  - "angsd"
-
 versions:
  - "0.935"
  - "latest"
 description: "ANGSD is a software for analyzing next generation sequencing data."
+config: {"docker": "ghcr.io/autamus/angsd", "url": "https://github.com/orgs/autamus/packages/container/package/angsd", "maintainer": "@vsoch", "description": "ANGSD is a software for analyzing next generation sequencing data.", "latest": {"0.935": "sha256:84cbdb573f250632c4b76525fc8981fff130f338b287c56645398e58fcab2a81"}, "tags": {"0.935": "sha256:84cbdb573f250632c4b76525fc8981fff130f338b287c56645398e58fcab2a81", "latest": "sha256:84cbdb573f250632c4b76525fc8981fff130f338b287c56645398e58fcab2a81"}, "aliases": {"angsd": "/opt/view/bin/angsd"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/angsd.

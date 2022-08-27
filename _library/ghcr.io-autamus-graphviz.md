@@ -2,36 +2,25 @@
 layout: container
 name:  "ghcr.io/autamus/graphviz"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/graphviz/container.yaml"
-updated_at: "2022-08-01 18:20:17.891913"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/graphviz/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/graphviz/container.yaml"
+updated_at: "2022-08-27 01:35:59.380501"
+latest: "2.49.3"
 container_url: "https://github.com/orgs/autamus/packages/container/package/graphviz"
 aliases:
  - "gc"
-
  - "gml2gv"
-
  - "graphml2gv"
-
  - "gv2gml"
-
  - "gv2gxl"
-
  - "gvcolor"
-
  - "gvgen"
-
  - "gvmap"
-
  - "gvmap.sh"
-
  - "gvpack"
-
  - "gvpr"
-
  - "gxl2dot"
-
  - "gxl2gv"
-
 versions:
  - "2.47.1"
  - "2.47.2"
@@ -42,6 +31,7 @@ versions:
  - "2.49.2"
  - "2.48.0"
 description: "Graphviz is open source graph visualization software."
+config: {"docker": "ghcr.io/autamus/graphviz", "url": "https://github.com/orgs/autamus/packages/container/package/graphviz", "maintainer": "@vsoch", "description": "Graphviz is open source graph visualization software.", "latest": {"2.49.3": "sha256:9f201c64a3e1290b429a15bd18670a7da0133e3eca8a56f2793f153bfd036ba9"}, "tags": {"2.47.1": "sha256:a9ec69fd28145200959c397ea8712bdab28184cc36859a5588391c6fa35940b9", "2.47.2": "sha256:68e91383955d89014501b70522a5d7a5f3d8abd9e43c6bb33b2f6bb0b0076118", "2.47.3": "sha256:c7156c353904ff244535472315d0e14b3b15f5fd9f4ee646d42be677f73308f1", "2.49.0": "sha256:ec1ca7f59ced4325267b8a8834a63ac114724b9b61de2004857e53fb6267e7e6", "2.49.3": "sha256:9f201c64a3e1290b429a15bd18670a7da0133e3eca8a56f2793f153bfd036ba9", "latest": "sha256:9f201c64a3e1290b429a15bd18670a7da0133e3eca8a56f2793f153bfd036ba9", "2.49.2": "sha256:6cd5099df746975bdcdc722daa01cf80d2e2c40c93cd77246d866e325edc8a7e", "2.48.0": "sha256:71ac73e010dd7395bf9260437de6bf9b4fa0f4ea3447049d5fa8e3c21dc36729"}, "aliases": {"gc": "/opt/view/bin/gc", "gml2gv": "/opt/view/bin/gml2gv", "graphml2gv": "/opt/view/bin/graphml2gv", "gv2gml": "/opt/view/bin/gv2gml", "gv2gxl": "/opt/view/bin/gv2gxl", "gvcolor": "/opt/view/bin/gvcolor", "gvgen": "/opt/view/bin/gvgen", "gvmap": "/opt/view/bin/gvmap", "gvmap.sh": "/opt/view/bin/gvmap.sh", "gvpack": "/opt/view/bin/gvpack", "gvpr": "/opt/view/bin/gvpr", "gxl2dot": "/opt/view/bin/gxl2dot", "gxl2gv": "/opt/view/bin/gxl2gv"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/graphviz.

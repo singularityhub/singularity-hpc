@@ -2,8 +2,10 @@
 layout: container
 name:  "bids/freesurfer"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/bids/freesurfer/container.yaml"
-updated_at: "2022-08-01 18:21:58.343637"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/bids/freesurfer/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/bids/freesurfer/container.yaml"
+updated_at: "2022-08-27 01:35:11.964326"
+latest: "V30-a43f1f"
 container_url: "https://hub.docker.com/r/bids/freesurfer"
 
 versions:
@@ -14,6 +16,7 @@ versions:
  - "V28-ae189c"
  - "enh_QA"
 description: "Surface reconstruction using Freesurfer"
+config: {"docker": "bids/freesurfer", "url": "https://hub.docker.com/r/bids/freesurfer", "maintainer": "@vsoch", "description": "Surface reconstruction using Freesurfer", "latest": {"V30-a43f1f": "sha256:cb7aee6c7634d7e57530b6b72230009759fe2c020c573aad87e71a523ba075f3"}, "tags": {"latest": "sha256:02237eda4a22bb5fd66a50a66d21b13e0f378840fa61a937dab8794ee527cd48", "v6.0.1-6.1": "sha256:02237eda4a22bb5fd66a50a66d21b13e0f378840fa61a937dab8794ee527cd48", "V30-a43f1f": "sha256:cb7aee6c7634d7e57530b6b72230009759fe2c020c573aad87e71a523ba075f3", "V29-37bf1c": "sha256:513303323f955365d05b5b5d3223a37102c6eb064cc46d2a658db8de33db06c9", "V28-ae189c": "sha256:ebdd94e63210301f277c00ad0e3464f1b1baa5703f5dad19f094f299e74f86c0", "enh_QA": "sha256:b9fe8cf6d6cc2912f1671ab009d8d8805eb22f8b260f598069822807507f02fd"}, "filter": ["v*"]}
 ---
 
 This module is a singularity container wrapper for bids/freesurfer.

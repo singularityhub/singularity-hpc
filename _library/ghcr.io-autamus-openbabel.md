@@ -2,52 +2,36 @@
 layout: container
 name:  "ghcr.io/autamus/openbabel"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/openbabel/container.yaml"
-updated_at: "2022-08-01 18:20:06.072964"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/openbabel/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/openbabel/container.yaml"
+updated_at: "2022-08-27 01:36:25.083581"
+latest: "3.1.1"
 container_url: "https://github.com/orgs/autamus/packages/container/package/openbabel"
 aliases:
  - "obabel"
-
  - "obconformer"
-
  - "obdistgen"
-
  - "obenergy"
-
  - "obfit"
-
  - "obfitall"
-
  - "obgen"
-
  - "obgrep"
-
  - "obminimize"
-
  - "obmm"
-
  - "obprobe"
-
  - "obprop"
-
  - "obrms"
-
  - "obrotamer"
-
  - "obrotate"
-
  - "obspectrophore"
-
  - "obsym"
-
  - "obtautomer"
-
  - "obthermo"
-
 versions:
  - "3.1.1"
  - "latest"
 description: "Open Babel is a chemical toolbox designed to speak the many languages of chemical data. It's an open, collaborative project allowing anyone to search, convert, analyze, or store data from molecular modeling, chemistry, solid-state materials, biochemistry, or related areas."
+config: {"docker": "ghcr.io/autamus/openbabel", "url": "https://github.com/orgs/autamus/packages/container/package/openbabel", "maintainer": "@vsoch", "description": "Open Babel is a chemical toolbox designed to speak the many languages of chemical data. It's an open, collaborative project allowing anyone to search, convert, analyze, or store data from molecular modeling, chemistry, solid-state materials, biochemistry, or related areas.", "latest": {"3.1.1": "sha256:58ff76cf28a4cac1b994bb38a3d33c62463a22f4cb14e8a0e9dd56698eba950c"}, "tags": {"3.1.1": "sha256:58ff76cf28a4cac1b994bb38a3d33c62463a22f4cb14e8a0e9dd56698eba950c", "latest": "sha256:58ff76cf28a4cac1b994bb38a3d33c62463a22f4cb14e8a0e9dd56698eba950c"}, "aliases": {"obabel": "/opt/view/bin/obabel", "obconformer": "/opt/view/bin/obconformer", "obdistgen": "/opt/view/bin/obdistgen", "obenergy": "/opt/view/bin/obenergy", "obfit": "/opt/view/bin/obfit", "obfitall": "/opt/view/bin/obfitall", "obgen": "/opt/view/bin/obgen", "obgrep": "/opt/view/bin/obgrep", "obminimize": "/opt/view/bin/obminimize", "obmm": "/opt/view/bin/obmm", "obprobe": "/opt/view/bin/obprobe", "obprop": "/opt/view/bin/obprop", "obrms": "/opt/view/bin/obrms", "obrotamer": "/opt/view/bin/obrotamer", "obrotate": "/opt/view/bin/obrotate", "obspectrophore": "/opt/view/bin/obspectrophore", "obsym": "/opt/view/bin/obsym", "obtautomer": "/opt/view/bin/obtautomer", "obthermo": "/opt/view/bin/obthermo"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/openbabel.

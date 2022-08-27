@@ -2,17 +2,19 @@
 layout: container
 name:  "nvcr.io/hpc/autodock"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/nvcr.io/hpc/autodock/container.yaml"
-updated_at: "2022-08-01 18:21:49.252721"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/nvcr.io/hpc/autodock/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/nvcr.io/hpc/autodock/container.yaml"
+updated_at: "2022-08-27 01:37:08.836015"
+latest: "2020.06"
 container_url: "https://ngc.nvidia.com/catalog/containers/hpc:autodock"
 aliases:
  - "autodock"
-
 versions:
  - "2020.06"
  - "2020.06-arm64"
  - "2020.06-x86_64"
 description: "The AutoDock-GPU Suite is a growing collection of methods for computational docking and virtual screening, for use in structure-based drug discovery and exploration of the basic mechanisms of biomolecular structure and function. More info on AutoDock-GPU be located at https://ccsb.scripps.edu/autodock/ and https://github.com/ccsb-scripps/AutoDock-GPU#usage."
+config: {"docker": "nvcr.io/hpc/autodock", "url": "https://ngc.nvidia.com/catalog/containers/hpc:autodock", "maintainer": "@vsoch", "description": "The AutoDock-GPU Suite is a growing collection of methods for computational docking and virtual screening, for use in structure-based drug discovery and exploration of the basic mechanisms of biomolecular structure and function. More info on AutoDock-GPU be located at https://ccsb.scripps.edu/autodock/ and https://github.com/ccsb-scripps/AutoDock-GPU#usage.", "latest": {"2020.06": "sha256:a968fa5391281f168e1daf5a4fccfbd0d8228d794ee693ba1a637e5147c3b798"}, "tags": {"2020.06": "sha256:a968fa5391281f168e1daf5a4fccfbd0d8228d794ee693ba1a637e5147c3b798", "2020.06-arm64": "sha256:2d881faf0b20866826a2f0ebbd87ed9791b64222489814901a090e5ed1aa3252", "2020.06-x86_64": "sha256:0bc28fe0b15b172241f785079782447251139ad0ef0b978f3f1483d5caa9e56d"}, "filter": ["^((?!arm).)*$"], "features": {"gpu": true}, "aliases": {"autodock": "/opt/AutoDock-GPU/bin/autodock_gpu_128wi"}}
 ---
 
 This module is a singularity container wrapper for nvcr.io/hpc/autodock.

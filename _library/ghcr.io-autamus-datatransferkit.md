@@ -2,14 +2,17 @@
 layout: container
 name:  "ghcr.io/autamus/datatransferkit"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/datatransferkit/container.yaml"
-updated_at: "2022-08-01 18:20:12.593014"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/datatransferkit/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/datatransferkit/container.yaml"
+updated_at: "2022-08-27 01:35:46.761833"
+latest: "3.1.rc.2"
 container_url: "https://github.com/orgs/autamus/packages/container/package/datatransferkit"
 
 versions:
  - "3.1.rc.2"
  - "latest"
 description: "DataTransferKit is an open-source software library of parallel solution transfer services for multiphysics simulations"
+config: {"docker": "ghcr.io/autamus/datatransferkit", "url": "https://github.com/orgs/autamus/packages/container/package/datatransferkit", "maintainer": "@vsoch", "description": "DataTransferKit is an open-source software library of parallel solution transfer services for multiphysics simulations", "latest": {"3.1.rc.2": "sha256:f3207ac76a9961c1768dbce234636a5c02ba6b1a495442d4027bccd00f18c1c7"}, "tags": {"3.1.rc.2": "sha256:f3207ac76a9961c1768dbce234636a5c02ba6b1a495442d4027bccd00f18c1c7", "latest": "sha256:f3207ac76a9961c1768dbce234636a5c02ba6b1a495442d4027bccd00f18c1c7"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/datatransferkit.

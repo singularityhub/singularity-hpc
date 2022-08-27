@@ -2,8 +2,10 @@
 layout: container
 name:  "ghcr.io/autamus/ascent"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/ascent/container.yaml"
-updated_at: "2022-08-01 18:20:52.589441"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/ascent/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/ascent/container.yaml"
+updated_at: "2022-08-27 01:35:30.894424"
+latest: "0.7.1"
 container_url: "https://github.com/orgs/autamus/packages/container/package/ascent"
 
 versions:
@@ -11,6 +13,7 @@ versions:
  - "0.7.1"
  - "latest"
 description: "An open source many-core capable lightweight in situ visualization and analysis infrastructure for multi-physics HPC simulations."
+config: {"docker": "ghcr.io/autamus/ascent", "url": "https://github.com/orgs/autamus/packages/container/package/ascent", "maintainer": "@vsoch", "description": "An open source many-core capable lightweight in situ visualization and analysis infrastructure for multi-physics HPC simulations.", "latest": {"0.7.1": "sha256:61e3795c17382b95787f070ce0b0e382c73056d776f672ae0db9f6536718a1af"}, "tags": {"0.7.0": "sha256:c025f72e442b7a4f5626e0520e09e8a7a5e5f5c630565cbd8d0d178ff2585ee6", "0.7.1": "sha256:61e3795c17382b95787f070ce0b0e382c73056d776f672ae0db9f6536718a1af", "latest": "sha256:61e3795c17382b95787f070ce0b0e382c73056d776f672ae0db9f6536718a1af"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/ascent.

@@ -2,8 +2,10 @@
 layout: container
 name:  "ghcr.io/autamus/cantera"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/cantera/container.yaml"
-updated_at: "2022-08-01 18:20:13.031348"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/cantera/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/cantera/container.yaml"
+updated_at: "2022-08-27 01:35:39.350692"
+latest: "2.5.1"
 container_url: "https://github.com/orgs/autamus/packages/container/package/cantera"
 
 versions:
@@ -11,6 +13,7 @@ versions:
  - "2.5.1"
  - "latest"
 description: "Cantera is an open-source collection of object-oriented software tools for problems involving chemical kinetics, thermodynamics, and transport processes."
+config: {"docker": "ghcr.io/autamus/cantera", "url": "https://github.com/orgs/autamus/packages/container/package/cantera", "maintainer": "@vsoch", "description": "Cantera is an open-source collection of object-oriented software tools for problems involving chemical kinetics, thermodynamics, and transport processes.", "latest": {"2.5.1": "sha256:779594e546190fb2f309413a39cf58bf0ed4bd1b25219a22507e5986bf77675e"}, "tags": {"2.4.0": "sha256:ad490652d6f83f71cb56b6195f92ec4837671ceafcdb897d66393e564cde9699", "2.5.1": "sha256:779594e546190fb2f309413a39cf58bf0ed4bd1b25219a22507e5986bf77675e", "latest": "sha256:779594e546190fb2f309413a39cf58bf0ed4bd1b25219a22507e5986bf77675e"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/cantera.

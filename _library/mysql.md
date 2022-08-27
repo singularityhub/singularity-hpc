@@ -2,44 +2,29 @@
 layout: container
 name:  "mysql"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/mysql/container.yaml"
-updated_at: "2022-08-01 18:22:07.458296"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/mysql/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/mysql/container.yaml"
+updated_at: "2022-08-27 01:37:06.709982"
+latest: "8.0.28"
 container_url: "https://hub.docker.com/r/_/mysql"
 aliases:
  - "mysql"
-
  - "mysql_config_editor"
-
  - "mysql_secure_installation"
-
  - "mysql_ssl_rsa_setup"
-
  - "mysql_tzinfo_to_sql"
-
  - "mysql_upgrade"
-
  - "mysqladmin"
-
  - "mysqlbinlog"
-
  - "mysqlcheck"
-
  - "mysqld_multi"
-
  - "mysqld_safe"
-
  - "mysqldump"
-
  - "mysqldumpslow"
-
  - "mysqlimport"
-
  - "mysqlpump"
-
  - "mysqlshow"
-
  - "mysqlslap"
-
 versions:
  - "8.0.25"
  - "8.0.26"
@@ -49,6 +34,7 @@ versions:
  - "8"
  - "8.0"
 description: "MySQL is the world's most popular open source database."
+config: {"docker": "mysql", "url": "https://hub.docker.com/r/_/mysql", "maintainer": "@vsoch", "description": "MySQL is the world's most popular open source database.", "latest": {"8.0.28": "sha256:fc77d54cacef90ad3d75964837fad0f2a9a368b69e7d799665a3f4e90e600c2d"}, "tags": {"8.0.25": "sha256:52b8406e4c32b8cf0557f1b74517e14c5393aff5cf0384eff62d9e81f4985d4b", "8.0.26": "sha256:5d52dc010398db422949f079c76e98f6b62230e5b59c0bf7582409d2c85abacb", "8.0.27": "sha256:e9027fe4d91c0153429607251656806cc784e914937271037f7738bd5b8e7709", "8.0.28": "sha256:fc77d54cacef90ad3d75964837fad0f2a9a368b69e7d799665a3f4e90e600c2d", "latest": "sha256:a840244706a5fdc3c704b15a3700bfda39fdc069262d7753fa09de2d9faf5f83", "8": "sha256:a840244706a5fdc3c704b15a3700bfda39fdc069262d7753fa09de2d9faf5f83", "8.0": "sha256:a840244706a5fdc3c704b15a3700bfda39fdc069262d7753fa09de2d9faf5f83"}, "aliases": {"mysql": "/usr/bin/mysql", "mysql_config_editor": "/usr/bin/mysql_config_editor", "mysql_secure_installation": "/usr/bin/mysql_secure_installation", "mysql_ssl_rsa_setup": "/usr/bin/mysql_ssl_rsa_setup", "mysql_tzinfo_to_sql": "/usr/bin/mysql_tzinfo_to_sql", "mysql_upgrade": "/usr/bin/mysql_upgrade", "mysqladmin": "/usr/bin/mysqladmin", "mysqlbinlog": "/usr/bin/mysqlbinlog", "mysqlcheck": "/usr/bin/mysqlcheck", "mysqld_multi": "/usr/bin/mysqld_multi", "mysqld_safe": "/usr/bin/mysqld_safe", "mysqldump": "/usr/bin/mysqldump", "mysqldumpslow": "/usr/bin/mysqldumpslow", "mysqlimport": "/usr/bin/mysqlimport", "mysqlpump": "/usr/bin/mysqlpump", "mysqlshow": "/usr/bin/mysqlshow", "mysqlslap": "/usr/bin/mysqlslap"}}
 ---
 
 This module is a singularity container wrapper for mysql.

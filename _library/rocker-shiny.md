@@ -2,17 +2,18 @@
 layout: container
 name:  "rocker/shiny"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/rocker/shiny/container.yaml"
-updated_at: "2022-08-01 18:21:42.700896"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/rocker/shiny/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/rocker/shiny/container.yaml"
+updated_at: "2022-08-27 01:37:41.670629"
+latest: "latest"
 container_url: "https://hub.docker.com/r/rocker/shiny"
 aliases:
  - "rocker-shiny-run"
-
  - "shiny-server"
-
 versions:
  - "latest"
 description: "Docker image with R + Shiny."
+config: {"docker": "rocker/shiny", "url": "https://hub.docker.com/r/rocker/shiny", "maintainer": "@vsoch", "description": "Docker image with R + Shiny.", "latest": {"latest": "sha256:0ab28535cb6cb3cf35da8d7aac446447b490e373f26d62f0cde92757e352a829"}, "tags": {"latest": "sha256:0ab28535cb6cb3cf35da8d7aac446447b490e373f26d62f0cde92757e352a829"}, "filter": ["latest"], "aliases": {"rocker-shiny-run": "/bin/bash", "shiny-server": "/opt/shiny-server"}}
 ---
 
 This module is a singularity container wrapper for rocker/shiny.

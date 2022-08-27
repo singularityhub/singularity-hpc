@@ -2,18 +2,19 @@
 layout: container
 name:  "ghcr.io/autamus/rsync"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/rsync/container.yaml"
-updated_at: "2022-08-01 18:20:10.829507"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/rsync/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/rsync/container.yaml"
+updated_at: "2022-08-27 01:36:41.382516"
+latest: "3.2.3"
 container_url: "https://github.com/orgs/autamus/packages/container/package/rsync"
 aliases:
  - "rsync"
-
  - "rsync-ssl"
-
 versions:
  - "3.2.2"
  - "3.2.3"
 description: "An open source utility that provides fast incremental file transfer. https://rsync.samba.org/"
+config: {"docker": "ghcr.io/autamus/rsync", "url": "https://github.com/orgs/autamus/packages/container/package/rsync", "maintainer": "@vsoch", "description": "An open source utility that provides fast incremental file transfer. https://rsync.samba.org/", "latest": {"3.2.3": "sha256:370c0624084a02e3d919cb17847bdad4f7b79d4258d016e3aaac0b4de49492b0"}, "tags": {"3.2.2": "sha256:99c4780710b1d844ca8998dea4c59b2d3b54c28ac206dc3ee580ca2c34f455d1", "3.2.3": "sha256:370c0624084a02e3d919cb17847bdad4f7b79d4258d016e3aaac0b4de49492b0"}, "aliases": {"rsync": "/opt/view/bin/rsync", "rsync-ssl": "/opt/view/bin/rsync-ssl"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/rsync.

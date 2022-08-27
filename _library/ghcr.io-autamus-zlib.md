@@ -2,8 +2,10 @@
 layout: container
 name:  "ghcr.io/autamus/zlib"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/zlib/container.yaml"
-updated_at: "2022-08-01 18:20:47.416892"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/zlib/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/zlib/container.yaml"
+updated_at: "2022-08-27 01:36:59.843579"
+latest: "1.2.11"
 container_url: "https://github.com/orgs/autamus/packages/container/package/zlib"
 
 versions:
@@ -11,6 +13,7 @@ versions:
  - "latest"
  - "1.2.12"
 description: "zlib is a software library used for data compression. zlib was written by Jean-loup Gailly and Mark Adler and is an abstraction of the DEFLATE compression algorithm used in their gzip file compression program."
+config: {"docker": "ghcr.io/autamus/zlib", "url": "https://github.com/orgs/autamus/packages/container/package/zlib", "maintainer": "@vsoch", "description": "zlib is a software library used for data compression. zlib was written by Jean-loup Gailly and Mark Adler and is an abstraction of the DEFLATE compression algorithm used in their gzip file compression program.", "latest": {"1.2.11": "sha256:cf12c3a0b8a366a6d83e9a8656adf5f17fd1d4fb92243e86c385f1507a5388d9"}, "tags": {"1.2.11": "sha256:cf12c3a0b8a366a6d83e9a8656adf5f17fd1d4fb92243e86c385f1507a5388d9", "latest": "sha256:a57e1ffe54a233fc14ec4fa91fd70b3dc10ccbe386ee2e231c1cc4cdb9a7705f", "1.2.12": "sha256:a57e1ffe54a233fc14ec4fa91fd70b3dc10ccbe386ee2e231c1cc4cdb9a7705f"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/zlib.

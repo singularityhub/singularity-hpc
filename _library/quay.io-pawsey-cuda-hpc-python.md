@@ -2,20 +2,21 @@
 layout: container
 name:  "quay.io/pawsey/cuda-hpc-python"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/pawsey/cuda-hpc-python/container.yaml"
-updated_at: "2022-08-01 18:21:39.216190"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/quay.io/pawsey/cuda-hpc-python/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/quay.io/pawsey/cuda-hpc-python/container.yaml"
+updated_at: "2022-08-27 01:37:34.818485"
+latest: "2022.03"
 container_url: "https://quay.io/repository/pawsey/cuda-hpc-python"
 aliases:
  - "python"
-
  - "python3"
-
 versions:
  - "2021.09"
  - "2021.09-hdf5mpi"
  - "2022.03"
  - "2022.03-hdf5mpi"
 description: "Base Python images with popular packages for HPC workflows, with CUDA support."
+config: {"docker": "quay.io/pawsey/cuda-hpc-python", "url": "https://quay.io/repository/pawsey/cuda-hpc-python", "maintainer": "@marcodelapierre", "description": "Base Python images with popular packages for HPC workflows, with CUDA support.", "latest": {"2022.03": "sha256:9d0c078fd2854217dfcbfff9483193848c6dc0e80308d15d567c7eaa88f9bfd1"}, "tags": {"2021.09": "sha256:4785a7b1ea3013c276be0b34664d477935961ac5cc89cced3105edddc011a661", "2021.09-hdf5mpi": "sha256:904e55e2d760ac6c0e9db759c86c8942a3873e9009f7bfad05ec8258fbe7a29a", "2022.03": "sha256:9d0c078fd2854217dfcbfff9483193848c6dc0e80308d15d567c7eaa88f9bfd1", "2022.03-hdf5mpi": "sha256:74d5953fb12c9cdc0657d8edc3135f1001d11de9a0f5c2ab4ac55238aac405b2"}, "aliases": {"python": "/usr/local/bin/python", "python3": "/usr/local/bin/python3"}, "env": {"PYTHONSTARTUP": "", "PYTHONUSERBASE": ""}, "features": {"home": true, "gpu": true}}
 ---
 
 This module is a singularity container wrapper for quay.io/pawsey/cuda-hpc-python.

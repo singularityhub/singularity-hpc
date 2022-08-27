@@ -2,16 +2,18 @@
 layout: container
 name:  "ghcr.io/autamus/cowsay"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/cowsay/container.yaml"
-updated_at: "2022-08-01 18:20:09.099901"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/cowsay/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/cowsay/container.yaml"
+updated_at: "2022-08-27 01:35:44.636180"
+latest: "3.04"
 container_url: "https://github.com/orgs/autamus/packages/container/package/cowsay"
 aliases:
  - "cowsay"
-
 versions:
  - "3.04"
  - "latest"
 description: "What does the cow say?"
+config: {"docker": "ghcr.io/autamus/cowsay", "url": "https://github.com/orgs/autamus/packages/container/package/cowsay", "maintainer": "@vsoch", "description": "What does the cow say?", "latest": {"3.04": "sha256:715cd2b13843c62e7ddfd31eb8710dec982a1b1c951a623d4650d5877703f6b4"}, "tags": {"3.04": "sha256:715cd2b13843c62e7ddfd31eb8710dec982a1b1c951a623d4650d5877703f6b4", "latest": "sha256:715cd2b13843c62e7ddfd31eb8710dec982a1b1c951a623d4650d5877703f6b4"}, "aliases": {"cowsay": "/opt/view/bin/cowsay"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/cowsay.

@@ -2,15 +2,17 @@
 layout: container
 name:  "singularityhub/singularity-deploy"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/singularityhub/singularity-deploy/container.yaml"
-updated_at: "2022-08-01 18:21:54.883682"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/singularityhub/singularity-deploy/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/singularityhub/singularity-deploy/container.yaml"
+updated_at: "2022-08-27 01:37:43.255827"
+latest: "salad"
 container_url: "https://github.com/singularityhub/singularity-deploy"
 aliases:
  - "salad"
-
 versions:
  - "salad"
 description: "Example shpc container using Singularity Deploy, build and serve from GitHub releases."
+config: {"gh": "singularityhub/singularity-deploy", "url": "https://github.com/singularityhub/singularity-deploy", "maintainer": "@vsoch", "description": "Example shpc container using Singularity Deploy, build and serve from GitHub releases.", "latest": {"salad": "0.0.12"}, "tags": {"salad": "0.0.12"}, "aliases": {"salad": "/code/salad"}}
 ---
 
 This module is a singularity container wrapper for singularityhub/singularity-deploy.

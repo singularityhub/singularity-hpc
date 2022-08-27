@@ -2,14 +2,17 @@
 layout: container
 name:  "nvcr.io/hpc/lammps"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/nvcr.io/hpc/lammps/container.yaml"
-updated_at: "2022-08-01 18:21:48.381448"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/nvcr.io/hpc/lammps/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/nvcr.io/hpc/lammps/container.yaml"
+updated_at: "2022-08-27 01:37:09.892705"
+latest: "29Sep2021"
 container_url: "https://ngc.nvidia.com/catalog/containers/hpc:lammps/tags"
 
 versions:
  - "29Oct2020"
  - "29Sep2021"
 description: "Large-scale Atomic/Molecular Massively Parallel Simulator (LAMMPS) is a software application designed for molecular dynamics simulations. It has the potentials for solid-state materials (metals, semiconductor), soft matter (biomolecules, polymers), and coarse-grained or mesoscopic systems. The main use-case is atom scale particle modeling or, more generically, as a parallel particle simulator at the atomic, meson, or continuum scale. LAMMPS runs on single processors or in parallel using message-passing techniques and a spatial-decomposition of the simulation domain. Read more on the LAMMPS website https://lammps.sandia.gov/."
+config: {"docker": "nvcr.io/hpc/lammps", "url": "https://ngc.nvidia.com/catalog/containers/hpc:lammps/tags", "maintainer": "@vsoch", "description": "Large-scale Atomic/Molecular Massively Parallel Simulator (LAMMPS) is a software application designed for molecular dynamics simulations. It has the potentials for solid-state materials (metals, semiconductor), soft matter (biomolecules, polymers), and coarse-grained or mesoscopic systems. The main use-case is atom scale particle modeling or, more generically, as a parallel particle simulator at the atomic, meson, or continuum scale. LAMMPS runs on single processors or in parallel using message-passing techniques and a spatial-decomposition of the simulation domain. Read more on the LAMMPS website https://lammps.sandia.gov/.", "latest": {"29Sep2021": "sha256:6c40caaa7c2aadd0e49748ddef584a7d88235651479e416919ced889e2156596"}, "tags": {"29Oct2020": "sha256:c6cf2371ad7eb491925e58cc28ee0ef9f0bd84a15634bb0e7f818c7d07e8877e", "29Sep2021": "sha256:6c40caaa7c2aadd0e49748ddef584a7d88235651479e416919ced889e2156596"}, "filter": ["2021"], "features": {"gpu": true}}
 ---
 
 This module is a singularity container wrapper for nvcr.io/hpc/lammps.

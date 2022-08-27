@@ -2,14 +2,17 @@
 layout: container
 name:  "ghcr.io/autamus/fraggenescan"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/fraggenescan/container.yaml"
-updated_at: "2022-08-01 18:20:50.003867"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/fraggenescan/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/fraggenescan/container.yaml"
+updated_at: "2022-08-27 01:35:51.996737"
+latest: "1.31"
 container_url: "https://github.com/orgs/autamus/packages/container/package/fraggenescan"
 
 versions:
  - "1.31"
  - "latest"
 description: "An application for finding (fragmented) genes in short reads."
+config: {"docker": "ghcr.io/autamus/fraggenescan", "url": "https://github.com/orgs/autamus/packages/container/package/fraggenescan", "maintainer": "@vsoch", "description": "An application for finding (fragmented) genes in short reads.", "latest": {"1.31": "sha256:9a2c44ffb301dd55c106af940b82ff0b4c86005aef50ab7ad614099f85e8e88a"}, "tags": {"1.31": "sha256:9a2c44ffb301dd55c106af940b82ff0b4c86005aef50ab7ad614099f85e8e88a", "latest": "sha256:9a2c44ffb301dd55c106af940b82ff0b4c86005aef50ab7ad614099f85e8e88a"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/fraggenescan.

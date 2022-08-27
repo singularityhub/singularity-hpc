@@ -2,22 +2,21 @@
 layout: container
 name:  "ghcr.io/autamus/advancecomp"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/advancecomp/container.yaml"
-updated_at: "2022-08-01 18:20:59.072144"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/advancecomp/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/advancecomp/container.yaml"
+updated_at: "2022-08-27 01:35:26.689439"
+latest: "2.1"
 container_url: "https://github.com/orgs/autamus/packages/container/package/advancecomp"
 aliases:
  - "advdef"
-
  - "advmng"
-
  - "advpng"
-
  - "advzip"
-
 versions:
  - "2.1"
  - "latest"
 description: "AdvanceCOMP is a set of cross-platform command line data (re-)compression tools."
+config: {"docker": "ghcr.io/autamus/advancecomp", "url": "https://github.com/orgs/autamus/packages/container/package/advancecomp", "maintainer": "@vsoch", "description": "AdvanceCOMP is a set of cross-platform command line data (re-)compression tools.", "latest": {"2.1": "sha256:50bb59d0a6a6c075060ebfa0d91bb14abc25186a9a67fd24a181163ac2382655"}, "tags": {"2.1": "sha256:50bb59d0a6a6c075060ebfa0d91bb14abc25186a9a67fd24a181163ac2382655", "latest": "sha256:50bb59d0a6a6c075060ebfa0d91bb14abc25186a9a67fd24a181163ac2382655"}, "aliases": {"advdef": "/opt/view/bin/advdef", "advmng": "/opt/view/bin/advmng", "advpng": "/opt/view/bin/advpng", "advzip": "/opt/view/bin/advzip"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/advancecomp.

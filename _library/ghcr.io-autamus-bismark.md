@@ -2,27 +2,24 @@
 layout: container
 name:  "ghcr.io/autamus/bismark"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/bismark/container.yaml"
-updated_at: "2022-08-01 18:20:45.661903"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/bismark/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/bismark/container.yaml"
+updated_at: "2022-08-27 01:35:35.099954"
+latest: "0.23.1"
 container_url: "https://github.com/orgs/autamus/packages/container/package/bismark"
 aliases:
  - "bismark"
-
  - "bismark_genome_preparation"
-
  - "bismark_methylation_extractor"
-
  - "bismark2bedGraph"
-
  - "bismark2report"
-
  - "bismark2summary"
-
 versions:
  - "0.23.0"
  - "0.23.1"
  - "latest"
 description: "Bismark is a program to map bisulfite treated sequencing reads to a genome of interest and perform methylation calls in a single step."
+config: {"docker": "ghcr.io/autamus/bismark", "url": "https://github.com/orgs/autamus/packages/container/package/bismark", "maintainer": "@vsoch", "description": "Bismark is a program to map bisulfite treated sequencing reads to a genome of interest and perform methylation calls in a single step.", "latest": {"0.23.1": "sha256:2442def08bb76e9a31575e950cb25f584b1b3b1945441f1a5aee15144fa9e2fb"}, "tags": {"0.23.0": "sha256:297e5839757a5ae3d7f383fd8716c8dad44ce8653f63a85df238a12f85875bee", "0.23.1": "sha256:2442def08bb76e9a31575e950cb25f584b1b3b1945441f1a5aee15144fa9e2fb", "latest": "sha256:2442def08bb76e9a31575e950cb25f584b1b3b1945441f1a5aee15144fa9e2fb"}, "aliases": {"bismark": "/opt/view/bin/bismark", "bismark_genome_preparation": "/opt/view/bin/bismark_genome_preparation", "bismark_methylation_extractor": "/opt/view/bin/bismark_methylation_extractor", "bismark2bedGraph": "/opt/view/bin/bismark2bedGraph", "bismark2report": "/opt/view/bin/bismark2report", "bismark2summary": "/opt/view/bin/bismark2summary"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/bismark.

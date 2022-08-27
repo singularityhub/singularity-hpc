@@ -2,56 +2,35 @@
 layout: container
 name:  "ghcr.io/autamus/nco"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/nco/container.yaml"
-updated_at: "2022-08-01 18:20:47.850550"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/nco/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/nco/container.yaml"
+updated_at: "2022-08-27 01:36:22.453448"
+latest: "5.0.3"
 container_url: "https://github.com/orgs/autamus/packages/container/package/nco"
 aliases:
  - "nc-config"
-
  - "ncap2"
-
  - "ncatted"
-
  - "ncbo"
-
  - "ncclimo"
-
  - "nccopy"
-
  - "ncdiff"
-
  - "ncdump"
-
  - "ncea"
-
  - "ncecat"
-
  - "nces"
-
  - "ncflint"
-
  - "ncgen"
-
  - "ncgen3"
-
  - "ncks"
-
  - "ncpdq"
-
  - "ncra"
-
  - "ncrcat"
-
  - "ncremap"
-
  - "ncrename"
-
  - "ncurses6-config"
-
  - "ncursesw6-config"
-
  - "ncwa"
-
 versions:
  - "4.9.8"
  - "4.9.9"
@@ -60,6 +39,7 @@ versions:
  - "5.0.3"
  - "latest"
 
+config: {"docker": "ghcr.io/autamus/nco", "url": "https://github.com/orgs/autamus/packages/container/package/nco", "maintainer": "@vsoch", "description": "", "latest": {"5.0.3": "sha256:b06b237c4c115d986be3270c7959c8efc3acf0de037e702f10a40d87e0a32dca"}, "tags": {"4.9.8": "sha256:1e67403beaf3e7cac0b36aa43c8436f2111a3eb489b32271c2ffeb0b20e2ec5a", "4.9.9": "sha256:38c1b5a2a37e6966e095630da89767ba1bd9b20bb06098f273aacaf1840af357", "5.0.0": "sha256:77a49b866afd2ce0ee8ec493d406c70450ed89ecae009dd8857883caa962eb60", "5.0.1": "sha256:0135da1092b32aa49c55f85de72e34064610746aaa7ff85c003bef9d42660840", "5.0.3": "sha256:b06b237c4c115d986be3270c7959c8efc3acf0de037e702f10a40d87e0a32dca", "latest": "sha256:b06b237c4c115d986be3270c7959c8efc3acf0de037e702f10a40d87e0a32dca"}, "aliases": {"nc-config": "/opt/view/bin/nc-config", "ncap2": "/opt/view/bin/ncap2", "ncatted": "/opt/view/bin/ncatted", "ncbo": "/opt/view/bin/ncbo", "ncclimo": "/opt/view/bin/ncclimo", "nccopy": "/opt/view/bin/nccopy", "ncdiff": "/opt/view/bin/ncdiff", "ncdump": "/opt/view/bin/ncdump", "ncea": "/opt/view/bin/ncea", "ncecat": "/opt/view/bin/ncecat", "nces": "/opt/view/bin/nces", "ncflint": "/opt/view/bin/ncflint", "ncgen": "/opt/view/bin/ncgen", "ncgen3": "/opt/view/bin/ncgen3", "ncks": "/opt/view/bin/ncks", "ncpdq": "/opt/view/bin/ncpdq", "ncra": "/opt/view/bin/ncra", "ncrcat": "/opt/view/bin/ncrcat", "ncremap": "/opt/view/bin/ncremap", "ncrename": "/opt/view/bin/ncrename", "ncurses6-config": "/opt/view/bin/ncurses6-config", "ncursesw6-config": "/opt/view/bin/ncursesw6-config", "ncwa": "/opt/view/bin/ncwa"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/nco.

@@ -2,18 +2,20 @@
 layout: container
 name:  "quay.io/biocontainers/multiqc"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/multiqc/container.yaml"
-updated_at: "2022-08-01 18:21:26.662461"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/quay.io/biocontainers/multiqc/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/quay.io/biocontainers/multiqc/container.yaml"
+updated_at: "2022-08-27 01:37:28.986356"
+latest: "1.12--pyhdfd78af_0"
 container_url: "https://quay.io/repository/biocontainers/multiqc"
 aliases:
  - "multiqc"
-
 versions:
  - "1.9--py_1"
  - "1.10.1--pyhdfd78af_1"
  - "1.11--pyhdfd78af_0"
  - "1.12--pyhdfd78af_0"
 description: "Aggregate results from bioinformatics analyses across many samples into a single report."
+config: {"docker": "quay.io/biocontainers/multiqc", "url": "https://quay.io/repository/biocontainers/multiqc", "maintainer": "@marcodelapierre", "description": "Aggregate results from bioinformatics analyses across many samples into a single report.", "latest": {"1.12--pyhdfd78af_0": "sha256:82dae6463e1b19fafb6022401186300b66decf5ce319a725271700fe4e32e12a"}, "tags": {"1.9--py_1": "sha256:67cc651cb350b1ee2fc0929bd6bcd5189ec8c17f09566a3cd54cde7479e48a09", "1.10.1--pyhdfd78af_1": "sha256:c64ea8fcaf49dfc4b0594bc7349e6d1a662eb4484f5aac3252f4eea86cad164c", "1.11--pyhdfd78af_0": "sha256:88df23fac5b9eecda9943d922f81b68e30188eb4dd7cbfe9554e952ff5a3b0ee", "1.12--pyhdfd78af_0": "sha256:82dae6463e1b19fafb6022401186300b66decf5ce319a725271700fe4e32e12a"}, "aliases": {"multiqc": "/usr/local/bin/multiqc"}}
 ---
 
 This module is a singularity container wrapper for quay.io/biocontainers/multiqc.

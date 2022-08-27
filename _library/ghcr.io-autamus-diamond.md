@@ -2,18 +2,20 @@
 layout: container
 name:  "ghcr.io/autamus/diamond"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/diamond/container.yaml"
-updated_at: "2022-08-01 18:20:16.069460"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/diamond/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/diamond/container.yaml"
+updated_at: "2022-08-27 01:35:47.286418"
+latest: "2.0.13"
 container_url: "https://github.com/orgs/autamus/packages/container/package/diamond"
 aliases:
  - "diamond"
-
 versions:
  - "2.0.9"
  - "2.0.11"
  - "2.0.13"
  - "latest"
 description: "A sequence aligner for protein and translated DNA searches, designed for high performance analysis of big sequence data."
+config: {"docker": "ghcr.io/autamus/diamond", "url": "https://github.com/orgs/autamus/packages/container/package/diamond", "maintainer": "@vsoch", "description": "A sequence aligner for protein and translated DNA searches, designed for high performance analysis of big sequence data.", "latest": {"2.0.13": "sha256:cd667efb08fa712f48cb98ef47afb5821cbddc988c57daabf7e85c08c947bff1"}, "tags": {"2.0.9": "sha256:686ad6eef1cdbb0f2c97e897fce7e7718bb808aaf09bd9d2fd00295557a20708", "2.0.11": "sha256:d600fd1952edb76df772b8eed6a3a2023fe58654f6b64629d285ffba89d7e367", "2.0.13": "sha256:cd667efb08fa712f48cb98ef47afb5821cbddc988c57daabf7e85c08c947bff1", "latest": "sha256:cd667efb08fa712f48cb98ef47afb5821cbddc988c57daabf7e85c08c947bff1"}, "aliases": {"diamond": "/opt/view/bin/diamond"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/diamond.

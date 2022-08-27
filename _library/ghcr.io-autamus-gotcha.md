@@ -2,14 +2,17 @@
 layout: container
 name:  "ghcr.io/autamus/gotcha"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/gotcha/container.yaml"
-updated_at: "2022-08-01 18:20:58.638032"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/gotcha/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/gotcha/container.yaml"
+updated_at: "2022-08-27 01:35:58.855320"
+latest: "1.0.3"
 container_url: "https://github.com/orgs/autamus/packages/container/package/gotcha"
 
 versions:
  - "1.0.3"
  - "latest"
 description: "C software library for shared library function wrapping, enables tools to intercept calls into shared libraries"
+config: {"docker": "ghcr.io/autamus/gotcha", "url": "https://github.com/orgs/autamus/packages/container/package/gotcha", "maintainer": "@vsoch", "description": "C software library for shared library function wrapping, enables tools to intercept calls into shared libraries", "latest": {"1.0.3": "sha256:931a3e1dfd0bef321dda3bb8157cfff6d6cb2d6a579eb2c3d9df6b971dbc6423"}, "tags": {"1.0.3": "sha256:931a3e1dfd0bef321dda3bb8157cfff6d6cb2d6a579eb2c3d9df6b971dbc6423", "latest": "sha256:931a3e1dfd0bef321dda3bb8157cfff6d6cb2d6a579eb2c3d9df6b971dbc6423"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/gotcha.

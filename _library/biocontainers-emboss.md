@@ -2,27 +2,23 @@
 layout: container
 name:  "biocontainers/emboss"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/biocontainers/emboss/container.yaml"
-updated_at: "2022-08-01 18:20:02.173679"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/biocontainers/emboss/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/biocontainers/emboss/container.yaml"
+updated_at: "2022-08-27 01:35:17.803609"
+latest: "v6.6.0dfsg-7b1-deb_cv1"
 container_url: "https://hub.docker.com/r/biocontainers/emboss"
 aliases:
  - "embossdata"
-
  - "embossupdate"
-
  - "embossversion"
-
  - "emma"
-
  - "emowse"
-
  - "em_pscan"
-
  - "em_cons"
-
 versions:
  - "v6.6.0dfsg-7b1-deb_cv1"
 description: "Free Open Source software analysis package which covers several molecular biology tools."
+config: {"docker": "biocontainers/emboss", "latest": {"v6.6.0dfsg-7b1-deb_cv1": "sha256:45f7de44bcc525f4b02bb48a27df0c6e4d713c57c2a022cd9164ffbd02e1670b"}, "tags": {"v6.6.0dfsg-7b1-deb_cv1": "sha256:45f7de44bcc525f4b02bb48a27df0c6e4d713c57c2a022cd9164ffbd02e1670b"}, "filter": ["v*"], "maintainer": "@vsoch", "url": "https://hub.docker.com/r/biocontainers/emboss", "description": "Free Open Source software analysis package which covers several molecular biology tools.", "aliases": {"embossdata": "/usr/bin/embossdata", "embossupdate": "/usr/bin/embossupdate", "embossversion": "/usr/bin/embossversion", "emma": "/usr/bin/emma", "emowse": "/usr/bin/emouse", "em_pscan": "/usr/bin/em_pscan", "em_cons": "/usr/bin/em_cons"}}
 ---
 
 This module is a singularity container wrapper for biocontainers/emboss.

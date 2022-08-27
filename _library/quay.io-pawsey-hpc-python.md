@@ -2,20 +2,21 @@
 layout: container
 name:  "quay.io/pawsey/hpc-python"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/pawsey/hpc-python/container.yaml"
-updated_at: "2022-08-01 18:21:38.784628"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/quay.io/pawsey/hpc-python/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/quay.io/pawsey/hpc-python/container.yaml"
+updated_at: "2022-08-27 01:37:35.889694"
+latest: "2022.03"
 container_url: "https://quay.io/repository/pawsey/hpc-python"
 aliases:
  - "python"
-
  - "python3"
-
 versions:
  - "2021.09"
  - "2021.09-hdf5mpi"
  - "2022.03"
  - "2022.03-hdf5mpi"
 description: "Base Python images with popular packages for HPC workflows."
+config: {"docker": "quay.io/pawsey/hpc-python", "url": "https://quay.io/repository/pawsey/hpc-python", "maintainer": "@marcodelapierre", "description": "Base Python images with popular packages for HPC workflows.", "latest": {"2022.03": "sha256:962e7c24302b2dc3946bb22326d0cb4385373113a212231488070aa3e43bd1a1"}, "tags": {"2021.09": "sha256:c2f3f585a0be711046583c5861199107c94e047545325834d68d81d2582b7a04", "2021.09-hdf5mpi": "sha256:9d34b5908630e028a6a084891af8b6e65f2626c30e57c06e883f8909850c782b", "2022.03": "sha256:962e7c24302b2dc3946bb22326d0cb4385373113a212231488070aa3e43bd1a1", "2022.03-hdf5mpi": "sha256:e9a0db88e98c2388d8731a983ed845b46ce0e2d99d4566802b84142ce21e1c23"}, "aliases": {"python": "/usr/local/bin/python", "python3": "/usr/local/bin/python3"}, "env": {"PYTHONSTARTUP": "", "PYTHONUSERBASE": ""}, "features": {"home": true}}
 ---
 
 This module is a singularity container wrapper for quay.io/pawsey/hpc-python.

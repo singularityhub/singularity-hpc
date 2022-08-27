@@ -2,8 +2,10 @@
 layout: container
 name:  "ghcr.io/autamus/trilinos"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/trilinos/container.yaml"
-updated_at: "2022-08-01 18:20:22.670304"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/trilinos/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/trilinos/container.yaml"
+updated_at: "2022-08-27 01:36:52.442859"
+latest: "13.2.0"
 container_url: "https://github.com/orgs/autamus/packages/container/package/trilinos"
 
 versions:
@@ -11,6 +13,7 @@ versions:
  - "13.2.0"
  - "latest"
 description: "The Trilinos Project is an effort to develop algorithms and enabling technologies within an object-oriented software framework for the solution of large-scale, complex multi-physics engineering and scientific problems. A unique design feature of Trilinos is its focus on packages."
+config: {"docker": "ghcr.io/autamus/trilinos", "url": "https://github.com/orgs/autamus/packages/container/package/trilinos", "maintainer": "@vsoch", "description": "The Trilinos Project is an effort to develop algorithms and enabling technologies within an object-oriented software framework for the solution of large-scale, complex multi-physics engineering and scientific problems. A unique design feature of Trilinos is its focus on packages.", "latest": {"13.2.0": "sha256:c5f4396266806c4bd8a12fe04a2d25aafc0ac034e4c2b1d965d2cbbaef5a31c8"}, "tags": {"13.0.1": "sha256:cef95b0d22c12d952c3100caa85cb12fd8f976aa4e34ed584f9e3d3c1c4340e7", "13.2.0": "sha256:c5f4396266806c4bd8a12fe04a2d25aafc0ac034e4c2b1d965d2cbbaef5a31c8", "latest": "sha256:c5f4396266806c4bd8a12fe04a2d25aafc0ac034e4c2b1d965d2cbbaef5a31c8"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/trilinos.

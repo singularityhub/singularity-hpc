@@ -2,17 +2,19 @@
 layout: container
 name:  "ghcr.io/autamus/mercurial"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/mercurial/container.yaml"
-updated_at: "2022-08-01 18:21:00.793968"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/mercurial/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/mercurial/container.yaml"
+updated_at: "2022-08-27 01:36:17.728016"
+latest: "5.8"
 container_url: "https://github.com/orgs/autamus/packages/container/package/mercurial"
 aliases:
  - "hg"
-
 versions:
  - "5.7.1"
  - "5.8"
  - "latest"
 description: "Mercurial is a distributed revision control tool for software developers."
+config: {"docker": "ghcr.io/autamus/mercurial", "url": "https://github.com/orgs/autamus/packages/container/package/mercurial", "maintainer": "@vsoch", "description": "Mercurial is a distributed revision control tool for software developers.", "latest": {"5.8": "sha256:16553e7d221c234673117e998b92949fdfc2fd5a2e7d5db4d3607c65abe77996"}, "tags": {"5.7.1": "sha256:5671150262c821b0b66376c50f74a577a9f04d1668f25f0f4d2b414c4d14d94f", "5.8": "sha256:16553e7d221c234673117e998b92949fdfc2fd5a2e7d5db4d3607c65abe77996", "latest": "sha256:16553e7d221c234673117e998b92949fdfc2fd5a2e7d5db4d3607c65abe77996"}, "aliases": {"hg": "/opt/view/bin/hg"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/mercurial.

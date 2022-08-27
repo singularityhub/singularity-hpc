@@ -2,17 +2,19 @@
 layout: container
 name:  "ghcr.io/autamus/salmon"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/salmon/container.yaml"
-updated_at: "2022-08-01 18:20:39.158252"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/salmon/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/salmon/container.yaml"
+updated_at: "2022-08-27 01:36:42.954242"
+latest: "1.5.2"
 container_url: "https://github.com/orgs/autamus/packages/container/package/salmon"
 aliases:
  - "salmon"
-
 versions:
  - "1.4.0"
  - "1.5.2"
  - "latest"
 description: "Salmon is a wicked-fast program to produce a highly-accurate, transcript-level quantification estimates from RNA-seq data."
+config: {"docker": "ghcr.io/autamus/salmon", "url": "https://github.com/orgs/autamus/packages/container/package/salmon", "maintainer": "@vsoch", "description": "Salmon is a wicked-fast program to produce a highly-accurate, transcript-level quantification estimates from RNA-seq data.", "latest": {"1.5.2": "sha256:6b802de7c2b269a3a5b73a5160972d2a903192c67a0e9946999c8986fcdabc2c"}, "tags": {"1.4.0": "sha256:2fe7f560a48e93304f056cbb0abff46232d5471a225b390c06c3766c2821f23f", "1.5.2": "sha256:6b802de7c2b269a3a5b73a5160972d2a903192c67a0e9946999c8986fcdabc2c", "latest": "sha256:2fe7f560a48e93304f056cbb0abff46232d5471a225b390c06c3766c2821f23f"}, "aliases": {"salmon": "/opt/view/bin/salmon"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/salmon.

@@ -2,20 +2,21 @@
 layout: container
 name:  "ghcr.io/autamus/clingo"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/clingo/container.yaml"
-updated_at: "2022-08-01 18:21:21.477616"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/clingo/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/clingo/container.yaml"
+updated_at: "2022-08-27 01:35:42.526862"
+latest: "5.5.1"
 container_url: "https://github.com/orgs/autamus/packages/container/package/clingo"
 aliases:
  - "clingo"
-
  - "gringo"
-
 versions:
  - "5.4.1"
  - "5.5.0"
  - "5.5.1"
  - "latest"
 description: "An ASP system to ground and solve logic programs."
+config: {"docker": "ghcr.io/autamus/clingo", "url": "https://github.com/orgs/autamus/packages/container/package/clingo", "maintainer": "@vsoch", "description": "An ASP system to ground and solve logic programs.", "latest": {"5.5.1": "sha256:dc453ee2098625ad56dbafc7a9bfae656ba2577d3931b99edf1a836ac0635961"}, "tags": {"5.4.1": "sha256:c98a480f85a68063dfb9c4cb6eedfbe0cf84a1af737b73ef2d94213fffd91ff5", "5.5.0": "sha256:3abad0093b96f7f8336c2259f77410cc154656aa6f3dfbd482d2a05786b81bca", "5.5.1": "sha256:dc453ee2098625ad56dbafc7a9bfae656ba2577d3931b99edf1a836ac0635961", "latest": "sha256:dc453ee2098625ad56dbafc7a9bfae656ba2577d3931b99edf1a836ac0635961"}, "aliases": {"clingo": "/opt/view/bin/clingo", "gringo": "/opt/view/bin/gringo"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/clingo.

@@ -2,27 +2,24 @@
 layout: container
 name:  "ghcr.io/autamus/veloc"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/veloc/container.yaml"
-updated_at: "2022-08-01 18:20:49.149150"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/veloc/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/veloc/container.yaml"
+updated_at: "2022-08-27 01:36:56.661642"
+latest: "1.5"
 container_url: "https://github.com/orgs/autamus/packages/container/package/veloc"
 aliases:
  - "veloc-backend"
-
  - "veloc_check_node"
-
  - "veloc_env"
-
  - "veloc_glob_hosts"
-
  - "veloc_jsrun"
-
  - "veloc_list_down_nodes"
-
 versions:
  - "1.4"
  - "1.5"
  - "latest"
 description: "Very-Low Overhead Checkpointing System. VELOC is a multi-level checkpoint-restart runtime for HPC supercomputing infrastructures"
+config: {"docker": "ghcr.io/autamus/veloc", "url": "https://github.com/orgs/autamus/packages/container/package/veloc", "maintainer": "@vsoch", "description": "Very-Low Overhead Checkpointing System. VELOC is a multi-level checkpoint-restart runtime for HPC supercomputing infrastructures", "latest": {"1.5": "sha256:98a4f6f292749587045821d0ab5e8c17dd1596fe523aa53252de543fc44fdeb3"}, "tags": {"1.4": "sha256:1cbebd19203bbcf3a9306683bb3f689c414c108ef18b15a4163c6e3529952914", "1.5": "sha256:98a4f6f292749587045821d0ab5e8c17dd1596fe523aa53252de543fc44fdeb3", "latest": "sha256:98a4f6f292749587045821d0ab5e8c17dd1596fe523aa53252de543fc44fdeb3"}, "aliases": {"veloc-backend": "/opt/view/bin/veloc-backend", "veloc_check_node": "/opt/view/bin/veloc_check_node", "veloc_env": "/opt/view/bin/veloc_env", "veloc_glob_hosts": "/opt/view/bin/veloc_glob_hosts", "veloc_jsrun": "/opt/view/bin/veloc_jsrun", "veloc_list_down_nodes": "/opt/view/bin/veloc_list_down_nodes"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/veloc.

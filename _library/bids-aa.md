@@ -2,13 +2,16 @@
 layout: container
 name:  "bids/aa"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/bids/aa/container.yaml"
-updated_at: "2022-08-01 18:22:00.066769"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/bids/aa/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/bids/aa/container.yaml"
+updated_at: "2022-08-27 01:35:09.306143"
+latest: "enh_various"
 container_url: "https://hub.docker.com/r/bids/aa"
 
 versions:
  - "enh_various"
 description: "BIDS App containing an instance of the Automatic Analysis. (https://github.com/BIDS-Apps/aa)"
+config: {"docker": "bids/aa", "latest": {"enh_various": "sha256:c5b2c733ee6475449066f7dfe7865cc4bf2c74fe3c1150fd4f61a6fed2a6f78b"}, "tags": {"enh_various": "sha256:c5b2c733ee6475449066f7dfe7865cc4bf2c74fe3c1150fd4f61a6fed2a6f78b"}, "filter": ["enh_various"], "maintainer": "@vsoch", "description": "BIDS App containing an instance of the Automatic Analysis. (https://github.com/BIDS-Apps/aa)", "url": "https://hub.docker.com/r/bids/aa"}
 ---
 
 This module is a singularity container wrapper for bids/aa.

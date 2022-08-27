@@ -2,18 +2,20 @@
 layout: container
 name:  "quay.io/biocontainers/fastp"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/quay.io/biocontainers/fastp/container.yaml"
-updated_at: "2022-08-01 18:21:25.355846"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/quay.io/biocontainers/fastp/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/quay.io/biocontainers/fastp/container.yaml"
+updated_at: "2022-08-27 01:37:25.814811"
+latest: "0.23.2--hb7a2d85_2"
 container_url: "https://quay.io/repository/biocontainers/fastp"
 aliases:
  - "fastp"
-
 versions:
  - "0.22.0--h2e03b76_0"
  - "0.23.1--h79da9fb_0"
  - "0.23.2--h79da9fb_0"
  - "0.23.2--hb7a2d85_2"
 description: "An ultra-fast all-in-one FASTQ preprocessor."
+config: {"docker": "quay.io/biocontainers/fastp", "url": "https://quay.io/repository/biocontainers/fastp", "maintainer": "@marcodelapierre", "description": "An ultra-fast all-in-one FASTQ preprocessor.", "latest": {"0.23.2--hb7a2d85_2": "sha256:0bdf8d8254fc86dd9038551d68dbcb72562e65560b9ce0ea08c1329d2f8587b4"}, "tags": {"0.22.0--h2e03b76_0": "sha256:e94097ae4ca17394b35d59a20d9a9f6d8972992bd47d1783f00c26e86ca82c2b", "0.23.1--h79da9fb_0": "sha256:12c900b998c994272699d6d0dd451fb329a0ee8be032ff0186a3ad8c315122fe", "0.23.2--h79da9fb_0": "sha256:6218b1018ae7ae3f071c0d5229dac0403811273e57e46d0a8b242ce74f88f386", "0.23.2--hb7a2d85_2": "sha256:0bdf8d8254fc86dd9038551d68dbcb72562e65560b9ce0ea08c1329d2f8587b4"}, "aliases": {"fastp": "/usr/local/bin/fastp"}}
 ---
 
 This module is a singularity container wrapper for quay.io/biocontainers/fastp.

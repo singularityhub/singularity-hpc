@@ -2,14 +2,17 @@
 layout: container
 name:  "ghcr.io/autamus/accumulo"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/accumulo/container.yaml"
-updated_at: "2022-08-01 18:21:12.418982"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/accumulo/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/accumulo/container.yaml"
+updated_at: "2022-08-27 01:35:24.075359"
+latest: "2.0.1"
 container_url: "https://github.com/orgs/autamus/packages/container/package/accumulo"
 
 versions:
  - "2.0.1"
  - "latest"
 description: "Apache Accumulo is a sorted, distributed key/value store that provides robust, scalable data storage and retrieval."
+config: {"docker": "ghcr.io/autamus/accumulo", "url": "https://github.com/orgs/autamus/packages/container/package/accumulo", "maintainer": "@vsoch", "description": "Apache Accumulo is a sorted, distributed key/value store that provides robust, scalable data storage and retrieval.", "latest": {"2.0.1": "sha256:2ebf447903a2c22e398cececed37ee119d90e45632ede1e851596f0ac5b11062"}, "tags": {"2.0.1": "sha256:2ebf447903a2c22e398cececed37ee119d90e45632ede1e851596f0ac5b11062", "latest": "sha256:2ebf447903a2c22e398cececed37ee119d90e45632ede1e851596f0ac5b11062"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/accumulo.

@@ -2,26 +2,23 @@
 layout: container
 name:  "ghcr.io/autamus/raxml"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/raxml/container.yaml"
-updated_at: "2022-08-01 18:21:06.391464"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/raxml/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/raxml/container.yaml"
+updated_at: "2022-08-27 01:36:39.805178"
+latest: "8.2.12"
 container_url: "https://github.com/orgs/autamus/packages/container/package/raxml"
 aliases:
  - "raxmlHPC"
-
  - "raxmlHPC-AVX"
-
  - "raxmlHPC-MPI"
-
  - "raxmlHPC-MPI-AVX"
-
  - "raxmlHPC-MPI-SSE3"
-
  - "raxmlHPC-SSE3"
-
 versions:
  - "8.2.12"
  - "latest"
 description: "RAxML (Randomized Axelerated Maximum Likelihood) is a popular program for phylogenetic analysis of large datasets under maximum likelihood."
+config: {"docker": "ghcr.io/autamus/raxml", "url": "https://github.com/orgs/autamus/packages/container/package/raxml", "maintainer": "@vsoch", "description": "RAxML (Randomized Axelerated Maximum Likelihood) is a popular program for phylogenetic analysis of large datasets under maximum likelihood.", "latest": {"8.2.12": "sha256:19463009b56fbd99c49c5e98aa44481aa6773d1945c1c7c8504bd1ff583ed0ef"}, "tags": {"8.2.12": "sha256:19463009b56fbd99c49c5e98aa44481aa6773d1945c1c7c8504bd1ff583ed0ef", "latest": "sha256:19463009b56fbd99c49c5e98aa44481aa6773d1945c1c7c8504bd1ff583ed0ef"}, "aliases": {"raxmlHPC": "/opt/view/bin/raxmlHPC", "raxmlHPC-AVX": "/opt/view/bin/raxmlHPC-AVX", "raxmlHPC-MPI": "/opt/view/bin/raxmlHPC-MPI", "raxmlHPC-MPI-AVX": "/opt/view/bin/raxmlHPC-MPI-AVX", "raxmlHPC-MPI-SSE3": "/opt/view/bin/raxmlHPC-MPI-SSE3", "raxmlHPC-SSE3": "/opt/view/bin/raxmlHPC-SSE3"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/raxml.

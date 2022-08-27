@@ -2,86 +2,50 @@
 layout: container
 name:  "ghcr.io/autamus/abyss"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/abyss/container.yaml"
-updated_at: "2022-08-01 18:20:46.111735"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/abyss/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/abyss/container.yaml"
+updated_at: "2022-08-27 01:35:23.558137"
+latest: "2.3.4"
 container_url: "https://github.com/orgs/autamus/packages/container/package/abyss"
 aliases:
  - "abyss-align"
-
  - "abyss-bloom"
-
  - "abyss-bloom-dbg"
-
  - "abyss-bloom-dist.mk"
-
  - "abyss-bowtie"
-
  - "abyss-bowtie2"
-
  - "abyss-bwa"
-
  - "abyss-bwamem"
-
  - "abyss-bwasw"
-
  - "abyss-db-csv"
-
  - "abyss-db-txt"
-
  - "abyss-dida"
-
  - "abyss-fac"
-
  - "abyss-fatoagp"
-
  - "abyss-filtergraph"
-
  - "abyss-fixmate"
-
  - "abyss-fixmate-ssq"
-
  - "abyss-gapfill"
-
  - "abyss-gc"
-
  - "abyss-index"
-
  - "abyss-junction"
-
  - "abyss-kaligner"
-
  - "abyss-layout"
-
  - "abyss-longseqdist"
-
  - "abyss-map"
-
  - "abyss-map-ssq"
-
  - "abyss-mergepairs"
-
  - "abyss-overlap"
-
  - "abyss-paired-dbg"
-
  - "abyss-paired-dbg-mpi"
-
  - "abyss-pe"
-
  - "abyss-samtoafg"
-
  - "abyss-scaffold"
-
  - "abyss-sealer"
-
  - "abyss-stack-size"
-
  - "abyss-tabtomd"
-
  - "abyss-todot"
-
  - "abyss-tofastq"
-
 versions:
  - "2.3.0"
  - "2.3.1"
@@ -90,6 +54,7 @@ versions:
  - "2.3.4"
  - "latest"
 description: "ABySS is a de novo, parallel, paired-end sequence assembler that is designed for short reads."
+config: {"docker": "ghcr.io/autamus/abyss", "url": "https://github.com/orgs/autamus/packages/container/package/abyss", "maintainer": "@vsoch", "description": "ABySS is a de novo, parallel, paired-end sequence assembler that is designed for short reads.", "latest": {"2.3.4": "sha256:83bd8f690ff2e4590351dc8666ce48483a0b1352c9b9a0e98a48477a788d1097"}, "tags": {"2.3.0": "sha256:09dabf5c3f3babf2e3a64c0ba712047ee11555a7dc799273b647359bea1cb59b", "2.3.1": "sha256:f26086d0cadf838de46f92b860e913603b107b38869fcdb6caec871653d251b3", "2.3.2": "sha256:4a3e34ffc609596244f00a8a695dd9497d69f449ddb99cd8f969a1584d707ff4", "2.3.3": "sha256:2a62660b7b550401059324ae4c073aef46974504327f67fade111f248b6fa68c", "2.3.4": "sha256:83bd8f690ff2e4590351dc8666ce48483a0b1352c9b9a0e98a48477a788d1097", "latest": "sha256:83bd8f690ff2e4590351dc8666ce48483a0b1352c9b9a0e98a48477a788d1097"}, "aliases": {"abyss-align": "/opt/view/bin/abyss-align", "abyss-bloom": "/opt/view/bin/abyss-bloom", "abyss-bloom-dbg": "/opt/view/bin/abyss-bloom-dbg", "abyss-bloom-dist.mk": "/opt/view/bin/abyss-bloom-dist.mk", "abyss-bowtie": "/opt/view/bin/abyss-bowtie", "abyss-bowtie2": "/opt/view/bin/abyss-bowtie2", "abyss-bwa": "/opt/view/bin/abyss-bwa", "abyss-bwamem": "/opt/view/bin/abyss-bwamem", "abyss-bwasw": "/opt/view/bin/abyss-bwasw", "abyss-db-csv": "/opt/view/bin/abyss-db-csv", "abyss-db-txt": "/opt/view/bin/abyss-db-txt", "abyss-dida": "/opt/view/bin/abyss-dida", "abyss-fac": "/opt/view/bin/abyss-fac", "abyss-fatoagp": "/opt/view/bin/abyss-fatoagp", "abyss-filtergraph": "/opt/view/bin/abyss-filtergraph", "abyss-fixmate": "/opt/view/bin/abyss-fixmate", "abyss-fixmate-ssq": "/opt/view/bin/abyss-fixmate-ssq", "abyss-gapfill": "/opt/view/bin/abyss-gapfill", "abyss-gc": "/opt/view/bin/abyss-gc", "abyss-index": "/opt/view/bin/abyss-index", "abyss-junction": "/opt/view/bin/abyss-junction", "abyss-kaligner": "/opt/view/bin/abyss-kaligner", "abyss-layout": "/opt/view/bin/abyss-layout", "abyss-longseqdist": "/opt/view/bin/abyss-longseqdist", "abyss-map": "/opt/view/bin/abyss-map", "abyss-map-ssq": "/opt/view/bin/abyss-map-ssq", "abyss-mergepairs": "/opt/view/bin/abyss-mergepairs", "abyss-overlap": "/opt/view/bin/abyss-overlap", "abyss-paired-dbg": "/opt/view/bin/abyss-paired-dbg", "abyss-paired-dbg-mpi": "/opt/view/bin/abyss-paired-dbg-mpi", "abyss-pe": "/opt/view/bin/abyss-pe", "abyss-samtoafg": "/opt/view/bin/abyss-samtoafg", "abyss-scaffold": "/opt/view/bin/abyss-scaffold", "abyss-sealer": "/opt/view/bin/abyss-sealer", "abyss-stack-size": "/opt/view/bin/abyss-stack-size", "abyss-tabtomd": "/opt/view/bin/abyss-tabtomd", "abyss-todot": "/opt/view/bin/abyss-todot", "abyss-tofastq": "/opt/view/bin/abyss-tofastq"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/abyss.

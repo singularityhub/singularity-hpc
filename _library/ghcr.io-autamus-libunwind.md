@@ -2,14 +2,17 @@
 layout: container
 name:  "ghcr.io/autamus/libunwind"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/libunwind/container.yaml"
-updated_at: "2022-08-01 18:20:06.508831"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/libunwind/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/libunwind/container.yaml"
+updated_at: "2022-08-27 01:36:14.063881"
+latest: "1.5"
 container_url: "https://github.com/orgs/autamus/packages/container/package/libunwind"
 
 versions:
  - "1.5"
  - "latest"
 description: "A portable and efficient C programming interface (API) to determine the call-chain of a program."
+config: {"docker": "ghcr.io/autamus/libunwind", "url": "https://github.com/orgs/autamus/packages/container/package/libunwind", "maintainer": "@vsoch", "description": "A portable and efficient C programming interface (API) to determine the call-chain of a program.", "latest": {"1.5": "sha256:aff63eeabf23a19a27aa54037a4d98def73b8b0ccb7fea7557b57d4918be17cb"}, "tags": {"1.5": "sha256:aff63eeabf23a19a27aa54037a4d98def73b8b0ccb7fea7557b57d4918be17cb", "latest": "sha256:aff63eeabf23a19a27aa54037a4d98def73b8b0ccb7fea7557b57d4918be17cb"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/libunwind.

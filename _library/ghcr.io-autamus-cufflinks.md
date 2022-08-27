@@ -2,26 +2,23 @@
 layout: container
 name:  "ghcr.io/autamus/cufflinks"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/cufflinks/container.yaml"
-updated_at: "2022-08-01 18:21:20.608571"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/cufflinks/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/cufflinks/container.yaml"
+updated_at: "2022-08-27 01:35:45.165226"
+latest: "2.2.1"
 container_url: "https://github.com/orgs/autamus/packages/container/package/cufflinks"
 aliases:
  - "cuffcompare"
-
  - "cuffdiff"
-
  - "cufflinks"
-
  - "cuffmerge"
-
  - "cuffnorm"
-
  - "cuffquant"
-
 versions:
  - "2.2.1"
  - "latest"
 description: "Cufflinks assembles transcripts, estimates their abundances, and tests for differential expression and regulation in RNA-Seq samples."
+config: {"docker": "ghcr.io/autamus/cufflinks", "url": "https://github.com/orgs/autamus/packages/container/package/cufflinks", "maintainer": "@vsoch", "description": "Cufflinks assembles transcripts, estimates their abundances, and tests for differential expression and regulation in RNA-Seq samples.", "latest": {"2.2.1": "sha256:6c39b07196632e49b7b5dcb770985dddc71e6e9518643b22adbd77d93d2c681c"}, "tags": {"2.2.1": "sha256:6c39b07196632e49b7b5dcb770985dddc71e6e9518643b22adbd77d93d2c681c", "latest": "sha256:6c39b07196632e49b7b5dcb770985dddc71e6e9518643b22adbd77d93d2c681c"}, "aliases": {"cuffcompare": "/opt/view/bin/cuffcompare", "cuffdiff": "/opt/view/bin/cuffdiff", "cufflinks": "/opt/view/bin/cufflinks", "cuffmerge": "/opt/view/bin/cuffmerge", "cuffnorm": "/opt/view/bin/cuffnorm", "cuffquant": "/opt/view/bin/cuffquant"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/cufflinks.

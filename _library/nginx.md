@@ -2,14 +2,14 @@
 layout: container
 name:  "nginx"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/nginx/container.yaml"
-updated_at: "2022-08-01 18:22:03.098910"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/nginx/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/nginx/container.yaml"
+updated_at: "2022-08-27 01:37:07.786056"
+latest: "1.23"
 container_url: "https://hub.docker.com/r/_/nginx"
 aliases:
  - "nginx"
-
  - "nginx-debug"
-
 versions:
  - "1.20.0-alpine-perl"
  - "1.21.0-alpine-perl"
@@ -27,6 +27,7 @@ versions:
  - "1.22"
  - "1.23"
 description: "Nginx (pronounced 'engine-x') is an open source reverse proxy server for HTTP, HTTPS, SMTP, POP3, and IMAP protocols, as well as a load balancer, HTTP cache, and a web server (origin server)."
+config: {"docker": "nginx", "url": "https://hub.docker.com/r/_/nginx", "maintainer": "@vsoch", "description": "Nginx (pronounced 'engine-x') is an open source reverse proxy server for HTTP, HTTPS, SMTP, POP3, and IMAP protocols, as well as a load balancer, HTTP cache, and a web server (origin server).", "latest": {"1.23": "sha256:10f14ffa93f8dedf1057897b745e5ac72ac5655c299dade0aa434c71557697ea"}, "tags": {"1.20.0-alpine-perl": "sha256:00109feeafcc6b80f2322cf70b406d5e521f53d0b0841acfce22aa2a827115d6", "1.21.0-alpine-perl": "sha256:fea7bc7dc04726dbc2e89457f7548f47c6914714a1a5ec6e50e2a13f10c22378", "1.21.1": "sha256:a05b0cdd4fc1be3b224ba9662ebdf98fe44c09c0c9215b45f84344c12867002e", "1.21.1-alpine-perl": "sha256:14f5b7ec666c31801d2e06312bea48cff2f366d350d3825d29ae92b9d5fbad83", "1.21.3": "sha256:644a70516a26004c97d0d85c7fe1d0c3a67ea8ab7ddf4aff193d9f301670cf36", "1.21.4": "sha256:366e9f1ddebdb844044c2fafd13b75271a9f620819370f8971220c2b330a9254", "1.21.5": "sha256:0d17b565c37bcbd895e9d92315a05c1c3c9a29f762b011a10c54a66cd53c9b31", "1.21.6": "sha256:2bcabc23b45489fb0885d69a06ba1d648aeda973fae7bb981bafbb884165e514", "latest": "sha256:10f14ffa93f8dedf1057897b745e5ac72ac5655c299dade0aa434c71557697ea", "stable-alpine-perl": "sha256:98e9ed31b6ce2a98ae334a08a52919c6bf5be78d3437349da59c7d4efd984235", "1": "sha256:10f14ffa93f8dedf1057897b745e5ac72ac5655c299dade0aa434c71557697ea", "1.21": "sha256:2bcabc23b45489fb0885d69a06ba1d648aeda973fae7bb981bafbb884165e514", "1.20": "sha256:38f8c1d9613f3f42e7969c3b1dd5c3277e635d4576713e6453c6193e66270a6d", "1.22": "sha256:d4fe835ca959ff06f3f0d6fff47dc9d480d21179cefea413f07e1be6b1de16c3", "1.23": "sha256:10f14ffa93f8dedf1057897b745e5ac72ac5655c299dade0aa434c71557697ea"}, "aliases": {"nginx": "/usr/sbin/nginx", "nginx-debug": "/usr/sbin/nginx-debug"}}
 ---
 
 This module is a singularity container wrapper for nginx.

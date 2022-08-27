@@ -2,51 +2,36 @@
 layout: container
 name:  "ghcr.io/autamus/hdf5"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/hdf5/container.yaml"
-updated_at: "2022-08-01 18:21:05.955830"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/hdf5/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/hdf5/container.yaml"
+updated_at: "2022-08-27 01:36:01.470526"
+latest: "1.13"
 container_url: "https://github.com/orgs/autamus/packages/container/package/hdf5"
 aliases:
  - "h5clear"
-
  - "h5copy"
-
  - "h5debug"
-
  - "h5diff"
-
  - "h5dump"
-
  - "h5format_convert"
-
  - "h5import"
-
  - "h5jam"
-
  - "h5ls"
-
  - "h5mkgrp"
-
  - "h5pcc"
-
  - "h5perf"
-
  - "h5perf_serial"
-
  - "h5redeploy"
-
  - "h5repack"
-
  - "h5repart"
-
  - "h5stat"
-
  - "h5unjam"
-
 versions:
  - "1.12.0"
  - "1.13"
  - "latest"
 description: "HDF5 is a unique technology suite that makes possible the management of extremely large and complex data collections."
+config: {"docker": "ghcr.io/autamus/hdf5", "url": "https://github.com/orgs/autamus/packages/container/package/hdf5", "maintainer": "@vsoch", "description": "HDF5 is a unique technology suite that makes possible the management of extremely large and complex data collections.", "latest": {"1.13": "sha256:ced4f0a183656f4475a32c58e144250da1d324f8b4b2a311063b736b2ca52ccc"}, "tags": {"1.12.0": "sha256:cf708cd850f573a009d3f111f5e7576ba18ccbc7e4c7292ed4d8b233c4f4a99b", "1.13": "sha256:ced4f0a183656f4475a32c58e144250da1d324f8b4b2a311063b736b2ca52ccc", "latest": "sha256:ced4f0a183656f4475a32c58e144250da1d324f8b4b2a311063b736b2ca52ccc"}, "aliases": {"h5clear": "/opt/view/bin/h5clear", "h5copy": "/opt/view/bin/h5copy", "h5debug": "/opt/view/bin/h5debug", "h5diff": "/opt/view/bin/h5diff", "h5dump": "/opt/view/bin/h5dump", "h5format_convert": "/opt/view/bin/h5format_convert", "h5import": "/opt/view/bin/h5import", "h5jam": "/opt/view/bin/h5jam", "h5ls": "/opt/view/bin/h5ls", "h5mkgrp": "/opt/view/bin/h5mkgrp", "h5pcc": "/opt/view/bin/h5pcc", "h5perf": "/opt/view/bin/h5perf", "h5perf_serial": "/opt/view/bin/h5perf_serial", "h5redeploy": "/opt/view/bin/h5redeploy", "h5repack": "/opt/view/bin/h5repack", "h5repart": "/opt/view/bin/h5repart", "h5stat": "/opt/view/bin/h5stat", "h5unjam": "/opt/view/bin/h5unjam"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/hdf5.

@@ -2,12 +2,13 @@
 layout: container
 name:  "ghcr.io/autamus/mothur"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/mothur/container.yaml"
-updated_at: "2022-08-01 18:20:44.796211"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/mothur/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/mothur/container.yaml"
+updated_at: "2022-08-27 01:36:19.823799"
+latest: "1.46.1"
 container_url: "https://github.com/orgs/autamus/packages/container/package/mothur"
 aliases:
  - "mothur"
-
 versions:
  - "1.45.1"
  - "1.45.3"
@@ -15,6 +16,7 @@ versions:
  - "1.46.1"
  - "latest"
 description: "A single piece of open-source, expandable software to fill the bioinformatics needs of the microbial ecology community."
+config: {"docker": "ghcr.io/autamus/mothur", "url": "https://github.com/orgs/autamus/packages/container/package/mothur", "maintainer": "@vsoch", "description": "A single piece of open-source, expandable software to fill the bioinformatics needs of the microbial ecology community.", "latest": {"1.46.1": "sha256:646ee790161ab827642175fb7131ddd3386f13df23133cb1aa66c51360ab1bfd"}, "tags": {"1.45.1": "sha256:af8905f940a15b823fab61acf3324630ae8e2b7240d1d28af54317c4e22af384", "1.45.3": "sha256:8fd2377dfeef70dad28b421d537ded4e57f20fc8fde781abebe93815a0346d87", "1.46.0": "sha256:99914cf54e72d6c2be85c7aaf7369497f94f56ac3823e410b41abdc1c4a1cab6", "1.46.1": "sha256:646ee790161ab827642175fb7131ddd3386f13df23133cb1aa66c51360ab1bfd", "latest": "sha256:646ee790161ab827642175fb7131ddd3386f13df23133cb1aa66c51360ab1bfd"}, "aliases": {"mothur": "/opt/view/bin/mothur"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/mothur.

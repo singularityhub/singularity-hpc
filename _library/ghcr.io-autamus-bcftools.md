@@ -2,18 +2,20 @@
 layout: container
 name:  "ghcr.io/autamus/bcftools"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/bcftools/container.yaml"
-updated_at: "2022-08-01 18:20:28.765042"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/bcftools/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/bcftools/container.yaml"
+updated_at: "2022-08-27 01:35:32.993390"
+latest: "1.14"
 container_url: "https://github.com/orgs/autamus/packages/container/package/bcftools"
 aliases:
  - "bcftools"
-
 versions:
  - "1.12"
  - "1.13"
  - "1.14"
  - "latest"
 description: "BCFtools is a set of utilities that manipulate variant calls in the Variant Call Format (VCF) and its binary counterpart BCF."
+config: {"docker": "ghcr.io/autamus/bcftools", "url": "https://github.com/orgs/autamus/packages/container/package/bcftools", "maintainer": "@vsoch", "description": "BCFtools is a set of utilities that manipulate variant calls in the Variant Call Format (VCF) and its binary counterpart BCF.", "latest": {"1.14": "sha256:6ae2e486b4e02bfcd0da8a4c3f7c4e39cbd0a3ffb04deb7209fc5d92712e042a"}, "tags": {"1.12": "sha256:b77a402c04d702bf2c4cac914552c2515e630d9e6ecf36fcd332469f026388d9", "1.13": "sha256:f362b16aec2b3fc6d1e6119882ff113066684432cfcb8882990c6d2a4ce2569a", "1.14": "sha256:6ae2e486b4e02bfcd0da8a4c3f7c4e39cbd0a3ffb04deb7209fc5d92712e042a", "latest": "sha256:6ae2e486b4e02bfcd0da8a4c3f7c4e39cbd0a3ffb04deb7209fc5d92712e042a"}, "aliases": {"bcftools": "/opt/view/bin/bcftools"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/bcftools.

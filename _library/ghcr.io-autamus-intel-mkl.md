@@ -2,14 +2,17 @@
 layout: container
 name:  "ghcr.io/autamus/intel-mkl"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/intel-mkl/container.yaml"
-updated_at: "2022-08-01 18:20:31.366437"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/intel-mkl/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/intel-mkl/container.yaml"
+updated_at: "2022-08-27 01:36:06.732016"
+latest: "2020.4.304"
 container_url: "https://github.com/orgs/autamus/packages/container/package/intel-mkl"
 
 versions:
  - "2020.4.304"
  - "latest"
 description: "Intel oneAPI Math Kernel Library, formerly just Intel Math Kernel Library, is a library of optimized math routines for science, engineering, and financial applications."
+config: {"docker": "ghcr.io/autamus/intel-mkl", "url": "https://github.com/orgs/autamus/packages/container/package/intel-mkl", "maintainer": "@vsoch", "description": "Intel oneAPI Math Kernel Library, formerly just Intel Math Kernel Library, is a library of optimized math routines for science, engineering, and financial applications.", "latest": {"2020.4.304": "sha256:093b1a41ac5d6654244c4d6187788d3e08b29ace000fd9f3bcd0989cd570a2e2"}, "tags": {"2020.4.304": "sha256:093b1a41ac5d6654244c4d6187788d3e08b29ace000fd9f3bcd0989cd570a2e2", "latest": "sha256:093b1a41ac5d6654244c4d6187788d3e08b29ace000fd9f3bcd0989cd570a2e2"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/intel-mkl.

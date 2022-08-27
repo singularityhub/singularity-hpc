@@ -2,18 +2,20 @@
 layout: container
 name:  "biocontainers/picard"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/biocontainers/picard/container.yaml"
-updated_at: "2022-08-01 18:19:59.565114"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/biocontainers/picard/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/biocontainers/picard/container.yaml"
+updated_at: "2022-08-27 01:35:18.840775"
+latest: "2.3.0"
 container_url: "https://hub.docker.com/r/biocontainers/picard"
 aliases:
  - "picard"
-
 versions:
  - "v1.139_cv3"
  - "2.3.0"
  - "1.141"
  - "1.139"
 description: "Java CLI tools for manipulating HTS data and formats"
+config: {"docker": "biocontainers/picard", "latest": {"2.3.0": "sha256:5e1bc7788a3aa1329e59821e3f89b5bb209372926a67ed1a95f7b9a71350e2be"}, "tags": {"v1.139_cv3": "sha256:05a6dd401d47c930191fa8c017b2cf60c099c4da236f134586a2f3610e426229", "2.3.0": "sha256:5e1bc7788a3aa1329e59821e3f89b5bb209372926a67ed1a95f7b9a71350e2be", "1.141": "sha256:675128282859c9edf1c8679478c828a48d980a4e73b95abba6a087d315d01cfc", "1.139": "sha256:4ef7e76d7cae7ffe804a304377adba870de777b81e90c1e6f5c822280e0243ca"}, "filter": ["v*"], "maintainer": "@vsoch", "url": "https://hub.docker.com/r/biocontainers/picard", "description": "Java CLI tools for manipulating HTS data and formats", "aliases": {"picard": "java -jar /opt/conda/bin/picard.jar"}}
 ---
 
 This module is a singularity container wrapper for biocontainers/picard.

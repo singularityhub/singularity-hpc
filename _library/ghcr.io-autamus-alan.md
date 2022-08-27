@@ -2,16 +2,18 @@
 layout: container
 name:  "ghcr.io/autamus/alan"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/alan/container.yaml"
-updated_at: "2022-08-01 18:21:01.223292"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/alan/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/alan/container.yaml"
+updated_at: "2022-08-27 01:35:27.222346"
+latest: "2.1.1"
 container_url: "https://github.com/orgs/autamus/packages/container/package/alan"
 aliases:
  - "alan"
-
 versions:
  - "2.1.1"
  - "latest"
 description: "A simple in-terminal alignment viewer."
+config: {"docker": "ghcr.io/autamus/alan", "url": "https://github.com/orgs/autamus/packages/container/package/alan", "maintainer": "@vsoch", "description": "A simple in-terminal alignment viewer.", "latest": {"2.1.1": "sha256:a47150ead4b4c66d4388bc29b535e1368236e5ddb08d4ae7d54079f1801e854f"}, "tags": {"2.1.1": "sha256:a47150ead4b4c66d4388bc29b535e1368236e5ddb08d4ae7d54079f1801e854f", "latest": "sha256:a47150ead4b4c66d4388bc29b535e1368236e5ddb08d4ae7d54079f1801e854f"}, "aliases": {"alan": "/opt/view/bin/alan"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/alan.

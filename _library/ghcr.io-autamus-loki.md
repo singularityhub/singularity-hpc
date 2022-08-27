@@ -2,14 +2,17 @@
 layout: container
 name:  "ghcr.io/autamus/loki"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/loki/container.yaml"
-updated_at: "2022-08-01 18:20:27.894679"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/loki/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/loki/container.yaml"
+updated_at: "2022-08-27 01:36:15.638828"
+latest: "0.1.7"
 container_url: "https://github.com/orgs/autamus/packages/container/package/loki"
 
 versions:
  - "0.1.7"
  - "latest"
 description: "Loki is a C++ library of designs, containing flexible implementations of common design patterns and idioms."
+config: {"docker": "ghcr.io/autamus/loki", "url": "https://github.com/orgs/autamus/packages/container/package/loki", "maintainer": "@vsoch", "description": "Loki is a C++ library of designs, containing flexible implementations of common design patterns and idioms.", "latest": {"0.1.7": "sha256:a5309bd0c0922ced3590ea0c893ae05a9501fea9a0111edca1bb8b475e388a74"}, "tags": {"0.1.7": "sha256:a5309bd0c0922ced3590ea0c893ae05a9501fea9a0111edca1bb8b475e388a74", "latest": "sha256:a5309bd0c0922ced3590ea0c893ae05a9501fea9a0111edca1bb8b475e388a74"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/loki.

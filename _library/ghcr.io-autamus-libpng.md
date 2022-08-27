@@ -2,22 +2,21 @@
 layout: container
 name:  "ghcr.io/autamus/libpng"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/libpng/container.yaml"
-updated_at: "2022-08-01 18:21:04.241203"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/libpng/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/libpng/container.yaml"
+updated_at: "2022-08-27 01:36:12.483074"
+latest: "1.6.37"
 container_url: "https://github.com/orgs/autamus/packages/container/package/libpng"
 aliases:
  - "libpng-config"
-
  - "libpng16-config"
-
  - "png-fix-itxt"
-
  - "pngfix"
-
 versions:
  - "1.6.37"
  - "latest"
 description: "libpng is the official PNG reference library."
+config: {"docker": "ghcr.io/autamus/libpng", "url": "https://github.com/orgs/autamus/packages/container/package/libpng", "maintainer": "@vsoch", "description": "libpng is the official PNG reference library.", "latest": {"1.6.37": "sha256:d7a0870b2bbf44308f510198267556e71a72fea9f137731e48234eae24abd17e"}, "tags": {"1.6.37": "sha256:d7a0870b2bbf44308f510198267556e71a72fea9f137731e48234eae24abd17e", "latest": "sha256:d7a0870b2bbf44308f510198267556e71a72fea9f137731e48234eae24abd17e"}, "aliases": {"libpng-config": "/opt/view/bin/libpng-config", "libpng16-config": "/opt/view/bin/libpng16-config", "png-fix-itxt": "/opt/view/bin/png-fix-itxt", "pngfix": "/opt/view/bin/pngfix"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/libpng.

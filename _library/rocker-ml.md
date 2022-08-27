@@ -2,27 +2,23 @@
 layout: container
 name:  "rocker/ml"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/rocker/ml/container.yaml"
-updated_at: "2022-08-01 18:21:43.133320"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/rocker/ml/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/rocker/ml/container.yaml"
+updated_at: "2022-08-27 01:37:40.615147"
+latest: "latest"
 container_url: "https://hub.docker.com/r/rocker/ml"
 aliases:
  - "R"
-
  - "Rscript"
-
  - "rocker-ml-run"
-
  - "rserver"
-
  - "rserver-pam"
-
  - "rsession"
-
  - "rstudio-server"
-
 versions:
  - "latest"
 description: "Docker images with R + machine learning libraries (CPU versions)."
+config: {"docker": "rocker/ml", "url": "https://hub.docker.com/r/rocker/ml", "maintainer": "@vsoch", "description": "Docker images with R + machine learning libraries (CPU versions).", "latest": {"latest": "sha256:b543b65e3ed4ebe81421dedf31cb961e51bbef452bec82597d8fe9cba384abbb"}, "tags": {"latest": "sha256:b543b65e3ed4ebe81421dedf31cb961e51bbef452bec82597d8fe9cba384abbb"}, "filter": ["latest"], "aliases": {"R": "/usr/local/bin/R", "Rscript": "/usr/local/bin/Rscript", "rocker-ml-run": "/bin/bash", "rserver": "/usr/lib/rstudio-server/bin/rserver", "rserver-pam": "/usr/lib/rstudio-server/bin/rserver-pam", "rsession": "/usr/lib/rstudio-server/bin/rsession", "rstudio-server": "/usr/lib/rstudio-server/bin/rstudio-server"}}
 ---
 
 This module is a singularity container wrapper for rocker/ml.

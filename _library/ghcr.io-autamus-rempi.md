@@ -2,22 +2,21 @@
 layout: container
 name:  "ghcr.io/autamus/rempi"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/rempi/container.yaml"
-updated_at: "2022-08-01 18:20:08.239038"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/rempi/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/rempi/container.yaml"
+updated_at: "2022-08-27 01:36:40.857640"
+latest: "1.1.0"
 container_url: "https://github.com/orgs/autamus/packages/container/package/rempi"
 aliases:
  - "rempi"
-
  - "rempi_record"
-
  - "rempi_replay"
-
  - "reset"
-
 versions:
  - "1.1.0"
  - "latest"
 description: "ReMPI is a record-and-replay tool for MPI applications."
+config: {"docker": "ghcr.io/autamus/rempi", "url": "https://github.com/orgs/autamus/packages/container/package/rempi", "maintainer": "@vsoch", "description": "ReMPI is a record-and-replay tool for MPI applications.", "latest": {"1.1.0": "sha256:536850fb85e3c4c7a1893e3383af1c1341733a9e601752e1079eac2f14fd5ef8"}, "tags": {"1.1.0": "sha256:536850fb85e3c4c7a1893e3383af1c1341733a9e601752e1079eac2f14fd5ef8", "latest": "sha256:536850fb85e3c4c7a1893e3383af1c1341733a9e601752e1079eac2f14fd5ef8"}, "aliases": {"rempi": "/opt/view/bin/rempi", "rempi_record": "/opt/view/bin/rempi_record", "rempi_replay": "/opt/view/bin/rempi_replay", "reset": "/opt/view/bin/reset"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/rempi.

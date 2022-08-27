@@ -2,17 +2,19 @@
 layout: container
 name:  "ghcr.io/autamus/sz"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/sz/container.yaml"
-updated_at: "2022-08-01 18:21:05.096309"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/sz/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/sz/container.yaml"
+updated_at: "2022-08-27 01:36:50.342957"
+latest: "2.1.12"
 container_url: "https://github.com/orgs/autamus/packages/container/package/sz"
 aliases:
  - "sz"
-
 versions:
  - "2.1.11.1"
  - "2.1.11.2"
  - "2.1.12"
 description: "Error-bounded Lossy Compressor for HPC Data"
+config: {"docker": "ghcr.io/autamus/sz", "url": "https://github.com/orgs/autamus/packages/container/package/sz", "maintainer": "@vsoch", "description": "Error-bounded Lossy Compressor for HPC Data", "latest": {"2.1.12": "sha256:649aef4ed106ca1974f8705a68ce4e7fef9e526864463a4f482104c2a2e4ef9e"}, "tags": {"2.1.11.1": "sha256:105b13a7a85021b85ca58e6e8bf15c5926cfc05f0c53e0f6994f31d224376818", "2.1.11.2": "sha256:005382147560fde81a40902ed87e25ec9de2309d88508bd406502cb175c9b71f", "2.1.12": "sha256:649aef4ed106ca1974f8705a68ce4e7fef9e526864463a4f482104c2a2e4ef9e"}, "aliases": {"sz": "/opt/view/bin/sz"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/sz.

@@ -2,14 +2,17 @@
 layout: container
 name:  "ghcr.io/autamus/sparsehash"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/sparsehash/container.yaml"
-updated_at: "2022-08-01 18:21:20.177668"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/sparsehash/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/sparsehash/container.yaml"
+updated_at: "2022-08-27 01:36:47.725512"
+latest: "2.0.4"
 container_url: "https://github.com/orgs/autamus/packages/container/package/sparsehash"
 
 versions:
  - "2.0.4"
  - "latest"
 description: "several hash-map implementations, similar in API to SGI's hash_map class, but with different performance characteristics."
+config: {"docker": "ghcr.io/autamus/sparsehash", "url": "https://github.com/orgs/autamus/packages/container/package/sparsehash", "maintainer": "@vsoch", "description": "several hash-map implementations, similar in API to SGI's hash_map class, but with different performance characteristics.", "latest": {"2.0.4": "sha256:7b5d79878ab0cccb191b5ca3296d0327a102052b5cc3d694566758ce46ea20e3"}, "tags": {"2.0.4": "sha256:7b5d79878ab0cccb191b5ca3296d0327a102052b5cc3d694566758ce46ea20e3", "latest": "sha256:7b5d79878ab0cccb191b5ca3296d0327a102052b5cc3d694566758ce46ea20e3"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/sparsehash.

@@ -2,8 +2,10 @@
 layout: container
 name:  "ghcr.io/autamus/precice"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/precice/container.yaml"
-updated_at: "2022-08-01 18:20:41.335394"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/precice/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/precice/container.yaml"
+updated_at: "2022-08-27 01:36:34.037486"
+latest: "2.3.0"
 container_url: "https://github.com/orgs/autamus/packages/container/package/precice"
 
 versions:
@@ -12,6 +14,7 @@ versions:
  - "2.3.0"
  - "latest"
 description: "preCICE (Precise Code Interaction Coupling Environment) is a coupling library for partitioned multi-physics simulations."
+config: {"docker": "ghcr.io/autamus/precice", "url": "https://github.com/orgs/autamus/packages/container/package/precice", "maintainer": "@vsoch", "description": "preCICE (Precise Code Interaction Coupling Environment) is a coupling library for partitioned multi-physics simulations.", "latest": {"2.3.0": "sha256:db852191deef9d69768eef52d0740d8fd9c401a0c8dff50c68d28c01e3c461d9"}, "tags": {"1.2.1": "sha256:8b656422fbcb27ec143bc60d74778c93bdd914532317ee1551b6864cb1bad30e", "2.2.1": "sha256:3599a86338dfd3aa9ca5ff340891e6ea3c2f4d195629ecbc39c3249dad562ceb", "2.3.0": "sha256:db852191deef9d69768eef52d0740d8fd9c401a0c8dff50c68d28c01e3c461d9", "latest": "sha256:db852191deef9d69768eef52d0740d8fd9c401a0c8dff50c68d28c01e3c461d9"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/precice.

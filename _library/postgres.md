@@ -2,78 +2,46 @@
 layout: container
 name:  "postgres"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/postgres/container.yaml"
-updated_at: "2022-08-01 18:21:40.959562"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/postgres/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/postgres/container.yaml"
+updated_at: "2022-08-27 01:37:17.298363"
+latest: "15beta1"
 container_url: "https://hub.docker.com/r/_/postgres"
 aliases:
  - "clusterdb"
-
  - "createdb"
-
  - "createuser"
-
  - "dropdb"
-
  - "dropuser"
-
  - "initdb"
-
  - "oid2name"
-
  - "pg_archivecleanup"
-
  - "pg_basebackup"
-
  - "pg_checksums"
-
  - "pg_config"
-
  - "pg_controldata"
-
  - "pg_ctl"
-
  - "pg_dump"
-
  - "pg_dumpall"
-
  - "pg_isready"
-
  - "pg_receivewal"
-
  - "pg_recvlogical"
-
  - "pg_resetwal"
-
  - "pg_restore"
-
  - "pg_rewind"
-
  - "pg_standby"
-
  - "pg_test_fsync"
-
  - "pg_test_timing"
-
  - "pg_upgrade"
-
  - "pg_verifybackup"
-
  - "pg_waldump"
-
  - "pgbench"
-
  - "postgres"
-
  - "postmaster"
-
  - "psql"
-
  - "reindexdb"
-
  - "vacuumdb"
-
  - "vacuumlo"
-
 versions:
  - "13.2-alpine"
  - "13.3-alpine"
@@ -87,8 +55,8 @@ versions:
  - "15beta1"
  - "14-alpine3.16"
  - "14.4"
- - "15beta2"
 description: "PostgreSQL, often simply 'Postgres', is an object-relational database management system (ORDBMS) with an emphasis on extensibility and standards-compliance."
+config: {"docker": "postgres", "url": "https://hub.docker.com/r/_/postgres", "maintainer": "@vsoch", "description": "PostgreSQL, often simply 'Postgres', is an object-relational database management system (ORDBMS) with an emphasis on extensibility and standards-compliance.", "latest": {"15beta1": "sha256:f920673ef9784586b0494d9c8bfffcc289ed75ee533bb5edf98cba10a8995f35"}, "tags": {"13.2-alpine": "sha256:c4c7a1585974706b5f72b8ab595e47399b23b2e03d93bbf75c1b0904be1803dc", "13.3-alpine": "sha256:e98a69a836391fe94d889a6ccfbb21257b93f47b2794da114a82ef23e342342f", "13.4": "sha256:1adb50e5c24f550a9e68457a2ce60e9e4103dfc43c3b36e98310168165b443a1", "14.0": "sha256:db927beee892dd02fbe963559f29a7867708747934812a80f83bff406a0d54fd", "14.1": "sha256:3162a6ead070474b27289f09eac4c865e75f93847a2d7098f718ee5a721637c4", "14.2": "sha256:2c954f8c5d03da58f8b82645b783b56c1135df17e650b186b296fa1bb71f9cfd", "latest": "sha256:4ba3b78788bb284687376b9c1e0565b245375ddee0fe14cef25e315b6bd88b1a", "14": "sha256:4ba3b78788bb284687376b9c1e0565b245375ddee0fe14cef25e315b6bd88b1a", "14-alpine3.15": "sha256:a00af33e23643f497a42bc24d2f6f28cc67f3f48b076135c5626b2e07945ff9c", "15beta1": "sha256:f920673ef9784586b0494d9c8bfffcc289ed75ee533bb5edf98cba10a8995f35", "14-alpine3.16": "sha256:3eab206b57cf9acb206359d14eb2d00cdd2c396ddd7cb246690788b22ed858c4", "14.4": "sha256:4ba3b78788bb284687376b9c1e0565b245375ddee0fe14cef25e315b6bd88b1a"}, "aliases": {"clusterdb": "/usr/lib/postgresql/13/bin/clusterdb", "createdb": "/usr/lib/postgresql/13/bin/createdb", "createuser": "/usr/lib/postgresql/13/bin/createuser", "dropdb": "/usr/lib/postgresql/13/bin/dropdb", "dropuser": "/usr/lib/postgresql/13/bin/dropuser", "initdb": "/usr/lib/postgresql/13/bin/initdb", "oid2name": "/usr/lib/postgresql/13/bin/oid2name", "pg_archivecleanup": "/usr/lib/postgresql/13/bin/pg_archivecleanup", "pg_basebackup": "/usr/lib/postgresql/13/bin/pg_basebackup", "pg_checksums": "/usr/lib/postgresql/13/bin/pg_checksums", "pg_config": "/usr/lib/postgresql/13/bin/pg_config", "pg_controldata": "/usr/lib/postgresql/13/bin/pg_controldata", "pg_ctl": "/usr/lib/postgresql/13/bin/pg_ctl", "pg_dump": "/usr/lib/postgresql/13/bin/pg_dump", "pg_dumpall": "/usr/lib/postgresql/13/bin/pg_dumpall", "pg_isready": "/usr/lib/postgresql/13/bin/pg_isready", "pg_receivewal": "/usr/lib/postgresql/13/bin/pg_receivewal", "pg_recvlogical": "/usr/lib/postgresql/13/bin/pg_recvlogical", "pg_resetwal": "/usr/lib/postgresql/13/bin/pg_resetwal", "pg_restore": "/usr/lib/postgresql/13/bin/pg_restore", "pg_rewind": "/usr/lib/postgresql/13/bin/pg_rewind", "pg_standby": "/usr/lib/postgresql/13/bin/pg_standby", "pg_test_fsync": "/usr/lib/postgresql/13/bin/pg_test_fsync", "pg_test_timing": "/usr/lib/postgresql/13/bin/pg_test_timing", "pg_upgrade": "/usr/lib/postgresql/13/bin/pg_upgrade", "pg_verifybackup": "/usr/lib/postgresql/13/bin/pg_verifybackup", "pg_waldump": "/usr/lib/postgresql/13/bin/pg_waldump", "pgbench": "/usr/lib/postgresql/13/bin/pgbench", "postgres": "/usr/lib/postgresql/13/bin/postgres", "postmaster": "/usr/lib/postgresql/13/bin/postmaster", "psql": "/usr/lib/postgresql/13/bin/psql", "reindexdb": "/usr/lib/postgresql/13/bin/reindexdb", "vacuumdb": "/usr/lib/postgresql/13/bin/vacuumdb", "vacuumlo": "/usr/lib/postgresql/13/bin/vacuumlo"}}
 ---
 
 This module is a singularity container wrapper for postgres.

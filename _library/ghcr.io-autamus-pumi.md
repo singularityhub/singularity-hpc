@@ -2,16 +2,18 @@
 layout: container
 name:  "ghcr.io/autamus/pumi"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/pumi/container.yaml"
-updated_at: "2022-08-01 18:21:15.860247"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/pumi/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/pumi/container.yaml"
+updated_at: "2022-08-27 01:36:36.128901"
+latest: "2.2.6"
 container_url: "https://github.com/orgs/autamus/packages/container/package/pumi"
 aliases:
  - "print_pumipic_partition"
-
 versions:
  - "2.2.5"
  - "2.2.6"
 description: "SCOREC RPI's Parallel Unstructured Mesh Infrastructure (PUMI)."
+config: {"docker": "ghcr.io/autamus/pumi", "url": "https://github.com/orgs/autamus/packages/container/package/pumi", "maintainer": "@vsoch", "description": "SCOREC RPI's Parallel Unstructured Mesh Infrastructure (PUMI).", "latest": {"2.2.6": "sha256:1ad880ab6bedad474935938f2e0c1d79c4970e3deaeaeb44687c66c5158ffd00"}, "tags": {"2.2.5": "sha256:b27b85dee50631bbc40977a23a00830acf0c236bb0966c2d11f9b62a8fbcff6f", "2.2.6": "sha256:1ad880ab6bedad474935938f2e0c1d79c4970e3deaeaeb44687c66c5158ffd00"}, "aliases": {"print_pumipic_partition": "/opt/view/bin/print_pumipic_partition"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/pumi.

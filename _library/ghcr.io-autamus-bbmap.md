@@ -2,14 +2,17 @@
 layout: container
 name:  "ghcr.io/autamus/bbmap"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/bbmap/container.yaml"
-updated_at: "2022-08-01 18:20:23.101791"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/bbmap/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/bbmap/container.yaml"
+updated_at: "2022-08-27 01:35:32.471773"
+latest: "38.63"
 container_url: "https://github.com/orgs/autamus/packages/container/package/bbmap"
 
 versions:
  - "38.63"
  - "latest"
 description: "A suite of fast, multithreaded bioinformatics tools designed for analysis of DNA and RNA sequence data."
+config: {"docker": "ghcr.io/autamus/bbmap", "url": "https://github.com/orgs/autamus/packages/container/package/bbmap", "maintainer": "@vsoch", "description": "A suite of fast, multithreaded bioinformatics tools designed for analysis of DNA and RNA sequence data.", "latest": {"38.63": "sha256:9873ea440ecad9b324fa6f90d22c6b0ed6633a4b7195a575a5f3d195400662c2"}, "tags": {"38.63": "sha256:9873ea440ecad9b324fa6f90d22c6b0ed6633a4b7195a575a5f3d195400662c2", "latest": "sha256:9873ea440ecad9b324fa6f90d22c6b0ed6633a4b7195a575a5f3d195400662c2"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/bbmap.

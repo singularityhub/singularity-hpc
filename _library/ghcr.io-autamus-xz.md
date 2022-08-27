@@ -2,34 +2,27 @@
 layout: container
 name:  "ghcr.io/autamus/xz"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/xz/container.yaml"
-updated_at: "2022-08-01 18:20:14.769243"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/xz/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/xz/container.yaml"
+updated_at: "2022-08-27 01:36:58.792428"
+latest: "5.2.5"
 container_url: "https://github.com/orgs/autamus/packages/container/package/xz"
 aliases:
  - "xz"
-
  - "xzcat"
-
  - "xzcmp"
-
  - "xzdec"
-
  - "xzdiff"
-
  - "xzegrep"
-
  - "xzfgrep"
-
  - "xzgrep"
-
  - "xzless"
-
  - "xzmore"
-
 versions:
  - "5.2.5"
  - "latest"
 description: "XZ Utils is free general-purpose data compression software with a high compression ratio."
+config: {"docker": "ghcr.io/autamus/xz", "url": "https://github.com/orgs/autamus/packages/container/package/xz", "maintainer": "@vsoch", "description": "XZ Utils is free general-purpose data compression software with a high compression ratio.", "latest": {"5.2.5": "sha256:c02609a24da48a0c328832099c95378e0ce43397b4aeda1e440245c52e833f6f"}, "tags": {"5.2.5": "sha256:c02609a24da48a0c328832099c95378e0ce43397b4aeda1e440245c52e833f6f", "latest": "sha256:c02609a24da48a0c328832099c95378e0ce43397b4aeda1e440245c52e833f6f"}, "aliases": {"xz": "/opt/view/bin/xz", "xzcat": "/opt/view/bin/xzcat", "xzcmp": "/opt/view/bin/xzcmp", "xzdec": "/opt/view/bin/xzdec", "xzdiff": "/opt/view/bin/xzdiff", "xzegrep": "/opt/view/bin/xzegrep", "xzfgrep": "/opt/view/bin/xzfgrep", "xzgrep": "/opt/view/bin/xzgrep", "xzless": "/opt/view/bin/xzless", "xzmore": "/opt/view/bin/xzmore"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/xz.

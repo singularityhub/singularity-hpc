@@ -2,15 +2,17 @@
 layout: container
 name:  "biocontainers/plink1.9"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/biocontainers/plink1.9/container.yaml"
-updated_at: "2022-08-01 18:19:59.993801"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/biocontainers/plink1.9/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/biocontainers/plink1.9/container.yaml"
+updated_at: "2022-08-27 01:35:19.364753"
+latest: "v1.90b6.6-181012-1-deb_cv1"
 container_url: "https://hub.docker.com/r/biocontainers/plink1.9"
 aliases:
  - "plink"
-
 versions:
  - "v1.90b6.6-181012-1-deb_cv1"
 description: "An update to PLINK, a free, open-source whole genome association analysis toolset, designed to perform a range of basic, large-scale analyses in a computationally efficient manner."
+config: {"docker": "biocontainers/plink1.9", "latest": {"v1.90b6.6-181012-1-deb_cv1": "sha256:17e280b12dd9101afa2f9a49e8dcf2b1bd2ac34380c21d8e4e677ffbc5dbbe27"}, "tags": {"v1.90b6.6-181012-1-deb_cv1": "sha256:17e280b12dd9101afa2f9a49e8dcf2b1bd2ac34380c21d8e4e677ffbc5dbbe27"}, "filter": ["v*"], "maintainer": "@vsoch", "description": "An update to PLINK, a free, open-source whole genome association analysis toolset, designed to perform a range of basic, large-scale analyses in a computationally efficient manner.", "url": "https://hub.docker.com/r/biocontainers/plink1.9", "aliases": {"plink": "/usr/bin/plink1.9"}}
 ---
 
 This module is a singularity container wrapper for biocontainers/plink1.9.

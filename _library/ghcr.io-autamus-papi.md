@@ -2,42 +2,31 @@
 layout: container
 name:  "ghcr.io/autamus/papi"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/papi/container.yaml"
-updated_at: "2022-08-01 18:20:16.505836"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/papi/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/papi/container.yaml"
+updated_at: "2022-08-27 01:36:27.731341"
+latest: "6.0.0.1"
 container_url: "https://github.com/orgs/autamus/packages/container/package/papi"
 aliases:
  - "papi_avail"
-
  - "papi_clockres"
-
  - "papi_command_line"
-
  - "papi_component_avail"
-
  - "papi_cost"
-
  - "papi_decode"
-
  - "papi_error_codes"
-
  - "papi_event_chooser"
-
  - "papi_hl_output_writer.py"
-
  - "papi_mem_info"
-
  - "papi_multiplex_cost"
-
  - "papi_native_avail"
-
  - "papi_version"
-
  - "papi_xml_event_info"
-
 versions:
  - "6.0.0.1"
  - "latest"
 description: "Performance Application Programming Interface."
+config: {"docker": "ghcr.io/autamus/papi", "url": "https://github.com/orgs/autamus/packages/container/package/papi", "maintainer": "@vsoch", "description": "Performance Application Programming Interface.", "latest": {"6.0.0.1": "sha256:78884ef29c8601f4f53b5d2b213d07c1fef774ff09c0fae35806536854e78f62"}, "tags": {"6.0.0.1": "sha256:78884ef29c8601f4f53b5d2b213d07c1fef774ff09c0fae35806536854e78f62", "latest": "sha256:78884ef29c8601f4f53b5d2b213d07c1fef774ff09c0fae35806536854e78f62"}, "aliases": {"papi_avail": "/opt/view/bin/papi_avail", "papi_clockres": "/opt/view/bin/papi_clockres", "papi_command_line": "/opt/view/bin/papi_command_line", "papi_component_avail": "/opt/view/bin/papi_component_avail", "papi_cost": "/opt/view/bin/papi_cost", "papi_decode": "/opt/view/bin/papi_decode", "papi_error_codes": "/opt/view/bin/papi_error_codes", "papi_event_chooser": "/opt/view/bin/papi_event_chooser", "papi_hl_output_writer.py": "/opt/view/bin/papi_hl_output_writer.py", "papi_mem_info": "/opt/view/bin/papi_mem_info", "papi_multiplex_cost": "/opt/view/bin/papi_multiplex_cost", "papi_native_avail": "/opt/view/bin/papi_native_avail", "papi_version": "/opt/view/bin/papi_version", "papi_xml_event_info": "/opt/view/bin/papi_xml_event_info"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/papi.

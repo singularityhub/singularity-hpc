@@ -2,26 +2,23 @@
 layout: container
 name:  "ghcr.io/autamus/adios"
 maintainer: "@vsoch"
-github: "https://github.com/singularityhub/singularity-hpc/blob/main/registry/ghcr.io/autamus/adios/container.yaml"
-updated_at: "2022-08-01 18:20:37.433449"
+github: "https://github.com/singularityhub/shpc-registry/blob/main/ghcr.io/autamus/adios/container.yaml"
+config_url: "https://raw.githubusercontent.com//singularityhub/shpc-registry/main/ghcr.io/autamus/adios/container.yaml"
+updated_at: "2022-08-27 01:35:25.119417"
+latest: "1.13.1"
 container_url: "https://github.com/orgs/autamus/packages/container/package/adios"
 aliases:
  - "adios_config"
-
  - "adios_lint"
-
  - "adios_list_methods"
-
  - "adios_list_methods_nompi"
-
  - "adios_list_methods_readonly"
-
  - "adios_list_methods_readonly_nompi"
-
 versions:
  - "1.13.1"
  - "latest"
 description: "The Adaptable IO System (ADIOS) provides a simple, flexible way for scientists to describe the data in their code that may need to be written, read, or processed outside of the running simulation."
+config: {"docker": "ghcr.io/autamus/adios", "url": "https://github.com/orgs/autamus/packages/container/package/adios", "maintainer": "@vsoch", "description": "The Adaptable IO System (ADIOS) provides a simple, flexible way for scientists to describe the data in their code that may need to be written, read, or processed outside of the running simulation.", "latest": {"1.13.1": "sha256:03a4907149e3b05fdf171c67a538006af2e3414ae167fcc090df5a22593a0560"}, "tags": {"1.13.1": "sha256:03a4907149e3b05fdf171c67a538006af2e3414ae167fcc090df5a22593a0560", "latest": "sha256:03a4907149e3b05fdf171c67a538006af2e3414ae167fcc090df5a22593a0560"}, "aliases": {"adios_config": "/opt/view/bin/adios_config", "adios_lint": "/opt/view/bin/adios_lint", "adios_list_methods": "/opt/view/bin/adios_list_methods", "adios_list_methods_nompi": "/opt/view/bin/adios_list_methods_nompi", "adios_list_methods_readonly": "/opt/view/bin/adios_list_methods_readonly", "adios_list_methods_readonly_nompi": "/opt/view/bin/adios_list_methods_readonly_nompi"}}
 ---
 
 This module is a singularity container wrapper for ghcr.io/autamus/adios.
