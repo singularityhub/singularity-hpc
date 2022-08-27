@@ -37,7 +37,7 @@ You can use shpc if you are:
 The library contains a collection of module recipes that will install containers,
 so you can easily use them or write your own. 
 To see the code, head over to the `repository <https://github.com/singularityhub/singularity-hpc/>`_.
-To browse modules available as containers, see `the library <https://singularityhub.github.io/singularity-hpc/>`_.
+To browse modules available as containers, see `the library <https://singularityhub.github.io/shpc-registry/>`_.
 
 
 .. _main-getting-started:
