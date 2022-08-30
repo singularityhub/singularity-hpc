@@ -79,7 +79,7 @@ class SingularityContainer(ContainerTechnology):
         """
         Manually add a registry container, e.g., generating a container.yaml
         for an existing container file. container_yaml is the destination file.
-        If it's already exisitng, it's loaded into config. Otherwise we are
+        If it's already exisiting, it's loaded into config. Otherwise we are
         using a template config.
         """
         if ":" not in module_name:
@@ -89,7 +89,7 @@ class SingularityContainer(ContainerTechnology):
 
         # Cut out early if the tag isn't latest, and we already have it
         # DO NOT call config.tags here, it will add an empty latest
-        if tag != "latest" and tag in config._config["tags"]:
+        if tag != "latest" and config._config and tag in config._config["tags"]:
             if not utils.confirm_action(
                 "Tag %s already is defined, are you sure you want to overwrite it? "
                 % tag
@@ -116,6 +116,7 @@ class SingularityContainer(ContainerTechnology):
             "Registry entry %s was added! Before shpc install, edit:" % module_name
         )
         print(container_yaml)
+        return container_yaml
 
     def _add_local_image(self, name, tag, image, config, container_yaml, **kwargs):
         """
