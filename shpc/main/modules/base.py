@@ -200,7 +200,9 @@ class ModuleBase(BaseClient):
         config = container.ContainerConfig(
             registry.FilesystemResult(module_name, template), validate=False
         )
-        self.container.add(module_name, image, config, container_yaml=dest, **kwargs)
+        return self.container.add(
+            module_name, image, config, container_yaml=dest, **kwargs
+        )
 
     def get(self, module_name, env_file=False):
         """
