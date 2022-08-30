@@ -62,7 +62,7 @@ class Registry:
 
     def find(self, name, path=None):
         """
-        Find the first occurance of a module.
+        Find the first occurrence of a module.
         """
         # Custom one-off path provided to load from
         if path:
