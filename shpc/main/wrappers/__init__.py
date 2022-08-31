@@ -2,9 +2,6 @@ __author__ = "Vanessa Sochat"
 __copyright__ = "Copyright 2022, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
-import os
-
-from shpc.logger import logger
 
 from . import generators as gen
 from .base import WrapperScript
