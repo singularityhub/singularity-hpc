@@ -6,8 +6,8 @@ import os
 
 from shpc.logger import logger
 
-from .base import WrapperScript
 from . import generators as gen
+from .base import WrapperScript
 
 
 def generate(image, container, config, **kwargs):

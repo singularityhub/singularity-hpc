@@ -90,6 +90,72 @@ def test_get_registry_wrapper_script(tmp_path, remote):
 
 
 @pytest.mark.parametrize(
+    "module_sys,module_file,container_tech",
+    [
+        ("lmod", "module.lua", "singularity"),
+        ("lmod", "module.lua", "podman"),
+        ("tcl", "module.tcl", "singularity"),
+        ("tcl", "module.tcl", "podman"),
+    ],
+)
+def test_wrapper_install(tmp_path, module_sys, module_file, container_tech):
+    """
+    Test that install of wrapper scripts produces expected files in bin
+    """
+    client = init_client(str(tmp_path), module_sys, container_tech)
+
+    assert client.settings.get("wrapper_scripts:enabled") == True
+
+    # Install known tag
+    client.install("python:3.9.2-alpine")
+    module_dir = os.path.join(client.settings.module_base, "python", "3.9.2-alpine")
+    assert os.path.exists(module_dir)
+    assert "bin" in os.listdir(module_dir)
+    module_bin = os.path.join(module_dir, "bin")
+    assert os.path.exists(module_bin)
+
+    requireds = [
+        "python-container",
+        "python-run",
+        "python-exec",
+        "python",
+        "python-shell",
+    ]
+    if container_tech == "singularity":
+        requireds += ["python-inspect-runscript", "python-inspect-deffile"]
+    else:
+        requireds += ["python-inspect"]
+    binaries = os.listdir(module_bin)
+    for required in requireds:
+        assert required in binaries
+
+
+@pytest.mark.parametrize(
+    "module_sys,module_file,container_tech",
+    [
+        ("lmod", "module.lua", "singularity"),
+        ("lmod", "module.lua", "podman"),
+        ("tcl", "module.tcl", "singularity"),
+        ("tcl", "module.tcl", "podman"),
+    ],
+)
+def test_disabled_wrapper_install(tmp_path, module_sys, module_file, container_tech):
+    """
+    Test that install of wrapper scripts produces expected files in bin
+    """
+    client = init_client(str(tmp_path), module_sys, container_tech)
+
+    client.settings.set("wrapper_scripts:enabled", False)
+    assert client.settings.get("wrapper_scripts:enabled") == False
+
+    # Install known tag
+    client.install("python:3.9.2-alpine")
+    module_dir = os.path.join(client.settings.module_base, "python", "3.9.2-alpine")
+    assert os.path.exists(module_dir)
+    assert "bin" not in os.listdir(module_dir)
+
+
+@pytest.mark.parametrize(
     "make_absolute,exists",
     [
         (False, False),

@@ -2,9 +2,10 @@ __author__ = "Vanessa Sochat"
 __copyright__ = "Copyright 2021-2022, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
+import os
+
 import shpc.logger as logger
 import shpc.utils
-import os
 
 
 def sync_registry(args, parser, extra, subparser):

@@ -70,7 +70,6 @@ conflict {{ parsed_name.tool }}
 
 # service environment variable to access full SIF image path
 setenv PODMAN_CONTAINER "${containerPath}"
-set-alias {|module_name|}-container "echo ${containerPath}"
 
 # interactive shell to any container, plus exec for aliases
 set shellCmd "{{ command }} \${PODMAN_OPTS} run \${PODMAN_COMMAND_OPTS} -u `id -u`:`id -g` --rm -i{% if settings.enable_tty %}t{% endif %} --entrypoint {{ shell }} {% if settings.environment_file %}--env-file ${moduleDir}/{{ settings.environment_file }}{% endif %} {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %} -v $workdir -w $workdir ${containerPath}" 
@@ -96,7 +95,11 @@ set inspectCmd "{{ command }} \${PODMAN_OPTS} inspect ${containerPath}"
 } else {
 {% for alias in aliases %}{% if alias.name not in wrapper_scripts %}  set-alias {{ alias.name }} "${execCmd} {% if alias.docker_options %} {{ alias.docker_options | replace("$", "\$") }} {% endif %} --entrypoint {{ alias.entrypoint | replace("$", "\$") }} ${containerPath} {{ alias.args | replace("$", "\$") }}"{% endif %}
 {% endfor %}
-}{% endif %}{% if wrapper_scripts %}{% else %}
+}{% endif %}
+
+{% if wrapper_scripts %}{% else %}
+set-alias {|module_name|}-container "echo ${containerPath}"
+
 # set_shell_function takes bashStr and cshStr
 set-alias {|module_name|}-shell "${shellCmd}"
 

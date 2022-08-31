@@ -4,11 +4,11 @@ __license__ = "MPL 2.0"
 
 import os
 
-from .base import WrapperScript
-
 from jinja2 import Template
+
 from shpc.logger import logger
 
+from .base import WrapperScript
 
 # These functions are under the generate namespace, so you can assume
 # they generate the content being referenced
@@ -77,17 +77,22 @@ def container_wrappers(constructor_kwargs):
 
     template = Template(settings.module_name)
 
+    # docker templates are also for podman
+    command = container.command
+    if command == "podman":
+        command = "docker"
+
     # Prepare template file-names with prefix (e.g., python)
     prefix = template.render(parsed_name=config.name)
     template_names = {
-        f"{prefix}-shell": os.path.join(container.command, "shell.sh"),
-        f"{prefix}-container": os.path.join(container.command, "container.sh"),
-        f"{prefix}-exec": os.path.join(container.command, "exec.sh"),
-        f"{prefix}-run": os.path.join(container.command, "run.sh"),
+        f"{prefix}-shell": os.path.join(command, "shell.sh"),
+        f"{prefix}-container": os.path.join(command, "container.sh"),
+        f"{prefix}-exec": os.path.join(command, "exec.sh"),
+        f"{prefix}-run": os.path.join(command, "run.sh"),
     }
 
     # Only singularity has inspect-runscript / inspect-deffile
-    if container.command == "singularity":
+    if command == "singularity":
         template_names.update(
             {
                 f"{prefix}-inspect-deffile": os.path.join(
@@ -100,7 +105,7 @@ def container_wrappers(constructor_kwargs):
         )
     else:
         template_names.update(
-            {f"{prefix}-inspect": os.path.join(container.command, "inspect.sh")}
+            {f"{prefix}-inspect": os.path.join(command, "inspect.sh")}
         )
 
     generated = []
