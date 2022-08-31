@@ -104,16 +104,21 @@ class WrapperScript:
         result = self.find_wrapper_script(template_paths, include_container_dir)
         loader = FileSystemLoader(template_paths)
         env = Environment(loader=loader)
+
+        # Do we have a filesystem path to load directly?
         if "path" in result:
             self.template = env.get_template(self.wrapper_template)
+
+        # Or string content to load?
         else:
             self.template = env.from_string(result["content"])
 
-    def generate(self, wrapper_name, alias_definition):
+    def generate(self, wrapper_name, alias_definition=None):
         """
         Template generation function.
         NB: alias_definition is a dictionary for command aliases, and a string
-        for additional arbitrary commands
+        for additional arbitrary commands. It is not required for container
+        interaction wrappers (e.g., exec, shell, etc.)
         """
 
         # Write scripts into container directory
