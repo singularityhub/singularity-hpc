@@ -80,7 +80,7 @@ if (myShellName() == "bash") then
 end{% endif %}
 
 -- Only set shell functions if we don't use wrapper scripts
-{% if wrapper_scripts }{% else %}set_shell_function("{|module_name|}-container", "echo " .. containerPath, "echo " .. containerPath)
+{% if wrapper_scripts %}{% else %}set_shell_function("{|module_name|}-container", "echo " .. containerPath, "echo " .. containerPath)
 
 -- set_shell_function takes bashStr and cshStr
 set_shell_function("{|module_name|}-shell", shellCmd,  shellCmd)

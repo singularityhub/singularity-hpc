@@ -53,16 +53,12 @@ local containerPath = '{{ image }}'
 
 -- service environment variable to access docker URI
 setenv("PODMAN_CONTAINER", containerPath)
-set_shell_function("{|module_name|}-container", "echo " .. containerPath, "echo " .. containerPath)
 
 local shellCmd = "{{ command }} ${PODMAN_OPTS} run -i{% if settings.enable_tty %}t{% endif %} ${PODMAN_COMMAND_OPTS} -u `id -u`:`id -g` --rm --entrypoint {{ shell }} {% if settings.environment_file %}--env-file " .. moduleDir .. "/{{ settings.environment_file }}{% endif %} {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %} -v ${PWD} -w ${PWD} " .. containerPath
 -- execCmd needs entrypoint to be the executor
 local execCmd = "{{ command }} ${PODMAN_OPTS} run ${PODMAN_COMMAND_OPTS} -i{% if settings.enable_tty %}t{% endif %} -u `id -u`:`id -g` --rm {% if settings.environment_file %}--env-file " .. moduleDir .. "/{{ settings.environment_file }}{% endif %} {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %} -v ${PWD} -w ${PWD} "
 local runCmd = "{{ command }} ${PODMAN_OPTS} run ${PODMAN_COMMAND_OPTS} -i{% if settings.enable_tty %}t{% endif %} -u `id -u`:`id -g` --rm {% if settings.environment_file %}--env-file " .. moduleDir .. "/{{ settings.environment_file }}{% endif %} {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %} -v ${PWD} -w ${PWD} " .. containerPath
 local inspectCmd = "{{ command }} ${PODMAN_OPTS} inspect ${PODMAN_COMMAND_OPTS} " .. containerPath 
-
--- set_shell_function takes bashStr and cshStr
-set_shell_function("{|module_name|}-shell", shellCmd,  shellCmd)
 
 -- conflict with modules with the same name
 conflict("{{ parsed_name.tool }}"{% if name != parsed_name.tool %},"{{ name }}"{% endif %}{% if aliases %}{% for alias in aliases %}{% if alias.name != parsed_name.tool %},"{{ alias.name }}"{% endif %}{% endfor %}{% endif %})
@@ -80,6 +76,11 @@ if (myShellName() == "bash") then
 {% endfor %}
 end{% endif %}
 
+{% if wrapper_scripts %}{% else %}set_shell_function("{|module_name|}-container", "echo " .. containerPath, "echo " .. containerPath)
+
+-- set_shell_function takes bashStr and cshStr
+set_shell_function("{|module_name|}-shell", shellCmd,  shellCmd)
+
 -- A customizable exec function
 set_shell_function("{|module_name|}-exec", execCmd .. " --entrypoint \"\" " .. containerPath .. " \"$@\"",  execCmd .. " --entrypoint \"\" " .. containerPath)
 
@@ -87,7 +88,7 @@ set_shell_function("{|module_name|}-exec", execCmd .. " --entrypoint \"\" " .. c
 set_shell_function("{|module_name|}-run", runCmd .. " \"$@\"",  runCmd)
 
 -- Inspect runscript or deffile easily!
-set_shell_function("{|module_name|}-inspect", inspectCmd,  inspectCmd)
+set_shell_function("{|module_name|}-inspect", inspectCmd,  inspectCmd){% endif %}
 
 whatis("Name        : " .. myModuleName())
 whatis("Version     : " .. myModuleVersion())

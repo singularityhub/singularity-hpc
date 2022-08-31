@@ -80,9 +80,6 @@ set execCmd "{{ command }} \${PODMAN_OPTS} run -i{% if settings.enable_tty %}t{%
 set runCmd "{{ command }} \${PODMAN_OPTS} run -i{% if settings.enable_tty %}t{% endif %} \${PODMAN_COMMAND_OPTS} -u `id -u`:`id -g` --rm {% if settings.environment_file %}--env-file  ${moduleDir}/{{ settings.environment_file }}{% endif %} {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %} -v $workdir -w $workdir ${containerPath}"
 set inspectCmd "{{ command }} \${PODMAN_OPTS} inspect ${containerPath}" 
 
-# set_shell_function takes bashStr and cshStr
-set-alias {|module_name|}-shell "${shellCmd}"
-
 # wrapper scripts? Add bin to path
 {% if wrapper_scripts %}prepend-path PATH "${moduleDir}/bin"{% endif %}
 
@@ -99,7 +96,9 @@ set-alias {|module_name|}-shell "${shellCmd}"
 } else {
 {% for alias in aliases %}{% if alias.name not in wrapper_scripts %}  set-alias {{ alias.name }} "${execCmd} {% if alias.docker_options %} {{ alias.docker_options | replace("$", "\$") }} {% endif %} --entrypoint {{ alias.entrypoint | replace("$", "\$") }} ${containerPath} {{ alias.args | replace("$", "\$") }}"{% endif %}
 {% endfor %}
-}{% endif %}
+}{% endif %}{% if wrapper_scripts %}{% else %}
+# set_shell_function takes bashStr and cshStr
+set-alias {|module_name|}-shell "${shellCmd}"
 
 # A customizable exec function
 if { [ module-info shell bash ] } {
@@ -116,7 +115,7 @@ if { [ module-info shell bash ] } {
 }
 
 # Inspect runscript or deffile easily!
-set-alias {|module_name|}-inspect "${inspectCmd} ${containerPath}"
+set-alias {|module_name|}-inspect "${inspectCmd} ${containerPath}"{% endif %}
 
 #=====
 # Module options

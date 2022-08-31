@@ -79,7 +79,29 @@ def container_wrappers(constructor_kwargs):
 
     # Prepare template file-names with prefix (e.g., python)
     prefix = template.render(parsed_name=config.name)
-    template_names = {f"{prefix}-shell": os.path.join(container.command, "shell.sh")}
+    template_names = {
+        f"{prefix}-shell": os.path.join(container.command, "shell.sh"),
+        f"{prefix}-container": os.path.join(container.command, "container.sh"),
+        f"{prefix}-exec": os.path.join(container.command, "exec.sh"),
+        f"{prefix}-run": os.path.join(container.command, "run.sh"),
+    }
+
+    # Only singularity has inspect-runscript / inspect-deffile
+    if container.command == "singularity":
+        template_names.update(
+            {
+                f"{prefix}-inspect-deffile": os.path.join(
+                    container.command, "inspect-deffile.sh"
+                ),
+                f"{prefix}-inspect-runscript": os.path.join(
+                    container.command, "inspect-runscript.sh"
+                ),
+            }
+        )
+    else:
+        template_names.update(
+            {f"{prefix}-inspect": os.path.join(container.command, "inspect.sh")}
+        )
 
     generated = []
     for script, template_name in template_names.items():
