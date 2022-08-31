@@ -15,7 +15,7 @@ import shpc.main.container as container
 import shpc.main.modules.template as templatectl
 import shpc.main.modules.versions as versionfile
 import shpc.main.modules.views as views
-import shpc.main.registry as registry
+import shpc.main.registry
 import shpc.utils as utils
 from shpc.logger import logger
 from shpc.main.client import Client as BaseClient
@@ -198,7 +198,7 @@ class ModuleBase(BaseClient):
 
         # Load config (but don't validate yet!)
         config = container.ContainerConfig(
-            registry.FilesystemResult(module_name, template), validate=False
+            shpc.main.registry.FilesystemResult(module_name, template), validate=False
         )
         return self.container.add(
             module_name, image, config, container_yaml=dest, **kwargs
@@ -236,16 +236,8 @@ class ModuleBase(BaseClient):
         template = self.template.load("docs.md")
         registry = registry or defaults.github_url
         github_url = "%s/blob/%s/%s/container.yaml" % (registry, branch, module_name)
-        registry_bare = registry.split(".com")[-1]
-        raw = (
-            "https://gitlab.com/%s/-/raw/%s/%s/container.yaml"
-            if "gitlab" in registry
-            else "https://raw.githubusercontent.com/%s/%s/%s/container.yaml"
-        )
-        raw_github_url = raw % (
-            registry_bare,
-            branch,
-            module_name,
+        raw_github_url = shpc.main.registry.get_module_config_url(
+            registry, module_name, branch
         )
 
         # Currently one doc is rendered for all containers
