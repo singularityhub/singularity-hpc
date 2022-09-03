@@ -106,6 +106,8 @@ def test_sync_from_file(tmp_path):
     [
         "https://github.com/singularityhub/shpc-registry",
         "https://gitlab.com/singularityhub/shpc-registry",
+        # This registry does not expose a web UI
+        "https://github.com/researchapps/shpc-test-registry",
     ],
 )
 def test_remote_upgrade(tmp_path, remote):
@@ -133,3 +135,30 @@ def test_remote_upgrade(tmp_path, remote):
 
     client.registry.sync(sync_registry=remote)
     assert list(client.registry.iter_modules())
+
+
+@pytest.mark.parametrize(
+    "remote",
+    [
+        "https://github.com/singularityhub/shpc-registry",
+        "https://gitlab.com/singularityhub/shpc-registry",
+        # This registry does not expose a web UI
+        "https://github.com/researchapps/shpc-test-registry",
+    ],
+)
+def test_registry_interaction(tmp_path, remote):
+    """
+    Test interactions with registries of different types
+    """
+    client = init_client(str(tmp_path), "lmod", "singularity")
+    reg = client.registry.get_registry(remote)
+
+    assert not reg.is_filesystem_registry
+
+    # This will hit the underlying logic to list/show
+    mods = list(reg.iter_registry())
+    assert mods
+
+    # Should use the cache
+    assert reg.exists("vanessa/salad")
+    assert reg.find("vanessa/salad") is not None

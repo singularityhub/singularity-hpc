@@ -5,8 +5,8 @@ __license__ = "MPL 2.0"
 
 import os
 import re
+import shutil
 import subprocess as sp
-import sys
 
 import requests
 
@@ -14,6 +14,23 @@ import shpc.utils
 from shpc.logger import logger
 
 from .provider import Provider, Result
+
+
+def get_module_config_url(registry, module_name, branch="main"):
+    """
+    Get the raw address of the config (container.yaml)
+    """
+    registry_bare = registry.split(".com")[-1]
+    raw = (
+        "https://gitlab.com/%s/-/raw/%s/%s/container.yaml"
+        if "gitlab" in registry
+        else "https://raw.githubusercontent.com/%s/%s/%s/container.yaml"
+    )
+    return raw % (
+        registry_bare,
+        branch,
+        module_name,
+    )
 
 
 class RemoteResult(Result):
@@ -117,6 +134,9 @@ class VersionControl(Provider):
         """
         Determine if a module exists in the registry.
         """
+        name = name.split(":")[0]
+        if self._cache and name in self._cache:
+            return True
         dirname = self.source
         if self.subdir:
             dirname = os.path.join(dirname, self.subdir)
@@ -158,7 +178,8 @@ class VersionControl(Provider):
         """
         Find a particular entry in a registry
         """
-        self._update_cache()
+        if not self._cache:
+            self._update_cache()
         if name in self._cache:
             return RemoteResult(name, self._cache[name])
 
@@ -172,11 +193,28 @@ class VersionControl(Provider):
         # Check for exposed library API on GitHub or GitLab pages
         response = requests.get(self.web_url)
         if response.status_code != 200:
-            sys.exit(
-                "Remote %s is not deploying a Registry API (%s). Open a GitHub issue to ask for help."
-                % (self.source, self.web_url)
-            )
+            return self._update_clone_cache()
         self._cache = response.json()
+
+    def _update_clone_cache(self):
+        """
+        Given a remote that does not expose a library.json, handle via clone.
+        """
+        logger.warning(
+            "Remote %s is not deploying a Registry API, falling back to clone."
+            % self.source
+        )
+        tmpdir = self.clone()
+        for dirname, module in self.iter_modules():
+            # Minimum amount of metadata to function here
+            config_url = get_module_config_url(self.source, module)
+            self._cache[module] = {
+                "config": shpc.utils.read_yaml(
+                    os.path.join(dirname, module, "container.yaml")
+                ),
+                "config_url": config_url,
+            }
+        shutil.rmtree(tmpdir)
 
     def iter_registry(self, filter_string=None):
         """

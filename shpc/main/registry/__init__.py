@@ -14,7 +14,7 @@ from shpc.logger import logger
 from shpc.main.settings import SettingsBase
 
 from .filesystem import Filesystem, FilesystemResult
-from .remote import GitHub, GitLab
+from .remote import GitHub, GitLab, get_module_config_url
 
 
 def update_container_module(module, from_path, existing_path):
