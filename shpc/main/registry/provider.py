@@ -33,7 +33,11 @@ class Provider:
     """
 
     def __init__(self, source, *args, **kwargs):
-        if not (source.startswith("https://") or os.path.exists(source)):
+        if not (
+            source.startswith("https://")
+            or source.startswith("ssh://")
+            or os.path.exists(source)
+        ):
             raise ValueError(
                 "Registry source must exist on the filesystem or be given as https://."
             )
@@ -44,7 +48,9 @@ class Provider:
 
     @property
     def is_filesystem_registry(self):
-        return not self.source.startswith("http") and os.path.exists(self.source)
+        return not (
+            self.source.startswith("http") or self.source.startswith("ssh")
+        ) and os.path.exists(self.source)
 
     @property
     def name(self):

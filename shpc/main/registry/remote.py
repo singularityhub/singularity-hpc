@@ -104,7 +104,9 @@ class VersionControl(Provider):
 
     @classmethod
     def matches(cls, source):
-        return cls.provider_name in source and source.startswith("http")
+        return cls.provider_name in source and (
+            source.startswith("http") or source.startswith("ssh")
+        )
 
     @property
     def source_url(self):
@@ -190,6 +192,8 @@ class VersionControl(Provider):
         if self._cache and not force:
             return
 
+        if self.source.startswith("ssh"):
+            return self._update_clone_cache()
         # Check for exposed library API on GitHub or GitLab pages
         response = requests.get(self.web_url)
         if response.status_code != 200:
