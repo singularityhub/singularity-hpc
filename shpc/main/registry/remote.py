@@ -106,7 +106,7 @@ class VersionControl(Provider):
         # E.g., subdirectory with registry files
         self.subdir = kwargs.get("subdir")
         super().__init__(*args, **kwargs)
-        self._url = self.source
+        self.url = self.source
 
     @classmethod
     def matches(cls, source):
@@ -119,7 +119,7 @@ class VersionControl(Provider):
         """
         Retrieve a parsed / formatted url, ensuring https and without git.
         """
-        url = self.source
+        url = self.url
         if not url.startswith("http"):
             url = "https://%s" % url
         if url.endswith(".git"):
@@ -159,7 +159,7 @@ class VersionControl(Provider):
         cmd = ["git", "clone", "--depth", "1"]
         if self.tag:
             cmd += ["-b", self.tag]
-        cmd += [self._url, tmpdir]
+        cmd += [self.url, tmpdir]
         self.source = tmpdir
         try:
             sp.run(cmd, check=True)
@@ -198,7 +198,7 @@ class VersionControl(Provider):
         if self._cache and not force:
             return
 
-        if self.source.startswith("ssh"):
+        if self.url.startswith("ssh"):
             return self._update_clone_cache()
         # Check for exposed library API on GitHub or GitLab pages
         response = requests.get(self.web_url)
@@ -212,12 +212,12 @@ class VersionControl(Provider):
         """
         logger.warning(
             "Remote %s is not deploying a Registry API, falling back to clone."
-            % self.source
+            % self.url
         )
         tmpdir = self.clone()
         for dirname, module in self.iter_modules():
             # Minimum amount of metadata to function here
-            config_url = get_module_config_url(self.source, module)
+            config_url = get_module_config_url(self.url, module)
             self._cache[module] = {
                 "config": shpc.utils.read_yaml(
                     os.path.join(dirname, module, "container.yaml")
