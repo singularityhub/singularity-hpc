@@ -56,16 +56,12 @@ if not os.getenv("SINGULARITY_COMMAND_OPTS") then setenv ("SINGULARITY_COMMAND_O
 local containerPath = '{{ container_sif }}'
 -- service environment variable to access full SIF image path
 setenv("SINGULARITY_CONTAINER", containerPath)
-set_shell_function("{|module_name|}-container", "echo " .. containerPath, "echo " .. containerPath)
 
 -- interactive shell to any container, plus exec for aliases
 local shellCmd = "singularity ${SINGULARITY_OPTS} shell ${SINGULARITY_COMMAND_OPTS} -s {{ settings.singularity_shell }} {% if features.gpu %}{{ features.gpu }} {% endif %}{% if features.home %}-B {{ features.home }} --home {{ features.home }} {% endif %}{% if features.x11 %}-B {{ features.x11 }} {% endif %}{% if settings.environment_file %}-B " .. moduleDir .. "/{{ settings.environment_file }}:/.singularity.d/env/{{ settings.environment_file }}{% endif %} {% if settings.bindpaths %}-B {{ settings.bindpaths }}{% endif %} " .. containerPath
 local execCmd = "singularity ${SINGULARITY_OPTS} exec ${SINGULARITY_COMMAND_OPTS} {% if features.gpu %}{{ features.gpu }} {% endif %}{% if features.home %}-B {{ features.home }} --home {{ features.home }} {% endif %}{% if features.x11 %}-B {{ features.x11 }} {% endif %}{% if settings.environment_file %}-B " .. moduleDir .. "/{{ settings.environment_file }}:/.singularity.d/env/{{ settings.environment_file }}{% endif %} {% if settings.bindpaths %}-B {{ settings.bindpaths }}{% endif %} "
 local runCmd = "singularity ${SINGULARITY_OPTS} run ${SINGULARITY_COMMAND_OPTS} {% if features.gpu %}{{ features.gpu }} {% endif %}{% if features.home %}-B {{ features.home }} --home {{ features.home }} {% endif %}{% if features.x11 %}-B {{ features.x11 }} {% endif %}{% if settings.environment_file %}-B " .. moduleDir .. "/{{ settings.environment_file }}:/.singularity.d/env/{{ settings.environment_file }}{% endif %} {% if settings.bindpaths %}-B {{ settings.bindpaths }}{% endif %} " .. containerPath
 local inspectCmd = "singularity ${SINGULARITY_OPTS} inspect ${SINGULARITY_COMMAND_OPTS} " 
-
--- set_shell_function takes bashStr and cshStr
-set_shell_function("{|module_name|}-shell", shellCmd,  shellCmd)
 
 -- conflict with modules with the same name
 conflict("{{ parsed_name.tool }}"{% if name != parsed_name.tool %},"{{ name }}"{% endif %}{% if aliases %}{% for alias in aliases %}{% if alias.name != parsed_name.tool %},"{{ alias.name }}"{% endif %}{% endfor %}{% endif %})
@@ -83,6 +79,12 @@ if (myShellName() == "bash") then
 {% endfor %}
 end{% endif %}
 
+-- Only set shell functions if we don't use wrapper scripts
+{% if wrapper_scripts %}{% else %}set_shell_function("{|module_name|}-container", "echo " .. containerPath, "echo " .. containerPath)
+
+-- set_shell_function takes bashStr and cshStr
+set_shell_function("{|module_name|}-shell", shellCmd,  shellCmd)
+
 -- A customizable exec function
 set_shell_function("{|module_name|}-exec", execCmd .. containerPath .. " \"$@\"",  execCmd .. containerPath)
 
@@ -91,7 +93,8 @@ set_shell_function("{|module_name|}-run", runCmd .. " \"$@\"",  runCmd)
 
 -- Inspect runscript or deffile easily!
 set_shell_function("{|module_name|}-inspect-runscript", inspectCmd .. " -r  " .. containerPath,  inspectCmd .. containerPath)
-set_shell_function("{|module_name|}-inspect-deffile", inspectCmd .. " -d  " .. containerPath,  inspectCmd .. containerPath)
+set_shell_function("{|module_name|}-inspect-deffile", inspectCmd .. " -d  " .. containerPath,  inspectCmd .. containerPath){% endif %}
+
 
 whatis("Name        : " .. myModuleName())
 whatis("Version     : " .. myModuleVersion())

@@ -78,17 +78,12 @@ setenv SINGULARITY_SHELL {{ settings.singularity_shell }}
 
 # service environment variable to access full SIF image path
 setenv SINGULARITY_CONTAINER "${containerPath}"
-set-alias {|module_name|}-container "echo ${containerPath}"
 
 # interactive shell to any container, plus exec for aliases
 set shellCmd "singularity \${SINGULARITY_OPTS} shell \${SINGULARITY_COMMAND_OPTS} -s {{ settings.singularity_shell }} {% if features.gpu %}{{ features.gpu }} {% endif %}{% if features.home %}-B {{ features.home | replace("$", "\$") }} --home {{ features.home | replace("$", "\$") }} {% endif %}{% if features.x11 %}-B {{ features.x11 | replace("$", "\$") }} {% endif %}{% if settings.environment_file %}-B ${moduleDir}/{{ settings.environment_file }}:/.singularity.d/env/{{ settings.environment_file }}{% endif %} {% if settings.bindpaths %}-B {{ settings.bindpaths }}{% endif %} ${containerPath}"
 set execCmd "singularity \${SINGULARITY_OPTS} exec \${SINGULARITY_COMMAND_OPTS} {% if features.gpu %}{{ features.gpu }} {% endif %}{% if features.home %}-B {{ features.home | replace("$", "\$") }} --home {{ features.home | replace("$", "\$") }} {% endif %}{% if features.x11 %}-B {{ features.x11 | replace("$", "\$") }} {% endif %}{% if settings.environment_file %}-B ${moduleDir}/{{ settings.environment_file }}:/.singularity.d/env/{{ settings.environment_file }}{% endif %} {% if settings.bindpaths %}-B {{ settings.bindpaths }}{% endif %} "
 set runCmd "singularity \${SINGULARITY_OPTS} run \${SINGULARITY_COMMAND_OPTS} {% if features.gpu %}{{ features.gpu }} {% endif %}{% if features.home %}-B {{ features.home | replace("$", "\$") }} --home {{ features.home | replace("$", "\$") }} {% endif %}{% if features.x11 %}-B {{ features.x11 | replace("$", "\$") }} {% endif %}{% if settings.environment_file %}-B ${moduleDir}/{{ settings.environment_file }}:/.singularity.d/env/{{ settings.environment_file }}{% endif %} {% if settings.bindpaths %}-B {{ settings.bindpaths }}{% endif %} ${containerPath}"
 set inspectCmd "singularity \${SINGULARITY_OPTS} inspect \${SINGULARITY_COMMAND_OPTS} " 
-
-# set_shell_function takes bashStr and cshStr
-set-alias {|module_name|}-shell "${shellCmd}"
-
 
 # if we have any wrapper scripts, add bin to path
 {% if wrapper_scripts %}prepend-path PATH "${moduleDir}/bin"{% endif %}
@@ -108,7 +103,11 @@ set-alias {|module_name|}-shell "${shellCmd}"
 {% endfor %}
 }{% endif %}
 
-# A customizable exec function
+{% if wrapper_scripts %}{% else %}
+set-alias {|module_name|}-shell "${shellCmd}"
+set-alias {|module_name|}-container "echo ${containerPath}"
+
+
 if { [ module-info shell bash ] } {
   set-alias {|module_name|}-exec "${execCmd} ${containerPath} \"\$@\""
 } else {
@@ -124,8 +123,7 @@ if { [ module-info shell bash ] } {
 
 # Inspect runscript or deffile easily!
 set-alias {|module_name|}-inspect-runscript "${inspectCmd} -r ${containerPath}"
-set-alias {|module_name|}-inspect-deffile "${inspectCmd} -d ${containerPath}"
-
+set-alias {|module_name|}-inspect-deffile "${inspectCmd} -d ${containerPath}"{% endif %}
 
 #=====
 # Module options

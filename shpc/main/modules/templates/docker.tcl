@@ -70,7 +70,6 @@ conflict {{ parsed_name.tool }}
 
 # service environment variable to access full SIF image path
 setenv PODMAN_CONTAINER "${containerPath}"
-set-alias {|module_name|}-container "echo ${containerPath}"
 
 # interactive shell to any container, plus exec for aliases
 set shellCmd "{{ command }} \${PODMAN_OPTS} run \${PODMAN_COMMAND_OPTS} -u `id -u`:`id -g` --rm -i{% if settings.enable_tty %}t{% endif %} --entrypoint {{ shell }} {% if settings.environment_file %}--env-file ${moduleDir}/{{ settings.environment_file }}{% endif %} {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %} -v $workdir -w $workdir ${containerPath}" 
@@ -79,9 +78,6 @@ set shellCmd "{{ command }} \${PODMAN_OPTS} run \${PODMAN_COMMAND_OPTS} -u `id -
 set execCmd "{{ command }} \${PODMAN_OPTS} run -i{% if settings.enable_tty %}t{% endif %} \${PODMAN_COMMAND_OPTS} -u `id -u`:`id -g` --rm {% if settings.environment_file %} --env-file ${moduleDir}/{{ settings.environment_file }}{% endif %} {% if settings.bindpaths %}-v {{ settings.bindpaths }}{% endif %}{% if features.home %}-v {{ features.home }} {% endif %} -v $workdir -w $workdir"
 set runCmd "{{ command }} \${PODMAN_OPTS} run -i{% if settings.enable_tty %}t{% endif %} \${PODMAN_COMMAND_OPTS} -u `id -u`:`id -g` --rm {% if settings.environment_file %}--env-file  ${moduleDir}/{{ settings.environment_file }}{% endif %} {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %} -v $workdir -w $workdir ${containerPath}"
 set inspectCmd "{{ command }} \${PODMAN_OPTS} inspect ${containerPath}" 
-
-# set_shell_function takes bashStr and cshStr
-set-alias {|module_name|}-shell "${shellCmd}"
 
 # wrapper scripts? Add bin to path
 {% if wrapper_scripts %}prepend-path PATH "${moduleDir}/bin"{% endif %}
@@ -101,6 +97,11 @@ set-alias {|module_name|}-shell "${shellCmd}"
 {% endfor %}
 }{% endif %}
 
+{% if wrapper_scripts %}{% else %}
+set-alias {|module_name|}-container "echo ${containerPath}"
+
+set-alias {|module_name|}-shell "${shellCmd}"
+
 # A customizable exec function
 if { [ module-info shell bash ] } {
   set-alias {|module_name|}-exec "${execCmd} --entrypoint \"\" ${containerPath} \"\$@\""
@@ -116,7 +117,7 @@ if { [ module-info shell bash ] } {
 }
 
 # Inspect runscript or deffile easily!
-set-alias {|module_name|}-inspect "${inspectCmd} ${containerPath}"
+set-alias {|module_name|}-inspect "${inspectCmd} ${containerPath}"{% endif %}
 
 #=====
 # Module options
