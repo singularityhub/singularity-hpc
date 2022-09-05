@@ -5,6 +5,8 @@ __license__ = "MPL 2.0"
 
 import os
 
+from .remote import is_path_local
+
 
 class Result:
     @property
@@ -48,9 +50,7 @@ class Provider:
 
     @property
     def is_filesystem_registry(self):
-        return not (
-            self.source.startswith("http") or self.source.startswith("ssh")
-        ) and os.path.exists(self.source)
+        return is_path_local(self.source)
 
     @property
     def name(self):

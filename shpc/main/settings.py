@@ -5,6 +5,7 @@ __license__ = "MPL 2.0"
 
 import shutil
 
+import shpc.main.registry
 import shpc.defaults as defaults
 import shpc.main.schemas
 import shpc.utils as utils
@@ -247,9 +248,8 @@ class SettingsBase:
         Return the first found filesystem registry
         """
         for path in self.registry:
-            if path.startswith("http") or not os.path.exists(path):
-                continue
-            return path
+            if shpc.main.registry.is_path_local(path):
+                return path
 
     def ensure_filesystem_registry(self):
         """
@@ -257,9 +257,9 @@ class SettingsBase:
         """
         found = False
         for path in self.registry:
-            if path.startswith("http") or not os.path.exists(path):
-                continue
-            found = True
+            if shpc.main.registry.is_path_local(path):
+                found = True
+                break
 
         # Cut out early if registry isn't on the filesystem
         if not found:

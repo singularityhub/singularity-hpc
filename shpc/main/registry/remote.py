@@ -16,6 +16,12 @@ from shpc.logger import logger
 from .provider import Provider, Result
 
 
+def is_path_local(path: str):
+    return not (path.startswith("http") or path.startswith("ssh")) and os.path.exists(
+        path
+    )
+
+
 def get_module_config_url(registry, module_name, branch="main"):
     """
     Get the raw address of the config (container.yaml)

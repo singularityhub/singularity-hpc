@@ -14,7 +14,7 @@ from shpc.logger import logger
 from shpc.main.settings import SettingsBase
 
 from .filesystem import Filesystem, FilesystemResult
-from .remote import GitHub, GitLab, get_module_config_url
+from .remote import GitHub, GitLab, get_module_config_url, is_path_local
 
 
 def update_container_module(module, from_path, existing_path):
@@ -174,7 +174,7 @@ class Registry:
             local = Filesystem(self.settings.filesystem_registry)
 
         tmpdir = remote.source
-        if tmpdir.startswith("http") or not os.path.exists(tmpdir):
+        if not is_path_local(tmpdir):
             tmpdir = remote.clone()
 
         # These are modules to update
