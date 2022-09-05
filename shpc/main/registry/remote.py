@@ -164,7 +164,7 @@ class VersionControl(Provider):
         try:
             sp.run(cmd, check=True)
         except sp.CalledProcessError as e:
-            raise ValueError("Failed to clone repository {}:\n{}", self.source, e)
+            raise ValueError("Failed to clone repository {}:\n{}", self.url, e)
         return tmpdir
 
     def iter_modules(self):
