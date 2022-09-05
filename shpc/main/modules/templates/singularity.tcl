@@ -103,7 +103,7 @@ set inspectCmd "singularity \${SINGULARITY_OPTS} inspect \${SINGULARITY_COMMAND_
 {% endfor %}
 }{% endif %}
 
-{% if wrapper_scripts %}{% else %}# set_shell_function takes bashStr and cshStr
+{% if wrapper_scripts %}{% else %}
 set-alias {|module_name|}-shell "${shellCmd}"
 set-alias {|module_name|}-container "echo ${containerPath}"
 
