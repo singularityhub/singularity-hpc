@@ -79,10 +79,9 @@ def test_get_registry_wrapper_script(tmp_path, remote):
     # This is an existing one
     assert result.find_wrapper_script("singularity", "singularity_fork.sh")
     script = result.load_wrapper_script("singularity", "singularity_fork.sh")
-    if not remote:
-        assert os.path.exists(script)
-    else:
-        assert '{% extends "bases/shell-script-base.sh" %}' in script
+
+    # Regardless of source, we should get the correct content
+    assert '{% extends "bases/shell-script-base.sh" %}' in script
 
     # This is not
     assert not result.find_wrapper_script("singularity", "singularity.sh")
