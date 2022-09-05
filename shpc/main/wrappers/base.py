@@ -3,7 +3,6 @@ __copyright__ = "Copyright 2022, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
 import os
-import shutil
 
 from jinja2 import Environment, FileSystemLoader
 
@@ -103,25 +102,16 @@ class WrapperScript:
 
         # This is a dict with either path (filesystem to load) or loaded (content)
         result = self.find_wrapper_script(template_paths, include_container_dir)
-
-        # Prepare temporary path in case we need it.
-        temp_templates = temp_templates = shpc.utils.get_tmpdir()
-        template_paths.insert(0, temp_templates)
-
-        # The loader includes the temporary path
         loader = FileSystemLoader(template_paths)
         env = Environment(loader=loader)
 
-        # If we are given content, it needs to still be properly loaded
-        # from a template path to ensure base is loaded too
-        if "content" in result:
-            result["path"] = os.path.join(temp_templates, self.wrapper_template)
-            shpc.utils.write_file(result["path"], result["content"])
+        # Do we have a filesystem path to load directly?
+        if "path" in result:
+            self.template = env.get_template(self.wrapper_template)
 
-        # Load the template, we get here if the path in result is in templates
-        # path and we can load from the environment that sees those paths
-        self.template = env.get_template(self.wrapper_template)
-        shutil.rmtree(temp_templates)
+        # Or string content to load?
+        else:
+            self.template = env.from_string(result["content"])
 
     def generate(self, wrapper_name, alias_definition=None):
         """

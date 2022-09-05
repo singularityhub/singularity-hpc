@@ -58,7 +58,7 @@ class FilesystemResult(Result):
         """
         wrapper_script = self.find_wrapper_script(container_tech, script)
         if wrapper_script:
-            return os.path.join(self.dirname, wrapper_script)
+            return shpc.utils.read_file(os.path.join(self.dirname, wrapper_script))
 
     def override_exists(self, tag):
         """
