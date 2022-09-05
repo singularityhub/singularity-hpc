@@ -161,8 +161,7 @@ class VersionControl(Provider):
         """
         Find a particular entry in a registry
         """
-        if not self._cache:
-            self._update_cache()
+        self._update_cache()
         if name in self._cache:
             return RemoteResult(name, self._cache[name])
 
