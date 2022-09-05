@@ -35,13 +35,9 @@ class Provider:
     """
 
     def __init__(self, source, *args, **kwargs):
-        if not (
-            source.startswith("https://")
-            or source.startswith("ssh://")
-            or os.path.exists(source)
-        ):
+        if not (("://" in source) or os.path.exists(source)):
             raise ValueError(
-                "Registry source must exist on the filesystem or be given as https://."
+                "Registry source must exist on the filesystem or contain '://' (remote path)."
             )
         self.source = source
 

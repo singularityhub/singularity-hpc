@@ -17,9 +17,7 @@ from .provider import Provider, Result
 
 
 def is_path_local(path: str):
-    return not (path.startswith("http") or path.startswith("ssh")) and os.path.exists(
-        path
-    )
+    return ("://" not in path) and os.path.exists(path)
 
 
 def get_module_config_url(registry, module_name, branch="main"):
@@ -97,6 +95,13 @@ class RemoteResult(Result):
 
 
 class VersionControl(Provider):
+
+    # The URL is substituted with user, repo
+    library_url_schemes = {
+        "github.com": "https://%s.github.io/%s/library.json",
+        "gitlab.com": "https://%s.gitlab.io/%s/library.json",
+    }
+
     def __init__(self, *args, **kwargs):
         self.tag = kwargs.get("tag")
 
@@ -110,33 +115,23 @@ class VersionControl(Provider):
 
     @classmethod
     def matches(cls, source):
-        return cls.provider_name in source and (
-            source.startswith("http") or source.startswith("ssh")
-        )
+        return "://" in source
 
     @property
-    def source_url(self):
-        """
-        Retrieve a parsed / formatted url, ensuring https and without git.
-        """
-        url = self.url
-        if not url.startswith("http"):
-            url = "https://%s" % url
-        if url.endswith(".git"):
-            url = url[:-4]
-        return url
-
-    @property
-    def web_url(self):
+    def library_url(self):
         """
         Retrieve the web url, either pages or (eventually) custom.
         """
-        parts = self.source_url.split("/")[3:]
-        return "https://%s.%s.io/%s/library.json" % (
-            parts[0],
-            self.provider_name,
-            "/".join(parts[1:]),
-        )
+        url = self.url
+        if url.endswith(".git"):
+            url = url[:-4]
+        parts = url.split("/")
+        domain = parts[2]
+        if domain in self.library_url_schemes:
+            return self.library_url_schemes[domain] % (
+                parts[3],
+                "/".join(parts[4:]),
+            )
 
     def exists(self, name):
         """
@@ -183,10 +178,11 @@ class VersionControl(Provider):
         if self._cache and not force:
             return
 
-        if self.url.startswith("ssh"):
+        library_url = self.library_url
+        if library_url is None:
             return self._update_clone_cache()
         # Check for exposed library API on GitHub or GitLab pages
-        response = requests.get(self.web_url)
+        response = requests.get(library_url)
         if response.status_code != 200:
             return self._update_clone_cache()
         self._cache = response.json()
@@ -225,11 +221,3 @@ class VersionControl(Provider):
                 continue
             # Assemble a faux config with tags so we don't hit remote
             yield RemoteResult(uri, entry, load=False, config=entry["config"])
-
-
-class GitHub(VersionControl):
-    provider_name = "github"
-
-
-class GitLab(VersionControl):
-    provider_name = "gitlab"
