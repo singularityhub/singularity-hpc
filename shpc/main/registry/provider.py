@@ -70,4 +70,12 @@ class Provider:
         pass
 
     def iter_modules(self):
-        pass
+        """
+        yield module names
+        """
+        # Find modules based on container.yaml
+        for filename in shpc.utils.recursive_find(self.source, "container.yaml"):
+            module = os.path.dirname(filename).replace(self.source, "").strip(os.sep)
+            if not module:
+                continue
+            yield self.source, module

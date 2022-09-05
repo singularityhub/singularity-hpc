@@ -146,8 +146,6 @@ class VersionControl(Provider):
         if self._cache and name in self._cache:
             return True
         dirname = self.source
-        if self.subdir:
-            dirname = os.path.join(dirname, self.subdir)
         return os.path.exists(os.path.join(dirname, name))
 
     def clone(self, tmpdir=None):
@@ -161,26 +159,13 @@ class VersionControl(Provider):
             cmd += ["-b", self.tag]
         cmd += [self.url, tmpdir]
         self.source = tmpdir
+        if self.subdir:
+            self.source = os.path.join(tmpdir, self.subdir)
         try:
             sp.run(cmd, check=True)
         except sp.CalledProcessError as e:
             raise ValueError("Failed to clone repository {}:\n{}", self.url, e)
         return tmpdir
-
-    def iter_modules(self):
-        """
-        yield module names
-        """
-        dirname = self.source
-        if self.subdir:
-            dirname = os.path.join(dirname, self.subdir)
-
-        # Find modules based on container.yaml
-        for filename in shpc.utils.recursive_find(dirname, "container.yaml"):
-            module = os.path.dirname(filename).replace(dirname, "").strip(os.sep)
-            if not module:
-                continue
-            yield dirname, module
 
     def find(self, name):
         """
