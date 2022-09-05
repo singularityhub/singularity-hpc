@@ -20,23 +20,6 @@ def is_path_local(path: str):
     return ("://" not in path) and os.path.exists(path)
 
 
-def get_module_config_url(registry, module_name, branch="main"):
-    """
-    Get the raw address of the config (container.yaml)
-    """
-    registry_bare = registry.split(".com")[-1]
-    raw = (
-        "https://gitlab.com/%s/-/raw/%s/%s/container.yaml"
-        if "gitlab" in registry
-        else "https://raw.githubusercontent.com/%s/%s/%s/container.yaml"
-    )
-    return raw % (
-        registry_bare,
-        branch,
-        module_name,
-    )
-
-
 class RemoteResult(Result):
     """
     A remote result provides courtesy functions for interacting with
@@ -100,6 +83,18 @@ class VersionControl(Provider):
     library_url_schemes = {
         "github.com": "https://%s.github.io/%s/library.json",
         "gitlab.com": "https://%s.gitlab.io/%s/library.json",
+    }
+
+    # The URL is substituted with repo, branch, module_name
+    web_container_url_schemes = {
+        "github.com": "https://github.com/%s/blob/%s/%s/container.yaml",
+        "gitlab.com": "https://gitlab.com/%s/-/blob/%s/%s/container.yaml",
+    }
+
+    # The URL is substituted with repo, branch, module_name
+    raw_container_url_schemes = {
+        "github.com": "https://raw.githubusercontent.com/%s/%s/%s/container.yaml",
+        "gitlab.com": "https://gitlab.com/%s/-/raw/%s/%s/container.yaml",
     }
 
     def __init__(self, *args, **kwargs):
@@ -198,7 +193,7 @@ class VersionControl(Provider):
         tmpdir = self.clone()
         for dirname, module in self.iter_modules():
             # Minimum amount of metadata to function here
-            config_url = get_module_config_url(self.url, module)
+            config_url = self.get_module_config_url(module)[0]
             self._cache[module] = {
                 "config": shpc.utils.read_yaml(
                     os.path.join(dirname, module, "container.yaml")
@@ -206,6 +201,21 @@ class VersionControl(Provider):
                 "config_url": config_url,
             }
         shutil.rmtree(tmpdir)
+
+    def get_module_config_url(self, module_name):
+        """
+        Get the raw address of the config (container.yaml)
+        """
+        parts = self.url.split("/")
+        domain = parts[2]
+        if domain in self.raw_container_url_schemes:
+            t = ("/".join(parts[3:]), self.tag, module_name)
+            return (
+                self.raw_container_url_schemes[domain] % t,
+                self.web_container_url_schemes[domain] % t,
+            )
+        else:
+            return (None, None)
 
     def iter_registry(self, filter_string=None):
         """

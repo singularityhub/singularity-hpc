@@ -14,7 +14,7 @@ from shpc.logger import logger
 from shpc.main.settings import SettingsBase
 
 from .filesystem import Filesystem, FilesystemResult
-from .remote import VersionControl, get_module_config_url, is_path_local
+from .remote import VersionControl, is_path_local
 
 
 def update_container_module(module, from_path, existing_path):
