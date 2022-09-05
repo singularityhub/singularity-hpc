@@ -100,7 +100,6 @@ set inspectCmd "{{ command }} \${PODMAN_OPTS} inspect ${containerPath}"
 {% if wrapper_scripts %}{% else %}
 set-alias {|module_name|}-container "echo ${containerPath}"
 
-# set_shell_function takes bashStr and cshStr
 set-alias {|module_name|}-shell "${shellCmd}"
 
 # A customizable exec function
