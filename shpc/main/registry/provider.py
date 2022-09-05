@@ -48,10 +48,6 @@ class Provider:
     def is_filesystem_registry(self):
         return is_path_local(self.source)
 
-    @property
-    def name(self):
-        return self.__class__.__name__.lower()
-
     @classmethod
     def matches(cls, source_url: str):
         pass
