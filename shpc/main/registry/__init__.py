@@ -14,7 +14,7 @@ from shpc.logger import logger
 from shpc.main.settings import SettingsBase
 
 from .filesystem import Filesystem, FilesystemResult
-from .remote import VersionControl, is_path_local
+from .remote import VersionControl
 
 
 def update_container_module(module, from_path, existing_path):
@@ -172,7 +172,7 @@ class Registry:
             local = Filesystem(self.settings.filesystem_registry)
 
         tmpdir = remote.source
-        if not is_path_local(tmpdir):
+        if not shpc.utils.is_path_local(tmpdir):
             tmpdir = remote.clone()
 
         # These are modules to update

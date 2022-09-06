@@ -16,10 +16,6 @@ from shpc.logger import logger
 from .provider import Provider, Result
 
 
-def is_path_local(path: str):
-    return ("://" not in path) and os.path.exists(path)
-
-
 class RemoteResult(Result):
     """
     A remote result provides courtesy functions for interacting with

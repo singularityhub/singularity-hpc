@@ -19,6 +19,10 @@ except:
     from ruamel.yaml import YAML
 
 
+def is_path_local(path: str):
+    return ("://" not in path) and os.path.exists(path)
+
+
 def can_be_deleted(path, ignore_files=None):
     """
     A path can be deleted if it contains no entries, *or*

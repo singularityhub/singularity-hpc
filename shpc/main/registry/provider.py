@@ -5,7 +5,7 @@ __license__ = "MPL 2.0"
 
 import os
 
-from .remote import is_path_local
+import shpc.utils
 
 
 class Result:
@@ -46,7 +46,7 @@ class Provider:
 
     @property
     def is_filesystem_registry(self):
-        return is_path_local(self.source)
+        return shpc.utils.is_path_local(self.source)
 
     @classmethod
     def matches(cls, source_url: str):
