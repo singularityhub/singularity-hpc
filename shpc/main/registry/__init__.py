@@ -171,9 +171,8 @@ class Registry:
         if not local:
             local = Filesystem(self.settings.filesystem_registry)
 
-        tmpdir = remote.source
-        if not shpc.utils.is_path_local(tmpdir):
-            tmpdir = remote.clone()
+        if isinstance(remote, VersionControl) and not remote.is_cloned:
+            remote.clone()
 
         # These are modules to update
         for regpath, module in remote.iter_modules():
