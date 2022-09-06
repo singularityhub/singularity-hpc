@@ -94,6 +94,8 @@ class VersionControl(Provider):
     }
 
     def __init__(self, *args, **kwargs):
+        self.is_cloned = False
+
         self.tag = kwargs.get("tag")
 
         # Cache of remote container metadata
@@ -138,6 +140,8 @@ class VersionControl(Provider):
         """
         Clone the known source URL to a temporary directory
         """
+        if self.is_cloned:
+            return
         tmpdir = tmpdir or shpc.utils.get_tmpdir()
 
         cmd = ["git", "clone", "--depth", "1"]
@@ -151,6 +155,7 @@ class VersionControl(Provider):
             sp.run(cmd, check=True)
         except sp.CalledProcessError as e:
             raise ValueError("Failed to clone repository {}:\n{}", self.url, e)
+        self.is_cloned = True
         return tmpdir
 
     def find(self, name):
