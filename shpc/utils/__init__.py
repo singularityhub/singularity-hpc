@@ -5,7 +5,6 @@ from .fileio import (
     get_file_hash,
     get_tmpdir,
     get_tmpfile,
-    is_path_local,
     mkdir_p,
     mkdirp,
     print_json,

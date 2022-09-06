@@ -44,10 +44,6 @@ class Provider:
     def exists(self, name):
         return os.path.exists(os.path.join(self.source, name))
 
-    @property
-    def is_filesystem_registry(self):
-        return shpc.utils.is_path_local(self.source)
-
     @classmethod
     def matches(cls, source_url: str):
         pass
