@@ -75,9 +75,13 @@ class FilesystemResult(Result):
 
 
 class Filesystem(Provider):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.source = os.path.abspath(self.source)
+    def __init__(self, source):
+        if not self.matches(source):
+            raise ValueError(
+                "Filesystem registry source must exist on the filesystem. Got %"
+                % source
+            )
+        self.source = os.path.abspath(source)
 
     @classmethod
     def matches(cls, source):

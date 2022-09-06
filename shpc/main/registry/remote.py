@@ -93,18 +93,20 @@ class VersionControl(Provider):
         "gitlab.com": "https://gitlab.com/%s/-/raw/%s/%s/container.yaml",
     }
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, source, tag=None, subdir=None):
+        if "://" not in source:
+            raise ValueError("'%s' is not a valid URL." % source)
+
         self.is_cloned = False
 
-        self.tag = kwargs.get("tag")
+        self.tag = tag
 
         # Cache of remote container metadata
         self._cache = {}
 
         # E.g., subdirectory with registry files
-        self.subdir = kwargs.get("subdir")
-        super().__init__(*args, **kwargs)
-        self.url = self.source
+        self.subdir = subdir
+        self.url = source
 
     @classmethod
     def matches(cls, source):

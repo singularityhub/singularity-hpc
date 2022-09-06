@@ -34,13 +34,6 @@ class Provider:
     A general provider should retrieve and provide registry files.
     """
 
-    def __init__(self, source, *args, **kwargs):
-        if not (("://" in source) or os.path.exists(source)):
-            raise ValueError(
-                "Registry source must exist on the filesystem or contain '://' (remote path)."
-            )
-        self.source = source
-
     def exists(self, name):
         return os.path.exists(os.path.join(self.source, name))
 
