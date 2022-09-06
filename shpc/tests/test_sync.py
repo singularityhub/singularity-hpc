@@ -33,12 +33,12 @@ def test_filesystem_upgrade(tmp_path):
     os.makedirs(registry_path)
     client.reload_registry()
 
-    assert client.settings.filesystem_registry == registry_path
+    local = client.registry.filesystem_registry
+    assert local
+    assert isinstance(local, registry.Filesystem)
+    assert local.source == registry_path
 
-    # Test interacting with local filesystem registry
-    local = registry.Filesystem(client.settings.filesystem_registry)
-
-    # It should be empty
+    # Local filesystem registry should be empty
     assert not list(local.iter_modules())
 
     # Create filesystem registry with test data

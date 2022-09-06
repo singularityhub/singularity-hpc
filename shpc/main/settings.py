@@ -241,31 +241,6 @@ class SettingsBase:
                 "%s:%s cannot be added to config: %s" % (key, value, error.message)
             )
 
-    @property
-    def filesystem_registry(self):
-        """
-        Return the first found filesystem registry
-        """
-        for path in self.registry:
-            if utils.is_path_local(path):
-                return path
-
-    def ensure_filesystem_registry(self):
-        """
-        Ensure that the settings has a filesystem registry.
-        """
-        found = False
-        for path in self.registry:
-            if utils.is_path_local(path):
-                found = True
-                break
-
-        # Cut out early if registry isn't on the filesystem
-        if not found:
-            logger.exit(
-                "This command is only supported for a filesystem registry! Add one or use --registry."
-            )
-
     def _substitutions(self, value):
         """
         Given a value, make substitutions

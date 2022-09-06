@@ -172,7 +172,12 @@ class ModuleBase(BaseClient):
         """
         Add a container to the registry to enable install.
         """
-        self.settings.ensure_filesystem_registry()
+        local_registry = self.registry.filesystem_registry
+
+        if not local_registry:
+            logger.exit(
+                "This command is only supported for a filesystem registry! Add one or use --registry."
+            )
 
         # Docker module name is always the same namespace as the image
         if image.startswith("docker"):
@@ -185,7 +190,7 @@ class ModuleBase(BaseClient):
 
         # Assume adding to default registry
         dest = os.path.join(
-            self.settings.filesystem_registry,
+            local_registry.source,
             module_name.split(":")[0],
             "container.yaml",
         )

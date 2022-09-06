@@ -44,6 +44,15 @@ class Registry:
         # and they must exist.
         self.registries = [self.get_registry(r) for r in self.settings.registry]
 
+    @property
+    def filesystem_registry(self):
+        """
+        Return the first found filesystem registry.
+        """
+        for registry in self.registries:
+            if isinstance(registry, Filesystem):
+                return registry
+
     def exists(self, name):
         """
         Determine if a module name *exists* in any local registry, return path
@@ -132,7 +141,7 @@ class Registry:
         remote = self.get_registry(
             sync_registry or self.settings.sync_registry, tag=tag
         )
-        local = self.get_registry(local or self.settings.filesystem_registry)
+        local = self.get_registry(local) if local else self.filesystem_registry
 
         # We sync to our first registry - if not filesystem, no go
         if not local.is_filesystem_registry:
@@ -169,7 +178,7 @@ class Registry:
 
         # No local registry provided, use default
         if not local:
-            local = Filesystem(self.settings.filesystem_registry)
+            local = self.filesystem_registry
 
         if isinstance(remote, VersionControl) and not remote.is_cloned:
             remote.clone()
