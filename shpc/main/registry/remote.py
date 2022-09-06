@@ -95,7 +95,18 @@ class VersionControl(Provider):
 
     def __init__(self, source, tag=None, subdir=None):
         if "://" not in source:
-            raise ValueError("'%s' is not a valid URL." % source)
+            if os.path.exists(source):
+                raise ValueError(
+                    "VersionControl registry must be a remote path, not a local one."
+                )
+            # Normalise the URL
+            # Heuristics: if there is a @, it's probably ssh
+            if "@" in self.url:
+                self.url = "ssh://" + source
+            else:
+                self.url = "https://" + source
+        else:
+            self.url = source
 
         self.is_cloned = False
 
@@ -106,11 +117,10 @@ class VersionControl(Provider):
 
         # E.g., subdirectory with registry files
         self.subdir = subdir
-        self.url = source
 
     @classmethod
     def matches(cls, source):
-        return "://" in source
+        return ("://" in source) or not os.path.exists(source)
 
     @property
     def library_url(self):
