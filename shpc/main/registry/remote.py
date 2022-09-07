@@ -147,10 +147,8 @@ class VersionControl(Provider):
         Determine if a module exists in the registry.
         """
         name = name.split(":")[0]
-        if self._cache and name in self._cache:
-            return True
-        dirname = self.source
-        return os.path.exists(os.path.join(dirname, name))
+        self._update_cache()
+        return name in self._cache
 
     def clone(self, tmpdir=None):
         """
