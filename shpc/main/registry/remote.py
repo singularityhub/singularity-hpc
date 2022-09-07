@@ -106,7 +106,7 @@ class VersionControl(Provider):
                 self.url = "ssh://" + source
             else:
                 self.url = "https://" + source
-
+        self._library_url = None
         self.is_cloned = False
 
         self.tag = tag
@@ -126,16 +126,21 @@ class VersionControl(Provider):
         """
         Retrieve the web url, either pages or (eventually) custom.
         """
+        if self._library_url is not None:
+            return self._library_url
         url = self.url
         if url.endswith(".git"):
             url = url[:-4]
         parts = url.split("/")
         domain = parts[2]
         if domain in self.library_url_schemes:
-            return self.library_url_schemes[domain] % (
+            self._library_url = self.library_url_schemes[domain] % (
                 parts[3],
                 "/".join(parts[4:]),
             )
+        else:
+            self._library_url = ""
+        return self._library_url
 
     def exists(self, name):
         """
@@ -184,11 +189,10 @@ class VersionControl(Provider):
         if self._cache and not force:
             return
 
-        library_url = self.library_url
-        if library_url is None:
+        if not self.library_url:
             return self._update_clone_cache()
         # Check for exposed library API on GitHub or GitLab pages
-        response = requests.get(library_url)
+        response = requests.get(self.library_url)
         if response.status_code != 200:
             return self._update_clone_cache()
         self._cache = response.json()
