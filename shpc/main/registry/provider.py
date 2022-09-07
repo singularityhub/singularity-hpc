@@ -34,9 +34,6 @@ class Provider:
     A general provider should retrieve and provide registry files.
     """
 
-    def exists(self, name):
-        return os.path.exists(os.path.join(self.source, name))
-
     @classmethod
     def matches(cls, source_url: str):
         pass

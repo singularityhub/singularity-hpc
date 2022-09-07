@@ -87,6 +87,9 @@ class Filesystem(Provider):
     def matches(cls, source):
         return os.path.exists(source) or source == "."
 
+    def exists(self, name):
+        return os.path.exists(os.path.join(self.source, name))
+
     def find(self, name):
         """
         Find and load a container.yaml from the filesystem.
