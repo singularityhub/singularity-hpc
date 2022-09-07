@@ -94,6 +94,7 @@ class VersionControl(Provider):
     }
 
     def __init__(self, source, tag=None, subdir=None):
+        self.url = source
         if "://" not in source:
             if os.path.exists(source):
                 raise ValueError(
@@ -101,12 +102,10 @@ class VersionControl(Provider):
                 )
             # Normalise the URL
             # Heuristics: if there is a @, it's probably ssh
-            if "@" in self.url:
+            if "@" in source:
                 self.url = "ssh://" + source
             else:
                 self.url = "https://" + source
-        else:
-            self.url = source
 
         self.is_cloned = False
 
