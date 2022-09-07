@@ -119,7 +119,7 @@ class VersionControl(Provider):
 
     @classmethod
     def matches(cls, source):
-        return ("://" in source) or not os.path.exists(source)
+        return "://" in source or not os.path.exists(source)
 
     @property
     def library_url(self):
