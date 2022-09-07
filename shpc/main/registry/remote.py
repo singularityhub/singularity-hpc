@@ -225,8 +225,7 @@ class VersionControl(Provider):
                 self.raw_container_url_schemes[domain] % t,
                 self.web_container_url_schemes[domain] % t,
             )
-        else:
-            return (None, None)
+        return (None, None)
 
     def iter_registry(self, filter_string=None):
         """
