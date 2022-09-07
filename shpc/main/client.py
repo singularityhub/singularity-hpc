@@ -126,7 +126,7 @@ class Client:
         if name:
             modules = [name]
         else:
-            modules = [x[1] for x in list(self.registry.iter_modules())]
+            modules = list(self.registry.iter_modules())
 
         for module_name in modules:
             config = self._load_container(module_name)

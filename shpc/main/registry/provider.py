@@ -56,4 +56,4 @@ class Provider:
             module = os.path.dirname(filename)
             if not module:
                 continue
-            yield self.source, module
+            yield module

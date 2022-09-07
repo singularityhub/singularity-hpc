@@ -49,8 +49,7 @@ def test_filesystem_upgrade(tmp_path):
     # Should have one module installed
     mods = list(test_registry.iter_modules())
     assert len(mods) == 1
-    module = mods[0][1]
-    assert mods[0][0] == test_registry_path
+    module = mods[0]
     assert module == "dinosaur/salad"
 
     # Upgrade the current registry from the "remote" (test registry)

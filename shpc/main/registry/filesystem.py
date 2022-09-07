@@ -110,9 +110,9 @@ class Filesystem(Provider):
         """
         Iterate over content in filesystem registry.
         """
-        for dirname, module_name in self.iter_modules():
+        for module_name in self.iter_modules():
             # If the user has provided a filter, honor it
             if filter_string and not re.search(filter_string, module_name):
                 continue
-            filename = os.path.join(dirname, module_name)
+            filename = os.path.join(self.source, module_name)
             yield FilesystemResult(module_name, filename)

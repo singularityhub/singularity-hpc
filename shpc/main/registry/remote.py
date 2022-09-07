@@ -215,12 +215,12 @@ class VersionControl(Provider):
             % self.url
         )
         tmpdir = self.clone()
-        for dirname, module in self.iter_modules():
+        for module in self.iter_modules():
             # Minimum amount of metadata to function here
             config_url = self.get_module_config_url(module)[0]
             self._cache[module] = {
                 "config": shpc.utils.read_yaml(
-                    os.path.join(dirname, module, "container.yaml")
+                    os.path.join(tmpdir, module, "container.yaml")
                 ),
                 "config_url": config_url,
             }

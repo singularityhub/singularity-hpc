@@ -182,11 +182,11 @@ class Registry:
             remote.clone()
 
         # These are modules to update
-        for regpath, module in remote.iter_modules():
+        for module in remote.iter_modules():
             if name and module != name:
                 continue
 
-            from_path = os.path.join(regpath, module)
+            from_path = os.path.join(remote.source, module)
             existing_path = local.exists(module)
 
             # If we have an existing module and we want to replace all files
