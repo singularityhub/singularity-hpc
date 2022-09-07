@@ -158,7 +158,6 @@ class Registry:
             add_new=add_new,
             local=local,
         )
-        remote.cleanup()
 
     def sync_from_remote(
         self, remote, name=None, overwrite=False, dryrun=False, add_new=True, local=None

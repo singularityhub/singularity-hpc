@@ -170,7 +170,18 @@ class VersionControl(Provider):
         except sp.CalledProcessError as e:
             raise ValueError("Failed to clone repository {}:\n{}", self.url, e)
         self.is_cloned = True
+        assert os.path.exists(self.source)
         return tmpdir
+
+    def cleanup(self):
+        """
+        Cleanup the temporary clone (this must be intentionally called)
+        """
+        if not self.is_cloned:
+            return
+        shutil.rmtree(self.source)
+        self.is_cloned = False
+        delattr(self, "source")
 
     def find(self, name):
         """
@@ -213,7 +224,7 @@ class VersionControl(Provider):
                 ),
                 "config_url": config_url,
             }
-        shutil.rmtree(tmpdir)
+        self.cleanup()
 
     def get_module_config_url(self, module_name):
         """
