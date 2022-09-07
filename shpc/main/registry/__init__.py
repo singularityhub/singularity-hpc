@@ -23,13 +23,12 @@ def update_container_module(module, from_path, existing_path):
     """
     if not os.path.exists(existing_path):
         shpc.utils.mkdir_p(existing_path)
-    for filename in shpc.utils.recursive_find(from_path):
-        relative_path = filename.replace(from_path, "").strip("/")
+    for relative_path in shpc.utils.recursive_find(from_path):
         to_path = os.path.join(existing_path, relative_path)
         if os.path.exists(to_path):
             shutil.rmtree(to_path)
         shpc.utils.mkdir_p(os.path.dirname(to_path))
-        shutil.copy2(filename, to_path)
+        shutil.copy2(os.path.join(from_path, relative_path), to_path)
 
 
 class Registry:

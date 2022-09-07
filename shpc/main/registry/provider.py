@@ -53,7 +53,7 @@ class Provider:
         """
         # Find modules based on container.yaml
         for filename in shpc.utils.recursive_find(self.source, "container.yaml"):
-            module = os.path.dirname(filename).replace(self.source, "").strip(os.sep)
+            module = os.path.dirname(filename)
             if not module:
                 continue
             yield self.source, module

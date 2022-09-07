@@ -309,10 +309,9 @@ class ModuleBase(BaseClient):
         A shared function to get a lookup of installed modules or registry entries
         """
         modules = {}
-        for fullpath in utils.recursive_find(base, pattern):
-            if fullpath.endswith(filename):
-                module_name, version = os.path.dirname(fullpath).rsplit(os.sep, 1)
-                module_name = module_name.replace(base, "").strip(os.sep)
+        for relpath in utils.recursive_find(base, pattern):
+            if relpath.endswith(filename):
+                module_name, version = os.path.dirname(relpath).rsplit(os.sep, 1)
                 if module_name not in modules:
                     modules[module_name] = set()
                 modules[module_name].add(version)
