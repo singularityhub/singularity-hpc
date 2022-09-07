@@ -110,14 +110,9 @@ class Filesystem(Provider):
         """
         Iterate over content in filesystem registry.
         """
-        for filename in shpc.utils.recursive_find(self.source):
-            if not filename.endswith("container.yaml"):
-                continue
-            module_name = (
-                os.path.dirname(filename).replace(self.source, "").strip(os.sep)
-            )
-
+        for dirname, module_name in self.iter_modules():
             # If the user has provided a filter, honor it
             if filter_string and not re.search(filter_string, module_name):
                 continue
+            filename = os.path.join(dirname, module_name)
             yield FilesystemResult(module_name, filename)
