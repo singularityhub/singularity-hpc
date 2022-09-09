@@ -65,8 +65,7 @@ class Registry:
         Iterate over all known registries defined in settings.
         """
         for reg in self.registries:
-            for entry in reg.iter_registry(filter_string=filter_string):
-                yield entry
+            yield from reg.iter_registry(filter_string=filter_string)
 
     def find(self, name, path=None):
         """
