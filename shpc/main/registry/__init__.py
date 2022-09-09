@@ -177,8 +177,10 @@ class Registry:
         if not local:
             local = self.filesystem_registry
 
-        if isinstance(remote, VersionControl) and not remote.is_cloned:
-            remote.clone()
+        ini_remote = None
+        if isinstance(remote, VersionControl):
+            ini_remote = remote
+            remote = Filesystem(remote.clone())
 
         # These are modules to update
         for module in remote.iter_modules():
@@ -203,6 +205,9 @@ class Registry:
                     update_container_module(
                         module, from_path, os.path.join(local.source, module)
                     )
+
+        if ini_remote:
+            ini_remote.cleanup()
 
         if not updates:
             logger.info("There were no upgrades.")
