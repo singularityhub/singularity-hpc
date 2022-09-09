@@ -145,7 +145,7 @@ class Registry:
         if not isinstance(local, Filesystem):
             logger.exit(
                 "sync is only supported for a remote to a filesystem registry: %s"
-                % local.source
+                % local.url
             )
 
         # Upgrade the current registry from the remote
