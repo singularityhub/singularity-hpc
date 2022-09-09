@@ -54,11 +54,11 @@ class Registry:
 
     def exists(self, name):
         """
-        Determine if a module name *exists* in any local registry, return path
+        Determine if a module name *exists* in any registry, return the first one
         """
         for reg in self.registries:
             if reg.exists(name):
-                return os.path.join(reg.source, name)
+                return reg
 
     def iter_registry(self, filter_string=None):
         """
@@ -88,8 +88,8 @@ class Registry:
         """
         Iterate over modules found across the registry
         """
-        for reg in self.registries:
-            for registry, module in reg.iter_modules():
+        for registry in self.registries:
+            for module in registry.iter_modules():
                 yield registry, module
 
     def get_registry(self, source, **kwargs):

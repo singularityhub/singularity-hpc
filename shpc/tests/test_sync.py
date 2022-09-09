@@ -57,7 +57,8 @@ def test_filesystem_upgrade(tmp_path):
     client.registry.sync_from_remote(test_registry, module)
     existing = client.registry.exists(module)
     assert existing is not None
-    assert os.path.exists(existing)
+    assert existing == local
+    assert os.path.exists(os.path.join(local.source, module))
 
 
 def test_sync_from_file(tmp_path):
