@@ -108,7 +108,7 @@ class VersionControl(Provider):
             else:
                 self.url = "https://" + source
         self._library_url = None
-        self.is_cloned = False
+        self._clone_dir = None
 
         self.tag = tag
 
@@ -155,7 +155,7 @@ class VersionControl(Provider):
         """
         Clone the known source URL to a temporary directory
         """
-        if self.is_cloned:
+        if self._clone_dir:
             return
         tmpdir = tmpdir or shpc.utils.get_tmpdir()
 
@@ -163,26 +163,24 @@ class VersionControl(Provider):
         if self.tag:
             cmd += ["-b", self.tag]
         cmd += [self.url, tmpdir]
-        self.source = tmpdir
+        self._clone_dir = tmpdir
         if self.subdir:
-            self.source = os.path.join(tmpdir, self.subdir)
+            self._clone_dir = os.path.join(tmpdir, self.subdir)
         try:
             sp.run(cmd, check=True)
         except sp.CalledProcessError as e:
             raise ValueError("Failed to clone repository {}:\n{}", self.url, e)
-        self.is_cloned = True
-        assert os.path.exists(self.source)
+        assert os.path.exists(self._clone_dir)
         return tmpdir
 
     def cleanup(self):
         """
         Cleanup the temporary clone (this must be intentionally called)
         """
-        if not self.is_cloned:
+        if not self._clone_dir:
             return
-        shutil.rmtree(self.source)
-        self.is_cloned = False
-        delattr(self, "source")
+        shutil.rmtree(self._clone_dir)
+        self._clone_dir = None
 
     def iter_modules(self):
         """
