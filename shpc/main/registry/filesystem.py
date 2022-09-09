@@ -90,6 +90,17 @@ class Filesystem(Provider):
     def exists(self, name):
         return os.path.exists(os.path.join(self.source, name))
 
+    def iter_modules(self):
+        """
+        yield module names
+        """
+        # Find modules based on container.yaml
+        for filename in shpc.utils.recursive_find(self.source, "container.yaml"):
+            module = os.path.dirname(filename)
+            if not module:
+                continue
+            yield module
+
     def find(self, name):
         """
         Find and load a container.yaml from the filesystem.
