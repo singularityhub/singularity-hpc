@@ -14,6 +14,7 @@ import shpc.utils
 from shpc.logger import logger
 
 from .provider import Provider, Result
+from .filesystem import Filesystem
 
 
 class RemoteResult(Result):
@@ -183,6 +184,13 @@ class VersionControl(Provider):
         self.is_cloned = False
         delattr(self, "source")
 
+    def iter_modules(self):
+        """
+        yield module names
+        """
+        self._update_cache()
+        yield from self._cache.keys()
+
     def find(self, name):
         """
         Find a particular entry in a registry
@@ -215,7 +223,7 @@ class VersionControl(Provider):
             % self.url
         )
         tmpdir = self.clone()
-        for module in self.iter_modules():
+        for module in Filesystem(tmpdir).iter_modules():
             # Minimum amount of metadata to function here
             config_url = self.get_module_config_url(module)[0]
             self._cache[module] = {
