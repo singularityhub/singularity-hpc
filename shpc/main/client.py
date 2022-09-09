@@ -124,13 +124,12 @@ class Client:
         """
         # No name provided == "update all"
         if name:
-            modules = [name]
-        else:
-            modules = list(self.registry.iter_modules())
-
-        for module_name in modules:
-            config = self._load_container(module_name)
+            config = self._load_container(name)
             config.update(dryrun=dryrun, filters=filters)
+        else:
+            for result in self.registry.iter_registry():
+                config = container.ContainerConfig(result)
+                config.update(dryrun=dryrun, filters=filters)
 
     def test(
         self,
