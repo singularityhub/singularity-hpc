@@ -76,7 +76,7 @@ class RemoteResult(Result):
 
 class VersionControl(Provider):
 
-    # The URL is substituted with user, repo
+    # The URL is substituted with owner, repo
     library_url_schemes = {
         "github.com": "https://%s.github.io/%s/library.json",
         "gitlab.com": "https://%s.gitlab.io/%s/library.json",
@@ -126,12 +126,11 @@ class VersionControl(Provider):
         url = self.url
         if url.endswith(".git"):
             url = url[:-4]
-        parts = url.split("/")
-        domain = parts[2]
+        (_, _, domain, owner, repo) = url.split("/", 4)
         if domain in self.library_url_schemes:
             self._library_url = self.library_url_schemes[domain] % (
-                parts[3],
-                "/".join(parts[4:]),
+                owner,
+                repo,
             )
         else:
             self._library_url = ""
@@ -230,10 +229,9 @@ class VersionControl(Provider):
         """
         Get the raw address of the config (container.yaml)
         """
-        parts = self.url.split("/")
-        domain = parts[2]
+        (_, _, domain, repo_path) = self.url.split("/", 3)
         if domain in self.raw_container_url_schemes:
-            t = ("/".join(parts[3:]), self.tag, module_name)
+            t = (repo_path, self.tag, module_name)
             return (
                 self.raw_container_url_schemes[domain] % t,
                 self.web_container_url_schemes[domain] % t,
