@@ -102,7 +102,6 @@ class VersionControl(Provider):
             )
         self.url = source
         self._library_url = None
-        self._clone_dir = None
 
         self.tag = tag
 
@@ -147,33 +146,22 @@ class VersionControl(Provider):
     def clone(self, tmpdir=None):
         """
         Clone the known source URL to a temporary directory
+        and return an equivalent local registry (Filesystem)
         """
-        if self._clone_dir:
-            return
         tmpdir = tmpdir or shpc.utils.get_tmpdir()
 
         cmd = ["git", "clone", "--depth", "1"]
         if self.tag:
             cmd += ["-b", self.tag]
         cmd += [self.url, tmpdir]
-        self._clone_dir = tmpdir
         if self.subdir:
-            self._clone_dir = os.path.join(tmpdir, self.subdir)
+            tmpdir = os.path.join(tmpdir, self.subdir)
         try:
             sp.run(cmd, check=True)
         except sp.CalledProcessError as e:
             raise ValueError("Failed to clone repository {}:\n{}", self.url, e)
-        assert os.path.exists(self._clone_dir)
-        return tmpdir
-
-    def cleanup(self):
-        """
-        Cleanup the temporary clone (this must be intentionally called)
-        """
-        if not self._clone_dir:
-            return
-        shutil.rmtree(self._clone_dir)
-        self._clone_dir = None
+        assert os.path.exists(tmpdir)
+        return Filesystem(tmpdir)
 
     def iter_modules(self):
         """
@@ -213,17 +201,17 @@ class VersionControl(Provider):
             "Remote %s is not deploying a Registry API, falling back to clone."
             % self.url
         )
-        tmpdir = self.clone()
-        for module in Filesystem(tmpdir).iter_modules():
+        tmplocal = self.clone()
+        for module in tmplocal.iter_modules():
             # Minimum amount of metadata to function here
             config_url = self.get_module_config_url(module)[0]
             self._cache[module] = {
                 "config": shpc.utils.read_yaml(
-                    os.path.join(tmpdir, module, "container.yaml")
+                    os.path.join(tmplocal.source, module, "container.yaml")
                 ),
                 "config_url": config_url,
             }
-        self.cleanup()
+        tmplocal.cleanup()
 
     def get_module_config_url(self, module_name):
         """

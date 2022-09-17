@@ -180,7 +180,7 @@ class Registry:
         need_cleanup = False
         if isinstance(remote, VersionControl):
             need_cleanup = True
-            remote = Filesystem(remote.clone())
+            remote = remote.clone()
 
         # These are modules to update
         for module in remote.iter_modules():
