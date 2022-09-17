@@ -126,7 +126,7 @@ class VersionControl(Provider):
         url = self.url
         if url.endswith(".git"):
             url = url[:-4]
-        (_, _, domain, owner, repo) = url.split("/", 4)
+        _, _, domain, owner, repo = url.split("/", 4)
         if domain in self.library_url_schemes:
             self._library_url = self.library_url_schemes[domain] % (
                 owner,
@@ -229,7 +229,7 @@ class VersionControl(Provider):
         """
         Get the raw address of the config (container.yaml)
         """
-        (_, _, domain, repo_path) = self.url.split("/", 3)
+        _, _, domain, repo_path = self.url.split("/", 3)
         if domain in self.raw_container_url_schemes:
             t = (repo_path, self.tag, module_name)
             return (
