@@ -35,17 +35,33 @@ class Provider:
     """
 
     @classmethod
-    def matches(cls, source_url: str):
-        pass
+    def matches(cls, source):
+        """
+        Returns true if this class understands the source
+        """
+        raise NotImplementedError
 
     def find(self, name):
-        pass
+        """
+        Returns a Result object if the module can be found in the registry
+        """
+        raise NotImplementedError
 
-    def cleanup(self):
-        pass
+    def exists(self, name):
+        """
+        Returns true if the module can be found in the registry
+        """
+        raise NotImplementedError
 
-    def iter_registry(self):
-        pass
+    def iter_registry(self, filter_string=None):
+        """
+        Iterates over the modules of this registry (that match the filte, if
+        provided) as Result instances
+        """
+        raise NotImplementedError
 
     def iter_modules(self):
-        pass
+        """
+        Iterates over the module names of this registry
+        """
+        raise NotImplementedError
