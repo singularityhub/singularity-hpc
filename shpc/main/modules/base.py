@@ -393,6 +393,24 @@ class ModuleBase(BaseClient):
         # We always load overrides for an install
         module.load_override_file()
 
+        # Check previous installations of this module
+        installed_modules = self._get_module_lookup(
+            self.settings.module_base, self.modulefile, module.name
+        )
+        if (module.name in installed_modules) and (module.config.tag.name in installed_modules[module.name]):
+            if not force:
+                logger.exit(
+                    "%s:%s is already installed. Add --force to proceed with a reinstallation."
+                    % (module.name, module.config.tag.name)
+                )
+            logger.info("%s:%s is already installed. Reinstalling." % (module.name, module.config.tag.name))
+            # Don't explicitly remove the container, since we still need it,
+            # though it may still happen if shpc is configured to store
+            # containers and modules in the same directory
+            self._uninstall(
+                module.module_dir, self.settings.module_base, "$module_base/%s" % module.name
+            )
+
         # Create the module and container directory
         utils.mkdirp([module.module_dir, module.container_dir])
 

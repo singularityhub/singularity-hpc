@@ -125,7 +125,7 @@ shpc -c rm:registry:/tmp/registry""",
         "--force",
         "-f",
         dest="force",
-        help="replace existing symlinks",
+        help="Go through the installation, deleting old files, replacing existing symlinks, etc.",
         default=False,
         action="store_true",
     )
