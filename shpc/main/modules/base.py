@@ -459,7 +459,7 @@ class ModuleBase(BaseClient):
         view.confirm_install(module.module_dir, force=force)
         view.install(module.module_dir)
 
-    def reinstall_all(self, pattern=False, force=False, **kwargs):
+    def reinstall(self, pattern, upgrade=False, force=False, **kwargs):
         """
         Reinstall (and possibly upgrade) all the current modules, possibly filtered by pattern.
         """
@@ -477,28 +477,22 @@ class ModuleBase(BaseClient):
             if result:
                 valid_tags = container.ContainerConfig(result).tags
                 new_versions = set()
-                for version in versions:
-                    if version in valid_tags:
-                        new_versions.add(version)
-                    else:
-                        latest_version = valid_tags.latest.name
-                        if latest_version in versions:
-                            logger.info(
-                                "%s:%s is not available anymore. The latest version, %s, is already installed and will be reinstalled."
-                                % (module_name, version, latest_version)
-                            )
+                if upgrade:
+                    new_versions.add(valid_tags.latest.name)
+                else:
+                    for version in versions:
+                        if version in valid_tags:
+                            new_versions.add(version)
                         else:
                             logger.warning(
-                                "%s:%s is not available anymore. The latest version, %s, will be installed instead."
-                                % (module_name, version, valid_tags.latest.name)
+                                "%s:%s is not available anymore and will be skipped"
+                                % (module_name, version)
                             )
-                            new_versions.add(valid_tags.latest.name)
                             unavailable_modules = True
             else:
                 logger.warning(
                     "%s is not available anymore and will be skipped" % module_name
                 )
+                unavailable_modules = True
         if unavailable_modules and not force:
-            logger.exit(
-                "Some modules could not be found. Add --force to go through with the proposed upgrades."
-            )
+            logger.exit("Some modules could not be found. Add --force to proceed.")

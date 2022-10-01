@@ -130,6 +130,33 @@ shpc -c rm:registry:/tmp/registry""",
         action="store_true",
     )
 
+    # Reinstall already installed recipes
+    reinstall = subparsers.add_parser(
+        "reinstall",
+        description="reinstall a recipe.",
+        formatter_class=argparse.RawTextHelpFormatter,
+    )
+    reinstall.add_argument(
+        "reinstall_recipe",
+        nargs="?",
+        help="recipe to reinstall\nshpc reinstall python\nshpc reinstall python:3.9.5-alpine",
+        default=None,
+    )
+    reinstall.add_argument(
+        "--all",
+        dest="all",
+        help="reinstall all currently installed modules.",
+        action="store_true",
+    )
+    reinstall.add_argument(
+        "--force",
+        "-f",
+        dest="force",
+        help="Ignore and leave intact the versions that don't exist in the registry anymore.",
+        default=False,
+        action="store_true",
+    )
+
     # List installed modules
     listing = subparsers.add_parser("list", description="list installed modules.")
     listing.add_argument("pattern", help="filter to a pattern", nargs="?")
@@ -372,6 +399,7 @@ shpc config remove registry /tmp/registry""",
         inspect,
         install,
         listing,
+        reinstall,
         shell,
         test,
         uninstall,
@@ -491,6 +519,8 @@ def run_shpc():
         from .get import main
     elif args.command == "install":
         from .install import main
+    elif args.command == "reinstall":
+        from .reinstall import main
     elif args.command == "inspect":
         from .inspect import main
     elif args.command == "list":
