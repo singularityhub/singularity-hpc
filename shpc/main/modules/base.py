@@ -459,40 +459,70 @@ class ModuleBase(BaseClient):
         view.confirm_install(module.module_dir, force=force)
         view.install(module.module_dir)
 
-    def reinstall(self, pattern, upgrade=False, force=False, **kwargs):
+    def reinstall(self, module_name, upgrade=False, force=False):
         """
         Reinstall (and possibly upgrade) all the current modules, possibly filtered by pattern.
         """
-        modules = self._get_module_lookup(
-            self.settings.module_base, self.modulefile, pattern
-        )
+        if module_name:
+            tag = None
+            if ":" in module_name:
+                module_name, tag = module_name.split(":", 1)
+            modules = self._get_module_lookup(
+                self.settings.module_base, self.modulefile, module_name
+            )
+            assert module_name in modules
+            self._reinstall(module_name, [tag] if tag else modules[module_name], upgrade=upgrade, force=force)
+        else:
+            modules = self._get_module_lookup(self.settings.module_base, self.modulefile)
+            for module_name, versions in modules.items():
+                self._reinstall(module_name, versions, upgrade=upgrade, force=force)
 
-        # If we don't have modules, exit early
-        if not modules:
-            logger.exit("You don't have any install modules. Try shpc show.", 0)
+    def _reinstall(self, module_name, versions, upgrade=False, force=False):
+        """
+        Reinstall (and possibly upgrade) all the current modules, possibly filtered by pattern.
+        """
+        result = self.registry.find(module_name)
+        if result:
 
-        unavailable_modules = False
-        for module_name, versions in modules.items():
-            result = self.registry.find(module_name)
-            if result:
-                valid_tags = container.ContainerConfig(result).tags
-                new_versions = set()
-                if upgrade:
-                    new_versions.add(valid_tags.latest.name)
-                else:
-                    for version in versions:
-                        if version in valid_tags:
-                            new_versions.add(version)
-                        else:
-                            logger.warning(
-                                "%s:%s is not available anymore and will be skipped"
-                                % (module_name, version)
-                            )
-                            unavailable_modules = True
+
+            valid_tags = container.ContainerConfig(result).tags
+            if upgrade:
+
+                views_with_module = set()
+                for version in versions:
+                    module_dir = os.path.join(self.settings.module_base, module_name, version)
+                    for view_name, entry in self.views.items():
+                        if entry.exists(module_dir):
+                            views_with_module.add(view_name)
+
+                latest = valid_tags.latest.name
+                self.install(module_name, tag=latest, view=None, force=True)
+                for view in views_with_module:
+                    self.views[view].install(module_dir)
+
+                for version in versions:
+                    if version != latest:
+                        self.uninstall(module_name + ":" + version, force=True)
+
             else:
-                logger.warning(
-                    "%s is not available anymore and will be skipped" % module_name
-                )
-                unavailable_modules = True
-        if unavailable_modules and not force:
-            logger.exit("Some modules could not be found. Add --force to proceed.")
+                for version in versions:
+                    if version in valid_tags:
+                        module_dir = os.path.join(self.settings.module_base, module_name, version)
+                        these_views = []
+                        # TODO: switch to .values()
+                        for view_name, entry in self.views.items():
+                            if entry.exists(module_dir):
+                                these_views.append(entry)
+                        self.install(module_name, tag=version, view=None, force=True)
+                        for view in these_views:
+                            view.install(module_dir)
+
+                    else:
+                        logger.warning(
+                            "%s:%s is not available anymore and will be skipped"
+                            % (module_name, version)
+                        )
+        else:
+            logger.warning(
+                "%s is not available anymore and will be skipped" % module_name
+            )
