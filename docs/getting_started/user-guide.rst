@@ -867,6 +867,7 @@ we load a view module named mpi, we always want to load a system module named "o
 
 .. code-block:: console
 
+    $ shpc view add <view> system_modules <name1> <name2>
     $ shpc view add mpi system_modules openmpi mymod
     Wrote updated .view_module: /home/vanessa/Desktop/Code/shpc/views/mpi/.view_module
     
@@ -889,6 +890,43 @@ Of course an "add" command would not be complete without a "remove" command! To 
 
 Note that if you edit the files manually, you would need to edit the view.yaml AND the hidden
 .view_module that is always updated from it.
+
+
+Add and Remove Depends On Modules to a View
+-------------------------------------------
+
+You can add (or remove) a ``depends_on`` clause to a view, just like with system modules.
+The syntax is the same, however you specify a different key to add to:
+
+.. code-block:: console
+
+    $ shpc view add <view> depends_on <name1> <name2>
+    $ shpc view add mpi depends_on openmpi
+    $ shpc view remove mpi depends_on openmpi
+
+When you add a ``depends_on`` or ``system_modules`` to a view, what we are doing under
+the hood is adding a ``.view_module`` that will be loaded with the view, and it includes these
+extra parameters. 
+
+.. code-block:: console
+
+    views/
+    └── mpi
+      ├── python
+      ├── view.yaml
+      ├── .view_module
+      └── 3.11-rc.lua -> /home/vanessa/Desktop/Code/shpc/modules/python/3.11-rc/module.lua
+        
+Here are example contents of ``.view_module`` (this will vary depending on your module software):
+
+.. code-block:: tcl
+
+    module load("myextraprogram")
+    depends_on("openmpi")
+
+
+If you want any extra features added to this custom file (e.g., to support loading in a view)
+please open an issue for discussion.
 
 
 Delete a View
@@ -1018,7 +1056,8 @@ You can also open the config in the editor defined in settings at ``config_edito
     $ shpc config edit
     
 
-which defaults to vim.
+which will first look at the environment variables ``$EDITOR`` and ``$VISUAL`` and will
+fall back to the ``config_editor`` in your user settings (vim by default).
 
 .. _getting_started-commands-show:
 

@@ -76,14 +76,38 @@ class SettingsBase:
         if not settings_file or not os.path.exists(settings_file):
             logger.exit("%s does not exist." % settings_file)
 
-        # Make sure editor exists first!
-        editor = utils.which(self.config_editor)
-        if editor["return_code"] != 0:
+        # Discover editor user has preferences for
+        editor = None
+
+        # First try EDITOR and VISUAL envars
+        for envar_name in ["EDITOR", "VISUAL"]:
+            envar = os.environ.get(envar_name)
+            editor = self._find_editor(envar)
+            if editor is not None:
+                break
+
+        # If we get here and no editor, try system default
+        if not editor:
+            editor = self._find_editor(self.config_editor)
+        if not editor:
             logger.exit(
-                "Editor '%s' not found! Update with shpc config set config_editor:<name>"
-                % self.config_editor
+                "No editors found! Update with shpc config set config_editor:<name>"
             )
-        utils.run_command([self.config_editor, settings_file], stream=True)
+
+        utils.run_command([editor, settings_file], stream=True)
+
+    def _find_editor(self, path):
+        """
+        Check to see that an editor exists.
+        """
+        if not path:
+            return
+
+        editor = utils.which(path)
+
+        # Only return the editor name if we find it!
+        if editor["return_code"] == 0:
+            return path
 
     def get_settings_file(self, settings_file=None):
         """

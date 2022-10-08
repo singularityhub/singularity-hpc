@@ -106,31 +106,37 @@ def test_views(tmp_path, module_sys, module_file, container_tech, remote):
         os.path.join(client.settings.module_base, "ghcr.io", "autamus")
     )
 
-    # Try adding system modules
-    assert not view._config["view"]["system_modules"]
+    # Before adding any attributes, this file should not exist
     view_module = os.path.join(view.path, ".view_module")
     assert not os.path.exists(view_module)
-    view_handler.add_variable(view_name, "system_modules", "openmpi")
-    assert os.path.exists(view_module)
 
-    # Make sure we have openmpi in the content
-    content = utils.read_file(view_module)
-    assert "openmpi" in content
+    # Try adding valid attributes
+    for attribute, check_content in [
+        ["system_modules", "module"],
+        ["depends_on", "depends"],
+    ]:
+        assert not view._config["view"][attribute]
+        view_handler.add_variable(view_name, attribute, "openmpi")
+        assert os.path.exists(view_module)
 
-    # Reload the view config file
-    view.reload()
-    assert "openmpi" in view._config["view"]["system_modules"]
+        # Make sure we have openmpi in the content
+        content = utils.read_file(view_module)
+        assert "openmpi" in content and check_content in content
 
-    # We can't add unknown variables
-    with pytest.raises(SystemExit):
-        view_handler.add_variable(view_name, "system-modules", [1, 2, 3])
+        # Reload the view config file
+        view.reload()
+        assert "openmpi" in view._config["view"][attribute]
 
-    # Try removing now
-    view_handler.remove_variable(view_name, "system_modules", "openmpi")
-    view.reload()
-    assert not view._config["view"]["system_modules"]
-    content = utils.read_file(view_module)
-    assert "openmpi" not in content
+        # We can't add unknown variables
+        with pytest.raises(SystemExit):
+            view_handler.add_variable(view_name, attribute.replace("_", "-"), [1, 2, 3])
+
+        # Try removing now
+        view_handler.remove_variable(view_name, attribute, "openmpi")
+        view.reload()
+        assert not view._config["view"][attribute]
+        content = utils.read_file(view_module)
+        assert "openmpi" not in content and check_content not in content
 
     # Ensure we can uninstall
     view_handler.delete(view_name, force=True)
@@ -141,3 +147,75 @@ def test_views(tmp_path, module_sys, module_file, container_tech, remote):
     view_client.create_from_file(
         view_name, views_config, settings_file=client.settings.settings_file, force=True
     )
+
+
+@pytest.mark.parametrize(
+    "module_sys,module_file,container_tech,remote",
+    [
+        ("lmod", "module.lua", "singularity", True),
+        ("lmod", "module.lua", "podman", True),
+        ("tcl", "module.tcl", "singularity", True),
+        ("tcl", "module.tcl", "podman", True),
+        ("lmod", "module.lua", "singularity", False),
+        ("lmod", "module.lua", "podman", False),
+        ("tcl", "module.tcl", "singularity", False),
+        ("tcl", "module.tcl", "podman", False),
+    ],
+)
+def test_view_components(tmp_path, module_sys, module_file, container_tech, remote):
+    """
+    Test view components
+    """
+    client = init_client(str(tmp_path), module_sys, container_tech, remote=remote)
+
+    # Create the view handler based on the client settings file
+    view_handler = views.ViewsHandler(
+        settings_file=client.settings.settings_file, module_sys=module_sys
+    )
+
+    # A view name
+    view_name = "mpi"
+    assert view_name not in client.views
+
+    # Create the view!
+    view_handler.create(view_name)
+    client.detect_views()
+    assert view_name in client.views
+
+    # Before adding any attributes, this file should not exist
+    view = client.views[view_name]
+    view_module = os.path.join(view.path, ".view_module")
+    assert not os.path.exists(view_module)
+
+    # Try adding valid attributes
+    for attribute, check_content in [
+        ["system_modules", "module"],
+        ["depends_on", "depends"],
+    ]:
+        assert not view._config["view"][attribute]
+        view_handler.add_variable(view_name, attribute, "openmpi")
+        assert os.path.exists(view_module)
+
+        # Make sure we have openmpi in the content
+        content = utils.read_file(view_module)
+        print(content)
+        assert "openmpi" in content and check_content in content
+
+        # Reload the view config file
+        view.reload()
+        assert "openmpi" in view._config["view"][attribute]
+
+        # We can't add unknown variables
+        with pytest.raises(SystemExit):
+            view_handler.add_variable(view_name, attribute.replace("_", "-"), [1, 2, 3])
+
+        # Try removing now
+        view_handler.remove_variable(view_name, attribute, "openmpi")
+        view.reload()
+        assert not view._config["view"][attribute]
+        content = utils.read_file(view_module)
+        assert "openmpi" not in content and check_content not in content
+
+    # Ensure we can uninstall
+    view_handler.delete(view_name, force=True)
+    assert not os.path.exists(view.path)
