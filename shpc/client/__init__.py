@@ -102,12 +102,6 @@ shpc -c rm:registry:/tmp/registry""",
         help="recipe to install\nshpc install python\nshpc install python:3.9.5-alpine",
     )
     install.add_argument(
-        "--view",
-        dest="view",
-        help="install module to a named view (must be installed to shpc first).",
-        default=None,
-    )
-    install.add_argument(
         "--no-view",
         dest="no_view",
         help="skip installing to the default view, if defined in settings.",

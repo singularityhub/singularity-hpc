@@ -109,13 +109,14 @@ jobs:
           cat test_output
           grep --quiet 'Python 3.9.5' test_output
           rm test_output
-          shpc uninstall --force python:3.9.5-alpine
 
-          # Try creating views install
           mkdir -p tmp-modules
           shpc config set views_base:tmp-modules
           shpc view create noodles
-          shpc install --view noodles python:3.9.5-alpine
+          shpc view install noodles python:3.9.5-alpine
+
+          shpc uninstall --force python:3.9.5-alpine
+          shpc view --force delete noodles
  
       - name: Run python module tests (tcsh)
         shell: tcsh -e {0}
