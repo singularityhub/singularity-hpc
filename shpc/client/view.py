@@ -52,7 +52,12 @@ def create_from_file(
 
     # Extra modules to install
     for install_module in install_modules:
-        cli.install(install_module, view=view_name, disable_view=False, force=force)
+        cli.install(
+            install_module,
+            extra_view=view_name,
+            disable_default_view=False,
+            force=force,
+        )
 
 
 def main(args, parser, extra, subparser):
@@ -168,7 +173,12 @@ def main(args, parser, extra, subparser):
     # We don't make it hard to require them to install to the root first
     module_name = args.params.pop(0)
     if command == "install":
-        cli.install(module_name, view=view_name, disable_view=False, force=args.force)
+        cli.install(
+            module_name,
+            extra_view=view_name,
+            disable_default_view=False,
+            force=args.force,
+        )
 
     if command == "uninstall":
         cli.uninstall(module_name, view=view_name, force=args.force)

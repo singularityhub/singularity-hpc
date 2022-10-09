@@ -348,7 +348,13 @@ class ModuleBase(BaseClient):
         return self.container.check(module_name, config)
 
     def install(
-        self, name, tag=None, view=None, disable_view=False, force=False, **kwargs
+        self,
+        name,
+        tag=None,
+        extra_view=None,
+        disable_default_view=False,
+        force=False,
+        **kwargs
     ):
         """
         Given a unique resource identifier, install a recipe.
@@ -387,22 +393,27 @@ class ModuleBase(BaseClient):
         container_dir = self.container.container_dir(subfolder)
 
         # Are we also installing to a named view?
-        if view is None and not disable_view:
-            view = self.settings.default_view
+        view_names = []
+        if self.settings.default_view and not disable_default_view:
+            view_names.append(self.settings.default_view)
+        if extra_view:
+            view_names.append(extra_view)
 
         # We only want to load over-rides for a tag at install time
         config.load_override_file(tag.name)
 
         # A view is a symlink under views_base/$view/$module
-        if view:
-            if view not in self.views:
+        for view_name in view_names:
+            if view_name not in self.views:
                 logger.exit(
-                    "View %s does not exist, shpc view create %s." % (view, view)
+                    "View %s does not exist, shpc view create %s."
+                    % (view_name, view_name)
                 )
 
-            # Update view from name to be View to interact with
-            view = self.views[view]
+        # Update view from name to be View to interact with
+        views = [self.views[view_name] for view_name in view_names]
 
+        for view in views:
             # Don't continue if it exists, unless force is True
             view.confirm_install(module_dir, force=force)
 
@@ -476,7 +487,7 @@ class ModuleBase(BaseClient):
         logger.info("Module %s was created." % name)
 
         # Install the module (symlink) to the view and create version file
-        if view:
+        for view in views:
             view.install(module_dir)
 
         return container_path
