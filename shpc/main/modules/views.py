@@ -16,7 +16,7 @@ import shpc.utils as utils
 from shpc.logger import logger
 
 # Supported variables and defaults
-supported_view_variables = {"system_modules": []}
+supported_view_variables = {"system_modules": [], "depends_on": []}
 
 
 class ViewModule:
@@ -41,7 +41,8 @@ class ViewModule:
         template = self.template.load("view_module.%s" % self.module_extension)
         view_module_file = os.path.join(view_dir, ".view_module")
         out = template.render(
-            system_modules=view_config["view"].get("system_modules", [])
+            system_modules=view_config["view"].get("system_modules", []),
+            depends_on=view_config["view"].get("depends_on", []),
         )
         utils.write_file(view_module_file, out)
         logger.info("Wrote updated .view_module: %s" % view_module_file)
@@ -251,9 +252,16 @@ class ViewsHandler:
 
     def generate_view_config(self, name):
         """
-        Generate an empty view config. system_modules are not supported yet.
+        Generate an empty view config. system_modules/depends_on are not supported yet.
         """
-        cfg = {"view": {"name": name, "modules": [], "system_modules": []}}
+        cfg = {
+            "view": {
+                "name": name,
+                "modules": [],
+                "system_modules": [],
+                "depends_on": [],
+            }
+        }
         self.save_config(name, cfg)
 
 

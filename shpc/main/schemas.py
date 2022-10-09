@@ -193,6 +193,7 @@ settings = {
 
 viewProperties = {
     "system_modules": {"type": "array", "items": {"type": "string"}},
+    "depends_on": {"type": "array", "items": {"type": "string"}},
     "modules": {"type": "array", "items": {"type": "string"}},
     "name": {"type": "string"},
 }
