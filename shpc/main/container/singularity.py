@@ -165,22 +165,7 @@ class SingularityContainer(ContainerTechnology):
         config.add_tag(tag, tags[tag])
         return config
 
-    def install(
-        self,
-        module_path,
-        container_path,
-        name,
-        template,
-        parsed_name,
-        aliases=None,
-        template_name=None,
-        url=None,
-        description=None,
-        config_features=None,
-        features=None,
-        version=None,
-        config=None,
-    ):
+    def install(self, module_path, template, module, features=None):
         """Install a general container path to a module
 
         The module_dir should be created by the calling function, and
@@ -191,19 +176,19 @@ class SingularityContainer(ContainerTechnology):
         # Container features are defined in container.yaml and the settings
         # and specific values are determined by the container technology
         features = self.get_features(
-            config_features, self.settings.container_features, features
+            module.config.features, self.settings.container_features, features
         )
 
         # Remove any previous containers
-        container_dir = os.path.dirname(container_path)
+        container_dir = os.path.dirname(module.container_path)
         for older in glob("%s%s*.sif" % (container_dir, os.sep)):
-            if older == container_path:
+            if older == module.container_path:
                 continue
             os.remove(older)
 
         # Get inspect metadata from the container (only if singularity installed
         try:
-            metadata = self.inspect(container_path)
+            metadata = self.inspect(module.container_path)
 
             # Add labels, and deffile
             labels = metadata.get("attributes", {}).get("labels")
@@ -216,34 +201,29 @@ class SingularityContainer(ContainerTechnology):
             labels = {}
 
         # Option to create wrapper scripts for commands
-        module_dir = os.path.dirname(module_path)
+        aliases = module.config.get_aliases()
 
         # Wrapper scripts can be global (for aliases) or container specific
         wrapper_scripts = []
         if self.settings.wrapper_scripts["enabled"] is True:
             wrapper_scripts = shpc.main.wrappers.generate(
                 aliases=aliases,
-                module_dir=module_dir,
+                module_dir=module.module_dir,
                 features=features,
                 container=self,
-                image=container_path,
-                config=config,
+                image=module.container_path,
+                config=module.config,
             )
 
         # Make sure to render all values!
         out = template.render(
             settings=self.settings,
-            container_sif=container_path,
-            description=description,
             aliases=aliases,
-            url=url,
             features=features,
-            version=version,
             labels=labels,
             deffile=deffile,
             creation_date=datetime.now(),
-            name=name,
-            parsed_name=parsed_name,
+            module=module,
             wrapper_scripts=wrapper_scripts,
         )
         utils.write_file(module_path, out)

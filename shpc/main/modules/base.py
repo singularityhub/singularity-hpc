@@ -5,7 +5,6 @@ __license__ = "MPL 2.0"
 import inspect
 import json
 import os
-import shutil
 import subprocess
 import sys
 from datetime import datetime
@@ -19,6 +18,7 @@ import shpc.main.registry as registry
 import shpc.utils as utils
 from shpc.logger import logger
 from shpc.main.client import Client as BaseClient
+from .module import Module
 
 
 class ModuleBase(BaseClient):
@@ -72,13 +72,7 @@ class ModuleBase(BaseClient):
         Given a unique resource identifier, uninstall a module. If a view
         name is provided, assume we only want to uninstall from the view
         """
-        # The name can either be a folder or an install directory
-        name = self.add_namespace(name)
-
-        # folder paths do not have :
-        name = name.replace(":", os.sep)
-        module_dir = os.path.join(self.settings.module_base, name)
-        container_dir = self.container.container_dir(name)
+        module = self.new_module(name)
 
         # We need to look for the module in all views and show to the user first
         views_with_module = set()
@@ -88,7 +82,7 @@ class ModuleBase(BaseClient):
 
             # If uninstalling the entire module, clean up symbolic links in all views
             for view_name, entry in self.views.items():
-                if entry.exists(module_dir):
+                if entry.exists(module.module_dir):
                     views_with_module.add(view_name)
 
         # Ask before deleting anything!
@@ -106,29 +100,35 @@ class ModuleBase(BaseClient):
         if view:
             if view not in self.views:
                 logger.exit("View %s does not exist, cannot uninstall." % view)
-            return self.views[view].uninstall(module_dir)
+            return self.views[view].uninstall(module.module_dir)
 
         # Podman needs image deletion
-        self.container.delete(name)
+        self.container.delete(module.name)
 
-        if container_dir != module_dir:
+        if module.container_dir != module.module_dir:
             self._uninstall(
-                container_dir, self.container_base, "$container_base/%s" % name
+                module.container_dir,
+                self.container_base,
+                "$container_base/%s" % module.name,
             )
             self._uninstall(
-                module_dir, self.settings.module_base, "$module_base/%s" % name
+                module.module_dir,
+                self.settings.module_base,
+                "$module_base/%s" % module.name,
             )
         else:
             self._uninstall(
-                module_dir, self.settings.module_base, "$module_base/%s" % name
+                module.module_dir,
+                self.settings.module_base,
+                "$module_base/%s" % module.name,
             )
 
         # If uninstalling the entire module, clean up symbolic links in all views
         for view_name, view in self.views.items():
-            view.uninstall(module_dir)
+            view.uninstall(module.module_dir)
 
         # parent of versioned directory has module .version
-        module_dir = os.path.dirname(module_dir)
+        module_dir = os.path.dirname(module.module_dir)
 
         # update the default version file, if other versions still present
         if os.path.exists(module_dir):
@@ -331,21 +331,35 @@ class ModuleBase(BaseClient):
         at updates for entire tags. If a specific folder is provided with
         a container, check the digest.
         """
-        module_name = self.add_namespace(module_name)
-
-        # If a tag is provided, convert to directory
-        module_dir = module_name.replace(":", os.sep)
-
-        # We derive the current version installed from the container
-        # We assume the user has provided the correct prefix
-        module_dir = os.path.join(self.settings.module_base, module_dir)
-        if not os.path.exists(module_dir):
+        module = self.new_module(module_name)
+        if not os.path.exists(module.module_dir):
             logger.exit(
-                "%s does not exist. Is this a known registry entry?" % module_dir
+                "%s does not exist. Is this a known registry entry?" % module.module_dir
             )
 
-        config = self._load_container(module_name.rsplit(":", 1)[0])
-        return self.container.check(module_name, config)
+        return module.check()
+
+    def new_module(self, name, tag=None, tag_exists=True):
+        """
+        Create a new module
+        """
+        name = self.add_namespace(name)
+
+        # If the module has a version, overrides provided tag
+        if ":" in name:
+            name, tag = name.split(":", 1)
+
+        module = Module(name)
+        module.config = self._load_container(module.name, tag)
+
+        # Ensure the tag exists, if required, uses config.tag
+        if tag_exists:
+            module.validate_tag_exists()
+
+        # Pass on container and settings
+        module.container = self.container
+        module.settings = self.settings
+        return module
 
     def install(self, name, tag=None, force=False, **kwargs):
         """
@@ -355,138 +369,46 @@ class ModuleBase(BaseClient):
         container to it, and writing a module file there. We've already
         grabbed the name from docker (which is currently the only supported).
         """
-        name = self.add_namespace(name)
+        # Create a new module
+        module = self.new_module(name, tag=tag, tag_exists=True)
 
-        # If the module has a version, overrides provided tag
-        if ":" in name:
-            name, tag = name.split(":", 1)
-        config = self._load_container(name, tag)
-
-        # The chosen tag is set for the config (or defaults to latest)
-        if not config.tag:
-            logger.exit(
-                "%s is not a known identifier. Choices are:\n%s"
-                % (name, "\n".join(config.tags.keys()))
-            )
-
-        # We currently support gh, docker, path, or oras
-        uri = config.get_uri()
-
-        # If we have a path, the URI comes from the name
-        if ".sif" in uri:
-            uri = name.split(":", 1)[0]
-
-        # This is a tag object with name and digest
-        tag = config.tag
-
-        # Pull the container to the module directory OR container base
-        module_dir = os.path.join(self.settings.module_base, uri, tag.name)
-        subfolder = os.path.join(uri, tag.name)
-        container_dir = self.container.container_dir(subfolder)
-
-        # We only want to load over-rides for a tag at install time
-        config.load_override_file(tag.name)
+        # We always load overrides for an install
+        module.load_override_file()
 
         # Create the module and container directory
-        utils.mkdirp([module_dir, container_dir])
-
-        # If we have a sif URI provided by path, the container needs to exist
-        container_path = None
-        if config.path:
-            container_path = os.path.join(config.entry.dirname, config.path)
-            if not os.path.exists(container_path):
-                logger.exit(
-                    "Expected container defined by path %s not found in %s."
-                    % (config.path, config.entry.dirname)
-                )
-            container_dest = os.path.join(container_dir, config.path)
-
-            # Note that here we are *duplicating* the container, assuming we
-            # cannot use a link, and the registry won't be deleted but the
-            # module container might!
-            if not os.path.exists(container_dest):
-                shutil.copyfile(container_path, container_dest)
-            container_path = container_dest
+        utils.mkdirp([module.module_dir, module.container_dir])
 
         # Add a .version file to indicate the level of versioning
-        self.versionfile.write(os.path.join(self.settings.module_base, uri), tag.name)
-
-        # For Singularity this is a path, podman is a uri. If None is returned
-        # there was an error and we cleanup
-        if not container_path:
-            container_path = self.container.registry_pull(
-                module_dir, container_dir, config, tag
-            )
-        if not container_path:
-            utils.remove_to_base(container_dir, self.container_base)
-            logger.exit("There was an issue pulling %s" % container_path)
+        self.versionfile.write(
+            os.path.join(self.settings.module_base, module.uri), module.tag.name
+        )
+        if not module.container_path:
+            utils.remove_to_base(module.container_dir, self.container_base)
+            logger.exit("There was an issue pulling the container for %s" % module.name)
 
         # Get the template based on the module and container type
         template = self.template.load(self.templatefile)
-        module_path = os.path.join(module_dir, self.modulefile)
+        module_path = os.path.join(module.module_dir, self.modulefile)
 
         # Install the container
-        self.container.install(
-            module_path,
-            container_path,
-            name,
-            template,
-            aliases=config.get_aliases(),
-            config=config,
-            parsed_name=config.name,
-            url=config.url,
-            description=config.description,
-            version=tag.name,
-            config_features=config.features,
-            features=kwargs.get("features"),
-        )
+        # This could be simplified to take the module
+        self.container.install(module_path, template, module, kwargs.get("features"))
 
         # If the container tech does not need storage, clean up
-        if not os.listdir(container_dir):
-            utils.remove_to_base(container_dir, self.container_base)
+        if not os.listdir(module.container_dir):
+            utils.remove_to_base(module.container_dir, self.container_base)
 
         # Write the environment file to be bound to the container
-        self.container.add_environment(
-            module_dir,
-            envars=config.get_envars(),
-            environment_file=self.settings.environment_file,
-        )
-
-        if ":" not in name:
-            name = "%s:%s" % (name, tag.name)
-        logger.info("Module %s was created." % name)
-
-        return container_path
+        module.add_environment()
+        logger.info("Module %s was created." % module.tagged_name)
+        return module.container_path
 
     def view_install(self, view_name, name, tag=None, force=False):
         """
         Install a module in a view.
         The module must already be installed.
         """
-        name = self.add_namespace(name)
-
-        # If the module has a version, overrides provided tag
-        if ":" in name:
-            name, tag = name.split(":", 1)
-        config = self._load_container(name, tag)
-
-        # The chosen tag is set for the config (or defaults to latest)
-        if not config.tag:
-            logger.exit(
-                "%s is not a known identifier. Choices are:\n%s"
-                % (name, "\n".join(config.tags.keys()))
-            )
-
-        # We currently support gh, docker, path, or oras
-        uri = config.get_uri()
-
-        # If we have a path, the URI comes from the name
-        if ".sif" in uri:
-            uri = name.split(":", 1)[0]
-
-        # This is a tag object with name and digest
-        tag = config.tag
-        module_dir = os.path.join(self.settings.module_base, uri, tag.name)
+        module = self.new_module(name, tag=tag, tag_exists=True)
 
         # A view is a symlink under views_base/$view/$module
         if view_name not in self.views:
@@ -498,5 +420,5 @@ class ModuleBase(BaseClient):
         view = self.views[view_name]
 
         # Don't continue if it exists, unless force is True
-        view.confirm_install(module_dir, force=force)
-        view.install(module_dir)
+        view.confirm_install(module.module_dir, force=force)
+        view.install(module.module_dir)

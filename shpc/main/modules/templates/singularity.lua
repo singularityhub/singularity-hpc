@@ -1,17 +1,17 @@
 -- Lmod Module
 -- Created by singularity-hpc (https://github.com/singularityhub/singularity-hpc)
 -- ##
--- {{ name }} on {{ creation_date }}
+-- {{ module.name }} on {{ creation_date }}
 --
 
 help(
 [[
-This module is a singularity container wrapper for {{ name }} v{{ version }}
-{% if description %}{{ description }}{% endif %}
+This module is a singularity container wrapper for {{ module.name }} v{{ module.tag.name }}
+{% if description %}{{ module.config.description }}{% endif %}
 
 Container (available through variable SINGULARITY_CONTAINER):
 
- - {{ container_sif }}
+ - {{ module.container_path }}
 
 Commands include:
 
@@ -53,7 +53,7 @@ setenv("SINGULARITY_SHELL", "{{ settings.singularity_shell }}")
 if not os.getenv("SINGULARITY_OPTS") then setenv ("SINGULARITY_OPTS", "") end
 if not os.getenv("SINGULARITY_COMMAND_OPTS") then setenv ("SINGULARITY_COMMAND_OPTS", "") end
 
-local containerPath = '{{ container_sif }}'
+local containerPath = '{{ module.container_path }}'
 -- service environment variable to access full SIF image path
 setenv("SINGULARITY_CONTAINER", containerPath)
 
@@ -64,7 +64,7 @@ local runCmd = "singularity ${SINGULARITY_OPTS} run ${SINGULARITY_COMMAND_OPTS} 
 local inspectCmd = "singularity ${SINGULARITY_OPTS} inspect ${SINGULARITY_COMMAND_OPTS} " 
 
 -- conflict with modules with the same name
-conflict("{{ parsed_name.tool }}"{% if name != parsed_name.tool %},"{{ name }}"{% endif %}{% if aliases %}{% for alias in aliases %}{% if alias.name != parsed_name.tool %},"{{ alias.name }}"{% endif %}{% endfor %}{% endif %})
+conflict("{{ parsed_name.tool }}"{% if name != parsed_name.tool %},"{{ module.name }}"{% endif %}{% if aliases %}{% for alias in aliases %}{% if alias.name != parsed_name.tool %},"{{ alias.name }}"{% endif %}{% endfor %}{% endif %})
 
 -- if we have any wrapper scripts, add bin to path
 {% if wrapper_scripts %}prepend_path("PATH", pathJoin(moduleDir, "bin")){% endif %}
@@ -98,7 +98,7 @@ set_shell_function("{|module_name|}-inspect-deffile", inspectCmd .. " -d  " .. c
 
 whatis("Name        : " .. myModuleName())
 whatis("Version     : " .. myModuleVersion())
-{% if description %}whatis("Description    : {{ description }}"){% endif %}
-{% if url %}whatis("Url         : {{ url }}"){% endif %}
+{% if description %}whatis("Description    : {{ module.config.description }}"){% endif %}
+{% if url %}whatis("Url         : {{ module.config.url }}"){% endif %}
 {% if labels %}{% for key, value in labels.items() %}whatis("{{ key }}    : {{ value }}")
 {% endfor %}{% endif %}
