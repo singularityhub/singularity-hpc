@@ -98,6 +98,7 @@ jobs:
           printf "\n\nmodule help ============================================\n"
           module help python/3.9.5-alpine
 
+          set -x
           python-exec echo donuts >test_output
           cat test_output
           grep --quiet donuts test_output
