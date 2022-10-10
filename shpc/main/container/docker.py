@@ -234,6 +234,7 @@ class DockerContainer(ContainerTechnology):
             creation_date=datetime.now(),
             command=self.command,
             module=module,
+            parsed_name=module.config.name,
             wrapper_scripts=wrapper_scripts,
         )
         shpc.utils.write_file(module_path, out)

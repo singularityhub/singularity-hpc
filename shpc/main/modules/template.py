@@ -46,7 +46,7 @@ class Template:
         For all known identifiers, substitute user specified format strings.
         """
         subs = {
-            "{|module_name|}": self.settings.module_name or "{{ parsed_name.tool }}"
+            "{|module_name|}": self.settings.module_name or "{{ config.name.tool }}"
         }
         for key, replacewith in subs.items():
             template = template.replace(key, replacewith)

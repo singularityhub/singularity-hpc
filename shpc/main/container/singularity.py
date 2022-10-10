@@ -224,6 +224,7 @@ class SingularityContainer(ContainerTechnology):
             deffile=deffile,
             creation_date=datetime.now(),
             module=module,
+            parsed_name=module.config.name,
             wrapper_scripts=wrapper_scripts,
         )
         utils.write_file(module_path, out)
