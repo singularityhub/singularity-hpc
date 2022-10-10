@@ -175,4 +175,4 @@ def main(args, parser, extra, subparser):
         cli.view_install(view_name, module_name, force=args.force)
 
     if command == "uninstall":
-        cli.uninstall(module_name, view=view_name, force=args.force)
+        cli.view_uninstall(view_name, module_name, force=args.force)

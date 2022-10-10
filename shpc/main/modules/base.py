@@ -67,23 +67,34 @@ class ModuleBase(BaseClient):
     def templatefile(self):
         return "%s.%s" % (self.container.templatefile, self.module_extension)
 
-    def uninstall(self, name, view=None, force=False):
+    def view_uninstall(self, view, name, force=False):
         """
-        Given a unique resource identifier, uninstall a module. If a view
-        name is provided, assume we only want to uninstall from the view
+        Uninstall a module from a view.
+        """
+        module = self.new_module(name)
+
+        # Ask before deleting anything!
+        if not force:
+            msg = name + "?"
+            if not utils.confirm_uninstall(msg, force):
+                return
+
+        # Only uninstall from the view
+        if view not in self.views:
+            logger.exit("View %s does not exist, cannot uninstall." % view)
+        return self.views[view].uninstall(module.module_dir)
+
+    def uninstall(self, name, force=False):
+        """
+        Given a unique resource identifier, uninstall a module.
         """
         module = self.new_module(name)
 
         # We need to look for the module in all views and show to the user first
         views_with_module = set()
-
-        # Only populate if the command is not directed to a view
-        if not view:
-
-            # If uninstalling the entire module, clean up symbolic links in all views
-            for view_name, entry in self.views.items():
-                if entry.exists(module.module_dir):
-                    views_with_module.add(view_name)
+        for view_name, entry in self.views.items():
+            if entry.exists(module.module_dir):
+                views_with_module.add(view_name)
 
         # Ask before deleting anything!
         if not force:
@@ -95,12 +106,6 @@ class ModuleBase(BaseClient):
                 )
             if not utils.confirm_uninstall(msg, force):
                 return
-
-        # Only uninstall from the view
-        if view:
-            if view not in self.views:
-                logger.exit("View %s does not exist, cannot uninstall." % view)
-            return self.views[view].uninstall(module.module_dir)
 
         # Podman needs image deletion
         self.container.delete(module.name)
@@ -124,8 +129,8 @@ class ModuleBase(BaseClient):
             )
 
         # If uninstalling the entire module, clean up symbolic links in all views
-        for view_name, view in self.views.items():
-            view.uninstall(module.module_dir)
+        for view_name in views_with_module:
+            self.views[view_name].uninstall(module.module_dir)
 
         # parent of versioned directory has module .version
         module_dir = os.path.dirname(module.module_dir)
