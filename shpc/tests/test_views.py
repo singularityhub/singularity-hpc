@@ -76,7 +76,8 @@ def test_views(tmp_path, module_sys, module_file, container_tech, remote):
     assert not view._config["view"]["system_modules"]
 
     # Now install to it via the client
-    client.install("ghcr.io/autamus/emacs:27.2", extra_view=view_name)
+    client.install("ghcr.io/autamus/emacs:27.2")
+    client.view_install(view_name, "ghcr.io/autamus/emacs:27.2")
 
     # Ensure it was created and as a symlink
     assert view._config["view"]["modules"]

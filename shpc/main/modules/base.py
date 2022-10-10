@@ -347,15 +347,7 @@ class ModuleBase(BaseClient):
         config = self._load_container(module_name.rsplit(":", 1)[0])
         return self.container.check(module_name, config)
 
-    def install(
-        self,
-        name,
-        tag=None,
-        extra_view=None,
-        disable_default_view=False,
-        force=False,
-        **kwargs
-    ):
+    def install(self, name, tag=None, force=False, **kwargs):
         """
         Given a unique resource identifier, install a recipe.
 
@@ -392,30 +384,8 @@ class ModuleBase(BaseClient):
         subfolder = os.path.join(uri, tag.name)
         container_dir = self.container.container_dir(subfolder)
 
-        # Are we also installing to a named view?
-        view_names = []
-        if self.settings.default_view and not disable_default_view:
-            view_names.append(self.settings.default_view)
-        if extra_view:
-            view_names.append(extra_view)
-
         # We only want to load over-rides for a tag at install time
         config.load_override_file(tag.name)
-
-        # A view is a symlink under views_base/$view/$module
-        for view_name in view_names:
-            if view_name not in self.views:
-                logger.exit(
-                    "View %s does not exist, shpc view create %s."
-                    % (view_name, view_name)
-                )
-
-        # Update view from name to be View to interact with
-        views = [self.views[view_name] for view_name in view_names]
-
-        for view in views:
-            # Don't continue if it exists, unless force is True
-            view.confirm_install(module_dir, force=force)
 
         # Create the module and container directory
         utils.mkdirp([module_dir, container_dir])
@@ -486,8 +456,47 @@ class ModuleBase(BaseClient):
             name = "%s:%s" % (name, tag.name)
         logger.info("Module %s was created." % name)
 
-        # Install the module (symlink) to the view and create version file
-        for view in views:
-            view.install(module_dir)
-
         return container_path
+
+    def view_install(self, view_name, name, tag=None, force=False):
+        """
+        Install a module in a view.
+        The module must already be installed.
+        """
+        name = self.add_namespace(name)
+
+        # If the module has a version, overrides provided tag
+        if ":" in name:
+            name, tag = name.split(":", 1)
+        config = self._load_container(name, tag)
+
+        # The chosen tag is set for the config (or defaults to latest)
+        if not config.tag:
+            logger.exit(
+                "%s is not a known identifier. Choices are:\n%s"
+                % (name, "\n".join(config.tags.keys()))
+            )
+
+        # We currently support gh, docker, path, or oras
+        uri = config.get_uri()
+
+        # If we have a path, the URI comes from the name
+        if ".sif" in uri:
+            uri = name.split(":", 1)[0]
+
+        # This is a tag object with name and digest
+        tag = config.tag
+        module_dir = os.path.join(self.settings.module_base, uri, tag.name)
+
+        # A view is a symlink under views_base/$view/$module
+        if view_name not in self.views:
+            logger.exit(
+                "View %s does not exist, shpc view create %s." % (view_name, view_name)
+            )
+
+        # Update view from name to be View to interact with
+        view = self.views[view_name]
+
+        # Don't continue if it exists, unless force is True
+        view.confirm_install(module_dir, force=force)
+        view.install(module_dir)
