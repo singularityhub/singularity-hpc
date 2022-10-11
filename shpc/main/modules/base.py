@@ -70,6 +70,7 @@ class ModuleBase(BaseClient):
     def view_uninstall(self, view, name, force=False):
         """
         Uninstall a module from a view.
+        Set "force" to True to bypass the confirmation prompt.
         """
         module = self.new_module(name)
 
@@ -86,6 +87,7 @@ class ModuleBase(BaseClient):
     def uninstall(self, name, force=False):
         """
         Given a unique resource identifier, uninstall a module.
+        Set "force" to True to bypass the confirmation prompt.
         """
         module = self.new_module(name)
 
@@ -372,6 +374,7 @@ class ModuleBase(BaseClient):
         For lmod, this means creating a subfolder in modules, pulling the
         container to it, and writing a module file there. We've already
         grabbed the name from docker (which is currently the only supported).
+        "force" is currently not used.
         """
         # Create a new module
         module = self.new_module(name, tag=tag, tag_exists=True)
@@ -409,8 +412,8 @@ class ModuleBase(BaseClient):
 
     def view_install(self, view_name, name, tag=None, force=False):
         """
-        Install a module in a view.
-        The module must already be installed.
+        Install a module in a view. The module must already be installed.
+        Set "force" to True to allow overwriting existing symlinks.
         """
         module = self.new_module(name, tag=tag, tag_exists=True)
 
