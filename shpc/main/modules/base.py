@@ -75,8 +75,7 @@ class ModuleBase(BaseClient):
 
         # Ask before deleting anything!
         if not force:
-            msg = name + "?"
-            if not utils.confirm_uninstall(msg, force):
+            if not utils.confirm_uninstall(name + "?", force):
                 return
 
         # Only uninstall from the view
