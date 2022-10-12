@@ -3,16 +3,16 @@
 #=====
 # Created by singularity-hpc (https://github.com/singularityhub/singularity-hpc)
 # ##
-# {{ name }} on {{ creation_date }}
+# {{ module.name }} on {{ creation_date }}
 #=====
 
 proc ModulesHelp { } {
 
-    puts stderr "This module is a {{ command }} container wrapper for {{ name }} v{{ version }}"
-    {% if description %}puts stderr "{{ description }}"{% endif %}
+    puts stderr "This module is a {{ command }} container wrapper for {{ module.name }} v{{ module.tag.name }}"
+    {% if description %}puts stderr "{{ module.config.description }}"{% endif %}
     puts stderr ""
     puts stderr "Container:"
-    puts stderr " - {{ image }}"
+    puts stderr " - {{ module.container_path }}"
     puts stderr "Commands include:"
     puts stderr " - {|module_name|}-run:"
     puts stderr "       {{ command }} run -i{% if settings.enable_tty %}t{% endif %} -u `id -u`:`id -g` --rm {% if settings.environment_file %}--env-file  <moduleDir>/{{ settings.environment_file }} {% endif %} {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %} -v . -w . <container> \"\$@\""
@@ -48,14 +48,14 @@ if { ![info exists ::env(PODMAN_COMMAND_OPTS)] } {
 
 # Variables
 
-set name        "{{ name }}"
-set version     "{{ version }}"
+set name        "{{ module.name }}"
+set version     "{{ module.tag.name }}"
 set description "$name - $version"
-set containerPath "{{ image }}"
+set containerPath "{{ module.container_path }}"
 set workdir [pwd]
-{% if description %}set notes       "{{ description }}"{% endif %}
-{% if url %}set homepage    "{{ url }}"{% endif %}
-set helpcommand "This module is a {{ docker }} container wrapper for {{ name }} v{{ version }}. {% if description %}{{ description }}{% endif %}"
+{% if description %}set notes       "{{ module.config.description }}"{% endif %}
+{% if url %}set homepage    "{{ module.config.url }}"{% endif %}
+set helpcommand "This module is a {{ docker }} container wrapper for {{ module.name }} v{{ module.tag.name }}. {% if description %}{{ module.config.description }}{% endif %}"
 {% if labels %}{% for key, value in labels.items() %}set {{ key }} "{{ value }}"
 {% endfor %}{% endif %}
 
@@ -64,7 +64,7 @@ set moduleDir   [file dirname [expr { [string equal [file type ${ModulesCurrentM
 
 # conflict with modules with the same alias name
 conflict {{ parsed_name.tool }}
-{% if name != parsed_name.tool %}conflict {{ name }}{% endif %}
+{% if name != parsed_name.tool %}conflict {{ module.name }}{% endif %}
 {% if aliases %}{% for alias in aliases %}{% if alias.name != parsed_name.tool %}conflict {{ alias.name }}{% endif %}
 {% endfor %}{% endif %}
 
@@ -122,10 +122,10 @@ set-alias {|module_name|}-inspect "${inspectCmd} ${containerPath}"{% endif %}
 #=====
 # Module options
 #=====
-module-whatis "    Name: {{ name }}"
-module-whatis "    Version: {{ version }}"
+module-whatis "    Name: {{ module.name }}"
+module-whatis "    Version: {{ module.tag.name }}"
 {% if description %}module-whatis "    Description: ${description}"{% endif %}
-{% if url %}module-whatis "    Url: {{ url }}"{% endif %}
+{% if url %}module-whatis "    Url: {{ module.config.url }}"{% endif %}
 {% if labels %}{% for key, value in labels.items() %}module-whatis "    {{ key }}: {{ value }}"
 {% endfor %}{% endif %}
 {% if settings.podman_module %}module load {{ settings.podman_module }}{% endif %}

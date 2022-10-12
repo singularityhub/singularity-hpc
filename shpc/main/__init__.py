@@ -41,17 +41,17 @@ def get_client(quiet=False, **kwargs):
 
     # Add the container operator
     if container == "singularity":
-        from .container import SingularityContainer
+        from shpc.main.container import SingularityContainer
 
         Client.container = SingularityContainer()
 
     elif container == "podman":
-        from .container import PodmanContainer
+        from shpc.main.container import PodmanContainer
 
         Client.container = PodmanContainer()
 
     elif container == "docker":
-        from .container import DockerContainer
+        from shpc.main.container import DockerContainer
 
         Client.container = DockerContainer()
 
@@ -64,6 +64,8 @@ def get_client(quiet=False, **kwargs):
         logger.warning(
             "%s is not installed, functionality might be limited." % container.upper()
         )
+
+    # Pass on settings and container to module too
     Client.quiet = quiet
     Client.settings = settings
     return Client()

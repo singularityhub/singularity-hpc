@@ -52,7 +52,10 @@ def create_from_file(
 
     # Extra modules to install
     for install_module in install_modules:
-        cli.install(install_module, view=view_name, disable_view=False, force=force)
+
+        # TODO: can we cut out early if already installed?
+        cli.install(install_module, force=force)
+        cli.view_install(view_name, install_module, force=force)
 
 
 def main(args, parser, extra, subparser):
@@ -168,7 +171,8 @@ def main(args, parser, extra, subparser):
     # We don't make it hard to require them to install to the root first
     module_name = args.params.pop(0)
     if command == "install":
-        cli.install(module_name, view=view_name, disable_view=False, force=args.force)
+        cli.install(module_name, force=args.force)
+        cli.view_install(view_name, module_name, force=args.force)
 
     if command == "uninstall":
-        cli.uninstall(module_name, view=view_name, force=args.force)
+        cli.view_uninstall(view_name, module_name, force=args.force)
