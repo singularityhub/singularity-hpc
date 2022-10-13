@@ -14,6 +14,7 @@ and **Merged pull requests**. Critical items to know are:
 The versions coincide with releases on pip. Only major versions will be released as tags on Github.
 
 ## [0.0.x](https://github.com/singularityhub/singularity-hpc/tree/main) (0.0.x)
+ - fix views .view_module modulefile and loading (0.1.14)
  - support for system modules, depends on, in views and editor envars (0.1.13)
  - Wrappers now supported for shell/exec/run container commands (0.1.12)
  - Update add to return container yaml (0.1.11)
