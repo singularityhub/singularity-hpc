@@ -185,7 +185,9 @@ def test_view_components(tmp_path, module_sys, module_file, container_tech, remo
 
     # Before adding any attributes, this file should not exist
     view = client.views[view_name]
-    view_module = os.path.join(view.path, ".view_module")
+    view_module_extension = ".lua" if module_sys == "lmod" else ""
+    view_module = os.path.join(view.path, ".view_module%s" 
+                          % view_module_extension)
     assert not os.path.exists(view_module)
 
     # Try adding valid attributes
