@@ -19,6 +19,15 @@ from shpc.logger import logger
 supported_view_variables = {"system_modules": [], "depends_on": []}
 
 
+# Shared functions
+def get_view_module_path(extension):
+    """
+    Get a view module file name based on an extension
+    """
+    modulefile_extension = ".lua" if extension == "lua" else ""
+    return ".view_module%s" % modulefile_extension
+
+
 class ViewModule:
     """
     A ViewModule is a .view_module written to the base of a view.
@@ -39,17 +48,20 @@ class ViewModule:
         if not os.path.exists(view_dir):
             return
         template = self.template.load("view_module.%s" % self.module_extension)
-        modulefile_extension = ".lua" if self.module_extension == "lua" else ""
-        view_module_file = os.path.join(view_dir, 
-                              ".view_module%s" % modulefile_extension)
+
+        # Assemble the .view_module.<extension> full path
+        view_module_file = os.path.join(
+            view_dir, get_view_module_path(self.module_extension)
+        )
         out = template.render(
             system_modules=view_config["view"].get("system_modules", []),
             depends_on=view_config["view"].get("depends_on", []),
         )
         utils.write_file(view_module_file, out)
-        logger.info("Wrote updated .view_module.%s: %s" 
-                    % (self.module_extension, view_module_file)
-                   )
+        logger.info(
+            "Wrote updated .view_module.%s: %s"
+            % (self.module_extension, view_module_file)
+        )
 
 
 class ViewsHandler:
@@ -295,6 +307,13 @@ class View:
         if it does not.
         """
         return os.path.join(self.settings.views_base, self.name)
+
+    @property
+    def module_path(self):
+        """
+        Path to view module, with needed extension.
+        """
+        return os.path.join(self.path, get_view_module_path(self.module_extension))
 
     def reload(self):
         """
