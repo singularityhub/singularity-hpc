@@ -167,6 +167,7 @@ def test_view_components(tmp_path, module_sys, module_file, container_tech, remo
     view_handler.delete(view_name, force=True)
     assert not os.path.exists(view.path)
 
+
 def check_view(view, view_handler):
     """
     Shared function for checking content of view.
