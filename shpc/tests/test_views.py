@@ -108,36 +108,10 @@ def test_views(tmp_path, module_sys, module_file, container_tech, remote):
     )
 
     # Before adding any attributes, this file should not exist
-    view_module = os.path.join(view.path, ".view_module")
-    assert not os.path.exists(view_module)
+    assert not os.path.exists(view.module_path)
 
-    # Try adding valid attributes
-    for attribute, check_content in [
-        ["system_modules", "module"],
-        ["depends_on", "depends"],
-    ]:
-        assert not view._config["view"][attribute]
-        view_handler.add_variable(view_name, attribute, "openmpi")
-        assert os.path.exists(view_module)
-
-        # Make sure we have openmpi in the content
-        content = utils.read_file(view_module)
-        assert "openmpi" in content and check_content in content
-
-        # Reload the view config file
-        view.reload()
-        assert "openmpi" in view._config["view"][attribute]
-
-        # We can't add unknown variables
-        with pytest.raises(SystemExit):
-            view_handler.add_variable(view_name, attribute.replace("_", "-"), [1, 2, 3])
-
-        # Try removing now
-        view_handler.remove_variable(view_name, attribute, "openmpi")
-        view.reload()
-        assert not view._config["view"][attribute]
-        content = utils.read_file(view_module)
-        assert "openmpi" not in content and check_content not in content
+    # Shared function to check view and handler
+    check_view(view, view_handler)
 
     # Ensure we can uninstall
     view_handler.delete(view_name, force=True)
@@ -185,22 +159,33 @@ def test_view_components(tmp_path, module_sys, module_file, container_tech, remo
 
     # Before adding any attributes, this file should not exist
     view = client.views[view_name]
-    view_module = os.path.join(view.path, ".view_module")
-    assert not os.path.exists(view_module)
+    assert not os.path.exists(view.module_path)
 
+    check_view(view, view_handler)
+
+    # Ensure we can uninstall
+    view_handler.delete(view_name, force=True)
+    assert not os.path.exists(view.path)
+
+
+def check_view(view, view_handler):
+    """
+    Shared function for checking content of view.
+    """
     # Try adding valid attributes
     for attribute, check_content in [
-        ["system_modules", "module"],
+        ["system_modules", None],
         ["depends_on", "depends"],
     ]:
         assert not view._config["view"][attribute]
-        view_handler.add_variable(view_name, attribute, "openmpi")
-        assert os.path.exists(view_module)
+        view_handler.add_variable(view.name, attribute, "openmpi")
+        assert os.path.exists(view.module_path)
 
         # Make sure we have openmpi in the content
-        content = utils.read_file(view_module)
-        print(content)
-        assert "openmpi" in content and check_content in content
+        content = utils.read_file(view.module_path)
+        assert "openmpi" in content
+        if check_content:
+            assert check_content in content
 
         # Reload the view config file
         view.reload()
@@ -208,15 +193,13 @@ def test_view_components(tmp_path, module_sys, module_file, container_tech, remo
 
         # We can't add unknown variables
         with pytest.raises(SystemExit):
-            view_handler.add_variable(view_name, attribute.replace("_", "-"), [1, 2, 3])
+            view_handler.add_variable(view.name, attribute.replace("_", "-"), [1, 2, 3])
 
         # Try removing now
-        view_handler.remove_variable(view_name, attribute, "openmpi")
+        view_handler.remove_variable(view.name, attribute, "openmpi")
         view.reload()
         assert not view._config["view"][attribute]
-        content = utils.read_file(view_module)
-        assert "openmpi" not in content and check_content not in content
-
-    # Ensure we can uninstall
-    view_handler.delete(view_name, force=True)
-    assert not os.path.exists(view.path)
+        content = utils.read_file(view.module_path)
+        assert "openmpi" not in content
+        if check_content:
+            assert check_content not in content
