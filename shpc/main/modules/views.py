@@ -39,13 +39,17 @@ class ViewModule:
         if not os.path.exists(view_dir):
             return
         template = self.template.load("view_module.%s" % self.module_extension)
-        view_module_file = os.path.join(view_dir, ".view_module")
+        modulefile_extension = ".lua" if self.module_extension == "lua" else ""
+        view_module_file = os.path.join(view_dir, 
+                              ".view_module%s" % modulefile_extension)
         out = template.render(
             system_modules=view_config["view"].get("system_modules", []),
             depends_on=view_config["view"].get("depends_on", []),
         )
         utils.write_file(view_module_file, out)
-        logger.info("Wrote updated .view_module: %s" % view_module_file)
+        logger.info("Wrote updated .view_module.%s: %s" 
+                    % (self.module_extension, view_module_file)
+                   )
 
 
 class ViewsHandler:

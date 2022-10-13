@@ -3,5 +3,5 @@
 --
 
 {% for module in system_modules %}
-module load("{{ module }}"){% endfor %}{% for depends in depends_on %}
+load("{{ module }}"){% endfor %}{% for depends in depends_on %}
 depends_on("{{ depends }}"){% endfor %}
