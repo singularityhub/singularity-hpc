@@ -80,7 +80,17 @@ def test_features(tmp_path, module_sys, module_file, remote):
     content = shpc.utils.read_file(module_file)
     assert "--nv" not in content
 
+    client.install("python:3.9.4-alpine")
+
     client.uninstall("python:3.9.2-alpine", force=True)
+    assert not os.path.exists(module_file)
+
+    module_dir = os.path.join(client.settings.module_base, "python", "3.9.4-alpine")
+    module_file = os.path.join(module_dir, module_file)
+    assert os.path.exists(module_file)
+
+    client.uninstall("python", force=True)
+    assert not os.path.exists(module_file)
 
     # Now update settings
     client.settings.set("container_features", "gpu:nvidia")
