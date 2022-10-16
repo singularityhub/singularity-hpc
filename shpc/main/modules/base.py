@@ -452,23 +452,27 @@ class ModuleBase(BaseClient):
         view.confirm_install(module.module_dir, force=force)
         view.install(module.module_dir)
 
-    def reinstall(self, module_name, upgrade=False, force=False):
+    def reinstall(self, module_name, force=False):
         """
-        Reinstall (and possibly upgrade) all the current modules, possibly filtered by pattern.
+        Reinstall the module, or all modules
         """
         if module_name:
-            tag = None
             if ":" in module_name:
                 module_name, tag = module_name.split(":", 1)
-            modules = self._get_module_lookup(
-                self.settings.module_base, self.modulefile, module_name
-            )
-            assert module_name in modules
-            self._reinstall(module_name, [tag] if tag else modules[module_name], upgrade=upgrade, force=force)
+                self.install(module_name, tag=tag, allow_reinstall=True, force=force)
+            else:
+                modules = self._get_module_lookup(
+                    self.settings.module_base, self.modulefile, module_name
+                )
+                if module_name not in modules:
+                    logger.exit("%s is not installed. Nothing to reinstall." % module_name)
+                for version in modules[module_name]:
+                    self.install(module_name, tag=version, allow_reinstall=True, force=force)
         else:
             modules = self._get_module_lookup(self.settings.module_base, self.modulefile)
             for module_name, versions in modules.items():
-                self._reinstall(module_name, versions, upgrade=upgrade, force=force)
+                for version in versions:
+                    self.install(module_name, tag=version, allow_reinstall=True, force=force)
 
     def _reinstall(self, module_name, versions, upgrade=False, force=False):
         """
