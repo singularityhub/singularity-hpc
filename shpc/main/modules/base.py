@@ -375,7 +375,7 @@ class ModuleBase(BaseClient):
         return module
 
     def install(
-        self, name, force=False, container_image=None, keep_path=False, **kwargs
+        self, name, allow_reinstall=False, container_image=None, keep_path=False, **kwargs
     ):
         """
         Given a unique resource identifier, install a recipe.
@@ -383,7 +383,6 @@ class ModuleBase(BaseClient):
         For lmod, this means creating a subfolder in modules, pulling the
         container to it, and writing a module file there. We've already
         grabbed the name from docker (which is currently the only supported).
-        "force" is currently not used.
         """
         # Create a new module
         module = self.get_module(
@@ -394,16 +393,10 @@ class ModuleBase(BaseClient):
         module.load_override_file()
 
         # Check previous installations of this module
-        installed_modules = self._get_module_lookup(
-            self.settings.module_base, self.modulefile, module.name
-        )
-        if (module.name in installed_modules) and (module.config.tag.name in installed_modules[module.name]):
-            if not force:
-                logger.exit(
-                    "%s:%s is already installed. Add --force to proceed with a reinstallation."
-                    % (module.name, module.config.tag.name)
-                )
-            logger.info("%s:%s is already installed. Reinstalling." % (module.name, module.config.tag.name))
+        if os.path.exists(module.module_dir):
+            if not allow_reinstall:
+                logger.exit("%s is already installed. Do `shpc reinstall` to proceed with a reinstallation." % module.tagged_name)
+            logger.info("%s is already installed. Reinstalling." % module.tagged_name)
             # Don't explicitly remove the container, since we still need it,
             # though it may still happen if shpc is configured to store
             # containers and modules in the same directory
