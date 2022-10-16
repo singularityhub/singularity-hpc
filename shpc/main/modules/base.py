@@ -19,7 +19,7 @@ import shpc.utils as utils
 from shpc.logger import logger
 from shpc.main.client import Client as BaseClient
 
-from .module import Module
+from .module import Module, RegistryModule
 
 
 class ModuleBase(BaseClient):
@@ -338,7 +338,7 @@ class ModuleBase(BaseClient):
         at updates for entire tags. If a specific folder is provided with
         a container, check the digest.
         """
-        module = self.new_module(module_name)
+        module = self.new_registry_module(module_name)
         if not os.path.exists(module.module_dir):
             logger.exit(
                 "%s does not exist. Is this a known registry entry?" % module.module_dir
@@ -346,9 +346,22 @@ class ModuleBase(BaseClient):
 
         return module.check()
 
-    def new_module(self, name, tag=None, tag_exists=True):
+    def new_module(self, name):
         """
         Create a new module
+        """
+        name = self.add_namespace(name)
+
+        module = Module(name)
+
+        # Pass on container and settings
+        module.container = self.container
+        module.settings = self.settings
+        return module
+
+    def new_registry_module(self, name, tag=None, tag_exists=True):
+        """
+        Create a new module backed by the Registry
         """
         name = self.add_namespace(name)
 
@@ -356,7 +369,7 @@ class ModuleBase(BaseClient):
         if ":" in name:
             name, tag = name.split(":", 1)
 
-        module = Module(name)
+        module = RegistryModule(name)
         module.config = self._load_container(module.name, tag)
 
         # Ensure the tag exists, if required, uses config.tag
@@ -378,7 +391,7 @@ class ModuleBase(BaseClient):
         "force" is currently not used.
         """
         # Create a new module
-        module = self.new_module(name, tag=tag, tag_exists=True)
+        module = self.new_registry_module(name, tag=tag, tag_exists=True)
 
         # We always load overrides for an install
         module.load_override_file()
@@ -416,7 +429,7 @@ class ModuleBase(BaseClient):
         Install a module in a view. The module must already be installed.
         Set "force" to True to allow overwriting existing symlinks.
         """
-        module = self.new_module(name, tag=tag, tag_exists=True)
+        module = self.new_registry_module(name, tag=tag, tag_exists=True)
 
         # A view is a symlink under views_base/$view/$module
         if view_name not in self.views:

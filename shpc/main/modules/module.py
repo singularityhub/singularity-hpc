@@ -13,8 +13,42 @@ class Module:
         """
         New module metadata and shared functions.
 
-        This should be created by base.py new_module to ensure the same
-        container and settings are carried forward here.
+        This should be created by base.py new_module to ensure the directories
+        are all formed the same way
+        """
+        self.name = name
+        # Cache variable properties
+        self._container_dir = None
+
+    @property
+    def module_basepath(self):
+        """
+        Path of only the module name and tag.
+        """
+        return self.name.replace(":", os.sep)
+
+    @property
+    def container_dir(self):
+        """
+        Derive the module container directory.
+        """
+        if not self._container_dir:
+            # Pull the container to the module directory OR container base
+            self._container_dir = self.container.container_dir(self.module_basepath)
+        return self._container_dir
+
+    @property
+    def module_dir(self):
+        """
+        Full path to the module directory.
+        """
+        return os.path.join(self.settings.module_base, self.module_basepath)
+
+
+class RegistryModule(Module):
+    def __init__(self, name):
+        """
+        Sub-class of Module for modules that come from a registry
         """
         self.name = name
 
@@ -52,16 +86,6 @@ class Module:
 
     def load_override_file(self):
         self.config.load_override_file(self.tag.name)
-
-    @property
-    def container_dir(self):
-        """
-        Derive the module container directory.
-        """
-        if not self._container_dir:
-            # Pull the container to the module directory OR container base
-            self._container_dir = self.container.container_dir(self.module_basepath)
-        return self._container_dir
 
     @property
     def container_path(self):
@@ -127,13 +151,6 @@ class Module:
             uri = self.name.split(":", 1)[0]
         self._uri = uri
         return uri
-
-    @property
-    def module_dir(self):
-        """
-        Full path to the module directory.
-        """
-        return os.path.join(self.settings.module_base, self.module_basepath)
 
     @property
     def module_basepath(self):
