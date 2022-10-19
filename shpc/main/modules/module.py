@@ -27,7 +27,7 @@ class Module:
             uri = config.get_uri()
             # If we have a path, the URI comes from the name
             if ".sif" in uri:
-                uri = config.name.split(":", 1)[0]
+                uri = str(config.name).split(":", 1)[0]
             self.name = uri + ":" + config.tag.name
             self._uri = uri
             self.config = config
