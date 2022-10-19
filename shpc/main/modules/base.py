@@ -359,7 +359,10 @@ class ModuleBase(BaseClient):
                 name, tag = name.split(":", 1)
             config = self._load_container(name, tag)
             if not config.tag:
-                logger.exit("%s is not a known identifier. Choices are:\n%s" % (name, "\n".join(config.tags.keys())))
+                logger.exit(
+                    "%s is not a known identifier. Choices are:\n%s"
+                    % (name, "\n".join(config.tags.keys()))
+                )
             module = Module(config)
         else:
             module = Module(name)

@@ -70,8 +70,12 @@ def test_features(tmp_path, module_sys, module_file, remote):
     """
     client = init_client(str(tmp_path), module_sys, "singularity", remote=remote)
 
-    module_file_392 = os.path.join(client.settings.module_base, "python", "3.9.2-alpine", module_file)
-    module_file_394 = os.path.join(client.settings.module_base, "python", "3.9.4-alpine", module_file)
+    module_file_392 = os.path.join(
+        client.settings.module_base, "python", "3.9.2-alpine", module_file
+    )
+    module_file_394 = os.path.join(
+        client.settings.module_base, "python", "3.9.4-alpine", module_file
+    )
 
     # Install known tag
     client.install("python:3.9.2-alpine")

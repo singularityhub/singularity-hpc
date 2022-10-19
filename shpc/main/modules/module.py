@@ -129,4 +129,3 @@ class Module:
         Full path to the module directory.
         """
         return os.path.join(self.settings.module_base, self.module_basepath)
-
