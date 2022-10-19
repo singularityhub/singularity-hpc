@@ -338,7 +338,7 @@ class ModuleBase(BaseClient):
         at updates for entire tags. If a specific folder is provided with
         a container, check the digest.
         """
-        module = self.new_registry_module(module_name)
+        module = self.new_module(module_name, in_registry=True)
         if not os.path.exists(module.module_dir):
             logger.exit(
                 "%s does not exist. Is this a known registry entry?" % module.module_dir
@@ -346,30 +346,27 @@ class ModuleBase(BaseClient):
 
         return module.check()
 
-    def new_module(self, name):
+    def new_module(self, name, tag=None, in_registry=False):
         """
         Create a new module
         """
         name = self.add_namespace(name)
 
-        return Module(name, self.container, self.settings)
-
-    def new_registry_module(self, name, tag=None, tag_exists=True):
-        """
-        Create a new module backed by the Registry
-        """
-        name = self.add_namespace(name)
-
-        # If the module has a version, overrides provided tag
-        if ":" in name:
-            name, tag = name.split(":", 1)
-
-        module = Module(self._load_container(name, tag), self.container, self.settings)
-
         # Ensure the tag exists, if required, uses config.tag
-        if tag_exists:
-            module.validate_tag_exists()
+        if in_registry:
+            # If the module has a version, overrides provided tag
+            if ":" in name:
+                name, tag = name.split(":", 1)
+            config = self._load_container(name, tag)
+            if not config.tag:
+                logger.exit("%s is not a known identifier. Choices are:\n%s" % (name, "\n".join(config.tags.keys())))
+            module = Module(config)
+        else:
+            module = Module(name)
 
+        # Pass on container and settings
+        module.container = self.container
+        module.settings = self.settings
         return module
 
     def install(self, name, tag=None, force=False, **kwargs):
@@ -382,7 +379,7 @@ class ModuleBase(BaseClient):
         "force" is currently not used.
         """
         # Create a new module
-        module = self.new_registry_module(name, tag=tag, tag_exists=True)
+        module = self.new_module(name, tag=tag, in_registry=True)
 
         # We always load overrides for an install
         module.load_override_file()
@@ -420,7 +417,7 @@ class ModuleBase(BaseClient):
         Install a module in a view. The module must already be installed.
         Set "force" to True to allow overwriting existing symlinks.
         """
-        module = self.new_registry_module(name, tag=tag, tag_exists=True)
+        module = self.new_module(name, tag=tag, in_registry=True)
 
         # A view is a symlink under views_base/$view/$module
         if view_name not in self.views:

@@ -9,18 +9,19 @@ from shpc.logger import logger
 
 
 class Module:
-    def __init__(self, config, container, settings):
+    def __init__(self, config):
         """
         New module metadata and shared functions.
 
         This should be created by base.py new_module to ensure the same
         container and settings are carried forward here.
         """
-        self.container = container
-        self.settings = settings
 
+        # config can be either a string (a module name)
         if isinstance(config, str):
             self.name = config
+            self._uri = None
+        # or a ContainerConfig
         else:
             # We currently support gh, docker, path, or oras
             uri = config.get_uri()
@@ -28,12 +29,12 @@ class Module:
             if ".sif" in uri:
                 uri = config.name.split(":", 1)[0]
             self.name = uri + ":" + config.tag.name
+            self._uri = uri
             self.config = config
 
         self.module_basepath = self.name.replace(":", os.sep)
 
         # Cache variable properties
-        self._uri = None
         self._container_dir = None
         self._container_path = None
 
@@ -53,16 +54,6 @@ class Module:
             envars=self.config.get_envars(),
             environment_file=self.settings.environment_file,
         )
-
-    def validate_tag_exists(self):
-        """
-        Ensure that a provided module name (and tag) exists.
-        """
-        if not self.config.tag:
-            logger.exit(
-                "%s is not a known identifier. Choices are:\n%s"
-                % (self.name, "\n".join(self.config.tags.keys()))
-            )
 
     def load_override_file(self):
         self.config.load_override_file(self.tag.name)
