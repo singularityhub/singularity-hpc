@@ -9,48 +9,28 @@ from shpc.logger import logger
 
 
 class Module:
-    def __init__(self, name):
+    def __init__(self, config, container, settings):
         """
         New module metadata and shared functions.
 
-        This should be created by base.py new_module to ensure the directories
-        are all formed the same way
+        This should be created by base.py new_module to ensure the same
+        container and settings are carried forward here.
         """
-        self.name = name
-        # Cache variable properties
-        self._container_dir = None
+        self.container = container
+        self.settings = settings
 
-    @property
-    def module_basepath(self):
-        """
-        Path of only the module name and tag.
-        """
-        return self.name.replace(":", os.sep)
+        if isinstance(config, str):
+            self.name = config
+        else:
+            # We currently support gh, docker, path, or oras
+            uri = config.get_uri()
+            # If we have a path, the URI comes from the name
+            if ".sif" in uri:
+                uri = config.name.split(":", 1)[0]
+            self.name = uri + ":" + config.tag.name
+            self.config = config
 
-    @property
-    def container_dir(self):
-        """
-        Derive the module container directory.
-        """
-        if not self._container_dir:
-            # Pull the container to the module directory OR container base
-            self._container_dir = self.container.container_dir(self.module_basepath)
-        return self._container_dir
-
-    @property
-    def module_dir(self):
-        """
-        Full path to the module directory.
-        """
-        return os.path.join(self.settings.module_base, self.module_basepath)
-
-
-class RegistryModule(Module):
-    def __init__(self, name):
-        """
-        Sub-class of Module for modules that come from a registry
-        """
-        self.name = name
+        self.module_basepath = self.name.replace(":", os.sep)
 
         # Cache variable properties
         self._uri = None
@@ -86,6 +66,16 @@ class RegistryModule(Module):
 
     def load_override_file(self):
         self.config.load_override_file(self.tag.name)
+
+    @property
+    def container_dir(self):
+        """
+        Derive the module container directory.
+        """
+        if not self._container_dir:
+            # Pull the container to the module directory OR container base
+            self._container_dir = self.container.container_dir(self.module_basepath)
+        return self._container_dir
 
     @property
     def container_path(self):
@@ -140,21 +130,12 @@ class RegistryModule(Module):
         """
         Get the uri for the module, docker / path / oras / gh
         """
-        if self._uri:
-            return self._uri
-
-        # We currently support gh, docker, path, or oras
-        uri = self.config.get_uri()
-
-        # If we have a path, the URI comes from the name
-        if ".sif" in uri:
-            uri = self.name.split(":", 1)[0]
-        self._uri = uri
-        return uri
+        return self._uri
 
     @property
-    def module_basepath(self):
+    def module_dir(self):
         """
-        Path of only the module name and tag.
+        Full path to the module directory.
         """
-        return os.path.join(self.uri, self.tag.name)
+        return os.path.join(self.settings.module_base, self.module_basepath)
+

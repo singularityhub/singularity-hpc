@@ -19,7 +19,7 @@ import shpc.utils as utils
 from shpc.logger import logger
 from shpc.main.client import Client as BaseClient
 
-from .module import Module, RegistryModule
+from .module import Module
 
 
 class ModuleBase(BaseClient):
@@ -352,12 +352,7 @@ class ModuleBase(BaseClient):
         """
         name = self.add_namespace(name)
 
-        module = Module(name)
-
-        # Pass on container and settings
-        module.container = self.container
-        module.settings = self.settings
-        return module
+        return Module(name, self.container, self.settings)
 
     def new_registry_module(self, name, tag=None, tag_exists=True):
         """
@@ -369,16 +364,12 @@ class ModuleBase(BaseClient):
         if ":" in name:
             name, tag = name.split(":", 1)
 
-        module = RegistryModule(name)
-        module.config = self._load_container(module.name, tag)
+        module = Module(self._load_container(name, tag), self.container, self.settings)
 
         # Ensure the tag exists, if required, uses config.tag
         if tag_exists:
             module.validate_tag_exists()
 
-        # Pass on container and settings
-        module.container = self.container
-        module.settings = self.settings
         return module
 
     def install(self, name, tag=None, force=False, **kwargs):
