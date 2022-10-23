@@ -1,6 +1,5 @@
 name: Check Actions Once a Year
 on:
-  pull_request: []
   schedule:
     # 1st of June, so it's summer and you aren't busy, right?
     - cron: "0 0 1 6 *"
