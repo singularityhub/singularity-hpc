@@ -27,4 +27,6 @@ def main(args, parser, extra, subparser):
     # And do the install
     cli.install(args.install_recipe, force=args.force)
     if cli.settings.default_view and not args.no_view:
-        cli.view_install(cli.settings.default_view, args.install_recipe, force=args.force)
+        cli.view_install(
+            cli.settings.default_view, args.install_recipe, force=args.force
+        )

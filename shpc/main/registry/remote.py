@@ -42,7 +42,9 @@ class RemoteResult(Result):
         """
         Load a filesystem based override file
         """
-        logger.exit("We don't have support for remote overrides yet! Please open an issue!")
+        logger.exit(
+            "We don't have support for remote overrides yet! Please open an issue!"
+        )
 
     def save(self, package_file):
         raise ValueError("Remote save to a GitHub registry is not supported.")
@@ -57,14 +59,18 @@ class RemoteResult(Result):
             url = os.path.join(self.dirname, wrapper_script)
             response = requests.get(url)
             if response.status_code != 200:
-                logger.warning("Could not find wrapper script %s in remote registry." % script)
+                logger.warning(
+                    "Could not find wrapper script %s in remote registry." % script
+                )
             return response.text
 
     def override_exists(self, tag):
         """
         Check if an override exists.
         """
-        logger.exit("We don't have support for remote overrides yet! Please open an issue!")
+        logger.exit(
+            "We don't have support for remote overrides yet! Please open an issue!"
+        )
 
 
 class VersionControl(Provider):

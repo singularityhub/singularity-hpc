@@ -29,7 +29,9 @@ features = {
 container_features = {
     "type": "object",
     "properties": {
-        "gpu": {"oneOf": [{"type": "null"}, {"type": "string", "enum": ["nvidia", "amd"]}]},
+        "gpu": {
+            "oneOf": [{"type": "null"}, {"type": "string", "enum": ["nvidia", "amd"]}]
+        },
         "x11": {"oneOf": [{"type": "null"}, {"type": "string"}, {"type": "boolean"}]},
         "home": {"oneOf": [{"type": "null"}, {"type": "string"}]},
     },

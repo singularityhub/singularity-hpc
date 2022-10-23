@@ -28,7 +28,9 @@ def main(args, parser, extra, subparser):
         args.settings_file = defaults.default_settings_file
 
     validate = True if not command == "edit" else False
-    cli = get_client(quiet=args.quiet, settings_file=args.settings_file, validate=validate)
+    cli = get_client(
+        quiet=args.quiet, settings_file=args.settings_file, validate=validate
+    )
 
     # For each new setting, update and save!
     if command == "inituser":

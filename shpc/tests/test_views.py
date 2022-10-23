@@ -65,7 +65,9 @@ def test_views(tmp_path, module_sys, module_file, container_tech, remote):
 
     # Get the view from the client
     view = client.views[view_name]
-    assert view.path == os.path.join(tmp_path, "views", "mpi") and os.path.exists(view.path)
+    assert view.path == os.path.join(tmp_path, "views", "mpi") and os.path.exists(
+        view.path
+    )
     assert os.path.exists(view.config_path)
 
     # The config is loaded already at view._config
@@ -101,7 +103,9 @@ def test_views(tmp_path, module_sys, module_file, container_tech, remote):
     # But not the module!
     assert "ghcr.io" in os.listdir(client.settings.module_base)
     assert "autamus" in os.listdir(os.path.join(client.settings.module_base, "ghcr.io"))
-    assert "emacs" in os.listdir(os.path.join(client.settings.module_base, "ghcr.io", "autamus"))
+    assert "emacs" in os.listdir(
+        os.path.join(client.settings.module_base, "ghcr.io", "autamus")
+    )
 
     # Before adding any attributes, this file should not exist
     assert not os.path.exists(view.module_path)

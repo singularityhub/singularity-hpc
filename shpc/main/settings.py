@@ -62,7 +62,8 @@ class SettingsBase:
             os.makedirs(user_home)
         if os.path.exists(defaults.user_settings_file):
             logger.exit(
-                "%s already exists! Remove first before re-creating." % defaults.user_settings_file
+                "%s already exists! Remove first before re-creating."
+                % defaults.user_settings_file
             )
         shutil.copyfile(self.settings_file, defaults.user_settings_file)
         logger.info("Created user settings file %s" % defaults.user_settings_file)
@@ -89,7 +90,9 @@ class SettingsBase:
         if not editor:
             editor = self._find_editor(self.config_editor)
         if not editor:
-            logger.exit("No editors found! Update with shpc config set config_editor:<name>")
+            logger.exit(
+                "No editors found! Update with shpc config set config_editor:<name>"
+            )
 
         utils.run_command([editor, settings_file], stream=True)
 
@@ -179,7 +182,9 @@ class SettingsBase:
             self._settings[key] = OrderedList()
             [self._settings[key].append(x) for x in current]
             self.change_validate(key, value)
-            logger.warning("Warning: Check with shpc config edit - ordering of list can change.")
+            logger.warning(
+                "Warning: Check with shpc config edit - ordering of list can change."
+            )
 
     def remove(self, key, value):
         """
@@ -193,7 +198,9 @@ class SettingsBase:
         current.pop(current.index(value))
         self._settings[key] = current
         self.change_validate(key, current)
-        logger.warning("Warning: Check with shpc config edit - ordering of list can change.")
+        logger.warning(
+            "Warning: Check with shpc config edit - ordering of list can change."
+        )
 
     def parse_boolean(self, value):
         """
@@ -254,7 +261,9 @@ class SettingsBase:
         try:
             self.validate()
         except jsonschema.exceptions.ValidationError as error:
-            logger.exit("%s:%s cannot be added to config: %s" % (key, value, error.message))
+            logger.exit(
+                "%s:%s cannot be added to config: %s" % (key, value, error.message)
+            )
 
     @property
     def filesystem_registry(self):
@@ -352,12 +361,17 @@ class SettingsBase:
             elif len(param) == 2:
                 key, value = param
             elif len(param) != 2:
-                logger.exit(f"When providing a list, it must be a [key, value]. Found {param}")
+                logger.exit(
+                    f"When providing a list, it must be a [key, value]. Found {param}"
+                )
 
         # With a string, assume splittling by :
         if isinstance(param, str):
             if ":" not in param:
-                logger.exit("Param %s is missing a :, should be key:value pair. Skipping." % param)
+                logger.exit(
+                    "Param %s is missing a :, should be key:value pair. Skipping."
+                    % param
+                )
             key, value = param.rsplit(":", 1)
 
         if command == "set":

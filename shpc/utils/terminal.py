@@ -15,7 +15,8 @@ def ensure_no_extra(extra):
     """
     if extra:
         logger.exit(
-            "Extra arguments provided that are not known to this command: %s" % " ".join(extra)
+            "Extra arguments provided that are not known to this command: %s"
+            % " ".join(extra)
         )
 
 
@@ -124,4 +125,6 @@ def confirm_uninstall(filename, force=False):
     filename: the file that will be removed
     force: if the user wants to skip the prompt
     """
-    return confirm_action("Are you sure you want to uninstall {}".format(filename), force)
+    return confirm_action(
+        "Are you sure you want to uninstall {}".format(filename), force
+    )

@@ -110,7 +110,9 @@ class Registry:
         Given a module name (or None for all modules) update container.yaml files.
         """
         if not config_file:
-            return self._sync(name, dryrun, tag, upgrade_all, add_new, local, sync_registry)
+            return self._sync(
+                name, dryrun, tag, upgrade_all, add_new, local, sync_registry
+            )
         cfg = shpc.utils.read_yaml(config_file)
         jsonschema.validate(cfg, shpc.main.schemas.extraConfig)
         for local, sync_registry in cfg["sync_registry"].items():
@@ -195,7 +197,9 @@ class Registry:
                 updates = True
                 logger.info("%s will be added newly." % module)
                 if not dryrun:
-                    update_container_module(module, from_path, os.path.join(local.source, module))
+                    update_container_module(
+                        module, from_path, os.path.join(local.source, module)
+                    )
 
         if not updates:
             logger.info("There were no upgrades.")

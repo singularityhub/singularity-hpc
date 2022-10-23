@@ -124,7 +124,9 @@ class Logger:
         callerframerecord = inspect.stack()[1]
         frame = callerframerecord[0]
         info = inspect.getframeinfo(frame)
-        self.debug("{}: {info.filename}, {info.function}, {info.lineno}".format(msg, info=info))
+        self.debug(
+            "{}: {info.filename}, {info.function}, {info.lineno}".format(msg, info=info)
+        )
 
     def yellow(self, msg):
         self.handler(dict(level="info", msg=msg))
@@ -172,7 +174,9 @@ class Logger:
             total = msg["total"]
             p = done / total
             percent_fmt = ("{:.2%}" if p < 0.01 else "{:.0%}").format(p)
-            self.logger.info("{} of {} steps ({}) done".format(done, total, percent_fmt))
+            self.logger.info(
+                "{} of {} steps ({}) done".format(done, total, percent_fmt)
+            )
         elif level == "shellcmd":
             if self.printshellcmds:
                 self.logger.warning(msg["msg"])

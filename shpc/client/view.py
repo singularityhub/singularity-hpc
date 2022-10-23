@@ -29,7 +29,9 @@ def create_from_file(
     if not os.path.exists(filename):
         logger.exit("%s does not exist." % filename)
 
-    view_handler = views.ViewsHandler(settings_file=settings_file, module_sys=module_sys)
+    view_handler = views.ViewsHandler(
+        settings_file=settings_file, module_sys=module_sys
+    )
     view_handler.settings.update_params(config_params)
 
     # Create the view
@@ -80,11 +82,14 @@ def main(args, parser, extra, subparser):
     command = args.params.pop(0)
     if command not in valid_commands:
         logger.exit(
-            "%s is not a valid command. Choices are: %s" % (command, ",".join(valid_commands))
+            "%s is not a valid command. Choices are: %s"
+            % (command, ",".join(valid_commands))
         )
 
     # The view handler is to create / delete
-    view_handler = views.ViewsHandler(settings_file=args.settings_file, module_sys=args.module_sys)
+    view_handler = views.ViewsHandler(
+        settings_file=args.settings_file, module_sys=args.module_sys
+    )
     view_handler.settings.update_params(args.config_params)
 
     # If command is list and no view name, list views available

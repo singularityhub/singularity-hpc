@@ -119,7 +119,9 @@ shpc -c rm:registry:/tmp/registry""",
     # List installed modules
     listing = subparsers.add_parser("list", description="list installed modules.")
     listing.add_argument("pattern", help="filter to a pattern", nargs="?")
-    listing.add_argument("--names-only", help="omit versions", default=False, action="store_true")
+    listing.add_argument(
+        "--names-only", help="omit versions", default=False, action="store_true"
+    )
 
     listing.add_argument(
         "--short",
@@ -129,9 +131,13 @@ shpc -c rm:registry:/tmp/registry""",
     )
 
     # List local containers and collections
-    inspect = subparsers.add_parser("inspect", description="inspect an installed module image.")
+    inspect = subparsers.add_parser(
+        "inspect", description="inspect an installed module image."
+    )
     inspect.add_argument("module_name", help="module to inspect")
-    inspect.add_argument("--json", help="dump metadata as json", default=False, action="store_true")
+    inspect.add_argument(
+        "--json", help="dump metadata as json", default=False, action="store_true"
+    )
     inspect.add_argument(
         "--runscript", help="show the runscript", default=False, action="store_true"
     )
@@ -156,7 +162,9 @@ shpc -c rm:registry:/tmp/registry""",
         nargs="?",
     )
 
-    check = subparsers.add_parser("check", description="check if you have latest installed.")
+    check = subparsers.add_parser(
+        "check", description="check if you have latest installed."
+    )
     check.add_argument("module_name", help="module to check (module:version)")
 
     view = subparsers.add_parser(
@@ -219,7 +227,9 @@ shpc config remove registry /tmp/registry""",
         description="Generate a markdown document for a container registry entry.",
     )
     docgen.add_argument("module_name", help="the module to generate docs for.")
-    docgen.add_argument("--registry-url", help="GitHub repository where registry can be found.")
+    docgen.add_argument(
+        "--registry-url", help="GitHub repository where registry can be found."
+    )
     docgen.add_argument(
         "--branch",
         help="Branch that registry source files live (defaults to main)",
@@ -237,7 +247,9 @@ shpc config remove registry /tmp/registry""",
     # Test a registry entry
     test = subparsers.add_parser("test", description="test a registry entry")
     test.add_argument("module_name", help="the module to test")
-    test.add_argument("--template", help="a custom test.sh template to use.", default=None)
+    test.add_argument(
+        "--template", help="a custom test.sh template to use.", default=None
+    )
     test.add_argument(
         "--stage",
         help="keep the temporary install directory",
@@ -273,13 +285,17 @@ shpc config remove registry /tmp/registry""",
         default=False,
         action="store_true",
     )
-    uninstall.add_argument("uninstall_recipe", help="module to uninstall (module/version)")
+    uninstall.add_argument(
+        "uninstall_recipe", help="module to uninstall (module/version)"
+    )
 
     # Update gets latest tags from OCI registries
     update = subparsers.add_parser(
         "update", description="update a container recipe with new versions"
     )
-    update.add_argument("module_name", help="module to update (no version required)", nargs="?")
+    update.add_argument(
+        "module_name", help="module to update (no version required)", nargs="?"
+    )
     update.add_argument(
         "--filter",
         "-f",
@@ -293,7 +309,9 @@ shpc config remove registry /tmp/registry""",
         "sync-registry",
         description="get latest files and containers from an upstream shpc",
     )
-    sync.add_argument("module_name", help="module to add or sync from upstream", nargs="?")
+    sync.add_argument(
+        "module_name", help="module to add or sync from upstream", nargs="?"
+    )
     sync.add_argument(
         "--tag",
         "-t",
@@ -371,9 +389,15 @@ shpc config remove registry /tmp/registry""",
         nargs="*",
     )
 
-    show = subparsers.add_parser("show", description="show the config for a registry entry.")
-    show.add_argument("--versions", help="include versions", default=False, action="store_true")
-    show.add_argument("name", help="the name of the container config to show", nargs="?")
+    show = subparsers.add_parser(
+        "show", description="show the config for a registry entry."
+    )
+    show.add_argument(
+        "--versions", help="include versions", default=False, action="store_true"
+    )
+    show.add_argument(
+        "name", help="the name of the container config to show", nargs="?"
+    )
     show.add_argument(
         "-f",
         "--filter",
@@ -430,7 +454,9 @@ def run_shpc():
     # retrieve subparser (with help) from parser
     helper = None
     subparsers_actions = [
-        action for action in parser._actions if isinstance(action, argparse._SubParsersAction)
+        action
+        for action in parser._actions
+        if isinstance(action, argparse._SubParsersAction)
     ]
     for subparsers_action in subparsers_actions:
         for choice, subparser in subparsers_action.choices.items():

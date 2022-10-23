@@ -207,7 +207,9 @@ class ModuleBase(BaseClient):
         config = container.ContainerConfig(
             registry.FilesystemResult(module_name, template), validate=False
         )
-        return self.container.add(module_name, image, config, container_yaml=dest, **kwargs)
+        return self.container.add(
+            module_name, image, config, container_yaml=dest, **kwargs
+        )
 
     def get(self, module_name, env_file=False):
         """
@@ -291,7 +293,9 @@ class ModuleBase(BaseClient):
         image = self.container.get(module_name)
         return self.container.inspect(image)
 
-    def _list_modules(self, base, filename, pattern=None, names_only=False, out=None, short=False):
+    def _list_modules(
+        self, base, filename, pattern=None, names_only=False, out=None, short=False
+    ):
         """
         A shared function to list modules or registry entries.
         """
@@ -336,7 +340,9 @@ class ModuleBase(BaseClient):
         """
         module = self.new_module(module_name)
         if not os.path.exists(module.module_dir):
-            logger.exit("%s does not exist. Is this a known registry entry?" % module.module_dir)
+            logger.exit(
+                "%s does not exist. Is this a known registry entry?" % module.module_dir
+            )
 
         return module.check()
 
@@ -381,7 +387,9 @@ class ModuleBase(BaseClient):
         utils.mkdirp([module.module_dir, module.container_dir])
 
         # Add a .version file to indicate the level of versioning
-        self.versionfile.write(os.path.join(self.settings.module_base, module.uri), module.tag.name)
+        self.versionfile.write(
+            os.path.join(self.settings.module_base, module.uri), module.tag.name
+        )
         if not module.container_path:
             utils.remove_to_base(module.container_dir, self.container_base)
             logger.exit("There was an issue pulling the container for %s" % module.name)
@@ -412,7 +420,9 @@ class ModuleBase(BaseClient):
 
         # A view is a symlink under views_base/$view/$module
         if view_name not in self.views:
-            logger.exit("View %s does not exist, shpc view create %s." % (view_name, view_name))
+            logger.exit(
+                "View %s does not exist, shpc view create %s." % (view_name, view_name)
+            )
 
         # Update view from name to be View to interact with
         view = self.views[view_name]

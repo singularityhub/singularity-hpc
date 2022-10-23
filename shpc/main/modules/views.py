@@ -50,13 +50,18 @@ class ViewModule:
         template = self.template.load("view_module.%s" % self.module_extension)
 
         # Assemble the .view_module.<extension> full path
-        view_module_file = os.path.join(view_dir, get_view_module_path(self.module_extension))
+        view_module_file = os.path.join(
+            view_dir, get_view_module_path(self.module_extension)
+        )
         out = template.render(
             system_modules=view_config["view"].get("system_modules", []),
             depends_on=view_config["view"].get("depends_on", []),
         )
         utils.write_file(view_module_file, out)
-        logger.info("Wrote updated .view_module.%s: %s" % (self.module_extension, view_module_file))
+        logger.info(
+            "Wrote updated .view_module.%s: %s"
+            % (self.module_extension, view_module_file)
+        )
 
 
 class ViewsHandler:
@@ -165,7 +170,9 @@ class ViewsHandler:
         if isinstance(cfg["view"][var_name], list):
             for value in values:
                 if value in cfg["view"][var_name]:
-                    cfg["view"][var_name] = [x for x in cfg["view"][var_name] if x != value]
+                    cfg["view"][var_name] = [
+                        x for x in cfg["view"][var_name] if x != value
+                    ]
                     changes = True
         return changes, cfg
 
@@ -174,7 +181,9 @@ class ViewsHandler:
         Create a new named view. By default, it is empty (no modules)
         """
         if self.exists(name):
-            logger.exit("View %s already exists. Delete it first to re-create it." % name)
+            logger.exit(
+                "View %s already exists. Delete it first to re-create it." % name
+            )
 
         view_root = self.view_path(name)
         utils.mkdir_p(view_root)
@@ -240,7 +249,9 @@ class ViewsHandler:
             logger.exit("View %s does not exist and cannot be deleted." % name)
 
         view_root = self.view_path(name)
-        if not force and not utils.confirm_action("Are you sure you want to delete view %s" % name):
+        if not force and not utils.confirm_action(
+            "Are you sure you want to delete view %s" % name
+        ):
             logger.exit("Not deleting view %s." % view_root)
 
         # This should be all symlinks plus the config
@@ -352,7 +363,8 @@ class View:
         if self.symlink_exists(module_dir):
             if force:
                 logger.info(
-                    "Overwriting view %s install of %s, as requested" % (self.name, module_dir)
+                    "Overwriting view %s install of %s, as requested"
+                    % (self.name, module_dir)
                 )
             elif not utils.confirm_action(
                 "%s in view %s already exists, are you sure you want to overwrite"
