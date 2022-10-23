@@ -29,10 +29,10 @@ A module technology is required in all cases.
 
 📖️ Read the [documentation](https://singularity-hpc.readthedocs.io/en/latest/) 📖️
 ⭐️ Browse the [container module collection](https://singularityhub.github.io/singularity-hpc/) ⭐️
- 
+
 ## 😁️ Contributors 😁️
 
-We use the [all-contributors](https://github.com/all-contributors/all-contributors) 
+We use the [all-contributors](https://github.com/all-contributors/all-contributors)
 tool to generate a contributors graphic below.
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
@@ -63,7 +63,7 @@ tool to generate a contributors graphic below.
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
- 
+
 ## 🎨️ Previous Art 🎨️
 
 There are other tools that you might be interested in!
@@ -71,7 +71,7 @@ There are other tools that you might be interested in!
  - [VA Research Computing](https://www.rc.virginia.edu/userinfo/rivanna/software/containers/) has a similar system, but I couldn't find any code.
  - [Community Collections](https://github.com/community-collections/community-collections)
  - [Spack](https://spack.readthedocs.io/en/latest/module_file_support.html) installs modules for software built from source (not containers).
- 
+
 
 ## License
 

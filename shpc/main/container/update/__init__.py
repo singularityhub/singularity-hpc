@@ -29,9 +29,7 @@ def update_config_tags(config, filters=None):
         current_tags = dict(config.get("tags", {}))
 
         # Now do the same practice as before - try to derive what is latest
-        sorted_tags = filter_versions(
-            list(current_tags.keys()), max_length=len(current_tags)
-        )
+        sorted_tags = filter_versions(list(current_tags.keys()), max_length=len(current_tags))
 
         # Only take the earliest back, e.g., if current tags have 1.3 as earliest
         # do not add a 1.2 we find in versions
@@ -48,11 +46,7 @@ def update_config_tags(config, filters=None):
 
         # Now update current tags
         current_tags.update(
-            {
-                x.vstring: "unknown"
-                for x in recent_versions
-                if x.vstring not in current_tags
-            }
+            {x.vstring: "unknown" for x in recent_versions if x.vstring not in current_tags}
         )
 
         # Get updated hashes
@@ -60,7 +54,7 @@ def update_config_tags(config, filters=None):
         for tag in tags:
             try:
                 digest = get_container_tag(uri, tag)
-            except:
+            except Exception:
                 digest = {tag: current_tags[tag]}
 
             if not digest or digest[tag] == "unknown":
@@ -69,9 +63,7 @@ def update_config_tags(config, filters=None):
                 current_tags[tag] = digest[tag]
 
         # Sort them again, just for versions
-        sorted_tags = filter_versions(
-            list(current_tags.keys()), max_length=len(current_tags)
-        )
+        sorted_tags = filter_versions(list(current_tags.keys()), max_length=len(current_tags))
 
         # Filter down to those with version strings to get latest
         versioned_tags = [x for x in sorted_tags if x.version]

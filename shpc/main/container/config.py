@@ -11,7 +11,7 @@ from shpc.logger import add_prefix, logger, underline
 
 try:
     from ruamel_yaml import YAML
-except:
+except ImportError:
     from ruamel.yaml import YAML
 
 import os
@@ -244,9 +244,7 @@ class ContainerConfig:
             and "gh" not in self.entry._config
             and "path" not in self.entry._config
         ):
-            logger.exit(
-                "A docker, gh, or path field is currently required in the config."
-            )
+            logger.exit("A docker, gh, or path field is currently required in the config.")
         return self.get("docker") or self.get("gh") or self.get("path")
 
     def get(self, key, default=None):
@@ -261,9 +259,7 @@ class ContainerConfig:
             return "docker"
         if self.path:
             return self.path
-        logger.exit(
-            "Cannot identify pull type: one of oras, docker, gh, or path is required."
-        )
+        logger.exit("Cannot identify pull type: one of oras, docker, gh, or path is required.")
 
     def get_uri(self):
         """

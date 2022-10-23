@@ -54,9 +54,7 @@ def test_filesystem_overrides(tmp_path):
     Test custom override files
     """
     alias_container = os.path.join(here, "testdata", "alias-container.yaml")
-    config = container.ContainerConfig(
-        registry.FilesystemResult("python", alias_container)
-    )
+    config = container.ContainerConfig(registry.FilesystemResult("python", alias_container))
 
     # Trying to load over-rides for a tag that doesn't have any should skip
     config.load_override_file("3.9.2-slim")
@@ -80,9 +78,7 @@ def test_filesystem_overrides(tmp_path):
 
     samtools_container = os.path.join(here, "testdata", "samtools", "container.yaml")
 
-    config = container.ContainerConfig(
-        registry.FilesystemResult("samtools", samtools_container)
-    )
+    config = container.ContainerConfig(registry.FilesystemResult("samtools", samtools_container))
     assert len(config.get_aliases()) == 14
     assert not config.env
 
@@ -90,9 +86,7 @@ def test_filesystem_overrides(tmp_path):
     assert len(config.get_aliases()) == 27
     assert not config.env
 
-    config = container.ContainerConfig(
-        registry.FilesystemResult("samtools", samtools_container)
-    )
+    config = container.ContainerConfig(registry.FilesystemResult("samtools", samtools_container))
     config.load_override_file("1.15--h3843a85_0")
     assert len(config.get_aliases()) == 14
     assert "REF_PATH" in config.env
@@ -104,8 +98,6 @@ def test_invalid_overrides(tmp_path):
     Test custom invalid override files
     """
     alias_container = os.path.join(here, "testdata", "alias-container.yaml")
-    config = container.ContainerConfig(
-        registry.FilesystemResult("python", alias_container)
-    )
+    config = container.ContainerConfig(registry.FilesystemResult("python", alias_container))
     with pytest.raises(jsonschema.exceptions.ValidationError):
         config.load_override_file("3.9.4-alpine")

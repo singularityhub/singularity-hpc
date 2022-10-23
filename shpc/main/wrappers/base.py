@@ -19,9 +19,7 @@ class WrapperScript:
     which can be extended for custom named wrapper scripts.
     """
 
-    def __init__(
-        self, wrapper_template, settings, image, container=None, config=None, **kwargs
-    ):
+    def __init__(self, wrapper_template, settings, image, container=None, config=None, **kwargs):
         self.settings = settings
         self.container = container
         self.config = config
@@ -56,10 +54,7 @@ class WrapperScript:
         if self.settings.wrapper_scripts.get("templates"):
             path = self.settings.wrapper_scripts["templates"]
             if not os.path.exists(path):
-                logger.exit(
-                    "%s designated as a templates directory, but it does not exist."
-                    % path
-                )
+                logger.exit("%s designated as a templates directory, but it does not exist." % path)
             template_paths = [path] + template_paths
         return template_paths
 
@@ -90,9 +85,7 @@ class WrapperScript:
             template_file = os.path.join(template_path, self.wrapper_template)
             if os.path.exists(template_file):
                 return {"path": template_file}
-        logger.exit(
-            "%s not found in %s." % (self.wrapper_template, ", ".join(template_paths))
-        )
+        logger.exit("%s not found in %s." % (self.wrapper_template, ", ".join(template_paths)))
 
     def load_template(self, include_container_dir=False):
         """

@@ -103,7 +103,7 @@ def test_wrapper_install(tmp_path, module_sys, module_file, container_tech):
     """
     client = init_client(str(tmp_path), module_sys, container_tech)
 
-    assert client.settings.get("wrapper_scripts:enabled") == True
+    assert client.settings.get("wrapper_scripts:enabled") is True
 
     # Install known tag
     client.install("python:3.9.2-alpine")
@@ -145,7 +145,7 @@ def test_disabled_wrapper_install(tmp_path, module_sys, module_file, container_t
     client = init_client(str(tmp_path), module_sys, container_tech)
 
     client.settings.set("wrapper_scripts:enabled", False)
-    assert client.settings.get("wrapper_scripts:enabled") == False
+    assert client.settings.get("wrapper_scripts:enabled") is False
 
     # Install known tag
     client.install("python:3.9.2-alpine")

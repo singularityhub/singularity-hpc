@@ -31,7 +31,7 @@ RUN curl -LJO https://github.com/cea-hpc/modules/releases/download/v4.7.0/module
     ./configure && \
     make && \
     make install
-    
+
 RUN pip3 install ipython
 WORKDIR /code
 COPY . /code

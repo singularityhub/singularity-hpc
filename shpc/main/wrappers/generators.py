@@ -24,9 +24,7 @@ def alias_wrappers(aliases, default_wrapper, constructor_kwargs):
     for alias in aliases:
         # Allow overriding the template name in the script option
         if custom_wrapper_option_name in alias:
-            wrapper = WrapperScript(
-                alias[custom_wrapper_option_name], **constructor_kwargs
-            )
+            wrapper = WrapperScript(alias[custom_wrapper_option_name], **constructor_kwargs)
             wrapper.load_template(include_container_dir=True)
         elif default_wrapper:
             wrapper = default_wrapper
@@ -95,18 +93,14 @@ def container_wrappers(constructor_kwargs):
     if command == "singularity":
         template_names.update(
             {
-                f"{prefix}-inspect-deffile": os.path.join(
-                    container.command, "inspect-deffile.sh"
-                ),
+                f"{prefix}-inspect-deffile": os.path.join(container.command, "inspect-deffile.sh"),
                 f"{prefix}-inspect-runscript": os.path.join(
                     container.command, "inspect-runscript.sh"
                 ),
             }
         )
     else:
-        template_names.update(
-            {f"{prefix}-inspect": os.path.join(command, "inspect.sh")}
-        )
+        template_names.update({f"{prefix}-inspect": os.path.join(command, "inspect.sh")})
 
     generated = []
     for script, template_name in template_names.items():

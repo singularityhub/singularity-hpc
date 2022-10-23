@@ -40,7 +40,7 @@ class SingularityContainer(ContainerTechnology):
             from spython.main import Client
 
             self.client = Client
-        except:
+        except Exception:
             logger.exit("singularity python (spython) is required to use singularity.")
         super(SingularityContainer, self).__init__()
 
@@ -66,9 +66,7 @@ class SingularityContainer(ContainerTechnology):
         # A container must be present
         sif = glob("%s%s*.sif" % (container_dir, os.sep))
         if not sif:
-            logger.exit(
-                "%s is not a known tag, or does not have a sif binary." % module_name
-            )
+            logger.exit("%s is not a known tag, or does not have a sif binary." % module_name)
 
         # Currently we only allow one container per module folder
         if len(sif) > 1:
@@ -91,8 +89,7 @@ class SingularityContainer(ContainerTechnology):
         # DO NOT call config.tags here, it will add an empty latest
         if tag != "latest" and config._config and tag in config._config["tags"]:
             if not utils.confirm_action(
-                "Tag %s already is defined, are you sure you want to overwrite it? "
-                % tag
+                "Tag %s already is defined, are you sure you want to overwrite it? " % tag
             ):
                 return
 
@@ -112,9 +109,7 @@ class SingularityContainer(ContainerTechnology):
 
         # Final save of config, and tell the user we're done!
         config.save(container_yaml)
-        logger.info(
-            "Registry entry %s was added! Before shpc install, edit:" % module_name
-        )
+        logger.info("Registry entry %s was added! Before shpc install, edit:" % module_name)
         print(container_yaml)
         return container_yaml
 
@@ -192,10 +187,8 @@ class SingularityContainer(ContainerTechnology):
 
             # Add labels, and deffile
             labels = metadata.get("attributes", {}).get("labels")
-            deffile = (
-                metadata.get("attributes", {}).get("deffile", "").replace("\n", "\\n")
-            )
-        except:
+            deffile = metadata.get("attributes", {}).get("deffile", "").replace("\n", "\\n")
+        except Exception:
             metadata = None
             deffile = None
             labels = {}
@@ -338,9 +331,7 @@ class SingularityContainer(ContainerTechnology):
         """
         pull_folder = os.path.dirname(dest)
         name = os.path.basename(dest)
-        image, lines = self.client.pull(
-            uri, name=name, pull_folder=pull_folder, stream=True
-        )
+        image, lines = self.client.pull(uri, name=name, pull_folder=pull_folder, stream=True)
         for line in lines:
             print(line, end="")
         return image
@@ -388,13 +379,8 @@ class SingularityContainer(ContainerTechnology):
         result = utils.run_command(command)
 
         # We can't run on incompatible hosts
-        if (
-            "the image's architecture" in result["message"]
-            and result["return_code"] != 0
-        ):
-            logger.warning(
-                "Cannot run test for incompatible architecture: %s" % result["message"]
-            )
+        if "the image's architecture" in result["message"] and result["return_code"] != 0:
+            logger.warning("Cannot run test for incompatible architecture: %s" % result["message"])
             return 0
 
         # Return code

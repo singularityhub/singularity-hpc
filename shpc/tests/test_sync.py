@@ -69,10 +69,8 @@ def test_sync_from_file(tmp_path):
 
     cfg = {
         "sync_registry": {
-            "%s/tmp/github-shpc"
-            % tmp_path: "https://github.com/singularityhub/shpc-registry",
-            "%s/gitlab-shpc"
-            % tmp_path: "https://gitlab.com/singularityhub/shpc-registry",
+            "%s/tmp/github-shpc" % tmp_path: "https://github.com/singularityhub/shpc-registry",
+            "%s/gitlab-shpc" % tmp_path: "https://gitlab.com/singularityhub/shpc-registry",
         }
     }
     registry_config = os.path.join(tmp_path, "registries.yaml")

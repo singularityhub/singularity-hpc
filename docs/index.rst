@@ -35,7 +35,7 @@ You can use shpc if you are:
 3. a cluster user that simply wants to pull Singularity images as GitHub packages.
 
 The library contains a collection of module recipes that will install containers,
-so you can easily use them or write your own. 
+so you can easily use them or write your own.
 To see the code, head over to the `repository <https://github.com/singularityhub/singularity-hpc/>`_.
 To browse modules available as containers, see `the library <https://singularityhub.github.io/shpc-registry/>`_.
 

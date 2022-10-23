@@ -67,9 +67,7 @@ class FilesystemResult(Result):
         overrides = self._config.get("overrides", {})
         override_file = os.path.join(self.dirname, overrides[tag])
         if not os.path.exists(override_file):
-            logger.warning(
-                f"Override file {override_file} does not exist in {self.dirname}"
-            )
+            logger.warning(f"Override file {override_file} does not exist in {self.dirname}")
             return False
         return True
 
@@ -113,9 +111,7 @@ class Filesystem(Provider):
         for filename in shpc.utils.recursive_find(self.source):
             if not filename.endswith("container.yaml"):
                 continue
-            module_name = (
-                os.path.dirname(filename).replace(self.source, "").strip(os.sep)
-            )
+            module_name = os.path.dirname(filename).replace(self.source, "").strip(os.sep)
 
             # If the user has provided a filter, honor it
             if filter_string and not re.search(filter_string, module_name):

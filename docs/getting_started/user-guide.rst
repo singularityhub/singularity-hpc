@@ -25,7 +25,7 @@ What is a registry?
 A registry consists of a database of local containers configuration files, ``container.yaml``
 files organized in the root of the shpc install in one of the ``registry`` folders. The namespace
 is organized by Docker unique resources identifiers. When you install an identifier
-as we saw above, the container binaries and customized module files are added to 
+as we saw above, the container binaries and customized module files are added to
 the ``module_dir`` defined in your settings, which defaults to ``modules`` in the
 root of the install. You should see the :ref:`getting_started-developer-guide`
 for more information about contributing containers to this registry.
@@ -73,10 +73,10 @@ Also know that by default, we use a remote registry, `shpc-registry on GitHub <h
 Quick Start
 ===========
 
-After  :ref:`getting_started-installation`, and let's say shpc is installed 
+After  :ref:`getting_started-installation`, and let's say shpc is installed
 at ``~/singularity-hpc`` you can edit your settings in ``settings.yaml``.
 Importantly, make sure your shpc install is configured to use the right module
-software, which is typicall lmod or tcl. Here is how to change from the default 
+software, which is typicall lmod or tcl. Here is how to change from the default
 "lmod" to "tcl" and then back:
 
 .. code-block:: console
@@ -90,9 +90,9 @@ Once you have the correct module software indicated, try installing a container:
 .. code-block:: console
 
     $ shpc install python
-    
+
 Make sure that the local ./modules folder can be seen by your module software
-(you can run this in a bash profile or manually, and note that if you want to 
+(you can run this in a bash profile or manually, and note that if you want to
 use Environment Modules, you need to add ``--module-sys tcl``).
 
 .. code-block:: console
@@ -143,7 +143,7 @@ take preference over this one as follows:
 When you create a user settings file (or provide a custom settings file one off to
 the client) the shpc default settings will be read first, and then updated by your file.
 We do this so that if the default file updates and your user settings is missing a variable,
-we still use the default. The defaults in either file are likely suitable for most. For any configuration value 
+we still use the default. The defaults in either file are likely suitable for most. For any configuration value
 that you might set, the following variables are available to you:
 
  - ``$install_dir``: the shpc folder
@@ -172,7 +172,7 @@ variable replacement. A summary table of variables is included below, and then f
      - ["https://github.com/singularityhub/shpc-registry"]
    * - sync_registry
      - A default remote to sync from (is not required to have an API/docs, as it is cloned).
-     - https://github.com/singularityhub/shpc-registry     
+     - https://github.com/singularityhub/shpc-registry
    * - module_base
      - The install directory for modules
      - $root_dir/modules
@@ -277,7 +277,7 @@ supports gpu":
 
     features:
       gpu: true
-     
+
 Given that you are installing a module for a Singularity container, the ``--nv``
 option will be added. Currently, the following features are supported:
 
@@ -325,7 +325,7 @@ your install:
 
 
 This directory will be the base where lua files are added, and containers are stored
-in a directory alongside it. For example, if you were to add a container with unique 
+in a directory alongside it. For example, if you were to add a container with unique
 resource identifier `python/3.8` you would see:
 
 .. code-block:: console
@@ -341,7 +341,7 @@ resource identifier `python/3.8` you would see:
             └── python-3.9.2.sif
 
 Singularity Registry HPC uses this simple directory structure to ensure
-a unique namespace. 
+a unique namespace.
 
 
 Container Images Folder
@@ -367,9 +367,9 @@ Registry
 --------
 
 The registry parameter is a list of one or more registry locations (filesystem
-directories or remote GitHub repositories with the same structure) where shpc will search 
+directories or remote GitHub repositories with the same structure) where shpc will search
 for ``container.yaml`` files. The default registry used to be shipped with shpc, but as of
-version 0.1.0 is provided remotely. This means that by default, you don't need to worry about 
+version 0.1.0 is provided remotely. This means that by default, you don't need to worry about
 updating or syncing recipes - they will always be retrieved from the latest, as the remote registry
 `shpc-registry  <https://github.com/singularityhub/shpc-registry>`_ is automatically updated.
 However, you have several options for managing your own (or updating) recipes.
@@ -394,7 +394,7 @@ any changes.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 It could be the case that you want to start with a remote registry, but keep it locally
-with your own changes or secrets. This is essentially turning a remote registry into a filesystem 
+with your own changes or secrets. This is essentially turning a remote registry into a filesystem
 (local) one. The easiest thing to do here is to clone it to your filesyste, and then add to shpc as a filesystem
 registry.
 
@@ -457,7 +457,7 @@ There are four options:
 Module Names
 ------------
 
-The setting ``module_name`` is a format string in `Jinja2 <https://jinja.palletsprojects.com/en/3.0.x/>`_ 
+The setting ``module_name`` is a format string in `Jinja2 <https://jinja.palletsprojects.com/en/3.0.x/>`_
 that is used to generate your module command names. For each module, in addition
 to aliases that are custom to the module, a set of commands for run, exec,
 shell, inspect, and container are generated. These commands will use the ``module_name`` format string
@@ -484,7 +484,7 @@ A container identifier is parsed as follows:
 So by default, we use tool because it's likely closest to the command that is wanted.
 But let's say you had two versions of samtools - the namespaces would conflict! You
 would want to change your format string to ``{{ repository }}-{{ tool }}`` to be
-perhaps "biocontainers-samtools-exec" and "another-samtools-exec." 
+perhaps "biocontainers-samtools-exec" and "another-samtools-exec."
 If you change the format string to ``{{ tool }}-{{ version }}`` you would see:
 
 .. code-block:: console
@@ -580,7 +580,7 @@ Container-specific scripts you'll want to include in the container.yaml are desc
       podman: docker.sh
 
       # use for singularity aliases
-      singularity: singularity.sh 
+      singularity: singularity.sh
 
 Since these are nested values, to get the current value you can use a ``:`` to separate
 the fields, e.g.,:
@@ -605,7 +605,7 @@ And don't forget you can manually update the file in an editor:
 
 Since different container technologies might expose different environment variables (e.g., ``SINGULARITY_OPTS`` vs ``PODMAN_OPTS``)
 they are organized above based on the container technology. If you want to customize the wrapper script, simply replace the relative paths
-above (e.g., ``singularity.sh``) with an absolute path to a file that will be used instead. For global alias scripts such as these, 
+above (e.g., ``singularity.sh``) with an absolute path to a file that will be used instead. For global alias scripts such as these,
 Singularity HPC will look for:
 
 1. An absolute path first, if found is used first.
@@ -664,7 +664,7 @@ Where are wrapper scripts stored?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Since we don't allow overlap
-of the name of an alias wrapper script (e.g., ``bin/python`` as a wrapper to a python entrypoint) from a custom container wrapper script (e.g., a wrapper script with name "python" under a container.yaml) we can keep them both in the modules directory. If you see a need to put them elsewhere please let us know. 
+of the name of an alias wrapper script (e.g., ``bin/python`` as a wrapper to a python entrypoint) from a custom container wrapper script (e.g., a wrapper script with name "python" under a container.yaml) we can keep them both in the modules directory. If you see a need to put them elsewhere please let us know.
 
 .. _getting_started-commands:
 .. _getting_started-commands-views:
@@ -687,7 +687,7 @@ is consistent and there are no conflicts. However, for views we use a simplified
 meaning the module full names are _just_ the final container name. As an example, ``ghcr.io/autamus/clingo`` in
 a view would simply install to ``clingo``.
 
-Views are installed to the ``views_base`` in your settings, which defaults to 
+Views are installed to the ``views_base`` in your settings, which defaults to
 ``$root_dir/views``. To create a new named view:
 
 
@@ -738,7 +738,7 @@ Installing Modules to a View
 Installing a module means generating a symlink for a module to your view, and with a
 shortened name. We do this assuming that views are always smaller versions of the entire
 module tree, and that we want them to be easier to interact with (e.g., shorter names).
-To make interactions as easy as possible, if you install a module to your view that does 
+To make interactions as easy as possible, if you install a module to your view that does
 not exist in the main shpc tree, it will be installed there first and linked. When you
 ask to install a module, always refer to the full name:
 
@@ -870,7 +870,7 @@ we load a view module named mpi, we always want to load a system module named "o
     $ shpc view add <view> system_modules <name1> <name2>
     $ shpc view add mpi system_modules openmpi mymod
     Wrote updated .view_module: /home/vanessa/Desktop/Code/shpc/views/mpi/.view_module
-    
+
 The add command always requires a named view attribute (e.g.,``system_modules`` is a list) and
 then one or more values to add to it. This will write the view module to your view,
 and the module file symlinked should always attempt to try loading it. Note that if you are using
@@ -906,7 +906,7 @@ The syntax is the same, however you specify a different key to add to:
 
 When you add a ``depends_on`` or ``system_modules`` to a view, what we are doing under
 the hood is adding a ``.view_module`` that will be loaded with the view, and it includes these
-extra parameters. 
+extra parameters.
 
 .. code-block:: console
 
@@ -916,7 +916,7 @@ extra parameters.
       ├── view.yaml
       ├── .view_module
       └── 3.11-rc.lua -> /home/vanessa/Desktop/Code/shpc/modules/python/3.11-rc/module.lua
-        
+
 Here are example contents of ``.view_module`` (this will vary depending on your module software):
 
 .. code-block:: tcl
@@ -1054,7 +1054,7 @@ You can also open the config in the editor defined in settings at ``config_edito
 .. code-block:: console
 
     $ shpc config edit
-    
+
 
 which will first look at the environment variables ``$EDITOR`` and ``$VISUAL`` and will
 fall back to the ``config_editor`` in your user settings (vim by default).
@@ -1120,12 +1120,12 @@ Install
 
 
 And then you can install a version that you like (or don't specify to default to
-the latest, which in this case is 3.9.2-slim). You will see the container pulled, 
-and then a message to indicate that the module was created. 
+the latest, which in this case is 3.9.2-slim). You will see the container pulled,
+and then a message to indicate that the module was created.
 
 
 .. code-block:: console
-    
+
     $ shpc install python
     ...
     Module python/3.9.2 is created.
@@ -1144,14 +1144,14 @@ and then a message to indicate that the module was created.
     └── python
         └── 3.9.2
             └── python-3.9.2.sif
-    
+
 
 You can also install a specific tag (as shown in list).
-    
+
 .. code-block:: console
 
     $ shpc install python:3.9.2-alpine
-    
+
 
 Note that Lmod is the default for the module system, and Singularity for
 the container technology.
@@ -1199,7 +1199,7 @@ And then instead of asking to install clingo as follows:
 .. code-block:: console
 
     $ shpc install ghcr.io/autamus/clingo
-    
+
 
 You can simply ask for:
 
@@ -1207,8 +1207,8 @@ You can simply ask for:
 .. code-block:: console
 
     $ shpc install clingo
-    
-    
+
+
 And when you are done, unset the namespace.
 
 
@@ -1289,7 +1289,7 @@ updated tags. An update generally means that:
  - We sort the list, and given duplicates of some major minor (ignoring the last part of): ``<major>.<minor>.<ignored>`` we take the first seen in the sorted list.
  - Then we take the top 5 newest to add.
  - We then filter down to not include any versions older than the current oldest in the container.yaml
- 
+
 This action is run automatically on CI for you, however it's just done once a month and you are welcome to run it on your own, and contribute
 changes to container.yaml files that you think are meaningful. To update one container
 module recipe in the registry:
@@ -1362,10 +1362,10 @@ and filter) is needed.
 Sync Registry
 -------------
 
-A sync is when we take your local filesystem registry, and retrieve updates from the remote defined at 
+A sync is when we take your local filesystem registry, and retrieve updates from the remote defined at
 ``sync_registry`` in your settings.yaml. Since sync will be writing recipes to the filesystem
 it only works if you target a filesystem registry (meaning that the default registry
-as a remote will not work). 
+as a remote will not work).
 
 .. note::
 
@@ -1378,7 +1378,7 @@ As an example, if we do this without changing the defaults:
 .. code-block:: console
 
     $ shpc sync-registry
-    This command is only supported for a filesystem registry! Add one or use --registry.    
+    This command is only supported for a filesystem registry! Add one or use --registry.
 
 We can then make a dummy directory to support sync. You could also make this directory and add to your settings proper under ``registry``.
 
@@ -1387,25 +1387,25 @@ We can then make a dummy directory to support sync. You could also make this dir
     $ mkdir -p ./registry
     $ shpc sync-registry --registry ./registry
 
-Will compare your main registry folder against the main branch and only add new recipes 
+Will compare your main registry folder against the main branch and only add new recipes
 that you do not have. To ask to update from a specific reference (tag or branch):
 
 .. code-block:: console
 
     $ shpc sync-registry --registry ./registry --tag 0.0.58
-    
+
 You can also ask to add just a specific container:
 
 .. code-block:: console
 
     $ shpc sync-registry --registry ./registry quay.io/not-local/container
-        
-You can also ask to add new containers and completely update container.yaml files. 
+
+You can also ask to add new containers and completely update container.yaml files.
 
 .. code-block:: console
 
     $ shpc sync-registry --registry ./registry --all
-    
+
 This means we do a side by side comparison of your filesystem registry and the upstream, and we add new
 recipes folders that you don't have, and we replace any upstream files into recipes that you do have.
 Be careful with this option, as if you've made changes to a container.yaml or associated
@@ -1501,7 +1501,7 @@ can do:
     $ shpc test python
 
 
-If you don't have it, you can run tests in the provided docker container. 
+If you don't have it, you can run tests in the provided docker container.
 
 .. code-block:: console
 
@@ -1614,8 +1614,8 @@ And then you are ready to go!
 
 .. code-block:: console
 
-    $ singularity shell singularityhub-singularity-deploy.latest.sif 
-    Singularity> 
+    $ singularity shell singularityhub-singularity-deploy.latest.sif
+    Singularity>
 
 
 See the `Singularity Deploy <https://github.com/singularityhub/singularity-deploy>`_ repository
@@ -1636,11 +1636,11 @@ If you want a quick way to shell into an installed module's container
     $ shpc shell vanessa/salad:latest
     Singularity> /code/salad fork
 
-     My life purpose: I cut butter.  
-    
+     My life purpose: I cut butter.
+
                        ________  .====
                       [________>< :===
-                                 '==== 
+                                 '====
 
 
 
@@ -1754,8 +1754,8 @@ Add
 
 It might be the case that you have a container locally, and you want to
 make it available as a module (without pulling it from a registry). You might also
-have a container on Docker Hub that you want to contribute to the registry! 
-shpc does support the "add" command to perform both of these functions. 
+have a container on Docker Hub that you want to contribute to the registry!
+shpc does support the "add" command to perform both of these functions.
 The steps for adding a container are:
 
 1. Running ``shpc add`` to create a container.yaml in the registry namespace
@@ -1783,14 +1783,14 @@ For any of the commands below you can create a local registry very easily - it's
 .. code-block:: console
 
     $ mkdir -p registry
-    
+
 And then use it via a one off command to add, e.g.,:
 
 .. code-block:: console
 
     $ shpc add --registry ./registry docker://vanessa/pokemon
 
-    
+
 Add a Local Container
 ^^^^^^^^^^^^^^^^^^^^^
 
@@ -1808,7 +1808,7 @@ At this point, you should open up the container.yaml generated and edit to your 
 This usually means updating the description, maintainer, aliases, and possibly providing a url
 to find more information or support. Also notice we've provided the tag to be latest. If you update this registry
 entry in the future with a new version, you'll want to provide a new tag. If you provide
-an existing tag, you'll be asked to confirm before continuing. When you are happy, 
+an existing tag, you'll be asked to confirm before continuing. When you are happy,
 it's time to install it, just as you would a regular container!
 
 .. code-block:: console

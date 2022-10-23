@@ -64,4 +64,3 @@ shpc.main.modules.tcl
     :members:
     :undoc-members:
     :show-inheritance:
-

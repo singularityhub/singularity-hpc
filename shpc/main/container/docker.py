@@ -29,8 +29,7 @@ class DockerContainer(ContainerTechnology):
     def __init__(self):
         if shpc.utils.which(self.command)["return_code"] != 0:
             logger.exit(
-                "%s is required to use the '%s' base."
-                % (self.command.capitalize(), self.command)
+                "%s is required to use the '%s' base." % (self.command.capitalize(), self.command)
             )
         super(DockerContainer, self).__init__()
 
@@ -45,10 +44,7 @@ class DockerContainer(ContainerTechnology):
         """
         Interactive shell into a container image.
         """
-        os.system(
-            "%s run -it --rm --entrypoint %s %s"
-            % (self.command, self.shell_path, image)
-        )
+        os.system("%s run -it --rm --entrypoint %s %s" % (self.command, self.shell_path, image))
 
     def add_registry(self, uri):
         """
@@ -162,8 +158,7 @@ class DockerContainer(ContainerTechnology):
                 logger.info("⭐️ tag %s is up to date. ⭐️" % config.tag.name)
             else:
                 logger.exit(
-                    "👉️ tag %s can be updated to %s! 👈️"
-                    % (module_name, config.latest.name)
+                    "👉️ tag %s can be updated to %s! 👈️" % (module_name, config.latest.name)
                 )
 
     def test_script(self, image, test_script):
@@ -203,9 +198,7 @@ class DockerContainer(ContainerTechnology):
         # Do we want to clean up other versions here too?
         manifest = self.inspect(module.container_path)
         if not manifest:
-            sys.exit(
-                "Container %s was not found. Was it pulled?" % module.container_path
-            )
+            sys.exit("Container %s was not found. Was it pulled?" % module.container_path)
 
         labels = manifest[0].get("Labels", {})
 

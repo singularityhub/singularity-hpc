@@ -61,9 +61,7 @@ def get_client(quiet=False, **kwargs):
 
     # Give the user a warning:
     if not shpc.utils.check_install(container):
-        logger.warning(
-            "%s is not installed, functionality might be limited." % container.upper()
-        )
+        logger.warning("%s is not installed, functionality might be limited." % container.upper())
 
     # Pass on settings and container to module too
     Client.quiet = quiet

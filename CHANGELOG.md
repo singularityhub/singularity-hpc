@@ -104,4 +104,3 @@ The versions coincide with releases on pip. Only major versions will be released
  - Bugfix and better documentation for show/pull/list (0.0.13)
  - Adding support for pull from a GitHub release! (0.0.11)
  - Initial creation of project (0.0.1)
-

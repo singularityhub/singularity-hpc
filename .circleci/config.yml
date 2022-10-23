@@ -65,7 +65,7 @@ install_podman: &install_podman
     wget -nv https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable/xUbuntu_${VERSION_ID}/Release.key -O- | sudo apt-key add -
     sudo apt-get update -qq
     sudo apt-get -qq -y install podman
- 
+
 install_dependencies: &install_dependencies
   name: install dependencies
   command: |-
@@ -87,7 +87,7 @@ install_dependencies: &install_dependencies
 
 test_shpc: &test_shpc
   name: Test Singularity Registry HPC
-  command: |- 
+  command: |-
       export PATH=~/conda/Python3/bin:$PATH
       python --version
       cd ~/repo

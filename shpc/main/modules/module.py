@@ -4,6 +4,7 @@ __license__ = "MPL 2.0"
 
 import os
 import shutil
+
 from shpc.logger import logger
 
 
@@ -72,9 +73,7 @@ class Module:
 
         # If we have a sif URI provided by path, the container needs to exist
         if self.config.path:
-            self._container_path = os.path.join(
-                self.config.entry.dirname, self.config.path
-            )
+            self._container_path = os.path.join(self.config.entry.dirname, self.config.path)
             if not os.path.exists(self._container_path):
                 logger.exit(
                     "Expected container defined by path %s not found in %s."
