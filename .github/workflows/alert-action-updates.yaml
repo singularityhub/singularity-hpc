@@ -3,7 +3,7 @@ on:
   pull_request: []
   schedule:
     # 1st of June, so it's summer and you aren't busy, right?
-    - cron: "0 0 2 6 *"
+    - cron: "0 0 1 6 *"
 
 jobs:
   test-detect:
@@ -13,6 +13,6 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
       - name: Detect and Update
-        uses: vsoch/action-updater@add/action-container
+        uses: vsoch/action-updater@main
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
