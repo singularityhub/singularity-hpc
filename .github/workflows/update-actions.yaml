@@ -1,0 +1,19 @@
+name: Update Actions Once a Year
+on:
+  # This is just for testing the action (will be removed)
+  pull_request: []
+  schedule:
+    # 1st of June, so it's summer and you aren't busy, right?
+    - cron: "0 0 1 6 *"
+
+jobs:
+  test-detect:
+    name: Update Actions
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Detect and Update
+        uses: vsoch/action-updater@add/action-container
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
