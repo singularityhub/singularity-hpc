@@ -76,7 +76,7 @@ Quick Start
 After  :ref:`getting_started-installation`, and let's say shpc is installed
 at ``~/singularity-hpc`` you can edit your settings in ``settings.yaml``.
 Importantly, make sure your shpc install is configured to use the right module
-software, which is typicall lmod or tcl. Here is how to change from the default
+software, which is typically lmod or tcl. Here is how to change from the default
 "lmod" to "tcl" and then back:
 
 .. code-block:: console
