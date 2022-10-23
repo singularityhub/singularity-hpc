@@ -12,11 +12,11 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
-      - name: Tributors Update      
+      - name: Tributors Update
         uses: con/tributors@0.0.21
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:        
+        with:
           parsers: unset
           update_lookup: github
           log_level: DEBUG

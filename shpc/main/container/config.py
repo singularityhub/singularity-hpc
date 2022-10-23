@@ -11,7 +11,7 @@ from shpc.logger import add_prefix, logger, underline
 
 try:
     from ruamel_yaml import YAML
-except:
+except ImportError:
     from ruamel.yaml import YAML
 
 import os

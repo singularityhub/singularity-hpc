@@ -47,10 +47,10 @@ proc ModulesHelp { } {
 # Environment - only set if not already defined
 if { ![info exists ::env(SINGULARITY_OPTS)] } {
     setenv SINGULARITY_OPTS ""
-} 
+}
 if { ![info exists ::env(SINGULARITY_COMMAND_OPTS)] } {
     setenv SINGULARITY_COMMAND_OPTS ""
-} 
+}
 
 # Variables
 
@@ -83,7 +83,7 @@ setenv SINGULARITY_CONTAINER "${containerPath}"
 set shellCmd "singularity \${SINGULARITY_OPTS} shell \${SINGULARITY_COMMAND_OPTS} -s {{ settings.singularity_shell }} {% if features.gpu %}{{ features.gpu }} {% endif %}{% if features.home %}-B {{ features.home | replace("$", "\$") }} --home {{ features.home | replace("$", "\$") }} {% endif %}{% if features.x11 %}-B {{ features.x11 | replace("$", "\$") }} {% endif %}{% if settings.environment_file %}-B ${moduleDir}/{{ settings.environment_file }}:/.singularity.d/env/{{ settings.environment_file }}{% endif %} {% if settings.bindpaths %}-B {{ settings.bindpaths }}{% endif %} ${containerPath}"
 set execCmd "singularity \${SINGULARITY_OPTS} exec \${SINGULARITY_COMMAND_OPTS} {% if features.gpu %}{{ features.gpu }} {% endif %}{% if features.home %}-B {{ features.home | replace("$", "\$") }} --home {{ features.home | replace("$", "\$") }} {% endif %}{% if features.x11 %}-B {{ features.x11 | replace("$", "\$") }} {% endif %}{% if settings.environment_file %}-B ${moduleDir}/{{ settings.environment_file }}:/.singularity.d/env/{{ settings.environment_file }}{% endif %} {% if settings.bindpaths %}-B {{ settings.bindpaths }}{% endif %} "
 set runCmd "singularity \${SINGULARITY_OPTS} run \${SINGULARITY_COMMAND_OPTS} {% if features.gpu %}{{ features.gpu }} {% endif %}{% if features.home %}-B {{ features.home | replace("$", "\$") }} --home {{ features.home | replace("$", "\$") }} {% endif %}{% if features.x11 %}-B {{ features.x11 | replace("$", "\$") }} {% endif %}{% if settings.environment_file %}-B ${moduleDir}/{{ settings.environment_file }}:/.singularity.d/env/{{ settings.environment_file }}{% endif %} {% if settings.bindpaths %}-B {{ settings.bindpaths }}{% endif %} ${containerPath}"
-set inspectCmd "singularity \${SINGULARITY_OPTS} inspect \${SINGULARITY_COMMAND_OPTS} " 
+set inspectCmd "singularity \${SINGULARITY_OPTS} inspect \${SINGULARITY_COMMAND_OPTS} "
 
 # if we have any wrapper scripts, add bin to path
 {% if wrapper_scripts %}prepend-path PATH "${moduleDir}/bin"{% endif %}

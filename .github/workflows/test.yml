@@ -81,7 +81,7 @@ jobs:
           shpc config set enable_tty:false
 
           printf "\n\shpc test ============================================\n"
-          shpc test python:3.9.5-alpine          
+          shpc test python:3.9.5-alpine
 
           shpc install python:3.9.5-alpine
 
@@ -118,7 +118,7 @@ jobs:
 
           shpc uninstall --force python:3.9.5-alpine
           shpc view --force delete noodles
- 
+
       - name: Run python module tests (tcsh)
         shell: tcsh -e {0}
         env:

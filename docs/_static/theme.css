@@ -24,76 +24,75 @@
    .wy-side-nav-search a {
        visibility: hidden;
    }
-   
+
     /* Vertical navigation
    ==================================================== */
        .wy-menu-vertical header,
        .wy-menu-vertical p.caption,
        .rst-versions a{
-       color: darkred;   
+       color: darkred;
    }
-   
+
    .wy-menu-vertical a.reference:hover,
    .wy-menu-vertical a.reference.internal:hover{
-       background: #3486bc;   
+       background: #3486bc;
        color: #fff;
    }
-   
+
    .wy-nav-side {
-       background: rgb(240,240,240);   
+       background: rgb(240,240,240);
    }
-   
+
    .wy-menu-vertical a.reference {
        color: #000;
    }
-   
+
    .rst-versions .rst-current-version,
    .wy-nav-top,
    .wy-menu-vertical li.toctree-l2.current li.toctree-l3>a:hover {
        background: #f0001e;
        color: #fee;
    }
-   
+
    /* Main content
    ==================================================== */
-   
+
    .wy-nav-content .highlight,
    .wy-nav-content .rst-content .warning {
        background: #FEE;
    }
-   
+
    .wy-nav-content .rst-content .warning .admonition-title {
-        background: #44CC11;    
+        background: #44CC11;
    }
-   
+
    .wy-nav-content .highlight .kn {
-       color: #bea2bf;  
+       color: #bea2bf;
    }
-   
+
    .wy-nav-content .highlight .nn,
    .wy-nav-content a.fa,
    .rst-content dl:not(.docutils) dt,
    .wy-nav-content .admonition.warning a {
-       color: darkred;  
+       color: darkred;
    }
-   
+
    .wy-nav-content a.reference {
        color: darkred;
        text-decoration: underline;
    }
-   
+
    .wy-nav-content .rst-content dl:not(.docutils) dt {
        background: lightblue;
        border-top: solid 3px #3486bc;;
    }
-   
+
     /* Footer
    ==================================================== */
    .wy-nav-content footer a  {
-       color: darkred;    
+       color: darkred;
    }
 
    .keep-us-sustainable {
        background-color: #333333;
    }
-   

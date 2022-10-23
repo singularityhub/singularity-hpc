@@ -4,7 +4,7 @@
 Installation
 ============
 
-Singularity Registry HPC (shpc) can be installed from pypi, or from source. 
+Singularity Registry HPC (shpc) can be installed from pypi, or from source.
 In all cases, a module technology is required such as `lmod (install intstructions) <https://lmod.readthedocs.io/en/latest/030_installing.html>`_
 or `environment modules (install instructions) <https://modules.readthedocs.io/en/latest/INSTALL.html>`_.
 Having module software installed means that the ``module`` command should be on your path.
@@ -56,7 +56,7 @@ change it). Installation of singularity-hpc adds an executable, `shpc` to your p
 
 This executable should be accessible by an administrator, or anyone that you want
 to be able to manage containers. Your user base will be interacting with your
-containers via Lmod, so they do not need access to `shpc`. 
+containers via Lmod, so they do not need access to `shpc`.
 If you are a user creating your own folder of modules, you can add them
 to your module path.
 
@@ -75,12 +75,12 @@ recipes will come from the remote registry `shpc-registry <https://github.com/si
 then you can define ``container_base`` to be somewhere else. You
 can change these easily with ``shpc config``, as they are defined via these
 variables in the config:
- 
+
 
 .. code-block:: console
- 
-    $ shpc config set module_base /<DIR> 
-    $ shpc config set container_base  /<DIR> 
+
+    $ shpc config set module_base /<DIR>
+    $ shpc config set container_base  /<DIR>
 
 
 Also importantly, if you are using environment modules (Tcl) and not LMOD, you need
@@ -96,14 +96,14 @@ You can also easily (manually) update any settings in the ``shpc/settings.yaml``
 
     $ shpc config edit
 
-Take a look at this file for other configuration settings, and see the :ref:`getting-started` 
+Take a look at this file for other configuration settings, and see the :ref:`getting-started`
 pages for next steps for setup and configuration, and interacting with your modules.
 
 .. warning::
 
     You must have your container technology of choice installed and on your $PATH
     to install container modules.
-     
+
 
 Environment Modules
 -------------------

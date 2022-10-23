@@ -65,7 +65,7 @@ to the number of aliases that can be exposed for easy usage.
 
 ## Collaborative Registry for Reproducible Science
 
-Creating a registry entry for a scientific container comes down to writing 
+Creating a registry entry for a scientific container comes down to writing
 a simple `container.yaml` file with basic metadata and description,
 the definition of any and all important entrypoints, and the digests to pull.
 As soon as a researcher puts their container in an online registry and adds the
@@ -79,20 +79,20 @@ documentation and commands available:
 $ module spider samtools
 ```
 
-Every module includes a help section with a description, 
+Every module includes a help section with a description,
 a complete list of commands that map to interactions with the container,
-and a list of environment variables also available. 
+and a list of environment variables also available.
 The module system also provides command line completion, so the user can
 use tabs to autocomplete the module names. Along with the expected commands to
-use the container primary software (e.g., samtools) commands to shell, 
-the software automatically generates alias to inspect, run, shell, or inspect 
+use the container primary software (e.g., samtools) commands to shell,
+the software automatically generates alias to inspect, run, shell, or inspect
 container metadata. E.g., here is the shell command:
 
 ```bash
 $ samtools-shell
 ```
 
-Another compelling example is using a notebook provided by Jupyter Stacks [@cook2017opinionated]. 
+Another compelling example is using a notebook provided by Jupyter Stacks [@cook2017opinionated].
 Running notebooks that can be exposed via networking ports tends to be very complicated.
 A full interaction might look like the following:
 
@@ -113,12 +113,12 @@ exposed as the command "run-notebook":
 $ run-notebook
 ```
 
-which automatically selects a random port, binds the expected directories, and 
+which automatically selects a random port, binds the expected directories, and
 starts the notebook. The registry recipes are collaborative in nature because anyone
 can open a pull request with a new recipe, or request a container be added by opening
 an issue. Automation also ensures that adding and testing new containers, or working on the
 code base is easy. Once a container is added, no further work is needed to update
-versions for it. By way of a GitHub bot [@noauthor_undated-eh], both the latest version and newly available tags are 
+versions for it. By way of a GitHub bot [@noauthor_undated-eh], both the latest version and newly available tags are
 updated automatically, following any filters that the recipe creator has provided for which tags should be added. Finally, on merge to the main branch, the documentation and library are also automatically updated.
 
 ## Conclusion

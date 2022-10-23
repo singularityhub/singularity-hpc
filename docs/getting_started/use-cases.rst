@@ -41,7 +41,7 @@ Make sure that lmod knows about the folder
 .. code-block:: console
 
     $ module use /opt/lmod/shpc
-     
+
 (And likely if you administer an Lmod install you have your preferred way of
 doing this). And then you can use your modules just as you would that are provided on
 your cluster.
@@ -57,16 +57,16 @@ provides, e.g., python and python-shell:
 .. code-block:: console
 
     $ python
-    Python 3.6.9 (default, Oct 8 2020, 12:12:24) 
+    Python 3.6.9 (default, Oct 8 2020, 12:12:24)
     [GCC 8.4.0] on linux
     Type “help”, “copyright”, “credits” or “license” for more information.
     >>> quit()
 
     $ tensorflow-tensorflow-shell
-    ________                _______________         
+    ________                _______________
     ___ __/__________________________________ ____/__ /________   __
     __ / _ _ \_ __ \_ ___/ __ \_ ___/_ /_  __ /_ __ \_ | /| / /
-    _ /  / __/ / / /(__ )/ /_/ / /  _ __/  _ / / /_/ /_ |/ |/ / 
+    _ /  / __/ / / /(__ )/ /_/ / /  _ __/  _ / / /_/ /_ |/ |/ /
     /_/  \___//_/ /_//____/ \____//_/  /_/   /_/ \____/____/|__/
     You are running this container as user with ID 34633 and group 34633,
     which should map to the ID and group for your user on the Docker host. Great!
@@ -106,7 +106,7 @@ registry entries.  If you haven't yet, clone the repository:
 
     $ git clone git@github.com:singularityhub/singularity-hpc.git
     $ cd singularity-hpc
-    
+
 You can then see modules available for install:
 
 
@@ -129,7 +129,7 @@ Finally, you can add the module folder to those that lmod knows about:
 .. code-block:: console
 
     $ module use $HOME/singularity-hpc/modules
-     
+
 And then you can use your modules just as you would that are provided on
 your cluster.
 
@@ -139,10 +139,10 @@ your cluster.
 
 
 An error will typically be printed if there is a conflict with another module name, and it's
-up to you to unload the conflicting module(s) and try again. For this module, 
+up to you to unload the conflicting module(s) and try again. For this module,
 since we didn't use a prefix the container python will be exposed
 as "python" - an easier one to see is "python-shell" - each container exposes
-a shell command so you can quickly get an interactive shell. 
+a shell command so you can quickly get an interactive shell.
 Every installed entry will have it's named suffixed with "shell" if you quickly want
 an interactive session. For example:
 
@@ -170,8 +170,8 @@ loaded, just do:
            singularity shell -s /bin/bash /home/shpc-user/singularity-hpc/modules/python/3.9.2-slim/python-3.9.2-slim-sha256:85ed629e6ff79d0bf796339ea188c863048e9aedbf7f946171266671ee5c04ef.sif
         - python:
            singularity exec /home/shpc-user/singularity-hpc/modules/python/3.9.2-slim/python-3.9.2-slim-sha256:85ed629e6ff79d0bf796339ea188c863048e9aedbf7f946171266671ee5c04ef.sif /usr/local/bin/python”)
-    
-    
+
+
 The above not only shows you the description, but also the commands if you
 need to debug. If you want to see metadata about the container (e.g., labels,
 singularity recipe) then you can do:
@@ -182,7 +182,7 @@ singularity recipe) then you can do:
     python/3.9.2-slim/module             : Name    : python/3.9.2-slim
     python/3.9.2-slim/module             : Version   : module
     python/3.9.2-slim/module             : URL     : https://hub.docker.com/_/python
-    python/3.9.2-slim/module             : Singularity Recipe  : bootstrap: docker 
+    python/3.9.2-slim/module             : Singularity Recipe  : bootstrap: docker
     from: python@sha256:85ed629e6ff79d0bf796339ea188c863048e9aedbf7f946171266671ee5c04ef
     python/3.9.2-slim/module             : org.label-schema.build-arch  : amd64
     python/3.9.2-slim/module             : org.label-schema.build-date  : Sunday_4_April_2021_19:56:56_PDT
@@ -211,8 +211,8 @@ a container intended for gpu will have a features: gpu set to true, and this wil
 it could be the case that you want to define custom options at the time of use.
 In this case, you can export the following custom environment variables to add them:
 
-**SINGULARITY_OPTS**: will provide additional options to the base Singularity command, such as ``--debug``  
-**SINGULARITY_COMMAND_OPTS**: will provide additional options to the command (e.g., exec), such as ``--cleanenv`` or ``--nv``.  
+**SINGULARITY_OPTS**: will provide additional options to the base Singularity command, such as ``--debug``
+**SINGULARITY_COMMAND_OPTS**: will provide additional options to the command (e.g., exec), such as ``--cleanenv`` or ``--nv``.
 
 
 Custom Images that are Added
@@ -224,14 +224,14 @@ user or administrator. First, let's say we pull a container:
 .. code-block:: console
 
     $ singularity pull docker://vanessa/salad
-    
+
 And we add it to our unique namespace in the modules folder:
 
 .. code-block:: console
 
     $ shpc add salad_latest.sif vanessa/salad:latest
-    
-    
+
+
 We can again load the custom module:
 
 .. code-block:: console
@@ -245,7 +245,7 @@ or the same shell, ``vanessa-salad-latest-shell``. Of course you can check this 
 
 .. code-block:: console
 
-    $ module spider vanessa/salad/latest/module 
+    $ module spider vanessa/salad/latest/module
     --------------------------------------------------------------------------------------------------------------------------------------------------------
      vanessa/salad/latest: vanessa/salad/latest/module
     --------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -263,12 +263,12 @@ And then use them! For example, the command without ``-shell`` just runs the con
 .. code-block:: console
 
     $ vanessa-salad-latest
-     You think you have problems? I’m a fork.  
+     You think you have problems? I’m a fork.
                 /\
                //\\
                // \\
              ^  \\ //  ^
-            / \  ) (  / \ 
+            / \  ) (  / \
             ) (  ) (  ) (
             \ \_/ /\ \_/ /
              \__ _)(_ __/
@@ -280,7 +280,7 @@ And then use them! For example, the command without ``-shell`` just runs the con
                | \/ |
                )____(
               /   \
-              \______/ 
+              \______/
 
 
 And the command with shell does exactly that.
@@ -332,8 +332,8 @@ And then you are ready to go!
 
 .. code-block:: console
 
-    $ singularity shell singularityhub-singularity-deploy.latest.sif 
-    Singularity> 
+    $ singularity shell singularityhub-singularity-deploy.latest.sif
+    Singularity>
 
 
 See the `Singularity Deploy <https://github.com/singularityhub/singularity-deploy>`_ repository

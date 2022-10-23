@@ -16,7 +16,7 @@ jobs:
         uses: jitterbit/get-changed-files@b17fbb00bdc0c0f63fcf166580804b4d2cdc2a42
         with:
           format: 'json'
-  
+
   test-recipes:
     needs:
       - changes
@@ -34,10 +34,10 @@ jobs:
           # Continue if we have a changed recipe file
           if [[ "${{ matrix.changed_recipe }}" = registry* ]]; then
             recipe_basename=$(basename "${{ matrix.changed_recipe }}")
-            if [[ "${recipe_basename}" == "container.yaml" ]]; then  
+            if [[ "${recipe_basename}" == "container.yaml" ]]; then
               echo "keepgoing=true" >> $GITHUB_ENV
             fi
-          fi          
+          fi
 
       - name: Checkout
         if: ${{ env.keepgoing == 'true' }}

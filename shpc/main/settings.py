@@ -12,7 +12,7 @@ from shpc.logger import logger
 
 try:
     from ruamel_yaml.comments import CommentedSeq
-except:
+except ImportError:
     from ruamel.yaml.comments import CommentedSeq
 
 import os
@@ -22,11 +22,11 @@ from datetime import datetime
 import jsonschema
 
 
-def OrderedList(*l):
+def OrderedList(*listing):
     """
     Preserve ordering when saved to yaml
     """
-    ret = CommentedSeq(l)
+    ret = CommentedSeq(listing)
     ret.fa.set_flow_style()
     return ret
 

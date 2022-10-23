@@ -35,7 +35,7 @@ For each of the above, you can export:
  - PODMAN_OPTS: to define custom options for {{ command }}
  - PODMAN_COMMAND_OPTS: to define custom options for the command
  - PODMAN_CONTAINER: the container unique resource identifier
-]]) 
+]])
 
 {% include "includes/default_version.lua" %}
 {% include "includes/load_view.lua" %}
@@ -58,7 +58,7 @@ local shellCmd = "{{ command }} ${PODMAN_OPTS} run -i{% if settings.enable_tty %
 -- execCmd needs entrypoint to be the executor
 local execCmd = "{{ command }} ${PODMAN_OPTS} run ${PODMAN_COMMAND_OPTS} -i{% if settings.enable_tty %}t{% endif %} -u `id -u`:`id -g` --rm {% if settings.environment_file %}--env-file " .. moduleDir .. "/{{ settings.environment_file }}{% endif %} {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %} -v ${PWD} -w ${PWD} "
 local runCmd = "{{ command }} ${PODMAN_OPTS} run ${PODMAN_COMMAND_OPTS} -i{% if settings.enable_tty %}t{% endif %} -u `id -u`:`id -g` --rm {% if settings.environment_file %}--env-file " .. moduleDir .. "/{{ settings.environment_file }}{% endif %} {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %} -v ${PWD} -w ${PWD} " .. containerPath
-local inspectCmd = "{{ command }} ${PODMAN_OPTS} inspect ${PODMAN_COMMAND_OPTS} " .. containerPath 
+local inspectCmd = "{{ command }} ${PODMAN_OPTS} inspect ${PODMAN_COMMAND_OPTS} " .. containerPath
 
 -- conflict with modules with the same name
 conflict("{{ parsed_name.tool }}"{% if name != parsed_name.tool %},"{{ module.name }}"{% endif %}{% if aliases %}{% for alias in aliases %}{% if alias.name != parsed_name.tool %},"{{ alias.name }}"{% endif %}{% endfor %}{% endif %})

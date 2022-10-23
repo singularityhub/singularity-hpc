@@ -32,13 +32,13 @@ def test_config(tmp_path):
     assert not client.settings.get("container_features:gpu")
 
     # Boolean
-    assert client.settings.get("wrapper_scripts:enabled") == True
+    assert client.settings.get("wrapper_scripts:enabled") is True
     client.settings.set("wrapper_scripts:enabled", False)
-    assert client.settings.get("wrapper_scripts:enabled") == False
+    assert client.settings.get("wrapper_scripts:enabled") is False
     client.settings.set("wrapper_scripts:enabled", "false")
-    assert client.settings.get("wrapper_scripts:enabled") == False
+    assert client.settings.get("wrapper_scripts:enabled") is False
     client.settings.set("wrapper_scripts:enabled", "TRUE")
-    assert client.settings.get("wrapper_scripts:enabled") == True
+    assert client.settings.get("wrapper_scripts:enabled") is True
 
 
 @pytest.mark.parametrize(

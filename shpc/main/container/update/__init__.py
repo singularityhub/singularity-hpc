@@ -60,7 +60,7 @@ def update_config_tags(config, filters=None):
         for tag in tags:
             try:
                 digest = get_container_tag(uri, tag)
-            except:
+            except Exception:
                 digest = {tag: current_tags[tag]}
 
             if not digest or digest[tag] == "unknown":

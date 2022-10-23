@@ -34,7 +34,7 @@ jobs:
             touch changes.txt
             for container_yaml in $(git diff --name-only HEAD~$commits..HEAD .); do
                 echo $container_yaml >> changes.txt
-            done            
+            done
             cat changes.txt
 
       - name: Update .bashrc

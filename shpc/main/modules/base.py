@@ -18,6 +18,7 @@ import shpc.main.registry as registry
 import shpc.utils as utils
 from shpc.logger import logger
 from shpc.main.client import Client as BaseClient
+
 from .module import Module
 
 

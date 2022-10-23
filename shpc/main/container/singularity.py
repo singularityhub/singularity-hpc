@@ -40,7 +40,7 @@ class SingularityContainer(ContainerTechnology):
             from spython.main import Client
 
             self.client = Client
-        except:
+        except Exception:
             logger.exit("singularity python (spython) is required to use singularity.")
         super(SingularityContainer, self).__init__()
 
@@ -195,7 +195,7 @@ class SingularityContainer(ContainerTechnology):
             deffile = (
                 metadata.get("attributes", {}).get("deffile", "").replace("\n", "\\n")
             )
-        except:
+        except Exception:
             metadata = None
             deffile = None
             labels = {}

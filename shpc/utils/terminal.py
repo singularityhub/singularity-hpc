@@ -33,7 +33,7 @@ def which(software=None, strip_newline=True):
             result["message"] = result["message"].strip("\n")
         return result
 
-    except:  # FileNotFoundError
+    except FileNotFoundError:
         return None
 
 
@@ -51,7 +51,7 @@ def check_install(software, quiet=True, command="--version"):
     cmd = [software, command]
     try:
         version = run_command(cmd, software)
-    except:  # FileNotFoundError
+    except FileNotFoundError:
         return False
     if version:
         if not quiet and version["return_code"] == 0:

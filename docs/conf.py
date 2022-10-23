@@ -13,9 +13,12 @@
 # All configuration values have a default; values that are commented out
 # serve to show the default.
 
-import sys
 import os
+import sys
+
 from recommonmark.parser import CommonMarkParser
+
+from shpc import version
 
 source_parsers = {".md": CommonMarkParser}
 
@@ -61,7 +64,6 @@ master_doc = "index"
 project = "Singularity Registry (HPC)"
 copyright = "2021, Vanessa Sochat"
 
-from shpc import version
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the

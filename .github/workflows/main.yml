@@ -6,14 +6,12 @@ on:
     branches-ignore:
       - main
       - gh-pages
-      - binoc/*
-      - binoc/**
 
 jobs:
   formatting:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
 
       - name: Setup black linter
         run: conda create --quiet --name black pyflakes
@@ -23,15 +21,9 @@ jobs:
         with:
           files: ./docs/getting_started/ ./docs/index.rst
 
-      - name: Lint python code
+      - name: Lint and format Python code
         run: |
           export PATH="/usr/share/miniconda/bin:$PATH"
           source activate black
-          pip install black
-          black --check shpc
-          
-      - name: Check imports with pyflakes
-        run: |
-          export PATH="/usr/share/miniconda/bin:$PATH"
-          source activate black
-          find shpc/ -name '*.py' \! -name __init__.py \! -name shell.py -exec pyflakes \{\} \+
+          pip install -r .github/dev-requirements.txt
+          pre-commit run --all-files

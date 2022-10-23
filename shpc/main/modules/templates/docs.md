@@ -99,7 +99,7 @@ $ singularity inspect -d <container>
 
 {% if aliases %}{% for alias in aliases %}
 #### {{ alias.name }}
-       
+
 ```bash
 $ singularity exec {% if settings.bindpaths %}-B {{ settings.bindpaths }} {% endif %}{% if alias.options %}{{ alias.options }} {% endif %}<container> {{ alias.command }}
 $ podman run --it --rm --entrypoint {{ alias.entrypoint }} {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %} {% if alias.options %}{{ alias.options }} {% endif %} -v ${PWD} -w ${PWD} <container> -c "{{ alias.args }} $@"
@@ -129,7 +129,7 @@ inspect aliases. For anycommands above, you can export:
  - PODMAN_COMMAND_OPTS: to define custom options for the command
 
 <br>
-  
+
 ### Install
 
 You can install shpc locally (for yourself or your user base) as follows:

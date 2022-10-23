@@ -39,10 +39,10 @@ proc ModulesHelp { } {
 # Environment - only set if not already defined
 if { ![info exists ::env(PODMAN_OPTS)] } {
     setenv PODMAN_OPTS ""
-} 
+}
 if { ![info exists ::env(PODMAN_COMMAND_OPTS)] } {
     setenv PODMAN_COMMAND_OPTS ""
-} 
+}
 
 {% include "includes/load_view.tcl" %}
 
@@ -72,12 +72,12 @@ conflict {{ parsed_name.tool }}
 setenv PODMAN_CONTAINER "${containerPath}"
 
 # interactive shell to any container, plus exec for aliases
-set shellCmd "{{ command }} \${PODMAN_OPTS} run \${PODMAN_COMMAND_OPTS} -u `id -u`:`id -g` --rm -i{% if settings.enable_tty %}t{% endif %} --entrypoint {{ shell }} {% if settings.environment_file %}--env-file ${moduleDir}/{{ settings.environment_file }}{% endif %} {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %} -v $workdir -w $workdir ${containerPath}" 
+set shellCmd "{{ command }} \${PODMAN_OPTS} run \${PODMAN_COMMAND_OPTS} -u `id -u`:`id -g` --rm -i{% if settings.enable_tty %}t{% endif %} --entrypoint {{ shell }} {% if settings.environment_file %}--env-file ${moduleDir}/{{ settings.environment_file }}{% endif %} {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %} -v $workdir -w $workdir ${containerPath}"
 
 # execCmd needs entrypoint to be the executor
 set execCmd "{{ command }} \${PODMAN_OPTS} run -i{% if settings.enable_tty %}t{% endif %} \${PODMAN_COMMAND_OPTS} -u `id -u`:`id -g` --rm {% if settings.environment_file %} --env-file ${moduleDir}/{{ settings.environment_file }}{% endif %} {% if settings.bindpaths %}-v {{ settings.bindpaths }}{% endif %}{% if features.home %}-v {{ features.home }} {% endif %} -v $workdir -w $workdir"
 set runCmd "{{ command }} \${PODMAN_OPTS} run -i{% if settings.enable_tty %}t{% endif %} \${PODMAN_COMMAND_OPTS} -u `id -u`:`id -g` --rm {% if settings.environment_file %}--env-file  ${moduleDir}/{{ settings.environment_file }}{% endif %} {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %} -v $workdir -w $workdir ${containerPath}"
-set inspectCmd "{{ command }} \${PODMAN_OPTS} inspect ${containerPath}" 
+set inspectCmd "{{ command }} \${PODMAN_OPTS} inspect ${containerPath}"
 
 # wrapper scripts? Add bin to path
 {% if wrapper_scripts %}prepend-path PATH "${moduleDir}/bin"{% endif %}

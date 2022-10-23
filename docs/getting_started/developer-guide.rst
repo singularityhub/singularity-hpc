@@ -9,6 +9,33 @@ registry entries and building containers. If you haven't read :ref:`getting_star
 you should do that first.
 
 
+Environment
+===========
+
+After installing shpc to a local environment, you can use pre-commit to help
+with linting and formatting. To do that:
+
+
+.. code-block:: console
+
+    $ pip install -r .github/dev-requirements.txt
+
+Then to run:
+
+
+.. code-block:: console
+
+    $ pre-commit run --all-files
+
+You can also install as a hook:
+
+
+.. code-block:: console
+
+    $ pre-commit install
+
+
+
 Developer Commands
 ==================
 
@@ -25,13 +52,13 @@ currently only supports generation for a filesystem registry. E.g., here is how 
 .. code-block:: console
 
     $ shpc docgen --registry . --registry-url https://github.com/singularityhub/shpc-registry python
-    
+
 And you could easily pipe this to a file. Here is how we generate this programatically in a loop:
 
 
 .. code-block:: console
 
-    for module in $(shpc show --registry ../shpc-registry); do          
+    for module in $(shpc show --registry ../shpc-registry); do
         flatname=${module#/}
         name=$(echo ${flatname//\//-})
         echo "Generating docs for $module, _library/$name.md"
@@ -85,7 +112,7 @@ But since latest is already 3.9.2, you could leave out the tag:
     $ shpc install python
 
 
-The module folder will be generated, with the structure discussed in the USer Guide. 
+The module folder will be generated, with the structure discussed in the USer Guide.
 Currently, any new install will re-pull the container only if the hash is different, and only re-create the module otherwise.
 
 Contributing Registry Recipes
@@ -133,7 +160,7 @@ This means (for either) you'll want to clone the original repository:
 
     $ git clone https://github.com/singularityhub/shpc-registry my-registry
     $ cd my-registry
-    
+
 Ensure you do a fetch to get the github pages branch, which deploys the web interface!
 
 .. code-block:: console
@@ -392,7 +419,7 @@ about it. For alias wrapper scripts, the following variables are passed for rend
    * - alias
      - dictionary
      - The entire alias in question, including subfields name, command, singularity_options or docker_options, singularity_script or docker_script, and args
-     - ``{{ alias.name }}`` 
+     - ``{{ alias.name }}``
    * - settings
      - dictionary
      - Everything referenced in the user settings
@@ -418,7 +445,7 @@ about it. For alias wrapper scripts, the following variables are passed for rend
      - A dictionary of parsed features
      - ``{{ features.gpu }}``
 
-     
+
 
 How to write an container wrapper script
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -438,18 +465,18 @@ Templating for both wrapper script types
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Note that you are free to use "snippets" and "bases" either as an inclusion or "extends" meaning you can
-easily re-use code. For example, if we have the following registered directories under ``shpc/main/wrappers/templates`` 
+easily re-use code. For example, if we have the following registered directories under ``shpc/main/wrappers/templates``
 for definition of bases and templates:
 
 .. code-block:: console
 
     main/wrappers/templates/
-    
+
     # These are intended for use with "extends"
     ├── bases
     │   ├── __init__.py
     │   └── shell-script-base.sh
-    
+
     # These are top level template files, as specified in the settings.yml
     ├── docker.sh
     ├── singularity.sh
@@ -530,7 +557,7 @@ is mounted into the countainer. For the above, the following will be written:
 If a recipe does not have environment variables in the container.yaml, you have
 two options for adding a variable after install. For a more permanent solution,
 you can update the container.yaml file and install again. The container won't
-be re-pulled, but the environment file will be re-generated. If you want to 
+be re-pulled, but the environment file will be re-generated. If you want to
 manually add them to the container, each module folder will have an environment
 file added regardless of having this section or not, so you can export them there.
 When you shell, exec, or run the container (all but inspect) you should be able
@@ -561,7 +588,7 @@ we can use the Singularity client to pull an oras endpoint. Instead of using
       latest: sha256:227a917e9ce3a6e1a3727522361865ca92f3147fd202fa1b2e6a7a8220d510b7
 
 
-And then given the ``container.yaml`` file located in ``registry/ghcr.io/singularityhub/github-ci/`` 
+And then given the ``container.yaml`` file located in ``registry/ghcr.io/singularityhub/github-ci/``
 you would install with shpc and the Singularity container backend as follows:
 
 .. code-block:: console
@@ -569,7 +596,7 @@ you would install with shpc and the Singularity container backend as follows:
     $ shpc install ghcr.io/singularityhub/github-ci
 
 
-**Important**: You should retrieve the image sha from the container registry and 
+**Important**: You should retrieve the image sha from the container registry and
 not from the container on your computer, as the two will often be different depending
 on metadata added.
 
@@ -633,7 +660,7 @@ Fields include:
      - The GitHub alias of a maintainer to ping in case of trouble
      - true
    * - filter
-     - A list of patterns to use for adding new tags. If not defined, all are added 
+     - A list of patterns to use for adding new tags. If not defined, all are added
      - false
    * - aliases
      - Named entrypoints for container (dict) as described above
@@ -727,7 +754,7 @@ use is the following:
 Development or Testing
 ======================
 
-If you first want to test singularity-hpc (shpc) with an Lmod installed in 
+If you first want to test singularity-hpc (shpc) with an Lmod installed in
 a container, a ``Dockerfile`` is provided for Lmod, and ``Dockerfile.tcl``
 for tcl modules. The assumption is that
 you have a module system installed on your cluster or in the container. If not, you
@@ -736,7 +763,7 @@ or `here for tcl <https://modules.readthedocs.io/en/latest/INSTALL.html>`_.
 
 
 .. code-block:: console
-    
+
     $ docker build -t singularity-hpc .
 
 If you are developing the library and need the module software, you can easily bind your
@@ -804,7 +831,7 @@ or ask for help directly!
      - SINGULARITY_COMMAND_OPTS: to define custom options for the command (e.g., -b)
 
 
-Note that you typically can't run or execute containers within another container, but 
+Note that you typically can't run or execute containers within another container, but
 you can interact with the module system. Also notice that for every container, we expose easy
 commands to shell, run, exec, and inspect. The custom commands (e.g., Python) are then provided below that.
 
