@@ -4,26 +4,26 @@ on:
   # This should run on a push to any branch except main, gh-pages, and binoc
   push:
     branches-ignore:
-      - main
-      - gh-pages
+    - main
+    - gh-pages
 
 jobs:
   formatting:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+    - uses: actions/checkout@v3
 
-      - name: Setup black linter
-        run: conda create --quiet --name black pyflakes
+    - name: Setup black linter
+      run: conda create --quiet --name black pyflakes
 
-      - name: Check Spelling
-        uses: crate-ci/typos@592b36d23c62cb378f6097a292bc902ee73f93ef # version 1.0.4
-        with:
-          files: ./docs/getting_started/ ./docs/index.rst
+    - name: Check Spelling
+      uses: crate-ci/typos@7ad296c72fa8265059cc03d1eda562fbdfcd6df2 # v1.9.0
+      with:
+        files: ./docs/getting_started/ ./docs/index.rst
 
-      - name: Lint and format Python code
-        run: |
-          export PATH="/usr/share/miniconda/bin:$PATH"
-          source activate black
-          pip install -r .github/dev-requirements.txt
-          pre-commit run --all-files
+    - name: Lint and format Python code
+      run: |
+        export PATH="/usr/share/miniconda/bin:$PATH"
+        source activate black
+        pip install -r .github/dev-requirements.txt
+        pre-commit run --all-files

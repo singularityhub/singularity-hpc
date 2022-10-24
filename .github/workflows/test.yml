@@ -9,168 +9,167 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        module: [["lmod", "8.4.27"] , ["tcl", "4.7.1"], ["tcl", "5.0.1"]]
-        container_tech: ["podman", "singularity", "docker"]
+        module: [[lmod, 8.4.27], [tcl, 4.7.1], [tcl, 5.0.1]]
+        container_tech: [podman, singularity, docker]
     steps:
+    - name: Install Dependencies
+      run: |
+        sudo apt-get install lua5.2 liblua5.2-dev lua-filesystem lua-posix tcl tcl-dev tcsh
 
-      - name: Install Dependencies
-        run: |
-          sudo apt-get install lua5.2 liblua5.2-dev lua-filesystem lua-posix tcl tcl-dev tcsh
+    - name: Install Environment Modules
+      if: ${{ matrix.module[0] == 'tcl' }}
+      env:
+        PKG_VERSION: ${{ matrix.module[1] }}
+      run: |
+        curl -LJO https://github.com/cea-hpc/modules/releases/download/v${PKG_VERSION}/modules-${PKG_VERSION}.tar.gz
+        tar xfz modules-${PKG_VERSION}.tar.gz
+        ls
+        cd modules-${PKG_VERSION}
+        ./configure
+        make
+        sudo make install
 
-      - name: Install Environment Modules
-        if: ${{ matrix.module[0] == 'tcl' }}
-        env:
-          PKG_VERSION: ${{ matrix.module[1] }}
-        run: |
-         curl -LJO https://github.com/cea-hpc/modules/releases/download/v${PKG_VERSION}/modules-${PKG_VERSION}.tar.gz
-         tar xfz modules-${PKG_VERSION}.tar.gz
-         ls
-         cd modules-${PKG_VERSION}
-         ./configure
-         make
-         sudo make install
+    - name: Install Lmod
+      if: ${{ matrix.module[0] == 'lmod' }}
+      env:
+        PKG_VERSION: ${{ matrix.module[1] }}
+      run: |
+        PKG_URL="https://github.com/TACC/Lmod/archive/${PKG_VERSION}.tar.gz"
+        wget $PKG_URL
+        tar xfz ${PKG_VERSION}.tar.gz
+        cd Lmod-${PKG_VERSION}
+        ./configure --prefix=/usr/share && make && make install
 
-      - name: Install Lmod
-        if: ${{ matrix.module[0] == 'lmod' }}
-        env:
-          PKG_VERSION: ${{ matrix.module[1] }}
-        run: |
-          PKG_URL="https://github.com/TACC/Lmod/archive/${PKG_VERSION}.tar.gz"
-          wget $PKG_URL
-          tar xfz ${PKG_VERSION}.tar.gz
-          cd Lmod-${PKG_VERSION}
-          ./configure --prefix=/usr/share && make && make install
+    - uses: eWaterCycle/setup-singularity@v6
+      if: ${{ matrix.container_tech == 'singularity' }}
+      name: Install Singularity
+      with:
+        singularity-version: 3.6.4
 
-      - uses: eWaterCycle/setup-singularity@v6
-        if: ${{ matrix.container_tech == 'singularity' }}
-        name: Install Singularity
-        with:
-          singularity-version: 3.6.4
+    - name: Create conda environment
+      run: conda create --quiet -c conda-forge --name shpc spython
 
-      - name: Create conda environment
-        run: conda create --quiet -c conda-forge --name shpc spython
+    - uses: actions/checkout@v3
+    - name: Install shpc
+      run: |
+        export PATH="/usr/share/miniconda/bin:$PATH"
+        source activate shpc
+        pip install -e .
 
-      - uses: actions/checkout@v3
-      - name: Install shpc
-        run: |
-          export PATH="/usr/share/miniconda/bin:$PATH"
-          source activate shpc
-          pip install -e .
+    - name: Run python module tests (bash)
+      shell: bash
+      env:
+        module_sys: ${{ matrix.module[0] }}
+        container_tech: ${{ matrix.container_tech }}
+      run: |
+        case "${module_sys}" in
+          lmod)
+            . /usr/share/lmod/lmod/init/bash
+            ;;
+          tcl)
+            . /usr/local/Modules/init/bash
+            shopt expand_aliases || true
+            shopt -s expand_aliases
+            ;;
+        esac
 
-      - name: Run python module tests (bash)
-        shell: bash
-        env:
-          module_sys: ${{ matrix.module[0] }}
-          container_tech: ${{ matrix.container_tech }}
-        run: |
-          case "${module_sys}" in
-            lmod)
-              . /usr/share/lmod/lmod/init/bash
-              ;;
-            tcl)
-              . /usr/local/Modules/init/bash
-              shopt expand_aliases || true
-              shopt -s expand_aliases
-              ;;
-          esac
+        export PATH="/usr/share/miniconda/bin:$PATH"
+        source activate shpc
+        shpc config set container_tech:${{ matrix.container_tech }}
+        shpc config set module_sys:${module_sys}
+        shpc config set enable_tty:false
 
-          export PATH="/usr/share/miniconda/bin:$PATH"
-          source activate shpc
-          shpc config set container_tech:${{ matrix.container_tech }}
-          shpc config set module_sys:${module_sys}
-          shpc config set enable_tty:false
+        printf "\n\shpc test ============================================\n"
+        shpc test python:3.9.5-alpine
 
-          printf "\n\shpc test ============================================\n"
-          shpc test python:3.9.5-alpine
+        shpc install python:3.9.5-alpine
 
-          shpc install python:3.9.5-alpine
+        module use ./modules
+        module load python/3.9.5-alpine
+        alias
 
-          module use ./modules
-          module load python/3.9.5-alpine
-          alias
+        printf "\n\nmodule show ============================================\n"
+        module show python/3.9.5-alpine
 
-          printf "\n\nmodule show ============================================\n"
-          module show python/3.9.5-alpine
+        printf "\n\nmodule whatis ==========================================\n"
+        module whatis python/3.9.5-alpine
 
-          printf "\n\nmodule whatis ==========================================\n"
-          module whatis python/3.9.5-alpine
+        printf "\n\nmodule help ============================================\n"
+        module help python/3.9.5-alpine
 
-          printf "\n\nmodule help ============================================\n"
-          module help python/3.9.5-alpine
+        set -x
+        python-exec echo donuts >test_output
+        cat test_output
+        grep --quiet donuts test_output
 
-          set -x
-          python-exec echo donuts >test_output
-          cat test_output
-          grep --quiet donuts test_output
+        python-container > container_output
+        cat container_output
 
-          python-container > container_output
-          cat container_output
+        python-run python --version >test_output
+        cat test_output
+        grep --quiet 'Python 3.9.5' test_output
+        rm test_output
 
-          python-run python --version >test_output
-          cat test_output
-          grep --quiet 'Python 3.9.5' test_output
-          rm test_output
+        mkdir -p tmp-modules
+        shpc config set views_base:tmp-modules
+        shpc view create noodles
+        shpc view install noodles python:3.9.5-alpine
 
-          mkdir -p tmp-modules
-          shpc config set views_base:tmp-modules
-          shpc view create noodles
-          shpc view install noodles python:3.9.5-alpine
+        shpc uninstall --force python:3.9.5-alpine
+        shpc view --force delete noodles
 
-          shpc uninstall --force python:3.9.5-alpine
-          shpc view --force delete noodles
+    - name: Run python module tests (tcsh)
+      shell: tcsh -e {0}
+      env:
+        module_sys: ${{ matrix.module[0] }}
+        container_tech: ${{ matrix.container_tech }}
+      run: |
+        switch ("${module_sys}")
+          case lmod:
+            source /usr/share/lmod/lmod/init/tcsh
+            breaksw
+          case tcl:
+            source /usr/local/Modules/init/tcsh
+            breaksw
+        endsw
 
-      - name: Run python module tests (tcsh)
-        shell: tcsh -e {0}
-        env:
-          module_sys: ${{ matrix.module[0] }}
-          container_tech: ${{ matrix.container_tech }}
-        run: |
-          switch ("${module_sys}")
-            case lmod:
-              source /usr/share/lmod/lmod/init/tcsh
-              breaksw
-            case tcl:
-              source /usr/local/Modules/init/tcsh
-              breaksw
-          endsw
+        source /usr/share/miniconda/etc/profile.d/conda.csh
+        conda activate shpc
+        shpc config set container_tech:${{ matrix.container_tech }}
+        shpc config set module_sys:${module_sys}
+        shpc config set enable_tty:false
 
-          source /usr/share/miniconda/etc/profile.d/conda.csh
-          conda activate shpc
-          shpc config set container_tech:${{ matrix.container_tech }}
-          shpc config set module_sys:${module_sys}
-          shpc config set enable_tty:false
+        shpc install python:3.9.5-alpine
 
-          shpc install python:3.9.5-alpine
+        module use ./modules
+        module load python/3.9.5-alpine
+        alias
 
-          module use ./modules
-          module load python/3.9.5-alpine
-          alias
+        printf "\n\nmodule show ============================================\n"
+        module show python/3.9.5-alpine
 
-          printf "\n\nmodule show ============================================\n"
-          module show python/3.9.5-alpine
+        printf "\n\nmodule whatis ==========================================\n"
+        module whatis python/3.9.5-alpine
 
-          printf "\n\nmodule whatis ==========================================\n"
-          module whatis python/3.9.5-alpine
+        printf "\n\nmodule help ============================================\n"
+        module help python/3.9.5-alpine
 
-          printf "\n\nmodule help ============================================\n"
-          module help python/3.9.5-alpine
+        python-container > container_output
+        cat container_output
 
-          python-container > container_output
-          cat container_output
+        python-exec echo donuts >test_output
+        cat test_output
+        grep --quiet donuts test_output
 
-          python-exec echo donuts >test_output
-          cat test_output
-          grep --quiet donuts test_output
+        python-run python --version >test_output
+        cat test_output
+        grep --quiet 'Python 3.9.5' test_output
+        rm test_output
 
-          python-run python --version >test_output
-          cat test_output
-          grep --quiet 'Python 3.9.5' test_output
-          rm test_output
+        mkdir -p tmp-modules
+        shpc config set views_base:tmp-modules
+        shpc view create noodles
+        shpc view install noodles python:3.9.5-alpine
 
-          mkdir -p tmp-modules
-          shpc config set views_base:tmp-modules
-          shpc view create noodles
-          shpc view install noodles python:3.9.5-alpine
-
-          shpc uninstall --force python:3.9.5-alpine
-          shpc view --force delete noodles
+        shpc uninstall --force python:3.9.5-alpine
+        shpc view --force delete noodles

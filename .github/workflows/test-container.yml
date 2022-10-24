@@ -11,15 +11,15 @@ jobs:
     outputs:
       changed_recipes: ${{ steps.files.outputs.added_modified }}
     steps:
-      - name: Find changed recipes
-        id: files
-        uses: jitterbit/get-changed-files@b17fbb00bdc0c0f63fcf166580804b4d2cdc2a42
-        with:
-          format: 'json'
+    - name: Find changed recipes
+      id: files
+      uses: jitterbit/get-changed-files@b17fbb00bdc0c0f63fcf166580804b4d2cdc2a42
+      with:
+        format: json
 
   test-recipes:
     needs:
-      - changes
+    - changes
     runs-on: ubuntu-latest
     strategy:
       # Keep going on other deployments if anything bloops
@@ -29,69 +29,69 @@ jobs:
 
     name: Check ${{ matrix.changed_recipe }}
     steps:
-      - name: Continue
-        run: |
-          # Continue if we have a changed recipe file
-          if [[ "${{ matrix.changed_recipe }}" = registry* ]]; then
-            recipe_basename=$(basename "${{ matrix.changed_recipe }}")
-            if [[ "${recipe_basename}" == "container.yaml" ]]; then
-              echo "keepgoing=true" >> $GITHUB_ENV
-            fi
+    - name: Continue
+      run: |
+        # Continue if we have a changed recipe file
+        if [[ "${{ matrix.changed_recipe }}" = registry* ]]; then
+          recipe_basename=$(basename "${{ matrix.changed_recipe }}")
+          if [[ "${recipe_basename}" == "container.yaml" ]]; then
+            echo "keepgoing=true" >> $GITHUB_ENV
           fi
+        fi
 
-      - name: Checkout
-        if: ${{ env.keepgoing == 'true' }}
-        uses: actions/checkout@v3
+    - name: Checkout
+      if: ${{ env.keepgoing == 'true' }}
+      uses: actions/checkout@v3
 
-      - name: Make Space For Build
-        if: ${{ env.keepgoing == 'true' }}
-        run: |
-          sudo rm -rf /usr/share/dotnet
-          sudo rm -rf /opt/ghc
+    - name: Make Space For Build
+      if: ${{ env.keepgoing == 'true' }}
+      run: |
+        sudo rm -rf /usr/share/dotnet
+        sudo rm -rf /opt/ghc
 
-      - name: Install Dependencies
-        if: ${{ env.keepgoing == 'true' }}
-        run: |
-          sudo apt-get install lua5.2 liblua5.2-dev lua-filesystem lua-posix tcl tcl-dev
+    - name: Install Dependencies
+      if: ${{ env.keepgoing == 'true' }}
+      run: |
+        sudo apt-get install lua5.2 liblua5.2-dev lua-filesystem lua-posix tcl tcl-dev
 
-      - name: Install Lmod
-        if: ${{ env.keepgoing == 'true' }}
-        run: |
-          PKG_VERSION=8.4.27
-          PKG_URL="https://github.com/TACC/Lmod/archive/${PKG_VERSION}.tar.gz"
-          wget $PKG_URL
-          tar xfz ${PKG_VERSION}.tar.gz
-          cd Lmod-${PKG_VERSION}
-          ./configure --prefix=/usr/share && make && make install
+    - name: Install Lmod
+      if: ${{ env.keepgoing == 'true' }}
+      run: |
+        PKG_VERSION=8.4.27
+        PKG_URL="https://github.com/TACC/Lmod/archive/${PKG_VERSION}.tar.gz"
+        wget $PKG_URL
+        tar xfz ${PKG_VERSION}.tar.gz
+        cd Lmod-${PKG_VERSION}
+        ./configure --prefix=/usr/share && make && make install
 
-      - uses: eWaterCycle/setup-singularity@v6
-        if: ${{ env.keepgoing == 'true' }}
-        name: Install Singularity
-        with:
-          singularity-version: 3.6.4
+    - uses: eWaterCycle/setup-singularity@v6
+      if: ${{ env.keepgoing == 'true' }}
+      name: Install Singularity
+      with:
+        singularity-version: 3.6.4
 
-      - name: Create conda environment
-        if: ${{ env.keepgoing == 'true' }}
-        run: conda create --quiet -c conda-forge --name shpc spython
+    - name: Create conda environment
+      if: ${{ env.keepgoing == 'true' }}
+      run: conda create --quiet -c conda-forge --name shpc spython
 
-      - uses: actions/checkout@v2
-        if: ${{ env.keepgoing == 'true' }}
+    - uses: actions/checkout@v3
+      if: ${{ env.keepgoing == 'true' }}
 
-      - name: Install shpc
-        if: ${{ env.keepgoing == 'true' }}
-        run: |
-          export PATH="/usr/share/miniconda/bin:$PATH"
-          source activate shpc
-          pip install -e .
+    - name: Install shpc
+      if: ${{ env.keepgoing == 'true' }}
+      run: |
+        export PATH="/usr/share/miniconda/bin:$PATH"
+        source activate shpc
+        pip install -e .
 
-      - name: Run module tests
-        if: ${{ env.keepgoing == 'true' }}
-        run: |
-          export PATH="/usr/share/miniconda/bin:$PATH"
-          source activate shpc
-          cd registry
-          container_yaml="${{ matrix.changed_recipe }}"
-          module=$(dirname $container_yaml)
-          module=$(echo "${module/registry\//}")
-          echo "Testing $module"
-          shpc test --template ../shpc/tests/test-registry-module.sh --commands $module
+    - name: Run module tests
+      if: ${{ env.keepgoing == 'true' }}
+      run: |
+        export PATH="/usr/share/miniconda/bin:$PATH"
+        source activate shpc
+        cd registry
+        container_yaml="${{ matrix.changed_recipe }}"
+        module=$(dirname $container_yaml)
+        module=$(echo "${module/registry\//}")
+        echo "Testing $module"
+        shpc test --template ../shpc/tests/test-registry-module.sh --commands $module

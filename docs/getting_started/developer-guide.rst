@@ -53,7 +53,7 @@ currently only supports generation for a filesystem registry. E.g., here is how 
 
     $ shpc docgen --registry . --registry-url https://github.com/singularityhub/shpc-registry python
 
-And you could easily pipe this to a file. Here is how we generate this programatically in a loop:
+And you could easily pipe this to a file. Here is how we generate this programmatically in a loop:
 
 
 .. code-block:: console
@@ -69,7 +69,7 @@ And you could easily pipe this to a file. Here is how we generate this programat
 Creating a FileSystem Registry
 ==============================
 
-A fileystem registry consists of a database of local containers files, which are added
+A filesystem registry consists of a database of local containers files, which are added
 to the module system as executables for your user base. This typically means that you are a
 linux administrator of your cluster, and shpc should be installed for you to use
 (but your users will not be interacting with it).
@@ -112,7 +112,7 @@ But since latest is already 3.9.2, you could leave out the tag:
     $ shpc install python
 
 
-The module folder will be generated, with the structure discussed in the USer Guide.
+The module folder will be generated, with the structure discussed in the User Guide.
 Currently, any new install will re-pull the container only if the hash is different, and only re-create the module otherwise.
 
 Contributing Registry Recipes
@@ -338,7 +338,7 @@ tags and relative path lookups to external files with any of the stated sections
 
 
 Since this file only has aliases, we chose to use a subdirectory called "aliases" to make that clear, however
-the file can have any of the fields mentioned above, and can be organized in any relative path to the container directory that you deem apppropriate.
+the file can have any of the fields mentioned above, and can be organized in any relative path to the container directory that you deem appropriate.
 Here is what this corresponding file with relative path ``aliases/3.9.2-alpine.yaml`` might look like this:
 
 .. code-block:: yaml
@@ -548,7 +548,7 @@ variable:
       maintainer: vsoch
 
 And then during build, this variable is written to a ``99-shpc.sh`` file that
-is mounted into the countainer. For the above, the following will be written:
+is mounted into the container. For the above, the following will be written:
 
 .. code-block:: console
 
