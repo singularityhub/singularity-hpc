@@ -1,17 +1,16 @@
 name: Check Actions Once a Year
 on:
   schedule:
-    # 1st of June, so it's summer and you aren't busy, right?
-    - cron: "0 0 1 6 *"
+    cron: 0 0 1 6 *
 
 jobs:
   test-detect:
     name: Update Actions
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
-      - name: Detect and Update
-        uses: vsoch/action-updater@main
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+    - name: Detect and Update
+      uses: vsoch/action-updater@2c2216e27ee963aaa31ff0ff81de007acb84b9c2 # 0.0.11
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
