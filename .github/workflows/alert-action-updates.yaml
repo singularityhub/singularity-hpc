@@ -1,7 +1,7 @@
 name: Check Actions Once a Year
 on:
   schedule:
-    cron: 0 0 1 6 *
+    - cron: "0 0 1 6 *"
 
 jobs:
   test-detect:
