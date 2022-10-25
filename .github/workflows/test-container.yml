@@ -13,7 +13,7 @@ jobs:
     steps:
     - name: Find changed recipes
       id: files
-      uses: jitterbit/get-changed-files@b17fbb00bdc0c0f63fcf166580804b4d2cdc2a42
+      uses: jitterbit/get-changed-files@v1
       with:
         format: json
 
@@ -64,7 +64,7 @@ jobs:
         cd Lmod-${PKG_VERSION}
         ./configure --prefix=/usr/share && make && make install
 
-    - uses: eWaterCycle/setup-singularity@v6
+    - uses: eWaterCycle/setup-singularity@v7
       if: ${{ env.keepgoing == 'true' }}
       name: Install Singularity
       with:
