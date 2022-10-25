@@ -109,6 +109,13 @@ shpc -c rm:registry:/tmp/registry""",
     )
 
     install.add_argument(
+        "--keep-path",
+        help="if installing a local container, do not copy the container - use the provided path.",
+        default=False,
+        action="store_true",
+    )
+
+    install.add_argument(
         "--no-view",
         dest="no_view",
         help="skip installing to the default view, if defined in settings.",

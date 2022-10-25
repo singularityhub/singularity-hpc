@@ -1179,18 +1179,24 @@ samtools container:
 
 .. code-block:: console
 
-    $ singularity pull docker://quay.io/biocontainers/samtools:1.2--0
+    $ singularity pull docker://quay.io/biocontainers/samtools:1.10--h2e538c0_3
 
 We might then want to install it to the samtools namespace and using the same metadata (e.g., aliases, environment, etc.):
 
 .. code-block:: console
 
-    $ shpc install quay.io/biocontainers/samtools:1.2--0 samtools_1.2--0.sif
-    
+    $ shpc install quay.io/biocontainers/samtools:1.10--h2e538c0_3 samtools_1.2--0.sif
+
 This is similar to an ``shpc add``, however instead of needing to write a container.yaml in a local
 filesystem, you are using an existing one. The use case or assumption here is that you have a local
-directory of containers that can be matched to existing shpc recipes. This feature is supported
-for shpc versions 0.1.15 and up.
+directory of containers that can be matched to existing shpc recipes. Finally to request using the
+container path "as is" without copying anything into your container folder, add ``--keep-path``:
+
+
+.. code-block:: console
+    $ shpc install quay.io/biocontainers/samtools:1.10--h2e538c0_3 samtools_1.2--0.sif --keep-path
+
+This feature is supported for shpc versions 0.1.15 and up.
 
 
 .. _getting_started-commands-namespace:

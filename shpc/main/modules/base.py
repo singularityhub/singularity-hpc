@@ -346,7 +346,9 @@ class ModuleBase(BaseClient):
 
         return module.check()
 
-    def new_module(self, name, tag=None, tag_exists=True, container_image=None):
+    def new_module(
+        self, name, tag=None, tag_exists=True, container_image=None, keep_path=False
+    ):
         """
         Create a new module
         """
@@ -369,10 +371,18 @@ class ModuleBase(BaseClient):
 
         # Do we want to use a container from the local filesystem?
         if container_image:
-            module.add_local_container(container_image)
+            module.add_local_container(container_image, keep_path=keep_path)
         return module
 
-    def install(self, name, tag=None, force=False, container_image=None, **kwargs):
+    def install(
+        self,
+        name,
+        tag=None,
+        force=False,
+        container_image=None,
+        keep_path=False,
+        **kwargs
+    ):
         """
         Given a unique resource identifier, install a recipe.
 
@@ -383,7 +393,11 @@ class ModuleBase(BaseClient):
         """
         # Create a new module
         module = self.new_module(
-            name, tag=tag, tag_exists=True, container_image=container_image
+            name,
+            tag=tag,
+            tag_exists=True,
+            container_image=container_image,
+            keep_path=keep_path,
         )
 
         # We always load overrides for an install

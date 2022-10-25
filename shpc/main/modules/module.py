@@ -87,11 +87,17 @@ class Module:
             )
         return self._container_path
 
-    def add_local_container(self, container_image):
+    def add_local_container(self, container_image, keep_path=False):
         """
         Set the module container to be a local container (copied over)
         """
         basename = os.path.basename(container_image)
+
+        # The user has requested to use their own image, we don't copy
+        if keep_path:
+            self._container_path = os.path.abspath(container_image)
+            return
+
         container_dest = os.path.join(self.container_dir, basename)
         if not os.path.exists(self.container_dir):
             utils.mkdir_p(self.container_dir)
