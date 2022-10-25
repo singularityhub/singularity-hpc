@@ -40,7 +40,7 @@ jobs:
         cd Lmod-${PKG_VERSION}
         ./configure --prefix=/usr/share && make && make install
 
-    - uses: eWaterCycle/setup-singularity@v6
+    - uses: eWaterCycle/setup-singularity@v7
       if: ${{ matrix.container_tech == 'singularity' }}
       name: Install Singularity
       with:

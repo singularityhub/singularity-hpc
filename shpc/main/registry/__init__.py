@@ -134,7 +134,14 @@ class Registry:
         # Create a remote registry with settings preference
         Remote = GitHub if "github.com" in sync_registry else GitLab
         remote = Remote(sync_registry, tag=tag)
-        local = self.get_registry(local or self.settings.filesystem_registry)
+        local = local or self.settings.filesystem_registry
+        if not local:
+            logger.exit(
+                "sync is only supported if you have added a filesystem registry."
+            )
+
+        # Get the local registry
+        local = self.get_registry(local)
 
         # We sync to our first registry - if not filesystem, no go
         if not local.is_filesystem_registry:
