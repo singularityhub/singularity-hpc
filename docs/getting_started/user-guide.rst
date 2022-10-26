@@ -1158,12 +1158,46 @@ the container technology.
 If you don't have any module software on your system, you can now test interacting
 with the module via the :ref:`getting_started-development` instructions.
 
+.. _getting_started-commands-install-private:
+
 
 Install Private Images
 ----------------------
 
 What about private containers on Docker Hub? If you have a private image, you can
 simply use `Singularity remote login <https://github.com/sylabs/singularity-userdocs/blob/master/singularity_and_docker.rst#singularity-cli-remote-command>`_ before attempting the install and everything should work.
+
+.. _getting_started-commands-install-local:
+
+
+Install Local Image
+-------------------
+
+The concept of installing a local image means that you are selecting a container.yaml recipe from an existing registry,
+however instead of pulling it, you are pairing it was a particular URI of a local image. As an example, let's say we have pulled a local
+samtools container:
+
+.. code-block:: console
+
+    $ singularity pull docker://quay.io/biocontainers/samtools:1.10--h2e538c0_3
+
+We might then want to install it to the samtools namespace and using the same metadata (e.g., aliases, environment, etc.):
+
+.. code-block:: console
+
+    $ shpc install quay.io/biocontainers/samtools:1.10--h2e538c0_3 samtools_1.2--0.sif
+
+This is similar to an ``shpc add``, however instead of needing to write a container.yaml in a local
+filesystem, you are using an existing one. The use case or assumption here is that you have a local
+directory of containers that can be matched to existing shpc recipes. Finally to request using the
+container path "as is" without copying anything into your container folder, add ``--keep-path``:
+
+
+.. code-block:: console
+    $ shpc install quay.io/biocontainers/samtools:1.10--h2e538c0_3 samtools_1.2--0.sif --keep-path
+
+This feature is supported for shpc versions 0.1.15 and up.
+
 
 .. _getting_started-commands-namespace:
 
