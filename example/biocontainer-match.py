@@ -64,11 +64,19 @@ def main():
     depot = os.path.abspath(args.containers)
     cli = get_client()
 
+    # Keep a record of repos we've seen and don't repeat
+    seen = set()
+
     # Find all paths that match the pattern of a name:tag
     for path in os.listdir(depot):
         if not re.search("^(.*):(.*)$", path) or os.path.isdir(path):
             continue
         repo, tag = path.split(":", 1)
+
+        # Don't need to parse twice
+        if repo in seen:
+            continue
+
         container = f"{args.namespace}/{repo}"
         tagged = f"{container}:{tag}"
 
@@ -83,12 +91,14 @@ def main():
 
         if args.dry_run:
             print(f"Would be installing {path} to {tagged}")
+            seen.add(repo)
             continue
 
         print(f"Installing {path} to {tagged}")
 
         # We found a match! Install it (forcing keep path to not copy the container)
         cli.install(tagged, force=args.force, container_image=path, keep_path=True)
+        seen.add(repo)
 
 
 if __name__ == "__main__":
