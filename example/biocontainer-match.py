@@ -67,6 +67,9 @@ def main():
     # Keep a record of repos we've seen and don't repeat
     seen = set()
 
+    # Ensure we start with the populated modules
+    cli.registry.iter_modules()
+
     # Find all paths that match the pattern of a name:tag
     for path in os.listdir(depot):
         if not re.search("^(.*):(.*)$", path) or os.path.isdir(path):
