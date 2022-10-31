@@ -364,18 +364,12 @@ class ModuleBase(BaseClient):
         """
         Create a new Module from an existing registry entry
         """
-        name = self.add_namespace(name)
+        module = self.new_module(name)
 
-        # If the module has a version, overrides provided tag
-        if ":" in name:
-            name, tag = name.split(":", 1)
         # Ensure the tag exists, if required, uses config.tag
-        config = self._load_container(name, tag)
-        module = Module(config)
+        config = self._load_container(module.name, tag)
+        module.load_config(config)
 
-        # Pass on container and settings
-        module.container = self.container
-        module.settings = self.settings
         return module
 
     def install(self, name, tag=None, force=False, **kwargs):

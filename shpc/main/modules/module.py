@@ -9,32 +9,32 @@ from shpc.logger import logger
 
 
 class Module:
-    def __init__(self, config):
+    def __init__(self, name):
         """
         New module metadata and shared functions.
 
-        This should be created by base.py new_module and get_module to ensure
-        the same container and settings are carried forward here.
+        This should be created by base.py new_module to ensure the same
+        container and settings are carried forward here.
         """
-
-        # config can be either a string (a module name)
-        if isinstance(config, str):
-            self.name = config
-            self._uri = None
-        # or a ContainerConfig
-        else:
-            # We currently support gh, docker, path, or oras
-            uri = config.get_uri()
-            # If we have a path, the URI comes from the name
-            if ".sif" in uri:
-                uri = str(config.name).split(":", 1)[0]
-            self.name = uri + ":" + config.tag.name
-            self._uri = uri
-            self.config = config
+        self.name = name
 
         # Cache variable properties
+        self._uri = None
         self._container_dir = None
         self._container_path = None
+
+    def load_config(self, config):
+        """
+        Load a ContainerConfig into this Module
+        """
+        # We currently support gh, docker, path, or oras
+        uri = config.get_uri()
+        # If we have a path, the URI comes from the name
+        if ".sif" in uri:
+            uri = str(config.name).split(":", 1)[0]
+        self.name = uri + ":" + config.tag.name
+        self._uri = uri
+        self.config = config
 
     @property
     def tagged_name(self):
