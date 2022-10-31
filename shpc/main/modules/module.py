@@ -13,8 +13,8 @@ class Module:
         """
         New module metadata and shared functions.
 
-        This should be created by base.py new_module to ensure the same
-        container and settings are carried forward here.
+        This should be created by base.py new_module and get_module to ensure
+        the same container and settings are carried forward here.
         """
 
         # config can be either a string (a module name)
