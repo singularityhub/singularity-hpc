@@ -32,8 +32,6 @@ class Module:
             self._uri = uri
             self.config = config
 
-        self.module_basepath = self.name.replace(":", os.sep)
-
         # Cache variable properties
         self._container_dir = None
         self._container_path = None
@@ -129,3 +127,10 @@ class Module:
         Full path to the module directory.
         """
         return os.path.join(self.settings.module_base, self.module_basepath)
+
+    @property
+    def module_basepath(self):
+        """
+        Path of only the module name and tag.
+        """
+        return self.name.replace(":", os.sep)
