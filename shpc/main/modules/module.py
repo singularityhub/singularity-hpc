@@ -23,6 +23,23 @@ class Module:
         self._container_dir = None
         self._container_path = None
 
+    @property
+    def tagged_name(self):
+        name = self.name
+        if ":" not in name:
+            name = "%s:%s" % (name, self.tag.name)
+        return name
+
+    def add_environment(self):
+        """
+        Write the environment to the module directory.
+        """
+        self.container.add_environment(
+            self.module_dir,
+            envars=self.config.get_envars(),
+            environment_file=self.settings.environment_file,
+        )
+
     def load_config(self, config, name):
         """
         Load a ContainerConfig into this Module
@@ -41,23 +58,6 @@ class Module:
         self.name = uri + ":" + config.tag.name
         self._uri = uri
         self.config = config
-
-    @property
-    def tagged_name(self):
-        name = self.name
-        if ":" not in name:
-            name = "%s:%s" % (name, self.tag.name)
-        return name
-
-    def add_environment(self):
-        """
-        Write the environment to the module directory.
-        """
-        self.container.add_environment(
-            self.module_dir,
-            envars=self.config.get_envars(),
-            environment_file=self.settings.environment_file,
-        )
 
     def load_override_file(self):
         self.config.load_override_file(self.tag.name)
