@@ -360,19 +360,19 @@ class ModuleBase(BaseClient):
         module.settings = self.settings
         return module
 
-    def get_module(self, name, tag=None):
+    def get_module(self, name):
         """
         Create a new Module from an existing registry entry
         """
         module = self.new_module(name)
 
         # Ensure the tag exists, if required, uses config.tag
-        config = self._load_container(module.name, tag)
+        config = self._load_container(module.name)
         module.load_config(config)
 
         return module
 
-    def install(self, name, tag=None, force=False, **kwargs):
+    def install(self, name, force=False, **kwargs):
         """
         Given a unique resource identifier, install a recipe.
 
@@ -382,7 +382,7 @@ class ModuleBase(BaseClient):
         "force" is currently not used.
         """
         # Create a new module
-        module = self.get_module(name, tag=tag)
+        module = self.get_module(name)
 
         # We always load overrides for an install
         module.load_override_file()
@@ -415,12 +415,12 @@ class ModuleBase(BaseClient):
         logger.info("Module %s was created." % module.tagged_name)
         return module.container_path
 
-    def view_install(self, view_name, name, tag=None, force=False):
+    def view_install(self, view_name, name, force=False):
         """
         Install a module in a view. The module must already be installed.
         Set "force" to True to allow overwriting existing symlinks.
         """
-        module = self.get_module(name, tag=tag)
+        module = self.get_module(name)
 
         # A view is a symlink under views_base/$view/$module
         if view_name not in self.views:

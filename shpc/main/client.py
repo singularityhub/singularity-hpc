@@ -105,13 +105,15 @@ class Client:
             logger.exit("%s is not a known recipe in any registry." % name)
         return container.ContainerConfig(result)
 
-    def _load_container(self, name, tag=None):
+    def _load_container(self, name):
         """
         Given a name and an optional tag to default to, load a package
         """
         # Split name and tag
         if ":" in name:
             name, tag = name.split(":", 1)
+        else:
+            tag = None
 
         # If the user provides a tag, set it
         config = self.load_registry_config(name)
@@ -175,7 +177,7 @@ class Client:
         # Test all tags (this could be subsetted)
         for tag in tags:
 
-            image = self.install(module_name, tag)
+            image = self.install(module_name + ":" + tag)
 
             # Do we want to test loading?
             if not skip_module and hasattr(self, "_test"):
