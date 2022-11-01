@@ -44,7 +44,7 @@ class Module:
         """
         Load a ContainerConfig into this Module
         """
-        # Ensure that a provided module name (and tag) exists.
+        # Ensure that the tag exists
         if not config.tag:
             logger.exit(
                 "%s is not a known identifier. Valid tags are:\n%s"

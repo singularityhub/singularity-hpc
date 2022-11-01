@@ -348,8 +348,8 @@ class ModuleBase(BaseClient):
 
     def new_module(self, name):
         """
-        Create a new Module from a name (which may have a tag appended with a colon).
-        The name doesn't have to exist in the registry.
+        Create a new Module just from a name, which doesn't have to exist in the registry.
+        The name may have a tag appended with a colon.
         """
         name = self.add_namespace(name)
 
@@ -362,7 +362,8 @@ class ModuleBase(BaseClient):
 
     def get_module(self, name):
         """
-        Create a new Module from an existing registry entry
+        Create a new Module from an existing registry entry, given its name.
+        The name may have a tag appended with a colon.
         """
         module = self.new_module(name)
 
