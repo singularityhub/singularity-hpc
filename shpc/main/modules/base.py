@@ -366,9 +366,9 @@ class ModuleBase(BaseClient):
         """
         module = self.new_module(name)
 
-        # Ensure the tag exists, if required, uses config.tag
         config = self._load_container(module.name)
-        module.load_config(config)
+        # Ensure the tag exists, if required, uses config.tag
+        module.load_config(config, module.name)
 
         return module
 

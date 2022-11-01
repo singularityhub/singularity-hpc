@@ -23,10 +23,16 @@ class Module:
         self._container_dir = None
         self._container_path = None
 
-    def load_config(self, config):
+    def load_config(self, config, name):
         """
         Load a ContainerConfig into this Module
         """
+        # Ensure that a provided module name (and tag) exists.
+        if not config.tag:
+            logger.exit(
+                "%s is not a known identifier. Valid tags are:\n%s"
+                % (name, "\n".join(config.tags.keys()))
+            )
         # We currently support gh, docker, path, or oras
         uri = config.get_uri()
         # If we have a path, the URI comes from the name

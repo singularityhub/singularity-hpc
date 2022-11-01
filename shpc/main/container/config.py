@@ -225,11 +225,6 @@ class ContainerConfig:
         # this value will be none (and we can raise an error)
         else:
             self.tag = self.tags.get(tag)
-            if not self.tag:
-                logger.exit(
-                    "%s is not a known tag for %s. Choices are:\n%s"
-                    % (tag, self.name, "\n".join(self.tags.keys()))
-                )
 
     def dump(self, out=None):
         """
