@@ -25,7 +25,7 @@ def get_view_module_path(name, extension):
     Get a view module file name based on an extension
     """
     modulefile_extension = ".lua" if extension == "lua" else ""
-    return ".view_%s%s" % name, modulefile_extension
+    return ".view_%s%s" % (name, modulefile_extension)
 
 
 class ViewModule:
