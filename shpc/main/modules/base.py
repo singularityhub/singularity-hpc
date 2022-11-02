@@ -236,7 +236,7 @@ class ModuleBase(BaseClient):
         """
         Render documentation for a module within a local registry.
         """
-        config = self._load_container(module_name)
+        config = self.get_module(module_name).config
 
         out = out or sys.stdout
         aliases = config.get_aliases()
@@ -262,6 +262,7 @@ class ModuleBase(BaseClient):
             description=config.description,
             aliases=aliases,
             versions=config.tags.keys(),
+            example_version=config.tag.name,
             github_url=github_url,
             container_url=config.url,
             config_url=raw_github_url,

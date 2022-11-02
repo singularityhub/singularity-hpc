@@ -27,7 +27,7 @@ $ shpc install {{ name }}
 Or a specific version:
 
 ```bash
-$ shpc install {{ name }}:{{ versions.0 }}
+$ shpc install {{ name }}:{{ example_version }}
 ```
 
 And then you can tell lmod about your modules folder:
@@ -39,8 +39,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load {{ name }}/{{ versions.0 }}
-$ module help {{ name }}/{{ versions.0 }}
+$ module load {{ name }}/{{ example_version }}
+$ module help {{ name }}/{{ example_version }}
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
