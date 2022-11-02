@@ -20,17 +20,17 @@ supported_view_variables = {"system_modules": [], "depends_on": []}
 
 
 # Shared functions
-def get_view_module_path(extension):
+def get_view_module_path(name, extension):
     """
     Get a view module file name based on an extension
     """
     modulefile_extension = ".lua" if extension == "lua" else ""
-    return ".view_module%s" % modulefile_extension
+    return ".view_%s%s" % name, modulefile_extension
 
 
 class ViewModule:
     """
-    A ViewModule is a .view_module written to the base of a view.
+    A ViewModule is a .view_<view_name> written to the base of a view.
     The symlinked module files always attempt to load it, and it is allowed
     to silently fail if it does not exist. In a view it can exist if the
     user has customized the view with system modules, etc.
@@ -41,17 +41,17 @@ class ViewModule:
         self.module_extension = module_extension
         self.template = templatectl.Template(settings)
 
-    def write(self, view_dir, view_config):
+    def write(self, view_dir, view_name, view_config):
         """
-        Write a .view_module file in a root view directory based on a config.
+        Write a .view_<view_name> file in a root view directory based on a config.
         """
         if not os.path.exists(view_dir):
             return
         template = self.template.load("view_module.%s" % self.module_extension)
 
-        # Assemble the .view_module.<extension> full path
+        # Assemble the .view_<view_name>.<extension> full path
         view_module_file = os.path.join(
-            view_dir, get_view_module_path(self.module_extension)
+            view_dir, get_view_module_path(view_name, self.module_extension)
         )
         out = template.render(
             system_modules=view_config["view"].get("system_modules", []),
@@ -59,8 +59,8 @@ class ViewModule:
         )
         utils.write_file(view_module_file, out)
         logger.info(
-            "Wrote updated .view_module.%s: %s"
-            % (self.module_extension, view_module_file)
+            "Wrote updated .view_%s: %s"
+            % (view_name, view_module_file)
         )
 
 
@@ -216,11 +216,11 @@ class ViewsHandler:
 
     def save_view_module(self, view_name, cfg):
         """
-        Save of a view module includes the view.yaml and the .view_module
+        Save of a view module includes the view.yaml and the .view_<view_name>
         """
         self.save_config(view_name, cfg)
         view_dir = os.path.dirname(self.view_config(view_name))
-        self.view_module.write(view_dir, cfg)
+        self.view_module.write(view_dir, view_name, cfg)
 
     def save_config(self, name, cfg):
         """
@@ -313,7 +313,7 @@ class View:
         """
         Path to view module, with needed extension.
         """
-        return os.path.join(self.path, get_view_module_path(self.module_extension))
+        return os.path.join(self.path, get_view_module_path(self.name, self.module_extension))
 
     def reload(self):
         """
