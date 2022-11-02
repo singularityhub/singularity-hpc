@@ -242,7 +242,7 @@ class ModuleBase(BaseClient):
         aliases = config.get_aliases()
         template = self.template.load("docs.md")
         registry = registry or defaults.github_url
-        github_url = "%s/blob/%s/%s/container.yaml" % (registry, branch, module_name)
+        github_url = "%s/blob/%s/%s/container.yaml" % (registry, branch, config.name)
         registry_bare = registry.split(".com")[-1]
         raw = (
             "https://gitlab.com/%s/-/raw/%s/%s/container.yaml"
@@ -252,7 +252,7 @@ class ModuleBase(BaseClient):
         raw_github_url = raw % (
             registry_bare,
             branch,
-            module_name,
+            config.name,
         )
 
         # Currently one doc is rendered for all containers
@@ -266,9 +266,8 @@ class ModuleBase(BaseClient):
             container_url=config.url,
             config_url=raw_github_url,
             creation_date=datetime.now(),
-            name=module_name,
+            name=config.name,
             latest=config.latest.name,
-            flatname=module_name.replace(os.sep, "-"),
             config=json.dumps(config.entry._config),
         )
         out.write(result)
