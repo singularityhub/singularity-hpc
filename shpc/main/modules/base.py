@@ -243,7 +243,7 @@ class ModuleBase(BaseClient):
         template = self.template.load("docs.md")
         registry = registry or defaults.github_url
         github_url = "%s/blob/%s/%s/container.yaml" % (registry, branch, config.name)
-        registry_bare = registry.split(".com")[-1]
+        registry_bare = registry.split(".com/")[-1]
         raw = (
             "https://gitlab.com/%s/-/raw/%s/%s/container.yaml"
             if "gitlab" in registry
