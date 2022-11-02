@@ -703,7 +703,7 @@ To create a new view, you just need to provide a name to ``shpc view create``:
 
 The above would be an example to create a new named "mpi," perhaps for a specific kind of mpi
 container to be installed there. Since it will be under the same directory, you'll be able to use
-this custom set of modules together. You can also create a view from an existing view.yaml file,
+this custom set of modules together. You can also create a view from an existing ``view.yaml`` file,
 perhaps one of your own existint views or one that has been shared with you!
 
 
@@ -843,7 +843,7 @@ Listing modules installed to a view looks like the following:
     $ shpc view list mpi
         ghcr.io/autamus/emacs:27.2
 
-This is read directly from the view.yaml file.
+This is read directly from the ``view.yaml`` file.
 
 Edit a View
 -----------
@@ -861,7 +861,7 @@ Add System Modules to a View
 ----------------------------
 
 Views have support for customization, such as a system module that you always want loaded.
-We do this by way of an extra view_module that is generated in the root of the view (and
+We do this by way of an extra ``.view_<view>`` that is generated in the root of the view (and
 always attempted to be loaded) by the installed modules. For example, let's say that when
 we load a view module named mpi, we always want to load a system module named "openmpi" and "mymod." We could do:
 
@@ -869,7 +869,7 @@ we load a view module named mpi, we always want to load a system module named "o
 
     $ shpc view add <view> system_modules <name1> <name2>
     $ shpc view add mpi system_modules openmpi mymod
-    Wrote updated .view_module: /home/vanessa/Desktop/Code/shpc/views/mpi/.view_module
+    Wrote updated .view_mpi: /home/vanessa/Desktop/Code/shpc/views/mpi/.view_mpi.lua
 
 The add command always requires a named view attribute (e.g.,``system_modules`` is a list) and
 then one or more values to add to it. This will write the view module to your view,
@@ -885,11 +885,11 @@ Of course an "add" command would not be complete without a "remove" command! To 
 .. code-block:: console
 
     $ shpc view remove mpi system_modules mymod
-    Wrote updated .view_module: /home/vanessa/Desktop/Code/shpc/views/mpi/.view_module
+    Wrote updated .view_mpi: /home/vanessa/Desktop/Code/shpc/views/mpi/.view_mpi.lua
 
 
-Note that if you edit the files manually, you would need to edit the view.yaml AND the hidden
-.view_module that is always updated from it.
+Note that if you edit the files manually, you would need to edit the ``view.yaml`` AND the hidden
+``.view_<view>`` that is always updated from it.
 
 
 Add and Remove Depends On Modules to a View
@@ -905,19 +905,19 @@ The syntax is the same, however you specify a different key to add to:
     $ shpc view remove mpi depends_on openmpi
 
 When you add a ``depends_on`` or ``system_modules`` to a view, what we are doing under
-the hood is adding a ``.view_module`` that will be loaded with the view, and it includes these
+the hood is adding a ``.view_<view>`` that will be loaded with the view, and it includes these
 extra parameters.
 
 .. code-block:: console
 
     views/
     └── mpi
-      ├── python
-      ├── view.yaml
-      ├── .view_module
-      └── 3.11-rc.lua -> /home/vanessa/Desktop/Code/shpc/modules/python/3.11-rc/module.lua
+        ├── python
+        │   └── 3.11-rc.lua -> /home/vanessa/Desktop/Code/shpc/modules/python/3.11-rc/module.lua
+        ├── view.yaml
+        └── .view_mpi.lua
 
-Here are example contents of ``.view_module`` (this will vary depending on your module software):
+Here are example contents of ``.view_<view>`` (this will vary depending on your module software):
 
 .. code-block:: tcl
 
@@ -963,7 +963,7 @@ Or the entire tree of symlinks (e.g., all versions of emacs that are symlinked):
      $ shpc view uninstall mpi ghcr.io/autamus/emacs
 
 
-If you look in the view.yaml, it will be updated with what you install or uninstall. We do this
+If you look in the ``view.yaml``, it will be updated with what you install or uninstall. We do this
 so you can share the file with a collaborator and then can regenerate the view, discussed next.
 
 
