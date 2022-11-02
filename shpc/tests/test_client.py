@@ -322,6 +322,32 @@ def test_check(tmp_path, module_sys, container_tech, remote):
     "module_sys,remote",
     [("lmod", True), ("tcl", True), ("lmod", False), ("tcl", False)],
 )
+def test_install_local(tmp_path, module_sys, remote):
+    """
+    Test adding a custom container associated with an existing recipe
+    """
+    client = init_client(str(tmp_path), module_sys, "singularity", remote=remote)
+
+    # Create a copy of the latest image to add
+    container = os.path.join(str(tmp_path), "salad_latest.sif")
+    shutil.copyfile(os.path.join(here, "testdata", "salad_latest.sif"), container)
+
+    # It still needs to be a known tag!
+    with pytest.raises(SystemExit):
+        client.install(
+            "quay.io/biocontainers/samtools:1.2--0", container_image=container
+        )
+
+    # This should install our custom image using samtools metadata
+    container_image = "quay.io/biocontainers/samtools:1.10--h2e538c0_3"
+    client.install(container_image, container_image=container)
+    assert os.path.basename(client.get(container_image)) == os.path.basename(container)
+
+
+@pytest.mark.parametrize(
+    "module_sys,remote",
+    [("lmod", True), ("tcl", True), ("lmod", False), ("tcl", False)],
+)
 def test_add(tmp_path, module_sys, remote):
     """
     Test adding a custom container

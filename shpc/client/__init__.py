@@ -101,6 +101,20 @@ shpc -c rm:registry:/tmp/registry""",
         "install_recipe",
         help="recipe to install\nshpc install python\nshpc install python:3.9.5-alpine",
     )
+
+    install.add_argument(
+        "container_image",
+        help="path to an existing container image for this software",
+        nargs="?",
+    )
+
+    install.add_argument(
+        "--keep-path",
+        help="if installing a local container, do not copy the container - use the provided path.",
+        default=False,
+        action="store_true",
+    )
+
     install.add_argument(
         "--no-view",
         dest="no_view",

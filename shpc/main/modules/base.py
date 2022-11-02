@@ -345,7 +345,7 @@ class ModuleBase(BaseClient):
 
         return module.check()
 
-    def new_module(self, name):
+    def new_module(self, name, container_image=None, keep_path=False):
         """
         Create a new Module just from a name, which doesn't have to exist in the registry.
         The name may have a tag appended with a colon.
@@ -357,14 +357,20 @@ class ModuleBase(BaseClient):
         # Pass on container and settings
         module.container = self.container
         module.settings = self.settings
+
+        # Do we want to use a container from the local filesystem?
+        if container_image:
+            module.add_local_container(container_image, keep_path=keep_path)
         return module
 
-    def get_module(self, name):
+    def get_module(self, name, container_image=None, keep_path=False):
         """
         Create a new Module from an existing registry entry, given its name.
         The name may have a tag appended with a colon.
         """
-        module = self.new_module(name)
+        module = self.new_module(
+            name, container_image=container_image, keep_path=keep_path
+        )
 
         config = self._load_container(module.name)
         # Ensure the tag exists, if required, uses config.tag
@@ -372,7 +378,9 @@ class ModuleBase(BaseClient):
 
         return module
 
-    def install(self, name, force=False, **kwargs):
+    def install(
+        self, name, force=False, container_image=None, keep_path=False, **kwargs
+    ):
         """
         Given a unique resource identifier, install a recipe.
 
@@ -382,7 +390,9 @@ class ModuleBase(BaseClient):
         "force" is currently not used.
         """
         # Create a new module
-        module = self.get_module(name)
+        module = self.get_module(
+            name, container_image=container_image, keep_path=keep_path
+        )
 
         # We always load overrides for an install
         module.load_override_file()
@@ -415,12 +425,12 @@ class ModuleBase(BaseClient):
         logger.info("Module %s was created." % module.tagged_name)
         return module.container_path
 
-    def view_install(self, view_name, name, force=False):
+    def view_install(self, view_name, name, force=False, container_image=None):
         """
         Install a module in a view. The module must already be installed.
         Set "force" to True to allow overwriting existing symlinks.
         """
-        module = self.get_module(name)
+        module = self.get_module(name, container_image=container_image)
 
         # A view is a symlink under views_base/$view/$module
         if view_name not in self.views:
