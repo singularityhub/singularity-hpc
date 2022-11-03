@@ -346,7 +346,7 @@ class ModuleBase(BaseClient):
 
         return module.check()
 
-    def new_module(self, name, container_image=None, keep_path=False):
+    def new_module(self, name):
         """
         Create a new Module just from a name, which doesn't have to exist in the registry.
         The name may have a tag appended with a colon.
@@ -359,9 +359,6 @@ class ModuleBase(BaseClient):
         module.container = self.container
         module.settings = self.settings
 
-        # Do we want to use a container from the local filesystem?
-        if container_image:
-            module.add_local_container(container_image, keep_path=keep_path)
         return module
 
     def get_module(self, name, container_image=None, keep_path=False):
@@ -369,13 +366,15 @@ class ModuleBase(BaseClient):
         Create a new Module from an existing registry entry, given its name.
         The name may have a tag appended with a colon.
         """
-        module = self.new_module(
-            name, container_image=container_image, keep_path=keep_path
-        )
+        module = self.new_module(name)
 
         config = self._load_container(module.name)
         # Ensure the tag exists, if required, uses config.tag
         module.load_config(config, module.name)
+
+        # Do we want to use a container from the local filesystem?
+        if container_image:
+            module.add_local_container(container_image, keep_path=keep_path)
 
         return module
 
