@@ -7,6 +7,7 @@ import json
 import os
 import subprocess
 import sys
+import urllib
 from datetime import datetime
 
 import shpc.defaults as defaults
@@ -243,7 +244,7 @@ class ModuleBase(BaseClient):
         template = self.template.load("docs.md")
         registry = registry or defaults.github_url
         github_url = "%s/blob/%s/%s/container.yaml" % (registry, branch, config.name)
-        registry_bare = registry.split(".com/")[-1]
+        registry_bare = urllib.parse.urlparse(registry).path.lstrip("/")
         raw = (
             "https://gitlab.com/%s/-/raw/%s/%s/container.yaml"
             if "gitlab" in registry
