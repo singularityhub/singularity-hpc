@@ -110,10 +110,9 @@ class Client:
         Given a name and an optional tag to default to, load a package
         """
         # Split name and tag
+        tag = None
         if ":" in name:
             name, tag = name.split(":", 1)
-        else:
-            tag = None
 
         # If the user provides a tag, set it
         config = self.load_registry_config(name)
