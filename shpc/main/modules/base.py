@@ -258,18 +258,13 @@ class ModuleBase(BaseClient):
         # Currently one doc is rendered for all containers
         result = template.render(
             parsed_name=config.name,
+            config=config,
             settings=self.settings,
-            description=config.description,
             aliases=aliases,
-            versions=config.tags.keys(),
-            example_version=config.tag.name,
             github_url=github_url,
-            container_url=config.url,
             config_url=raw_github_url,
             creation_date=datetime.now(),
-            name=config.name,
-            latest=config.latest.name,
-            config=json.dumps(config.entry._config),
+            config_json=json.dumps(config.entry._config),
         )
         out.write(result)
         return out

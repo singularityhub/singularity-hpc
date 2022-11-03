@@ -1,33 +1,33 @@
 ---
 layout: container
-name:  "{{ name }}"
+name:  "{{ config.name }}"
 maintainer: "@vsoch"
 github: "{{ github_url }}"
 config_url: "{{ config_url }}"
 updated_at: "{{ creation_date }}"
-latest: "{{ latest }}"
-container_url: "{{ container_url }}"
+latest: "{{ config.latest.name }}"
+container_url: "{{ config.url }}"
 {% if aliases %}aliases:{% for alias in aliases %}
  - "{{ alias.name }}"{% endfor %}{% endif %}
-versions:{% for version in versions %}
+versions:{% for version in config.tags.keys() %}
  - "{{ version }}"{% endfor %}
-{% if description %}description: "{{ description }}"{% endif %}
-config: {{ config }}
+{% if config.description %}description: "{{ config. description }}"{% endif %}
+config: {{ config_json }}
 ---
 
-This module is a singularity container wrapper for {{ name }}.
-{% if description %}{{ description }}{% endif %}
+This module is a singularity container wrapper for {{ config.name }}.
+{% if config.description %}{{ config.description }}{% endif %}
 After [installing shpc](#install) you will want to install this container module:
 
 
 ```bash
-$ shpc install {{ name }}
+$ shpc install {{ config.name }}
 ```
 
 Or a specific version:
 
 ```bash
-$ shpc install {{ name }}:{{ example_version }}
+$ shpc install {{ config.name }}:{{ config.tag.name }}
 ```
 
 And then you can tell lmod about your modules folder:
@@ -39,8 +39,8 @@ $ module use ./modules
 And load the module, and ask for help, or similar.
 
 ```bash
-$ module load {{ name }}/{{ example_version }}
-$ module help {{ name }}/{{ example_version }}
+$ module load {{ config.name }}/{{ config.tag.name }}
+$ module help {{ config.name }}/{{ config.tag.name }}
 ```
 
 You can use tab for auto-completion of module names or commands that are provided.
