@@ -11,7 +11,7 @@ container_url: "{{ config.url }}"
  - "{{ alias.name }}"{% endfor %}{% endif %}
 versions:{% for version in config.tags.keys() %}
  - "{{ version }}"{% endfor %}
-{% if config.description %}description: "{{ config. description }}"{% endif %}
+{% if config.description %}description: "{{ config.description }}"{% endif %}
 config: {{ config_json }}
 ---
 
