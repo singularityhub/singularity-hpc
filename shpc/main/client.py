@@ -105,11 +105,12 @@ class Client:
             logger.exit("%s is not a known recipe in any registry." % name)
         return container.ContainerConfig(result)
 
-    def _load_container(self, name, tag=None):
+    def _load_container(self, name):
         """
         Given a name and an optional tag to default to, load a package
         """
         # Split name and tag
+        tag = None
         if ":" in name:
             name, tag = name.split(":", 1)
 
@@ -175,14 +176,15 @@ class Client:
         # Test all tags (this could be subsetted)
         for tag in tags:
 
-            image = self.install(module_name, tag)
+            versioned_name = module_name + ":" + tag
+            image = self.install(versioned_name)
 
             # Do we want to test loading?
             if not skip_module and hasattr(self, "_test"):
                 result = self._test(module_name, tmpdir, tag, template)
                 if result != 0:
                     cleanup(tmpdir)
-                    logger.exit("Test of %s was not successful." % module_name)
+                    logger.exit("Test of %s was not successful." % versioned_name)
 
             # Do we want to test the test commands?
             if test_commands and config.test:
@@ -190,7 +192,7 @@ class Client:
                 return_code = self.container.test_script(image, test_file)
                 if return_code != 0:
                     cleanup(tmpdir)
-                    logger.exit("Test of %s was not successful." % module_name)
+                    logger.exit("Test of %s was not successful." % versioned_name)
 
             # Test the commands
             if not test_exec:

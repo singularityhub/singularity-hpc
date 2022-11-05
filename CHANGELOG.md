@@ -14,6 +14,7 @@ and **Merged pull requests**. Critical items to know are:
 The versions coincide with releases on pip. Only major versions will be released as tags on Github.
 
 ## [0.0.x](https://github.com/singularityhub/singularity-hpc/tree/main) (0.0.x)
+ - Fix bugs uninstalling all tags of a module (0.1.16)
  - support for install using registry recipe and local image (0.1.15)
  - fix views .view_module modulefile and loading (0.1.14)
  - support for system modules, depends on, in views and editor envars (0.1.13)

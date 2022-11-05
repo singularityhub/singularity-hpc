@@ -70,24 +70,37 @@ def test_features(tmp_path, module_sys, module_file, remote):
     """
     client = init_client(str(tmp_path), module_sys, "singularity", remote=remote)
 
+    module_file_392 = os.path.join(
+        client.settings.module_base, "python", "3.9.2-alpine", module_file
+    )
+    module_file_394 = os.path.join(
+        client.settings.module_base, "python", "3.9.4-alpine", module_file
+    )
+
     # Install known tag
     client.install("python:3.9.2-alpine")
 
-    module_dir = os.path.join(client.settings.module_base, "python", "3.9.2-alpine")
-    module_file = os.path.join(module_dir, module_file)
-
     # Should not have nvidia flag
-    content = shpc.utils.read_file(module_file)
+    content = shpc.utils.read_file(module_file_392)
     assert "--nv" not in content
 
+    client.install("python:3.9.4-alpine")
+    assert os.path.exists(module_file_392)
+    assert os.path.exists(module_file_394)
+
     client.uninstall("python:3.9.2-alpine", force=True)
+    assert not os.path.exists(module_file_392)
+    assert os.path.exists(module_file_394)
+
+    client.uninstall("python", force=True)
+    assert not os.path.exists(module_file_394)
 
     # Now update settings
     client.settings.set("container_features", "gpu:nvidia")
 
     # Install known tag, add extra feature of gpu
     client.install("python:3.9.2-alpine", features=["gpu"])
-    content = shpc.utils.read_file(module_file)
+    content = shpc.utils.read_file(module_file_392)
     assert "--nv" in content
 
 

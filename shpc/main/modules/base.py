@@ -7,6 +7,7 @@ import json
 import os
 import subprocess
 import sys
+import urllib
 from datetime import datetime
 
 import shpc.defaults as defaults
@@ -236,14 +237,14 @@ class ModuleBase(BaseClient):
         """
         Render documentation for a module within a local registry.
         """
-        config = self._load_container(module_name)
+        config = self.get_module(module_name).config
 
         out = out or sys.stdout
         aliases = config.get_aliases()
         template = self.template.load("docs.md")
         registry = registry or defaults.github_url
-        github_url = "%s/blob/%s/%s/container.yaml" % (registry, branch, module_name)
-        registry_bare = registry.split(".com")[-1]
+        github_url = "%s/blob/%s/%s/container.yaml" % (registry, branch, config.name)
+        registry_bare = urllib.parse.urlparse(registry).path.lstrip("/")
         raw = (
             "https://gitlab.com/%s/-/raw/%s/%s/container.yaml"
             if "gitlab" in registry
@@ -252,24 +253,19 @@ class ModuleBase(BaseClient):
         raw_github_url = raw % (
             registry_bare,
             branch,
-            module_name,
+            config.name,
         )
 
         # Currently one doc is rendered for all containers
         result = template.render(
             parsed_name=config.name,
+            config=config,
             settings=self.settings,
-            description=config.description,
             aliases=aliases,
-            versions=config.tags.keys(),
             github_url=github_url,
-            container_url=config.url,
             config_url=raw_github_url,
             creation_date=datetime.now(),
-            name=module_name,
-            latest=config.latest.name,
-            flatname=module_name.replace(os.sep, "-"),
-            config=json.dumps(config.entry._config),
+            config_json=json.dumps(config.entry._config),
         )
         out.write(result)
         return out
@@ -338,7 +334,7 @@ class ModuleBase(BaseClient):
         at updates for entire tags. If a specific folder is provided with
         a container, check the digest.
         """
-        module = self.new_module(module_name)
+        module = self.get_module(module_name)
         if not os.path.exists(module.module_dir):
             logger.exit(
                 "%s does not exist. Is this a known registry entry?" % module.module_dir
@@ -346,42 +342,40 @@ class ModuleBase(BaseClient):
 
         return module.check()
 
-    def new_module(
-        self, name, tag=None, tag_exists=True, container_image=None, keep_path=False
-    ):
+    def new_module(self, name):
         """
-        Create a new module
+        Create a new Module just from a name, which doesn't have to exist in the registry.
+        The name may have a tag appended with a colon.
         """
         name = self.add_namespace(name)
 
-        # If the module has a version, overrides provided tag
-        if ":" in name:
-            name, tag = name.split(":", 1)
-
         module = Module(name)
-        module.config = self._load_container(module.name, tag)
-
-        # Ensure the tag exists, if required, uses config.tag
-        if tag_exists:
-            module.validate_tag_exists()
 
         # Pass on container and settings
         module.container = self.container
         module.settings = self.settings
 
+        return module
+
+    def get_module(self, name, container_image=None, keep_path=False):
+        """
+        Create a new Module from an existing registry entry, given its name.
+        The name may have a tag appended with a colon.
+        """
+        module = self.new_module(name)
+
+        config = self._load_container(module.name)
+        # Ensure the tag exists, if required, uses config.tag
+        module.load_config(config, module.name)
+
         # Do we want to use a container from the local filesystem?
         if container_image:
             module.add_local_container(container_image, keep_path=keep_path)
+
         return module
 
     def install(
-        self,
-        name,
-        tag=None,
-        force=False,
-        container_image=None,
-        keep_path=False,
-        **kwargs
+        self, name, force=False, container_image=None, keep_path=False, **kwargs
     ):
         """
         Given a unique resource identifier, install a recipe.
@@ -392,12 +386,8 @@ class ModuleBase(BaseClient):
         "force" is currently not used.
         """
         # Create a new module
-        module = self.new_module(
-            name,
-            tag=tag,
-            tag_exists=True,
-            container_image=container_image,
-            keep_path=keep_path,
+        module = self.get_module(
+            name, container_image=container_image, keep_path=keep_path
         )
 
         # We always load overrides for an install
@@ -431,16 +421,12 @@ class ModuleBase(BaseClient):
         logger.info("Module %s was created." % module.tagged_name)
         return module.container_path
 
-    def view_install(
-        self, view_name, name, tag=None, force=False, container_image=None
-    ):
+    def view_install(self, view_name, name, force=False, container_image=None):
         """
         Install a module in a view. The module must already be installed.
         Set "force" to True to allow overwriting existing symlinks.
         """
-        module = self.new_module(
-            name, tag=tag, tag_exists=True, container_image=container_image
-        )
+        module = self.get_module(name, container_image=container_image)
 
         # A view is a symlink under views_base/$view/$module
         if view_name not in self.views:

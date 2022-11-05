@@ -41,15 +41,24 @@ class Module:
             environment_file=self.settings.environment_file,
         )
 
-    def validate_tag_exists(self):
+    def load_config(self, config, name):
         """
-        Ensure that a provided module name (and tag) exists.
+        Load a ContainerConfig into this Module
         """
-        if not self.config.tag:
+        # Ensure that the tag exists
+        if not config.tag:
             logger.exit(
-                "%s is not a known identifier. Choices are:\n%s"
-                % (self.name, "\n".join(self.config.tags.keys()))
+                "%s is not a known identifier. Valid tags are:\n%s"
+                % (name, "\n".join(config.tags.keys()))
             )
+        # We currently support gh, docker, path, or oras
+        uri = config.get_uri()
+        # If we have a path, the URI comes from the name
+        if ".sif" in uri:
+            uri = str(config.name).split(":", 1)[0]
+        self.name = uri + ":" + config.tag.name
+        self._uri = uri
+        self.config = config
 
     def load_override_file(self):
         self.config.load_override_file(self.tag.name)
@@ -154,17 +163,7 @@ class Module:
         """
         Get the uri for the module, docker / path / oras / gh
         """
-        if self._uri:
-            return self._uri
-
-        # We currently support gh, docker, path, or oras
-        uri = self.config.get_uri()
-
-        # If we have a path, the URI comes from the name
-        if ".sif" in uri:
-            uri = self.name.split(":", 1)[0]
-        self._uri = uri
-        return uri
+        return self._uri
 
     @property
     def module_dir(self):
@@ -178,4 +177,4 @@ class Module:
         """
         Path of only the module name and tag.
         """
-        return os.path.join(self.uri, self.tag.name)
+        return self.name.replace(":", os.sep)
