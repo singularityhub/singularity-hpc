@@ -179,6 +179,7 @@ class Registry:
 
         need_cleanup = False
         if isinstance(remote, VersionControl):
+            # Instantiate a local registry, which will have to be cleaned up
             need_cleanup = True
             remote = remote.clone()
 
