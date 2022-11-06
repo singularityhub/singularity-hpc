@@ -375,7 +375,12 @@ class ModuleBase(BaseClient):
         return module
 
     def install(
-        self, name, allow_reinstall=False, container_image=None, keep_path=False, **kwargs
+        self,
+        name,
+        allow_reinstall=False,
+        container_image=None,
+        keep_path=False,
+        **kwargs
     ):
         """
         Given a unique resource identifier, install a recipe.
@@ -395,13 +400,18 @@ class ModuleBase(BaseClient):
         # Check previous installations of this module
         if os.path.exists(module.module_dir):
             if not allow_reinstall:
-                logger.exit("%s is already installed. Do `shpc reinstall` to proceed with a reinstallation." % module.tagged_name)
+                logger.exit(
+                    "%s is already installed. Do `shpc reinstall` to proceed with a reinstallation."
+                    % module.tagged_name
+                )
             logger.info("%s is already installed. Reinstalling." % module.tagged_name)
             # Don't explicitly remove the container, since we still need it,
             # though it may still happen if shpc is configured to store
             # containers and modules in the same directory
             self._uninstall(
-                module.module_dir, self.settings.module_base, "$module_base/%s" % module.name
+                module.module_dir,
+                self.settings.module_base,
+                "$module_base/%s" % module.name,
             )
 
         # Create the module and container directory
@@ -465,14 +475,22 @@ class ModuleBase(BaseClient):
                     self.settings.module_base, self.modulefile, module_name
                 )
                 if module_name not in modules:
-                    logger.exit("%s is not installed. Nothing to reinstall." % module_name)
+                    logger.exit(
+                        "%s is not installed. Nothing to reinstall." % module_name
+                    )
                 for version in modules[module_name]:
-                    self.install(module_name, tag=version, allow_reinstall=True, force=force)
+                    self.install(
+                        module_name, tag=version, allow_reinstall=True, force=force
+                    )
         else:
-            modules = self._get_module_lookup(self.settings.module_base, self.modulefile)
+            modules = self._get_module_lookup(
+                self.settings.module_base, self.modulefile
+            )
             for module_name, versions in modules.items():
                 for version in versions:
-                    self.install(module_name, tag=version, allow_reinstall=True, force=force)
+                    self.install(
+                        module_name, tag=version, allow_reinstall=True, force=force
+                    )
 
     def _reinstall(self, module_name, versions, upgrade=False, force=False):
         """
@@ -481,13 +499,14 @@ class ModuleBase(BaseClient):
         result = self.registry.find(module_name)
         if result:
 
-
             valid_tags = container.ContainerConfig(result).tags
             if upgrade:
 
                 views_with_module = set()
                 for version in versions:
-                    module_dir = os.path.join(self.settings.module_base, module_name, version)
+                    module_dir = os.path.join(
+                        self.settings.module_base, module_name, version
+                    )
                     for view_name, entry in self.views.items():
                         if entry.exists(module_dir):
                             views_with_module.add(view_name)
@@ -504,7 +523,9 @@ class ModuleBase(BaseClient):
             else:
                 for version in versions:
                     if version in valid_tags:
-                        module_dir = os.path.join(self.settings.module_base, module_name, version)
+                        module_dir = os.path.join(
+                            self.settings.module_base, module_name, version
+                        )
                         these_views = []
                         # TODO: switch to .values()
                         for view_name, entry in self.views.items():
@@ -519,6 +540,7 @@ class ModuleBase(BaseClient):
                             "%s:%s is not available anymore and will be skipped"
                             % (module_name, version)
                         )
+
         else:
             logger.warning(
                 "%s is not available anymore and will be skipped" % module_name
