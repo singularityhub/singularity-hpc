@@ -468,8 +468,7 @@ class ModuleBase(BaseClient):
         """
         if module_name:
             if ":" in module_name:
-                module_name, tag = module_name.split(":", 1)
-                self.install(module_name, tag=tag, allow_reinstall=True, force=force)
+                self.install(module_name, allow_reinstall=True)
             else:
                 modules = self._get_module_lookup(
                     self.settings.module_base, self.modulefile, module_name
@@ -479,18 +478,14 @@ class ModuleBase(BaseClient):
                         "%s is not installed. Nothing to reinstall." % module_name
                     )
                 for version in modules[module_name]:
-                    self.install(
-                        module_name, tag=version, allow_reinstall=True, force=force
-                    )
+                    self.install(module_name + ":" + version, allow_reinstall=True)
         else:
             modules = self._get_module_lookup(
                 self.settings.module_base, self.modulefile
             )
             for module_name, versions in modules.items():
                 for version in versions:
-                    self.install(
-                        module_name, tag=version, allow_reinstall=True, force=force
-                    )
+                    self.install(module_name + ":" + version, allow_reinstall=True)
 
     def _reinstall(self, module_name, versions, upgrade=False, force=False):
         """
@@ -511,13 +506,12 @@ class ModuleBase(BaseClient):
                         if entry.exists(module_dir):
                             views_with_module.add(view_name)
 
-                latest = valid_tags.latest.name
-                self.install(module_name, tag=latest, view=None, force=True)
+                self.install(module_name, allow_reinstall=True)
                 for view in views_with_module:
                     self.views[view].install(module_dir)
 
                 for version in versions:
-                    if version != latest:
+                    if version != valid_tags.latest.name:
                         self.uninstall(module_name + ":" + version, force=True)
 
             else:
@@ -531,7 +525,7 @@ class ModuleBase(BaseClient):
                         for view_name, entry in self.views.items():
                             if entry.exists(module_dir):
                                 these_views.append(entry)
-                        self.install(module_name, tag=version, view=None, force=True)
+                        self.install(module_name + ":" + version, allow_reinstall=True)
                         for view in these_views:
                             view.install(module_dir)
 
