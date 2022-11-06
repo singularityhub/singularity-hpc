@@ -240,7 +240,7 @@ class ModuleBase(BaseClient):
         aliases = config.get_aliases()
         template = self.template.load("docs.md")
         registry = registry or defaults.github_url
-        git_registry = shpc.main.registry.get_registry(registry, tag=branch)
+        git_registry = self.registry.get_registry(registry, tag=branch)
         github_url = git_registry.get_container_yaml_url(module_name)
         raw_github_url = git_registry.get_raw_container_yaml_url(module_name)
 
