@@ -10,7 +10,7 @@ import os
 import shutil
 
 from shpc.main import get_client
-from shpc.main.registry import VersionControl
+from shpc.main.registry import GitHub
 
 here = os.path.dirname(os.path.abspath(__file__))
 root = os.path.dirname(here)
@@ -41,7 +41,7 @@ def init_client(tmpdir, module_sys, container_tech, remote=True):
     # If it's not remote, create a temporary filesystem registry
     if not remote:
         clone_dir = os.path.join(tmpdir, "registry")
-        reg = VersionControl("https://github.com/singularityhub/shpc-registry")
+        reg = GitHub("https://github.com/singularityhub/shpc-registry")
         reg.clone(clone_dir)
         client.settings.registry = [clone_dir]
         client.reload_registry()

@@ -153,7 +153,7 @@ def test_registry_interaction(tmp_path, remote):
     client = init_client(str(tmp_path), "lmod", "singularity")
     reg = client.registry.get_registry(remote)
 
-    assert isinstance(reg, registry.VersionControl)
+    assert isinstance(reg, registry.GitHub)
 
     # This will hit the underlying logic to list/show
     mods = list(reg.iter_registry())
