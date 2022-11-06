@@ -468,8 +468,10 @@ class ModuleBase(BaseClient):
         """
         if module_name:
             if ":" in module_name:
+                # Reinstall this one version
                 self.install(module_name, allow_reinstall=True)
             else:
+                # Find all the versions currently installed
                 modules = self._get_module_lookup(
                     self.settings.module_base, self.modulefile, module_name
                 )
@@ -477,9 +479,11 @@ class ModuleBase(BaseClient):
                     logger.exit(
                         "%s is not installed. Nothing to reinstall." % module_name
                     )
+                # Reinstall them one by one
                 for version in modules[module_name]:
                     self.install(module_name + ":" + version, allow_reinstall=True)
         else:
+            # Reinstall everything that is currently installed
             modules = self._get_module_lookup(
                 self.settings.module_base, self.modulefile
             )
