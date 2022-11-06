@@ -7,6 +7,7 @@ import os
 import re
 import shutil
 import subprocess as sp
+import urllib
 
 import requests
 
@@ -75,33 +76,12 @@ class RemoteResult(Result):
 
 
 class VersionControl(Provider):
-
-    # The URL is substituted with owner, repo
-    library_url_schemes = {
-        "github.com": "https://%s.github.io/%s/library.json",
-        "gitlab.com": "https://%s.gitlab.io/%s/library.json",
-    }
-
-    # The URL is substituted with repo, branch, module_name
-    web_container_url_schemes = {
-        "github.com": "https://github.com/%s/blob/%s/%s/container.yaml",
-        "gitlab.com": "https://gitlab.com/%s/-/blob/%s/%s/container.yaml",
-    }
-
-    # The URL is substituted with repo, branch, module_name
-    raw_container_url_schemes = {
-        "github.com": "https://raw.githubusercontent.com/%s/%s/%s/container.yaml",
-        "gitlab.com": "https://gitlab.com/%s/-/raw/%s/%s/container.yaml",
-    }
-
     def __init__(self, source, tag=None, subdir=None):
-        assert self.matches(source)
-        if "://" not in source:
+        if not self.matches(source):
             raise ValueError(
-                "VersionControl registry must be a remote path, got %s." % source
+                type(self).__name__ + "registry must be a remote path, got %s." % source
             )
         self.url = source
-        self._library_url = None
 
         self.tag = tag
 
@@ -111,29 +91,12 @@ class VersionControl(Provider):
         # E.g., subdirectory with registry files
         self.subdir = subdir
 
-    @classmethod
-    def matches(cls, source):
-        return "://" in source
-
     @property
     def library_url(self):
         """
-        Retrieve the web url, either pages or (eventually) custom.
+        Retrieve the URL of this registry's library (in JSON).
         """
-        if self._library_url is not None:
-            return self._library_url
-        url = self.url
-        if url.endswith(".git"):
-            url = url[:-4]
-        _, _, domain, owner, repo = url.split("/", 4)
-        if domain in self.library_url_schemes:
-            self._library_url = self.library_url_schemes[domain] % (
-                owner,
-                repo,
-            )
-        else:
-            self._library_url = ""
-        return self._library_url
+        raise NotImplementedError
 
     def exists(self, name):
         """
@@ -185,10 +148,11 @@ class VersionControl(Provider):
         if self._cache and not force:
             return
 
-        if not self.library_url:
+        library_url = self.library_url
+        if not library_url:
             return self._update_clone_cache()
         # Check for exposed library API on GitHub or GitLab pages
-        response = requests.get(self.library_url)
+        response = requests.get(library_url)
         if response.status_code != 200:
             return self._update_clone_cache()
         self._cache = response.json()
@@ -204,7 +168,7 @@ class VersionControl(Provider):
         tmplocal = self.clone()
         for module in tmplocal.iter_modules():
             # Minimum amount of metadata to function here
-            config_url = self.get_module_config_url(module)[0]
+            config_url = self.get_raw_container_yaml_url(module)
             self._cache[module] = {
                 "config": shpc.utils.read_yaml(
                     os.path.join(tmplocal.source, module, "container.yaml")
@@ -212,19 +176,6 @@ class VersionControl(Provider):
                 "config_url": config_url,
             }
         tmplocal.cleanup()
-
-    def get_module_config_url(self, module_name):
-        """
-        Get the raw address of the config (container.yaml)
-        """
-        _, _, domain, repo_path = self.url.split("/", 3)
-        if domain in self.raw_container_url_schemes:
-            t = (repo_path, self.tag, module_name)
-            return (
-                self.raw_container_url_schemes[domain] % t,
-                self.web_container_url_schemes[domain] % t,
-            )
-        return (None, None)
 
     def iter_registry(self, filter_string=None):
         """
@@ -240,3 +191,53 @@ class VersionControl(Provider):
                 continue
             # Assemble a faux config with tags so we don't hit remote
             yield RemoteResult(uri, entry, load=False, config=entry["config"])
+
+    def get_container_yaml_url(self, module_name):
+        raise NotImplementedError
+
+    def get_raw_container_yaml_url(self, module_name):
+        raise NotImplementedError
+
+
+class GitHub(VersionControl):
+    @classmethod
+    def matches(cls, source):
+        return urllib.parse.urlparse(source).hostname == "github.com"
+
+    @property
+    def library_url(self):
+        url = self.url
+        if url.endswith(".git"):
+            url = url[:-4]
+        _, _, _, owner, repo = url.split("/", 4)
+        return f"https://{owner}.github.io/{repo}/library.json"
+
+    def get_container_yaml_url(self, module_name):
+        _, _, domain, repo_path = self.url.split("/", 3)
+        return f"https://github.com/{repo_path}/blob/{self.tag}/{module_name}/container.yaml"
+
+    def get_raw_container_yaml_url(self, module_name):
+        _, _, domain, repo_path = self.url.split("/", 3)
+        return f"https://raw.githubusercontent.com/{repo_path}/{self.tag}/{module_name}/container.yaml"
+
+
+class GitLab(VersionControl):
+    @classmethod
+    def matches(cls, source):
+        return urllib.parse.urlparse(source).hostname == "gitlab.com"
+
+    @property
+    def library_url(self, owner, repo):
+        url = self.url
+        if url.endswith(".git"):
+            url = url[:-4]
+        _, _, _, owner, repo = url.split("/", 4)
+        return f"https://{owner}.gitlab.io/{repo}/library.json"
+
+    def get_container_yaml_url(self, module_name):
+        _, _, domain, repo_path = self.url.split("/", 3)
+        return f"https://gitlab.com/{repo_path}/-/blob/{self.tag}/{module_name}/container.yaml"
+
+    def get_raw_container_yaml_url(self, module_name):
+        _, _, domain, repo_path = self.url.split("/", 3)
+        return f"https://gitlab.com/{repo_path}/-/raw/{self.tag}/{module_name}/container.yaml"

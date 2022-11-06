@@ -240,8 +240,8 @@ class ModuleBase(BaseClient):
         aliases = config.get_aliases()
         template = self.template.load("docs.md")
         registry = registry or defaults.github_url
-        git_registry = shpc.main.registry.VersionControl(registry, tag=branch)
-        raw_github_url, github_url = git_registry.get_module_config_url(module_name)
+        github_url = git_registry.get_container_yaml_url(module_name)
+        raw_github_url = git_registry.get_raw_container_yaml_url(module_name)
 
         # Currently one doc is rendered for all containers
         result = template.render(

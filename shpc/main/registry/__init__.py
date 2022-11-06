@@ -14,7 +14,7 @@ from shpc.logger import logger
 from shpc.main.settings import SettingsBase
 
 from .filesystem import Filesystem, FilesystemResult
-from .remote import VersionControl
+from .remote import GitHub, GitLab
 
 
 def update_container_module(module, from_path, existing_path):
@@ -178,7 +178,7 @@ class Registry:
             local = self.filesystem_registry
 
         need_cleanup = False
-        if isinstance(remote, VersionControl):
+        if not isinstance(remote, Filesystem):
             # Instantiate a local registry, which will have to be cleaned up
             need_cleanup = True
             remote = remote.clone()
@@ -215,4 +215,4 @@ class Registry:
 
 
 # We only currently allow Filesystem registries to be used in settings
-PROVIDERS = [Filesystem, VersionControl]
+PROVIDERS = [GitHub, Filesystem, GitLab]
