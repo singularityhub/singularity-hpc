@@ -82,6 +82,7 @@ class VersionControl(Provider):
                 type(self).__name__ + "registry must be a remote path, got %s." % source
             )
         self.url = source
+        self.parsed_url = urllib.parse.urlparse(source)
 
         self.tag = tag
 
@@ -206,19 +207,17 @@ class GitHub(VersionControl):
 
     @property
     def library_url(self):
-        url = self.url
-        if url.endswith(".git"):
-            url = url[:-4]
-        _, _, _, owner, repo = url.split("/", 4)
+        url_path = self.parsed_url.path.lstrip("/")
+        if url_path.endswith(".git"):
+            url_path = url_path[:-4]
+        owner, repo = url_path.split("/", 1)
         return f"https://{owner}.github.io/{repo}/library.json"
 
     def get_container_yaml_url(self, module_name):
-        _, _, domain, repo_path = self.url.split("/", 3)
-        return f"https://github.com/{repo_path}/blob/{self.tag}/{module_name}/container.yaml"
+        return f"https://github.com/{self.parsed_url.path}/blob/{self.tag}/{module_name}/container.yaml"
 
     def get_raw_container_yaml_url(self, module_name):
-        _, _, domain, repo_path = self.url.split("/", 3)
-        return f"https://raw.githubusercontent.com/{repo_path}/{self.tag}/{module_name}/container.yaml"
+        return f"https://raw.githubusercontent.com/{self.parsed_url.path}/{self.tag}/{module_name}/container.yaml"
 
 
 class GitLab(VersionControl):
@@ -228,16 +227,14 @@ class GitLab(VersionControl):
 
     @property
     def library_url(self, owner, repo):
-        url = self.url
-        if url.endswith(".git"):
-            url = url[:-4]
-        _, _, _, owner, repo = url.split("/", 4)
+        url_path = self.parsed_url.path.lstrip("/")
+        if url_path.endswith(".git"):
+            url_path = url_path[:-4]
+        owner, repo = url_path.split("/", 1)
         return f"https://{owner}.gitlab.io/{repo}/library.json"
 
     def get_container_yaml_url(self, module_name):
-        _, _, domain, repo_path = self.url.split("/", 3)
-        return f"https://gitlab.com/{repo_path}/-/blob/{self.tag}/{module_name}/container.yaml"
+        return f"https://gitlab.com/{self.parsed_url.path}/-/blob/{self.tag}/{module_name}/container.yaml"
 
     def get_raw_container_yaml_url(self, module_name):
-        _, _, domain, repo_path = self.url.split("/", 3)
-        return f"https://gitlab.com/{repo_path}/-/raw/{self.tag}/{module_name}/container.yaml"
+        return f"https://gitlab.com/{self.parsed_url.path}/-/raw/{self.tag}/{module_name}/container.yaml"
