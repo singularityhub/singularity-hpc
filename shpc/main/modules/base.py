@@ -462,32 +462,30 @@ class ModuleBase(BaseClient):
         view.confirm_install(module.module_dir, force=force)
         view.install(module.module_dir)
 
-    def reinstall(self, module_name, force=False):
+    def reinstall(self, module, force=False):
         """
         Reinstall the module, or all modules
         """
-        if module_name:
-            if ":" in module_name:
-                # Reinstall this one version
-                self.install(module_name, allow_reinstall=True)
-            else:
-                # Find all the versions currently installed
-                modules = self._get_module_lookup(
-                    self.settings.module_base, self.modulefile, module_name
-                )
-                if module_name not in modules:
-                    logger.exit(
-                        "%s is not installed. Nothing to reinstall." % module_name
-                    )
-                # Reinstall them one by one
-                for version in modules[module_name]:
-                    self.install(module_name + ":" + version, allow_reinstall=True)
+        if module:
+            module_name, _, version = module.partition(":")
+            # Find all the versions currently installed
+            installed_modules = self._get_module_lookup(
+                self.settings.module_base, self.modulefile, module_name
+            )
+            if (module_name not in installed_modules) or (
+                version and version not in installed_modules[module_name]
+            ):
+                logger.exit("%s is not installed. Nothing to reinstall." % module)
+            versions = [version] if version else installed_modules[module_name]
+            # Reinstall the required version(s) one by one
+            for version in versions:
+                self.install(module_name + ":" + version, allow_reinstall=True)
         else:
             # Reinstall everything that is currently installed
-            modules = self._get_module_lookup(
+            installed_modules = self._get_module_lookup(
                 self.settings.module_base, self.modulefile
             )
-            for module_name, versions in modules.items():
+            for module_name, versions in installed_modules.items():
                 for version in versions:
                     self.install(module_name + ":" + version, allow_reinstall=True)
 
