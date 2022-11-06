@@ -32,6 +32,5 @@ def main(args, parser, extra, subparser):
     # And do the reinstall
     cli.reinstall(
         args.reinstall_recipe,
-        upgrade=False,
         force=args.force,
     )
