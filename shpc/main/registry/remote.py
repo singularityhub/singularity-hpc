@@ -226,7 +226,7 @@ class GitLab(VersionControl):
         return urllib.parse.urlparse(source).hostname == "gitlab.com"
 
     @property
-    def library_url(self, owner, repo):
+    def library_url(self):
         url_path = self.parsed_url.path.lstrip("/")
         if url_path.endswith(".git"):
             url_path = url_path[:-4]
