@@ -169,7 +169,7 @@ class VersionControl(Provider):
         tmplocal = self.clone()
         for module in tmplocal.iter_modules():
             # Minimum amount of metadata to function here
-            config_url = self.get_raw_container_yaml_url(module)
+            config_url = self.get_raw_container_url(module)
             self._cache[module] = {
                 "config": shpc.utils.read_yaml(
                     os.path.join(tmplocal.source, module, "container.yaml")
@@ -193,10 +193,10 @@ class VersionControl(Provider):
             # Assemble a faux config with tags so we don't hit remote
             yield RemoteResult(uri, entry, load=False, config=entry["config"])
 
-    def get_container_yaml_url(self, module_name):
+    def get_container_url(self, module_name):
         raise NotImplementedError
 
-    def get_raw_container_yaml_url(self, module_name):
+    def get_raw_container_url(self, module_name):
         raise NotImplementedError
 
 
@@ -213,10 +213,10 @@ class GitHub(VersionControl):
         owner, repo = url_path.split("/", 1)
         return f"https://{owner}.github.io/{repo}/library.json"
 
-    def get_container_yaml_url(self, module_name):
+    def get_container_url(self, module_name):
         return f"https://github.com/{self.parsed_url.path}/blob/{self.tag}/{module_name}/container.yaml"
 
-    def get_raw_container_yaml_url(self, module_name):
+    def get_raw_container_url(self, module_name):
         return f"https://raw.githubusercontent.com/{self.parsed_url.path}/{self.tag}/{module_name}/container.yaml"
 
 
@@ -233,8 +233,8 @@ class GitLab(VersionControl):
         owner, repo = url_path.split("/", 1)
         return f"https://{owner}.gitlab.io/{repo}/library.json"
 
-    def get_container_yaml_url(self, module_name):
+    def get_container_url(self, module_name):
         return f"https://gitlab.com/{self.parsed_url.path}/-/blob/{self.tag}/{module_name}/container.yaml"
 
-    def get_raw_container_yaml_url(self, module_name):
+    def get_raw_container_url(self, module_name):
         return f"https://gitlab.com/{self.parsed_url.path}/-/raw/{self.tag}/{module_name}/container.yaml"

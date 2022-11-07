@@ -241,8 +241,8 @@ class ModuleBase(BaseClient):
         template = self.template.load("docs.md")
         registry = registry or defaults.github_url
         remote = self.registry.get_registry(registry, tag=branch)
-        github_url = remote.get_container_yaml_url(module_name)
-        raw_github_url = remote.get_raw_container_yaml_url(module_name)
+        github_url = remote.get_container_url(module_name)
+        raw_github_url = remote.get_raw_container_url(module_name)
 
         # Currently one doc is rendered for all containers
         result = template.render(
