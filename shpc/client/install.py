@@ -35,5 +35,4 @@ def main(args, parser, extra, subparser):
             cli.settings.default_view,
             args.install_recipe,
             force=args.force,
-            container_image=args.container_image,
         )

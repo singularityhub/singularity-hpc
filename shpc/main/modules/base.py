@@ -442,12 +442,12 @@ class ModuleBase(BaseClient):
         logger.info("Module %s was created." % module.tagged_name)
         return module.container_path
 
-    def view_install(self, view_name, name, force=False, container_image=None):
+    def view_install(self, view_name, name, force=False):
         """
         Install a module in a view. The module must already be installed.
         Set "force" to True to allow overwriting existing symlinks.
         """
-        module = self.get_module(name, container_image=container_image)
+        module = self.get_module(name)
 
         # A view is a symlink under views_base/$view/$module
         if view_name not in self.views:
