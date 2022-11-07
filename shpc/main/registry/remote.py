@@ -111,12 +111,15 @@ class VersionControl(Provider):
         self._update_cache()
         return name in self._cache
 
+    def has_clone(self):
+        return self._clone and os.path.exists(self._clone.source):
+
     def clone(self, tmpdir=None):
         """
         Clone the known source URL to a temporary directory
         and return an equivalent local registry (Filesystem)
         """
-        if self._clone and os.path.exists(self._clone):
+        if self.has_clone():
             return self._clone
         tmpdir = tmpdir or shpc.utils.get_tmpdir()
 
@@ -138,7 +141,7 @@ class VersionControl(Provider):
         """
         Cleanup the registry
         """
-        if self._clone and os.path.exists(self._clone):
+        if self.has_clone():
             self._clone.cleanup()
         self._clone = None
 
