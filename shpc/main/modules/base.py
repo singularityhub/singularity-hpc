@@ -493,17 +493,28 @@ class ModuleBase(BaseClient):
         """
         Reinstall (and possibly upgrade) all the current modules, possibly filtered by pattern.
         """
-        config = self.load_registry_config(module_name)
-        if version in config.tags:
-            self.install(module_name + ":" + version, allow_reinstall=True)
-        elif when_missing == "ignore":
-            pass
-        elif when_missing == "uninstall":
-            self.uninstall(module_name + ":" + version, force=True)
+        result = self.registry.find(module_name)
+        if result:
+            config = container.ContainerConfig(result)
+            if version in config.tags:
+                return self.install(module_name + ":" + version, allow_reinstall=True)
+            else:
+                missing = module_name + ":" + version
+        else:
+            missing = module_name
+
+        if when_missing:
+            if when_missing == "ignore":
+                logger.info(
+                    "%s is not in the Registry any more. Ignoring as instructed."
+                    % missing
+                )
+            elif when_missing == "uninstall":
+                self.uninstall(module_name + ":" + version, force=True)
         else:
             logger.exit(
                 "%s is not in the Registry any more. Add --uninstall-missing or --ignore-missing."
-                % module_name
+                % missing
             )
 
     def _upgrade(self, module_name, versions, upgrade=False, force=False):
