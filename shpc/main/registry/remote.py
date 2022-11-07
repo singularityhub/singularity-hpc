@@ -82,6 +82,9 @@ class VersionControl(Provider):
                 type(self).__name__ + "registry must be a remote path, got %s." % source
             )
         self.url = source
+        # We don't want ".git" hanging around
+        if source.endswith(".git"):
+            source = source[:-4]
         self.parsed_url = urllib.parse.urlparse(source)
         self._clone = None
 
@@ -92,13 +95,6 @@ class VersionControl(Provider):
 
         # E.g., subdirectory with registry files
         self.subdir = subdir
-
-    def parse_github_gitlab_repo(self):
-        url_path = self.parsed_url.path.lstrip("/")
-        if url_path.endswith(".git"):
-            url_path = url_path[:-4]
-        # tuple(owner, repo)
-        return url_path.split("/", 1)
 
     @property
     def library_url(self):
@@ -226,7 +222,7 @@ class GitHub(VersionControl):
 
     @property
     def library_url(self):
-        owner, repo = self.parse_github_gitlab_repo()
+        owner, repo = self.parsed_url.path.lstrip("/").split("/", 1)
         return f"https://{owner}.github.io/{repo}/library.json"
 
     def get_container_url(self, module_name):
@@ -243,7 +239,7 @@ class GitLab(VersionControl):
 
     @property
     def library_url(self):
-        owner, repo = self.parse_github_gitlab_repo()
+        owner, repo = self.parsed_url.path.lstrip("/").split("/", 1)
         return f"https://{owner}.gitlab.io/{repo}/library.json"
 
     def get_container_url(self, module_name):
