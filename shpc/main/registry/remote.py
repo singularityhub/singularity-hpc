@@ -135,7 +135,7 @@ class VersionControl(Provider):
         """
         Cleanup the registry
         """
-        if self._clone:
+        if self._clone and os.path.exists(self._clone):
             self._clone.cleanup()
             self._clone = None
 
