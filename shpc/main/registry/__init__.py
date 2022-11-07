@@ -139,16 +139,6 @@ class Registry:
         remote = self.get_registry(
             sync_registry or self.settings.sync_registry, tag=tag
         )
-        local = self.get_registry(local) if local else self.filesystem_registry
-
-        # We sync to our first registry - if not filesystem, no go
-        if not local:
-            logger.exit("No local registry to sync to")
-        if not isinstance(local, Filesystem):
-            logger.exit(
-                "sync is only supported for a remote to a filesystem registry: %s"
-                % local.url
-            )
 
         # Upgrade the current registry from the remote
         self.sync_from_remote(
@@ -172,23 +162,34 @@ class Registry:
         If the registry module is not installed, we install to the first
         filesystem registry found in the list.
         """
-        updates = False
 
+        ## First get a valid local Registry
         # A local (string) path provided
-        if local and isinstance(local, str) and os.path.exists(local):
+        if local and isinstance(local, str):
+            if not os.path.exists(local):
+                logger.exit("The path %s doesn't exist." % local)
             local = Filesystem(local)
 
         # No local registry provided, use default
         if not local:
             local = self.filesystem_registry
+            # We sync to our first registry - if not filesystem, no go
             if not local:
-                logger.exit("No local registry to sync to")
+                logger.exit("No local registry to sync to. Check the shpc settings.")
+
+        if not isinstance(local, Filesystem):
+            logger.exit("Can only synchronise to a local file system, not to %s." % local)
+
+        ## Then a valid remote Registry
+        if not remote:
+            logger.exit("No remote provided. Cannot sync.")
 
         if not isinstance(remote, Filesystem):
             # Instantiate a local registry, which will have to be cleaned up
             remote = remote.clone()
 
         # These are modules to update
+        updates = False
         for module in remote.iter_modules():
             if name and module != name:
                 continue
