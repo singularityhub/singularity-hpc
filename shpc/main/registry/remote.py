@@ -93,6 +93,13 @@ class VersionControl(Provider):
         # E.g., subdirectory with registry files
         self.subdir = subdir
 
+    def parse_github_gitlab_repo(self):
+        url_path = self.parsed_url.path.lstrip("/")
+        if url_path.endswith(".git"):
+            url_path = url_path[:-4]
+        # tuple(owner, repo)
+        return url_path.split("/", 1)
+
     @property
     def library_url(self):
         """
@@ -219,10 +226,7 @@ class GitHub(VersionControl):
 
     @property
     def library_url(self):
-        url_path = self.parsed_url.path.lstrip("/")
-        if url_path.endswith(".git"):
-            url_path = url_path[:-4]
-        owner, repo = url_path.split("/", 1)
+        owner, repo = self.parse_github_gitlab_repo()
         return f"https://{owner}.github.io/{repo}/library.json"
 
     def get_container_url(self, module_name):
@@ -239,10 +243,7 @@ class GitLab(VersionControl):
 
     @property
     def library_url(self):
-        url_path = self.parsed_url.path.lstrip("/")
-        if url_path.endswith(".git"):
-            url_path = url_path[:-4]
-        owner, repo = url_path.split("/", 1)
+        owner, repo = self.parse_github_gitlab_repo()
         return f"https://{owner}.gitlab.io/{repo}/library.json"
 
     def get_container_url(self, module_name):
