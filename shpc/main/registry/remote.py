@@ -137,7 +137,7 @@ class VersionControl(Provider):
         """
         if self._clone and os.path.exists(self._clone):
             self._clone.cleanup()
-            self._clone = None
+        self._clone = None
 
     def iter_modules(self):
         """
