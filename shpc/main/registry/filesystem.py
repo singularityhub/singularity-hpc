@@ -95,7 +95,11 @@ class Filesystem(Provider):
         yield module names
         """
         # Find modules based on container.yaml
-        yield from shpc.utils.recursive_find(self.source, "container.yaml")
+        for filename in shpc.utils.recursive_find(self.source, "container.yaml"):
+            module = os.path.dirname(filename)
+            if not module:
+                continue
+            yield module
 
     def find(self, name):
         """
