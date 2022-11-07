@@ -28,9 +28,19 @@ def main(args, parser, extra, subparser):
     # One option must be present
     if not args.reinstall_recipe and not args.all:
         logger.exit("Missing arguments: provide reinstall_recipe or --all.")
+    if args.ignore_missing and args.uninstall_missing:
+        logger.exit(
+            "Conflicting arguments --ignore-missing and --uninstall-missing, choose one."
+        )
 
     # And do the reinstall
     cli.reinstall(
         args.reinstall_recipe,
-        force=args.force,
+        when_missing=(
+            "ignore"
+            if args.ignore_missing
+            else "uninstall"
+            if args.uninstall_missing
+            else None
+        ),
     )

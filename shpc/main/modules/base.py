@@ -462,12 +462,12 @@ class ModuleBase(BaseClient):
         view.confirm_install(module.module_dir, force=force)
         view.install(module.module_dir)
 
-    def reinstall(self, module, force=False):
+    def reinstall(self, name, when_missing=None):
         """
         Reinstall the module, or all modules
         """
-        if module:
-            module_name, _, version = module.partition(":")
+        if name:
+            module_name, _, version = name.partition(":")
             # Find all the versions currently installed
             installed_modules = self._get_module_lookup(
                 self.settings.module_base, self.modulefile, module_name
@@ -475,11 +475,11 @@ class ModuleBase(BaseClient):
             if (module_name not in installed_modules) or (
                 version and version not in installed_modules[module_name]
             ):
-                logger.exit("%s is not installed. Nothing to reinstall." % module)
+                logger.exit("%s is not installed. Nothing to reinstall." % name)
             versions = [version] if version else installed_modules[module_name]
             # Reinstall the required version(s) one by one
             for version in versions:
-                self.install(module_name + ":" + version, allow_reinstall=True)
+                self._reinstall(module_name, version, when_missing)
         else:
             # Reinstall everything that is currently installed
             installed_modules = self._get_module_lookup(
@@ -487,12 +487,26 @@ class ModuleBase(BaseClient):
             )
             for module_name, versions in installed_modules.items():
                 for version in versions:
-                    self.install(module_name + ":" + version, allow_reinstall=True)
+                    self._reinstall(module_name, version, when_missing)
 
-    def _reinstall(self, module_name, versions, upgrade=False, force=False):
+    def _reinstall(self, module_name, version, when_missing):
         """
         Reinstall (and possibly upgrade) all the current modules, possibly filtered by pattern.
         """
+        config = self.load_registry_config(module_name)
+        if version in config.tags:
+            self.install(module_name + ":" + version, allow_reinstall=True)
+        elif when_missing == "ignore":
+            pass
+        elif when_missing == "uninstall":
+            self.uninstall(module_name + ":" + version, force=True)
+        else:
+            logger.exit(
+                "%s is not in the Registry any more. Add --uninstall-missing or --ignore-missing."
+                % module_name
+            )
+
+    def _upgrade(self, module_name, versions, upgrade=False, force=False):
         result = self.registry.find(module_name)
         if result:
 

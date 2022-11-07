@@ -149,10 +149,18 @@ shpc -c rm:registry:/tmp/registry""",
         action="store_true",
     )
     reinstall.add_argument(
-        "--force",
-        "-f",
-        dest="force",
+        "--ignore-missing",
+        "-i",
+        dest="ignore_missing",
         help="Ignore and leave intact the versions that don't exist in the registry anymore.",
+        default=False,
+        action="store_true",
+    )
+    reinstall.add_argument(
+        "--uninstall-missing",
+        "-u",
+        dest="uninstall_missing",
+        help="Uninstall the versions that don't exist in the registry anymore.",
         default=False,
         action="store_true",
     )
