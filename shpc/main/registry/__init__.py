@@ -189,6 +189,7 @@ class Registry:
 
         # These are modules to update
         for module in remote.iter_modules():
+            module = os.path.dirname(module)
             if name and module != name:
                 continue
 
