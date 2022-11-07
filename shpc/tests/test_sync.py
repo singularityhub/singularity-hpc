@@ -50,7 +50,7 @@ def test_filesystem_upgrade(tmp_path):
     mods = list(test_registry.iter_modules())
     assert len(mods) == 1
     module = mods[0]
-    assert module == "dinosaur/salad"
+    assert module == "dinosaur/salad/container.yaml"
 
     # Upgrade the current registry from the "remote" (test registry)
     assert not client.registry.exists(module)

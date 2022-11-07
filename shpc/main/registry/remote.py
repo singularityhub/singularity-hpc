@@ -184,7 +184,7 @@ class VersionControl(Provider):
             config_url = self.get_raw_container_url(module)
             self._cache[module] = {
                 "config": shpc.utils.read_yaml(
-                    os.path.join(tmplocal.source, module, "container.yaml")
+                    os.path.join(tmplocal.source, module)
                 ),
                 "config_url": config_url,
             }
