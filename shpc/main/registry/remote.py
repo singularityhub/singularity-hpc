@@ -112,7 +112,7 @@ class VersionControl(Provider):
         return name in self._cache
 
     def has_clone(self):
-        return self._clone and os.path.exists(self._clone.source):
+        return self._clone and os.path.exists(self._clone.source)
 
     def clone(self, tmpdir=None):
         """
