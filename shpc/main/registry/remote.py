@@ -113,7 +113,7 @@ class VersionControl(Provider):
         Clone the known source URL to a temporary directory
         and return an equivalent local registry (Filesystem)
         """
-        if self._clone:
+        if self._clone and os.path.exists(self._clone):
             return self._clone
         tmpdir = tmpdir or shpc.utils.get_tmpdir()
 
