@@ -178,7 +178,7 @@ class Registry:
                 logger.exit("No local registry to sync to. Check the shpc settings.")
 
         if not isinstance(local, Filesystem):
-            logger.exit("Can only synchronise to a local file system, not to %s." % local)
+            logger.exit("Can only synchronize to a local file system, not to %s." % local)
 
         ## Then a valid remote Registry
         if not remote:
