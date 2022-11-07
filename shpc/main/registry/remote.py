@@ -188,7 +188,7 @@ class VersionControl(Provider):
                 ),
                 "config_url": config_url,
             }
-        self.cleanup()
+        tmplocal.cleanup()
 
     def iter_registry(self, filter_string=None):
         """
