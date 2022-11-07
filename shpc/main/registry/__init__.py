@@ -142,6 +142,8 @@ class Registry:
         local = self.get_registry(local) if local else self.filesystem_registry
 
         # We sync to our first registry - if not filesystem, no go
+        if not local:
+            logger.exit("No local registry to sync to")
         if not isinstance(local, Filesystem):
             logger.exit(
                 "sync is only supported for a remote to a filesystem registry: %s"
@@ -176,6 +178,8 @@ class Registry:
         # No local registry provided, use default
         if not local:
             local = self.filesystem_registry
+            if not local:
+                logger.exit("No local registry to sync to")
 
         need_cleanup = False
         if not isinstance(remote, Filesystem):
