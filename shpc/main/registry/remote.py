@@ -83,6 +83,7 @@ class VersionControl(Provider):
             )
         self.url = source
         self.parsed_url = urllib.parse.urlparse(source)
+        self._clone = None
 
         self.tag = tag
 
@@ -112,6 +113,8 @@ class VersionControl(Provider):
         Clone the known source URL to a temporary directory
         and return an equivalent local registry (Filesystem)
         """
+        if self._clone:
+            return self._clone
         tmpdir = tmpdir or shpc.utils.get_tmpdir()
 
         cmd = ["git", "clone", "--depth", "1"]
@@ -125,7 +128,16 @@ class VersionControl(Provider):
         except sp.CalledProcessError as e:
             raise ValueError("Failed to clone repository {}:\n{}", self.url, e)
         assert os.path.exists(tmpdir)
-        return Filesystem(tmpdir)
+        self._clone = Filesystem(tmpdir)
+        return self._clone
+
+    def cleanup(self):
+        """
+        Cleanup the registry
+        """
+        if self._clone:
+            self._clone.cleanup()
+            self._clone = None
 
     def iter_modules(self):
         """
@@ -176,7 +188,7 @@ class VersionControl(Provider):
                 ),
                 "config_url": config_url,
             }
-        tmplocal.cleanup()
+        self.cleanup()
 
     def iter_registry(self, filter_string=None):
         """

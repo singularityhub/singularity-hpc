@@ -160,6 +160,9 @@ class Registry:
             local=local,
         )
 
+        # Cleanup the remote once we've done the sync
+        remote.cleanup()
+
     def sync_from_remote(
         self, remote, name=None, overwrite=False, dryrun=False, add_new=True, local=None
     ):
@@ -181,10 +184,8 @@ class Registry:
             if not local:
                 logger.exit("No local registry to sync to")
 
-        need_cleanup = False
         if not isinstance(remote, Filesystem):
             # Instantiate a local registry, which will have to be cleaned up
-            need_cleanup = True
             remote = remote.clone()
 
         # These are modules to update
@@ -211,9 +212,6 @@ class Registry:
                     update_container_module(
                         module, from_path, os.path.join(local.source, module)
                     )
-
-        if need_cleanup:
-            remote.cleanup()
 
         if not updates:
             logger.info("There were no upgrades.")

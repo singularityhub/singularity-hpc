@@ -53,6 +53,12 @@ class Provider:
         """
         raise NotImplementedError
 
+    def cleanup(self):
+        """
+        Cleanup the registry
+        """
+        raise NotImplementedError
+
     def iter_registry(self, filter_string=None):
         """
         Iterates over the modules of this registry (that match the filte, if
