@@ -73,6 +73,8 @@ def test_sync_from_file(tmp_path):
             % tmp_path: "https://github.com/singularityhub/shpc-registry",
             "%s/gitlab-shpc"
             % tmp_path: "https://gitlab.com/singularityhub/shpc-registry",
+            "%s/tmp/github-shpc-ssh"
+            % tmp_path: "ssh://git@github.com/singularityhub/shpc-registry.git",
         }
     }
     registry_config = os.path.join(tmp_path, "registries.yaml")
@@ -106,6 +108,7 @@ def test_sync_from_file(tmp_path):
     [
         "https://github.com/singularityhub/shpc-registry",
         "https://gitlab.com/singularityhub/shpc-registry",
+        "ssh://git@github.com/singularityhub/shpc-registry.git",
         # This registry does not expose a web UI
         "https://github.com/researchapps/shpc-test-registry",
     ],
@@ -142,6 +145,7 @@ def test_remote_upgrade(tmp_path, remote):
     [
         "https://github.com/singularityhub/shpc-registry",
         "https://gitlab.com/singularityhub/shpc-registry",
+        "ssh://git@github.com/singularityhub/shpc-registry.git",
         # This registry does not expose a web UI
         "https://github.com/researchapps/shpc-test-registry",
     ],
