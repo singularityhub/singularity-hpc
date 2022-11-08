@@ -75,20 +75,31 @@ class FilesystemResult(Result):
 
 
 class Filesystem(Provider):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.source = os.path.abspath(self.source)
+    def __init__(self, source):
+        if not self.matches(source):
+            raise ValueError(
+                "Filesystem registry source must exist on the filesystem. Got %s"
+                % source
+            )
+        self.source = os.path.abspath(source)
 
     @classmethod
     def matches(cls, source):
         return os.path.exists(source) or source == "."
 
+    def exists(self, name):
+        return os.path.exists(os.path.join(self.source, name))
+
     def iter_modules(self):
+        """
+        yield module names
+        """
+        # Find modules based on container.yaml
         for filename in shpc.utils.recursive_find(self.source, "container.yaml"):
-            module = os.path.dirname(filename).replace(self.source, "").strip(os.sep)
+            module = os.path.dirname(filename)
             if not module:
                 continue
-            yield self.source, module
+            yield module
 
     def find(self, name):
         """
@@ -110,14 +121,9 @@ class Filesystem(Provider):
         """
         Iterate over content in filesystem registry.
         """
-        for filename in shpc.utils.recursive_find(self.source):
-            if not filename.endswith("container.yaml"):
-                continue
-            module_name = (
-                os.path.dirname(filename).replace(self.source, "").strip(os.sep)
-            )
-
+        for module_name in self.iter_modules():
             # If the user has provided a filter, honor it
             if filter_string and not re.search(filter_string, module_name):
                 continue
+            filename = os.path.join(self.source, module_name)
             yield FilesystemResult(module_name, filename)

@@ -5,6 +5,8 @@ __license__ = "MPL 2.0"
 
 import os
 
+import shpc.utils
+
 
 class Result:
     @property
@@ -32,36 +34,40 @@ class Provider:
     A general provider should retrieve and provide registry files.
     """
 
-    def __init__(self, source, *args, **kwargs):
-        if not (source.startswith("https://") or os.path.exists(source)):
-            raise ValueError(
-                "Registry source must exist on the filesystem or be given as https://."
-            )
-        self.source = source
-
-    def exists(self, name):
-        return os.path.exists(os.path.join(self.source, name))
-
-    @property
-    def is_filesystem_registry(self):
-        return not self.source.startswith("http") and os.path.exists(self.source)
-
-    @property
-    def name(self):
-        return self.__class__.__name__.lower()
-
     @classmethod
-    def matches(cls, source_url: str):
-        pass
+    def matches(cls, source):
+        """
+        Returns true if this class understands the source
+        """
+        raise NotImplementedError
 
     def find(self, name):
-        pass
+        """
+        Returns a Result object if the module can be found in the registry
+        """
+        raise NotImplementedError
+
+    def exists(self, name):
+        """
+        Returns true if the module can be found in the registry
+        """
+        raise NotImplementedError
 
     def cleanup(self):
-        pass
+        """
+        Cleanup the registry
+        """
+        raise NotImplementedError
 
-    def iter_registry(self):
-        pass
+    def iter_registry(self, filter_string=None):
+        """
+        Iterates over the modules of this registry (that match the filte, if
+        provided) as Result instances
+        """
+        raise NotImplementedError
 
     def iter_modules(self):
-        pass
+        """
+        Iterates over the module names of this registry
+        """
+        raise NotImplementedError

@@ -124,12 +124,16 @@ class Client:
         """
         # No name provided == "update all"
         if name:
-            modules = [name]
+            # find the module in the registries. _load_container
+            # calls `container.ContainerConfig(result)` like below
+            configs = [self._load_container(name)]
         else:
-            modules = [x[1] for x in list(self.registry.iter_modules())]
-
-        for module_name in modules:
-            config = self._load_container(module_name)
+            # directly iterate over the content of the registry
+            configs = []
+            for result in self.registry.iter_registry():
+                configs.append(container.ContainerConfig(result))
+        # do the update
+        for config in configs:
             config.update(dryrun=dryrun, filters=filters)
 
     def test(

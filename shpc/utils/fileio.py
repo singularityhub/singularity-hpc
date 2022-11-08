@@ -129,12 +129,14 @@ def recursive_find(base, pattern=None):
     """
     # We can identify modules by finding module.lua
     for root, folders, files in os.walk(base):
+        assert root.startswith(base)
+        subdir = root[len(base) + 1 :]
         for file in files:
-            fullpath = os.path.abspath(os.path.join(root, file))
+            relpath = os.path.join(subdir, file)
 
-            if pattern and not re.search(pattern, fullpath):
+            if pattern and not re.search(pattern, relpath):
                 continue
-            yield fullpath
+            yield relpath
 
 
 def get_file_hash(image_path, algorithm="sha256"):

@@ -33,12 +33,12 @@ def test_filesystem_upgrade(tmp_path):
     os.makedirs(registry_path)
     client.reload_registry()
 
-    assert client.settings.filesystem_registry == registry_path
+    local = client.registry.filesystem_registry
+    assert local
+    assert isinstance(local, registry.Filesystem)
+    assert local.source == registry_path
 
-    # Test interacting with local filesystem registry
-    local = registry.Filesystem(client.settings.filesystem_registry)
-
-    # It should be empty
+    # Local filesystem registry should be empty
     assert not list(local.iter_modules())
 
     # Create filesystem registry with test data
@@ -49,8 +49,7 @@ def test_filesystem_upgrade(tmp_path):
     # Should have one module installed
     mods = list(test_registry.iter_modules())
     assert len(mods) == 1
-    module = mods[0][1]
-    assert mods[0][0] == test_registry_path
+    module = mods[0]
     assert module == "dinosaur/salad"
 
     # Upgrade the current registry from the "remote" (test registry)
@@ -58,7 +57,8 @@ def test_filesystem_upgrade(tmp_path):
     client.registry.sync_from_remote(test_registry, module)
     existing = client.registry.exists(module)
     assert existing is not None
-    assert os.path.exists(existing)
+    assert existing == local
+    assert os.path.exists(os.path.join(local.source, module))
 
 
 def test_sync_from_file(tmp_path):
@@ -73,6 +73,8 @@ def test_sync_from_file(tmp_path):
             % tmp_path: "https://github.com/singularityhub/shpc-registry",
             "%s/gitlab-shpc"
             % tmp_path: "https://gitlab.com/singularityhub/shpc-registry",
+            "%s/tmp/github-shpc-ssh"
+            % tmp_path: "ssh://git@github.com/singularityhub/shpc-registry.git",
         }
     }
     registry_config = os.path.join(tmp_path, "registries.yaml")
@@ -106,6 +108,7 @@ def test_sync_from_file(tmp_path):
     [
         "https://github.com/singularityhub/shpc-registry",
         "https://gitlab.com/singularityhub/shpc-registry",
+        "ssh://git@github.com/singularityhub/shpc-registry.git",
         # This registry does not expose a web UI
         "https://github.com/researchapps/shpc-test-registry",
     ],
@@ -142,6 +145,7 @@ def test_remote_upgrade(tmp_path, remote):
     [
         "https://github.com/singularityhub/shpc-registry",
         "https://gitlab.com/singularityhub/shpc-registry",
+        "ssh://git@github.com/singularityhub/shpc-registry.git",
         # This registry does not expose a web UI
         "https://github.com/researchapps/shpc-test-registry",
     ],
@@ -153,7 +157,7 @@ def test_registry_interaction(tmp_path, remote):
     client = init_client(str(tmp_path), "lmod", "singularity")
     reg = client.registry.get_registry(remote)
 
-    assert not reg.is_filesystem_registry
+    assert not isinstance(reg, registry.Filesystem)
 
     # This will hit the underlying logic to list/show
     mods = list(reg.iter_registry())

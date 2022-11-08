@@ -7,6 +7,7 @@ import os
 import re
 import shutil
 import subprocess as sp
+import urllib
 
 import requests
 
@@ -14,23 +15,7 @@ import shpc.utils
 from shpc.logger import logger
 
 from .provider import Provider, Result
-
-
-def get_module_config_url(registry, module_name, branch="main"):
-    """
-    Get the raw address of the config (container.yaml)
-    """
-    registry_bare = registry.split(".com")[-1]
-    raw = (
-        "https://gitlab.com/%s/-/raw/%s/%s/container.yaml"
-        if "gitlab" in registry
-        else "https://raw.githubusercontent.com/%s/%s/%s/container.yaml"
-    )
-    return raw % (
-        registry_bare,
-        branch,
-        module_name,
-    )
+from .filesystem import Filesystem
 
 
 class RemoteResult(Result):
@@ -91,95 +76,87 @@ class RemoteResult(Result):
 
 
 class VersionControl(Provider):
-    def __init__(self, *args, **kwargs):
-        self.tag = kwargs.get("tag")
+    def __init__(self, source, tag=None, subdir=None):
+        if not self.matches(source):
+            raise ValueError(
+                type(self).__name__ + "registry must be a remote path, got %s." % source
+            )
+        self.url = source
+        # We don't want ".git" hanging around
+        if source.endswith(".git"):
+            source = source[:-4]
+        self.parsed_url = urllib.parse.urlparse(source)
+        self._clone = None
+
+        self.tag = tag
 
         # Cache of remote container metadata
         self._cache = {}
 
         # E.g., subdirectory with registry files
-        self.subdir = kwargs.get("subdir")
-        super().__init__(*args, **kwargs)
-        self._url = self.source
-
-    @classmethod
-    def matches(cls, source):
-        return cls.provider_name in source and source.startswith("http")
+        self.subdir = subdir
 
     @property
-    def source_url(self):
+    def library_url(self):
         """
-        Retrieve a parsed / formatted url, ensuring https and without git.
+        Retrieve the URL of this registry's library (in JSON).
         """
-        url = self.source
-        if not url.startswith("http"):
-            url = "https://%s" % url
-        if url.endswith(".git"):
-            url = url[:-4]
-        return url
-
-    @property
-    def web_url(self):
-        """
-        Retrieve the web url, either pages or (eventually) custom.
-        """
-        parts = self.source_url.split("/")[3:]
-        return "https://%s.%s.io/%s/library.json" % (
-            parts[0],
-            self.provider_name,
-            "/".join(parts[1:]),
-        )
+        raise NotImplementedError
 
     def exists(self, name):
         """
         Determine if a module exists in the registry.
         """
         name = name.split(":")[0]
-        if self._cache and name in self._cache:
-            return True
-        dirname = self.source
-        if self.subdir:
-            dirname = os.path.join(dirname, self.subdir)
-        return os.path.exists(os.path.join(dirname, name))
+        self._update_cache()
+        return name in self._cache
+
+    def has_clone(self):
+        return self._clone and os.path.exists(self._clone.source)
 
     def clone(self, tmpdir=None):
         """
         Clone the known source URL to a temporary directory
+        and return an equivalent local registry (Filesystem)
         """
+        if self.has_clone():
+            return self._clone
         tmpdir = tmpdir or shpc.utils.get_tmpdir()
 
         cmd = ["git", "clone", "--depth", "1"]
         if self.tag:
             cmd += ["-b", self.tag]
-        cmd += [self._url, tmpdir]
-        self.source = tmpdir
+        cmd += [self.url, tmpdir]
+        if self.subdir:
+            tmpdir = os.path.join(tmpdir, self.subdir)
         try:
             sp.run(cmd, check=True)
         except sp.CalledProcessError as e:
-            raise ValueError("Failed to clone repository {}:\n{}", self.source, e)
-        return tmpdir
+            raise ValueError("Failed to clone repository {}:\n{}", self.url, e)
+        assert os.path.exists(tmpdir)
+        self._clone = Filesystem(tmpdir)
+        return self._clone
+
+    def cleanup(self):
+        """
+        Cleanup the registry
+        """
+        if self.has_clone():
+            self._clone.cleanup()
+        self._clone = None
 
     def iter_modules(self):
         """
         yield module names
         """
-        dirname = self.source
-        if self.subdir:
-            dirname = os.path.join(dirname, self.subdir)
-
-        # Find modules based on container.yaml
-        for filename in shpc.utils.recursive_find(dirname, "container.yaml"):
-            module = os.path.dirname(filename).replace(dirname, "").strip(os.sep)
-            if not module:
-                continue
-            yield dirname, module
+        self._update_cache()
+        yield from self._cache.keys()
 
     def find(self, name):
         """
         Find a particular entry in a registry
         """
-        if not self._cache:
-            self._update_cache()
+        self._update_cache()
         if name in self._cache:
             return RemoteResult(name, self._cache[name])
 
@@ -190,8 +167,11 @@ class VersionControl(Provider):
         if self._cache and not force:
             return
 
+        library_url = self.library_url
+        if not library_url:
+            return self._update_clone_cache()
         # Check for exposed library API on GitHub or GitLab pages
-        response = requests.get(self.web_url)
+        response = requests.get(library_url)
         if response.status_code != 200:
             return self._update_clone_cache()
         self._cache = response.json()
@@ -202,19 +182,19 @@ class VersionControl(Provider):
         """
         logger.warning(
             "Remote %s is not deploying a Registry API, falling back to clone."
-            % self.source
+            % self.url
         )
-        tmpdir = self.clone()
-        for dirname, module in self.iter_modules():
+        tmplocal = self.clone()
+        for module in tmplocal.iter_modules():
             # Minimum amount of metadata to function here
-            config_url = get_module_config_url(self.source, module)
+            config_url = self.get_raw_container_url(module)
             self._cache[module] = {
                 "config": shpc.utils.read_yaml(
-                    os.path.join(dirname, module, "container.yaml")
+                    os.path.join(tmplocal.source, module, "container.yaml")
                 ),
                 "config_url": config_url,
             }
-        shutil.rmtree(tmpdir)
+        tmplocal.cleanup()
 
     def iter_registry(self, filter_string=None):
         """
@@ -231,10 +211,42 @@ class VersionControl(Provider):
             # Assemble a faux config with tags so we don't hit remote
             yield RemoteResult(uri, entry, load=False, config=entry["config"])
 
+    def get_container_url(self, module_name):
+        raise NotImplementedError
+
+    def get_raw_container_url(self, module_name):
+        raise NotImplementedError
+
 
 class GitHub(VersionControl):
-    provider_name = "github"
+    @classmethod
+    def matches(cls, source):
+        return urllib.parse.urlparse(source).hostname == "github.com"
+
+    @property
+    def library_url(self):
+        owner, repo = self.parsed_url.path.lstrip("/").split("/", 1)
+        return f"https://{owner}.github.io/{repo}/library.json"
+
+    def get_container_url(self, module_name):
+        return f"https://github.com/{self.parsed_url.path}/blob/{self.tag}/{module_name}/container.yaml"
+
+    def get_raw_container_url(self, module_name):
+        return f"https://raw.githubusercontent.com/{self.parsed_url.path}/{self.tag}/{module_name}/container.yaml"
 
 
 class GitLab(VersionControl):
-    provider_name = "gitlab"
+    @classmethod
+    def matches(cls, source):
+        return urllib.parse.urlparse(source).hostname == "gitlab.com"
+
+    @property
+    def library_url(self):
+        owner, repo = self.parsed_url.path.lstrip("/").split("/", 1)
+        return f"https://{owner}.gitlab.io/{repo}/library.json"
+
+    def get_container_url(self, module_name):
+        return f"https://gitlab.com/{self.parsed_url.path}/-/blob/{self.tag}/{module_name}/container.yaml"
+
+    def get_raw_container_url(self, module_name):
+        return f"https://gitlab.com/{self.parsed_url.path}/-/raw/{self.tag}/{module_name}/container.yaml"

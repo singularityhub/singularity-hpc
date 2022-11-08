@@ -172,7 +172,12 @@ class ModuleBase(BaseClient):
         """
         Add a container to the registry to enable install.
         """
-        self.settings.ensure_filesystem_registry()
+        local_registry = self.registry.filesystem_registry
+
+        if not local_registry:
+            logger.exit(
+                "This command is only supported for a filesystem registry! Add one or use --registry."
+            )
 
         # Docker module name is always the same namespace as the image
         if image.startswith("docker"):
@@ -185,7 +190,7 @@ class ModuleBase(BaseClient):
 
         # Assume adding to default registry
         dest = os.path.join(
-            self.settings.filesystem_registry,
+            local_registry.source,
             module_name.split(":")[0],
             "container.yaml",
         )
@@ -235,10 +240,9 @@ class ModuleBase(BaseClient):
         aliases = config.get_aliases()
         template = self.template.load("docs.md")
         registry = registry or defaults.github_url
-        github_url = "%s/blob/%s/%s/container.yaml" % (registry, branch, module_name)
-        raw_github_url = shpc.main.registry.get_module_config_url(
-            registry, module_name, branch
-        )
+        remote = self.registry.get_registry(registry, tag=branch)
+        github_url = remote.get_container_url(module_name)
+        raw_github_url = remote.get_raw_container_url(module_name)
 
         # Currently one doc is rendered for all containers
         result = template.render(
@@ -306,10 +310,9 @@ class ModuleBase(BaseClient):
         A shared function to get a lookup of installed modules or registry entries
         """
         modules = {}
-        for fullpath in utils.recursive_find(base, pattern):
-            if fullpath.endswith(filename):
-                module_name, version = os.path.dirname(fullpath).rsplit(os.sep, 1)
-                module_name = module_name.replace(base, "").strip(os.sep)
+        for relpath in utils.recursive_find(base, pattern):
+            if relpath.endswith(filename):
+                module_name, version = os.path.dirname(relpath).rsplit(os.sep, 1)
                 if module_name not in modules:
                     modules[module_name] = set()
                 modules[module_name].add(version)

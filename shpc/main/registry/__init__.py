@@ -14,7 +14,7 @@ from shpc.logger import logger
 from shpc.main.settings import SettingsBase
 
 from .filesystem import Filesystem, FilesystemResult
-from .remote import GitHub, GitLab, get_module_config_url
+from .remote import GitHub, GitLab
 
 
 def update_container_module(module, from_path, existing_path):
@@ -23,13 +23,12 @@ def update_container_module(module, from_path, existing_path):
     """
     if not os.path.exists(existing_path):
         shpc.utils.mkdir_p(existing_path)
-    for filename in shpc.utils.recursive_find(from_path):
-        relative_path = filename.replace(from_path, "").strip("/")
+    for relative_path in shpc.utils.recursive_find(from_path):
         to_path = os.path.join(existing_path, relative_path)
         if os.path.exists(to_path):
             shutil.rmtree(to_path)
         shpc.utils.mkdir_p(os.path.dirname(to_path))
-        shutil.copy2(filename, to_path)
+        shutil.copy2(os.path.join(from_path, relative_path), to_path)
 
 
 class Registry:
@@ -44,21 +43,29 @@ class Registry:
         # and they must exist.
         self.registries = [self.get_registry(r) for r in self.settings.registry]
 
+    @property
+    def filesystem_registry(self):
+        """
+        Return the first found filesystem registry.
+        """
+        for registry in self.registries:
+            if isinstance(registry, Filesystem):
+                return registry
+
     def exists(self, name):
         """
-        Determine if a module name *exists* in any local registry, return path
+        Determine if a module name *exists* in any registry, return the first one
         """
         for reg in self.registries:
             if reg.exists(name):
-                return os.path.join(reg.source, name)
+                return reg
 
     def iter_registry(self, filter_string=None):
         """
         Iterate over all known registries defined in settings.
         """
         for reg in self.registries:
-            for entry in reg.iter_registry(filter_string=filter_string):
-                yield entry
+            yield from reg.iter_registry(filter_string=filter_string)
 
     def find(self, name, path=None):
         """
@@ -80,11 +87,11 @@ class Registry:
         """
         Iterate over modules found across the registry
         """
-        for reg in self.registries:
-            for registry, module in reg.iter_modules():
+        for registry in self.registries:
+            for module in registry.iter_modules():
                 yield registry, module
 
-    def get_registry(self, source):
+    def get_registry(self, source, **kwargs):
         """
         A registry is a local or remote registry.
 
@@ -92,7 +99,7 @@ class Registry:
         """
         for Registry in PROVIDERS:
             if Registry.matches(source):
-                return Registry(source)
+                return Registry(source, **kwargs)
         raise ValueError("No matching registry provider for %s" % source)
 
     def sync(
@@ -128,20 +135,10 @@ class Registry:
         local=None,
         sync_registry=None,
     ):
-        # Registry to sync from
-        sync_registry = sync_registry or self.settings.sync_registry
-
         # Create a remote registry with settings preference
-        Remote = GitHub if "github.com" in sync_registry else GitLab
-        remote = Remote(sync_registry, tag=tag)
-        local = self.get_registry(local or self.settings.filesystem_registry)
-
-        # We sync to our first registry - if not filesystem, no go
-        if not local.is_filesystem_registry:
-            logger.exit(
-                "sync is only supported for a remote to a filesystem registry: %s"
-                % sync_registry.source
-            )
+        remote = self.get_registry(
+            sync_registry or self.settings.sync_registry, tag=tag
+        )
 
         # Upgrade the current registry from the remote
         self.sync_from_remote(
@@ -152,6 +149,8 @@ class Registry:
             add_new=add_new,
             local=local,
         )
+
+        #  Cleanup the remote once we've done the sync
         remote.cleanup()
 
     def sync_from_remote(
@@ -163,26 +162,41 @@ class Registry:
         If the registry module is not installed, we install to the first
         filesystem registry found in the list.
         """
-        updates = False
 
+        ## First get a valid local Registry
         # A local (string) path provided
-        if local and isinstance(local, str) and os.path.exists(local):
+        if local and isinstance(local, str):
+            if not os.path.exists(local):
+                logger.exit("The path %s doesn't exist." % local)
             local = Filesystem(local)
 
         # No local registry provided, use default
         if not local:
-            local = Filesystem(self.settings.filesystem_registry)
+            local = self.filesystem_registry
+            # We sync to our first registry - if not filesystem, no go
+            if not local:
+                logger.exit("No local registry to sync to. Check the shpc settings.")
 
-        tmpdir = remote.source
-        if tmpdir.startswith("http") or not os.path.exists(tmpdir):
-            tmpdir = remote.clone()
+        if not isinstance(local, Filesystem):
+            logger.exit(
+                "Can only synchronize to a local file system, not to %s." % local
+            )
+
+        ## Then a valid remote Registry
+        if not remote:
+            logger.exit("No remote provided. Cannot sync.")
+
+        if not isinstance(remote, Filesystem):
+            # Instantiate a local registry, which will have to be cleaned up
+            remote = remote.clone()
 
         # These are modules to update
-        for regpath, module in remote.iter_modules():
+        updates = False
+        for module in remote.iter_modules():
             if name and module != name:
                 continue
 
-            from_path = os.path.join(regpath, module)
+            from_path = os.path.join(remote.source, module)
             existing_path = local.exists(module)
 
             # If we have an existing module and we want to replace all files
