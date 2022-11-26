@@ -70,15 +70,8 @@ def main():
     existing = list(cli.registry.iter_registry())
 
     # Do a diff between lists, get tag for container if not added
-    for container in iter_tags(containers, existing):
-
-        image = container.split(":")[0]
-
-        # Look for same name in registry
-        container_dir = os.path.join(args.registry, image)
-        if os.path.exists(container_dir):
-            print(f"{container_dir} already exists.")
-            continue
+    # This checks the registry and ensures the path doesn't already exist
+    for container in iter_tags(containers, existing, args.registry):
 
         # We assume we cannot get aliases here
         try:
