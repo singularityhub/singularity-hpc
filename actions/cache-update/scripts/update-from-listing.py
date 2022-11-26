@@ -24,6 +24,9 @@ def get_parser():
     )
     parser.add_argument("--listing", help="Path to cache with counts.json.")
     parser.add_argument(
+        "--namespace", help="Namespace to add to containers in listing."
+    )
+    parser.add_argument(
         "--registry", help="Path to registry root.", default=os.getcwd()
     )
     parser.add_argument(
@@ -43,6 +46,7 @@ def main():
     # Show args to the user
     print("  maintainer: %s" % args.maintainer)
     print("    registry: %s" % args.registry)
+    print("   namespace: %s" % args.namespace)
     print("     listing: %s" % args.listing)
 
     cli = get_client()
@@ -57,6 +61,10 @@ def main():
     containers = [
         x.strip() for x in shpc.utils.read_file(args.listing).split("\n") if x.strip()
     ]
+
+    # If a namespace is provided, add to listing
+    if args.namespace:
+        containers = ["%s/%s" % (args.namespace, x) for x in containers]
 
     # Listing of existing containers
     existing = list(cli.registry.iter_registry())
