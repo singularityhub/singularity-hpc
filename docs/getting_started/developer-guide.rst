@@ -884,7 +884,7 @@ over 8K BioContainers.
 
           # registry defaults to PWD, branch defaults to main
         - name: Update Biocontainers
-          uses: singularityhub/singularity-hpc/actions/cache-update@add/update-registry-cache-action
+          uses: singularityhub/singularity-hpc/actions/cache-update@main
           with:
             token: ${{ secrets.GITHUB_TOKEN }}
             cache: https://github.com/singularityhub/shpc-registry-cache
@@ -894,12 +894,13 @@ over 8K BioContainers.
             # Defaults to shpc docs, this gets formatted to include the entry_name
             url_format_string: "https://biocontainers.pro/tools/%s"
             pull_request: "${{ github.event_name != 'pull_request' }}"
+            namespace: quay.io/biocontainers
             listing: /tmp/biocontainers.txt
-
 
 The listing we derive in the third step is entirely optional, however providing one
 will (in addition to updating from the cache) ensure that entries provided there are also added,
-albeit without aliases. The reason we do this is because the cache often misses being able
+albeit without aliases. The namespace is provided to supplement the listing.
+The reason we allow this additional listing is because the cache often misses being able
 to extract a listing of aliases for some container, and we still wait to add it to the registry
 (albeit without aliases).
 

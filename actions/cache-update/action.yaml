@@ -48,9 +48,7 @@ runs:
   steps:
      # Install container_discovery module
     - name: Install Container Discovery and Dependencies
-      uses: singularityhub/container-executable-discovery/install@add/registry-update
-      with:
-        branch: add/registry-update
+      uses: singularityhub/container-executable-discovery/install@main
 
     - name: Install Additional Dependencies
       run: pip install git+https://github.com/singularityhub/singularity-hpc@main
