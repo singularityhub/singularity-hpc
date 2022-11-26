@@ -839,3 +839,16 @@ Make sure to write to files outside of the container so you don't muck with perm
 Since we are using module use, this means that you can create module files as a user
 or an admin - it all comes down to who has permission to write to the modules
 and containers folder, and of course use it.
+
+
+GitHub Action
+=============
+
+As of version ``0.1.17`` we provide a GitHub action that will allow you to update
+a registry from an container binary cache. Does any of this not make sense?
+Don't worry! We we have a full tutorial soon to walk you through this process.
+For now, here is how to use the action provided here alongside your remote
+registry (e.g., running in GitHub actions) to update from a container executable
+cache of interest:
+
+.. code-block:: console
