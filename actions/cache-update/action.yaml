@@ -57,8 +57,12 @@ runs:
         maintainer: ${{ inputs.maintainer }}
         root: ${{ inputs.registry }}
       run: |
-        if [ "${root}" == "" ]; then; root=$(pwd); fi
-        if [ "${url}" != "" ]; then; url="--url ${url}"; fi
+        if [ "${root}" == "" ]; then
+            root=$(pwd)
+        fi
+        if [ "${url}" != "" ]; then
+            url="--url ${url}"
+        fi
         echo "registry=${root}" >> $GITHUB_ENV
         echo "url=${url}" >> $GITHUB_ENV
       shell: bash
