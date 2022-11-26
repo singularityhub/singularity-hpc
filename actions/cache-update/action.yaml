@@ -4,6 +4,9 @@ inputs:
   token:
     description: Token (required if pull_request is true)
     required: true
+  namespace:
+    description: Add a namespace prefix to containers in listing (if listing defined)
+    required: false
   cache:
     description: GitHub repository that has cache to use
     required: true
@@ -53,8 +56,9 @@ runs:
       run: pip install git+https://github.com/singularityhub/singularity-hpc@main
       shell: bash
 
-    - name: Set root
+    - name: Set root url and namespace
       env:
+        url: ${{ inputs.namespace }}
         url: ${{ inputs.url_format_string }}
         maintainer: ${{ inputs.maintainer }}
         root: ${{ inputs.registry }}
@@ -65,8 +69,12 @@ runs:
         if [ "${url}" != "" ]; then
             url="--url ${url}"
         fi
+        if [ "${namespace}" != "" ]; then
+            namespace="--namespace ${namespace}"
+        fi
         echo "registry=${root}" >> $GITHUB_ENV
         echo "url=${url}" >> $GITHUB_ENV
+        echo "namespace=${namespace}" >> $GITHUB_ENV
       shell: bash
 
     - name: Clone Cache
@@ -95,9 +103,10 @@ runs:
         listing: ${{ inputs.listing }}
         registry: ${{ env.registry }}
         maintainer: ${{ inputs.maintainer }}
+        namespace: ${{ env.namespace }}
         url: ${{ env.url }}
       run: |
-        cmd="python ${{ github.action_path }}/scripts/update-from-listing.py --listing ${listing} --registry ${registry} --maintainer ${maintainer} ${url}"
+        cmd="python ${{ github.action_path }}/scripts/update-from-listing.py --listing ${listing} --registry ${registry} --maintainer ${maintainer} ${url} ${namespace}"
         echo "${cmd}"
         ${cmd}
       shell: bash
