@@ -58,7 +58,7 @@ runs:
 
     - name: Set root url and namespace
       env:
-        url: ${{ inputs.namespace }}
+        namespace: ${{ inputs.namespace }}
         url: ${{ inputs.url_format_string }}
         maintainer: ${{ inputs.maintainer }}
         root: ${{ inputs.registry }}
