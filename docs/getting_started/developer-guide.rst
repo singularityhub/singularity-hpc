@@ -849,6 +849,58 @@ a registry from an container binary cache. Does any of this not make sense?
 Don't worry! We we have a full tutorial soon to walk you through this process.
 For now, here is how to use the action provided here alongside your remote
 registry (e.g., running in GitHub actions) to update from a container executable
-cache of interest:
+cache of interest. For the example here, we are updating the ``singularityhub/shpc-registry``
+from binaries in the ``singularityhub/shpc-registry-cache`` that happens to contain
+over 8K BioContainers.
 
-.. code-block:: console
+.. code-block:: yaml
+
+    name: Update BioContainers
+
+    on:
+      pull_request: []
+      schedule:
+      - cron: 0 0 1 * *
+
+    jobs:
+      auto-scan:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout
+          uses: actions/checkout@v3
+          with:
+            fetch-depth: '0'
+
+        - name: Create conda environment
+          run: conda create --quiet -c conda-forge --name cache spython
+
+        - name: Derive BioContainers List
+          run: |
+            export PATH="/usr/share/miniconda/bin:$PATH"
+            source activate cache
+            pip install -r .github/scripts/dev-requirements.txt
+            python .github/scripts/get_biocontainers.py /tmp/biocontainers.txt
+            head /tmp/biocontainers.txt
+
+          # registry defaults to PWD, branch defaults to main
+        - name: Update Biocontainers
+          uses: singularityhub/singularity-hpc/actions/cache-update@add/update-registry-cache-action
+          with:
+            token: ${{ secrets.GITHUB_TOKEN }}
+            cache: https://github.com/singularityhub/shpc-registry-cache
+            min-count-inclusion: 10
+            max-count-inclusion: 1000
+            additional-count-inclusion: 25
+            # Defaults to shpc docs, this gets formatted to include the entry_name
+            url_format_string: "https://biocontainers.pro/tools/%s"
+            pull_request: "${{ github.event_name != 'pull_request' }}"
+            listing: /tmp/biocontainers.txt
+
+
+The listing we derive in the third step is entirely optional, however providing one
+will (in addition to updating from the cache) ensure that entries provided there are also added,
+albeit without aliases. The reason we do this is because the cache often misses being able
+to extract a listing of aliases for some container, and we still wait to add it to the registry
+(albeit without aliases).
+
+We will have a full developer tutorial coming soon - stay tuned!
