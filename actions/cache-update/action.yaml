@@ -1,0 +1,155 @@
+name: "Update an shpc registry from a cache"
+description: "Install the container_discovery module for your own usage."
+inputs:
+  token:
+    description: Token (required if pull_request is true)
+    required: true
+  namespace:
+    description: Add a namespace prefix to containers in listing (if listing defined)
+    required: false
+  cache:
+    description: GitHub repository that has cache to use
+    required: true
+  registry:
+    description: path to root of cloned registry
+    required: false
+  min-count-inclusion:
+    description: Minimum alias count for inclusion
+    required: false
+    default: 10
+  max-count-inclusion:
+    description: Do not include counts over this value
+    required: false
+    default: 1000
+  additional-count-inclusion:
+    description: Additional container binaries to include after initial set derived.
+    required: false
+    default: 25
+  branch:
+    description: Branch to open pull request against (defaults to main)
+    required: false
+    default: "main"
+  pull_request:
+    description: Open a pull request with changes
+    required: false
+    default: true
+  maintainer:
+    description: GitHub maintainer of recipe
+    required: false
+    default: "@vsoch"
+  url_format_string:
+    required: false
+  listing:
+    description: Containers listing to update from (to supplement cache).
+    required: false
+
+runs:
+  using: "composite"
+  steps:
+     # Install container_discovery module
+    - name: Install Container Discovery and Dependencies
+      uses: singularityhub/container-executable-discovery/install@main
+
+    - name: Install Additional Dependencies
+      run: pip install git+https://github.com/singularityhub/singularity-hpc@main
+      shell: bash
+
+    - name: Set root url and namespace
+      env:
+        namespace: ${{ inputs.namespace }}
+        url: ${{ inputs.url_format_string }}
+        maintainer: ${{ inputs.maintainer }}
+        root: ${{ inputs.registry }}
+      run: |
+        if [ "${root}" == "" ]; then
+            root=$(pwd)
+        fi
+        if [ "${url}" != "" ]; then
+            url="--url ${url}"
+        fi
+        if [ "${namespace}" != "" ]; then
+            namespace="--namespace ${namespace}"
+        fi
+        echo "registry=${root}" >> $GITHUB_ENV
+        echo "url=${url}" >> $GITHUB_ENV
+        echo "namespace=${namespace}" >> $GITHUB_ENV
+      shell: bash
+
+    - name: Clone Cache
+      env:
+        cache: ${{ inputs.cache }}
+      run: git clone ${cache} /tmp/cache
+      shell: bash
+
+    - name: Update Containers
+      env:
+        registry: ${{ env.registry }}
+        add_count: ${{ inputs.additional-count-inclusion }}
+        min_count: ${{ inputs.min-count-inclusion }}
+        max_count: ${{ inputs.max-count-inclusion }}
+        maintainer: ${{ inputs.maintainer }}
+        url: ${{ env.url }}
+      run: |
+        cmd="python ${{ github.action_path }}/scripts/update-from-cache.py --cache /tmp/cache --registry ${registry} --min-count-inclusion ${min_count} --additional-count-inclusion ${add_count} --max-count-inclusion ${max_count} --maintainer ${maintainer} ${url}"
+        echo "${cmd}"
+        ${cmd}
+      shell: bash
+
+    - name: Update from Listing
+      if: (inputs.listing != '')
+      env:
+        listing: ${{ inputs.listing }}
+        registry: ${{ env.registry }}
+        maintainer: ${{ inputs.maintainer }}
+        namespace: ${{ env.namespace }}
+        url: ${{ env.url }}
+      run: |
+        cmd="python ${{ github.action_path }}/scripts/update-from-listing.py --listing ${listing} --registry ${registry} --maintainer ${maintainer} ${url} ${namespace}"
+        echo "${cmd}"
+        ${cmd}
+      shell: bash
+
+    - name: Checkout Update branch
+      if: (inputs.pull_request == 'true')
+      env:
+        GITHUB_TOKEN: ${{ inputs.token }}
+        BRANCH_AGAINST: ${{ inputs.branch }}
+      run: |
+        printf "GitHub Actor: ${GITHUB_ACTOR}\n"
+        export BRANCH_FROM="update/containers-$(date '+%Y-%m-%d')"
+        git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+        BRANCH_EXISTS=$(git ls-remote --heads origin ${BRANCH_FROM})
+        if [[ -z ${BRANCH_EXISTS} ]]; then
+            printf "Branch does not exist in remote.\n"
+        else
+            printf "Branch already exists in remote.\n"
+            exit 1
+        fi
+        git branch
+        git checkout -b "${BRANCH_FROM}" || git checkout "${BRANCH_FROM}"
+        git branch
+        git config --global user.name "github-actions"
+        git config --global user.email "github-actions@users.noreply.github.com"
+        git add ./*
+        git status
+        if git diff-index --quiet HEAD --; then
+           export OPEN_PULL_REQUEST=0
+           printf "No changes\n"
+        else
+           export OPEN_PULL_REQUEST=1
+           printf "Changes\n"
+           git commit -a -m "Automated deployment to update containers $(date '+%Y-%m-%d')"
+           git push origin "${BRANCH_FROM}"
+        fi
+        echo "OPEN_PULL_REQUEST=${OPEN_PULL_REQUEST}" >> $GITHUB_ENV
+        echo "PULL_REQUEST_FROM_BRANCH=${BRANCH_FROM}" >> $GITHUB_ENV
+        echo "PULL_REQUEST_TITLE=[bot] ${BRANCH_FROM}" >> $GITHUB_ENV
+        echo "PULL_REQUEST_BODY=Update container modules pull request." >> $GITHUB_ENV
+      shell: bash
+
+    - name: Open Pull Request
+      uses: vsoch/pull-request-action@50f22f6d146226ee6b73b7a001f26a3d4579f360 # 1.0.22
+      if: ${{ env.OPEN_PULL_REQUEST == '1' }}
+      env:
+        GITHUB_TOKEN: ${{ inputs.token }}
+        PULL_REQUEST_BRANCH: ${{ inputs.branch }}
