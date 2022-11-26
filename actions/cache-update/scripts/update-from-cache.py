@@ -73,9 +73,9 @@ def main():
     args, extra = parser.parse_known_args()
 
     # Show args to the user
-    print("  maintainer: %s" % args.maintainer)
-    print("    registry: %s" % args.registry)
-    print("       cache: %s" % args.cache)
+    print("            maintainer: %s" % args.maintainer)
+    print("              registry: %s" % args.registry)
+    print("                 cache: %s" % args.cache)
 
     cli = get_client()
     cli.settings.registry = [args.registry]
@@ -85,6 +85,9 @@ def main():
         if not os.path.exists(path):
             sys.exit(f"{path} does not exist")
 
+    # TODO: add support for pattern of this url
+    # expose those variables to action -> script -> here
+    # ensure we return the correct URI based on the cache entry and variables
     for entry in iter_new_cache(args.cache, registry=args.registry):
         aliases = entry.filter_aliases(
             add_count=args.add_count, min_count=args.min_count, max_count=args.max_count
