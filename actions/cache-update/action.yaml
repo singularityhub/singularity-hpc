@@ -49,6 +49,7 @@ runs:
 
     - name: Install Additional Dependencies
       run: pip install git+https://github.com/singularityhub/singularity-hpc@main
+      shell: bash
 
     - name: Set root
       env:
@@ -66,6 +67,7 @@ runs:
       env:
         cache: ${{ inputs.cache }}
       run: git clone ${cache} /tmp/cache
+      shell: bash
 
     - name: Update Containers
       env:
@@ -75,7 +77,7 @@ runs:
         max_count: ${{ inputs.max-count-inclusion }}
         maintainer: ${{ inputs.maintainer }}
         url: ${{ env.url }}
-        run: python ${{ github.action_path }}/scripts/update-from-cache.py --cache /tmp/cache --registry ${registry} --min-count-inclusion ${min_count} --additional-count-inclusion ${add_count} --max-count-inclusion ${max_count} --maintainer ${maintainer} ${url}
+      run: python ${{ github.action_path }}/scripts/update-from-cache.py --cache /tmp/cache --registry ${registry} --min-count-inclusion ${min_count} --additional-count-inclusion ${add_count} --max-count-inclusion ${max_count} --maintainer ${maintainer} ${url}
       shell: bash
 
     - name: Update from Listing
@@ -85,7 +87,7 @@ runs:
         registry: ${{ env.registry }}
         maintainer: ${{ inputs.maintainer }}
         url: ${{ env.url }}
-        run: python ${{ github.action_path }}/scripts/update-from-listing.py --listing ${listing} --registry ${registry} --maintainer ${maintainer} ${url}
+      run: python ${{ github.action_path }}/scripts/update-from-listing.py --listing ${listing} --registry ${registry} --maintainer ${maintainer} ${url}
       shell: bash
 
     - name: Checkout Update branch
@@ -124,6 +126,7 @@ runs:
         echo "PULL_REQUEST_FROM_BRANCH=${BRANCH_FROM}" >> $GITHUB_ENV
         echo "PULL_REQUEST_TITLE=[bot] ${BRANCH_FROM}" >> $GITHUB_ENV
         echo "PULL_REQUEST_BODY=Update container modules pull request." >> $GITHUB_ENV
+      shell: bash
 
     - name: Open Pull Request
       uses: vsoch/pull-request-action@50f22f6d146226ee6b73b7a001f26a3d4579f360 # 1.0.22
