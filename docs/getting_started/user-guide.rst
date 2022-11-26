@@ -1263,6 +1263,7 @@ Namespaces currently work with:
  - uninstall
  - show
  - add
+ - remove
  - check
 
 
@@ -1890,6 +1891,34 @@ And that's it! The container module will use the same namespace, ``vanessa/pokem
 and we do this purposefully as a design decision. Note that ``add`` previously would add the container directly to the module
 directory, and as of version 0.0.49 it's been updated to generate the container.yaml first.
 
+.. _getting_started-commands-remove:
+
+Remove
+------
+
+As of version ``0.1.17`` you can easily remove a container.yaml entry too!
+This remove command takes a pattern, and not providing one will remove all entries
+from the registry (useful if you want to create a new one but preserve the automation).
+Here is how to remove a specific namespace of container yamls:
+
+.. code-block:: console
+
+    $ shpc remove quay.io/biocontainers
+    Searching for container.yaml matching quay.io/biocontainers to remove...
+    Are you sure you want to remove 8367 container.yaml recipes? (yes/no)?
+
+
+To remove all modules:
+
+.. code-block:: console
+
+    $ shpc remove
+    Searching for container yaml to remove...
+    Are you sure you want to remove 264 container.yaml recipes? (yes/no)? yes
+    Removal complete!
+
+This command can be useful if you want to start with a populated registry
+as a template for your own registry.
 
 Get
 ---

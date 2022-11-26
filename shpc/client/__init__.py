@@ -176,6 +176,16 @@ shpc -c rm:registry:/tmp/registry""",
         nargs="?",
     )
 
+    # Remove a container recipe
+    remove = subparsers.add_parser(
+        "remove", description="remove a container.yaml entry"
+    )
+    remove.add_argument(
+        "module_id",
+        help='desired identifier path to remove (e.g. "quay.io/biocontainers"). Leave out to remove all.',
+        nargs="?",
+    )
+
     check = subparsers.add_parser(
         "check", description="check if you have latest installed."
     )
@@ -372,6 +382,7 @@ shpc config remove registry /tmp/registry""",
         inspect,
         install,
         listing,
+        remove,
         shell,
         test,
         uninstall,
@@ -420,7 +431,7 @@ shpc config remove registry /tmp/registry""",
         dest="filter_string",
     )
 
-    for command in docgen, show, add, sync:
+    for command in docgen, show, add, remove, sync:
         command.add_argument(
             "--registry", help="GitHub repository or local path where registry lives."
         )
@@ -499,6 +510,8 @@ def run_shpc():
         from .namespace import main
     elif args.command == "pull":
         from .pull import main
+    elif args.command == "remove":
+        from .remove import main
     elif args.command == "shell":
         from .shell import main
     elif args.command == "show":

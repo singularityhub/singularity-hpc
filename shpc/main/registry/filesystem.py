@@ -4,7 +4,6 @@ __license__ = "MPL 2.0"
 
 
 import os
-import re
 import shutil
 
 import shpc.utils
@@ -110,14 +109,10 @@ class Filesystem(Provider):
         """
         Iterate over content in filesystem registry.
         """
-        for filename in shpc.utils.recursive_find(self.source):
+        for filename in shpc.utils.recursive_find(self.source, filter_string):
             if not filename.endswith("container.yaml"):
                 continue
             module_name = (
                 os.path.dirname(filename).replace(self.source, "").strip(os.sep)
             )
-
-            # If the user has provided a filter, honor it
-            if filter_string and not re.search(filter_string, module_name):
-                continue
             yield FilesystemResult(module_name, filename)

@@ -8,6 +8,8 @@ This developer guide includes more complex interactions like contributing
 registry entries and building containers. If you haven't read :ref:`getting_started-installation`
 you should do that first.
 
+.. _getting_started-developer-environment:
+
 
 Environment
 ===========
@@ -34,6 +36,7 @@ You can also install as a hook:
 
     $ pre-commit install
 
+.. _getting_started-developer-commands:
 
 
 Developer Commands
@@ -65,6 +68,7 @@ And you could easily pipe this to a file. Here is how we generate this programma
         shpc docgen --registry ../shpc-registry --registry-url https://github.com/singularityhub/shpc-registry $module > "_library/${name}.md"
     done
 
+.. _getting_started-creating-filesystem-registry:
 
 Creating a FileSystem Registry
 ==============================
@@ -144,6 +148,9 @@ updated recipes, and then check for updates (the bot to do this is not developed
 It's reasonable that you can store your recipes alongside these files, in the ``registry``
 folder. If you see a conflict and want to request allowing for a custom install path
 for recipes, please open an issue.
+
+.. _getting_started-creating-remote-registry:
+
 
 Creating a Remote Registry
 ==========================
@@ -238,6 +245,9 @@ a separate directory based on version.
 
 
 So different versions could exist alongside one another.
+
+.. _getting_started-development-registry-yaml-files:
+
 
 Registry Yaml Files
 ===================
@@ -841,6 +851,8 @@ or an admin - it all comes down to who has permission to write to the modules
 and containers folder, and of course use it.
 
 
+.. _getting_started-development-github-action:
+
 GitHub Action
 =============
 
@@ -904,4 +916,252 @@ The reason we allow this additional listing is because the cache often misses be
 to extract a listing of aliases for some container, and we still wait to add it to the registry
 (albeit without aliases).
 
-We will have a full developer tutorial coming soon - stay tuned!
+
+Developer Tutorial
+==================
+
+This is currently a small tutorial that will include some of the lessons above and
+show you how to:
+
+1. Create a new remote registry on GitHub with automated updates
+2. Create a new container executable cache
+3. Automate updates of the cache to your registry
+
+Prepare a Remote Registry
+-------------------------
+
+To start, `create a new repository <https://docs.github.com/en/get-started/quickstart/create-a-repo>`_
+and follow the instructions in :ref:`getting_started-creating-remote-registry` to
+create a remote registry. We will briefly show you the most basic clone and adding
+a few entries to it here.
+
+.. code-block:: console
+
+    # Clone the shpc-registry as a template
+    $ git clone https://github.com/singularityhub/shpc-registry /tmp/my-registry
+    $ cd /tmp/my-registry
+
+The easiest way to delete the entries (to make way for your own) is to use shpc itself!
+Here is how we can use ``shpc show`` to remove the entries. First, make sure that
+shpc is installed (:ref:`getting_started-installation`) and ensure your registry
+is the only one in the config registry section. You can use ``shpc config edit``
+to quickly see it. It should look like this:
+
+.. code-block:: yaml
+
+    # Please preserve the flat list format for the yaml loader
+    registry: [/tmp/my-registry]
+
+Do a sanity check to make sure your active config is the one you think it is:
+
+.. code-block:: console
+
+    $ shpc config get registry
+    registry                       ['/tmp/my-registry']
+
+Next, you can use ``shpc remove`` to remove all registry entries, and we
+recommend deleting quay.io first since most entries live there and it will
+speed up the subsequent operation.
+
+.. code-block:: console
+
+    $ rm -rf quay.io/biocontainers
+    $ shpc remove # answer yes to confirmation
+
+Save your changes.
+
+.. code-block:: console
+
+    $ git commit -a -s -m 'emptying template registry'
+
+After this you will have only a skeleton set of files, and most importantly,
+the .github directory with automation workflows. Feel free to remove or edit files
+such as the ``FUNDING.yml`` and ``ISSUE_TEMPLATE``. Next, fetch to get GitHub pages.
+
+.. code-block:: console
+
+    $ git fetch
+
+At this point you can edit the ``.git/config`` to be your new remote.
+
+.. code-block:: console
+
+    # Update the remote to be your new repository
+    vim .git/config
+
+You should only do this after you've fetched, as you will no longer be connected to the original
+remote! Now that you've changed the remote and commit, push your changes and then push to your main branch. We do this
+push before gh-pages so "main" becomes the primary branch.
+
+    $ git push origin main
+
+Then you can checkout the gh-pages branch to do the same cleanup and push.
+
+.. code-block:: console
+
+    $ git checkout gh-pages
+
+This cleanup is easier - just delete the markdown files in ``_library``.
+
+.. code-block:: console
+
+    $ rm -rf _library/*.md
+
+And then commit and push to gh-pages.
+
+.. code-block:: console
+
+    $ git commit -a -s -m 'emptying template registry gh-pages'
+    $ git push origin gh-pages
+
+
+Manually Add Registry Entries
+-----------------------------
+
+Great! Now you have an empty registry on your filesystem that will serve as a remote.
+Make sure you are back on the main branch:
+
+.. code-block:: console
+
+    $ git checkout main
+
+While it's possible to manually add entries (e.g., ``shpc add docker://python``)
+this will miss out on aliases. Instead, navigate to your GitHub repository
+and try running the ``Actions --> Generate New Container --> Run Workflow`` and
+enter your container name (with tag), and a URL and description. This will
+run a workflow to derive aliases and open a pull request to your repository (make
+sure in your repository settings you allow actions to open pull requests).
+
+Remember that any container, once it goes into the registry, will have tags
+and digests automatically updated via the "Update Containers" action workflow.
+
+Creating a Cache
+----------------
+
+Instead of manually adding entries, let's create an automated way to populate
+entries from a cache. You can read more about the algorithm we use to derive aliases
+in the ``shpc-registry-cache <https://github.com/singularityhub/shpc-registry-cache>`_
+repository, along with cache generation details. You will primarily need two things:
+
+1. A text listing of containers to add to the cache, ideally automatically generated
+2. A workflow that uses it to update your cache.
+
+Both of these files should be in a GitHub repository that you create. E.g.,:
+
+.. code-block:: console
+
+    containers.txt
+    .github/
+    └── workflows
+        └── update-cache.yaml
+
+For the main shpc registry cache linked above, we derive a list of biocontainers.txt
+on the fly from the current depot listing. You might do the same for a collection of
+interest, or just to try it out, create a small listing of your own containers
+in a ``containers.txt`` e.g.,:
+
+.. code-block:: console
+
+    python
+    rocker/r-ver
+    julia
+
+You can find further dummy examples in the `container-executable-discovery <https://github.com/singularityhub/container-executable-discovery/>`_
+repository along with variables that the action accepts. As an example of our
+small text file above, we might have:
+
+.. code-block:: yaml
+
+    name: Update Cache
+
+    on:
+      workflow_dispatch:
+      schedule:
+      # Weekly, monday and thursday
+      - cron: 0 0 * * 1,4
+
+    jobs:
+      update-cache:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout
+          uses: actions/checkout@v3
+
+        - name: Update Cache Action
+          uses: singularityhub/container-executable-discovery@main
+          with:
+            token: ${{ secrets.GITHUB_TOKEN }}
+            repo-letter-prefix: true
+            listing: ./containers.txt
+            dry_run: ${{ github.event_name == 'pull_request' }}
+
+
+And this would use out containers.txt listing to populate the cache in the repository
+we've created. Keep in mind that caches are useful beyond Singularity Registry HPC -
+knowing the paths and executables within a container is useful for other applied and
+research projects too!
+
+
+Updating a Registry from a Cache
+--------------------------------
+
+Once you have a cache, it's fairly easy to use another action provided by shpc
+directly from it. This is the :ref:`getting_started-development-github-action` mentioned
+above. The full example provided there does two things:
+
+1. Updates your registry from the cache entries
+2. Derives an additional listing to add containers that were missed in the cache.
+
+And you will want to put the workflow alongside your newly created registry.
+The reason for the second point is that there are reasons we are unable to extract
+container binaries to the filesystem. In the case of any kind of failure, we might
+not have an entry in the cache, however we still want to add it to our registry!
+With the addition of the ``listing`` variable and the step to derive the listing
+of BioContainers in the example above, we are still able to add these missing
+containers, albeit without aliases. Here is an example just updating
+from the cache (no extra listing):
+
+
+.. code-block:: yaml
+
+    name: Update BioContainers
+
+    on:
+      pull_request: []
+      schedule:
+      - cron: 0 0 1 * *
+
+    jobs:
+      auto-scan:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout
+          uses: actions/checkout@v3
+
+          # registry defaults to PWD, branch defaults to main
+        - name: Update Containers
+          uses: singularityhub/singularity-hpc/actions/cache-update@main
+          with:
+            token: ${{ secrets.GITHUB_TOKEN }}
+            # Change this to your cache path
+            cache: https://github.com/singularityhub/shpc-registry-cache
+            min-count-inclusion: 10
+            max-count-inclusion: 1000
+            additional-count-inclusion: 25
+            # Defaults to shpc docs, this gets formatted to include the entry_name
+            url_format_string: "https://biocontainers.pro/tools/%s"
+            pull_request: "${{ github.event_name != 'pull_request' }}"
+
+
+The url format string expects a container identifier somewhere, and feel free
+to link to your registry base if you are unable to do this. You will want to change
+the ``cache`` to be your remove cache repository, and then adjust the parameters to
+your liking:
+
+- **min-count-inclusion**: is the threshold count by which under we include ALL aliases. A rare alias is likely to appear fewer times across all containers.
+- **additional-count-inclusion**: an additional number of containers to add after the initial set under ``min-count-inclusion`` is added (defaults to 25)
+- **max-count-inclusion**: don't add counts over this threshold (set to 1000 for biocontainers).
+
+Since the cache will generate a global counts.json and skips.json, this means the size of your cache
+can influence the aliases chosen. It's recommended to create your entire cache first and then to
+add it to your registry to update.
