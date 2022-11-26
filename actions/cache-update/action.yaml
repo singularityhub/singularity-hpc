@@ -83,7 +83,10 @@ runs:
         max_count: ${{ inputs.max-count-inclusion }}
         maintainer: ${{ inputs.maintainer }}
         url: ${{ env.url }}
-      run: python ${{ github.action_path }}/scripts/update-from-cache.py --cache /tmp/cache --registry ${registry} --min-count-inclusion ${min_count} --additional-count-inclusion ${add_count} --max-count-inclusion ${max_count} --maintainer ${maintainer} ${url}
+      run: |
+        cmd="python ${{ github.action_path }}/scripts/update-from-cache.py --cache /tmp/cache --registry ${registry} --min-count-inclusion ${min_count} --additional-count-inclusion ${add_count} --max-count-inclusion ${max_count} --maintainer ${maintainer} ${url}"
+        echo "${cmd}"
+        ${cmd}
       shell: bash
 
     - name: Update from Listing
@@ -93,7 +96,10 @@ runs:
         registry: ${{ env.registry }}
         maintainer: ${{ inputs.maintainer }}
         url: ${{ env.url }}
-      run: python ${{ github.action_path }}/scripts/update-from-listing.py --listing ${listing} --registry ${registry} --maintainer ${maintainer} ${url}
+      run: |
+        cmd="python ${{ github.action_path }}/scripts/update-from-listing.py --listing ${listing} --registry ${registry} --maintainer ${maintainer} ${url}"
+        echo "${cmd}"
+        ${cmd}
       shell: bash
 
     - name: Checkout Update branch
