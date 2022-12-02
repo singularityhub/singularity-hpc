@@ -375,7 +375,12 @@ class ModuleBase(BaseClient):
         return module
 
     def install(
-        self, name, force=False, container_image=None, keep_path=False, **kwargs
+        self,
+        name,
+        allow_reinstall=False,
+        container_image=None,
+        keep_path=False,
+        **kwargs
     ):
         """
         Given a unique resource identifier, install a recipe.
@@ -383,7 +388,6 @@ class ModuleBase(BaseClient):
         For lmod, this means creating a subfolder in modules, pulling the
         container to it, and writing a module file there. We've already
         grabbed the name from docker (which is currently the only supported).
-        "force" is currently not used.
         """
         # Create a new module
         module = self.get_module(
@@ -392,6 +396,23 @@ class ModuleBase(BaseClient):
 
         # We always load overrides for an install
         module.load_override_file()
+
+        # Check previous installations of this module
+        if os.path.exists(module.module_dir):
+            if not allow_reinstall:
+                logger.exit(
+                    "%s is already installed. Do `shpc reinstall` to proceed with a reinstallation."
+                    % module.tagged_name
+                )
+            logger.info("%s is already installed. Reinstalling." % module.tagged_name)
+            # Don't explicitly remove the container, since we still need it,
+            # though it may still happen if shpc is configured to store
+            # containers and modules in the same directory
+            self._uninstall(
+                module.module_dir,
+                self.settings.module_base,
+                "$module_base/%s" % module.name,
+            )
 
         # Create the module and container directory
         utils.mkdirp([module.module_dir, module.container_dir])
@@ -421,12 +442,12 @@ class ModuleBase(BaseClient):
         logger.info("Module %s was created." % module.tagged_name)
         return module.container_path
 
-    def view_install(self, view_name, name, force=False, container_image=None):
+    def view_install(self, view_name, name, force=False):
         """
         Install a module in a view. The module must already be installed.
         Set "force" to True to allow overwriting existing symlinks.
         """
-        module = self.get_module(name, container_image=container_image)
+        module = self.get_module(name)
 
         # A view is a symlink under views_base/$view/$module
         if view_name not in self.views:
@@ -440,3 +461,58 @@ class ModuleBase(BaseClient):
         # Don't continue if it exists, unless force is True
         view.confirm_install(module.module_dir, force=force)
         view.install(module.module_dir)
+
+    def reinstall(self, name, when_missing=None):
+        """
+        Reinstall the module, or all modules
+        """
+        if name:
+            module_name, _, version = name.partition(":")
+            # Find all the versions currently installed
+            installed_modules = self._get_module_lookup(
+                self.settings.module_base, self.modulefile, module_name
+            )
+            if (module_name not in installed_modules) or (
+                version and version not in installed_modules[module_name]
+            ):
+                logger.exit("%s is not installed. Nothing to reinstall." % name)
+            versions = [version] if version else installed_modules[module_name]
+            # Reinstall the required version(s) one by one
+            for version in versions:
+                self._reinstall(module_name, version, when_missing)
+        else:
+            # Reinstall everything that is currently installed
+            installed_modules = self._get_module_lookup(
+                self.settings.module_base, self.modulefile
+            )
+            for module_name, versions in installed_modules.items():
+                for version in versions:
+                    self._reinstall(module_name, version, when_missing)
+
+    def _reinstall(self, module_name, version, when_missing):
+        """
+        Reinstall (and possibly upgrade) all the current modules, possibly filtered by pattern.
+        """
+        result = self.registry.find(module_name)
+        if result:
+            config = container.ContainerConfig(result)
+            if version in config.tags:
+                return self.install(module_name + ":" + version, allow_reinstall=True)
+            else:
+                missing = module_name + ":" + version
+        else:
+            missing = module_name
+
+        if when_missing:
+            if when_missing == "ignore":
+                logger.info(
+                    "%s is not in the Registry any more. Ignoring as instructed."
+                    % missing
+                )
+            elif when_missing == "uninstall":
+                self.uninstall(module_name + ":" + version, force=True)
+        else:
+            logger.exit(
+                "%s is not in the Registry any more. Add --uninstall-missing or --ignore-missing."
+                % missing
+            )

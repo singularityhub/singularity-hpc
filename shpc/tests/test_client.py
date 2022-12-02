@@ -51,8 +51,6 @@ def test_install_get(tmp_path, module_sys, module_file, container_tech, remote):
 
     assert client.get("python:3.9.2-alpine")
 
-    client.install("python:3.9.2-alpine")
-
 
 @pytest.mark.parametrize(
     "module_sys,module_file,remote",
@@ -377,3 +375,41 @@ def test_add(tmp_path, module_sys, remote):
         client.get("dinosaur/salad:latest")
     client.install("dinosaur/salad:latest")
     assert client.get("dinosaur/salad:latest")
+
+
+@pytest.mark.parametrize(
+    "module_sys,module_file,container_tech,remote",
+    [
+        ("lmod", "module.lua", "singularity", False),
+        ("lmod", "module.lua", "podman", False),
+        ("tcl", "module.tcl", "singularity", False),
+        ("tcl", "module.tcl", "podman", False),
+        ("lmod", "module.lua", "singularity", True),
+        ("lmod", "module.lua", "podman", True),
+        ("tcl", "module.tcl", "singularity", True),
+        ("tcl", "module.tcl", "podman", True),
+    ],
+)
+def test_reinstall(tmp_path, module_sys, module_file, container_tech, remote):
+    """
+    Test install and reinstall
+    """
+    client = init_client(str(tmp_path), module_sys, container_tech, remote=remote)
+
+    # Install known tag
+    client.install("python:3.9.2-alpine")
+    module_dir = os.path.join(client.settings.module_base, "python", "3.9.2-alpine")
+    env_file = os.path.join(module_dir, client.settings.environment_file)
+    dummy = os.path.join(module_dir, "dummy.sh")
+    # Ensure the content is initially as expected
+    assert os.path.exists(env_file)
+    assert not os.path.exists(dummy)
+    # Modify it
+    os.unlink(env_file)
+    shpc.utils.write_file(module_file, "")
+    assert not os.path.exists(env_file)
+    assert os.path.exists(dummy)
+    # The reinstallation should restore everything
+    client.install("python:3.9.2-alpine", force=True)
+    assert os.path.exists(env_file)
+    assert not os.path.exists(dummy)
