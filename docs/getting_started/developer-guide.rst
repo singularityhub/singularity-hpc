@@ -1040,7 +1040,7 @@ Creating a Cache
 
 Instead of manually adding entries, let's create an automated way to populate
 entries from a cache. You can read more about the algorithm we use to derive aliases
-in the ``shpc-registry-cache <https://github.com/singularityhub/shpc-registry-cache>`_
+in the `shpc-registry-cache <https://github.com/singularityhub/shpc-registry-cache>`_
 repository, along with cache generation details. You will primarily need two things:
 
 1. A text listing of containers to add to the cache, ideally automatically generated
