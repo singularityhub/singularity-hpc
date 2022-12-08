@@ -12,6 +12,7 @@ import shutil
 
 import pytest
 
+import shpc.main.registry as registry
 import shpc.utils
 
 from .helpers import here, init_client
@@ -377,3 +378,30 @@ def test_add(tmp_path, module_sys, remote):
         client.get("dinosaur/salad:latest")
     client.install("dinosaur/salad:latest")
     assert client.get("dinosaur/salad:latest")
+
+
+def test_remove(tmp_path):
+    """
+    Test removing a container recipe
+    """
+    client = init_client(str(tmp_path), "lmod", "singularity")
+
+    # Create temporary registry that will be empty
+    registry_path = os.path.join(tmp_path, "registry")
+    client.settings.registry = [registry_path]
+    os.makedirs(registry_path)
+    client.reload_registry()
+    assert client.settings.filesystem_registry == registry_path
+
+    # Wrap local test filesystem registry and add module to it
+    test_registry_path = os.path.join(here, "testdata", "registry")
+    test_registry = registry.Filesystem(test_registry_path)
+    module = "dinosaur/salad"
+
+    client.registry.sync_from_remote(test_registry, module)
+
+    # It should exist in the registry
+    assert client.registry.exists(module) is not None
+    # Remove the module (with force)
+    client.remove(module, force=True)
+    assert client.registry.exists(module) is None

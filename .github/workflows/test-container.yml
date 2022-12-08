@@ -68,7 +68,7 @@ jobs:
       if: ${{ env.keepgoing == 'true' }}
       name: Install Singularity
       with:
-        singularity-version: 3.6.4
+        singularity-version: 3.7.1
 
     - name: Create conda environment
       if: ${{ env.keepgoing == 'true' }}

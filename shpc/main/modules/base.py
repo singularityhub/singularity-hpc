@@ -107,7 +107,7 @@ class ModuleBase(BaseClient):
                     "\nThis will uninstall the module from views:\n  %s\nAre you sure?"
                     % "\n  ".join(views_with_module)
                 )
-            if not utils.confirm_uninstall(msg, force):
+            if not utils.confirm_action(msg, force):
                 return
 
         # Podman needs image deletion
@@ -175,6 +175,44 @@ class ModuleBase(BaseClient):
         )
         utils.write_file(test_file, out)
         return subprocess.call(["/bin/bash", test_file])
+
+    def remove(self, image=None, force=False):
+        """
+        Remove a container.yaml from the registry
+
+        We only expose force in the function as it's potentially catastrophic
+        """
+        self.settings.ensure_filesystem_registry()
+
+        # Docker module name is always the same namespace as the image
+        if image and image.startswith("docker"):
+            image = image.replace("docker://", "")
+
+        # If we are provided with a module, ensure it's complete
+        if image:
+            logger.info(f"Searching for container.yaml matching {image} to remove...")
+        else:
+            logger.info("Searching for container.yaml to remove...")
+        modules = list(self.registry.iter_registry(filter_string=image))
+
+        # Cut out early if we don't have any
+        if not modules:
+            logger.exit("No modules found to remove", 0)
+
+        # One last bail out before deletion
+        if not force and not utils.confirm_action(
+            "Are you sure you want to remove %s container.yaml recipes?" % len(modules)
+        ):
+            return
+
+        for module in modules:
+            if os.path.exists(module.dirname):
+                print(f"Removing {module.module}", end="\r")
+
+                # The base path is the filesystem registry
+                utils.remove_to_base(module.dirname, self.settings.filesystem_registry)
+        print()
+        logger.info("Removal complete!")
 
     def add(self, image, module_name=None, **kwargs):
         """

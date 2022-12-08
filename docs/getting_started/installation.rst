@@ -20,8 +20,8 @@ you use pip or another setup approach, and to install a `known release <https://
 
 .. code:: console
 
-    # Install release 0.0.24
-    $ git clone -b 0.0.24 git@github.com:singularityhub/singularity-hpc
+    # Install release ${RELEASE}
+    $ git clone -b ${RELEASE} git@github.com:singularityhub/singularity-hpc
     $ cd singularity-hpc
     $ pip install -e .[all]
 

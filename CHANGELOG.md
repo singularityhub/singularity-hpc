@@ -15,6 +15,7 @@ The versions coincide with releases on pip. Only major versions will be released
 
 ## [0.0.x](https://github.com/singularityhub/singularity-hpc/tree/main) (0.0.x)
  - GitHub action to update a registry from a cache or listing (0.1.17)
+   - Support for "remove" command to more easily remove / uninstall entries
  - Fix bugs uninstalling all tags of a module (0.1.16)
  - support for install using registry recipe and local image (0.1.15)
  - fix views .view_module modulefile and loading (0.1.14)
