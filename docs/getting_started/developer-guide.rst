@@ -858,7 +858,7 @@ GitHub Action
 
 As of version ``0.1.17`` we provide a GitHub action that will allow you to update
 a registry from an container binary cache. Does any of this not make sense?
-Don't worry! We we have a full tutorial soon to walk you through this process.
+Don't worry! We have a full tutorial below to walk you through this process.
 For now, here is how to use the action provided here alongside your remote
 registry (e.g., running in GitHub actions) to update from a container executable
 cache of interest. For the example here, we are updating the ``singularityhub/shpc-registry``
@@ -927,8 +927,8 @@ show you how to:
 2. Create a new container executable cache
 3. Automate updates of the cache to your registry
 
-Prepare a Remote Registry
--------------------------
+Preparing a Remote Registry
+---------------------------
 
 To start, `create a new repository <https://docs.github.com/en/get-started/quickstart/create-a-repo>`_
 and follow the instructions in :ref:`getting_started-creating-remote-registry` to
@@ -993,6 +993,8 @@ You should only do this after you've fetched, as you will no longer be connected
 remote! Now that you've changed the remote and commit, push your changes and then push to your main branch. We do this
 push before gh-pages so "main" becomes the primary branch.
 
+.. code-block:: console
+
     $ git push origin main
 
 Then you can checkout the gh-pages branch to do the same cleanup and push.
@@ -1015,8 +1017,8 @@ And then commit and push to gh-pages.
     $ git push origin gh-pages
 
 
-Manually Add Registry Entries
------------------------------
+Manually Adding Registry Entries
+--------------------------------
 
 Great! Now you have an empty registry on your filesystem that will serve as a remote.
 Make sure you are back on the main branch:
