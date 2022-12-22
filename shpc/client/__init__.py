@@ -239,7 +239,7 @@ shpc view edit <name>""",
 shpc config set key value
 shpc config set key:subkey value
 shpc config get key
-shpc edit
+shpc config edit
 shpc config inituser
 shpc config add registry /tmp/registry
 shpc config remove registry /tmp/registry""",
