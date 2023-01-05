@@ -1,4 +1,4 @@
-name: Update Docs
+name: shpc docs
 
 on:
   push:

@@ -1,4 +1,4 @@
-name: Test Modules
+name: shpc test modules
 
 on:
   pull_request: []

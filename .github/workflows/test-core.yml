@@ -1,0 +1,33 @@
+name: shpc test core
+
+on:
+  pull_request: []
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: eWaterCycle/setup-singularity@v7
+      if: ${{ matrix.container_tech == 'singularity' }}
+      name: Install Singularity
+      with:
+        singularity-version: 3.7.1
+
+    - name: Create conda environment
+      run: conda create --quiet -c conda-forge --name shpc spython
+
+    - uses: actions/checkout@v3
+    - name: Install shpc
+      run: |
+        export PATH="/usr/share/miniconda/bin:$PATH"
+        source activate shpc
+        pip install -e .[all]
+
+    - name: Run python module tests (bash)
+      shell: bash
+      run: |
+        export PATH="/usr/share/miniconda/bin:$PATH"
+        source activate shpc
+        which shpc
+        cd shpc/tests
+        pytest -sv test_*.py
