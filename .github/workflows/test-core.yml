@@ -30,4 +30,4 @@ jobs:
         source activate shpc
         which shpc
         cd shpc/tests
-        pytest -sv test_*.py
+        pytest -sxv test_*.py
