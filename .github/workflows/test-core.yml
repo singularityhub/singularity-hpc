@@ -8,7 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: eWaterCycle/setup-singularity@v7
-      if: ${{ matrix.container_tech == 'singularity' }}
       name: Install Singularity
       with:
         singularity-version: 3.7.1
