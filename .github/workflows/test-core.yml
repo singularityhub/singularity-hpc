@@ -1,0 +1,30 @@
+name: shpc test core
+
+on:
+  pull_request: []
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Singularity install with defaults
+      uses: singularityhub/install-singularity@main
+
+    - name: Create conda environment
+      run: conda create --quiet -c conda-forge --name shpc spython
+
+    - uses: actions/checkout@v3
+    - name: Install shpc
+      run: |
+        export PATH="/usr/share/miniconda/bin:$PATH"
+        source activate shpc
+        pip install -e .[all]
+
+    - name: Run python module tests (bash)
+      shell: bash
+      run: |
+        export PATH="/usr/share/miniconda/bin:$PATH"
+        source activate shpc
+        which shpc
+        cd shpc/tests
+        pytest -sxv test_*.py

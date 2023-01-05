@@ -1,4 +1,4 @@
-name: allcontributors-auto-detect
+name: shpc contributors
 
 on:
   push:

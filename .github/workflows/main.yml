@@ -1,4 +1,4 @@
-name: singularity-hpc
+name: shpc linting
 
 on:
   # This should run on a push to any branch except main, gh-pages, and binoc

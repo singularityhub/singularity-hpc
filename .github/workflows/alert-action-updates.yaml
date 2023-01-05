@@ -1,4 +1,4 @@
-name: Check Actions Once a Year
+name: shpc check actions
 on:
   schedule:
     - cron: "0 0 1 6 *"
