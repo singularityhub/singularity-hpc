@@ -72,7 +72,6 @@ There are other tools that you might be interested in!
  - [Community Collections](https://github.com/community-collections/community-collections)
  - [Spack](https://spack.readthedocs.io/en/latest/module_file_support.html) installs modules for software built from source (not containers).
 
-
 ## License
 
 This code is licensed under the MPL 2.0 [LICENSE](LICENSE).
