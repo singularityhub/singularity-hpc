@@ -258,17 +258,25 @@ class ModuleBase(BaseClient):
             return self.container.get_environment_file(module_name)
         return self.container.get(module_name)
 
-    def list(self, pattern=None, names_only=False, out=None, short=False):
+    def list(
+        self,
+        pattern=None,
+        names_only=False,
+        out=None,
+        short=False,
+        return_modules=False,
+    ):
         """
         List installed modules.
         """
-        self._list_modules(
+        return self._list_modules(
             self.settings.module_base,
             self.modulefile,
             pattern,
             names_only,
             out,
             short=short,
+            return_modules=return_modules,
         )
 
     def docgen(self, module_name, registry=None, out=None, branch="main"):
@@ -328,13 +336,24 @@ class ModuleBase(BaseClient):
         return self.container.inspect(image)
 
     def _list_modules(
-        self, base, filename, pattern=None, names_only=False, out=None, short=False
+        self,
+        base,
+        filename,
+        pattern=None,
+        names_only=False,
+        out=None,
+        short=False,
+        return_modules=False,
     ):
         """
         A shared function to list modules or registry entries.
         """
         out = out or sys.stdout
         modules = self._get_module_lookup(base, filename, pattern)
+
+        # Return names
+        if return_modules:
+            return modules
 
         # If we don't have modules, exit early
         if not modules:
@@ -424,7 +443,7 @@ class ModuleBase(BaseClient):
         "force" is currently not used.
         """
         # Create a new module
-        module = self.get_module(
+        module = kwargs.get("module") or self.get_module(
             name, container_image=container_image, keep_path=keep_path
         )
 

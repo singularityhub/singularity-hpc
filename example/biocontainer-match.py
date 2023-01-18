@@ -24,6 +24,7 @@ import sys
 
 from shpc.logger import logger
 from shpc.main import get_client
+from shpc.main.container import ContainerConfig
 
 
 def get_parser():
@@ -84,9 +85,10 @@ def main():
         tagged = f"{container}:{tag}"
 
         match = cli.registry.find(tagged)
+
+        # We don't have an exact match but can share aliases
         if not match:
-            tagged = container
-            match = cli.registry.find(tagged)
+            match = cli.registry.find(container)
 
         if not match:
             logger.warning(f"Warning: no match for {path}")
@@ -97,10 +99,25 @@ def main():
             seen.add(repo)
             continue
 
-        print(f"Installing {path} to {tagged}")
+        # Note we need to install the correct version but using aliases
+        # from the one we have (and they should be comparable)
+        print(f"Installing {path} to {tagged} with aliases from {match.module}")
+
+        # Create a new module, force the tag since the digest could be unknown
+        module = cli.new_module(tagged)
+        module.config = ContainerConfig(match)
+        module.config.set_tag(tag, force=True)
+        module.load_config(module.config, tagged)
+        module.add_local_container(path, keep_path=True)
 
         # We found a match! Install it (forcing keep path to not copy the container)
-        cli.install(tagged, force=args.force, container_image=path, keep_path=True)
+        cli.install(
+            tagged,
+            force=args.force,
+            module=module,
+            container_image=path,
+            keep_path=True,
+        )
         seen.add(repo)
 
 

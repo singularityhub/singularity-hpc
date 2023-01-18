@@ -310,7 +310,15 @@ shpc config remove registry /tmp/registry""",
         action="store_true",
     )
     uninstall.add_argument(
-        "uninstall_recipe", help="module to uninstall (module/version)"
+        "uninstall_recipe", help="module to uninstall (module/version)", nargs="?"
+    )
+    uninstall.add_argument(
+        "--all",
+        "-a",
+        dest="uninstall_all",
+        help="uninstall all recipes",
+        default=False,
+        action="store_true",
     )
 
     # Update gets latest tags from OCI registries
