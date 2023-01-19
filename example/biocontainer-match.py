@@ -103,6 +103,9 @@ def main():
         # from the one we have (and they should be comparable)
         print(f"Installing {path} to {tagged} with aliases from {match.module}")
 
+        # Make sure we use the full container path
+        path = os.path.join(depot, path)
+
         # Create a new module, force the tag since the digest could be unknown
         module = cli.new_module(tagged)
         module.config = ContainerConfig(match)
