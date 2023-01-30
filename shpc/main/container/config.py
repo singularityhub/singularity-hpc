@@ -213,13 +213,17 @@ class ContainerConfig:
     def add_tag(self, key, value):
         self.entry._config["tags"][key] = value
 
-    def set_tag(self, tag):
+    def set_tag(self, tag, force=False):
         """
         Set a tag to be the config default (defaults to latest otherwise)
         """
         # If a tag isn't provided, default to latest
         if not tag:
             self.tag = self.tags.latest
+
+        # Force means we are explicitly adding a container knowing we won't check the tag
+        elif force:
+            self.tag = Tag(tag, "unknown")
 
         # This way, if the user explicitly asks for a tag that does not exist
         # this value will be none (and we can raise an error)

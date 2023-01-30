@@ -3,6 +3,7 @@ __copyright__ = "Copyright 2021-2023, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
 import shpc.utils
+from shpc.logger import logger
 
 
 def main(args, parser, extra, subparser):
@@ -20,4 +21,14 @@ def main(args, parser, extra, subparser):
 
     # Update config settings on the fly
     cli.settings.update_params(args.config_params)
-    cli.uninstall(args.uninstall_recipe, force=args.force)
+    if args.uninstall_all:
+        if not args.force:
+            if not shpc.utils.confirm_uninstall("all modules?"):
+                return
+        for module_name in cli.list(return_modules=True):
+            cli.uninstall(module_name, force=True)
+
+    else:
+        if not args.uninstall_recipe:
+            logger.exit("Please provide a recipe to uninstall or select --all")
+        cli.uninstall(args.uninstall_recipe, force=args.force)

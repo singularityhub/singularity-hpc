@@ -1608,7 +1608,15 @@ You can also uninstall an entire family  of modules:
     $ shpc uninstall python
 
 The uninstall will go up to the top level module folder but not remove it
-in the case that you've added it to your ``MODULEPATH``.
+in the case that you've added it to your ``MODULEPATH``. As of version 0.1.18,
+you can also ask to uninstall all:
+
+
+.. code-block:: console
+
+    $ shpc uninstall --all --force
+
+
 
 .. _getting_started-commands-pull:
 
