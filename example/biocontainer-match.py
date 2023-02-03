@@ -97,7 +97,7 @@ def main():
         repo, tag = path.split(":", 1)
         if repo not in paths:
             paths[repo] = set()
-        paths[repo].add(path)
+        paths[repo].add(tag)
 
     # Find all paths that match the pattern of a name:tag
     for repo, tags in paths.items():
@@ -108,6 +108,7 @@ def main():
 
         latest = sorted_tags[0]
         tag = latest._original
+        path = f"{repo}:{tag}"
         print(f"⭐️ Found {len(tags)} for {repo}, latest is {tag}")
 
         container = f"{args.namespace}/{repo}"
