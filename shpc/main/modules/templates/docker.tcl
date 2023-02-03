@@ -97,7 +97,6 @@ set inspectCmd "{{ command }} \${PODMAN_OPTS} inspect ${containerPath}"
 {% endfor %}
 }{% endif %}
 
-{% if wrapper_scripts %}{% else %}
 set-alias {|module_name|}-container "echo ${containerPath}"
 
 set-alias {|module_name|}-shell "${shellCmd}"
@@ -117,7 +116,7 @@ if { [ module-info shell bash ] } {
 }
 
 # Inspect runscript or deffile easily!
-set-alias {|module_name|}-inspect "${inspectCmd} ${containerPath}"{% endif %}
+set-alias {|module_name|}-inspect "${inspectCmd} ${containerPath}"
 
 #=====
 # Module options

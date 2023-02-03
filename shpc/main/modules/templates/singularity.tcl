@@ -103,7 +103,6 @@ set inspectCmd "singularity \${SINGULARITY_OPTS} inspect \${SINGULARITY_COMMAND_
 {% endfor %}
 }{% endif %}
 
-{% if wrapper_scripts %}{% else %}
 set-alias {|module_name|}-shell "${shellCmd}"
 set-alias {|module_name|}-container "echo ${containerPath}"
 
@@ -123,7 +122,7 @@ if { [ module-info shell bash ] } {
 
 # Inspect runscript or deffile easily!
 set-alias {|module_name|}-inspect-runscript "${inspectCmd} -r ${containerPath}"
-set-alias {|module_name|}-inspect-deffile "${inspectCmd} -d ${containerPath}"{% endif %}
+set-alias {|module_name|}-inspect-deffile "${inspectCmd} -d ${containerPath}"
 
 #=====
 # Module options

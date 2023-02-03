@@ -79,8 +79,7 @@ if (myShellName() == "bash") then
 {% endfor %}
 end{% endif %}
 
--- Only set shell functions if we don't use wrapper scripts
-{% if wrapper_scripts %}{% else %}set_shell_function("{|module_name|}-container", "echo " .. containerPath, "echo " .. containerPath)
+set_shell_function("{|module_name|}-container", "echo " .. containerPath, "echo " .. containerPath)
 
 -- set_shell_function takes bashStr and cshStr
 set_shell_function("{|module_name|}-shell", shellCmd,  shellCmd)
@@ -93,7 +92,7 @@ set_shell_function("{|module_name|}-run", runCmd .. " \"$@\"",  runCmd)
 
 -- Inspect runscript or deffile easily!
 set_shell_function("{|module_name|}-inspect-runscript", inspectCmd .. " -r  " .. containerPath,  inspectCmd .. containerPath)
-set_shell_function("{|module_name|}-inspect-deffile", inspectCmd .. " -d  " .. containerPath,  inspectCmd .. containerPath){% endif %}
+set_shell_function("{|module_name|}-inspect-deffile", inspectCmd .. " -d  " .. containerPath,  inspectCmd .. containerPath)
 
 
 whatis("Name        : " .. myModuleName())
