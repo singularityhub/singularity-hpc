@@ -10,7 +10,6 @@ from shpc.logger import logger
 
 
 def main(args, parser, extra, subparser):
-
     shpc.utils.ensure_no_extra(extra)
 
     # We currently support GitHub and Docker URIs

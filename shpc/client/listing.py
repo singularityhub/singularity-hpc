@@ -4,7 +4,6 @@ __license__ = "MPL 2.0"
 
 
 def main(args, parser, extra, subparser):
-
     from shpc.main import get_client
 
     cli = get_client(

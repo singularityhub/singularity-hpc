@@ -25,13 +25,13 @@ import os
 import re
 import sys
 
+import pipelib.pipeline as pipeline
+import pipelib.pipelines as pipelines
+import pipelib.steps as step
+
 from shpc.logger import logger
 from shpc.main import get_client
 from shpc.main.container import ContainerConfig
-
-import pipelib.steps as step
-import pipelib.pipeline as pipeline
-import pipelib.pipelines as pipelines
 
 # A pipeline to process docker tags
 steps = (

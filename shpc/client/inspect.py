@@ -9,7 +9,6 @@ import shpc.utils
 
 
 def main(args, parser, extra, subparser):
-
     from shpc.main import get_client
 
     shpc.utils.ensure_no_extra(extra)
@@ -35,7 +34,6 @@ def main(args, parser, extra, subparser):
 
     # Case 3: pretty print the whole thing
     else:
-
         # Inspect Singularity formatted metadata
         if "attributes" in metadata:
             for key, value in metadata.get("attributes", {}).items():

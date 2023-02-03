@@ -37,7 +37,6 @@ def get_parser():
 
 
 def main():
-
     parser = get_parser()
 
     # If an error occurs while parsing the arguments, the interpreter will exit with value 2
@@ -72,7 +71,6 @@ def main():
     # Do a diff between lists, get tag for container if not added
     # This checks the registry and ensures the path doesn't already exist
     for container in iter_tags(containers, existing, args.registry):
-
         # We assume we cannot get aliases here
         try:
             add_container(

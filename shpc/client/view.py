@@ -52,14 +52,12 @@ def create_from_file(
 
     # Extra modules to install
     for install_module in install_modules:
-
         # TODO: can we cut out early if already installed?
         cli.install(install_module, force=force)
         cli.view_install(view_name, install_module, force=force)
 
 
 def main(args, parser, extra, subparser):
-
     utils.ensure_no_extra(extra)
 
     # If nothing provided or less than 2 (view name and command) show help
@@ -130,7 +128,6 @@ def main(args, parser, extra, subparser):
 
     # Take custom action depending on the command
     if command == "create":
-
         # Create the view
         if not args.params:
             view_handler.create(view_name)

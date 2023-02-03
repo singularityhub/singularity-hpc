@@ -218,6 +218,7 @@ def test_lmod_default_version(tmp_path, default_version, remote):
         assert os.path.exists(version_file)
         content = shpc.utils.read_file(version_file)
         assert "3.9.2-alpine" in content
+        client.settings.set("default_version", default_version)
         client.install("python:3.9.5-alpine")
         content = shpc.utils.read_file(version_file)
         assert "3.9.2-alpine" in content

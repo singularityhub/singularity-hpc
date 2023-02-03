@@ -6,7 +6,6 @@ import shpc.utils
 
 
 def main(args, parser, extra, subparser):
-
     from shpc.main import get_client
 
     shpc.utils.ensure_no_extra(extra)

@@ -35,7 +35,6 @@ def print_diff(obj1: dict, obj2: dict, consider_order=False):
     obj1_content = [x for x in obj1_content if x not in intersect]
 
     for line in difflib.ndiff(obj1_content, obj2_content):
-
         # What looks like a new tag or addition
         if line.startswith("+"):
             print(f"{LogColors.OKGREEN}{line}{LogColors.ENDC}")
