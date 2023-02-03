@@ -157,7 +157,7 @@ def test_tcl_default_version(tmp_path, default_version, remote):
         assert "3.9.2-alpine" in content
         client.install("python:3.9.5-alpine")
         content = shpc.utils.read_file(version_file)
-        assert "3.9.2-alpine" in content
+        assert "3.9.5-alpine" in content
 
     elif default_version == "last_installed":
         assert os.path.exists(version_file)
