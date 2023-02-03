@@ -48,7 +48,6 @@ def filter_versions(tags, filters=None, max_length=5):
     seen = set()
 
     for version in versions:
-
         # Do not allow any raw strings that look like commits
         # We check for length, and replacing lowercase letters / numbers is empty
         if (
@@ -87,7 +86,6 @@ class TaggedLooseVersion(LooseVersion):
     """
 
     def __init__(self, vstring=None):
-
         # Additional set of tags for labeling
         self.tags = set()
         self.version = []

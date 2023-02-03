@@ -34,7 +34,6 @@ class Client:
     # Setup
 
     def __init__(self, settings_file=None):
-
         # We don't necessarily need a container technology handle
         if not hasattr(self, "container"):
             self.container = None
@@ -175,7 +174,6 @@ class Client:
 
         # Test all tags (this could be subsetted)
         for tag in tags:
-
             versioned_name = module_name + ":" + tag
             image = self.install(versioned_name)
 

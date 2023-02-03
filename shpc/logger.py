@@ -37,7 +37,6 @@ def add_prefix(msg, char=">>"):
 
 
 class ColorizingStreamHandler(_logging.StreamHandler):
-
     BLACK, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE = range(8)
     RESET_SEQ = LogColors.ENDC
     COLOR_SEQ = "\033[%dm"

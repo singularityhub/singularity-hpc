@@ -25,7 +25,6 @@ from .module import Module
 
 class ModuleBase(BaseClient):
     def __init__(self, **kwargs):
-
         # Files for module software to generate depending on user setting
         super(ModuleBase, self).__init__(**kwargs)
         self.here = os.path.dirname(inspect.getfile(self.__class__))

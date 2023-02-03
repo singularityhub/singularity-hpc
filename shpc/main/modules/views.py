@@ -465,7 +465,6 @@ class View:
         updated = []
         change = False
         for module in self._config["view"]["modules"]:
-
             # This will match an entire dirname (if all delted) or a specific version
             if module_uid not in module:
                 updated.append(module)

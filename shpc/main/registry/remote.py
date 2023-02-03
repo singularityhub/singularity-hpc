@@ -186,7 +186,6 @@ class VersionControl(Provider):
 
         # This assumes blob/main branch
         for uri, entry in self._cache.items():
-
             # If the user has provided a filter, honor it
             if filter_string and not re.search(filter_string, uri):
                 continue

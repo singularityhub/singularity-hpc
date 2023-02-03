@@ -5,6 +5,9 @@
 # You should still set up your module_base before doing this (as we need
 # to write module files.
 
+# This script also requires pipelib
+# pip install pipelib
+
 # **ALWAYS** dry run first!
 #      python biocontainer-match.py --dry-run
 # At the root of your depot do:
@@ -22,9 +25,25 @@ import os
 import re
 import sys
 
+import pipelib.pipeline as pipeline
+import pipelib.pipelines as pipelines
+import pipelib.steps as step
+
 from shpc.logger import logger
 from shpc.main import get_client
 from shpc.main.container import ContainerConfig
+
+# A pipeline to process docker tags
+steps = (
+    # Filter out those that look like commits
+    pipelines.git.RemoveCommits,
+    # Scrub commits from version string
+    step.filters.CleanCommit(),
+    # Parse versions, return sorted ascending, and taking version major.minor.patch into account
+    step.container.ContainerTagSort(),
+)
+
+p = pipeline.Pipeline(steps)
 
 
 def get_parser():
@@ -51,7 +70,6 @@ def get_parser():
 
 
 def main():
-
     parser = get_parser()
 
     # If an error occurs while parsing the arguments, the interpreter will exit with value 2
@@ -65,21 +83,33 @@ def main():
     depot = os.path.abspath(args.containers)
     cli = get_client()
 
-    # Keep a record of repos we've seen and don't repeat
-    seen = set()
-
     # Ensure we start with the populated modules
     cli.registry.iter_modules()
 
+    # Organize paths based on container uri
+    paths = {}
+
     # Find all paths that match the pattern of a name:tag
+    # Organize by tag so we can later find the newest
     for path in os.listdir(depot):
         if not re.search("^(.*):(.*)$", path) or os.path.isdir(path):
             continue
         repo, tag = path.split(":", 1)
+        if repo not in paths:
+            paths[repo] = set()
+        paths[repo].add(tag)
 
-        # Don't need to parse twice
-        if repo in seen:
+    # Find all paths that match the pattern of a name:tag
+    for repo, tags in paths.items():
+        # The updated and transformed items
+        sorted_tags = p.run(tags, unwrap=False)
+        if not sorted_tags:
             continue
+
+        latest = sorted_tags[0]
+        tag = latest._original
+        path = f"{repo}:{tag}"
+        print(f"⭐️ Found {len(tags)} for {repo}, latest is {tag}")
 
         container = f"{args.namespace}/{repo}"
         tagged = f"{container}:{tag}"
@@ -96,7 +126,6 @@ def main():
 
         if args.dry_run:
             print(f"Would be installing {path} to {tagged}")
-            seen.add(repo)
             continue
 
         # Note we need to install the correct version but using aliases
@@ -121,7 +150,6 @@ def main():
             container_image=path,
             keep_path=True,
         )
-        seen.add(repo)
 
 
 if __name__ == "__main__":

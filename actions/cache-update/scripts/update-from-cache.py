@@ -66,7 +66,6 @@ def get_parser():
 
 
 def main():
-
     parser = get_parser()
 
     # If an error occurs while parsing the arguments, the interpreter will exit with value 2
