@@ -117,7 +117,7 @@ class VersionControl(Provider):
         return "https://%s.%s/%s/library.json" % (
             namespace,
             ".".join(domain_parts),
-            "/".join(repo),
+            repo,
         )
 
     def exists(self, name):
