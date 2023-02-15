@@ -130,6 +130,17 @@
             "avatar_url": [
                 "https://avatars.githubusercontent.com/u/8276147?v=4"
             ]
+        },
+        {
+            "login": "phue",
+            "name": "Patrick Hüther",
+            "contributions": [
+                "code"
+            ],
+            "profile": "https://orcid.org/0000-0003-3315-2484",
+            "avatar_url": [
+                "https://avatars.githubusercontent.com/u/2433146?v=4"
+            ]
         }
     ],
     "contributorsPerLine": 7
