@@ -106,11 +106,18 @@ class VersionControl(Provider):
         """
         Retrieve the web url, either pages or (eventually) custom.
         """
-        parts = self.source_url.split("/")[3:]
-        return "https://%s.%s.io/%s/library.json" % (
-            parts[0],
-            self.provider_name,
-            "/".join(parts[1:]),
+        domain, namespace, repo = self.source_url.split("/")[2:]
+        domain_parts = domain.split('@')[-1].split(".")
+
+        if len(domain_parts) == 2:
+            domain_parts[1] = "io"
+        else:
+            domain_parts.insert(0, "pages")
+
+        return "https://%s.%s/%s/library.json" % (
+            namespace,
+            ".".join(domain_parts),
+            repo,
         )
 
     def exists(self, name):
