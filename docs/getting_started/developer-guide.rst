@@ -1115,9 +1115,24 @@ That will generate a container.yaml with executables discovered:
       salad: /code/salad
 
 
+You can then push this to GitHub. If you are curious about how the docs are generated, you can
+try it locally:
+
+.. code-block:: console
+
+   $ git checkout gh-pages
+   $ ./generate.sh /tmp/my-registry
+   Registry is /tmp/my-registryGenerating docs for vsoch/salad, _library/vsoch-salad.md
+
+
 There is also an associated workflow to run the same on your behalf. Note that you'll need
-to enable the repository to allow actions to open pull requests for this to work.
-The workflow is under ``Actions --> Generate New Container --> Run Workflow``.
+to:
+
+1. Go to the ``repository --> Settings --> Actions --> Workflow Permissions`` and enable read and write.
+2. Directly under that, check the box to allow actions to open pull requests for this to work.
+
+If you get a message about push being denied to the bot, you forgot to do one of these steps!
+The workflow is under ``Actions --> shpc new recipe manual --> Run Workflow``.
 Remember that any container, once it goes into the registry, will have tags
 and digests automatically updated via the "Update Containers" action workflow.
 
