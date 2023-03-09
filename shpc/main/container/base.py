@@ -81,6 +81,15 @@ class ContainerTechnology:
         """
         pass
 
+    def module_dir(self, name):
+        """
+        Get the module directory the container references
+        """
+        # If the user provided a tag, tags are converted to folders
+        if ":" in name:
+            name = name.replace(":", os.sep)
+        return os.path.join(self.settings.module_base, name)
+
     def container_dir(self, name):
         """
         Use a custom container directory, otherwise default to module dir.
@@ -125,8 +134,8 @@ class ContainerTechnology:
         """
         module_name = self.guess_tag(module_name)
 
-        # This can be the module or container directory
-        container_dir = self.container_dir(module_name)
+        # The environment file is stored in the module directory
+        container_dir = self.module_dir(module_name)
 
         # Does the user want to see a module file?
         result = os.path.join(container_dir, self.settings.environment_file)

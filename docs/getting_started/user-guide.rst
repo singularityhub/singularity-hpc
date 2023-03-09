@@ -1350,18 +1350,18 @@ module recipe in the registry:
     1.11--h6270b1f_0:sha256:141120f19f849b79e05ae2fac981383988445c373b8b5db7f3dd221179af382b
 
 
-or to ask for a dryrun, meaning we check for updates but don't perform them.
+or to ask for a dry run, meaning we check for updates but don't perform them.
 
 .. code-block:: console
 
-    $ shpc update quay.io/biocontainers/samtools --dryrun
+    $ shpc update quay.io/biocontainers/samtools --dry-run
 
 
 If you want to look for a specific string or pattern in the tags, just add ``--filter``
 
 .. code-block:: console
 
-    $ shpc update redis --dryrun --filter alpine
+    $ shpc update redis --dry-run --filter alpine
 
 Since no tags are deleted, this will add the latest set found with the term "alpine." You can also use this
 strategy to add a specific tag:
@@ -1369,7 +1369,7 @@ strategy to add a specific tag:
 
 .. code-block:: console
 
-    $ shpc update redis --dryrun --filter 6.0-rc-alpine
+    $ shpc update redis --dry-run --filter 6.0-rc-alpine
 
 The current implementation just supports updating from a Docker / oras registry (others can come after if requested).
 As of version 0.0.58, there is support to ask to update all recipes - just leave out the name!
@@ -1383,7 +1383,7 @@ If you are using an earlier release than 0.0.58 you can accomplish the same as f
 .. code-block:: console
 
     $ for name in $(shpc show); do
-        shpc update ${name} --dryun
+        shpc update ${name} --dry-run
       done
 
 

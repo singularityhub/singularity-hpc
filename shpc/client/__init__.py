@@ -11,6 +11,8 @@ import sys
 import shpc
 from shpc.logger import setup_logger
 
+from . import help
+
 
 def get_parser():
     parser = argparse.ArgumentParser(
@@ -45,10 +47,7 @@ def get_parser():
     parser.add_argument(
         "-c",
         dest="config_params",
-        help=""""customize a config value on the fly to ADD/SET/REMOVE for a command
-shpc -c set:key:value <command> <args>
-shpc -c add:registry:/tmp/registry <command> <args>
-shpc -c rm:registry:/tmp/registry""",
+        help=help.config_params,
         action="append",
     )
 
@@ -74,12 +73,12 @@ shpc -c rm:registry:/tmp/registry""",
     # Local shell with client loaded
     shell = subparsers.add_parser(
         "shell",
-        description="shell into a Python session with a client.",
+        description=help.shell_description,
         formatter_class=argparse.RawTextHelpFormatter,
     )
     shell.add_argument(
         "module_name",
-        help="shell into an interactive session.\nshpc shell python (shell into a container)\nshpc shell (python interactive shell)",
+        help="optionally provide the container module name to shell into, with loaded.",
         nargs="?",
     )
     shell.add_argument(
@@ -94,13 +93,10 @@ shpc -c rm:registry:/tmp/registry""",
     # Install a known recipe from the registry
     install = subparsers.add_parser(
         "install",
-        description="install a registry recipe.",
+        description=help.install_description,
         formatter_class=argparse.RawTextHelpFormatter,
     )
-    install.add_argument(
-        "install_recipe",
-        help="recipe to install\nshpc install python\nshpc install python:3.9.5-alpine",
-    )
+    install.add_argument("install_recipe", help="recipe to install")
 
     install.add_argument(
         "container_image",
@@ -131,7 +127,11 @@ shpc -c rm:registry:/tmp/registry""",
     )
 
     # List installed modules
-    listing = subparsers.add_parser("list", description="list installed modules.")
+    listing = subparsers.add_parser(
+        "list",
+        formatter_class=argparse.RawTextHelpFormatter,
+        description=help.listing_description,
+    )
     listing.add_argument("pattern", help="filter to a pattern", nargs="?")
     listing.add_argument(
         "--names-only", help="omit versions", default=False, action="store_true"
@@ -146,7 +146,9 @@ shpc -c rm:registry:/tmp/registry""",
 
     # List local containers and collections
     inspect = subparsers.add_parser(
-        "inspect", description="inspect an installed module image."
+        "inspect",
+        description=help.inspect_description,
+        formatter_class=argparse.RawTextHelpFormatter,
     )
     inspect.add_argument("module_name", help="module to inspect")
     inspect.add_argument(
@@ -157,7 +159,11 @@ shpc -c rm:registry:/tmp/registry""",
     )
 
     # Get path to an image
-    get = subparsers.add_parser("get", description="get an image path for a module")
+    get = subparsers.add_parser(
+        "get",
+        formatter_class=argparse.RawTextHelpFormatter,
+        description=help.get_description,
+    )
     get.add_argument("module_name", help="the name of the module")
     get.add_argument(
         "-e",
@@ -168,7 +174,11 @@ shpc -c rm:registry:/tmp/registry""",
     )
 
     # Add a container direcly
-    add = subparsers.add_parser("add", description="add an image to modules manually")
+    add = subparsers.add_parser(
+        "add",
+        formatter_class=argparse.RawTextHelpFormatter,
+        description=help.add_description,
+    )
     add.add_argument("container_uri", help="full path to container image file")
     add.add_argument(
         "module_id",
@@ -187,28 +197,18 @@ shpc -c rm:registry:/tmp/registry""",
     )
 
     check = subparsers.add_parser(
-        "check", description="check if you have latest installed."
+        "check",
+        formatter_class=argparse.RawTextHelpFormatter,
+        description=help.check_description,
     )
     check.add_argument("module_name", help="module to check (module:version)")
 
     view = subparsers.add_parser(
         "view",
-        description="view control to create, install, and uninstall",
+        description=help.view_description,
         formatter_class=argparse.RawTextHelpFormatter,
     )
-    view.add_argument(
-        "params",
-        nargs="*",
-        help="""View control. A view name is always required.
-shpc view create <name>
-shpc view delete <name>
-shpc view get <name>
-shpc view list <name>
-shpc view install <name> <module>
-shpc view uninstall <name> <module>
-shpc view edit <name>""",
-        type=str,
-    )
+    view.add_argument("params", nargs="*", type=str, help="parameters for view command")
     view.add_argument(
         "--force",
         "-f",
@@ -220,7 +220,7 @@ shpc view edit <name>""",
 
     config = subparsers.add_parser(
         "config",
-        description="update configuration settings. Use set or get to see or set information.",
+        description=help.config_description,
         formatter_class=argparse.RawTextHelpFormatter,
     )
 
@@ -235,20 +235,14 @@ shpc view edit <name>""",
     config.add_argument(
         "params",
         nargs="*",
-        help="""Set or get a config value, edit the config, add or remove a list variable, or create a user-specific config.
-shpc config set key value
-shpc config set key:subkey value
-shpc config get key
-shpc config edit
-shpc config inituser
-shpc config add registry /tmp/registry
-shpc config remove registry /tmp/registry""",
+        help="parameters for config command",
         type=str,
     )
     # Generate markdown docs for a container registry entry
     docgen = subparsers.add_parser(
         "docgen",
-        description="Generate a markdown document for a container registry entry.",
+        formatter_class=argparse.RawTextHelpFormatter,
+        description=help.docgen_description,
     )
     docgen.add_argument("module_name", help="the module to generate docs for.")
     docgen.add_argument(
@@ -263,13 +257,18 @@ shpc config remove registry /tmp/registry""",
     # Pull a nontraditional container type (e.g., github release asset)
     pull = subparsers.add_parser(
         "pull",
-        description="pull a container built with singularityhub/singularity-deploy",
+        formatter_class=argparse.RawTextHelpFormatter,
+        description=help.pull_description,
     )
     pull.add_argument("uri", help="the unique resource identifier to pull")
     pull.add_argument("--path", help="A custom path to pull to (defaults to $PWD)")
 
     # Test a registry entry
-    test = subparsers.add_parser("test", description="test a registry entry")
+    test = subparsers.add_parser(
+        "test",
+        formatter_class=argparse.RawTextHelpFormatter,
+        description=help.test_description,
+    )
     test.add_argument("module_name", help="the module to test")
     test.add_argument(
         "--template", help="a custom test.sh template to use.", default=None
@@ -300,7 +299,11 @@ shpc config remove registry /tmp/registry""",
     )
 
     # Uninstall a module, or a specific version
-    uninstall = subparsers.add_parser("uninstall", description="uninstall a module")
+    uninstall = subparsers.add_parser(
+        "uninstall",
+        formatter_class=argparse.RawTextHelpFormatter,
+        description=help.uninstall_description,
+    )
     uninstall.add_argument(
         "--force",
         "-f",
@@ -323,7 +326,9 @@ shpc config remove registry /tmp/registry""",
 
     # Update gets latest tags from OCI registries
     update = subparsers.add_parser(
-        "update", description="update a container recipe with new versions"
+        "update",
+        formatter_class=argparse.RawTextHelpFormatter,
+        description=help.update_description,
     )
     update.add_argument(
         "module_name", help="module to update (no version required)", nargs="?"
@@ -339,7 +344,8 @@ shpc config remove registry /tmp/registry""",
     # sync-registry gets latest files and non-existing containers from upstream shpc
     sync = subparsers.add_parser(
         "sync-registry",
-        description="get latest files and containers from an upstream shpc",
+        formatter_class=argparse.RawTextHelpFormatter,
+        description=help.sync_description,
     )
     sync.add_argument(
         "module_name", help="module to add or sync from upstream", nargs="?"
@@ -413,7 +419,7 @@ shpc config remove registry /tmp/registry""",
 
     namespace = subparsers.add_parser(
         "namespace",
-        description="set or unset the install namespace. E.g.,:\n    shpc namespace set <namespace>\n    shpc namespace unset",
+        description=help.namespace_description,
         formatter_class=argparse.RawTextHelpFormatter,
     )
     namespace.add_argument(
@@ -423,7 +429,9 @@ shpc config remove registry /tmp/registry""",
     )
 
     show = subparsers.add_parser(
-        "show", description="show the config for a registry entry."
+        "show",
+        formatter_class=argparse.RawTextHelpFormatter,
+        description=help.show_description,
     )
     show.add_argument(
         "--versions", help="include versions", default=False, action="store_true"

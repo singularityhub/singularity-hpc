@@ -949,18 +949,27 @@ to quickly see it. It should look like this:
 
 .. code-block:: yaml
 
+    # This is the default line you can comment out / remove
+    # registry: [https://github.com/singularityhub/shpc-registry]
+    # This is your new registry path, you'll need to add this.
     # Please preserve the flat list format for the yaml loader
     registry: [/tmp/my-registry]
 
-Do a sanity check to make sure your active config is the one you think it is:
+After making the abvoe change, exit and do a sanity check to make sure your active config is the one you think it is:
 
 .. code-block:: console
 
     $ shpc config get registry
     registry                       ['/tmp/my-registry']
 
-Next, you can use ``shpc remove`` to remove all registry entries, and we
-recommend deleting quay.io first since most entries live there and it will
+
+Deleting Entries
+^^^^^^^^^^^^^^^^
+
+If you want to start freshly, you can choose to delete all the existing entries
+(and this is optional, you can continue the tutorial without doing this!)
+To do this, use the ``shpc remove`` command, which will remove all registry entries,
+We recommend deleting quay.io first since most entries live there and it will
 speed up the subsequent operation.
 
 .. code-block:: console
@@ -968,7 +977,8 @@ speed up the subsequent operation.
     $ rm -rf quay.io/biocontainers
     $ shpc remove # answer yes to confirmation
 
-Save your changes.
+If you do a git status after this, you'll see many entries removed.
+Save your changes with a commit.
 
 .. code-block:: console
 
@@ -976,7 +986,12 @@ Save your changes.
 
 After this you will have only a skeleton set of files, and most importantly,
 the .github directory with automation workflows. Feel free to remove or edit files
-such as the ``FUNDING.yml`` and ``ISSUE_TEMPLATE``. Next, fetch to get GitHub pages.
+such as the ``FUNDING.yml`` and ``ISSUE_TEMPLATE``.
+
+Fetch GitHub Pages
+^^^^^^^^^^^^^^^^^^
+
+Next, use "fetch" to get GitHub pages.
 
 .. code-block:: console
 
@@ -989,8 +1004,33 @@ At this point you can edit the ``.git/config`` to be your new remote.
     # Update the remote to be your new repository
     vim .git/config
 
-You should only do this after you've fetched, as you will no longer be connected to the original
-remote! Now that you've changed the remote and commit, push your changes and then push to your main branch. We do this
+As an example, here is a diff where I changed the original registry to a new one I created called `vsoch/test-registry`:
+
+.. code-block:: git
+
+    [core]
+            repositoryformatversion = 0
+            filemode = true
+            bare = false
+            logallrefupdates = true
+    [remote "origin"]
+            # url = https://github.com/singularityhub/shpc-registry
+            url = git@github.com:vsoch/test-registry
+            fetch = +refs/heads/*:refs/remotes/origin/*
+    [branch "main"]
+            remote = origin
+            merge = refs/heads/main
+
+Note that in the above, we also change "https://" to be "git" to use a different protocol.
+You should only do this change after you've fetched, as you will no longer be connected to the original
+remote!
+
+Push Branches to your New Remote
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Note that we will want to push both main and GitHub pages branches.
+Now that you've changed the remote and commit,
+create the repository in GitHub, and push your changes and then push to your main branch. We do this
 push before gh-pages so "main" becomes the primary branch.
 
 .. code-block:: console
@@ -998,12 +1038,13 @@ push before gh-pages so "main" becomes the primary branch.
     $ git push origin main
 
 Then you can checkout the gh-pages branch to do the same cleanup and push.
+Here is the checkout:
 
 .. code-block:: console
 
     $ git checkout gh-pages
 
-This cleanup is easier - just delete the markdown files in ``_library``.
+And how to do the cleanup. This cleanup is easier - just delete the markdown files in ``_library``.
 
 .. code-block:: console
 
@@ -1016,31 +1057,91 @@ And then commit and push to gh-pages.
     $ git commit -a -s -m 'emptying template registry gh-pages'
     $ git push origin gh-pages
 
+Note that since the main branch will try to checkout gh-pages to generate the docs,
+the first documentation build might fail. Don't worry about this - the branch
+will exist the second time when you add recipes.
 
 Manually Adding Registry Entries
 --------------------------------
 
-Great! Now you have an empty registry on your filesystem that will serve as a remote.
-Make sure you are back on the main branch:
+Great! Now you have an empty registry on your filesystem that will be pushed to GitHub
+to serve as a remote. Make sure you are back on the main branch:
 
 .. code-block:: console
 
     $ git checkout main
 
-While it's possible to manually add entries (e.g., ``shpc add docker://python``)
-this will miss out on aliases. Instead, navigate to your GitHub repository
-and try running the ``Actions --> Generate New Container --> Run Workflow`` and
-enter your container name (with tag), and a URL and description. This will
-run a workflow to derive aliases and open a pull request to your repository (make
-sure in your repository settings you allow actions to open pull requests).
+Let's now add some containers! There are two ways to go about this:
 
+ - Manually add a recipe locally, optionally adding discovered executables
+ - Use a GitHub action to do the same.
+
+We will start with the manual approach. Here is how to add a container.yaml recipe file,
+without any customization for executable discovery:
+
+.. code-block:: console
+
+    $ shpc add docker://vanessa/salad:latest
+    Registry entry vanessa/salad was added! Before shpc install, edit:
+    /tmp/my-registry/vanessa/salad/container.yaml
+
+You could then edit that file to your liking. If you want to pull the container
+to discover executables, you'll need to install guts:
+
+.. code-block:: console
+
+    pip install git+https://github.com/singularityhub/guts@main
+
+
+And then use the provided script to generate the container.yaml (with executables discovered):
+
+.. code-block:: console
+
+    $ python .github/scripts/add_container.py --maintainer "@vsoch" --description "The Vanessa Salad container" --url "https://github.com/vsoch/salad" docker://vanessa/salad:latest
+
+That will generate a container.yaml with executables discovered:
+
+.. code-block:: yaml
+
+    url: https://github.com/vsoch/salad
+    maintainer: '@vsoch'
+    description: The Vanessa Salad container
+    latest:
+      latest: sha256:e8302da47e3200915c1d3a9406d9446f04da7244e4995b7135afd2b79d4f63db
+    tags:
+      latest: sha256:e8302da47e3200915c1d3a9406d9446f04da7244e4995b7135afd2b79d4f63db
+    docker: vanessa/salad
+    aliases:
+      salad: /code/salad
+
+
+You can then push this to GitHub. If you are curious about how the docs are generated, you can
+try it locally:
+
+.. code-block:: console
+
+   $ git checkout gh-pages
+   $ ./generate.sh /tmp/my-registry
+   Registry is /tmp/my-registryGenerating docs for vsoch/salad, _library/vsoch-salad.md
+
+
+There is also an associated workflow to run the same on your behalf. Note that you'll need
+to:
+
+1. Go to the ``repository --> Settings --> Actions --> Workflow Permissions`` and enable read and write.
+2. Directly under that, check the box to allow actions to open pull requests for this to work.
+
+If you get a message about push being denied to the bot, you forgot to do one of these steps!
+The workflow is under ``Actions --> shpc new recipe manual --> Run Workflow``.
 Remember that any container, once it goes into the registry, will have tags
 and digests automatically updated via the "Update Containers" action workflow.
 
 Creating a Cache
 ----------------
 
-Instead of manually adding entries, let's create an automated way to populate
+This is an advanced part of the developer tutorial! Let's say that you don't
+want to go through the above to manually run commands. Instead of manually adding entries
+in this manner, let's create an automated way to populate
 entries from a cache. You can read more about the algorithm we use to derive aliases
 in the `shpc-registry-cache <https://github.com/singularityhub/shpc-registry-cache>`_
 repository, along with cache generation details. You will primarily need two things:
@@ -1102,7 +1203,6 @@ And this would use out containers.txt listing to populate the cache in the repos
 we've created. Keep in mind that caches are useful beyond Singularity Registry HPC -
 knowing the paths and executables within a container is useful for other applied and
 research projects too!
-
 
 Updating a Registry from a Cache
 --------------------------------

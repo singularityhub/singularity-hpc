@@ -14,6 +14,7 @@ and **Merged pull requests**. Critical items to know are:
 The versions coincide with releases on pip. Only major versions will be released as tags on Github.
 
 ## [0.0.x](https://github.com/singularityhub/singularity-hpc/tree/main) (0.0.x)
+ - Improvement to shpc help command output (0.1.2)
  - Support for remote registries on self-hosted Gitlab instances (0.1.19)
  - Support for uninstall and fixing bug in biocontainers install (0.1.18)
  - GitHub action to update a registry from a cache or listing (0.1.17)

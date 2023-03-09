@@ -107,7 +107,7 @@ class VersionControl(Provider):
         Retrieve the web url, either pages or (eventually) custom.
         """
         domain, namespace, repo = self.source_url.split("/")[2:]
-        domain_parts = domain.split('@')[-1].split(".")
+        domain_parts = domain.split("@")[-1].split(".")
 
         if len(domain_parts) == 2:
             domain_parts[1] = "io"
