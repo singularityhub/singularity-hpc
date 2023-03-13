@@ -955,7 +955,7 @@ to quickly see it. It should look like this:
     # Please preserve the flat list format for the yaml loader
     registry: [/tmp/my-registry]
 
-After making the abvoe change, exit and do a sanity check to make sure your active config is the one you think it is:
+After making the above change, exit and do a sanity check to make sure your active config is the one you think it is:
 
 .. code-block:: console
 
@@ -968,7 +968,7 @@ Deleting Entries
 
 If you want to start freshly, you can choose to delete all the existing entries
 (and this is optional, you can continue the tutorial without doing this!)
-To do this, use the ``shpc remove`` command, which will remove all registry entries,
+To do this, use the ``shpc remove`` command, which will remove all registry entries.
 We recommend deleting quay.io first since most entries live there and it will
 speed up the subsequent operation.
 
@@ -1121,8 +1121,8 @@ try it locally:
 .. code-block:: console
 
    $ git checkout gh-pages
-   $ ./generate.sh /tmp/my-registry
-   Registry is /tmp/my-registryGenerating docs for vsoch/salad, _library/vsoch-salad.md
+   $ ./generate.sh
+   Generating docs for vsoch/salad, _library/vsoch-salad.md
 
 
 There is also an associated workflow to run the same on your behalf. Note that you'll need
