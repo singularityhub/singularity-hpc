@@ -62,7 +62,7 @@ master_doc = "index"
 
 # General information about the project.
 project = "Singularity Registry (HPC)"
-copyright = "2021, Vanessa Sochat"
+copyright = "2021-2023, Vanessa Sochat"
 
 
 # The version info for the project you're documenting, acts as replacement for
