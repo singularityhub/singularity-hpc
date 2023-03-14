@@ -1064,6 +1064,8 @@ will exist the second time when you add recipes.
 Manually Adding Registry Entries
 --------------------------------
 
+.. _getting_started-developer-manual-registry-entries:
+
 Great! Now you have an empty registry on your filesystem that will be pushed to GitHub
 to serve as a remote. Make sure you are back on the main branch:
 
