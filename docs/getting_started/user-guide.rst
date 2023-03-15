@@ -422,9 +422,12 @@ For example:
     $ cd /opt/lmod/my-registry
 
 
-And then you might want to inspect :ref:`getting_started-commands-add:` to see
-how to use shpc add to generate new container.yaml files. We are working on automation
-that can make this easier, so stay tuned for updates! After that, you'll still want to
+And then you might want to inspect :ref:`getting_started-commands-add` to see
+how to use ``shpc add`` to generate new container.yaml files.
+See :ref:`getting_started-creating-filesystem-registry` for instructions on how to
+create a registry and :ref:`getting_started-developer-manual-registry-entries` to
+populate the registry with new entries.
+After that, you'll still want to
 ensure your filesystem registry is known to shpc:
 
 .. code-block:: console

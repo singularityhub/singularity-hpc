@@ -1064,6 +1064,8 @@ will exist the second time when you add recipes.
 Manually Adding Registry Entries
 --------------------------------
 
+.. _getting_started-developer-manual-registry-entries:
+
 Great! Now you have an empty registry on your filesystem that will be pushed to GitHub
 to serve as a remote. Make sure you are back on the main branch:
 
@@ -1085,7 +1087,14 @@ without any customization for executable discovery:
     Registry entry vanessa/salad was added! Before shpc install, edit:
     /tmp/my-registry/vanessa/salad/container.yaml
 
-You could then edit that file to your liking. If you want to pull the container
+You could then edit that file to your liking.
+
+Like for ``shpc update`` :ref:`getting_started-commands-update`, tags are automatically
+populated using `crane.ggcr.dev <https://crane.ggcr.dev/ls/quay.io/biocontainers/samtools>`_,
+which only returns the 50 latest tags and obviously can only access public images.
+If you see a ``crane digest`` error instead of tags, you'll have to populate the tags yourself.
+
+Executables are by default missing. If you want shpc
 to discover executables, you'll need to install guts:
 
 .. code-block:: console
