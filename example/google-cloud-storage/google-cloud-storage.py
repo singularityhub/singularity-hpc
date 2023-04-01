@@ -110,7 +110,6 @@ class Task:
         # The module files and container are here
         root = os.path.join(container_base, module, version)
         for path in recursive_list(root):
-
             # Get path relative to storage
             relpath = os.path.relpath(path, container_base)
 
@@ -209,7 +208,6 @@ def main():
 
     # For each container, install
     for group in chunks(containers, args.group_size):
-
         # When we start a group, clean up cache from last
         os.system("singularity cache clean --force")
 
