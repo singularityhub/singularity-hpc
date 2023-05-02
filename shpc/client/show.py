@@ -19,4 +19,9 @@ def main(args, parser, extra, subparser):
     if args.registry:
         cli.settings.registry = [args.registry]
         cli.reload_registry()
-    cli.show(args.name, names_only=not args.versions, filter_string=args.filter_string)
+    cli.show(
+        args.name,
+        names_only=not args.versions,
+        filter_string=args.filter_string,
+        limit=args.limit,
+    )

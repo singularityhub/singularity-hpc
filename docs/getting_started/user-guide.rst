@@ -1100,6 +1100,12 @@ To filter down the result set, use ``--filter``:
     biocontainers/bedtools
     biocontainers/tpp
 
+Set a limit of results with `--limit`:
+
+.. code-block:: console
+
+    $ shpc show --filter bio --limit 5
+
 
 To get details about a package, you would then add it's name to show:
 

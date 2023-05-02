@@ -446,6 +446,13 @@ def get_parser():
         default=None,
         dest="filter_string",
     )
+    show.add_argument(
+        "-l",
+        "--limit",
+        help="set a limit for the number to show",
+        default=None,
+        type=int,
+    )
 
     for command in docgen, show, add, remove, sync:
         command.add_argument(

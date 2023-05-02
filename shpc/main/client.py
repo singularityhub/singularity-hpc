@@ -5,7 +5,6 @@ __license__ = "MPL 2.0"
 
 import os
 import shutil
-import sys
 
 import shpc.main.container as container
 import shpc.main.registry as registry
@@ -228,7 +227,7 @@ class Client:
         """
         raise NotImplementedError
 
-    def show(self, name, names_only=False, out=None, filter_string=None):
+    def show(self, name, names_only=False, out=None, filter_string=None, limit=None):
         """
         Show available packages
         """
@@ -237,13 +236,27 @@ class Client:
             config = self._load_container(name)
             config.dump(out)
         else:
-            out = out or sys.stdout
+            # Assemble the list of contents to write
+            modules = []
+            for i, entry in enumerate(
+                self.registry.iter_registry(filter_string=filter_string)
+            ):
+                # Break after the limit
+                if limit and i > limit:
+                    break
 
-            # List the known registry modules
-            for entry in self.registry.iter_registry(filter_string=filter_string):
                 config = container.ContainerConfig(entry)
                 if names_only:
-                    out.write("%s\n" % config.name)
+                    if out is None:
+                        print(config.name)
+                    modules.append(config.name)
                 else:
                     for version in config.tags.keys():
-                        out.write("%s:%s\n" % (config.name, version))
+                        module = "%s:%s" % (config.name, version)
+                        if out is None:
+                            print(module)
+                        modules.append(module)
+
+            # Write output to file or print to terminal
+            if out is not None:
+                utils.write_file(out, "\n".join(modules))
