@@ -1023,7 +1023,14 @@ As an example, here is a diff where I changed the original registry to a new one
 
 Note that in the above, we also change "https://" to be "git" to use a different protocol.
 You should only do this change after you've fetched, as you will no longer be connected to the original
-remote!
+remote! Finally, you'll need to change the "baseurl" in `_config.yaml` to be the name of your GitHub repository:
+
+```diff
+- baseurl: "/shpc-registry" #important: start with /
++ baseurl: "/my-shpc-registry" #important: start with /
+```
+
+If you forget this step, the pages will render, but the style sheets will be broken.
 
 Push Branches to your New Remote
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
