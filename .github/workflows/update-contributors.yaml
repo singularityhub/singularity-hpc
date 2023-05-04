@@ -13,7 +13,7 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v3
     - name: Tributors Update
-      uses: con/tributors@de944deeaf5b24fb65518125d5d87e8b939191fb # 0.0.21
+      uses: con/tributors@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
