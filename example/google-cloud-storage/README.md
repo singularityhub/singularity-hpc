@@ -93,7 +93,7 @@ Next, run the script here, targeting your containers.txt. You can use [gcloud co
 to get the file to your VM. E.g., this would copy to your home:
 
 ```bash
-$ gcloud compute copy-files ./google-cloud-storage.py shpc-registry-builcer:~/ --zone=us-central1-a
+$ gcloud compute copy-files ./google-cloud-storage.py shpc-registry-builder:~/ --zone=us-central1-a
 ```
 
 The bucket should include the bucket name and prefix that you want to use. **Important** if you intend to scale this
