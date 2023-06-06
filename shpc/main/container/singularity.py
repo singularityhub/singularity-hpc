@@ -191,7 +191,7 @@ class SingularityContainer(ContainerTechnology):
             metadata = self.inspect(module.container_path)
 
             # Add labels, and deffile
-            labels = metadata.get("attributes", {}).get("labels")
+            labels = metadata.get("attributes", {}).get("labels") or {}
             deffile = (
                 metadata.get("attributes", {}).get("deffile", "").replace("\n", "\\n")
             )
