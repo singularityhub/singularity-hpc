@@ -208,6 +208,7 @@ class DockerContainer(ContainerTechnology):
             )
 
         labels = manifest[0].get("Labels", {})
+        labels = self.clean_labels(labels)
 
         # Option to create wrapper scripts for commands
         aliases = module.config.get_aliases()
