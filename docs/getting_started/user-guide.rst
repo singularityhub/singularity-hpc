@@ -157,7 +157,7 @@ as environment variables, as they will be subbed in by shpc before environment
 variable replacement. A summary table of variables is included below, and then further discussed in detail.
 
 
-.. list-table:: Title
+.. list-table:: Settings
    :widths: 25 65 10
    :header-rows: 1
 
@@ -191,6 +191,9 @@ variable replacement. A summary table of variables is included below, and then f
    * - updated_at
      - a timestamp to keep track of when you last saved
      - never
+   * - label_separator
+     - When parsing labels, replace newlines with this string
+     - ', '
    * - default_version
      - Should a default version be used?
      - module_sys
