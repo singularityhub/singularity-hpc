@@ -218,7 +218,7 @@ class DockerContainer(ContainerTechnology):
         if self.settings.wrapper_scripts["enabled"] is True:
             wrapper_scripts = shpc.main.wrappers.generate(
                 aliases=aliases,
-                module_dir=module.module_dir,
+                wrapper_dir=module.wrapper_dir,
                 features=features,
                 container=self,
                 image=module.container_path,

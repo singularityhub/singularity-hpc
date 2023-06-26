@@ -67,6 +67,9 @@ set helpcommand "This module is a singularity container wrapper for {{ module.na
 # directory containing this modulefile, once symlinks resolved (dynamically defined)
 set moduleDir   [file dirname [expr { [string equal [file type ${ModulesCurrentModulefile}] "link"] ? [file readlink ${ModulesCurrentModulefile}] : ${ModulesCurrentModulefile} }]]
 
+# If we have wrapper base set, honor it, otherwise we use the moduleDir
+{% if settings.wrapper_base %}set wrapperDir "{{ module.wrapper_dir }}"{% else %}set wrapperDir $moduleDir{% endif %}
+
 # conflict with modules with the same alias name
 conflict {{ parsed_name.tool }}
 {% if name != parsed_name.tool %}conflict {{ module.name }}{% endif %}
@@ -86,7 +89,7 @@ set runCmd "singularity \${SINGULARITY_OPTS} run \${SINGULARITY_COMMAND_OPTS} {%
 set inspectCmd "singularity \${SINGULARITY_OPTS} inspect \${SINGULARITY_COMMAND_OPTS} "
 
 # if we have any wrapper scripts, add bin to path
-{% if wrapper_scripts %}prepend-path PATH "${moduleDir}/bin"{% endif %}
+{% if wrapper_scripts %}prepend-path PATH "${wrapperDir}/bin"{% endif %}
 
 # "aliases" to module commands
 {% if aliases %}if { [ module-info shell bash ] } {

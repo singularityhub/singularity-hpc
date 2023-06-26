@@ -13,6 +13,7 @@ import pytest
 import shpc.main.container as container
 import shpc.main.registry as registry
 import shpc.main.wrappers.base as wrappers_base
+import shpc.utils as utils
 
 from .helpers import here, init_client
 
@@ -152,6 +153,67 @@ def test_disabled_wrapper_install(tmp_path, module_sys, module_file, container_t
     module_dir = os.path.join(client.settings.module_base, "python", "3.9.2-alpine")
     assert os.path.exists(module_dir)
     assert "bin" not in os.listdir(module_dir)
+
+
+@pytest.mark.parametrize(
+    "module_sys,module_file,container_tech,with_custom_wrapper_dir",
+    [
+        ("lmod", "module.lua", "singularity", True),
+        ("lmod", "module.lua", "singularity", False),
+        ("lmod", "module.lua", "podman", True),
+        ("lmod", "module.lua", "podman", False),
+        ("tcl", "module.tcl", "singularity", True),
+        ("tcl", "module.tcl", "singularity", False),
+        ("tcl", "module.tcl", "podman", True),
+        ("tcl", "module.tcl", "podman", False),
+    ],
+)
+def test_custom_wrapper_dir(
+    tmp_path, module_sys, module_file, container_tech, with_custom_wrapper_dir
+):
+    """
+    Test that we can customize the install location of wrapper scripts
+    """
+
+    client = init_client(str(tmp_path), module_sys, container_tech)
+
+    if with_custom_wrapper_dir:
+        wrapper_dir = os.path.join(str(tmp_path), "wrappers")
+        client.settings.set("wrapper_base", wrapper_dir)
+
+    # A custom wrapper directory should not have a bin in the module base
+    client.install("python:3.9.2-alpine")
+    module_dir = os.path.join(client.settings.module_base, "python", "3.9.2-alpine")
+    module_filepath = os.path.join(module_dir, module_file)
+
+    assert os.path.exists(module_dir)
+    assert os.path.exists(module_filepath)
+
+    # The content of the file
+    content = utils.read_file(module_filepath)
+    if module_file.endswith("lua") and with_custom_wrapper_dir:
+        assert f'local wrapperDir = "{wrapper_dir}/python/3.9.2-alpine"' in content
+    elif module_file.endswith("tcl") and with_custom_wrapper_dir:
+        assert f'set wrapperDir "{wrapper_dir}/python/3.9.2-alpine"' in content
+    elif module_file.endswith("module.lua"):
+        assert 'local wrapperDir = "$moduleDir"'
+    else:
+        assert (
+            "set wrapperDir ${moduleDir}" in content
+            or "set wrapperDir $moduleDir" in content
+        )
+
+    # By default wrappers are generated in the module directory
+    if not with_custom_wrapper_dir:
+        assert "bin" in os.listdir(module_dir)
+
+    # A custom wrapper directory means we have the wrappers generated there
+    else:
+        wrapper_dir = os.path.join(
+            client.settings.wrapper_base, "python", "3.9.2-alpine"
+        )
+        assert "bin" not in os.listdir(module_dir)
+        assert os.listdir(os.path.join(wrapper_dir, "bin"))
 
 
 @pytest.mark.parametrize(

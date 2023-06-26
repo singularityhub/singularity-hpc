@@ -48,6 +48,9 @@ if not os.getenv("PODMAN_COMMAND_OPTS") then setenv ("PODMAN_COMMAND_OPTS", "") 
 -- directory containing this modulefile, once symlinks resolved (dynamically defined)
 local moduleDir = subprocess("realpath " .. myFileName()):match("(.*[/])") or "."
 
+-- If we have wrapper base set, honor it, otherwise we use the moduleDir
+{% if settings.wrapper_base %}local wrapperDir = "{{ module.wrapper_dir }}"{% else %}local wrapperDir = "$moduleDir"{% endif %}
+
 -- interactive shell to any container, plus exec for aliases
 local containerPath = '{{ module.container_path }}'
 
@@ -64,7 +67,7 @@ local inspectCmd = "{{ command }} ${PODMAN_OPTS} inspect ${PODMAN_COMMAND_OPTS} 
 conflict("{{ parsed_name.tool }}"{% if name != parsed_name.tool %},"{{ module.name }}"{% endif %}{% if aliases %}{% for alias in aliases %}{% if alias.name != parsed_name.tool %},"{{ alias.name }}"{% endif %}{% endfor %}{% endif %})
 
 -- if we have any wrapper scripts, add the bin directory
-{% if wrapper_scripts %}prepend_path("PATH", pathJoin(moduleDir, "bin")){% endif %}
+{% if wrapper_scripts %}prepend_path("PATH", pathJoin(wrapperDir, "bin")){% endif %}
 
 -- "aliases" to module commands - generate only if not a wrapper script already generated
 {% if aliases %}{% for alias in aliases %}{% if alias.name not in wrapper_scripts %}set_shell_function("{{ alias.name }}", execCmd .. {% if alias.docker_options %} "{{ alias.docker_options }} " .. {% endif %} " --entrypoint {{ alias.entrypoint }} " .. containerPath .. " {{ alias.args }} \"$@\"", execCmd .. {% if alias.docker_options %} "{{ alias.docker_options }} " .. {% endif %} " --entrypoint {{ alias.entrypoint }} " .. containerPath .. " {{ alias.args }}"){% endif %}

@@ -166,6 +166,14 @@ class Module:
         return self._uri
 
     @property
+    def wrapper_dir(self):
+        """
+        Full path to the wrapper directory
+        """
+        wrapper_dir = self.settings.wrapper_base or self.settings.module_base
+        return os.path.join(wrapper_dir, self.module_basepath)
+
+    @property
     def module_dir(self):
         """
         Full path to the module directory.

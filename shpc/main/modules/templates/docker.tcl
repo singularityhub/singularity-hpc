@@ -62,6 +62,9 @@ set helpcommand "This module is a {{ docker }} container wrapper for {{ module.n
 # directory containing this modulefile, once symlinks resolved (dynamically defined)
 set moduleDir   [file dirname [expr { [string equal [file type ${ModulesCurrentModulefile}] "link"] ? [file readlink ${ModulesCurrentModulefile}] : ${ModulesCurrentModulefile} }]]
 
+# If we have wrapper base set, honor it, otherwise we use the moduleDir
+{% if settings.wrapper_base %}set wrapperDir "{{ module.wrapper_dir }}"{% else %}set wrapperDir $moduleDir{% endif %}
+
 # conflict with modules with the same alias name
 conflict {{ parsed_name.tool }}
 {% if name != parsed_name.tool %}conflict {{ module.name }}{% endif %}
@@ -80,7 +83,7 @@ set runCmd "{{ command }} \${PODMAN_OPTS} run -i{% if settings.enable_tty %}t{% 
 set inspectCmd "{{ command }} \${PODMAN_OPTS} inspect ${containerPath}"
 
 # wrapper scripts? Add bin to path
-{% if wrapper_scripts %}prepend-path PATH "${moduleDir}/bin"{% endif %}
+{% if wrapper_scripts %}prepend-path PATH "${wrapperDir}/bin"{% endif %}
 
 # "aliases" to module commands
 {% if aliases %}if { [ module-info shell bash ] } {

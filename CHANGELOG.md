@@ -14,6 +14,7 @@ and **Merged pull requests**. Critical items to know are:
 The versions coincide with releases on pip. Only major versions will be released as tags on Github.
 
 ## [0.0.x](https://github.com/singularityhub/singularity-hpc/tree/main) (0.0.x)
+ - Allow custom location for wrapper scripts (0.1.24)
  - Labels with newlines need additional parsing (0.1.23)
  - Do not write directly to output with shpc show (0.1.22)
  - Podman template bug (0.1.21)

@@ -137,6 +137,7 @@ shells = ["/bin/bash", "/bin/sh", "/bin/csh"]
 settingsProperties = {
     "registry": {"type": "array", "items": {"type": "string"}},
     "sync_registry": {"type": "string"},
+    "wrapper_base": {"type": ["string", "null"]},
     "module_base": {"type": "string"},
     "container_base": {"type": ["string", "null"]},
     "namespace": {"type": ["string", "null"]},
