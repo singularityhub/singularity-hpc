@@ -130,6 +130,14 @@ class ModuleBase(BaseClient):
                 "$module_base/%s" % module.name,
             )
 
+        # If we have a wrapper
+        if module.wrapper_dir != module.module_dir:
+            self._uninstall(
+                module.wrapper_dir,
+                self.settings.wrapper_base,
+                "$wrapper_base/%s" % module.name,
+            )
+
         # If uninstalling the entire module, clean up symbolic links in all views
         for view_name in views_with_module:
             self.views[view_name].uninstall(module.module_dir)
