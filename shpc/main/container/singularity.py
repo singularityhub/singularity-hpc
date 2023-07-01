@@ -98,11 +98,9 @@ class SingularityContainer(ContainerTechnology):
             ):
                 return
 
-        # Destination for container in registry, either the container.yaml
-        # path or the container base, if a custom path is desired
-        if not self.settings.container_base and not keep_path:
-            dest_dir = os.path.dirname(container_yaml)
-            utils.mkdir_p(dest_dir)
+        # Destination for container in registry for container.yaml
+        dest_dir = os.path.dirname(container_yaml)
+        utils.mkdir_p(dest_dir)
 
         # Add a docker (or local image) and return the config
         if image.startswith("docker://"):
