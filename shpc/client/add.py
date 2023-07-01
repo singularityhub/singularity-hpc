@@ -26,4 +26,8 @@ def main(args, parser, extra, subparser):
         cli.reload_registry()
 
     # If we don't have a module name, we derive from container URI
-    cli.add(args.container_uri, args.module_id)
+    cli.add(
+        args.container_uri,
+        args.module_id,
+        keep_path=args.keep_path,
+    )

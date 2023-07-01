@@ -213,7 +213,7 @@ class ModuleBase(BaseClient):
         print()
         logger.info("Removal complete!")
 
-    def add(self, image, module_name=None, **kwargs):
+    def add(self, image, module_name=None, keep_path=False, **kwargs):
         """
         Add a container to the registry to enable install.
         """
@@ -246,7 +246,12 @@ class ModuleBase(BaseClient):
             registry.FilesystemResult(module_name, template), validate=False
         )
         return self.container.add(
-            module_name, image, config, container_yaml=dest, **kwargs
+            module_name,
+            image,
+            config,
+            container_yaml=dest,
+            keep_path=keep_path,
+            **kwargs,
         )
 
     def get(self, module_name, env_file=False):

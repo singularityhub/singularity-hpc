@@ -75,7 +75,9 @@ class SingularityContainer(ContainerTechnology):
             logger.exit("Found more than one sif in module folder.")
         return sif[0]
 
-    def add(self, module_name, image, config, container_yaml, **kwargs):
+    def add(
+        self, module_name, image, config, container_yaml, keep_path=False, **kwargs
+    ):
         """
         Manually add a registry container, e.g., generating a container.yaml
         for an existing container file. container_yaml is the destination file.
@@ -96,9 +98,11 @@ class SingularityContainer(ContainerTechnology):
             ):
                 return
 
-        # Destination for container in registry
-        dest_dir = os.path.dirname(container_yaml)
-        utils.mkdir_p(dest_dir)
+        # Destination for container in registry, either the container.yaml
+        # path or the container base, if a custom path is desired
+        if not self.settings.container_base and not keep_path:
+            dest_dir = os.path.dirname(container_yaml)
+            utils.mkdir_p(dest_dir)
 
         # Add a docker (or local image) and return the config
         if image.startswith("docker://"):
@@ -107,7 +111,13 @@ class SingularityContainer(ContainerTechnology):
             )
         else:
             config = self._add_local_image(
-                module_name, tag, image, config, container_yaml, **kwargs
+                module_name,
+                tag,
+                image,
+                config,
+                container_yaml,
+                keep_path=keep_path,
+                **kwargs,
             )
 
         # Final save of config, and tell the user we're done!
@@ -118,7 +128,9 @@ class SingularityContainer(ContainerTechnology):
         print(container_yaml)
         return container_yaml
 
-    def _add_local_image(self, name, tag, image, config, container_yaml, **kwargs):
+    def _add_local_image(
+        self, name, tag, image, config, container_yaml, keep_path=False, **kwargs
+    ):
         """
         A subtype of "add" that adds a local image, e.g.,:
 
@@ -128,14 +140,19 @@ class SingularityContainer(ContainerTechnology):
             logger.exit(f"{image} does not exist.")
 
         digest = utils.get_file_hash(image)
-
-        # Destination for container in registry
-        dest_dir = os.path.dirname(container_yaml)
-
-        # The destination container in the registry folder
         container_digest = "sha256:%s" % digest
-        container_name = "%s.sif" % container_digest
-        dest_container = os.path.join(dest_dir, container_name)
+
+        if keep_path:
+            dest_container = image
+            container_name = os.path.basename(image)
+
+        else:
+            # Destination for container in registry
+            dest_dir = self.settings.container_base or os.path.dirname(container_yaml)
+
+            # The destination container in the registry folder
+            container_name = "%s.sif" % container_digest
+            dest_container = os.path.join(dest_dir, container_name)
 
         # Update the config path and latest
         config.set("path", container_name)
