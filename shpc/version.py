@@ -21,7 +21,7 @@ INSTALL_REQUIRES = (
     ("spython", {"min_version": "0.2.0"}),
     ("Jinja2", {"min_version": None}),
     ("jsonschema", {"min_version": None}),
-    ("ruamel.yaml", {"exact_version": "0.17.21"}),
+    ("ruamel.yaml", {"max_version": "0.17.21"}),
     ("requests", {"min_version": None}),
 )
 
