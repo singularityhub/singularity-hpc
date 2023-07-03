@@ -25,12 +25,16 @@ def get_reqs(lookup=None, key="INSTALL_REQUIRES"):
         module_meta = module[1]
         if "exact_version" in module_meta:
             dependency = "%s==%s" % (module_name, module_meta["exact_version"])
-        else:
-            if "min_version" in module_meta:
-                dependency = "%s>=%s" % (module_name, module_meta["min_version"])
+        elif "min_version" in module_meta:
+            if module_meta["min_version"] is None:
+                dependency = module_name
             else:
-                if "max_version" in module_meta:
-                    dependency = "%s<=%s" % (module_name, module_meta["max_version"])
+                dependency = "%s>=%s" % (module_name, module_meta["min_version"])
+        elif "max_version" in module_meta:
+            if module_meta["max_version"] is None:
+                dependency = module_name
+            else:
+                dependency = "%s<=%s" % (module_name, module_meta["max_version"])
         install_requires.append(dependency)
     return install_requires
 
