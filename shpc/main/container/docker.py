@@ -207,7 +207,8 @@ class DockerContainer(ContainerTechnology):
                 "Container %s was not found. Was it pulled?" % module.container_path
             )
 
-        labels = manifest[0].get("Labels", {})
+        labels = manifest[0].get("Labels") or {}
+        labels = self.clean_labels(labels)
 
         # Option to create wrapper scripts for commands
         aliases = module.config.get_aliases()

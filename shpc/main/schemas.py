@@ -157,6 +157,7 @@ settingsProperties = {
         ]
     },
     "enable_tty": {"type": "boolean"},
+    "label_separator": {"type": "string"},
     "views_base": {"type": ["string", "null"]},
     "default_view": {"type": ["string", "null"]},
     "wrapper_scripts": wrapper_scripts,

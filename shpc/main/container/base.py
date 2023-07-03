@@ -102,6 +102,15 @@ class ContainerTechnology:
             return os.path.join(self.settings.module_base, name)
         return os.path.join(self.settings.container_base, name)
 
+    def clean_labels(self, labels):
+        """
+        Clean labels, meaning removing newlines and replacing with label separator
+        """
+        updated_labels = {}
+        for key, value in labels.items():
+            updated_labels[key] = value.replace("\n", self.settings.label_separator)
+        return updated_labels
+
     def guess_tag(self, module_name, allow_fail=False):
         """
         If a user asks for a name without a tag, try to figure it out.

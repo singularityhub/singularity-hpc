@@ -191,7 +191,7 @@ class SingularityContainer(ContainerTechnology):
             metadata = self.inspect(module.container_path)
 
             # Add labels, and deffile
-            labels = metadata.get("attributes", {}).get("labels")
+            labels = metadata.get("attributes", {}).get("labels") or {}
             deffile = (
                 metadata.get("attributes", {}).get("deffile", "").replace("\n", "\\n")
             )
@@ -202,6 +202,9 @@ class SingularityContainer(ContainerTechnology):
 
         # Option to create wrapper scripts for commands
         aliases = module.config.get_aliases()
+
+        # Labels with newlines need to be handled, replace with comma
+        labels = self.clean_labels(labels)
 
         # Wrapper scripts can be global (for aliases) or container specific
         wrapper_scripts = []

@@ -42,6 +42,9 @@ default_version: module_sys
 # It's recommended to do this for faster loading
 container_base: $root_dir/containers
 
+# When parsing labels, replace newlines with this string
+label_separator: ', '
+
 # Default root directory to create views
 views_base: $root_dir/views
 

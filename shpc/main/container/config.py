@@ -254,6 +254,9 @@ class ContainerConfig:
         return self.get("docker") or self.get("gh") or self.get("path")
 
     def get(self, key, default=None):
+        """
+        Get a value from the config.
+        """
         return self.entry._config.get(key, default)
 
     def get_pull_type(self):
