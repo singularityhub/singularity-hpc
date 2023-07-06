@@ -73,7 +73,7 @@ class Module:
             self._container_dir = self.container.container_dir(self.module_basepath)
         return self._container_dir
 
-    def add_container(self, container_image=None):
+    def add_container(self, container_image=None, keep_path=False):
         """
         Ensure a container is pulled (or provided)
 
@@ -82,7 +82,7 @@ class Module:
         # First preference goes to provided image (actual file)
         # This is only allowed for Singularity containers
         if container_image and os.path.exists(container_image):
-            self.add_local_container(container_image)
+            self.add_local_container(container_image, keep_path=keep_path)
 
         # If we have a sif URI provided by path, the container needs to exist
         elif self.config.path:
