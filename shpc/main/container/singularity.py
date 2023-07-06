@@ -148,6 +148,7 @@ class SingularityContainer(ContainerTechnology):
             # Destination for container in registry
             container_dir = self.container_dir(name)
             dest_dir = container_dir or os.path.dirname(container_yaml)
+            utils.mkdir_p(dest_dir)
 
             # The destination container in the registry folder
             container_name = "%s.sif" % container_digest
