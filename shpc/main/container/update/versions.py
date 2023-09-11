@@ -155,7 +155,7 @@ class TaggedLooseVersion(LooseVersion):
             this_version = self.version[i]
             other_version = other.version[i]
 
-            if type(this_version) != type(other_version):
+            if type(this_version) is not type(other_version):
                 continue
 
             if this_version == other_version:
