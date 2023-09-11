@@ -45,7 +45,7 @@ container_base: $root_dir/containers
 # When parsing labels, replace newlines with this string
 label_separator: ', '
 
-wrapper_base: null
+wrapper_base: $root_dir/modules
 
 # Default root directory to create views
 views_base: $root_dir/views
