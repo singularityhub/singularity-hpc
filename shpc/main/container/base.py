@@ -66,13 +66,16 @@ class ContainerTechnology:
         """
         logger.warning("Add is not supported for %s" % self)
 
-    def add_environment(self, module_dir, envars, environment_file):
+    def add_environment(self, env_dir, envars, environment_file):
         """
         Given one or more environment variables in a dictionary, write to file.
+
+        The environment file goes in the wrapper directory, which can default
+        to the module directory if the value uses the default or is unset.
         """
         # Podman envars are written directly to the module file
         out = Template(shpc.main.templates.environment_file).render(envars=envars)
-        env_file = os.path.join(module_dir, environment_file)
+        env_file = os.path.join(env_dir, environment_file)
         shpc.utils.write_file(env_file, out)
 
     def delete(self, image):

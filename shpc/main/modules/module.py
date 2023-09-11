@@ -36,7 +36,7 @@ class Module:
         Write the environment to the module directory.
         """
         self.container.add_environment(
-            self.module_dir,
+            self.wrapper_dir,
             envars=self.config.get_envars(),
             environment_file=self.settings.environment_file,
         )
