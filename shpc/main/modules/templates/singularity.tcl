@@ -89,7 +89,7 @@ set runCmd "singularity \${SINGULARITY_OPTS} run \${SINGULARITY_COMMAND_OPTS} {%
 set inspectCmd "singularity \${SINGULARITY_OPTS} inspect \${SINGULARITY_COMMAND_OPTS} "
 
 # if we have any wrapper scripts, add bin to path
-{% if wrapper_scripts %}prepend-path PATH "${wrapperDir}/bin"{% endif %}
+{% if wrapper_scripts %}prepend-path PATH ${wrapperDir}/bin{% endif %}
 
 # "aliases" to module commands
 {% if aliases %}if { [ module-info shell bash ] } {

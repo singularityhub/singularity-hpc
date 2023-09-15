@@ -229,6 +229,9 @@ def test_custom_wrapper_dir(
     # The content of the file
     content = utils.read_file(module_filepath)
 
+    print(module_file)
+    print(wrapper_type)
+
     # For custom, wrapper_dir will have wrappers. For default, wrapper_dir will be modules
     # directory. We can test the same way.
     if module_file.endswith("lua") and wrapper_type in ["custom", "default"]:
@@ -238,13 +241,10 @@ def test_custom_wrapper_dir(
         assert f'set wrapperDir "{wrapper_dir}"' in content
 
     elif module_file.endswith("lua") and wrapper_type in ["unset", "disabled"]:
-        assert 'local wrapperDir = "$moduleDir"' in content
+        assert "local wrapperDir = $moduleDir" in content
 
     elif module_file.endswith("tcl") and wrapper_type in ["unset", "disabled"]:
-        assert (
-            'set wrapperDir = "$moduleDir"' in content
-            or 'set wrapperDir = "${moduleDir}"'
-        )
+        assert "set wrapperDir $moduleDir" in content
 
     # Wrappers always generated in either wrapper_dir or module_dir, unless disabled
     # bin is generated no matter what, but is populated in one case only

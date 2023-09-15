@@ -83,7 +83,7 @@ set runCmd "{{ command }} \${PODMAN_OPTS} run -i{% if settings.enable_tty %}t{% 
 set inspectCmd "{{ command }} \${PODMAN_OPTS} inspect ${containerPath}"
 
 # wrapper scripts? Add bin to path
-{% if wrapper_scripts %}prepend-path PATH "${wrapperDir}/bin"{% endif %}
+{% if wrapper_scripts %}prepend-path PATH ${wrapperDir}/bin{% endif %}
 
 # "aliases" to module commands
 {% if aliases %}if { [ module-info shell bash ] } {
