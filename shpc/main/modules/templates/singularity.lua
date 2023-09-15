@@ -47,7 +47,7 @@ For each of the above, you can export:
 local moduleDir = subprocess("realpath " .. myFileName()):match("(.*[/])") or "."
 
 -- If we have wrapper base set, honor it, otherwise we use the moduleDir
-{% if settings.wrapper_base %}local wrapperDir = "{{ module.wrapper_dir }}"{% else %}local wrapperDir = "$moduleDir"{% endif %}
+{% if settings.wrapper_base %}local wrapperDir = "{{ module.wrapper_dir }}"{% else %}local wrapperDir = $moduleDir{% endif %}
 
 -- singularity environment variable to set shell
 setenv("SINGULARITY_SHELL", "{{ settings.singularity_shell }}")
