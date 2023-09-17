@@ -241,7 +241,7 @@ def test_custom_wrapper_dir(
         assert f'set wrapperDir "{wrapper_dir}"' in content
 
     elif module_file.endswith("lua") and wrapper_type in ["unset", "disabled"]:
-        assert "local wrapperDir = $moduleDir" in content
+        assert "local wrapperDir = moduleDir" in content
 
     elif module_file.endswith("tcl") and wrapper_type in ["unset", "disabled"]:
         assert "set wrapperDir $moduleDir" in content

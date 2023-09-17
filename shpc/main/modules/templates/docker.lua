@@ -49,7 +49,7 @@ if not os.getenv("PODMAN_COMMAND_OPTS") then setenv ("PODMAN_COMMAND_OPTS", "") 
 local moduleDir = subprocess("realpath " .. myFileName()):match("(.*[/])") or "."
 
 -- If we have wrapper base set, honor it, otherwise we use the moduleDir
-{% if settings.wrapper_base %}local wrapperDir = "{{ module.wrapper_dir }}"{% else %}local wrapperDir = $moduleDir{% endif %}
+{% if settings.wrapper_base %}local wrapperDir = "{{ module.wrapper_dir }}"{% else %}local wrapperDir = moduleDir{% endif %}
 
 -- interactive shell to any container, plus exec for aliases
 local containerPath = '{{ module.container_path }}'
