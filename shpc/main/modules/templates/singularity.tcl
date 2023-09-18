@@ -68,7 +68,7 @@ set helpcommand "This module is a singularity container wrapper for {{ module.na
 set moduleDir   [file dirname [expr { [string equal [file type ${ModulesCurrentModulefile}] "link"] ? [file readlink ${ModulesCurrentModulefile}] : ${ModulesCurrentModulefile} }]]
 
 # If we have wrapper base set, honor it, otherwise we use the moduleDir
-{% if settings.wrapper_base %}set wrapperDir "{{ module.wrapper_dir }}"{% else %}set wrapperDir $moduleDir{% endif %}
+{% if settings.wrapper_base %}set wrapperDir "{{ module.wrapper_dir }}"{% else %}set wrapperDir "${moduleDir}"{% endif %}
 
 # conflict with modules with the same alias name
 conflict {{ parsed_name.tool }}
