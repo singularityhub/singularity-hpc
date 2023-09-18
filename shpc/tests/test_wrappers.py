@@ -244,7 +244,7 @@ def test_custom_wrapper_dir(
         assert "local wrapperDir = moduleDir" in content
 
     elif module_file.endswith("tcl") and wrapper_type in ["unset", "disabled"]:
-        assert "set wrapperDir $moduleDir" in content
+        assert 'set wrapperDir "${moduleDir}"' in content
 
     # Wrappers always generated in either wrapper_dir or module_dir, unless disabled
     # bin is generated no matter what, but is populated in one case only
