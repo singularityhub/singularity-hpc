@@ -211,9 +211,9 @@ class SingularityContainer(ContainerTechnology):
         if self.settings.wrapper_scripts["enabled"] is True:
             wrapper_scripts = shpc.main.wrappers.generate(
                 aliases=aliases,
-                module_dir=module.module_dir,
                 features=features,
                 container=self,
+                wrapper_dir=module.wrapper_dir,
                 image=module.container_path,
                 config=module.config,
             )

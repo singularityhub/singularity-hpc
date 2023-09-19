@@ -37,11 +37,13 @@ class WrapperScript:
         return os.path.dirname(self.image)
 
     @property
-    def module_dir(self):
+    def wrapper_dir(self):
         """
-        Get the module directory (should error if not provided in kwargs)
+        Get the wrapper directory (should error if not provided in kwargs)
+
+        This can be the module directory or a custom wrapper directory.
         """
-        return self.kwargs["module_dir"]
+        return self.kwargs["wrapper_dir"]
 
     def get_template_paths(self):
         """
@@ -121,8 +123,8 @@ class WrapperScript:
         interaction wrappers (e.g., exec, shell, etc.)
         """
 
-        # Write scripts into container directory
-        wrapper_dir = os.path.join(self.module_dir, "bin")
+        # Write scripts into custom module directory
+        wrapper_dir = os.path.join(self.wrapper_dir, "bin")
         shpc.utils.mkdirp([wrapper_dir])
         wrapper_path = os.path.join(wrapper_dir, wrapper_name)
 
@@ -132,7 +134,7 @@ class WrapperScript:
             settings=self.settings,
             image=self.image,
             config=self.config,
-            # includes module_dir, features, etc
+            # includes wrapper_dir, features, etc
             **self.kwargs
         )
         shpc.utils.write_file(wrapper_path, out, exec=True)

@@ -176,6 +176,9 @@ variable replacement. A summary table of variables is included below, and then f
    * - module_base
      - The install directory for modules
      - $root_dir/modules
+   * - wrapper_base
+     - The install directory for script wrappers
+     - $root_dir/modules
    * - container_base
      - Where to install containers. If not defined, they are installed in "containers" in the install root
      - $root_dir/containers
@@ -345,6 +348,20 @@ resource identifier `python/3.8` you would see:
 
 Singularity Registry HPC uses this simple directory structure to ensure
 a unique namespace.
+
+
+Wrapper Base
+------------
+
+By default, if you do not set a wrapper script base they will be stored alongside
+modules. However, for large installations, we recommend you customize this path
+to be somewhere else. This way, you can avoid warnings from your module software
+about having too many files.
+
+.. code-block:: console
+
+    # an absolute path
+    $ shpc config set wrapper_base /opt/lmod/wrappers
 
 
 Container Images Folder

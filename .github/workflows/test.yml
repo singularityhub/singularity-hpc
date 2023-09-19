@@ -97,6 +97,8 @@ jobs:
         printf "\n\nmodule help ============================================\n"
         module help python/3.9.5-alpine
 
+        script_path=$(which python-exec)
+        cat $script_path
         set -x
         python-exec echo donuts >test_output
         cat test_output

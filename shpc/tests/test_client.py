@@ -44,10 +44,14 @@ def test_install_get(tmp_path, module_sys, module_file, container_tech, remote):
     assert os.path.exists(client.settings.module_base)
 
     module_dir = os.path.join(client.settings.module_base, "python", "3.9.2-alpine")
+    wrapper_dir = os.path.join(client.settings.wrapper_base, "python", "3.9.2-alpine")
+
     assert os.path.exists(module_dir)
     module_file = os.path.join(module_dir, module_file)
     assert os.path.exists(module_file)
-    env_file = os.path.join(module_dir, client.settings.environment_file)
+
+    # Environment file is in wrapper directory
+    env_file = os.path.join(wrapper_dir, client.settings.environment_file)
     assert os.path.exists(env_file)
 
     assert client.get("python:3.9.2-alpine")

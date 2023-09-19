@@ -16,18 +16,18 @@ Container:
 Commands include:
 
  - {|module_name|}-run:
-       {{ command }} run -i{% if settings.enable_tty %}t{% endif %} -u `id -u`:`id -g` --rm {% if settings.environment_file %}--env-file <moduleDir>/{{ settings.environment_file }} {% endif %} {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %}-v ${PWD} -w ${PWD} <container> "$@"
+       {{ command }} run -i{% if settings.enable_tty %}t{% endif %} -u `id -u`:`id -g` --rm {% if settings.environment_file %}--env-file <wrapperDir>/{{ settings.environment_file }} {% endif %} {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %}-v ${PWD} -w ${PWD} <container> "$@"
  - {|module_name|}-shell:
-       {{ command }} run -i{% if settings.enable_tty %}t{% endif %} -u `id -u`:`id -g` --rm {% if settings.environment_file %}--env-file <moduleDir>/{{ settings.environment_file }} {% endif %} {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %}--entrypoint {{ shell }} -v ${PWD} -w ${PWD}<container>
+       {{ command }} run -i{% if settings.enable_tty %}t{% endif %} -u `id -u`:`id -g` --rm {% if settings.environment_file %}--env-file <wrapperDir>/{{ settings.environment_file }} {% endif %} {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %}--entrypoint {{ shell }} -v ${PWD} -w ${PWD}<container>
  - {|module_name|}-exec:
-       {{ command }} run -i{% if settings.enable_tty %}t{% endif %} -u `id -u`:`id -g` --rm --entrypoint "" {% if settings.environment_file %}--env-file <moduleDir>/{{ settings.environment_file }} {% endif %} {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %} -v ${PWD} -w ${PWD} <container> "$@"
+       {{ command }} run -i{% if settings.enable_tty %}t{% endif %} -u `id -u`:`id -g` --rm --entrypoint "" {% if settings.environment_file %}--env-file <wrapperDir>/{{ settings.environment_file }} {% endif %} {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %} -v ${PWD} -w ${PWD} <container> "$@"
  - {|module_name|}-inspect:
        {{ command }} inspect <container>
  - {|module_name|}-container:
        echo "$PODMAN_CONTAINER"
 
 {% if aliases %}{% for alias in aliases %} - {{ alias.name }}:
-       {{ command }} run -i{% if settings.enable_tty %}t{% endif %} -u `id -u`:`id -g` --rm --entrypoint {{ alias.entrypoint }} {% if settings.environment_file %}--env-file <moduleDir>/{{ settings.environment_file }}{% endif %} {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %}{% if alias.docker_options %}{{ alias.docker_options }} {% endif %} -v ${PWD} -w ${PWD} <container> "{{ alias.args }}" "$@"
+       {{ command }} run -i{% if settings.enable_tty %}t{% endif %} -u `id -u`:`id -g` --rm --entrypoint {{ alias.entrypoint }} {% if settings.environment_file %}--env-file <wrapperDir>/{{ settings.environment_file }}{% endif %} {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %}{% if alias.docker_options %}{{ alias.docker_options }} {% endif %} -v ${PWD} -w ${PWD} <container> "{{ alias.args }}" "$@"
 {% endfor %}{% endif %}
 
 For each of the above, you can export:
@@ -48,23 +48,26 @@ if not os.getenv("PODMAN_COMMAND_OPTS") then setenv ("PODMAN_COMMAND_OPTS", "") 
 -- directory containing this modulefile, once symlinks resolved (dynamically defined)
 local moduleDir = subprocess("realpath " .. myFileName()):match("(.*[/])") or "."
 
+-- If we have wrapper base set, honor it, otherwise we use the moduleDir
+{% if settings.wrapper_base %}local wrapperDir = "{{ module.wrapper_dir }}"{% else %}local wrapperDir = moduleDir{% endif %}
+
 -- interactive shell to any container, plus exec for aliases
 local containerPath = '{{ module.container_path }}'
 
 -- service environment variable to access docker URI
 setenv("PODMAN_CONTAINER", containerPath)
 
-local shellCmd = "{{ command }} ${PODMAN_OPTS} run -i{% if settings.enable_tty %}t{% endif %} ${PODMAN_COMMAND_OPTS} -u `id -u`:`id -g` --rm --entrypoint {{ shell }} {% if settings.environment_file %}--env-file " .. moduleDir .. "/{{ settings.environment_file }}{% endif %} {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %} -v ${PWD} -w ${PWD} " .. containerPath
+local shellCmd = "{{ command }} ${PODMAN_OPTS} run -i{% if settings.enable_tty %}t{% endif %} ${PODMAN_COMMAND_OPTS} -u `id -u`:`id -g` --rm --entrypoint {{ shell }} {% if settings.environment_file %}--env-file " .. wrapperDir .. "/{{ settings.environment_file }}{% endif %} {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %} -v ${PWD} -w ${PWD} " .. containerPath
 -- execCmd needs entrypoint to be the executor
-local execCmd = "{{ command }} ${PODMAN_OPTS} run ${PODMAN_COMMAND_OPTS} -i{% if settings.enable_tty %}t{% endif %} -u `id -u`:`id -g` --rm {% if settings.environment_file %}--env-file " .. moduleDir .. "/{{ settings.environment_file }}{% endif %} {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %} -v ${PWD} -w ${PWD} "
-local runCmd = "{{ command }} ${PODMAN_OPTS} run ${PODMAN_COMMAND_OPTS} -i{% if settings.enable_tty %}t{% endif %} -u `id -u`:`id -g` --rm {% if settings.environment_file %}--env-file " .. moduleDir .. "/{{ settings.environment_file }}{% endif %} {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %} -v ${PWD} -w ${PWD} " .. containerPath
+local execCmd = "{{ command }} ${PODMAN_OPTS} run ${PODMAN_COMMAND_OPTS} -i{% if settings.enable_tty %}t{% endif %} -u `id -u`:`id -g` --rm {% if settings.environment_file %}--env-file " .. wrapperDir .. "/{{ settings.environment_file }}{% endif %} {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %} -v ${PWD} -w ${PWD} "
+local runCmd = "{{ command }} ${PODMAN_OPTS} run ${PODMAN_COMMAND_OPTS} -i{% if settings.enable_tty %}t{% endif %} -u `id -u`:`id -g` --rm {% if settings.environment_file %}--env-file " .. wrapperDir .. "/{{ settings.environment_file }}{% endif %} {% if settings.bindpaths %}-v {{ settings.bindpaths }} {% endif %}{% if features.home %}-v {{ features.home }} {% endif %} -v ${PWD} -w ${PWD} " .. containerPath
 local inspectCmd = "{{ command }} ${PODMAN_OPTS} inspect ${PODMAN_COMMAND_OPTS} " .. containerPath
 
 -- conflict with modules with the same name
 conflict("{{ parsed_name.tool }}"{% if name != parsed_name.tool %},"{{ module.name }}"{% endif %}{% if aliases %}{% for alias in aliases %}{% if alias.name != parsed_name.tool %},"{{ alias.name }}"{% endif %}{% endfor %}{% endif %})
 
 -- if we have any wrapper scripts, add the bin directory
-{% if wrapper_scripts %}prepend_path("PATH", pathJoin(moduleDir, "bin")){% endif %}
+{% if wrapper_scripts %}prepend_path("PATH", pathJoin(wrapperDir, "bin")){% endif %}
 
 -- "aliases" to module commands - generate only if not a wrapper script already generated
 {% if aliases %}{% for alias in aliases %}{% if alias.name not in wrapper_scripts %}set_shell_function("{{ alias.name }}", execCmd .. {% if alias.docker_options %} "{{ alias.docker_options }} " .. {% endif %} " --entrypoint {{ alias.entrypoint }} " .. containerPath .. " {{ alias.args }} \"$@\"", execCmd .. {% if alias.docker_options %} "{{ alias.docker_options }} " .. {% endif %} " --entrypoint {{ alias.entrypoint }} " .. containerPath .. " {{ alias.args }}"){% endif %}
