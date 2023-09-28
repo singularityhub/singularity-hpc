@@ -47,7 +47,7 @@ def main(args, parser, extra, subparser):
     elif command == "get":
         for key in args.params:
             value = cli.settings.get(key)
-            value = "is unset" if value is None else value
+            value = "Unset" if value is None else value
             logger.info("%s %s" % (key.ljust(30), value))
 
     else:
