@@ -143,6 +143,7 @@ settingsProperties = {
     "namespace": {"type": ["string", "null"]},
     "singularity_module": {"type": ["string", "null"]},
     "podman_module": {"type": ["string", "null"]},
+    "singularity_path": {"type": ["string"]},
     "bindpaths": {"type": ["string", "null"]},
     "updated_at": {"type": "string"},
     "module_name": {"type": "string"},
