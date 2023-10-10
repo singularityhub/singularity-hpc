@@ -2,7 +2,7 @@ __author__ = "Vanessa Sochat"
 __copyright__ = "Copyright 2021-2023, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
-__version__ = "0.1.25"
+__version__ = "0.1.26"
 AUTHOR = "Vanessa Sochat"
 EMAIL = "vsoch@users.noreply.github.com"
 NAME = "singularity-hpc"
@@ -21,7 +21,7 @@ INSTALL_REQUIRES = (
     ("spython", {"min_version": "0.2.0"}),
     ("Jinja2", {"min_version": None}),
     ("jsonschema", {"min_version": None}),
-    ("ruamel.yaml", {"max_version": "0.17.21"}),
+    ("ruamel.yaml", {"min_version": None}),
     ("requests", {"min_version": None}),
 )
 
