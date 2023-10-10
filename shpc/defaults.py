@@ -18,7 +18,13 @@ user_settings_file = os.path.join(
 )
 
 # variables in settings that allow environment variable expansion
-allowed_envars = ["container_base", "module_base", "views_base", "wrapper_base", "registry"]
+allowed_envars = [
+    "container_base",
+    "module_base",
+    "views_base",
+    "wrapper_base",
+    "registry",
+]
 
 # The default GitHub registry with recipes (for docgen)
 github_url = "https://github.com/singularityhub/shpc-registry"
