@@ -47,7 +47,7 @@ def main(args, parser, extra, subparser):
     elif command == "get":
         for key in args.params:
             value = cli.settings.get(key)
-            value = "Unset" if value is None else value
+            value = "unset" if value is None else value
             # similar to view get in view.py
             print(value)
 
