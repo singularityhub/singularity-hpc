@@ -100,7 +100,7 @@ if __name__ == "__main__":
             "Topic :: Software Development",
             "Topic :: Scientific/Engineering",
             "Operating System :: Unix",
-            "Programming Language :: Python :: 3.3",
+            "Programming Language :: Python :: 3.7",
         ],
         entry_points={"console_scripts": ["shpc=shpc.client:run_shpc"]},
     )
