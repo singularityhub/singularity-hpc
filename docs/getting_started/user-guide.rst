@@ -1876,7 +1876,8 @@ and tell shpc that we want it under the ``dinosaur/salad`` namespace.
     Registry entry dinosaur/salad:latest was added! Before shpc install, edit:
     /home/vanessa/Desktop/Code/shpc/registry/dinosaur/salad/container.yaml
 
-At this point, you should open up the container.yaml generated and edit to your liking.
+The container image will be copied within the newly-created directory structure, alongside the `container.yaml` file.
+At this point, you should open up the generated `container.yaml` file and edit to your liking.
 This usually means updating the description, maintainer, aliases, and possibly providing a url
 to find more information or support. Also notice we've provided the tag to be latest. If you update this registry
 entry in the future with a new version, you'll want to provide a new tag. If you provide
