@@ -141,6 +141,17 @@
             "avatar_url": [
                 "https://avatars.githubusercontent.com/u/2433146?v=4"
             ]
+        },
+        {
+            "login": "dipietrantonio",
+            "name": "Cristian Di Pietrantonio",
+            "contributions": [
+                "code"
+            ],
+            "profile": "https://github.com/dipietrantonio",
+            "avatar_url": [
+                "https://avatars.githubusercontent.com/u/2136256?v=4"
+            ]
         }
     ],
     "contributorsPerLine": 7
