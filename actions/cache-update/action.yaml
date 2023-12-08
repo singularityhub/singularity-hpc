@@ -148,7 +148,7 @@ runs:
       shell: bash
 
     - name: Open Pull Request
-      uses: vsoch/pull-request-action@50f22f6d146226ee6b73b7a001f26a3d4579f360 # 1.0.22
+      uses: vsoch/pull-request-action@master
       if: ${{ env.OPEN_PULL_REQUEST == '1' }}
       env:
         GITHUB_TOKEN: ${{ inputs.token }}
