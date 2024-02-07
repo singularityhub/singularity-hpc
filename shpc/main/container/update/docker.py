@@ -1,6 +1,8 @@
 __author__ = "Vanessa Sochat"
-__copyright__ = "Copyright 2021-2023, Vanessa Sochat"
+__copyright__ = "Copyright 2021-2024, Vanessa Sochat"
 __license__ = "MPL 2.0"
+
+import re
 
 import requests
 
@@ -34,7 +36,10 @@ class DockerImage:
         """
         url = "%s/ls/%s" % (self.apiroot, self.container_name)
         response = self.get_request(url)
-        return [x.strip() for x in response.text.split("\n") if x.strip()]
+        tags = [x.strip() for x in response.text.split("\n") if x.strip()]
+        # Don't include tags for vex or sbom
+        tags = [x for x in tags if not re.search("[.](sbom|vex)$", x)]
+        return tags
 
     def manifest(self, tag):
         url = "%s/manifest/%s:%s" % (self.apiroot, self.container_name, tag)
