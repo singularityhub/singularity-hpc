@@ -13,6 +13,7 @@ import shpc.main.container as container
 here = os.path.dirname(os.path.abspath(__file__))
 root = os.path.dirname(here)
 
+ci = os.environ.get("GITHUB_CI")
 
 def test_pull_gh(tmp_path):
     """
@@ -53,6 +54,7 @@ def test_podman(tmp_path):
     assert not cli.exists(result)
 
 
+@pytest.mark.skipif(ci is not None, reason="GitHub actions docker socket not working")
 def test_docker(tmp_path):
     """
     Test a singularity container command
