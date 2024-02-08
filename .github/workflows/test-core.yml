@@ -13,7 +13,7 @@ jobs:
     - name: Create conda environment
       run: conda create --quiet -c conda-forge --name shpc spython
 
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Install shpc
       run: |
         export PATH="/usr/share/miniconda/bin:$PATH"
@@ -27,4 +27,5 @@ jobs:
         source activate shpc
         which shpc
         cd shpc/tests
+        export GITHUB_CI=yes
         pytest -sxv test_*.py
