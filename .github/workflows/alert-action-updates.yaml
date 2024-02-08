@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - name: Detect and Update
       uses: vsoch/action-updater@2c2216e27ee963aaa31ff0ff81de007acb84b9c2 # 0.0.11
       with:
