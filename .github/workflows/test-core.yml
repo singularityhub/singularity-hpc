@@ -27,4 +27,5 @@ jobs:
         source activate shpc
         which shpc
         cd shpc/tests
+        ln -s ~/.docker/run/docker.sock /var/run/docker.sock
         pytest -sxv test_*.py
