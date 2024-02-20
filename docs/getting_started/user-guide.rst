@@ -207,7 +207,7 @@ variable replacement. A summary table of variables is included below, and then f
      - Format string for module commands exec,shell,run (not aliases) can include ``{{ registry }}``, ``{{ repository }}``, ``{{ tool }}`` and ``{{ version }}``
      - ``'{{ tool }}'``
    * - bindpaths
-     - string with comma separated list of paths to binds. If set, expored to SINGULARITY_BINDPATH
+     - string with comma separated list of paths to binds. If set, exported to SINGULARITY_BINDPATH
      - null
    * - singularity_shell
      - exported to SINGULARITY_SHELL

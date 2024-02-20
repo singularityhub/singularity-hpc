@@ -57,7 +57,7 @@ default_view:
 singularity_module:
 podman_module:
 
-# string with comma separated list of paths to binds. If set, expored to SINGULARITY_BINDPATH
+# string with comma separated list of paths to binds. If set, exported to SINGULARITY_BINDPATH
 bindpaths:
 
 # for container technologies that can specify a tty input (e.g., -t)
