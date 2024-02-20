@@ -5,3 +5,10 @@ exclude = ["^env/"]
 [tool.isort]
 profile = "black" # needed for black/isort compatibility
 skip = []
+
+[tool.codespell]
+# Ref: https://github.com/codespell-project/codespell#using-a-config-file
+skip = '.git,*.svg,*.css'
+check-hidden = true
+# ignore-regex = ''
+# ignore-words-list = ''
