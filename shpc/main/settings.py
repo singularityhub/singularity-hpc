@@ -125,7 +125,7 @@ class SettingsBase:
         """
         Load the settings file into the settings object
         """
-        # Get the preferred settings flie
+        # Get the preferred settings file
         self.settings_file = self.get_settings_file(settings_file)
 
         # Exit quickly if the settings file does not exist

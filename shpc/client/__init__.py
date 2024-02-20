@@ -173,7 +173,7 @@ def get_parser():
         action="store_true",
     )
 
-    # Add a container direcly
+    # Add a container directly
     add = subparsers.add_parser(
         "add",
         formatter_class=argparse.RawTextHelpFormatter,

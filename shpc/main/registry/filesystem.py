@@ -15,7 +15,7 @@ from .provider import Provider, Result
 class FilesystemResult(Result):
     """
     A filesystem result provides courtesy functions for interacting with
-    a container yaml recipe on the filesytem.
+    a container yaml recipe on the filesystem.
     """
 
     def __init__(self, module, container_yaml):
