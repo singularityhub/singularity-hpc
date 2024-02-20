@@ -10,7 +10,7 @@ shell_description = """Shell into a Python session with a client.
   > client
   Out[1]: [shpc-client]
 
-  # Shell into a client with a different interpeter
+  # Shell into a client with a different interpreter
   $ shpc shell -i python
   $ shpc shell -i ipython
   $ shpc shell -i bpython"""

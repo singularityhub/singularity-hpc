@@ -25,7 +25,7 @@ def main(args, parser, extra, subparser):
             except ImportError:
                 pass
 
-    # Otherwise present order of liklihood to have on system
+    # Otherwise present order of likelihood to have on system
     for shell in shells:
         try:
             return lookup[shell](args)

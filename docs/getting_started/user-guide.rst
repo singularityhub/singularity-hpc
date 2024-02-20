@@ -415,7 +415,7 @@ any changes.
 
 It could be the case that you want to start with a remote registry, but keep it locally
 with your own changes or secrets. This is essentially turning a remote registry into a filesystem
-(local) one. The easiest thing to do here is to clone it to your filesyste, and then add to shpc as a filesystem
+(local) one. The easiest thing to do here is to clone it to your filesystem, and then add to shpc as a filesystem
 registry.
 
 .. code-block:: console
@@ -1234,7 +1234,7 @@ This feature is supported for shpc versions 0.1.15 and up.
 Namespace
 ---------
 
-Let's say that you are exclusively using continers in the namespace ghcr.io/autamus.
+Let's say that you are exclusively using containers in the namespace ghcr.io/autamus.
 
 .. code-block:: console
 
