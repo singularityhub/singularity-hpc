@@ -30,3 +30,11 @@ repos:
         language: python
         types: [python]
         entry: flake8
+
+  - repo: https://github.com/codespell-project/codespell
+    # Configuration for codespell is in pyproject.toml
+    rev: v2.2.6
+    hooks:
+      - id: codespell
+        additional_dependencies:
+          - tomli
