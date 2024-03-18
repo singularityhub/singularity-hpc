@@ -14,6 +14,7 @@ and **Merged pull requests**. Critical items to know are:
 The versions coincide with releases on pip. Only major versions will be released as tags on Github.
 
 ## [0.0.x](https://github.com/singularityhub/singularity-hpc/tree/main) (0.0.x)
+ - use quay.io api to list tags since does not conform to oci (0.1.28)
  - filter out vex and sbom tags (0.1.27)
  - unpin yaml dependency (0.1.26)
  - Change format of config command output to only show setting values, not keys, for parseability (0.1.25)
