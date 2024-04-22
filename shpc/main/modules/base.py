@@ -231,7 +231,7 @@ class ModuleBase(BaseClient):
         if image.startswith("docker"):
             module_name = image.replace("docker://", "")
 
-        # If we still dont' have a module name and not docker, no go
+        # If we still don't have a module name and not docker, no go
         if not module_name:
             logger.exit("A module name is required to add an image.")
         module_name = self.add_namespace(module_name)

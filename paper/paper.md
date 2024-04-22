@@ -15,7 +15,7 @@ authors:
 affiliations:
  - name: Lawrence Livermore National Lab, Livermore, CA, USA
    index: 1
- - name: University of Arizona Research Computing, Tuscon, AZ, USA
+ - name: University of Arizona Research Computing, Tucson, AZ, USA
    index: 2
 date: 17 April 2021
 bibliography: paper.bib

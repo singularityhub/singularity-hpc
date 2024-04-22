@@ -475,7 +475,7 @@ Templating for both wrapper script types
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Note that you are free to use "snippets" and "bases" either as an inclusion or "extends" meaning you can
-easily re-use code. For example, if we have the following registered directories under ``shpc/main/wrappers/templates``
+easily reuse code. For example, if we have the following registered directories under ``shpc/main/wrappers/templates``
 for definition of bases and templates:
 
 .. code-block:: console
