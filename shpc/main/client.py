@@ -62,6 +62,16 @@ class Client:
         """
         raise NotImplementedError
 
+    def upgrade(self, name, dryrun=False, force=False):
+        """
+        Upgrade an outdated software
+        """
+        from shpc.client.upgrade import upgrade
+
+        cli = self
+        args = {}
+        upgrade(name, cli, args, dryrun=dryrun, force=force)
+
     def uninstall(self, name, tag=None):
         """
         Uninstall must also implemented by the subclass (e.g., lmod)

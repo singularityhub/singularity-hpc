@@ -10,7 +10,6 @@ from shpc.logger import logger
 
 
 class DockerImage:
-
     """
     A thin client for getting metadata about an image.
     """
