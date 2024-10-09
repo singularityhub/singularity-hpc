@@ -39,6 +39,45 @@ install_description = """Install a registry recipe.
   $ shpc install python:3.9.5-alpine
 """
 
+reinstall_description = """Reinstall a software. Containers are kept by default
+
+  # Reinstall a specific version of a software
+  $ shpc reinstall quay.io/biocontainers/samtools:1.20--h50ea8bc_1
+
+  # Reinstall all versions of a software
+  $ shpc reinstall quay.io/biocontainers/samtools
+
+  # Reinstall all installed software
+  $ shpc reinstall --all
+    OR
+  $ shpc reinstall -a
+
+  # Completely reinstall a specific version of a software without keeping the container
+  $ shpc reinstall quay.io/biocontainers/samtools:1.20--h50ea8bc_1 --update_container
+    OR
+  $ shpc reinstall quay.io/biocontainers/samtools:1.20--h50ea8bc_1 -u
+
+  # Completely reinstall all versions of a software without keeping the container
+  $ shpc reinstall quay.io/biocontainers/samtools --update_container
+    OR
+  $ shpc reinstall quay.io/biocontainers/samtools -u
+
+  # Completely reinstall all software without keeping the container
+  $ shpc reinstall --all --update_container
+    OR
+  $ shpc reinstall -a -u
+
+  # Invalid arguement combinations:
+  $ shpc reinstall quay.io/biocontainers/samtools:1.20--h50ea8bc_1 --all
+      OR
+  $ shpc reinstall quay.io/biocontainers/samtools:1.20--h50ea8bc_1 -a
+
+  $ shpc reinstall quay.io/biocontainers/samtools --all
+      OR
+  $ shpc reinstall quay.io/biocontainers/samtools -a
+"""
+
+
 listing_description = """List installed modules.
 
   # Show installed modules
