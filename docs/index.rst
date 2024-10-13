@@ -66,11 +66,8 @@ Resources
 `GitHub Repository <https://github.com/singularityhub/singularity-hpc>`_
     The code for shpc on GitHub.
 
-`Singularity HPC Library <https://singularityhub.github.io/singularity-hpc/>`_
+`Singularity HPC Library <https://singularityhub.github.io/shpc-registry/>`_
     Shows modules available to install as containers.
-
-`Autamus Registry <https://autamus.io>`_
-    Provides many of the shpc container modules, built directly from spack.
 
 
 .. toctree::
