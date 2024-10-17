@@ -242,3 +242,36 @@ show_description = """Show the config for a registry entry
   # Filter all modules to those with "python"
   $ shpc show --filter python
 """
+
+upgrade_description = """Upgrade software to the latest version.
+
+  # Upgrade a software to its latest version and give option to uninstall older versions or not.
+  # Do not include the version in the command
+  $ shpc upgrade quay.io/biocontainers/samtools
+
+  # Upgrade all software
+  $ shpc upgrade --all
+      OR
+  $ shpc upgrade -a
+
+  # Valid arguement combinations:
+  # Perform dry-run on a software to check if the latest is installed or not without upgrading it.
+  $ shpc upgrade quay.io/biocontainers/samtools --dry-run
+      OR
+  $ shpc upgrade quay.io/biocontainers/samtools -d
+
+  # Perform dry-run to show version details of all installed software, to check if the latest version is installed or not without upgrading them.
+  $ shpc upgrade --all --dry-run
+      OR
+  $ shpc upgrade -a -d
+
+  # Invalid arguement combinations:
+  $ shpc upgrade quay.io/biocontainers/samtools --all
+      OR
+  $ shpc upgrade quay.io/biocontainers/samtools -a
+
+  $ shpc upgrade quay.io/biocontainers/samtools --all --dry-run
+      OR
+  $ shpc upgrade quay.io/biocontainers/samtools -a -d
+
+"""
