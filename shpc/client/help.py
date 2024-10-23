@@ -27,7 +27,7 @@ config_params = """"Customize a settings.yaml config value on the fly to ADD/SET
   # Remove from the list
   $ shpc -c rm:registry:/tmp/registry"""
 
-install_description = """Install a registry recipe.
+install_description = """Install a registry recipe or upgrade an installed software.
 
   $ Install latest version
   $ shpc install python
@@ -37,6 +37,17 @@ install_description = """Install a registry recipe.
 
   # Install a specific version from that set
   $ shpc install python:3.9.5-alpine
+
+  # Upgrade a software to its latest version and give option to uninstall older versions or not.
+  # Do not include the version in the command
+  $ shpc install python --upgrade
+      OR
+  $ shpc install python -u
+
+  # Perform dry-run on a software to check if the latest is installed or not without upgrading it.
+  $ shpc install python --upgrade --dry-run
+      OR
+  $ shpc install python -u -d
 """
 
 listing_description = """List installed modules.

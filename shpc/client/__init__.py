@@ -126,6 +126,14 @@ def get_parser():
         action="store_true",
     )
 
+    install.add_argument(
+        "--upgrade",
+        "-u",
+        help="Check if the latest version of a software is available and install it if not installed.",
+        dest="upgrade",
+        action="store_true",
+    )
+
     # List installed modules
     listing = subparsers.add_parser(
         "list",
@@ -406,7 +414,7 @@ def get_parser():
         action="store_true",
     )
 
-    for command in update, upgrade, sync:
+    for command in update, upgrade, install, sync:
         command.add_argument(
             "--dry-run",
             "-d",
