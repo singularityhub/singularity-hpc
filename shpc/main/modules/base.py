@@ -414,7 +414,7 @@ class ModuleBase(BaseClient):
         name = self.add_namespace(name)
 
         module = Module(name)
-
+         
         # Pass on container and settings
         module.container = self.container
         module.settings = self.settings
@@ -450,7 +450,7 @@ class ModuleBase(BaseClient):
         "force" is currently not used.
         """
         # Create a new module
-        module = kwargs.get("module") or self.get_module(
+         module = kwargs.get("module") or self.get_module(
             name, container_image=container_image, keep_path=keep_path
         )
 
@@ -458,7 +458,10 @@ class ModuleBase(BaseClient):
         module.load_override_file()
 
         # Create the module and container directory
-        utils.mkdirp([module.module_dir, module.container_dir])
+        if self.settings.version_naming: 
+         utils.mkdirp([os.path.dirname(module.module_dir), module.container_dir])
+        else: 
+         utils.mkdirp([module.module_dir, module.container_dir])
 
         # Add a .version file to indicate the level of versioning
         self.versionfile.write(
@@ -470,12 +473,17 @@ class ModuleBase(BaseClient):
 
         # Get the template based on the module and container type
         template = self.template.load(self.templatefile)
-        module_path = os.path.join(module.module_dir, self.modulefile)
+        if self.settings.version_naming:
+            self._modulefile = name.split(":")[1]             
+            module._module_dir=os.path.dirname(module.module_dir)
+            module_path=os.path.join(os.path.dirname(module.module_dir),self._modulefile)            
+        else:  
+           module_path = os.path.join(module.module_dir, self.modulefile)
 
         # Install the container
         # This could be simplified to take the module
         self.container.install(module_path, template, module, kwargs.get("features"))
-
+                
         # If the container tech does not need storage, clean up
         if not os.listdir(module.container_dir):
             utils.remove_to_base(module.container_dir, self.container_base)
