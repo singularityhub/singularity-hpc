@@ -13,8 +13,16 @@ jobs:
         container_tech: [podman, singularity, docker]
     steps:
     - name: Install Dependencies
+      run: sudo apt-get install lua5.2 liblua5.2-dev lua-filesystem lua-posix tcl tcl-dev tcsh
+
+    # https://github.com/actions/runner-images/issues/10443
+    - name: Update Unshare Permission
+      if: ${{ matrix.container_tech == 'singularity' }}
       run: |
-        sudo apt-get install lua5.2 liblua5.2-dev lua-filesystem lua-posix tcl tcl-dev tcsh
+        cp /etc/sysctl.conf ./sysctl.conf
+        echo "kernel.unprivileged_userns_clone=1" >> ./sysctl.conf
+        sudo mv ./sysctl.conf /etc/sysctl.conf
+        sudo sysctl -p
 
     - name: Install Environment Modules
       if: ${{ matrix.module[0] == 'tcl' }}

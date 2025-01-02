@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 __author__ = "Vanessa Sochat"
-__copyright__ = "Copyright 2021-2024, Vanessa Sochat"
+__copyright__ = "Copyright 2021-2025, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
 import argparse

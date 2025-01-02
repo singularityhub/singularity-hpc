@@ -1,9 +1,13 @@
 __author__ = "Vanessa Sochat"
-__copyright__ = "Copyright 2021-2024, Vanessa Sochat"
+__copyright__ = "Copyright 2021-2025, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
 import re
-from distutils.version import LooseVersion
+
+try:
+    from distutils.version import LooseVersion
+except ModuleNotFoundError:
+    from packaging.version import Version as LooseVersion
 
 
 def not_all_letters(version):
