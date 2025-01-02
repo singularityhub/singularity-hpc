@@ -68,6 +68,9 @@ singularity_shell: /bin/sh
 podman_shell: /bin/sh
 docker_shell: /bin/sh
 
+#Experimental version naming tag so that modulefile is changed to version number . Default value is false. Issue number 26 
+version_naming: false
+
 # shell for test.sh file
 test_shell: /bin/bash
 

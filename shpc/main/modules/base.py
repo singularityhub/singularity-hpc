@@ -458,7 +458,10 @@ class ModuleBase(BaseClient):
         module.load_override_file()
 
         # Create the module and container directory
-        utils.mkdirp([module.module_dir, module.container_dir])
+        if self.settings.version_naming:
+            utils.mkdirp([os.path.dirname(module.module_dir), module.container_dir])
+        else:
+            utils.mkdirp([module.module_dir, module.container_dir])
 
         # Add a .version file to indicate the level of versioning
         self.versionfile.write(
@@ -470,7 +473,14 @@ class ModuleBase(BaseClient):
 
         # Get the template based on the module and container type
         template = self.template.load(self.templatefile)
-        module_path = os.path.join(module.module_dir, self.modulefile)
+        if self.settings.version_naming:
+            self._modulefile = name.split(":")[1]
+            module._module_dir = os.path.dirname(module.module_dir)
+            module_path = os.path.join(
+                os.path.dirname(module.module_dir), self._modulefile
+            )
+        else:
+            module_path = os.path.join(module.module_dir, self.modulefile)
 
         # Install the container
         # This could be simplified to take the module

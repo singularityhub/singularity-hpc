@@ -170,6 +170,7 @@ settingsProperties = {
     "wrapper_shell": {"type": "string", "enum": shells},
     "module_sys": {"type": "string", "enum": ["lmod", "tcl", None]},
     "container_features": container_features,
+    "version_naming":  {"type": "boolean"}, 
 }
 
 settings = {
