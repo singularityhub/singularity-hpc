@@ -50,11 +50,12 @@ jobs:
         cd Lmod-${PKG_VERSION}
         ./configure --prefix=/usr/share && make && make install
 
-    - uses: eWaterCycle/setup-singularity@v7
+    - name: Install Singularity
       if: ${{ matrix.container_tech == 'singularity' }}
-      name: Install Singularity
+      uses: singularityhub/install-singularity@main
       with:
-        singularity-version: 4.2.2
+        singularity-version: '4.2.2'
+        go-version: '1.22.0'
 
     - name: Create conda environment
       run: conda create --quiet -c conda-forge --name shpc spython
