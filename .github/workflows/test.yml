@@ -19,6 +19,8 @@ jobs:
     - name: Update Unshare Permission
       if: ${{ matrix.container_tech == 'singularity' }}
       run: |
+        cat /etc/subuid
+        echo $(whoami)
         cp /etc/sysctl.conf ./sysctl.conf
         echo "kernel.unprivileged_userns_clone=1" >> ./sysctl.conf
         sudo mv ./sysctl.conf /etc/sysctl.conf
@@ -52,7 +54,7 @@ jobs:
       if: ${{ matrix.container_tech == 'singularity' }}
       name: Install Singularity
       with:
-        singularity-version: 3.7.1
+        singularity-version: 4.2.2
 
     - name: Create conda environment
       run: conda create --quiet -c conda-forge --name shpc spython
