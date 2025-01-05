@@ -43,7 +43,7 @@ def test_version_naming_install(tmp_path, module_sys, module_file, container_tec
     client = init_client(str(tmp_path), module_sys, container_tech)
 
     client.settings.set("version_naming", True)
-    assert client.settings.set("version_naming") is True
+    assert client.settings.set("version_naming", True) is True
     # Install known tag
     client.install("python:3.9.2-alpine")
 
@@ -69,7 +69,7 @@ def test_disabled_version_naming_install(
     client = init_client(str(tmp_path), module_sys, container_tech)
 
     client.settings.set("version_naming", False)
-    assert client.settings.set("version_naming") is False
+    assert client.settings.set("version_naming", False) is False
     # Install known tag
     client.install("python:3.9.2-alpine")
 
