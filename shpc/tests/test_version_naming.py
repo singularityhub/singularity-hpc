@@ -43,7 +43,7 @@ def test_version_naming_install(tmp_path, module_sys, module_file, container_tec
     client = init_client(str(tmp_path), module_sys, container_tech)
 
     client.settings.set("version_naming", True)
-    assert client.settings.set("version_naming") == True
+    assert client.settings.get("version_naming") == True
     # Install known tag
     client.install("python:3.9.2-alpine")
 
