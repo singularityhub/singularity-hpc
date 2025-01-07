@@ -58,6 +58,23 @@ def test_version_naming_install(tmp_path, module_sys, module_file, container_tec
 
     assert os.path.exists(module_file)
 
+@pytest.mark.parametrize(
+    "module_sys,module_file,container_tech",
+    [
+        ("lmod", "module.lua", "singularity"),
+        ("lmod", "module.lua", "podman"),
+        ("tcl", "module.tcl", "singularity"),
+        ("tcl", "module.tcl", "podman"),
+        ("lmod", "module.lua", "singularity"),
+        ("lmod", "module.lua", "podman"),
+        ("tcl", "module.tcl", "singularity"),
+        (
+            "tcl",
+            "module.tcl",
+            "podman",
+        ),
+    ],
+)
 
 def test_disabled_version_naming_install(
     tmp_path, module_sys, module_file, container_tech
