@@ -38,6 +38,9 @@ module_name: '{{ parsed_name.tool }}'
 # first_installed: use the first installed
 default_version: module_sys
 
+#Experimental version naming tag so that modulefile is changed to version number . Default value is false. Issue number 26
+version_naming: false
+
 # store containers separately from module files
 # It's recommended to do this for faster loading
 container_base: $root_dir/containers
@@ -68,8 +71,6 @@ singularity_shell: /bin/sh
 podman_shell: /bin/sh
 docker_shell: /bin/sh
 
-#Experimental version naming tag so that modulefile is changed to version number . Default value is false. Issue number 26 
-version_naming: false
 
 # shell for test.sh file
 test_shell: /bin/bash

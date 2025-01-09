@@ -474,10 +474,9 @@ class ModuleBase(BaseClient):
         # Get the template based on the module and container type
         template = self.template.load(self.templatefile)
         if self.settings.version_naming:
-            self._modulefile = name.split(":")[1]
             module._module_dir = os.path.dirname(module.module_dir)
             module_path = os.path.join(
-                os.path.dirname(module.module_dir), self._modulefile
+                os.path.dirname(module.module_dir), name.split(":")[1]
             )
         else:
             module_path = os.path.join(module.module_dir, self.modulefile)
