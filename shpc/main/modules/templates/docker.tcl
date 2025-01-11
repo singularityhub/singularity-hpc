@@ -86,7 +86,7 @@ set inspectCmd "{{ command }} \${PODMAN_OPTS} inspect ${containerPath}"
 {% if wrapper_scripts %}prepend-path PATH ${wrapperDir}/bin{% endif %}
 
 # "aliases" to module commands
-{% if aliases %}if { [ module-info shell bash ] } {
+{% if aliases %}if { [ module-info shell ] eq {bash} } {
   if { [ module-info mode load ] } {
 {% for alias in aliases %}{% if alias.name not in wrapper_scripts %}    puts stdout "function {{ alias.name }}() { ${execCmd} {% if alias.docker_options %} {{ alias.docker_options | replace("$", "\$") }} {% endif %} --entrypoint {{ alias.entrypoint | replace("$", "\$") }} ${containerPath} {{ alias.args | replace("$", "\$") }} \"\$@\"; }; export -f {{ alias.name }};"{% endif %}
 {% endfor %}
@@ -106,14 +106,14 @@ set-alias {|module_name|}-container "echo ${containerPath}"
 set-alias {|module_name|}-shell "${shellCmd}"
 
 # A customizable exec function
-if { [ module-info shell bash ] } {
+if { [ module-info shell ] eq {bash} } {
   set-alias {|module_name|}-exec "${execCmd} --entrypoint \"\" ${containerPath} \"\$@\""
 } else {
   set-alias {|module_name|}-exec "${execCmd} --entrypoint \"\" ${containerPath}"
 }
 
 # Always provide a container run
-if { [ module-info shell bash ] } {
+if { [ module-info shell ] eq {bash} } {
   set-alias {|module_name|}-run "${runCmd} \"\$@\""
 } else {
   set-alias {|module_name|}-run "${runCmd}"
