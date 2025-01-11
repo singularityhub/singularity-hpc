@@ -92,7 +92,7 @@ set inspectCmd "singularity \${SINGULARITY_OPTS} inspect \${SINGULARITY_COMMAND_
 {% if wrapper_scripts %}prepend-path PATH ${wrapperDir}/bin{% endif %}
 
 # "aliases" to module commands
-{% if aliases %}if { [ module-info shell bash ] } {
+{% if aliases %}if { [ module-info shell ] eq {bash} } {
   if { [ module-info mode load ] } {
 {% for alias in aliases %} {% if alias.name not in wrapper_scripts %}    puts stdout "function {{ alias.name }}() { ${execCmd} {% if alias.singularity_options %} {{ alias.singularity_options | replace("$", "\$") }} {% endif %} ${containerPath} {{ alias.command | replace("$", "\$") }} \"\$@\"; }; export -f {{ alias.name }};"{% endif %}
 {% endfor %}
@@ -111,14 +111,14 @@ set-alias {|module_name|}-shell "${shellCmd}"
 set-alias {|module_name|}-container "echo ${containerPath}"
 
 
-if { [ module-info shell bash ] } {
+if { [ module-info shell ] eq {bash} } {
   set-alias {|module_name|}-exec "${execCmd} ${containerPath} \"\$@\""
 } else {
   set-alias {|module_name|}-exec "${execCmd} ${containerPath}"
 }
 
 # Always provide a container run
-if { [ module-info shell bash ] } {
+if { [ module-info shell ] eq {bash} } {
   set-alias {|module_name|}-run "${runCmd} \"\$@\""
 } else {
   set-alias {|module_name|}-run "${runCmd}"
