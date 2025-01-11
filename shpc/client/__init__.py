@@ -126,6 +126,34 @@ def get_parser():
         action="store_true",
     )
 
+    # Reinstall an installed software
+    reinstall = subparsers.add_parser(
+        "reinstall",
+        description=help.reinstall_description,
+        formatter_class=argparse.RawTextHelpFormatter,
+    )
+    reinstall.add_argument(
+        "reinstall_recipe",
+        help="recipe to reinstall",
+        nargs="?",
+    )
+
+    reinstall.add_argument(
+        "--update-containers",
+        "-u",
+        dest="update_containers",
+        help="Also reinstall the containers (by default, containers are preserved)",
+        default=False,
+        action="store_true",
+    )
+
+    reinstall.add_argument(
+        "--all",
+        "-a",
+        help="reinstall all installed software",
+        action="store_true",
+    )
+
     # List installed modules
     listing = subparsers.add_parser(
         "list",
@@ -397,6 +425,7 @@ def get_parser():
         install,
         listing,
         remove,
+        reinstall,
         shell,
         test,
         uninstall,
@@ -535,6 +564,8 @@ def run_shpc():
         from .pull import main
     elif args.command == "remove":
         from .remove import main
+    elif args.command == "reinstall":
+        from .reinstall import main
     elif args.command == "shell":
         from .shell import main
     elif args.command == "show":
