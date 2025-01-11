@@ -56,6 +56,7 @@ tool to generate a contributors graphic below.
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/georgiastuart"><img src="https://avatars.githubusercontent.com/u/8276147?v=4?s=100" width="100px;" alt="Georgia Stuart"/><br /><sub><b>Georgia Stuart</b></sub></a><br /><a href="https://github.com/singularityhub/singularity-hpc/commits?author=georgiastuart" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://orcid.org/0000-0003-3315-2484"><img src="https://avatars.githubusercontent.com/u/2433146?v=4?s=100" width="100px;" alt="Patrick Hüther"/><br /><sub><b>Patrick Hüther</b></sub></a><br /><a href="https://github.com/singularityhub/singularity-hpc/commits?author=phue" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/dipietrantonio"><img src="https://avatars.githubusercontent.com/u/2136256?v=4?s=100" width="100px;" alt="Cristian Di Pietrantonio"/><br /><sub><b>Cristian Di Pietrantonio</b></sub></a><br /><a href="https://github.com/singularityhub/singularity-hpc/commits?author=dipietrantonio" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Amjadhpc"><img src="https://avatars.githubusercontent.com/u/1035011?v=4?s=100" width="100px;" alt="amjad"/><br /><sub><b>amjad</b></sub></a><br /><a href="https://github.com/singularityhub/singularity-hpc/commits?author=Amjadhpc" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
