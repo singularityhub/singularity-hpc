@@ -207,7 +207,7 @@ variable replacement. A summary table of variables is included below, and then f
      - Format string for module commands exec,shell,run (not aliases) can include ``{{ registry }}``, ``{{ repository }}``, ``{{ tool }}`` and ``{{ version }}``
      - ``'{{ tool }}'``
    * - bindpaths
-     - string with comma separated list of paths to binds. If set, expored to SINGULARITY_BINDPATH
+     - string with comma separated list of paths to binds. If set, exported to SINGULARITY_BINDPATH
      - null
    * - singularity_shell
      - exported to SINGULARITY_SHELL
@@ -415,7 +415,7 @@ any changes.
 
 It could be the case that you want to start with a remote registry, but keep it locally
 with your own changes or secrets. This is essentially turning a remote registry into a filesystem
-(local) one. The easiest thing to do here is to clone it to your filesyste, and then add to shpc as a filesystem
+(local) one. The easiest thing to do here is to clone it to your filesystem, and then add to shpc as a filesystem
 registry.
 
 .. code-block:: console
@@ -1234,7 +1234,7 @@ This feature is supported for shpc versions 0.1.15 and up.
 Namespace
 ---------
 
-Let's say that you are exclusively using continers in the namespace ghcr.io/autamus.
+Let's say that you are exclusively using containers in the namespace ghcr.io/autamus.
 
 .. code-block:: console
 

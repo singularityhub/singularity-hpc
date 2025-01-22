@@ -100,7 +100,7 @@ The versions coincide with releases on pip. Only major versions will be released
    - split documentation into user and developer guide
    - added automated spell checking with crate-ci/typos
    - support for container features
-   - shpc get -e to show path to an envrironment file
+   - shpc get -e to show path to an environment file
    - added support for env section to render to bound environment file
    - added support for container features like gpu
    - allowing for a `container:tag` convention to be used for commands.

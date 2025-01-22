@@ -55,7 +55,7 @@ def get_client(quiet=False, **kwargs):
 
         Client.container = DockerContainer()
 
-    # The containe should have access to settings too
+    # The container should have access to settings too
     if hasattr(Client, "container"):
         Client.container.settings = settings
 

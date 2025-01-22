@@ -78,3 +78,4 @@ There are other tools that you might be interested in!
 ## License
 
 This code is licensed under the MPL 2.0 [LICENSE](LICENSE).
+explicit typo to test detection on CI: expored
