@@ -2,7 +2,7 @@ __author__ = "Vanessa Sochat"
 __copyright__ = "Copyright 2021-2025, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
-__version__ = "0.1.31"
+__version__ = "0.1.32"
 AUTHOR = "Vanessa Sochat"
 EMAIL = "vsoch@users.noreply.github.com"
 NAME = "singularity-hpc"
