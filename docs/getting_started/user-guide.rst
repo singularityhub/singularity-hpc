@@ -203,6 +203,11 @@ variable replacement. A summary table of variables is included below, and then f
    * - singularity_module
      - if defined, add to module script to load this Singularity module first
      - null
+   * - podman_module
+     - if defined, add to module script to load this Podman module first
+     - null
+   * - singularity_path
+     - path to (or name of) the `singularity` executable to use in wrapper scripts. Can be used instead of / with `singularity_module`
    * - module_name
      - Format string for module commands exec,shell,run (not aliases) can include ``{{ registry }}``, ``{{ repository }}``, ``{{ tool }}`` and ``{{ version }}``
      - ``'{{ tool }}'``

@@ -57,6 +57,9 @@ default_view:
 singularity_module:
 podman_module:
 
+# Path to (or name of) the singularity executable to use in wrapper scripts. Can be used instead of / with singularity_module
+singularity_path: singularity
+
 # string with comma separated list of paths to binds. If set, expored to SINGULARITY_BINDPATH
 bindpaths:
 
