@@ -14,7 +14,8 @@ and **Merged pull requests**. Critical items to know are:
 The versions coincide with releases on pip. Only major versions will be released as tags on Github.
 
 ## [0.0.x](https://github.com/singularityhub/singularity-hpc/tree/main) (0.0.x)
- - Added an option (`singularity_path`) to control the path to the Singularity executable (0.1.31)
+ - Reverted 0.1.31. Added an option (`singularity_path`) to control the path to the Singularity executable (0.1.32)
+ - \[Abandoned\] Adding in version_naming feature (0.1.31)
  - Fix `module-info shell` Tcl test for Lmod<=8.7.55 (0.1.30)
  - Allow import of LooseVersion from packaging (bug) (0.1.29)
  - use quay.io api to list tags since does not conform to oci (0.1.28)
