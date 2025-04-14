@@ -68,6 +68,17 @@ runTest 0 $output shpc --settings-file $settings install vanessa/salad:latest
 runTest 0 $output shpc --settings-file $settings install --container_tech podman python
 
 echo
+echo "#### Testing upgrade "
+runTest 0 $output shpc --settings-file $settings upgrade --help
+runTest 0 $output shpc --settings-file $settings install quay.io/biocontainers/samtools:1.20--h50ea8bc_0
+runTest 0 $output shpc --settings-file $settings install quay.io/biocontainers/bioconductor-bags:2.40.0--r43ha9d7317_0
+runTest 0 $output shpc --settings-file $settings install quay.io/biocontainers/bwa:0.7.18--he4a0461_1
+runTest 0 $output shpc --settings-file $settings upgrade quay.io/biocontainers/samtools --dry-run
+runTest 0 $output shpc --settings-file $settings upgrade quay.io/biocontainers/samtools --force
+runTest 0 $output shpc --settings-file $settings upgrade --all --dry-run
+runTest 0 $output shpc --settings-file $settings upgrade --all --force
+
+echo
 echo "#### Testing get "
 runTest 0 $output shpc --settings-file $settings get --help
 runTest 1 $output shpc --settings-file $settings get vanessa/fork:latest
