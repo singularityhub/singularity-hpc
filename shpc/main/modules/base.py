@@ -85,7 +85,7 @@ class ModuleBase(BaseClient):
             logger.exit("View %s does not exist, cannot uninstall." % view)
         return self.views[view].uninstall(module.module_dir)
 
-    def uninstall(self, name, force=False):
+    def uninstall(self, name, force=False, keep_container=False):
         """
         Given a unique resource identifier, uninstall a module.
         Set "force" to True to bypass the confirmation prompt.
@@ -100,7 +100,7 @@ class ModuleBase(BaseClient):
 
         # Ask before deleting anything!
         if not force:
-            msg = name + "?"
+            msg = "Do you wish to uninstall " + name + "?"
             if views_with_module:
                 msg += (
                     "\nThis will uninstall the module from views:\n  %s\nAre you sure?"
@@ -110,14 +110,17 @@ class ModuleBase(BaseClient):
                 return
 
         # Podman needs image deletion
-        self.container.delete(module.name)
+        if not keep_container:  # For reinstall
+            self.container.delete(module.name)
 
         if module.container_dir != module.module_dir:
-            self._uninstall(
-                module.container_dir,
-                self.container_base,
-                "$container_base/%s" % module.name,
-            )
+            if not keep_container:
+                self._uninstall(
+                    module.container_dir,
+                    self.container_base,
+                    "$container_base/%s" % module.name,
+                )
+
             self._uninstall(
                 module.module_dir,
                 self.settings.module_base,
