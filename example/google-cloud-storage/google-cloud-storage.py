@@ -82,8 +82,6 @@ class Task:
         """
         Run the repo task, uploading the data and taking a pause if needed.
         """
-        global cli
-
         # First check that it doesn't already exist
         bucket_name = self.bucket.replace("gs://", "")
         bucket_name, bucket_subdir = bucket_name.split("/", 1)
@@ -189,8 +187,6 @@ def main():
 
     if not os.path.exists(args.containers):
         sys.exit(f"Path {args.containers} does not exist.")
-
-    global cli
 
     # Create the root to install to
     print(f"Containers and modules will install to {args.root}")

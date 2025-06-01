@@ -17,7 +17,7 @@ jobs:
       run: conda create --quiet --name black pyflakes
 
     - name: Check Spelling
-      uses: crate-ci/typos@7ad296c72fa8265059cc03d1eda562fbdfcd6df2 # v1.9.0
+      uses: crate-ci/typos@18bebe05c9c1076df911429745a0a1a2642e6b03 # v1.32.0
       with:
         files: ./docs/getting_started/ ./docs/index.rst
 
