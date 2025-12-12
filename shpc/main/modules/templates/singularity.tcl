@@ -98,7 +98,7 @@ set inspectCmd "singularity \${SINGULARITY_OPTS} inspect \${SINGULARITY_COMMAND_
 {% endfor %}
   }
   if { [ module-info mode remove ] } {
-{% for alias in aliases %} {% if alias.name not in wrapper_scripts %}    puts stdout "unset -f {{ alias.name }};"{% endif %}
+{% for alias in aliases %} {% if alias.name not in wrapper_scripts %}    puts stdout "unsetenv {{ alias.name }};"{% endif %}
 {% endfor %}
   }
 } else {
