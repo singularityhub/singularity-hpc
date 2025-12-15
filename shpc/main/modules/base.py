@@ -100,14 +100,14 @@ class ModuleBase(BaseClient):
 
         # Ask before deleting anything!
         if not force:
-            msg = name + "?"
+            msg = "Do you wish to uninstall " + name + "?"
             if views_with_module:
                 msg += (
                     "\nThis will uninstall the module from views:\n  %s\nAre you sure?"
                     % "\n  ".join(views_with_module)
                 )
             if not utils.confirm_action(msg, force):
-                return
+                return False  # If the user does not want to uninstall
 
         # Podman needs image deletion
         self.container.delete(module.name)
@@ -148,6 +148,8 @@ class ModuleBase(BaseClient):
         # update the default version file, if other versions still present
         if os.path.exists(module_dir):
             self.versionfile.write(module_dir)
+
+        return True  # Denoting successful uninstallation
 
     def _uninstall(self, path, base_path, name):
         """

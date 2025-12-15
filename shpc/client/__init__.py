@@ -324,6 +324,35 @@ def get_parser():
         action="store_true",
     )
 
+    # Upgrade a software to its latest version
+    upgrade = subparsers.add_parser(
+        "upgrade",
+        description=help.upgrade_description,
+        formatter_class=argparse.RawTextHelpFormatter,
+    )
+    upgrade.add_argument(
+        "upgrade_recipe",
+        help="software to upgrade",
+        nargs="?",
+    )
+
+    upgrade.add_argument(
+        "--all",
+        "-a",
+        help="upgrade all installed software.",
+        dest="upgrade_all",
+        action="store_true",
+    )
+
+    upgrade.add_argument(
+        "--force",
+        "-f",
+        dest="force",
+        help="force upgrade without prompting for confirmation to uninstall current version(s) or install latest version to view(s).",
+        default=False,
+        action="store_true",
+    )
+
     # Update gets latest tags from OCI registries
     update = subparsers.add_parser(
         "update",
@@ -377,7 +406,7 @@ def get_parser():
         action="store_true",
     )
 
-    for command in update, sync:
+    for command in update, upgrade, sync:
         command.add_argument(
             "--dry-run",
             "-d",
@@ -400,6 +429,7 @@ def get_parser():
         shell,
         test,
         uninstall,
+        upgrade,
         view,
     ]:
         command.add_argument(
@@ -547,6 +577,8 @@ def run_shpc():
         from .uninstall import main
     elif args.command == "update":
         from .update import main
+    elif args.command == "upgrade":
+        from .upgrade import main
     elif args.command == "sync-registry":
         from .sync import sync_registry as main
 
