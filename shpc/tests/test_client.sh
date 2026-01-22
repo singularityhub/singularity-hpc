@@ -50,6 +50,19 @@ runTest 0 $output shpc --settings-file $settings show
 runTest 0 $output shpc --settings-file $settings show python
 
 echo
+echo "#### Testing reinstall "
+runTest 0 $output shpc --settings-file $settings reinstall --help
+runTest 0 $output shpc --settings-file $settings install quay.io/biocontainers/samtools:1.20--h50ea8bc_0
+runTest 0 $output shpc --settings-file $settings install quay.io/biocontainers/samtools:1.20--h50ea8bc_1
+runTest 0 $output shpc --settings-file $settings install quay.io/biocontainers/bwa:0.7.18--he4a0461_0
+runTest 0 $output shpc --settings-file $settings reinstall quay.io/biocontainers/samtools:1.20--h50ea8bc_0
+runTest 0 $output shpc --settings-file $settings reinstall quay.io/biocontainers/samtools:1.20--h50ea8bc_0 --update-containers
+runTest 0 $output shpc --settings-file $settings reinstall quay.io/biocontainers/samtools
+runTest 0 $output shpc --settings-file $settings reinstall quay.io/biocontainers/samtools --update-containers
+runTest 0 $output shpc --settings-file $settings reinstall --all
+runTest 0 $output shpc --settings-file $settings reinstall --all --update-containers
+
+echo
 echo "#### Testing add local "
 runTest 0 $output shpc --settings-file $settings add --help
 runTest 0 $output shpc --settings-file $settings add "$container" salad/latest
