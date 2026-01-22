@@ -290,7 +290,7 @@ supports gpu":
       gpu: true
 
 Given that you are installing a module for a Singularity container, the ``--nv``
-option will be added. Currently, the following features are supported:
+option will be added IF the container_features is also set - the default is ``null``. Currently, the following features are supported:
 
 
 .. list-table:: Title
