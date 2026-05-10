@@ -340,6 +340,18 @@ def get_parser():
         help="ignore container.yaml filters, run an update with this specific set",
         dest="filters",
     )
+    update.add_argument(
+        "--purge",
+        help="purge existing tags and only add new ones found in the registry",
+        default=False,
+        action="store_true",
+    )
+    update.add_argument(
+        "--max-tags",
+        help="set a maximum number of tags to add after filtering. Defaults to 5.",
+        type=int,
+        default=5,
+    )
 
     # sync-registry gets latest files and non-existing containers from upstream shpc
     sync = subparsers.add_parser(

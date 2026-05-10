@@ -2,16 +2,18 @@ __author__ = "Vanessa Sochat"
 __copyright__ = "Copyright 2021-2025, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
+import os
+
 from shpc.logger import logger
 
 from .diff import print_diff
-from .docker import DockerImage
+from .docker import DockerHubImage, DockerImage, NGCImage, QuayDockerImage
 from .versions import filter_versions
 
 assert print_diff
 
 
-def update_config_tags(config, filters=None):
+def update_config_tags(config, filters=None, purge=None, max_length=None):
     """
     Given a container config, update the latest tags
     """
@@ -20,13 +22,20 @@ def update_config_tags(config, filters=None):
         uri = config.docker or config.oras
 
         logger.info("Looking for updated digests for %s" % uri)
-        latest_tags = get_latest_tags(uri)
+
+        image = _get_image_type(uri, config)
+        latest_tags = get_latest_tags(uri, config, image=image)
 
         # Notice this API call truncates at 50
-        versions = filter_versions(latest_tags, filters=filters or config.filter)
+        versions = filter_versions(
+            latest_tags, filters=filters or config.filter, max_length=max_length
+        )
 
         # Get list of current tags, and update with new versions
-        current_tags = dict(config.get("tags", {}))
+        if purge:
+            current_tags = dict({})
+        else:
+            current_tags = dict(config.get("tags", {}))
 
         # Now do the same practice as before - try to derive what is latest
         sorted_tags = filter_versions(
@@ -59,7 +68,7 @@ def update_config_tags(config, filters=None):
         tags = list(current_tags.keys())
         for tag in tags:
             try:
-                digest = get_container_tag(uri, tag)
+                digest = get_container_tag(uri, config, tag, image=image)
             except Exception:
                 digest = {tag: current_tags[tag]}
 
@@ -108,12 +117,27 @@ def get_earliest_tag(sorted_tags):
     return earliest_tag
 
 
-def get_container_tag(container_name, tag=None):
+def _get_image_type(container_name, config):
+    container_prefix = container_name.split("/")[0]
+
+    if container_prefix == "docker.io" or "." not in container_prefix:
+        return DockerHubImage(container_name)
+    elif container_prefix == "quay.io":
+        return QuayDockerImage(container_name)
+    elif (container_prefix == "nvcr.io") and ("SHPC_NGC_API_KEY" in os.environ):
+        return NGCImage(container_name)
+    else:
+        return DockerImage(container_name)
+
+
+def get_container_tag(container_name, config, tag=None, image=None):
     """
     Given a container name, get the latest list of tags and digests.
     This can be extended when we have a container updater.
     """
-    image = DockerImage(container_name)
+
+    if image is None:
+        image = _get_image_type(container_name, config)
 
     # Get a specific tag
     tag = tag or "latest"
@@ -121,9 +145,11 @@ def get_container_tag(container_name, tag=None):
     return {tag: digest}
 
 
-def get_latest_tags(container_name, tag=None):
+def get_latest_tags(container_name, config, tag=None, image=None):
     """
     Given a container name, get the latest tags.
     """
-    image = DockerImage(container_name)
+
+    if image is None:
+        image = _get_image_type(container_name, config)
     return image.tags()

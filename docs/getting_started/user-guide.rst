@@ -1351,7 +1351,7 @@ As of version 0.0.52, you can request on demand updates of container.yaml recipe
 where an update means we ping the registry or resource for the module and find
 updated tags. An update generally means that:
 
- - We start with the 50 latest tags of the container, as determined by `crane.ggcr.dev <https://crane.ggcr.dev/ls/quay.io/biocontainers/samtools>`_
+ - We start with the latest tags of the container, as determined by `crane.ggcr.dev <https://crane.ggcr.dev/ls/quay.io/biocontainers/samtools>`_ or the REST API associated with a container registry (e.g., `https://hub.docker.com/v2/`)
  - We filter according to any recipe ``filters`` in the container.yaml
  - Given a convention of including a hash, we try to remove it and generate a loose version
  - Any versions (including latest) that cannot be sorted based on some semblance to a version are filtered out
@@ -1420,10 +1420,43 @@ If you are using an earlier release than 0.0.58 you can accomplish the same as f
         shpc update ${name} --dry-run
       done
 
+As of version 0.1.34, there's support to clear all existing tags in the
+`container.yaml` file and replace with the new tags. This is useful if you need
+to recover your `container.yaml` from a bad state, or if you want to change the
+filtering scheme and regenerate the whole tag collection. **Check the output with
+`--dry-run` first, this option is destructive!**
+
+.. code-block:: console
+
+    $ shpc update --purge --dry-run
+
+As of version 0.1.34, you can specify the maximum number of new tags to add
+from the command line. Without the flag, the default is up to 5 new tags. This is
+particularly helpful for generating new `container.yaml` files from stubs, or
+when used in combination with `--purge`.
+
+.. code-block:: console
+
+    $ shpc update --max-tags=10
 
 Let us know if there are other features you'd like for update! For specific recipes
 it could be that a different method of choosing or sorting tags (beyond the defaults mentioned above
 and filter) is needed.
+
+
+Updating from Nvidia GPU Cloud (NGC)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+As of version 0.1.34, there is support to update from the NGC API, which provides the
+most accurate information for `nvcr.io` containers. To use NGC, install SHPC with
+the `ngc` or `all` option, and export the environment variable `SHPC_NGC_API_KEY`
+prior to running `shpc update`. See the `NGC portal https://org.ngc.nvidia.com/account/api-key`_
+for how to get an NGC API key.
+
+.. code-block:: console
+
+    $ export SHPC_NGC_API_KEY="your_ngc_api_key_here"
+    $ shpc update nvcr.io/nvidia/pytorch
 
 .. _getting_started-commands-sync-registry:
 

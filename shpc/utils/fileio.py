@@ -205,6 +205,7 @@ def write_yaml(obj, filename):
     """
     yaml = YAML()
     yaml.preserve_quotes = True
+    yaml.width = 120  # Accomodate digest lines
 
     with open(filename, "w") as fd:
         yaml.dump(obj, fd)

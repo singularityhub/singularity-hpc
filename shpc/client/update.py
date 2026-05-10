@@ -11,4 +11,10 @@ def main(args, parser, extra, subparser):
     shpc.utils.ensure_no_extra(extra)
 
     cli = get_client(quiet=args.quiet, settings_file=args.settings_file)
-    cli.update(args.module_name, dryrun=args.dryrun, filters=args.filters)
+    cli.update(
+        args.module_name,
+        dryrun=args.dryrun,
+        filters=args.filters,
+        purge=args.purge,
+        max_tags=args.max_tags,
+    )

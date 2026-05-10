@@ -35,18 +35,20 @@ def filter_versions(tags, filters=None, max_length=5):
     filters (list)   : an optional list of string filters
     max_length (int) : the max number to return (latest)
     """
+
+    filtered_tags = [x for x in tags]
     filters = filters or []
+
     if tags and filters:
         for pattern in filters:
-            tags = [x for x in tags if re.search(pattern, x)]
+            filtered_tags = [x for x in filtered_tags if re.search(pattern, x)]
 
     # Convert to TaggedLooseVersion
-    versions = [TaggedLooseVersion(x) for x in tags]
+    versions = [TaggedLooseVersion(x) for x in filtered_tags]
 
     # The sorting will tag a subset with "remove" that aren't sortable
     # This has latest at the top
     versions.sort(reverse=True)
-
     # Now only take the top major / minor of each
     filtered = []
     seen = set()
