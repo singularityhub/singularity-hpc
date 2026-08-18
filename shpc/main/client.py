@@ -241,8 +241,8 @@ class Client:
             for i, entry in enumerate(
                 self.registry.iter_registry(filter_string=filter_string)
             ):
-                # Break after the limit
-                if limit and i > limit:
+                # Break after the limit or if limit is 0
+                if (limit and i >= limit) or (limit == 0):
                     break
 
                 config = container.ContainerConfig(entry)
